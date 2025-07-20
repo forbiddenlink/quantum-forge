@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="custom-scrollbar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Quantum Forge</title>
+    <meta name="description" content="Your professional profile and achievements">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body class="custom-scrollbar" data-page="profile">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="dashboard">
+        <!-- Header will be injected here -->
+        <app-header></app-header>
+
+        <div class="main-container">
+            <!-- Standardized Sidebar -->
+            <nav class="sidebar" id="sidebar">
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Workspace</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/index.html" class="nav-link" data-page="dashboard">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                </svg>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/calendar.html" class="nav-link" data-page="calendar">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                Calendar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/team.html" class="nav-link" data-page="team">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
+                                </svg>
+                                Team
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/projects.html" class="nav-link" data-page="projects">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                                Projects
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Resources</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/pages/documents.html" class="nav-link" data-page="documents">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                                Documents
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/resources.html" class="nav-link" data-page="resources">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                                Resources
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/training.html" class="nav-link" data-page="training">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                </svg>
+                                Learning
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Support</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/pages/helpdesk.html" class="nav-link" data-page="helpdesk">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                                Help Desk
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/handbook.html" class="nav-link" data-page="handbook">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                                Handbook
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main id="main-content" class="main-content">
+                <!-- Profile Overview -->
+                <div class="profile-overview">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <img src="https://ui-avatars.com/api/?name=Liz+Stein&size=120" alt="Liz Stein" class="avatar-large">
+                            <div class="avatar-status"></div>
+                        </div>
+                        <div class="profile-info">
+                            <h1 class="profile-name">Liz Stein</h1>
+                            <p class="profile-title">Senior Software Engineer</p>
+                            <p class="profile-bio">Passionate developer with 8+ years of experience in full-stack development, specializing in React, Node.js, and cloud technologies. Always eager to learn new technologies and contribute to innovative projects.</p>
+                            <div class="profile-actions">
+                                <button class="btn primary">Edit Profile</button>
+                                <button class="btn secondary">Share Profile</button>
+                                <button class="btn secondary">Download CV</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">42</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">156</div>
+                            <div class="stat-label">Tasks Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">8.5</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">95%</div>
+                            <div class="stat-label">Satisfaction Rate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Sections -->
+                <div class="profile-sections">
+                    <!-- Personal Information -->
+                    <div class="profile-section">
+                        <h2>Personal Information</h2>
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-label">Full Name</span>
+                                <span class="info-value">Liz Stein</span>
+                                <span class="info-edit">Edit</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Email</span>
+                                <span class="info-value">liz.smith@quantumforge.com</span>
+                                <span class="info-edit">Edit</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value">+1 (555) 123-4567</span>
+                                <span class="info-edit">Edit</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Location</span>
+                                <span class="info-value">San Francisco, CA</span>
+                                <span class="info-edit">Edit</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Department</span>
+                                <span class="info-value">Engineering</span>
+                                <span class="info-edit">Edit</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Start Date</span>
+                                <span class="info-value">March 15, 2020</span>
+                                <span class="info-edit">Edit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills & Expertise -->
+                    <div class="profile-section">
+                        <h2>Skills & Expertise</h2>
+                        <div class="skills-grid">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">GraphQL</span>
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">CI/CD</span>
+                            <span class="skill-tag">Agile</span>
+                            <span class="skill-tag">Leadership</span>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="profile-section">
+                        <h2>Recent Activity</h2>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                    </svg>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Completed Project Review</h4>
+                                    <p>Reviewed and approved the new mobile app design</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Updated Documentation</h4>
+                                    <p>Updated API documentation for the new features</p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <circle cx="9" cy="9" r="2"></circle>
+                                        <path d="M21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                                    </svg>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Started New Project</h4>
+                                    <p>Began work on the e-commerce platform redesign</p>
+                                    <span class="activity-time">3 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Goals & Achievements -->
+                    <div class="profile-section">
+                        <h2>Goals & Achievements</h2>
+                        <div class="goals-list">
+                            <div class="goal-item">
+                                <div class="goal-header">
+                                    <h4>Complete Advanced React Course</h4>
+                                    <span class="goal-progress">75%</span>
+                                </div>
+                                <div class="goal-bar">
+                                    <div class="goal-fill" style="width: 75%"></div>
+                                </div>
+                                <p class="goal-description">Master advanced React patterns and performance optimization</p>
+                            </div>
+                            <div class="goal-item">
+                                <div class="goal-header">
+                                    <h4>Lead 3 Team Projects</h4>
+                                    <span class="goal-progress">100%</span>
+                                </div>
+                                <div class="goal-bar">
+                                    <div class="goal-fill" style="width: 100%"></div>
+                                </div>
+                                <p class="goal-description">Successfully led development teams on major initiatives</p>
+                            </div>
+                            <div class="goal-item">
+                                <div class="goal-header">
+                                    <h4>Obtain AWS Certification</h4>
+                                    <span class="goal-progress">25%</span>
+                                </div>
+                                <div class="goal-bar">
+                                    <div class="goal-fill" style="width: 25%"></div>
+                                </div>
+                                <p class="goal-description">Complete AWS Solutions Architect certification</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/components/header.js"></script>
+    <script src="/js/app.js"></script>
+    <script>
+        // Set active nav item based on current page
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = document.body.dataset.page;
+            if (currentPage) {
+                const activeLink = document.querySelector(`.nav-link[data-page="${currentPage}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,16 @@
+{
+  "name": "quantum-forge-intranet",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --port=3000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Quantum Forge company intranet - A modern internal platform for team collaboration",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

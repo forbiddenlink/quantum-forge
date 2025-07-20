@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="custom-scrollbar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Quantum Forge</title>
+    <meta name="description" content="Company resources and tools at Quantum Forge">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="custom-scrollbar">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="dashboard">
+        <!-- Header will be injected here -->
+        <app-header></app-header>
+
+        <div class="main-container">
+            <!-- Standardized Sidebar -->
+            <nav class="sidebar" id="sidebar">
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Workspace</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/index.html" class="nav-link" data-page="dashboard">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                </svg>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/calendar.html" class="nav-link" data-page="calendar">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                Calendar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/team.html" class="nav-link" data-page="team">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
+                                </svg>
+                                Team
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/projects.html" class="nav-link" data-page="projects">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                                Projects
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Resources</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/pages/documents.html" class="nav-link" data-page="documents">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                                Documents
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/resources.html" class="nav-link active" data-page="resources">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                                Resources
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/training.html" class="nav-link" data-page="training">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                </svg>
+                                Learning
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Support</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/pages/helpdesk.html" class="nav-link" data-page="helpdesk">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                                Help Desk
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/handbook.html" class="nav-link" data-page="handbook">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                                Handbook
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main id="main-content" class="main-content">
+                
+
+                <!-- Resources Overview -->
+                <div class="resources-overview">
+                    <div class="overview-header">
+                        <h1>Resources</h1>
+                        <div class="overview-actions">
+                            <button class="btn secondary">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                Export List
+                            </button>
+                            <button class="btn primary">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                                Add Resource
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Resource Categories -->
+                    <div class="resource-categories">
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                            </svg>
+                        </div>
+                            <h2>Templates</h2>
+                            <p>Standardized documents and forms</p>
+                            <span class="resource-count">12 items</span>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                            </svg>
+                        </div>
+                            <h2>Brand Assets</h2>
+                            <p>Logos, colors, and design resources</p>
+                            <span class="resource-count">8 items</span>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                    </div>
+                            <h2>Guidelines</h2>
+                            <p>Best practices and standards</p>
+                            <span class="resource-count">15 items</span>
+                        </div>
+                        <div class="category-card">
+                            <div class="category-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                                </svg>
+                            </div>
+                            <h2>Tools</h2>
+                            <p>Software and utilities</p>
+                            <span class="resource-count">10 items</span>
+                        </div>
+                    </div>
+
+                    <!-- Recent Resources -->
+                    <div class="recent-resources">
+                        <div class="section-header">
+                            <h2>Recent Resources</h2>
+                            <button class="btn secondary small">View All</button>
+                        </div>
+                        <div class="resources-grid">
+                    <div class="resource-card">
+                                <div class="resource-type template">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                        </div>
+                                <div class="resource-info">
+                                    <h3>Project Proposal Template</h3>
+                                    <p>Standard template for new project proposals</p>
+                        <div class="resource-meta">
+                                        <span class="resource-date">Updated 2 days ago</span>
+                                        <span class="resource-size">245 KB</span>
+                        </div>
+                    </div>
+                                <button class="resource-action">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </button>
+            </div>
+                    <div class="resource-card">
+                                <div class="resource-type brand">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                    </svg>
+                        </div>
+                                <div class="resource-info">
+                                    <h3>Brand Style Guide</h3>
+                                    <p>Complete guide to brand colors, typography, and usage</p>
+                        <div class="resource-meta">
+                                        <span class="resource-date">Updated 1 week ago</span>
+                                        <span class="resource-size">1.2 MB</span>
+                        </div>
+                                </div>
+                                <button class="resource-action">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </button>
+                    </div>
+                    <div class="resource-card">
+                                <div class="resource-type guide">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                    </svg>
+                        </div>
+                                <div class="resource-info">
+                                    <h3>Development Guidelines</h3>
+                                    <p>Coding standards and best practices</p>
+                        <div class="resource-meta">
+                                        <span class="resource-date">Updated yesterday</span>
+                                        <span class="resource-size">850 KB</span>
+                        </div>
+                    </div>
+                                <button class="resource-action">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </button>
+                    </div>
+                </div>
+            </div>
+
+                    <!-- Popular Resources -->
+                    <div class="popular-resources">
+                        <div class="section-header">
+                            <h2>Popular Resources</h2>
+                            <button class="btn secondary small">View All</button>
+                        </div>
+                        <div class="resources-grid">
+                    <div class="resource-card">
+                                <div class="resource-type tool">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                                    </svg>
+                        </div>
+                                <div class="resource-info">
+                                    <h3>Design System Kit</h3>
+                                    <p>Complete UI component library</p>
+                        <div class="resource-meta">
+                                        <span class="resource-date">Updated 3 days ago</span>
+                                        <span class="resource-size">4.5 MB</span>
+                        </div>
+                    </div>
+                                <button class="resource-action">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                </button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/components/unified-search.js"></script>
+    <script src="/js/components/header.js"></script>
+    <script src="/js/app.js"></script>
+    <script>
+        // Set active nav item based on current page
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = document.body.dataset.page;
+            if (currentPage) {
+                const activeLink = document.querySelector(`.nav-link[data-page="${currentPage}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

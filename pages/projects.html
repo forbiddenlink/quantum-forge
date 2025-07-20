@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="custom-scrollbar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Quantum Forge</title>
+    <meta name="description" content="Project management and tracking at Quantum Forge">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="custom-scrollbar">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="dashboard">
+        <!-- Header will be injected here -->
+        <app-header></app-header>
+
+        <div class="main-container">
+            <!-- Standardized Sidebar -->
+            <nav class="sidebar" id="sidebar">
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Workspace</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/index.html" class="nav-link" data-page="dashboard">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                </svg>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/calendar.html" class="nav-link" data-page="calendar">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                Calendar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/team.html" class="nav-link" data-page="team">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
+                                </svg>
+                                Team
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/projects.html" class="nav-link active" data-page="projects">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                                Projects
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Resources</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/pages/documents.html" class="nav-link" data-page="documents">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                                Documents
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/resources.html" class="nav-link" data-page="resources">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                                Resources
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/training.html" class="nav-link" data-page="training">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                </svg>
+                                Learning
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Support</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/pages/helpdesk.html" class="nav-link" data-page="helpdesk">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                                Help Desk
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/handbook.html" class="nav-link" data-page="handbook">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                                Handbook
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main id="main-content" class="main-content">
+                
+
+                <!-- Projects Overview -->
+                <div class="projects-overview">
+                    <div class="overview-header">
+                        <h1>Projects</h1>
+                        <div class="overview-actions">
+                            <button class="btn secondary">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                                Export Report
+                            </button>
+                            <button class="btn primary">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                New Project
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project Stats -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 20V10"></path>
+                                    <path d="M18 20V4"></path>
+                                    <path d="M6 20v-4"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Active Projects</h3>
+                                <div class="stat-value">12</div>
+                                <div class="stat-change positive">+2 this month</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <h3>On Schedule</h3>
+                                <div class="stat-value">85%</div>
+                                <div class="stat-change positive">+5% from last month</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Team Members</h3>
+                                <div class="stat-value">48</div>
+                                <div class="stat-change">Across all projects</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Completed</h3>
+                                <div class="stat-value">24</div>
+                                <div class="stat-change positive">This quarter</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Board -->
+                <div class="project-board">
+                    <div class="board-header">
+                        <h2>Project Board</h2>
+                        <div class="board-actions">
+                            <button class="btn secondary small">Filter</button>
+                            <button class="btn secondary small">Sort</button>
+                            <button class="btn secondary small">View</button>
+                        </div>
+                    </div>
+                    <div class="kanban-board">
+                        <div class="kanban-column">
+                            <div class="column-header">
+                                <h3>To Do</h3>
+                                <span class="task-count">4</span>
+                            </div>
+                            <div class="task-list">
+                                <div class="task-card">
+                                    <div class="task-priority high"></div>
+                                    <h4 class="task-title">Website Redesign</h4>
+                                    <p class="task-description">Update the company website with new branding and improved UX</p>
+                                    <div class="task-meta">
+                                        <div class="task-team">
+                                            <img src="https://ui-avatars.com/api/?name=Alex+Kumar&size=32" alt="Alex Kumar" class="avatar-sm">
+                                            <img src="https://ui-avatars.com/api/?name=Sarah+Lee&size=32" alt="Sarah Lee" class="avatar-sm">
+                                        </div>
+                                        <span class="task-due">Due in 2 weeks</span>
+                                    </div>
+                                </div>
+                                <div class="task-card">
+                                    <div class="task-priority medium"></div>
+                                    <h4 class="task-title">Mobile App Updates</h4>
+                                    <p class="task-description">Implement new features and bug fixes for the mobile app</p>
+                                    <div class="task-meta">
+                                        <div class="task-team">
+                                            <img src="https://ui-avatars.com/api/?name=Michael+Chen&size=32" alt="Michael Chen" class="avatar-sm">
+                                        </div>
+                                        <span class="task-due">Due in 3 weeks</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kanban-column">
+                            <div class="column-header">
+                                <h3>In Progress</h3>
+                                <span class="task-count">3</span>
+                            </div>
+                            <div class="task-list">
+                                <div class="task-card">
+                                    <div class="task-priority high"></div>
+                                    <h4 class="task-title">API Integration</h4>
+                                    <p class="task-description">Integrate third-party APIs for enhanced functionality</p>
+                                    <div class="task-meta">
+                                        <div class="task-team">
+                                            <img src="https://ui-avatars.com/api/?name=David+Park&size=32" alt="David Park" class="avatar-sm">
+                                            <img src="https://ui-avatars.com/api/?name=Emma+Wilson&size=32" alt="Emma Wilson" class="avatar-sm">
+                                        </div>
+                                        <span class="task-due">Due next week</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kanban-column">
+                            <div class="column-header">
+                                <h3>Review</h3>
+                                <span class="task-count">2</span>
+                            </div>
+                            <div class="task-list">
+                                <div class="task-card">
+                                    <div class="task-priority medium"></div>
+                                    <h4 class="task-title">Documentation</h4>
+                                    <p class="task-description">Update technical documentation for new features</p>
+                                    <div class="task-meta">
+                                        <div class="task-team">
+                                            <img src="https://ui-avatars.com/api/?name=John+Smith&size=32" alt="John Smith" class="avatar-sm">
+                                        </div>
+                                        <span class="task-due">Due tomorrow</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="kanban-column">
+                            <div class="column-header">
+                                <h3>Done</h3>
+                                <span class="task-count">5</span>
+                            </div>
+                            <div class="task-list">
+                                <div class="task-card completed">
+                                    <div class="task-priority low"></div>
+                                    <h4 class="task-title">Security Audit</h4>
+                                    <p class="task-description">Complete security assessment and implement recommendations</p>
+                                    <div class="task-meta">
+                                        <div class="task-team">
+                                            <img src="https://ui-avatars.com/api/?name=Michael+Chen&size=32" alt="Michael Chen" class="avatar-sm">
+                                            <img src="https://ui-avatars.com/api/?name=Sarah+Lee&size=32" alt="Sarah Lee" class="avatar-sm">
+                                        </div>
+                                        <span class="task-due">Completed</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="project-timeline">
+                    <div class="timeline-header">
+                        <h2>Project Timeline</h2>
+                        <div class="timeline-actions">
+                            <button class="btn secondary small">Week</button>
+                            <button class="btn primary small">Month</button>
+                            <button class="btn secondary small">Quarter</button>
+                        </div>
+                    </div>
+                    <div class="timeline-grid">
+                        <div class="timeline-row">
+                            <div class="timeline-project">Website Redesign</div>
+                            <div class="timeline-bar" style="--progress: 35%; --start: 10%; --duration: 40%;">
+                                <div class="timeline-progress"></div>
+                            </div>
+                        </div>
+                        <div class="timeline-row">
+                            <div class="timeline-project">Mobile App Updates</div>
+                            <div class="timeline-bar" style="--progress: 60%; --start: 20%; --duration: 30%;">
+                                <div class="timeline-progress"></div>
+                            </div>
+                        </div>
+                        <div class="timeline-row">
+                            <div class="timeline-project">API Integration</div>
+                            <div class="timeline-bar" style="--progress: 80%; --start: 0%; --duration: 60%;">
+                                <div class="timeline-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/components/unified-search.js"></script>
+    <script src="/js/components/header.js"></script>
+    <script src="/js/app.js"></script>
+    <script>
+        // Set active nav item based on current page
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = document.body.dataset.page;
+            if (currentPage) {
+                const activeLink = document.querySelector(`.nav-link[data-page="${currentPage}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

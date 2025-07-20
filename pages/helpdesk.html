@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="custom-scrollbar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Desk - Quantum Forge</title>
+    <meta name="description" content="Technical support and help desk at Quantum Forge">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="custom-scrollbar">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="dashboard">
+        <!-- Header will be injected here -->
+        <app-header></app-header>
+
+        <div class="main-container">
+            <!-- Standardized Sidebar -->
+            <nav class="sidebar" id="sidebar">
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Workspace</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/index.html" class="nav-link" data-page="dashboard">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                </svg>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/calendar.html" class="nav-link" data-page="calendar">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                Calendar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/team.html" class="nav-link" data-page="team">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
+                                </svg>
+                                Team
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/projects.html" class="nav-link" data-page="projects">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg>
+                                Projects
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Resources</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/pages/documents.html" class="nav-link" data-page="documents">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                                Documents
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/resources.html" class="nav-link" data-page="resources">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                                Resources
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/training.html" class="nav-link" data-page="training">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                </svg>
+                                Learning
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Support</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="/pages/helpdesk.html" class="nav-link active" data-page="helpdesk">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                                Help Desk
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/pages/handbook.html" class="nav-link" data-page="handbook">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                </svg>
+                                Handbook
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main id="main-content" class="main-content">
+                
+
+                <!-- Help Desk Overview -->
+                <div class="helpdesk-overview">
+                    <div class="overview-header">
+                        <h1>Help Desk</h1>
+                        <div class="overview-actions">
+                            <button class="btn secondary">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                                View Guide
+                            </button>
+                            <button class="btn primary">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            New Ticket
+                        </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions-grid">
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                            </div>
+                            <h3>Live Chat</h3>
+                            <p>Chat with our support team</p>
+                            <button class="btn secondary small">Start Chat</button>
+                        </div>
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                            </div>
+                            <h3>Knowledge Base</h3>
+                            <p>Browse help articles</p>
+                            <button class="btn secondary small">View Articles</button>
+                        </div>
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                            </div>
+                            <h3>FAQ</h3>
+                            <p>Common questions</p>
+                            <button class="btn secondary small">View FAQs</button>
+                        </div>
+                        <div class="action-card">
+                            <div class="action-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <h3>Self Service</h3>
+                            <p>Quick fixes and guides</p>
+                            <button class="btn secondary small">View Tools</button>
+                        </div>
+                    </div>
+
+                    <!-- Ticket System -->
+                    <div class="ticket-system">
+                        <div class="section-header">
+                            <h2>Your Tickets</h2>
+                            <div class="ticket-filters">
+                                <button class="btn secondary small active">All</button>
+                                <button class="btn secondary small">Open</button>
+                                <button class="btn secondary small">In Progress</button>
+                                <button class="btn secondary small">Resolved</button>
+                            </div>
+                        </div>
+                        <div class="tickets-list">
+                            <div class="ticket-card">
+                                <div class="ticket-status open"></div>
+                                <div class="ticket-content">
+                                    <h3>Password Reset Issue</h3>
+                                    <p>Unable to reset password through self-service portal</p>
+                                    <div class="ticket-meta">
+                                        <span class="ticket-id">#HD-1234</span>
+                                        <span class="ticket-date">Created 2 hours ago</span>
+                                        <span class="ticket-priority high">High Priority</span>
+                                    </div>
+                                </div>
+                                <button class="btn secondary small">View Details</button>
+                            </div>
+                            <div class="ticket-card">
+                                <div class="ticket-status in-progress"></div>
+                                <div class="ticket-content">
+                                    <h3>Email Configuration</h3>
+                                    <p>Need help setting up email client on new device</p>
+                                    <div class="ticket-meta">
+                                        <span class="ticket-id">#HD-1233</span>
+                                        <span class="ticket-date">Created 1 day ago</span>
+                                        <span class="ticket-priority medium">Medium Priority</span>
+                                    </div>
+                                </div>
+                                <button class="btn secondary small">View Details</button>
+                            </div>
+                            <div class="ticket-card">
+                                <div class="ticket-status resolved"></div>
+                                <div class="ticket-content">
+                                    <h3>Software Installation</h3>
+                                    <p>Request for design software installation</p>
+                                    <div class="ticket-meta">
+                                        <span class="ticket-id">#HD-1232</span>
+                                        <span class="ticket-date">Resolved yesterday</span>
+                                        <span class="ticket-priority low">Low Priority</span>
+                                    </div>
+                                </div>
+                                <button class="btn secondary small">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Knowledge Base -->
+                    <div class="knowledge-base">
+                        <div class="section-header">
+                            <h2>Popular Articles</h2>
+                            <button class="btn secondary small">View All</button>
+                        </div>
+                        <div class="articles-grid">
+                            <div class="article-card">
+                                <div class="article-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="article-content">
+                                    <h3>Password Reset Guide</h3>
+                                    <p>Step-by-step guide to reset your password</p>
+                                    <div class="article-meta">
+                                        <span>5 min read</span>
+                                        <span>Updated 2 days ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article-card">
+                                <div class="article-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                                    </svg>
+                                </div>
+                                <div class="article-content">
+                                    <h3>Remote Access Setup</h3>
+                                    <p>Configure VPN and remote desktop access</p>
+                                    <div class="article-meta">
+                                        <span>10 min read</span>
+                                        <span>Updated 1 week ago</span>
+                                    </div>
+                                </div>
+                                </div>
+                            <div class="article-card">
+                                <div class="article-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="article-content">
+                                    <h3>Email Setup Guide</h3>
+                                    <p>Configure email clients and mobile devices</p>
+                                    <div class="article-meta">
+                                        <span>8 min read</span>
+                                        <span>Updated 3 days ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Support Contact -->
+                    <div class="support-contact">
+                        <div class="contact-content">
+                            <h2>Need More Help?</h2>
+                            <p>Our support team is available 24/7 to assist you with any issues.</p>
+                            <div class="contact-actions">
+                                <button class="btn primary">Contact Support</button>
+                                <button class="btn secondary">Schedule Call</button>
+                            </div>
+                                </div>
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                <div class="info-content">
+                                    <h3>Phone Support</h3>
+                                    <p>+1 (800) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <div class="info-content">
+                                    <h3>Email Support</h3>
+                                    <p>support@horizon.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/components/unified-search.js"></script>
+    <script src="/js/components/header.js"></script>
+    <script src="/js/app.js"></script>
+    <script>
+        // Set active nav item based on current page
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPage = document.body.dataset.page;
+            if (currentPage) {
+                const activeLink = document.querySelector(`.nav-link[data-page="${currentPage}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html> 
