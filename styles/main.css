@@ -304,7 +304,6 @@ body {
     background: var(--bg-elevated);
     border-right: 1px solid var(--border-color);
     padding: var(--space-6);
-    overflow-y: auto;
     transition: all var(--duration-normal) var(--ease-in-out);
     box-shadow: var(--shadow-lg);
 }

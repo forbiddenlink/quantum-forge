@@ -16,7 +16,6 @@
     position: sticky;
     top: 0;
     z-index: 40;
-    overflow: hidden;
 }
 
 body.sidebar-collapsed .sidebar {
@@ -36,6 +35,7 @@ body.sidebar-collapsed .sidebar {
     justify-content: flex-start;
     border-bottom: 1px solid var(--border-color);
     position: relative;
+    flex-shrink: 0; /* Add this to prevent header from shrinking */
 }
 
 .collapse-btn {
@@ -74,6 +74,23 @@ body.sidebar-collapsed .collapse-btn svg {
     display: flex;
     flex-direction: column;
     gap: var(--space-6);
+    /* Add custom scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+/* Custom scrollbar for Webkit browsers */
+.nav-sections::-webkit-scrollbar {
+    width: 6px;
+}
+
+.nav-sections::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.nav-sections::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 3px;
 }
 
 .nav-section-header {
@@ -240,6 +257,7 @@ body.sidebar-collapsed .nav-text {
 .sidebar-footer {
     padding: var(--space-4);
     border-top: 1px solid var(--border-color);
+    flex-shrink: 0; /* Add this to prevent footer from shrinking */
 }
 
 .help-button {
