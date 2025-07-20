@@ -2524,3 +2524,128 @@ function saveCustomization() {
 }
 
 // ... existing code ...
+
+// Register service worker for offline support
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/js/service-worker.js')
+            .then(registration => {
+                console.log('ServiceWorker registration successful:', registration.scope);
+                
+                // Request notification permission
+                if ('Notification' in window) {
+                    Notification.requestPermission();
+                }
+            })
+            .catch(error => {
+                console.log('ServiceWorker registration failed:', error);
+            });
+    });
+}
+
+// Handle offline/online status
+function updateOnlineStatus() {
+    const status = navigator.onLine ? 'online' : 'offline';
+    document.documentElement.setAttribute('data-connection', status);
+    
+    if (!navigator.onLine) {
+        showOfflineToast();
+    }
+}
+
+window.addEventListener('online', updateOnlineStatus);
+window.addEventListener('offline', updateOnlineStatus);
+
+// Show offline toast notification
+function showOfflineToast() {
+    const toast = document.createElement('div');
+    toast.className = 'offline-toast';
+    toast.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="offline-toast-icon">
+            <path d="M1 1l22 22M16.72 11.06A10.94 10.94 0 0119 12.55M5 12.55a10.94 10.94 0 015.17-2.39"></path>
+        </svg>
+        <span>You are offline. Some features may be unavailable.</span>
+        <button class="offline-toast-close" aria-label="Close notification">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // Add close button handler
+    toast.querySelector('.offline-toast-close').addEventListener('click', () => {
+        toast.remove();
+    });
+    
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+        if (toast.parentNode) {
+            toast.remove();
+        }
+    }, 5000);
+}
+
+// Add offline toast styles
+const style = document.createElement('style');
+style.textContent = `
+    .offline-toast {
+        position: fixed;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1f2937;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        z-index: 9999;
+        animation: slideUp 0.3s ease;
+    }
+
+    .offline-toast-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    .offline-toast-close {
+        background: none;
+        border: none;
+        padding: 0.25rem;
+        color: white;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+
+    .offline-toast-close:hover {
+        opacity: 1;
+    }
+
+    .offline-toast-close svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translate(-50%, 100%);
+            opacity: 0;
+        }
+        to {
+            transform: translate(-50%, 0);
+            opacity: 1;
+        }
+    }
+`;
+
+document.head.appendChild(style);
+
+// Initialize online/offline status
+updateOnlineStatus();

@@ -2,88 +2,62 @@
 class TeamSpotlight extends HTMLElement {
     constructor() {
         super();
-        this.spotlightData = null;
         this.currentIndex = 0;
-        this.autoRotate = true;
+        this.autoplayInterval = null;
+        this.members = [
+            {
+                name: 'Sarah Chen',
+                role: 'Lead Designer',
+                department: 'Design',
+                avatar: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Crect width="24" height="24" fill="%236366f1"/%3E%3Ctext x="12" y="16" font-family="Arial" font-size="12" fill="white" text-anchor="middle"%3ESC%3C/text%3E%3C/svg%3E',
+                status: 'online',
+                achievements: ['Design System Lead', 'UI/UX Champion'],
+                skills: ['UI Design', 'Design Systems', 'User Research']
+            },
+            {
+                name: 'Marcus Rodriguez',
+                role: 'Senior Developer',
+                department: 'Engineering',
+                avatar: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Crect width="24" height="24" fill="%23f59e0b"/%3E%3Ctext x="12" y="16" font-family="Arial" font-size="12" fill="white" text-anchor="middle"%3EMR%3C/text%3E%3C/svg%3E',
+                status: 'online',
+                achievements: ['Performance Expert', '10x Contributor'],
+                skills: ['JavaScript', 'React', 'Node.js']
+            },
+            {
+                name: 'Emily Watson',
+                role: 'Product Manager',
+                department: 'Product',
+                avatar: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Crect width="24" height="24" fill="%2310b981"/%3E%3Ctext x="12" y="16" font-family="Arial" font-size="12" fill="white" text-anchor="middle"%3EEW%3C/text%3E%3C/svg%3E',
+                status: 'away',
+                achievements: ['Product of the Year', 'Innovation Award'],
+                skills: ['Strategy', 'Analytics', 'Leadership']
+            }
+        ];
     }
 
     connectedCallback() {
-        console.log('Team Spotlight connected');
-        this.loadSpotlightData();
         this.render();
         this.setupEventListeners();
-        this.startAutoRotation();
+        this.startAutoplay();
     }
 
     disconnectedCallback() {
-        this.stopAutoRotation();
-    }
-
-    loadSpotlightData() {
-        // Mock data - in a real app, this would come from an API
-        this.spotlightData = {
-            teamMember: {
-                name: 'Alex Chen',
-                role: 'Senior Product Designer',
-                avatar: 'https://ui-avatars.com/api/?name=Alex+Chen&background=6366f1&color=fff',
-                department: 'Design',
-                achievements: ['Led redesign of mobile app', 'Improved user engagement by 40%'],
-                skills: ['UI/UX Design', 'Prototyping', 'User Research'],
-                availability: 'Available for collaboration',
-                recentWork: 'Mobile App Redesign'
-            },
-            upcomingEvents: [
-                {
-                    title: 'Design Team Workshop',
-                    date: '2024-01-15',
-                    time: '2:00 PM',
-                    type: 'workshop',
-                    attendees: 8
-                },
-                {
-                    title: 'Product Launch Meeting',
-                    date: '2024-01-16',
-                    time: '10:00 AM',
-                    type: 'meeting',
-                    attendees: 12
-                },
-                {
-                    title: 'Team Building Event',
-                    date: '2024-01-18',
-                    time: '4:00 PM',
-                    type: 'social',
-                    attendees: 25
-                }
-            ],
-            achievements: [
-                {
-                    title: 'Project Alpha Completed',
-                    description: 'Successfully launched new feature ahead of schedule',
-                    team: 'Engineering',
-                    date: '2024-01-10'
-                },
-                {
-                    title: 'Customer Satisfaction Award',
-                    description: 'Achieved 95% customer satisfaction rating',
-                    team: 'Support',
-                    date: '2024-01-08'
-                }
-            ]
-        };
+        this.stopAutoplay();
     }
 
     render() {
+        const member = this.members[this.currentIndex];
         this.innerHTML = `
             <div class="team-spotlight">
                 <div class="spotlight-header">
-                    <h2 class="spotlight-title">Team Spotlight</h2>
+                    <h3 class="spotlight-title">Team Spotlight</h3>
                     <div class="spotlight-controls">
-                        <button class="btn-icon small" id="prevSpotlight" aria-label="Previous spotlight">
+                        <button class="btn-icon small" id="prevMember" aria-label="Previous team member">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="15 18 9 12 15 6"></polyline>
                             </svg>
                         </button>
-                        <button class="btn-icon small" id="nextSpotlight" aria-label="Next spotlight">
+                        <button class="btn-icon small" id="nextMember" aria-label="Next team member">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="9 18 15 12 9 6"></polyline>
                             </svg>
@@ -91,77 +65,65 @@ class TeamSpotlight extends HTMLElement {
                     </div>
                 </div>
 
-                <div class="spotlight-content">
-                    <div class="member-spotlight">
-                        <div class="member-header">
-                            <img src="${this.spotlightData.teamMember.avatar}" alt="${this.spotlightData.teamMember.name}" class="member-avatar-large">
-                            <div class="member-status online"></div>
+                <div class="member-spotlight">
+                    <div class="member-header">
+                        <div class="member-avatar-large">
+                            <img src="${member.avatar}" alt="${member.name}" width="64" height="64">
+                            <span class="member-status ${member.status}"></span>
                         </div>
                         <div class="member-info">
-                            <h3 class="member-name">${this.spotlightData.teamMember.name}</h3>
-                            <p class="member-role">${this.spotlightData.teamMember.role}</p>
-                            <p class="member-department">${this.spotlightData.teamMember.department}</p>
-                            <div class="member-availability">
-                                <span class="availability-indicator online"></span>
-                                ${this.spotlightData.teamMember.availability}
-                            </div>
+                            <h4 class="member-name">${member.name}</h4>
+                            <p class="member-role">${member.role}</p>
+                            <p class="member-department">${member.department}</p>
                         </div>
-                        <div class="member-achievements">
-                            <h4>Recent Achievements</h4>
-                            <ul class="achievements-list">
-                                ${this.spotlightData.teamMember.achievements.map(achievement => 
-                                    `<li>${achievement}</li>`
-                                ).join('')}
-                            </ul>
-                        </div>
-                        <div class="member-skills">
-                            <h4>Skills</h4>
-                            <div class="skills-tags">
-                                ${this.spotlightData.teamMember.skills.map(skill => 
-                                    `<span class="skill-tag">${skill}</span>`
-                                ).join('')}
-                            </div>
+                    </div>
+
+                    <div class="member-achievements">
+                        <h4>Recent Achievements</h4>
+                        <ul class="achievements-list">
+                            ${member.achievements.map(achievement => `
+                                <li>${achievement}</li>
+                            `).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="member-skills">
+                        <h4>Skills & Expertise</h4>
+                        <div class="skills-tags">
+                            ${member.skills.map(skill => `
+                                <span class="skill-tag">${skill}</span>
+                            `).join('')}
                         </div>
                     </div>
 
                     <div class="upcoming-events">
-                        <h3 class="events-title">Upcoming Events</h3>
+                        <h4 class="events-title">Upcoming Events</h4>
                         <div class="events-list">
-                            ${this.spotlightData.upcomingEvents.map(event => `
-                                <div class="event-item">
-                                    <div class="event-icon ${event.type}">
-                                        ${this.getEventIcon(event.type)}
-                                    </div>
-                                    <div class="event-content">
-                                        <h4 class="event-title">${event.title}</h4>
-                                        <p class="event-time">${new Date(event.date).toLocaleDateString()} at ${event.time}</p>
-                                        <p class="event-attendees">${event.attendees} attendees</p>
-                                    </div>
+                            <div class="event-item">
+                                <div class="event-icon workshop">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                    </svg>
                                 </div>
-                            `).join('')}
-                        </div>
-                    </div>
-
-                    <div class="team-achievements">
-                        <h3 class="achievements-title">Team Achievements</h3>
-                        <div class="achievements-grid">
-                            ${this.spotlightData.achievements.map(achievement => `
-                                <div class="achievement-card">
-                                    <div class="achievement-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                        </svg>
-                                    </div>
-                                    <div class="achievement-content">
-                                        <h4 class="achievement-title">${achievement.title}</h4>
-                                        <p class="achievement-description">${achievement.description}</p>
-                                        <div class="achievement-meta">
-                                            <span class="achievement-team">${achievement.team}</span>
-                                            <span class="achievement-date">${new Date(achievement.date).toLocaleDateString()}</span>
-                                        </div>
-                                    </div>
+                                <div class="event-content">
+                                    <h5 class="event-title">Team Workshop</h5>
+                                    <p class="event-time">Tomorrow, 2:00 PM</p>
                                 </div>
-                            `).join('')}
+                            </div>
+                            <div class="event-item">
+                                <div class="event-icon meeting">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                </div>
+                                <div class="event-content">
+                                    <h5 class="event-title">Project Review</h5>
+                                    <p class="event-time">Friday, 11:00 AM</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -169,83 +131,87 @@ class TeamSpotlight extends HTMLElement {
         `;
     }
 
-    getEventIcon(type) {
-        const icons = {
-            workshop: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-            </svg>`,
-            meeting: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>`,
-            social: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"></path>
-            </svg>`
-        };
-        return icons[type] || icons.meeting;
-    }
-
     setupEventListeners() {
-        const prevBtn = this.querySelector('#prevSpotlight');
-        const nextBtn = this.querySelector('#nextSpotlight');
+        const prevBtn = this.querySelector('#prevMember');
+        const nextBtn = this.querySelector('#nextMember');
 
         if (prevBtn) {
-            prevBtn.addEventListener('click', () => this.previousSpotlight());
+            prevBtn.addEventListener('click', () => {
+                this.stopAutoplay();
+                this.showPreviousMember();
+            });
         }
+
         if (nextBtn) {
-            nextBtn.addEventListener('click', () => this.nextSpotlight());
+            nextBtn.addEventListener('click', () => {
+                this.stopAutoplay();
+                this.showNextMember();
+            });
         }
 
-        // Pause auto-rotation on hover
-        this.addEventListener('mouseenter', () => this.pauseAutoRotation());
-        this.addEventListener('mouseleave', () => this.resumeAutoRotation());
+        // Touch events for mobile swipe
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        this.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        this.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe();
+        });
     }
 
-    previousSpotlight() {
-        // In a real app, this would cycle through different team members
-        this.currentIndex = Math.max(0, this.currentIndex - 1);
-        this.updateSpotlight();
-    }
+    handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchEndX - touchStartX;
 
-    nextSpotlight() {
-        // In a real app, this would cycle through different team members
-        this.currentIndex = Math.min(2, this.currentIndex + 1);
-        this.updateSpotlight();
-    }
-
-    updateSpotlight() {
-        // Update the spotlight with new data
-        // This would typically fetch new data from an API
-        console.log('Updating spotlight to index:', this.currentIndex);
-    }
-
-    startAutoRotation() {
-        if (this.autoRotate) {
-            this.rotationInterval = setInterval(() => {
-                this.nextSpotlight();
-            }, 10000); // Rotate every 10 seconds
-        }
-    }
-
-    stopAutoRotation() {
-        if (this.rotationInterval) {
-            clearInterval(this.rotationInterval);
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                this.showPreviousMember();
+            } else {
+                this.showNextMember();
+            }
+            this.stopAutoplay();
         }
     }
 
-    pauseAutoRotation() {
-        this.stopAutoRotation();
+    showPreviousMember() {
+        this.currentIndex = (this.currentIndex - 1 + this.members.length) % this.members.length;
+        this.animateTransition('slide-right');
     }
 
-    resumeAutoRotation() {
-        this.startAutoRotation();
+    showNextMember() {
+        this.currentIndex = (this.currentIndex + 1) % this.members.length;
+        this.animateTransition('slide-left');
+    }
+
+    animateTransition(direction) {
+        const spotlight = this.querySelector('.member-spotlight');
+        spotlight.style.opacity = '0';
+        spotlight.style.transform = direction === 'slide-left' ? 'translateX(-20px)' : 'translateX(20px)';
+
+        setTimeout(() => {
+            this.render();
+            const newSpotlight = this.querySelector('.member-spotlight');
+            newSpotlight.style.opacity = '1';
+            newSpotlight.style.transform = 'translateX(0)';
+        }, 300);
+    }
+
+    startAutoplay() {
+        this.autoplayInterval = setInterval(() => {
+            this.showNextMember();
+        }, 5000);
+    }
+
+    stopAutoplay() {
+        if (this.autoplayInterval) {
+            clearInterval(this.autoplayInterval);
+            this.autoplayInterval = null;
+        }
     }
 }
 
-// Register the custom element
 customElements.define('team-spotlight', TeamSpotlight); 

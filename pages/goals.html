@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" class="custom-scrollbar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals & OKRs - Quantum Forge</title>
+    <meta name="description" content="Track and manage your objectives and key results">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="custom-scrollbar" data-page="goals">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="dashboard">
+        <app-header></app-header>
+        <div class="main-container">
+            <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Workspace</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="/index.html" class="nav-link" data-page="dashboard">Dashboard</a></li>
+                        <li class="nav-item"><a href="/pages/calendar.html" class="nav-link" data-page="calendar">Calendar</a></li>
+                        <li class="nav-item"><a href="/pages/team.html" class="nav-link" data-page="team">Team</a></li>
+                        <li class="nav-item"><a href="/pages/projects.html" class="nav-link" data-page="projects">Projects</a></li>
+                        <li class="nav-item"><a href="/pages/goals.html" class="nav-link active" data-page="goals">Goals</a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Resources</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="/pages/documents.html" class="nav-link" data-page="documents">Documents</a></li>
+                        <li class="nav-item"><a href="/pages/resources.html" class="nav-link" data-page="resources">Resources</a></li>
+                        <li class="nav-item"><a href="/pages/training.html" class="nav-link" data-page="training">Learning</a></li>
+                    </ul>
+                </div>
+                <div class="nav-group">
+                    <h2 class="nav-group-title">Support</h2>
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="/pages/helpdesk.html" class="nav-link" data-page="helpdesk">Help Desk</a></li>
+                        <li class="nav-item"><a href="/pages/handbook.html" class="nav-link" data-page="handbook">Handbook</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <main id="main-content" class="main-content">
+                <div class="page-header">
+                    <div class="header-content">
+                        <h1 class="page-title">Goals & OKRs</h1>
+                        <p class="page-description">Track your objectives and key results, align with company goals, and measure your progress.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" onclick="addNewObjective()">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            Add Objective
+                        </button>
+                    </div>
+                </div>
+
+                <div class="goals-dashboard">
+                    <!-- Progress Overview -->
+                    <section class="progress-overview" aria-labelledby="progress-title">
+                        <h2 id="progress-title" class="section-title">Your Progress</h2>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">🎯</div>
+                                <div class="stat-content">
+                                    <h3 class="stat-title">Objectives</h3>
+                                    <p class="stat-value">4</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">📈</div>
+                                <div class="stat-content">
+                                    <h3 class="stat-title">Key Results</h3>
+                                    <p class="stat-value">12</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">✨</div>
+                                <div class="stat-content">
+                                    <h3 class="stat-title">Completion Rate</h3>
+                                    <p class="stat-value">75%</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🔄</div>
+                                <div class="stat-content">
+                                    <h3 class="stat-title">Days Until Review</h3>
+                                    <p class="stat-value">14</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Current Objectives -->
+                    <section class="objectives-list" aria-labelledby="objectives-title">
+                        <h2 id="objectives-title" class="section-title">Current Objectives</h2>
+                        <div class="objectives-grid">
+                            <div class="objective-card">
+                                <div class="objective-header">
+                                    <h3 class="objective-title">Improve Customer Satisfaction</h3>
+                                    <span class="objective-status" style="background-color: #22c55e">On Track</span>
+                                </div>
+                                <div class="objective-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 80%"></div>
+                                    </div>
+                                    <span class="progress-text">80% Complete</span>
+                                </div>
+                                <ul class="key-results-list">
+                                    <li class="key-result">
+                                        <span class="key-result-check">✓</span>
+                                        <span class="key-result-text">Achieve NPS score of 60+</span>
+                                        <span class="key-result-progress">65</span>
+                                    </li>
+                                    <li class="key-result">
+                                        <span class="key-result-check">✓</span>
+                                        <span class="key-result-text">Reduce response time to < 2 hours</span>
+                                        <span class="key-result-progress">1.5h</span>
+                                    </li>
+                                    <li class="key-result">
+                                        <span class="key-result-check">◯</span>
+                                        <span class="key-result-text">Implement customer feedback system</span>
+                                        <span class="key-result-progress">80%</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="objective-card">
+                                <div class="objective-header">
+                                    <h3 class="objective-title">Launch New Product Features</h3>
+                                    <span class="objective-status" style="background-color: #eab308">At Risk</span>
+                                </div>
+                                <div class="objective-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                    <span class="progress-text">60% Complete</span>
+                                </div>
+                                <ul class="key-results-list">
+                                    <li class="key-result">
+                                        <span class="key-result-check">✓</span>
+                                        <span class="key-result-text">Complete beta testing</span>
+                                        <span class="key-result-progress">100%</span>
+                                    </li>
+                                    <li class="key-result">
+                                        <span class="key-result-check">◯</span>
+                                        <span class="key-result-text">Achieve 1000 active users</span>
+                                        <span class="key-result-progress">600</span>
+                                    </li>
+                                    <li class="key-result">
+                                        <span class="key-result-check">◯</span>
+                                        <span class="key-result-text">Maintain 99.9% uptime</span>
+                                        <span class="key-result-progress">99.7%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Alignment -->
+                    <section class="goals-alignment" aria-labelledby="alignment-title">
+                        <h2 id="alignment-title" class="section-title">Company Alignment</h2>
+                        <div class="alignment-chart">
+                            <div class="company-goal">
+                                <h3 class="goal-level">Company</h3>
+                                <div class="goal-content">
+                                    <p class="goal-text">Become industry leader in customer satisfaction</p>
+                                    <div class="goal-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 75%"></div>
+                                        </div>
+                                        <span class="progress-text">75%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="department-goal">
+                                <h3 class="goal-level">Department</h3>
+                                <div class="goal-content">
+                                    <p class="goal-text">Streamline customer support processes</p>
+                                    <div class="goal-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 80%"></div>
+                                        </div>
+                                        <span class="progress-text">80%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="individual-goal">
+                                <h3 class="goal-level">Individual</h3>
+                                <div class="goal-content">
+                                    <p class="goal-text">Improve response time and quality</p>
+                                    <div class="goal-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 85%"></div>
+                                        </div>
+                                        <span class="progress-text">85%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+    <command-palette></command-palette>
+    <script src="../js/services/analytics.js"></script>
+    <script src="../js/components/header.js"></script>
+    <script src="../js/components/command-palette.js"></script>
+    <script src="../js/app.js"></script>
+    <style>
+        .goals-dashboard {
+            display: grid;
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .objective-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .objective-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .objective-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .objective-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .objective-progress {
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            height: 0.5rem;
+            background: var(--gray-200);
+            border-radius: 0.25rem;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-500);
+            border-radius: 0.25rem;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+
+        .key-results-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .key-result {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .key-result-check {
+            margin-right: 0.75rem;
+            color: var(--primary-500);
+        }
+
+        .key-result-text {
+            flex: 1;
+            font-size: 0.875rem;
+            color: var(--gray-700);
+        }
+
+        .key-result-progress {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+
+        .alignment-chart {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .company-goal,
+        .department-goal,
+        .individual-goal {
+            padding: 1rem 0;
+        }
+
+        .company-goal:not(:last-child),
+        .department-goal:not(:last-child) {
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .goal-level {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-500);
+            margin-bottom: 0.5rem;
+        }
+
+        .goal-content {
+            padding-left: 1rem;
+        }
+
+        .goal-text {
+            font-size: 1rem;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .objective-card,
+            .alignment-chart {
+                background: var(--gray-800);
+            }
+
+            .objective-title,
+            .goal-text {
+                color: var(--gray-100);
+            }
+
+            .key-result {
+                border-top-color: var(--gray-700);
+            }
+
+            .key-result-text {
+                color: var(--gray-300);
+            }
+
+            .key-result-progress {
+                color: var(--gray-100);
+            }
+
+            .company-goal:not(:last-child),
+            .department-goal:not(:last-child) {
+                border-bottom-color: var(--gray-700);
+            }
+
+            .progress-bar {
+                background: var(--gray-700);
+            }
+        }
+    </style>
+</body>
+</html> 

@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="../styles/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="custom-scrollbar">
+<body class="custom-scrollbar" data-page="training">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="dashboard">
         <app-header></app-header>
         <div class="main-container">
-            <nav class="sidebar" id="sidebar">
+            <nav class="sidebar" id="sidebar" aria-label="Main navigation">
                 <div class="nav-group">
                     <h2 class="nav-group-title">Workspace</h2>
                     <ul class="nav-list">
@@ -42,10 +42,189 @@
                 </div>
             </nav>
             <main id="main-content" class="main-content">
-                <div class="empty-state">
-                    <div class="empty-icon">📚</div>
-                    <h1 class="empty-title">Training & Development</h1>
-                    <p class="empty-description">Explore courses and resources to grow your skills!</p>
+                <div class="page-header">
+                    <div class="header-content">
+                        <h1 class="page-title">Training & Development</h1>
+                        <p class="page-description">Enhance your skills and grow professionally with our curated learning paths.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" onclick="openCourseFilter()">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 6h18M6 12h12m-9 6h6"></path>
+                            </svg>
+                            Filter Courses
+                        </button>
+                    </div>
+                </div>
+
+                <div class="training-dashboard">
+                    <!-- Progress Overview -->
+                    <section class="progress-overview" aria-labelledby="progress-title">
+                        <h2 id="progress-title" class="section-title">Your Learning Progress</h2>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">📚</div>
+                                <div class="stat-content">
+                                    <h3 class="stat-title">Courses in Progress</h3>
+                                    <p class="stat-value">3</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🎯</div>
+                                <div class="stat-content">
+                                    <h3 class="stat-title">Completed This Month</h3>
+                                    <p class="stat-value">2</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">⭐</div>
+                                <div class="stat-content">
+                                    <h3 class="stat-title">Certificates Earned</h3>
+                                    <p class="stat-value">5</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">🏆</div>
+                                <div class="stat-content">
+                                    <h3 class="stat-title">Learning Streak</h3>
+                                    <p class="stat-value">12 days</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Recommended Courses -->
+                    <section class="recommended-courses" aria-labelledby="recommended-title">
+                        <h2 id="recommended-title" class="section-title">Recommended for You</h2>
+                        <div class="course-grid">
+                            <article class="course-card">
+                                <div class="course-image" style="background-color: #4f46e5;">
+                                    <svg class="course-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                        <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+                                    </svg>
+                                </div>
+                                <div class="course-content">
+                                    <h3 class="course-title">Advanced Project Management</h3>
+                                    <p class="course-description">Master the art of leading complex projects and teams.</p>
+                                    <div class="course-meta">
+                                        <span class="course-duration">8 weeks</span>
+                                        <span class="course-level">Advanced</span>
+                                    </div>
+                                    <button class="btn btn-secondary btn-sm">Start Learning</button>
+                                </div>
+                            </article>
+                            <article class="course-card">
+                                <div class="course-image" style="background-color: #0891b2;">
+                                    <svg class="course-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                    </svg>
+                                </div>
+                                <div class="course-content">
+                                    <h3 class="course-title">Modern Development Practices</h3>
+                                    <p class="course-description">Learn the latest tools and methodologies in software development.</p>
+                                    <div class="course-meta">
+                                        <span class="course-duration">6 weeks</span>
+                                        <span class="course-level">Intermediate</span>
+                                    </div>
+                                    <button class="btn btn-secondary btn-sm">Start Learning</button>
+                                </div>
+                            </article>
+                            <article class="course-card">
+                                <div class="course-image" style="background-color: #ca8a04;">
+                                    <svg class="course-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                    </svg>
+                                </div>
+                                <div class="course-content">
+                                    <h3 class="course-title">Data Analytics Fundamentals</h3>
+                                    <p class="course-description">Get started with data analysis and visualization.</p>
+                                    <div class="course-meta">
+                                        <span class="course-duration">4 weeks</span>
+                                        <span class="course-level">Beginner</span>
+                                    </div>
+                                    <button class="btn btn-secondary btn-sm">Start Learning</button>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- Learning Paths -->
+                    <section class="learning-paths" aria-labelledby="paths-title">
+                        <h2 id="paths-title" class="section-title">Learning Paths</h2>
+                        <div class="path-grid">
+                            <div class="path-card">
+                                <div class="path-header" style="background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);">
+                                    <h3 class="path-title">Leadership Track</h3>
+                                    <p class="path-progress">2/5 completed</p>
+                                </div>
+                                <div class="path-content">
+                                    <ul class="path-steps">
+                                        <li class="completed">Foundations of Leadership</li>
+                                        <li class="completed">Team Dynamics</li>
+                                        <li>Strategic Decision Making</li>
+                                        <li>Change Management</li>
+                                        <li>Executive Presence</li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-sm">Continue Path</button>
+                                </div>
+                            </div>
+                            <div class="path-card">
+                                <div class="path-header" style="background: linear-gradient(135deg, #0891b2 0%, #0ea5e9 100%);">
+                                    <h3 class="path-title">Technical Excellence</h3>
+                                    <p class="path-progress">3/6 completed</p>
+                                </div>
+                                <div class="path-content">
+                                    <ul class="path-steps">
+                                        <li class="completed">Modern Architecture</li>
+                                        <li class="completed">Cloud Computing</li>
+                                        <li class="completed">DevOps Practices</li>
+                                        <li>Security Best Practices</li>
+                                        <li>Performance Optimization</li>
+                                        <li>System Design</li>
+                                    </ul>
+                                    <button class="btn btn-primary btn-sm">Continue Path</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Upcoming Live Sessions -->
+                    <section class="live-sessions" aria-labelledby="sessions-title">
+                        <h2 id="sessions-title" class="section-title">Upcoming Live Sessions</h2>
+                        <div class="session-list">
+                            <div class="session-card">
+                                <div class="session-time">
+                                    <div class="date">Mar 15</div>
+                                    <div class="time">2:00 PM</div>
+                                </div>
+                                <div class="session-details">
+                                    <h3 class="session-title">Innovation Workshop</h3>
+                                    <p class="session-description">Interactive session on fostering innovation in teams</p>
+                                    <div class="session-meta">
+                                        <span class="duration">90 min</span>
+                                        <span class="instructor">with Sarah Chen</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline btn-sm">Register</button>
+                            </div>
+                            <div class="session-card">
+                                <div class="session-time">
+                                    <div class="date">Mar 17</div>
+                                    <div class="time">11:00 AM</div>
+                                </div>
+                                <div class="session-details">
+                                    <h3 class="session-title">AI in Enterprise</h3>
+                                    <p class="session-description">Exploring practical applications of AI in business</p>
+                                    <div class="session-meta">
+                                        <span class="duration">60 min</span>
+                                        <span class="instructor">with Dr. James Wilson</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-outline btn-sm">Register</button>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </main>
         </div>
@@ -55,5 +234,250 @@
     <script src="../js/components/header.js"></script>
     <script src="../js/components/command-palette.js"></script>
     <script src="../js/app.js"></script>
+    <style>
+        .training-dashboard {
+            display: grid;
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--gray-900);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+        }
+
+        .stat-title {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-image {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .course-icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--gray-900);
+        }
+
+        .course-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            margin-bottom: 1rem;
+        }
+
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .path-card {
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .path-header {
+            padding: 1.5rem;
+            color: white;
+        }
+
+        .path-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .path-progress {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .path-content {
+            padding: 1.5rem;
+        }
+
+        .path-steps {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .path-steps li {
+            padding: 0.5rem 0;
+            color: var(--gray-600);
+            display: flex;
+            align-items: center;
+        }
+
+        .path-steps li::before {
+            content: "○";
+            margin-right: 0.5rem;
+        }
+
+        .path-steps li.completed {
+            color: var(--gray-900);
+        }
+
+        .path-steps li.completed::before {
+            content: "●";
+            color: var(--primary-500);
+        }
+
+        .session-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .session-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .session-time {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .session-time .date {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .session-time .time {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .session-details {
+            flex: 1;
+        }
+
+        .session-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--gray-900);
+        }
+
+        .session-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+        }
+
+        .session-meta {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .session-meta span:not(:last-child)::after {
+            content: "•";
+            margin: 0 0.5rem;
+            opacity: 0.5;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .stat-card,
+            .course-card,
+            .path-card,
+            .session-card {
+                background: var(--gray-800);
+            }
+
+            .stat-title,
+            .course-description,
+            .path-steps li,
+            .session-description {
+                color: var(--gray-400);
+            }
+
+            .stat-value,
+            .course-title,
+            .session-title,
+            .path-steps li.completed {
+                color: var(--gray-100);
+            }
+
+            .session-time .date {
+                color: var(--gray-100);
+            }
+
+            .session-time .time,
+            .session-meta,
+            .course-meta {
+                color: var(--gray-400);
+            }
+        }
+    </style>
 </body>
 </html> 

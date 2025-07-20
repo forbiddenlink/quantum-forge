@@ -7,12 +7,15 @@ class AnalyticsDashboard extends HTMLElement {
         this.selectedRange = 'week';
         this.unsubscribe = null;
         this.realTimeUpdates = null;
+        this.taskChart = null;
+        this.projectChart = null;
     }
 
     connectedCallback() {
         console.log('Analytics Dashboard connected');
         this.render();
         this.setupEventListeners();
+        this.initializeCharts();
         
         // Subscribe to analytics updates
         if (window.analyticsService) {
@@ -39,6 +42,12 @@ class AnalyticsDashboard extends HTMLElement {
         }
         if (this.realTimeUpdates) {
             clearInterval(this.realTimeUpdates);
+        }
+        if (this.taskChart) {
+            this.taskChart.destroy();
+        }
+        if (this.projectChart) {
+            this.projectChart.destroy();
         }
     }
 
@@ -235,6 +244,106 @@ class AnalyticsDashboard extends HTMLElement {
         }
     }
 
+    initializeCharts() {
+        // Initialize Task Completion Chart
+        const taskCtx = this.querySelector('#taskChart').getContext('2d');
+        this.taskChart = new Chart(taskCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [
+                    {
+                        label: 'Completed Tasks',
+                        data: [12, 19, 15, 17, 14, 12, 16],
+                        borderColor: 'rgb(99, 102, 241)',
+                        tension: 0.4,
+                        fill: false
+                    },
+                    {
+                        label: 'In Progress',
+                        data: [7, 11, 8, 9, 6, 5, 8],
+                        borderColor: 'rgb(249, 115, 22)',
+                        tension: 0.4,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        titleColor: '#1e293b',
+                        bodyColor: '#475569',
+                        borderColor: '#e2e8f0',
+                        borderWidth: 1
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(226, 232, 240, 0.5)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Initialize Project Progress Chart
+        const projectCtx = this.querySelector('#projectChart').getContext('2d');
+        this.projectChart = new Chart(projectCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Completed', 'In Progress', 'Not Started'],
+                datasets: [{
+                    data: [65, 25, 10],
+                    backgroundColor: [
+                        'rgb(99, 102, 241)',
+                        'rgb(249, 115, 22)',
+                        'rgb(226, 232, 240)'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            boxWidth: 12,
+                            padding: 20,
+                            font: {
+                                family: "'Inter', sans-serif"
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                        titleColor: '#1e293b',
+                        bodyColor: '#475569',
+                        borderColor: '#e2e8f0',
+                        borderWidth: 1
+                    }
+                },
+                cutout: '75%'
+            }
+        });
+    }
+
     startRealTimeUpdates() {
         this.realTimeUpdates = setInterval(() => {
             this.updateRealTimeMetrics();
@@ -301,47 +410,26 @@ class AnalyticsDashboard extends HTMLElement {
     }
 
     updateTaskChart() {
-        const chartContainer = this.querySelector('#taskChart');
-        const data = this.data.taskChart || [65, 72, 68, 85, 78, 92, 88];
+        if (!this.taskChart) return;
+        
         const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-        
-        chartContainer.innerHTML = '<div class="chart-line"></div>';
-        
-        data.forEach((value, index) => {
-            const bar = document.createElement('div');
-            bar.className = 'chart-bar';
-            bar.style.height = `${(value / 100) * 160}px`;
-            bar.setAttribute('data-value', value);
-            
-            const label = document.createElement('div');
-            label.className = 'chart-label';
-            label.textContent = labels[index];
-            
-            chartContainer.appendChild(bar);
-            chartContainer.appendChild(label);
-        });
+        const completed = labels.map(() => Math.floor(Math.random() * 10) + 10);
+        const inProgress = labels.map(() => Math.floor(Math.random() * 8) + 5);
+
+        this.taskChart.data.datasets[0].data = completed;
+        this.taskChart.data.datasets[1].data = inProgress;
+        this.taskChart.update();
     }
 
     updateProjectChart() {
-        const chartContainer = this.querySelector('#projectChart');
-        const data = this.data.projectChart || [45, 62, 78, 91, 67, 83, 95];
-        const labels = ['P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7'];
+        if (!this.projectChart) return;
         
-        chartContainer.innerHTML = '<div class="chart-line"></div>';
-        
-        data.forEach((value, index) => {
-            const bar = document.createElement('div');
-            bar.className = 'chart-bar';
-            bar.style.height = `${(value / 100) * 160}px`;
-            bar.setAttribute('data-value', value + '%');
-            
-            const label = document.createElement('div');
-            label.className = 'chart-label';
-            label.textContent = labels[index];
-            
-            chartContainer.appendChild(bar);
-            chartContainer.appendChild(label);
-        });
+        const completed = Math.floor(Math.random() * 30) + 50;
+        const inProgress = Math.floor(Math.random() * 20) + 20;
+        const notStarted = 100 - completed - inProgress;
+
+        this.projectChart.data.datasets[0].data = [completed, inProgress, notStarted];
+        this.projectChart.update();
     }
 
     updateActivityList() {

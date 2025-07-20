@@ -3,29 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Forge - Enhanced Digital Workspace</title>
     <meta name="description" content="Quantum Forge company intranet - Your enhanced digital workspace for collaboration, innovation, and growth">
     <meta name="theme-color" content="#6366f1">
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="styles/main.css" as="style">
+    <link rel="preload" href="styles/enhanced.css" as="style">
+    
+    <title>Quantum Forge - Enhanced Digital Workspace</title>
+    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Enhanced visualization libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/enhanced.css">
+</head>
 <body class="custom-scrollbar">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div class="dashboard">
+    <div class="dashboard" role="application">
         <!-- Header will be injected here -->
         <app-header></app-header>
 
         <div class="main-container">
             <!-- Standardized Sidebar -->
-            <nav class="sidebar" id="sidebar">
+            <nav class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
 
                 <div class="nav-group">
-                    <h2 class="nav-group-title">Workspace</h2>
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="/index.html" class="nav-link active" data-page="dashboard">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <h2 class="nav-group-title" id="workspace-nav">Workspace</h2>
+                    <ul class="nav-list" role="menu" aria-labelledby="workspace-nav">
+                        <li class="nav-item" role="none">
+                            <a href="/index.html" class="nav-link active" role="menuitem" data-page="dashboard" aria-current="page">
+                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                     <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                                 </svg>
                                 Dashboard
@@ -125,51 +142,51 @@
             </nav>
 
             <!-- Main Content -->
-            <main id="main-content" class="main-content">
+            <main id="main-content" class="main-content" role="main" aria-label="Main content">
                 <!-- Enhanced Welcome Section -->
-                <div class="welcome-section">
+                <div class="welcome-section" role="region" aria-label="Welcome section">
                     <div class="welcome-header">
                         <div class="welcome-greeting">
                             <h1 class="welcome-title">
                                 <span class="greeting-text">Good morning,</span>
-                                <span class="user-name">Liz</span>
-                                <span class="welcome-emoji">👋</span>
+                                <span class="user-name" role="text">Liz</span>
+                                <span class="welcome-emoji" role="img" aria-label="Waving hand">👋</span>
                             </h1>
                             <p class="welcome-subtitle">Ready to create something amazing today?</p>
                         </div>
-                        <div class="welcome-stats">
-                            <div class="stat-item">
+                        <div class="welcome-stats" role="group" aria-label="Quick statistics">
+                            <div class="stat-item" role="status" aria-label="Active projects">
                                 <span class="stat-number">12</span>
                                 <span class="stat-label">Active Projects</span>
                             </div>
-                            <div class="stat-item">
+                            <div class="stat-item" role="status" aria-label="Team members online">
                                 <span class="stat-number">8</span>
                                 <span class="stat-label">Team Online</span>
                             </div>
-                            <div class="stat-item">
+                            <div class="stat-item" role="status" aria-label="Today's meetings">
                                 <span class="stat-number">3</span>
                                 <span class="stat-label">Today's Meetings</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="quick-actions">
-                        <button class="btn primary pulse-animation" data-tooltip="Create a new task" data-shortcut="Ctrl+N">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <div class="quick-actions" role="toolbar" aria-label="Quick actions">
+                        <button class="btn primary pulse-animation" data-tooltip="Create a new task" data-shortcut="Ctrl+N" aria-label="Create new task">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <path d="M12 5v14M5 12h14"></path>
                             </svg>
                             New Task
                         </button>
-                        <button class="btn secondary" data-tooltip="Share an update with your team" data-shortcut="Ctrl+S">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <button class="btn secondary" data-tooltip="Share an update with your team" data-shortcut="Ctrl+S" aria-label="Share update">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                                 <polyline points="17 8 12 3 7 8"></polyline>
                                 <line x1="12" y1="3" x2="12" y2="15"></line>
                             </svg>
                             Share Update
                         </button>
-                        <button class="btn secondary" data-tooltip="Schedule a new meeting">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <button class="btn secondary" data-tooltip="Schedule a new meeting" aria-label="Schedule meeting">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
                                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -181,7 +198,7 @@
                 </div>
 
                 <!-- Enhanced Dashboard Grid -->
-                <div class="dashboard-grid">
+                <div class="dashboard-grid" role="region" aria-label="Dashboard content">
                     <!-- Smart Quick Access Section -->
                     <smart-quick-access></smart-quick-access>
 
@@ -191,7 +208,7 @@
                     </div>
 
                     <!-- Left Column: Team & Tasks -->
-                    <div class="dashboard-column">
+                    <div class="dashboard-column" role="complementary" aria-label="Team and tasks information">
                         <div class="dashboard-item">
                             <team-spotlight></team-spotlight>
                         </div>
@@ -201,7 +218,7 @@
                     </div>
 
                     <!-- Right Column: Weather -->
-                    <div class="dashboard-item weather-column">
+                    <div class="dashboard-item weather-column" role="complementary" aria-label="Weather information">
                         <weather-widget></weather-widget>
                     </div>
                 </div>
