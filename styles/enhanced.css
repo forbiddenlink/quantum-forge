@@ -352,7 +352,7 @@ app-sidebar {
     background: var(--bg-hover);
 }
 
-/* Action buttons - REMOVING ALL CONFLICTING STYLES */
+/* Action buttons */
 .action-button {
     all: unset;
     position: relative;
@@ -377,19 +377,47 @@ app-sidebar {
     height: 20px;
 }
 
+/* Notification badge styles */
+.notification-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(25%, -25%);
+    min-width: 18px;
+    height: 18px;
+    padding: 0 4px;
+    background: #ef4444;
+    color: white;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ef4444;
+    box-shadow: 0 0 0 1px #ef4444;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .notification-badge {
+    border-color: var(--bg-elevated);
+}
+
+.notifications-menu {
+    position: relative;
+}
+
 .notifications-dropdown,
 .user-dropdown {
     position: absolute;
     top: calc(100% + 0.75rem);
     right: 0;
     background: var(--bg-elevated);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
-    box-shadow: 
-        0 0 0 1px rgba(0, 0, 0, 0.05),
-        0 4px 6px -1px rgba(0, 0, 0, 0.1),
-        0 2px 4px -1px rgba(0, 0, 0, 0.06),
-        0 12px 24px -4px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-lg);
     z-index: 100;
     overflow: hidden;
     width: 320px;
@@ -408,20 +436,17 @@ app-sidebar {
     width: 12px;
     height: 12px;
     background: var(--bg-elevated);
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 1px solid var(--border-color);
+    border-top: 1px solid var(--border-color);
     transform: rotate(45deg);
 }
 
 .notifications-header,
 .user-info {
     position: relative;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.02),
-        transparent
-    );
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem;
 }
 
 .notifications-header h3 {
@@ -434,7 +459,7 @@ app-sidebar {
 .mark-all-read {
     background: none;
     border: none;
-    color: var(--primary-color);
+    color: var(--primary-600);
     font-size: 0.875rem;
     cursor: pointer;
     padding: 0.25rem 0.5rem;
@@ -481,7 +506,7 @@ app-sidebar {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--primary-color);
+    background: var(--primary-500);
     color: white;
     flex-shrink: 0;
 }

@@ -3,12 +3,13 @@ class Header extends HTMLElement {
     constructor() {
         super();
         this.notifications = [];
-        this.unreadCount = 0;
+        this.unreadCount = 2; // Force 2 unread notifications
         this.userMenuOpen = false;
         this.notificationsOpen = false;
     }
 
     connectedCallback() {
+        console.log('Header component connected');
         this.loadNotifications();
         this.render();
         this.setupEventListeners();
@@ -79,6 +80,7 @@ class Header extends HTMLElement {
 
     updateUnreadCount() {
         this.unreadCount = this.notifications.filter(n => !n.read).length;
+        console.log('Current unread count:', this.unreadCount);
     }
 
     startNotificationPolling() {
@@ -105,6 +107,12 @@ class Header extends HTMLElement {
     }
 
     render() {
+        const notificationBadge = this.unreadCount > 0 ? `
+            <span class="notification-badge" style="background: #ef4444; border-color: #ef4444;">${this.unreadCount}</span>
+        ` : '';
+        
+        console.log('Rendering notification badge:', notificationBadge);
+        
         this.innerHTML = `
             <header class="header" role="banner">
                 <div class="header-left">
@@ -117,8 +125,8 @@ class Header extends HTMLElement {
                         <span class="logo-text">Quantum Forge</span>
                     </a>
                     
-                    <button class="menu-button" aria-label="Toggle navigation menu" aria-expanded="${document.body.classList.contains('nav-open')}">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <button class="menu-button" aria-label="Toggle navigation menu">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="3" y1="12" x2="21" y2="12"></line>
                             <line x1="3" y1="6" x2="21" y2="6"></line>
                             <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -128,7 +136,7 @@ class Header extends HTMLElement {
 
                 <div class="header-right">
                     <button class="action-button theme-toggle-btn" id="toggleTheme" aria-label="Toggle dark mode">
-                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="5"></circle>
                             <line x1="12" y1="1" x2="12" y2="3"></line>
                             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -139,28 +147,20 @@ class Header extends HTMLElement {
                             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                         </svg>
-                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
                     </button>
 
                     <div class="notifications-menu">
-                        <button class="action-button ${this.notificationsOpen ? 'active' : ''}" 
-                                id="toggleNotifications" 
-                                aria-label="View notifications" 
-                                aria-expanded="${this.notificationsOpen}"
-                                aria-haspopup="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <button class="action-button" id="toggleNotifications" aria-label="View notifications">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                                 <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                             </svg>
-                            ${this.unreadCount > 0 ? `
-                                <div class="notification-badge" role="status" aria-label="${this.unreadCount} unread notifications">
-                                    <span>${this.unreadCount}</span>
-                                </div>
-                            ` : ''}
+                            ${notificationBadge}
                         </button>
-
+                        
                         ${this.notificationsOpen ? `
                             <div class="notifications-dropdown" role="dialog" aria-label="Notifications">
                                 <div class="notifications-header">
@@ -257,6 +257,10 @@ class Header extends HTMLElement {
                 </div>
             </header>
         `;
+
+        // Debug: Check if the badge was actually rendered
+        const badge = this.querySelector('.notification-badge');
+        console.log('Badge element after render:', badge);
     }
 
     getNotificationIcon(type) {
