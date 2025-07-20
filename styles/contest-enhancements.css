@@ -1,0 +1,234 @@
+/* Contest-Winning Visual Enhancements */
+
+/* Advanced Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Enhanced Widget Animations */
+.widget {
+  animation: fadeInScale 0.6s ease-out;
+}
+
+.dashboard-item {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.dashboard-item:nth-child(even) {
+  animation-delay: 2s;
+}
+
+.dashboard-item:nth-child(3n) {
+  animation-delay: 4s;
+}
+
+/* Achievement System Enhancements */
+.achievement-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+  animation: sparkle 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.achievement-card:hover::before {
+  animation: sparkle 1s ease-in-out infinite;
+}
+
+/* Enhanced Button Animations */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-500));
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+/* Enhanced Widget Styling */
+.widget {
+  background: linear-gradient(135deg, var(--bg-widget), var(--bg-elevated));
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.widget:hover {
+  border-color: var(--primary-300);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+}
+
+/* Loading States */
+.loading-shimmer {
+  background: linear-gradient(90deg, 
+    var(--gray-200) 25%, 
+    var(--gray-100) 50%, 
+    var(--gray-200) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Unified Spinner Animation System */
+.loading-spinner,
+.search-loading svg,
+.office-visualizer .loading-spinner,
+.enhanced-office-visualizer .loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--primary-200);
+  border-top-color: var(--primary-500);
+  border-radius: 50%;
+  animation: unified-spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes unified-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Enhanced Typography */
+.welcome-title {
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+/* Micro-interactions */
+.stat-item {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-item:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, var(--primary-50), var(--primary-100));
+}
+
+/* Enhanced Icons */
+.btn-icon {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover .btn-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Progress Animations */
+.progress-fill {
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(90deg, var(--primary-500), var(--primary-400));
+}
+
+/* Notification Enhancements */
+.notification {
+  animation: slideInUp 0.5s ease-out;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Mode Enhancements */
+[data-theme="dark"] .widget {
+  background: linear-gradient(135deg, var(--gray-800), var(--gray-900));
+  border-color: var(--gray-700);
+}
+
+[data-theme="dark"] .widget:hover {
+  border-color: var(--primary-400);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .widget {
+    animation: none;
+  }
+  
+  .dashboard-item {
+    animation: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .widget,
+  .dashboard-item,
+  .btn,
+  .stat-item,
+  .loading-spinner,
+  .search-loading svg {
+    animation: none;
+    transition: none;
+  }
+} 

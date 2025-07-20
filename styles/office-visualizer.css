@@ -166,11 +166,7 @@
     animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
+/* Unified spinner animation moved to contest-enhancements.css */
 
 /* Fallback content */
 .fallback-content {

@@ -623,13 +623,10 @@
     border: 2px solid var(--border-color);
     border-top: 2px solid var(--primary-500);
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: unified-spin 1s linear infinite;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+/* Unified spinner animation moved to contest-enhancements.css */
 
 /* Enhanced Hover Effects */
 .hover-lift {
@@ -968,7 +965,7 @@
     border: 3px solid var(--gray-200);
     border-top: 3px solid var(--primary-500);
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: unified-spin 1s linear infinite;
     z-index: 1;
 }
 
@@ -977,7 +974,4 @@
     position: relative;
 }
 
-@keyframes spin {
-    0% { transform: translate(-50%, -50%) rotate(0deg); }
-    100% { transform: translate(-50%, -50%) rotate(360deg); }
-} 
+/* Unified spinner animation moved to contest-enhancements.css */ 

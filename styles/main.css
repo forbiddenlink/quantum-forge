@@ -2517,7 +2517,7 @@ body {
 .search-loading svg,
 .search-empty svg {
     margin-bottom: var(--space-4);
-    animation: spin 1s linear infinite;
+    animation: unified-spin 1s linear infinite;
 }
 
 .search-empty svg {
@@ -2538,10 +2538,7 @@ body {
     font-size: var(--font-size-sm);
 }
 
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
+/* Unified spinner animation moved to contest-enhancements.css */
 
 @media (max-width: 768px) {
     .search-filters {
