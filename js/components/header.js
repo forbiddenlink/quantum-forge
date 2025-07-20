@@ -155,7 +155,9 @@ class Header extends HTMLElement {
                                 <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                             </svg>
                             ${this.unreadCount > 0 ? `
-                                <span class="notification-badge" role="status" aria-label="${this.unreadCount} unread notifications">${this.unreadCount}</span>
+                                <div class="notification-badge" role="status" aria-label="${this.unreadCount} unread notifications">
+                                    <span>${this.unreadCount}</span>
+                                </div>
                             ` : ''}
                         </button>
 
@@ -327,17 +329,17 @@ class Header extends HTMLElement {
         if (themeToggle) {
             themeToggle.addEventListener('click', (e) => {
                 e.stopPropagation();
-                if (window.toggleTheme) {
-                    window.toggleTheme();
-                } else {
-                    const html = document.documentElement;
-                    const currentTheme = html.getAttribute('data-theme') || 'light';
-                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                    html.setAttribute('data-theme', newTheme);
-                    localStorage.setItem('theme', newTheme);
-                }
+                const html = document.documentElement;
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = (!currentTheme || currentTheme === 'light') ? 'dark' : 'light';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
             });
         }
+        
+        // Set initial theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
 
         // Mark all notifications as read
         const markAllRead = this.querySelector('.mark-all-read');

@@ -1,0 +1,98 @@
+/* Header Components */
+
+/* Action Buttons */
+.action-button,
+.theme-toggle-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-color);
+    background: var(--bg-elevated);
+    overflow: hidden;
+}
+
+.action-button:hover,
+.theme-toggle-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+}
+
+.action-button svg,
+.theme-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Theme Toggle */
+.theme-toggle-btn .sun-icon,
+.theme-toggle-btn .moon-icon {
+    position: absolute;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle-btn .sun-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.theme-toggle-btn .moon-icon {
+    opacity: 0;
+    transform: scale(0);
+}
+
+[data-theme="dark"] .theme-toggle-btn .sun-icon {
+    opacity: 0;
+    transform: scale(0);
+}
+
+[data-theme="dark"] .theme-toggle-btn .moon-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Notification Badge */
+.notification-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    background: var(--error-500);
+    color: white;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--bg-elevated);
+    box-shadow: 0 0 0 1px var(--border-color);
+    z-index: 1;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .action-button,
+[data-theme="dark"] .theme-toggle-btn {
+    background: var(--bg-elevated);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .action-button:hover,
+[data-theme="dark"] .theme-toggle-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-hover);
+}
+
+[data-theme="dark"] .notification-badge {
+    border-color: var(--bg-elevated);
+    box-shadow: 0 0 0 1px var(--border-color);
+} 
