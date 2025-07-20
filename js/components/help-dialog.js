@@ -83,17 +83,17 @@ class HelpDialog extends HTMLElement {
     }
 
     setupEventListeners() {
-        const closeButton = this.querySelector('.close-button');
-        const backdrop = this.querySelector('.help-dialog-backdrop');
-        const chatOption = this.querySelector('.chat-option');
-
-        closeButton?.addEventListener('click', () => this.close());
-        backdrop?.addEventListener('click', () => this.close());
-        
-        chatOption?.addEventListener('click', () => {
-            // In a real app, this would open the AI chat interface
-            console.log('Opening AI chat...');
-            this.close();
+        // Use event delegation to handle clicks on dynamically created elements
+        this.addEventListener('click', (e) => {
+            if (e.target.closest('.close-button')) {
+                this.close();
+            } else if (e.target.closest('.help-dialog-backdrop')) {
+                this.close();
+            } else if (e.target.closest('.chat-option')) {
+                // In a real app, this would open the AI chat interface
+                console.log('Opening AI chat...');
+                this.close();
+            }
         });
 
         // Close on escape key

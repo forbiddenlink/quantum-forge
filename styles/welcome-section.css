@@ -1,0 +1,425 @@
+/* Enhanced Welcome Section Styles */
+:root {
+    --welcome-gradient-start: var(--primary-600);
+    --welcome-gradient-end: var(--primary-700);
+    --welcome-text: white;
+    --welcome-text-muted: rgba(255, 255, 255, 0.9);
+    --welcome-overlay: rgba(255, 255, 255, 0.1);
+    --welcome-border: rgba(255, 255, 255, 0.2);
+    --welcome-hover-overlay: rgba(255, 255, 255, 0.15);
+    --welcome-hover-border: rgba(255, 255, 255, 0.3);
+    --progress-bar-bg: rgba(255, 255, 255, 0.2);
+    --progress-bar-fill: rgba(255, 255, 255, 0.9);
+}
+
+.welcome-section {
+    margin-bottom: var(--space-8);
+    background: linear-gradient(135deg, var(--welcome-gradient-start) 0%, var(--welcome-gradient-end) 100%);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+    color: var(--welcome-text);
+}
+
+/* Decorative background elements */
+.welcome-section::before,
+.welcome-section::after {
+    content: '';
+    position: absolute;
+    background: radial-gradient(circle, var(--welcome-overlay) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.welcome-section::before {
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+}
+
+.welcome-section::after {
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    opacity: 0.7;
+}
+
+/* Welcome Header */
+.welcome-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+.welcome-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    color: var(--welcome-text);
+    margin: 0;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-title .user-name {
+    background: linear-gradient(135deg, var(--primary-100), white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.5rem;
+    font-weight: 900;
+    position: relative;
+}
+
+.welcome-subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--welcome-text-muted);
+    margin: 0;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Stats Grid */
+.welcome-stats {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-4);
+    margin: var(--space-6) 0;
+}
+
+.stat-item {
+    background: var(--welcome-overlay);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--welcome-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-4);
+    text-align: center;
+    transition: all var(--duration-normal) var(--ease-spring);
+    transform-origin: center bottom;
+}
+
+.stat-item:hover {
+    transform: translateY(-4px) scale(1.02);
+    background: var(--welcome-hover-overlay);
+    border-color: var(--welcome-hover-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translateY(-4px) scale(1.02); }
+    50% { transform: translateY(-6px) scale(1.03); }
+    100% { transform: translateY(-4px) scale(1.02); }
+}
+
+.stat-number {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--welcome-text);
+    margin-bottom: var(--space-2);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--welcome-text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Quick Actions */
+.quick-actions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.quick-actions .btn {
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-xl);
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    transition: all var(--duration-normal) var(--ease-spring);
+    white-space: nowrap;
+    min-width: fit-content;
+    position: relative; /* Add position relative for absolute positioning of shortcut hint */
+}
+
+.quick-actions .btn .btn-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.quick-actions .btn.primary {
+    background: white;
+    color: var(--welcome-gradient-start);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.quick-actions .btn.secondary {
+    background: var(--welcome-overlay);
+    color: var(--welcome-text);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--welcome-border);
+}
+
+.quick-actions .btn:hover {
+    transform: translateY(-2px);
+}
+
+.quick-actions .btn.primary:hover {
+    background: white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.quick-actions .btn.secondary:hover {
+    background: var(--welcome-hover-overlay);
+    border-color: var(--welcome-hover-border);
+}
+
+/* Upcoming Events */
+.upcoming-events {
+    position: relative;
+    z-index: 2;
+    margin-top: var(--space-8);
+    padding: var(--space-6);
+    background: var(--welcome-overlay);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--welcome-border);
+    border-radius: var(--radius-xl);
+}
+
+.upcoming-events-title {
+    color: var(--welcome-text);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin-bottom: var(--space-6);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Collapsible Events */
+.events-list {
+    display: grid;
+    gap: var(--space-4);
+    max-height: 400px;
+    overflow-y: auto;
+    transition: max-height 0.3s ease;
+    padding-right: var(--space-4); /* Add padding for scrollbar */
+    margin-right: -var(--space-4); /* Offset padding to maintain alignment */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: var(--welcome-border) transparent; /* For Firefox */
+}
+
+.events-list.collapsed {
+    max-height: 0;
+    overflow: hidden;
+}
+
+/* Webkit scrollbar styling */
+.events-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.events-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.events-list::-webkit-scrollbar-thumb {
+    background-color: var(--welcome-border);
+    border-radius: var(--radius-full);
+}
+
+.event-card {
+    background: var(--welcome-overlay);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--welcome-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.event-card:hover {
+    transform: translateY(-2px);
+    background: var(--welcome-hover-overlay);
+    border-color: var(--welcome-hover-border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.event-time {
+    color: var(--welcome-text-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-2);
+}
+
+.event-title {
+    color: var(--welcome-text);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.event-participants {
+    color: var(--welcome-text-muted);
+    font-size: var(--font-size-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* Progress Bar */
+.task-progress {
+    position: relative;
+    z-index: 2;
+    margin: var(--space-6) 0;
+    padding: var(--space-4);
+    background: var(--welcome-overlay);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--welcome-border);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-3);
+}
+
+.progress-title {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--welcome-text);
+}
+
+.progress-percentage {
+    font-size: var(--font-size-sm);
+    color: var(--welcome-text-muted);
+    margin-left: var(--space-2);
+}
+
+.progress-bar {
+    position: relative;
+    height: 8px;
+    background: var(--progress-bar-bg);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--progress-bar-fill);
+    border-radius: var(--radius-full);
+    transition: width 0.3s ease;
+}
+
+/* Warning and Error States */
+.stat-item.warning .stat-number {
+    color: var(--warning-100);
+}
+
+.stat-item.error .stat-number {
+    color: var(--error-100);
+}
+
+/* Collapsible Events Toggle */
+.events-toggle {
+    background: none;
+    border: none;
+    color: var(--welcome-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0;
+    margin-left: auto;
+}
+
+.events-toggle:hover {
+    color: var(--welcome-text-muted);
+}
+
+.events-toggle svg {
+    transition: transform 0.3s ease;
+}
+
+.events-toggle.collapsed svg {
+    transform: rotate(-180deg);
+}
+
+/* Keyboard Shortcuts */
+.shortcut-hint {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--welcome-overlay);
+    padding: 2px 6px;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    color: var(--welcome-text-muted);
+    border: 1px solid var(--welcome-border);
+    pointer-events: none;
+    transform: scale(0.8);
+    transform-origin: top right;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .welcome-section {
+        padding: var(--space-6);
+    }
+
+    .welcome-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+    }
+
+    .quick-actions {
+        flex-direction: column;
+    }
+
+    .quick-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .event-card {
+        padding: var(--space-3);
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .welcome-title .user-name {
+        font-size: 2rem;
+    }
+} 

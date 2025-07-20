@@ -1,130 +1,92 @@
+
 <!DOCTYPE html>
 <html lang="en" class="custom-scrollbar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documents - Quantum Forge</title>
-    <meta name="description" content="Company documents and resources at Quantum Forge">
+    <meta name="description" content="Quantum Forge company intranet - Your enhanced digital workspace for collaboration, innovation, and growth">
     <meta name="theme-color" content="#6366f1">
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="../styles/main.css" as="style">
+    <link rel="preload" href="../styles/enhanced.css" as="style">
+    
+    <title>Documents - Quantum Forge</title>
+    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Three.js dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Create OrbitControls if not available
+        if (typeof THREE !== 'undefined' && !THREE.OrbitControls) {
+            THREE.OrbitControls = function(object, domElement) {
+                this.object = object;
+                this.domElement = domElement;
+                this.enabled = true;
+                this.target = new THREE.Vector3();
+                this.minDistance = 0;
+                this.maxDistance = Infinity;
+                this.minPolarAngle = 0;
+                this.maxPolarAngle = Math.PI;
+                this.enableDamping = false;
+                this.dampingFactor = 0.05;
+                this.enableZoom = true;
+                this.zoomSpeed = 1.0;
+                this.enableRotate = true;
+                this.rotateSpeed = 1.0;
+                this.enablePan = true;
+                this.panSpeed = 1.0;
+                this.screenSpacePanning = true;
+                this.update = function() {
+                    if (this.enabled) {
+                        // Simple update for now
+                        this.object.lookAt(this.target);
+                    }
+                };
+            };
+        }
+    </script>
+    
+    <!-- Enhanced visualization libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../styles/components.css">
     <link rel="stylesheet" href="../styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/enhanced.css">
+    <link rel="stylesheet" href="../styles/enhanced-colors.css">
+    <link rel="stylesheet" href="../styles/company-news.css">
+    <link rel="stylesheet" href="../styles/interactive-poll.css">
+    <link rel="stylesheet" href="../styles/real-time-stats.css">
+    <link rel="stylesheet" href="../styles/office-visualizer.css">
+    <link rel="stylesheet" href="../styles/knowledge-hub.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/welcome-section.css">
+    <link rel="stylesheet" href="../styles/team.css">
+    <link rel="stylesheet" href="../styles/page-specific.css">
 </head>
 <body class="custom-scrollbar">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div class="dashboard">
+    <div class="dashboard" role="application">
         <!-- Header will be injected here -->
         <app-header></app-header>
 
         <div class="main-container">
-            <!-- Standardized Sidebar -->
-            <nav class="sidebar" id="sidebar">
-                <div class="nav-group">
-                    <h2 class="nav-group-title">Workspace</h2>
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="/index.html" class="nav-link" data-page="dashboard">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                                </svg>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/calendar.html" class="nav-link" data-page="calendar">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                                Calendar
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/team.html" class="nav-link" data-page="team">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
-                                </svg>
-                                Team
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/projects.html" class="nav-link" data-page="projects">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                    <polyline points="2 17 12 22 22 17"></polyline>
-                                    <polyline points="2 12 12 17 22 12"></polyline>
-                                </svg>
-                                Projects
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="nav-group">
-                    <h2 class="nav-group-title">Resources</h2>
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="/pages/documents.html" class="nav-link active" data-page="documents">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-                                    <polyline points="13 2 13 9 20 9"></polyline>
-                                </svg>
-                                Documents
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/resources.html" class="nav-link" data-page="resources">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                </svg>
-                                Resources
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/training.html" class="nav-link" data-page="training">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                                </svg>
-                                Learning
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="nav-group">
-                    <h2 class="nav-group-title">Support</h2>
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="/pages/helpdesk.html" class="nav-link" data-page="helpdesk">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                                </svg>
-                                Help Desk
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/handbook.html" class="nav-link" data-page="handbook">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                </svg>
-                                Handbook
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <!-- Enhanced Sidebar -->
+            <app-sidebar></app-sidebar>
 
             <!-- Main Content -->
-            <main id="main-content" class="main-content">
+            <main id="main-content" class="main-content" role="main" aria-label="Main content">
+
                 
 
                 <!-- Documents Overview -->
@@ -393,19 +355,38 @@
                         </div>
                     </div>
                 </div>
+            
             </main>
         </div>
-    </div>
-
     </div>
 
     <!-- Command Palette -->
     <command-palette></command-palette>
 
+    <!-- AI Assistant -->
+    <ai-assistant></ai-assistant>
+
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/services/analytics.js"></script>
     <script src="../js/components/header.js"></script>
+    <script src="../js/components/analytics-dashboard.js"></script>
+    <script src="../js/components/task-system.js"></script>
+    <script src="../js/components/weather-widget.js"></script>
+    <script src="../js/components/company-news.js"></script>
+    <script src="../js/components/interactive-poll.js"></script>
+    <script src="../js/components/real-time-stats.js"></script>
+    <script src="../js/components/team-spotlight.js"></script>
+    <script src="../js/components/smart-quick-access.js"></script>
     <script src="../js/components/command-palette.js"></script>
+    <script src="../js/components/ai-assistant.js"></script>
+    <script src="../js/components/achievement-system.js"></script>
+    <script src="../js/components/collaboration-hub.js"></script>
+    <script src="../js/components/office-visualizer.js"></script>
+    <script src="../js/components/knowledge-hub.js"></script>
+    <script src="../js/components/sidebar.js"></script>
+    <script src="../js/components/help-dialog.js"></script>
+    <script src="../js/components/unified-search.js"></script>
     <script src="../js/app.js"></script>
 </body>
-</html> 
+</html>

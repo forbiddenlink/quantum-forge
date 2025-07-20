@@ -3,134 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team - Quantum Forge</title>
     <meta name="description" content="Team directory and collaboration at Quantum Forge">
     <meta name="theme-color" content="#6366f1">
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="../styles/main.css" as="style">
+    <link rel="preload" href="../styles/enhanced.css" as="style">
+    
+    <title>Team - Quantum Forge</title>
+    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Three.js dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Create OrbitControls if not available
+        if (typeof THREE !== 'undefined' && !THREE.OrbitControls) {
+            THREE.OrbitControls = function(object, domElement) {
+                this.object = object;
+                this.domElement = domElement;
+                this.enabled = true;
+                this.target = new THREE.Vector3();
+                this.minDistance = 0;
+                this.maxDistance = Infinity;
+                this.minPolarAngle = 0;
+                this.maxPolarAngle = Math.PI;
+                this.enableDamping = false;
+                this.dampingFactor = 0.05;
+                this.enableZoom = true;
+                this.zoomSpeed = 1.0;
+                this.enableRotate = true;
+                this.rotateSpeed = 1.0;
+                this.enablePan = true;
+                this.panSpeed = 1.0;
+                this.screenSpacePanning = true;
+                this.update = function() {
+                    if (this.enabled) {
+                        // Simple update for now
+                        this.object.lookAt(this.target);
+                    }
+                };
+            };
+        }
+    </script>
+    
+    <!-- Enhanced visualization libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../styles/components.css">
     <link rel="stylesheet" href="../styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/enhanced.css">
+    <link rel="stylesheet" href="../styles/enhanced-colors.css">
+    <link rel="stylesheet" href="../styles/company-news.css">
+    <link rel="stylesheet" href="../styles/interactive-poll.css">
+    <link rel="stylesheet" href="../styles/real-time-stats.css">
+    <link rel="stylesheet" href="../styles/office-visualizer.css">
+    <link rel="stylesheet" href="../styles/knowledge-hub.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/welcome-section.css">
+    <link rel="stylesheet" href="../styles/team.css">
+    <link rel="stylesheet" href="../styles/page-specific.css">
 </head>
 <body class="custom-scrollbar">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div class="dashboard">
+    <div class="dashboard" role="application">
         <!-- Header will be injected here -->
         <app-header></app-header>
 
         <div class="main-container">
-            <!-- Standardized Sidebar -->
-            <nav class="sidebar" id="sidebar">
-                <div class="nav-group">
-                    <h2 class="nav-group-title">Workspace</h2>
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="/index.html" class="nav-link" data-page="dashboard">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                                </svg>
-                                Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/calendar.html" class="nav-link" data-page="calendar">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                                Calendar
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/team.html" class="nav-link active" data-page="team">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"></path>
-                                </svg>
-                                Team
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/projects.html" class="nav-link" data-page="projects">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                    <polyline points="2 17 12 22 22 17"></polyline>
-                                    <polyline points="2 12 12 17 22 12"></polyline>
-                                </svg>
-                                Projects
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="nav-group">
-                    <h2 class="nav-group-title">Resources</h2>
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="/pages/documents.html" class="nav-link" data-page="documents">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-                                    <polyline points="13 2 13 9 20 9"></polyline>
-                                </svg>
-                                Documents
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/resources.html" class="nav-link" data-page="resources">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                </svg>
-                                Resources
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/training.html" class="nav-link" data-page="training">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                                </svg>
-                                Learning
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="nav-group">
-                    <h2 class="nav-group-title">Support</h2>
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a href="/pages/helpdesk.html" class="nav-link" data-page="helpdesk">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                                </svg>
-                                Help Desk
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/pages/handbook.html" class="nav-link" data-page="handbook">
-                                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                </svg>
-                                Handbook
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            <!-- Enhanced Sidebar -->
+            <app-sidebar></app-sidebar>
 
             <!-- Main Content -->
-            <main id="main-content" class="main-content">
-                
-
+            <main id="main-content" class="main-content" role="main" aria-label="Main content">
                 <!-- Team Overview -->
                 <div class="team-overview">
                     <div class="overview-header">
-                        <h1>Our Team</h1>
+                        <h1>Team Directory</h1>
                         <div class="overview-actions">
                             <button class="btn secondary">
                                 <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -138,242 +96,336 @@
                                     <polyline points="17 8 12 3 7 8"></polyline>
                                     <line x1="12" y1="3" x2="12" y2="15"></line>
                                 </svg>
-                                Export Directory
+                                Export
                             </button>
                             <button class="btn primary">
                                 <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="8.5" cy="7" r="4"></circle>
-                                    <line x1="20" y1="8" x2="20" y2="14"></line>
-                                    <line x1="23" y1="11" x2="17" y2="11"></line>
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
                                 </svg>
-                                Add Team Member
+                                Add Member
                             </button>
                         </div>
                     </div>
 
-                    <!-- Department Filters -->
-                    <div class="department-filters">
-                        <button class="filter-btn active">All Departments</button>
-                        <button class="filter-btn">Leadership</button>
-                        <button class="filter-btn">Engineering</button>
-                        <button class="filter-btn">Design</button>
-                        <button class="filter-btn">Product</button>
-                        <button class="filter-btn">Marketing</button>
-                        <button class="filter-btn">Sales</button>
-                        <button class="filter-btn">HR</button>
+                    <!-- Team Stats -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Total Members</h3>
+                                <div class="stat-value">48</div>
+                                <div class="stat-change positive">+3 this month</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Online Now</h3>
+                                <div class="stat-value">12</div>
+                                <div class="stat-change">Active users</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Departments</h3>
+                                <div class="stat-value">6</div>
+                                <div class="stat-change">Across company</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 11l3 3L22 4"></path>
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <h3>Projects</h3>
+                                <div class="stat-value">12</div>
+                                <div class="stat-change positive">Active projects</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
                 <!-- Team Grid -->
                 <div class="team-grid">
-                    <!-- Leadership -->
-                    <div class="team-section">
-                        <h2 class="section-title">Leadership Team</h2>
-                        <div class="member-grid">
-                            <div class="team-member">
-                                <div class="member-header">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="member-avatar">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                                    <div class="member-status online"></div>
-                                </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
                         <div class="member-info">
-                                    <h3 class="member-name">Sarah Johnson</h3>
-                                    <p class="member-title">Chief Executive Officer</p>
-                            <div class="member-contact">
-                                        <a href="mailto:sarah@horizon.com" class="contact-link">
-                                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                                <polyline points="22,6 12,13 2,6"></polyline>
-                                            </svg>
-                                        </a>
-                                        <a href="tel:+1234567890" class="contact-link">
-                                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                            </svg>
-                                        </a>
-                                        <button class="contact-link">
-                                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <circle cx="12" cy="12" r="1"></circle>
-                                                <circle cx="19" cy="12" r="1"></circle>
-                                                <circle cx="5" cy="12" r="1"></circle>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="member-skills">
-                                    <span class="skill-tag">Leadership</span>
-                                    <span class="skill-tag">Strategy</span>
-                                    <span class="skill-tag">Innovation</span>
-                                </div>
-                            </div>
-
-                            <div class="team-member">
-                                <div class="member-header">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="member-avatar">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                                    <div class="member-status away"></div>
-                                </div>
-                                <div class="member-info">
-                                    <h3 class="member-name">Michael Chen</h3>
-                                    <p class="member-title">Chief Technology Officer</p>
-                                    <div class="member-contact">
-                                        <a href="mailto:michael@horizon.com" class="contact-link">
-                                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                                <polyline points="22,6 12,13 2,6"></polyline>
-                                            </svg>
-                                        </a>
-                                        <a href="tel:+1234567891" class="contact-link">
-                                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                            </svg>
-                                        </a>
-                                        <button class="contact-link">
-                                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <circle cx="12" cy="12" r="1"></circle>
-                                                <circle cx="19" cy="12" r="1"></circle>
-                                                <circle cx="5" cy="12" r="1"></circle>
-                                            </svg>
-                                        </button>
+                            <h3 class="member-name">Sarah Johnson</h3>
+                            <p class="member-role">Senior Developer</p>
+                            <p class="member-department">Engineering</p>
                         </div>
-                    </div>
-                                <div class="member-skills">
-                                    <span class="skill-tag">Architecture</span>
-                                    <span class="skill-tag">Cloud</span>
-                                    <span class="skill-tag">AI/ML</span>
-                                </div>
-                            </div>
+                        <div class="member-status online"></div>
+                        <div class="member-actions">
+                            <button class="btn-icon" aria-label="Message Sarah">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </button>
+                            <button class="btn-icon" aria-label="View profile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Engineering Team -->
-                    <div class="team-section">
-                        <h2 class="section-title">Engineering</h2>
-                        <div class="member-grid">
-                            <div class="team-member">
-                                <div class="member-header">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="member-avatar">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                                    <div class="member-status online"></div>
-                                </div>
-                                <div class="member-info">
-                                    <h3 class="member-name">Alex Kumar</h3>
-                                    <p class="member-title">Lead Engineer</p>
-                                    <div class="member-contact">
-                                        <a href="mailto:alex@horizon.com" class="contact-link">
-                                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                                <polyline points="22,6 12,13 2,6"></polyline>
-                                            </svg>
-                                        </a>
-                                        <a href="tel:+1234567892" class="contact-link">
-                                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                                            </svg>
-                                        </a>
-                                        <button class="contact-link">
-                                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                <circle cx="12" cy="12" r="1"></circle>
-                                                <circle cx="19" cy="12" r="1"></circle>
-                                                <circle cx="5" cy="12" r="1"></circle>
-                                            </svg>
-                                        </button>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Mike Chen</h3>
+                            <p class="member-role">Product Manager</p>
+                            <p class="member-department">Product</p>
+                        </div>
+                        <div class="member-status away"></div>
+                        <div class="member-actions">
+                            <button class="btn-icon" aria-label="Message Mike">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </button>
+                            <button class="btn-icon" aria-label="View profile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Emily Rodriguez</h3>
+                            <p class="member-role">UX Designer</p>
+                            <p class="member-department">Design</p>
+                        </div>
+                        <div class="member-status online"></div>
+                        <div class="member-actions">
+                            <button class="btn-icon" aria-label="Message Emily">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </button>
+                            <button class="btn-icon" aria-label="View profile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">David Kim</h3>
+                            <p class="member-role">Marketing Specialist</p>
+                            <p class="member-department">Marketing</p>
+                        </div>
+                        <div class="member-status offline"></div>
+                        <div class="member-actions">
+                            <button class="btn-icon" aria-label="Message David">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </button>
+                            <button class="btn-icon" aria-label="View profile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Lisa Thompson</h3>
+                            <p class="member-role">HR Manager</p>
+                            <p class="member-department">Human Resources</p>
+                        </div>
+                        <div class="member-status online"></div>
+                        <div class="member-actions">
+                            <button class="btn-icon" aria-label="Message Lisa">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </button>
+                            <button class="btn-icon" aria-label="View profile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Alex Wong</h3>
+                            <p class="member-role">Data Analyst</p>
+                            <p class="member-department">Analytics</p>
+                        </div>
+                        <div class="member-status away"></div>
+                        <div class="member-actions">
+                            <button class="btn-icon" aria-label="Message Alex">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </button>
+                            <button class="btn-icon" aria-label="View profile">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-                                <div class="member-skills">
-                                    <span class="skill-tag">React</span>
-                                    <span class="skill-tag">Node.js</span>
-                                    <span class="skill-tag">AWS</span>
-                                </div>
-                            </div>
 
-                            <!-- Add more team members here -->
+                <!-- Department Overview -->
+                <div class="department-overview">
+                    <h2>Departments</h2>
+                    <div class="department-grid">
+                        <div class="department-card">
+                            <div class="department-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 12l2 2 4-4"></path>
+                                    <path d="M21 12c-1 0-2.4-.6-3-1.5-.6-.9-1.5-2.5-1.5-4.5s.9-3.6 1.5-4.5C18.6 1.4 20 1 21 1"></path>
+                                    <path d="M3 12c1 0 2.4-.6 3-1.5.6-.9 1.5-2.5 1.5-4.5s-.9-3.6-1.5-4.5C5.4 1.4 4 1 3 1"></path>
+                                    <path d="M12 3c0 2-1.5 4-3 6s-3 4-3 6"></path>
+                                    <path d="M12 21c0-2 1.5-4 3-6s3-4 3-6"></path>
+                                </svg>
+                            </div>
+                            <div class="department-info">
+                                <h3>Engineering</h3>
+                                <p class="department-count">15 members</p>
+                                <p class="department-projects">8 active projects</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Skills Matrix -->
-                    <div class="team-section">
-                        <h2 class="section-title">Team Skills Matrix</h2>
-                        <div class="skills-matrix">
-                            <div class="matrix-header">
-                                <div class="matrix-cell">Skill Category</div>
-                                <div class="matrix-cell">Expert</div>
-                                <div class="matrix-cell">Advanced</div>
-                                <div class="matrix-cell">Intermediate</div>
-                                <div class="matrix-cell">Beginner</div>
+                        <div class="department-card">
+                            <div class="department-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                </svg>
                             </div>
-                            <div class="matrix-row">
-                                <div class="matrix-cell">Frontend Development</div>
-                                <div class="matrix-cell">
-                                    <div class="avatar-group">
-                                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="avatar-sm">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="avatar-sm">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                                    </div>
-                                </div>
-                                <div class="matrix-cell">
-                                    <div class="avatar-group">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="avatar-sm">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
+                            <div class="department-info">
+                                <h3>Product</h3>
+                                <p class="department-count">8 members</p>
+                                <p class="department-projects">5 active projects</p>
+                            </div>
                         </div>
-                    </div>
-                                <div class="matrix-cell">
-                                    <div class="avatar-group">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="avatar-sm">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                </div>
-            </div>
-                                <div class="matrix-cell"></div>
+
+                        <div class="department-card">
+                            <div class="department-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 1v6m0 6v6"></path>
+                                    <path d="M17.66 7.34l-4.24 4.24m0 0l-4.24 4.24m4.24-4.24l4.24 4.24m-4.24-4.24l-4.24-4.24"></path>
+                                </svg>
                             </div>
-                            <div class="matrix-row">
-                                <div class="matrix-cell">Backend Development</div>
-                                <div class="matrix-cell">
-                                    <div class="avatar-group">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="avatar-sm">
-                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                            <circle cx="12" cy="7" r="4"></circle>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="matrix-cell">
-                                    <div class="avatar-group">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="avatar-sm">
-                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                            <circle cx="12" cy="7" r="4"></circle>
-                                        </svg>
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="avatar-sm">
-                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                            <circle cx="12" cy="7" r="4"></circle>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="matrix-cell">
-                                    <div class="avatar-group">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="avatar-sm">
-                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                            <circle cx="12" cy="7" r="4"></circle>
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="matrix-cell"></div>
+                            <div class="department-info">
+                                <h3>Design</h3>
+                                <p class="department-count">6 members</p>
+                                <p class="department-projects">4 active projects</p>
                             </div>
-                            <!-- Add more skill rows -->
+                        </div>
+
+                        <div class="department-card">
+                            <div class="department-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                            </div>
+                            <div class="department-info">
+                                <h3>Marketing</h3>
+                                <p class="department-count">7 members</p>
+                                <p class="department-projects">3 active projects</p>
+                            </div>
+                        </div>
+
+                        <div class="department-card">
+                            <div class="department-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
+                            <div class="department-info">
+                                <h3>Human Resources</h3>
+                                <p class="department-count">4 members</p>
+                                <p class="department-projects">2 active projects</p>
+                            </div>
+                        </div>
+
+                        <div class="department-card">
+                            <div class="department-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2zm0 0V9a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v10m-6 0a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2m0 0V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"></path>
+                                </svg>
+                            </div>
+                            <div class="department-info">
+                                <h3>Analytics</h3>
+                                <p class="department-count">8 members</p>
+                                <p class="department-projects">6 active projects</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -381,21 +433,33 @@
         </div>
     </div>
 
+    <!-- Command Palette -->
+    <command-palette></command-palette>
+
+    <!-- AI Assistant -->
+    <ai-assistant></ai-assistant>
+
     <!-- Scripts -->
-    <script src="/js/components/unified-search.js"></script>
-    <script src="/js/components/header.js"></script>
-    <script src="/js/app.js"></script>
-    <script>
-        // Set active nav item based on current page
-        document.addEventListener('DOMContentLoaded', () => {
-            const currentPage = document.body.dataset.page;
-            if (currentPage) {
-                const activeLink = document.querySelector(`.nav-link[data-page="${currentPage}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/services/analytics.js"></script>
+    <script src="../js/components/header.js"></script>
+    <script src="../js/components/analytics-dashboard.js"></script>
+    <script src="../js/components/task-system.js"></script>
+    <script src="../js/components/weather-widget.js"></script>
+    <script src="../js/components/company-news.js"></script>
+    <script src="../js/components/interactive-poll.js"></script>
+    <script src="../js/components/real-time-stats.js"></script>
+    <script src="../js/components/team-spotlight.js"></script>
+    <script src="../js/components/smart-quick-access.js"></script>
+    <script src="../js/components/command-palette.js"></script>
+    <script src="../js/components/ai-assistant.js"></script>
+    <script src="../js/components/achievement-system.js"></script>
+    <script src="../js/components/collaboration-hub.js"></script>
+    <script src="../js/components/office-visualizer.js"></script>
+    <script src="../js/components/knowledge-hub.js"></script>
+    <script src="../js/components/sidebar.js"></script>
+    <script src="../js/components/help-dialog.js"></script>
+    <script src="../js/components/unified-search.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 </html> 

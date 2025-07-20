@@ -3,45 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Training - Quantum Forge</title>
-    <meta name="description" content="Training and development at Quantum Forge">
+    <meta name="description" content="Quantum Forge company intranet - Your enhanced digital workspace for collaboration, innovation, and growth">
     <meta name="theme-color" content="#6366f1">
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="../styles/main.css" as="style">
+    <link rel="preload" href="../styles/enhanced.css" as="style">
+    
+    <title>Training - Quantum Forge</title>
+    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Three.js dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Create OrbitControls if not available
+        if (typeof THREE !== 'undefined' && !THREE.OrbitControls) {
+            THREE.OrbitControls = function(object, domElement) {
+                this.object = object;
+                this.domElement = domElement;
+                this.enabled = true;
+                this.target = new THREE.Vector3();
+                this.minDistance = 0;
+                this.maxDistance = Infinity;
+                this.minPolarAngle = 0;
+                this.maxPolarAngle = Math.PI;
+                this.enableDamping = false;
+                this.dampingFactor = 0.05;
+                this.enableZoom = true;
+                this.zoomSpeed = 1.0;
+                this.enableRotate = true;
+                this.rotateSpeed = 1.0;
+                this.enablePan = true;
+                this.panSpeed = 1.0;
+                this.screenSpacePanning = true;
+                this.update = function() {
+                    if (this.enabled) {
+                        // Simple update for now
+                        this.object.lookAt(this.target);
+                    }
+                };
+            };
+        }
+    </script>
+    
+    <!-- Enhanced visualization libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../styles/components.css">
     <link rel="stylesheet" href="../styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/enhanced.css">
+    <link rel="stylesheet" href="../styles/enhanced-colors.css">
+    <link rel="stylesheet" href="../styles/company-news.css">
+    <link rel="stylesheet" href="../styles/interactive-poll.css">
+    <link rel="stylesheet" href="../styles/real-time-stats.css">
+    <link rel="stylesheet" href="../styles/office-visualizer.css">
+    <link rel="stylesheet" href="../styles/knowledge-hub.css">
+    <link rel="stylesheet" href="../styles/sidebar.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/welcome-section.css">
+    <link rel="stylesheet" href="../styles/team.css">
+    <link rel="stylesheet" href="../styles/training.css">
+    <link rel="stylesheet" href="../styles/page-specific.css">
 </head>
-<body class="custom-scrollbar" data-page="training">
+<body class="custom-scrollbar">
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div class="dashboard">
+    <div class="dashboard" role="application">
+        <!-- Header will be injected here -->
         <app-header></app-header>
+
         <div class="main-container">
-            <nav class="sidebar" id="sidebar" aria-label="Main navigation">
-                <div class="nav-group">
-                    <h2 class="nav-group-title">Workspace</h2>
-                    <ul class="nav-list">
-                        <li class="nav-item"><a href="/index.html" class="nav-link" data-page="dashboard">Dashboard</a></li>
-                        <li class="nav-item"><a href="/pages/calendar.html" class="nav-link" data-page="calendar">Calendar</a></li>
-                        <li class="nav-item"><a href="/pages/team.html" class="nav-link" data-page="team">Team</a></li>
-                        <li class="nav-item"><a href="/pages/projects.html" class="nav-link" data-page="projects">Projects</a></li>
-                    </ul>
-                </div>
-                <div class="nav-group">
-                    <h2 class="nav-group-title">Resources</h2>
-                    <ul class="nav-list">
-                        <li class="nav-item"><a href="/pages/documents.html" class="nav-link" data-page="documents">Documents</a></li>
-                        <li class="nav-item"><a href="/pages/resources.html" class="nav-link" data-page="resources">Resources</a></li>
-                        <li class="nav-item"><a href="/pages/training.html" class="nav-link active" data-page="training">Learning</a></li>
-                    </ul>
-                </div>
-                <div class="nav-group">
-                    <h2 class="nav-group-title">Support</h2>
-                    <ul class="nav-list">
-                        <li class="nav-item"><a href="/pages/helpdesk.html" class="nav-link" data-page="helpdesk">Help Desk</a></li>
-                        <li class="nav-item"><a href="/pages/handbook.html" class="nav-link" data-page="handbook">Handbook</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <main id="main-content" class="main-content">
+            <!-- Enhanced Sidebar -->
+            <app-sidebar></app-sidebar>
+
+            <!-- Main Content -->
+            <main id="main-content" class="main-content" role="main" aria-label="Main content">
+
                 <div class="page-header">
                     <div class="header-content">
                         <h1 class="page-title">Training & Development</h1>
@@ -226,258 +271,38 @@
                         </div>
                     </section>
                 </div>
+            
             </main>
         </div>
     </div>
+
+    <!-- Command Palette -->
     <command-palette></command-palette>
+
+    <!-- AI Assistant -->
+    <ai-assistant></ai-assistant>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/services/analytics.js"></script>
     <script src="../js/components/header.js"></script>
+    <script src="../js/components/analytics-dashboard.js"></script>
+    <script src="../js/components/task-system.js"></script>
+    <script src="../js/components/weather-widget.js"></script>
+    <script src="../js/components/company-news.js"></script>
+    <script src="../js/components/interactive-poll.js"></script>
+    <script src="../js/components/real-time-stats.js"></script>
+    <script src="../js/components/team-spotlight.js"></script>
+    <script src="../js/components/smart-quick-access.js"></script>
     <script src="../js/components/command-palette.js"></script>
+    <script src="../js/components/ai-assistant.js"></script>
+    <script src="../js/components/achievement-system.js"></script>
+    <script src="../js/components/collaboration-hub.js"></script>
+    <script src="../js/components/office-visualizer.js"></script>
+    <script src="../js/components/knowledge-hub.js"></script>
+    <script src="../js/components/sidebar.js"></script>
+    <script src="../js/components/help-dialog.js"></script>
+    <script src="../js/components/unified-search.js"></script>
     <script src="../js/app.js"></script>
-    <style>
-        .training-dashboard {
-            display: grid;
-            gap: 2rem;
-            padding: 1rem;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--gray-900);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1rem;
-        }
-
-        .stat-card {
-            background: white;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-icon {
-            font-size: 2rem;
-        }
-
-        .stat-title {
-            font-size: 0.875rem;
-            color: var(--gray-600);
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--gray-900);
-        }
-
-        .course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .course-card {
-            background: white;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .course-image {
-            height: 120px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .course-icon {
-            width: 48px;
-            height: 48px;
-        }
-
-        .course-content {
-            padding: 1.5rem;
-        }
-
-        .course-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--gray-900);
-        }
-
-        .course-description {
-            font-size: 0.875rem;
-            color: var(--gray-600);
-            margin-bottom: 1rem;
-        }
-
-        .course-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.875rem;
-            color: var(--gray-500);
-            margin-bottom: 1rem;
-        }
-
-        .path-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .path-card {
-            background: white;
-            border-radius: 0.75rem;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .path-header {
-            padding: 1.5rem;
-            color: white;
-        }
-
-        .path-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .path-progress {
-            font-size: 0.875rem;
-            opacity: 0.9;
-        }
-
-        .path-content {
-            padding: 1.5rem;
-        }
-
-        .path-steps {
-            list-style: none;
-            margin-bottom: 1rem;
-        }
-
-        .path-steps li {
-            padding: 0.5rem 0;
-            color: var(--gray-600);
-            display: flex;
-            align-items: center;
-        }
-
-        .path-steps li::before {
-            content: "○";
-            margin-right: 0.5rem;
-        }
-
-        .path-steps li.completed {
-            color: var(--gray-900);
-        }
-
-        .path-steps li.completed::before {
-            content: "●";
-            color: var(--primary-500);
-        }
-
-        .session-list {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .session-card {
-            background: white;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .session-time {
-            text-align: center;
-            min-width: 80px;
-        }
-
-        .session-time .date {
-            font-weight: 600;
-            color: var(--gray-900);
-        }
-
-        .session-time .time {
-            font-size: 0.875rem;
-            color: var(--gray-500);
-        }
-
-        .session-details {
-            flex: 1;
-        }
-
-        .session-title {
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            color: var(--gray-900);
-        }
-
-        .session-description {
-            font-size: 0.875rem;
-            color: var(--gray-600);
-            margin-bottom: 0.5rem;
-        }
-
-        .session-meta {
-            font-size: 0.875rem;
-            color: var(--gray-500);
-        }
-
-        .session-meta span:not(:last-child)::after {
-            content: "•";
-            margin: 0 0.5rem;
-            opacity: 0.5;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .stat-card,
-            .course-card,
-            .path-card,
-            .session-card {
-                background: var(--gray-800);
-            }
-
-            .stat-title,
-            .course-description,
-            .path-steps li,
-            .session-description {
-                color: var(--gray-400);
-            }
-
-            .stat-value,
-            .course-title,
-            .session-title,
-            .path-steps li.completed {
-                color: var(--gray-100);
-            }
-
-            .session-time .date {
-                color: var(--gray-100);
-            }
-
-            .session-time .time,
-            .session-meta,
-            .course-meta {
-                color: var(--gray-400);
-            }
-        }
-    </style>
 </body>
-</html> 
+</html>
