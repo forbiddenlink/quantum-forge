@@ -1449,7 +1449,10 @@ function initializeUserProfile() {
     menu.className = 'profile-menu';
     menu.innerHTML = `
         <div class="profile-menu-header">
-            <img src="https://ui-avatars.com/api/?name=John+Doe&background=4f77ff&color=fff" alt="John Doe" class="avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="avatar">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
             <div class="profile-info">
                 <strong>John Doe</strong>
                 <span>john.doe@horizon.com</span>
@@ -1789,7 +1792,7 @@ function initializeEventSystem() {
                     <p class="event-details">${event.details}</p>
                     <div class="event-attendees">
                         ${event.attendees.map(name => `
-                            <img src="https://ui-avatars.com/api/?name=${name.replace(' ', '+')}&background=4f77ff&color=fff" 
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
                                  alt="${name}" 
                                  class="avatar">
                         `).join('')}

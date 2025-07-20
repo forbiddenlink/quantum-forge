@@ -147,7 +147,7 @@ class AnalyticsDashboard extends HTMLElement {
                             </div>
                         </div>
                         <div class="chart" id="taskChart">
-                            <div class="chart-line"></div>
+                            <canvas id="taskChartCanvas"></canvas>
                         </div>
                     </div>
                     <div class="chart-container">
@@ -158,7 +158,7 @@ class AnalyticsDashboard extends HTMLElement {
                             </div>
                         </div>
                         <div class="chart" id="projectChart">
-                            <div class="chart-line"></div>
+                            <canvas id="projectChartCanvas"></canvas>
                         </div>
                     </div>
                 </div>
@@ -246,7 +246,12 @@ class AnalyticsDashboard extends HTMLElement {
 
     initializeCharts() {
         // Initialize Task Completion Chart
-        const taskCtx = this.querySelector('#taskChart').getContext('2d');
+        const taskCanvas = this.querySelector('#taskChartCanvas');
+        if (!taskCanvas) {
+            console.error('Task chart canvas not found');
+            return;
+        }
+        const taskCtx = taskCanvas.getContext('2d');
         this.taskChart = new Chart(taskCtx, {
             type: 'line',
             data: {
@@ -302,7 +307,12 @@ class AnalyticsDashboard extends HTMLElement {
         });
 
         // Initialize Project Progress Chart
-        const projectCtx = this.querySelector('#projectChart').getContext('2d');
+        const projectCanvas = this.querySelector('#projectChartCanvas');
+        if (!projectCanvas) {
+            console.error('Project chart canvas not found');
+            return;
+        }
+        const projectCtx = projectCanvas.getContext('2d');
         this.projectChart = new Chart(projectCtx, {
             type: 'doughnut',
             data: {

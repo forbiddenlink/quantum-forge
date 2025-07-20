@@ -68,7 +68,10 @@ class TeamSpotlight extends HTMLElement {
                 <div class="member-spotlight">
                     <div class="member-header">
                         <div class="member-avatar-large">
-                            <img src="${member.avatar}" alt="${member.name}" width="64" height="64">
+                            <svg viewBox="0 0 64 64" width="64" height="64" aria-label="${member.name}">
+                                <rect width="64" height="64" fill="${member.avatar.includes('%236366f1') ? '#6366f1' : member.avatar.includes('%23f59e0b') ? '#f59e0b' : '#10b981'}"/>
+                                <text x="32" y="40" font-family="Arial" font-size="24" fill="white" text-anchor="middle" font-weight="bold">${member.name.split(' ').map(n => n[0]).join('')}</text>
+                            </svg>
                             <span class="member-status ${member.status}"></span>
                         </div>
                         <div class="member-info">
