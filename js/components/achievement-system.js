@@ -143,6 +143,39 @@ class AchievementSystem extends HTMLElement {
         }
     }
 
+    checkLoginStreak() {
+        // Check consecutive days login achievements
+        if (this.streaks.login === 3) {
+            this.unlockAchievement({
+                title: 'Regular Visitor',
+                description: 'Logged in 3 days in a row',
+                icon: '🌟',
+                points: 50,
+                type: 'streak'
+            });
+        }
+        
+        if (this.streaks.login === 7) {
+            this.unlockAchievement({
+                title: 'Dedicated User',
+                description: 'Logged in 7 days in a row',
+                icon: '🔥',
+                points: 100,
+                type: 'streak'
+            });
+        }
+
+        if (this.streaks.login === 30) {
+            this.unlockAchievement({
+                title: 'Monthly Master',
+                description: 'Logged in 30 days in a row',
+                icon: '🏆',
+                points: 500,
+                type: 'streak'
+            });
+        }
+    }
+
     checkTaskAchievements() {
         this.streaks.tasks++;
         this.addPoints(5);

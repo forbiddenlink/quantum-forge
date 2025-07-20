@@ -5,7 +5,11 @@ class CollaborationHub extends HTMLElement {
         this.activeUsers = [];
         this.sharedDocuments = [];
         this.collaborativeSpaces = [];
-        this.isConnected = false;
+        this._isConnected = false;
+    }
+
+    get isConnected() {
+        return this._isConnected;
     }
 
     connectedCallback() {
@@ -203,7 +207,7 @@ class CollaborationHub extends HTMLElement {
     initializeCollaboration() {
         // Simulate WebSocket connection
         setTimeout(() => {
-            this.isConnected = true;
+            this._isConnected = true;
             this.updateConnectionStatus();
             this.loadMockData();
         }, 1000);
