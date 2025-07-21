@@ -1,83 +1,73 @@
-/* Enhanced Welcome Section Styles */
+/* Enhanced Welcome Section Styles - Cleaned & Optimized */
+
 :root {
-    --welcome-gradient-start: var(--primary-600);
-    --welcome-gradient-end: var(--primary-700);
+    /* Welcome section specific variables */
+    --welcome-bg-start: #6366f1;
+    --welcome-bg-end: #4338ca;
     --welcome-text: white;
-    --welcome-text-muted: rgba(255, 255, 255, 0.9);
+    --welcome-text-secondary: rgba(255, 255, 255, 0.9);
+    --welcome-text-muted: rgba(255, 255, 255, 0.7);
     --welcome-overlay: rgba(255, 255, 255, 0.1);
+    --welcome-overlay-hover: rgba(255, 255, 255, 0.15);
     --welcome-border: rgba(255, 255, 255, 0.2);
-    --welcome-hover-overlay: rgba(255, 255, 255, 0.15);
-    --welcome-hover-border: rgba(255, 255, 255, 0.3);
-    --progress-bar-bg: rgba(255, 255, 255, 0.2);
-    --progress-bar-fill: rgba(255, 255, 255, 0.9);
+    --welcome-border-hover: rgba(255, 255, 255, 0.3);
+    --welcome-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
+/* Main Welcome Section - FORCE BACKGROUND! */
 .welcome-section {
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-6);
     margin-top: 0;
+    /* Your beloved circle background - ENHANCED and FORCED! */
     background: 
-        linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 50%, var(--primary-800) 100%),
-        radial-gradient(ellipse at top left, rgba(99, 102, 241, 0.3) 0%, transparent 60%),
-        radial-gradient(ellipse at bottom right, rgba(139, 92, 246, 0.2) 0%, transparent 60%);
+        radial-gradient(ellipse 800px 600px at top left, rgba(139, 92, 246, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 600px 800px at bottom right, rgba(99, 102, 241, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 400px 400px at center, rgba(167, 139, 250, 0.3) 0%, transparent 70%),
+        linear-gradient(135deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%) !important;
+    
     border-radius: var(--radius-2xl);
-    padding: var(--space-6);
+    padding: var(--space-8) !important;
     position: relative;
     overflow: hidden;
-    box-shadow: 
-        0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    transition: all var(--duration-normal) var(--ease-spring);
-    will-change: transform;
-    transform: translateZ(0);
+    box-shadow: var(--welcome-shadow);
+    border: 1px solid var(--welcome-border);
+    color: var(--welcome-text);
+    
+    /* Smooth transitions */
+    transition: all var(--duration-normal) var(--ease-in-out);
 }
 
-/* Animated mesh gradient overlay */
+/* Removed spinning overlay - too distracting */
 .welcome-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: 
-        conic-gradient(
-            from 0deg at 50% 50%,
-            transparent 0deg,
-            rgba(255, 255, 255, 0.05) 60deg,
-            transparent 120deg,
-            rgba(255, 255, 255, 0.03) 180deg,
-            transparent 240deg,
-            rgba(255, 255, 255, 0.05) 300deg,
-            transparent 360deg
-        );
-    animation: meshRotate 40s linear infinite;
-    pointer-events: none;
-    will-change: transform;
-    z-index: 1;
-}
-
-/* Subtle wave pattern */
-.welcome-section::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
-        radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
-    animation: waveShift 30s ease-in-out infinite;
+    background: none;
     pointer-events: none;
-    will-change: transform, opacity;
     z-index: 1;
 }
 
-/* Floating orbs for subtle decoration */
+/* SUPER VISIBLE second animated layer! */
+.welcome-section::after {
+    content: '';
+    position: absolute;
+    top: -25%;
+    left: -25%;
+    width: 150%;
+    height: 150%;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.08) 30%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.06) 30%, transparent 50%),
+        radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.07) 30%, transparent 45%);
+    animation: gentleFloat 25s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Simplified floating elements - keep just one set */
 .welcome-section .particles {
     position: absolute;
     top: 0;
@@ -85,249 +75,86 @@
     right: 0;
     bottom: 0;
     pointer-events: none;
-    overflow: hidden;
     z-index: 1;
 }
 
 .welcome-section .particle {
     position: absolute;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
-    pointer-events: none;
-    animation: floatOrb 20s ease-in-out infinite;
-    will-change: transform, opacity;
-    filter: blur(1px);
+    animation: floatGently 25s ease-in-out infinite;
 }
 
 .welcome-section .particle:nth-child(1) {
-    width: 80px;
-    height: 80px;
-    top: 10%;
-    left: 10%;
+    width: 200px;
+    height: 200px;
+    top: 5%;
+    right: 10%;
+    animation: floatGently 20s ease-in-out infinite;
     animation-delay: 0s;
-    animation-duration: 25s;
+    background: radial-gradient(
+        circle, 
+        rgba(255, 255, 255, 0.25) 0%, 
+        rgba(255, 255, 255, 0.15) 40%, 
+        rgba(255, 255, 255, 0.08) 70%, 
+        transparent 100%
+    );
+    filter: blur(1px);
 }
 
 .welcome-section .particle:nth-child(2) {
-    width: 60px;
-    height: 60px;
-    top: 70%;
-    right: 15%;
-    animation-delay: 8s;
-    animation-duration: 20s;
-}
-
-.welcome-section .particle:nth-child(3) {
-    width: 40px;
-    height: 40px;
-    bottom: 20%;
-    left: 70%;
-    animation-delay: 15s;
-    animation-duration: 30s;
-}
-
-/* Accent line decoration */
-.welcome-section .geometric-accent {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(255, 255, 255, 0.2) 20%,
-        rgba(255, 255, 255, 0.4) 50%,
-        rgba(255, 255, 255, 0.2) 80%,
+    width: 150px;
+    height: 150px;
+    bottom: 15%;
+    left: 5%;
+    animation: floatGently 18s ease-in-out infinite reverse;
+    animation-delay: 6s;
+    background: radial-gradient(
+        circle, 
+        rgba(255, 255, 255, 0.22) 0%, 
+        rgba(255, 255, 255, 0.12) 40%, 
+        rgba(255, 255, 255, 0.06) 70%, 
         transparent 100%
     );
-    animation: lineGlow 8s ease-in-out infinite;
-    z-index: 2;
-}
-
-.welcome-section .geometric-accent::before {
-    content: '';
-    position: absolute;
-    top: 30%;
-    right: -1px;
-    width: 4px;
-    height: 40%;
-    background: rgba(255, 255, 255, 0.1);
-    filter: blur(2px);
-    animation: lineGlow 8s ease-in-out infinite reverse;
-}
-
-.welcome-section .geometric-accent::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -8px;
-    width: 16px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 1px;
-    animation: horizontalGlow 6s ease-in-out infinite;
-}
-
-/* Additional decorative elements */
-.welcome-section .mesh-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
-    pointer-events: none;
-    animation: meshShift 25s ease-in-out infinite;
-    will-change: transform, opacity;
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-    .welcome-section::before,
-    .welcome-section::after,
-    .welcome-section .particle,
-    .welcome-section .geometric-accent,
-    .welcome-section .geometric-accent::before,
-    .welcome-section .geometric-accent::after,
-    .welcome-section .mesh-gradient {
-        animation: none;
-    }
-    
-    .welcome-section .particle {
-        opacity: 0.3;
-    }
-}
-
-/* Performance optimizations for mobile */
-@media (max-width: 768px) {
-    .welcome-section .particle {
-        display: none;
-    }
-    
-    .welcome-section .geometric-accent {
-        width: 60px;
-        height: 60px;
-        top: 5%;
-        right: 5%;
-    }
-    
-    .welcome-section .geometric-accent::before {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .welcome-section .geometric-accent::after {
-        width: 20px;
-        height: 20px;
-    }
-}
-
-/* Background animations */
-@keyframes meshRotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes waveShift {
-    0%, 100% {
-        transform: translateX(0) translateY(0) scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: translateX(10px) translateY(-5px) scale(1.02);
-        opacity: 0.8;
-    }
-}
-
-/* Removed patternMove animation - no longer needed */
-
-@keyframes floatOrb {
-    0%, 100% {
-        transform: translateY(0px) translateX(0px) scale(1);
-        opacity: 0.6;
-    }
-    25% {
-        transform: translateY(-10px) translateX(5px) scale(1.1);
-        opacity: 0.8;
-    }
-    50% {
-        transform: translateY(-5px) translateX(-8px) scale(0.9);
-        opacity: 0.7;
-    }
-    75% {
-        transform: translateY(-15px) translateX(3px) scale(1.05);
-        opacity: 0.9;
-    }
-}
-
-@keyframes lineGlow {
-    0%, 100% {
-        opacity: 0.3;
-        transform: scaleY(1);
-    }
-    50% {
-        opacity: 0.8;
-        transform: scaleY(1.05);
-    }
-}
-
-@keyframes horizontalGlow {
-    0%, 100% {
-        opacity: 0.2;
-        transform: scaleX(1);
-    }
-    50% {
-        opacity: 0.6;
-        transform: scaleX(1.2);
-    }
+    filter: blur(1px);
 }
 
 /* Welcome Header */
 .welcome-header {
     position: relative;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
     margin-bottom: var(--space-6);
 }
 
 .welcome-title {
-    font-size: var(--font-size-3xl);
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
     font-weight: 800;
-    color: white !important;
-    margin: 0;
+    color: var(--welcome-text);
+    margin: 0 0 var(--space-3) 0;
     line-height: 1.2;
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
 }
 
 .welcome-title .user-name {
-    color: white !important;
-    font-size: 2.5rem;
+    color: var(--welcome-text);
     font-weight: 900;
-    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .welcome-subtitle {
     font-size: var(--font-size-lg);
-    color: white !important;
+    color: var(--welcome-text-secondary);
     margin: 0;
     font-weight: 500;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    opacity: 0.9;
 }
 
-/* Stats Grid */
+/* Stats Grid - Clean and consistent */
 .welcome-stats {
     position: relative;
     z-index: 2;
@@ -339,39 +166,50 @@
 
 .stat-item {
     background: var(--welcome-overlay);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--welcome-border);
     border-radius: var(--radius-xl);
     padding: var(--space-4);
     text-align: center;
-    transition: all var(--duration-normal) var(--ease-spring);
-    transform-origin: center bottom;
+    transition: all var(--duration-normal) var(--ease-in-out);
+    /* Override any external styles */
+    color: var(--welcome-text) !important;
 }
 
 .stat-item:hover {
-    transform: translateY(-4px) scale(1.02);
-    background: var(--welcome-hover-overlay);
-    border-color: var(--welcome-hover-border);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    background: var(--welcome-overlay-hover);
+    border-color: var(--welcome-border-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .stat-number {
+    display: block;
     font-size: var(--font-size-3xl);
     font-weight: 700;
     margin-bottom: var(--space-2);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: var(--text-primary) !important;
+    color: var(--welcome-text);
 }
 
 .stat-label {
+    display: block;
     font-size: var(--font-size-sm);
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-secondary) !important;
+    letter-spacing: 0.5px;
+    color: var(--welcome-text-muted);
 }
 
-/* Quick Actions */
+/* Warning and error states */
+.stat-item.warning .stat-number {
+    color: #fbbf24;
+}
+
+.stat-item.error .stat-number {
+    color: #f87171;
+}
+
+/* Quick Actions - No movement on hover */
 .quick-actions {
     position: relative;
     z-index: 2;
@@ -386,70 +224,53 @@
     border-radius: var(--radius-xl);
     font-weight: 600;
     font-size: var(--font-size-base);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     display: inline-flex;
     align-items: center;
     gap: var(--space-2);
-    transition: all var(--duration-normal) var(--ease-spring);
+    transition: all var(--duration-normal) var(--ease-in-out);
     white-space: nowrap;
-    min-width: fit-content;
-    position: relative;
-    /* Remove any transform that could cause movement */
-    transform: none !important;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .quick-actions .btn .btn-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     flex-shrink: 0;
 }
 
 .quick-actions .btn.primary {
-    background: white;
-    color: var(--primary-600) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: white !important;
+    color: var(--primary-800) !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+    border: 2px solid rgba(255, 255, 255, 0.9) !important;
+    text-shadow: none !important;
+}
+
+.quick-actions .btn.primary:hover {
+    background: white !important;
+    color: var(--primary-900) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+    border-color: white !important;
+    transform: none !important;
 }
 
 .quick-actions .btn.secondary {
     background: var(--welcome-overlay);
-    color: white !important;
+    color: var(--welcome-text);
     backdrop-filter: blur(8px);
     border: 1px solid var(--welcome-border);
 }
 
-.quick-actions .btn:hover {
-    /* Remove transform to prevent movement */
-    transform: none !important;
-    /* Use box-shadow and background changes instead */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.quick-actions .btn.primary:hover {
-    background: white;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    transform: none !important;
-}
-
 .quick-actions .btn.secondary:hover {
-    background: var(--welcome-hover-overlay);
-    border-color: var(--welcome-hover-border);
-    transform: none !important;
+    background: var(--welcome-overlay-hover);
+    border-color: var(--welcome-border-hover);
 }
 
-/* Override any conflicting button styles from main.css */
-.welcome-section .btn:hover {
-    transform: none !important;
-}
-
-.welcome-section .btn.primary:hover {
-    transform: none !important;
-}
-
-.welcome-section .btn.secondary:hover {
-    transform: none !important;
-}
-
-/* Upcoming Events */
+/* Events Section */
 .upcoming-events {
     position: relative;
     z-index: 2;
@@ -469,34 +290,19 @@
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Collapsible Events */
 .events-list {
     display: grid;
     gap: var(--space-4);
     max-height: 400px;
     overflow-y: auto;
-    transition: max-height 0.3s ease;
-    padding-right: var(--space-4); /* Add padding for scrollbar */
-    margin-right: -var(--space-4); /* Offset padding to maintain alignment */
-    scrollbar-width: thin; /* For Firefox */
-    scrollbar-color: var(--welcome-border) transparent; /* For Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--welcome-border) transparent;
 }
 
-.events-list.collapsed {
-    max-height: 0;
-    overflow: hidden;
-}
-
-/* Webkit scrollbar styling */
 .events-list::-webkit-scrollbar {
     width: 6px;
-}
-
-.events-list::-webkit-scrollbar-track {
-    background: transparent;
 }
 
 .events-list::-webkit-scrollbar-thumb {
@@ -510,20 +316,20 @@
     border: 1px solid var(--welcome-border);
     border-radius: var(--radius-lg);
     padding: var(--space-4);
-    transition: all var(--duration-normal) var(--ease-spring);
+    transition: all var(--duration-normal) var(--ease-in-out);
 }
 
 .event-card:hover {
-    transform: translateY(-2px);
-    background: var(--welcome-hover-overlay);
-    border-color: var(--welcome-hover-border);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    background: var(--welcome-overlay-hover);
+    border-color: var(--welcome-border-hover);
+    transform: none;
 }
 
 .event-time {
     color: var(--welcome-text-muted);
     font-size: var(--font-size-sm);
     margin-bottom: var(--space-2);
+    font-weight: 500;
 }
 
 .event-title {
@@ -531,7 +337,6 @@
     font-weight: 600;
     font-size: var(--font-size-lg);
     margin-bottom: var(--space-2);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .event-participants {
@@ -542,123 +347,174 @@
     gap: var(--space-2);
 }
 
-/* Progress Bar */
-.task-progress {
-    position: relative;
-    z-index: 2;
-    margin: var(--space-6) 0;
-    padding: var(--space-4);
-    background: var(--welcome-overlay);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--welcome-border);
+/* Quick Insights - FORCE VISIBILITY! */
+.welcome-section .quick-insights {
+    position: relative !important;
+    z-index: 2 !important;
+    margin-top: var(--space-8) !important;
+    padding: var(--space-6) !important;
+    background: var(--welcome-overlay) !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid var(--welcome-border) !important;
+    border-radius: var(--radius-xl) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
-.progress-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-3);
+.welcome-section .insights-title {
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-xl) !important;
+    font-weight: 600 !important;
+    margin-bottom: var(--space-6) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
 }
 
-.progress-title {
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    color: var(--welcome-text);
+.welcome-section .insights-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: var(--space-4) !important;
 }
 
-.progress-percentage {
-    font-size: var(--font-size-sm);
-    color: var(--welcome-text-muted);
-    margin-left: var(--space-2);
+.welcome-section .insight-card {
+    background: var(--welcome-overlay) !important;
+    border: 1px solid var(--welcome-border) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-4) !important;
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    backdrop-filter: blur(10px) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
-.progress-bar {
-    position: relative;
-    height: 8px;
-    background: var(--progress-bar-bg);
-    border-radius: var(--radius-full);
-    overflow: hidden;
+.welcome-section .insight-card:hover {
+    background: var(--welcome-overlay-hover) !important;
+    border-color: var(--welcome-border-hover) !important;
+    transform: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
 }
 
-.progress-bar-fill {
-    height: 100%;
-    background: var(--progress-bar-fill);
-    border-radius: var(--radius-full);
-    transition: width 0.3s ease;
+.welcome-section .insight-card .insight-icon {
+    font-size: 1.8rem !important;
+    margin-bottom: var(--space-3) !important;
+    display: block !important;
+    opacity: 0.9 !important;
 }
 
-/* Warning and Error States */
-.stat-item.warning .stat-number {
-    color: var(--warning-100);
+.welcome-section .insight-card h4 {
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: 700 !important;
+    margin-bottom: var(--space-2) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
 }
 
-.stat-item.error .stat-number {
-    color: var(--error-100);
+.welcome-section .insight-card p {
+    color: var(--welcome-text-secondary) !important;
+    font-size: var(--font-size-sm) !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
 }
 
-/* Collapsible Events Toggle */
-.events-toggle {
-    background: none;
-    border: none;
-    color: var(--welcome-text);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: 0;
-    margin-left: auto;
+/* Enhanced Animations - More Visible and Beautiful */
+@keyframes gentleRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.events-toggle:hover {
-    color: var(--welcome-text-muted);
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateX(0px) translateY(0px) scale(1);
+        opacity: 0.8;
+    }
+    25% {
+        transform: translateX(8px) translateY(-10px) scale(1.05);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-5px) translateY(-5px) scale(0.95);
+        opacity: 0.9;
+    }
+    75% {
+        transform: translateX(-8px) translateY(8px) scale(1.02);
+        opacity: 1;
+    }
 }
 
-.events-toggle svg {
-    transition: transform 0.3s ease;
+@keyframes floatGently {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.8;
+    }
+    25% {
+        transform: translateY(-25px) translateX(20px) scale(1.15);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-15px) translateX(-15px) scale(0.85);
+        opacity: 0.9;
+    }
+    75% {
+        transform: translateY(-30px) translateX(10px) scale(1.05);
+        opacity: 1;
+    }
 }
 
-.events-toggle.collapsed svg {
-    transform: rotate(-180deg);
-}
-
-/* Keyboard Shortcuts */
-.shortcut-hint {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: var(--welcome-overlay);
-    padding: 2px 6px;
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-xs);
-    color: var(--welcome-text-muted);
-    border: 1px solid var(--welcome-border);
-    pointer-events: none;
-    transform: scale(0.8);
-    transform-origin: top right;
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .welcome-section::before,
+    .welcome-section::after,
+    .welcome-section .particle {
+        animation: none;
+    }
+    
+    .welcome-section .particle {
+        opacity: 0.3;
+    }
+    
+    .stat-item:hover,
+    .event-card:hover,
+    .insight-card:hover,
+    .quick-actions .btn:hover {
+        transform: none;
+    }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .welcome-section {
-        padding: var(--space-6);
+        padding: var(--space-6) !important;
+        /* Keep visible circles on mobile but smaller */
+        background: 
+            radial-gradient(ellipse 400px 300px at top left, rgba(139, 92, 246, 0.4) 0%, transparent 50%),
+            radial-gradient(ellipse 300px 400px at bottom right, rgba(99, 102, 241, 0.4) 0%, transparent 50%),
+            linear-gradient(135deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%) !important;
     }
-
+    
     .welcome-stats {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-3);
     }
-
+    
     .quick-actions {
         flex-direction: column;
     }
-
+    
     .quick-actions .btn {
         width: 100%;
         justify-content: center;
     }
-
-    .event-card {
-        padding: var(--space-3);
+    
+    .welcome-section .insights-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Hide particles on mobile for performance */
+    .welcome-section .particle {
+        display: none;
     }
 }
 
@@ -666,146 +522,38 @@
     .welcome-stats {
         grid-template-columns: 1fr;
     }
-
+    
     .welcome-title {
         font-size: var(--font-size-2xl);
     }
-
-    .welcome-title .user-name {
-        font-size: 2rem;
-    }
-} 
-
-/* Purple Background Text Contrast Fixes */
-.welcome-section {
-    color: white !important;
 }
 
-.welcome-section .welcome-title,
-.welcome-section .welcome-subtitle,
-.welcome-section .upcoming-events-title,
-.welcome-section .events-title,
-.welcome-section .insights-title,
-.welcome-section h1,
-.welcome-section h2,
-.welcome-section h3,
-.welcome-section h4,
-.welcome-section h5,
-.welcome-section h6 {
-    color: white !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+/* Special styling for different insight types */
+.welcome-section .insight-card.positive {
+    border-color: rgba(34, 197, 94, 0.3) !important;
+    background: linear-gradient(135deg, var(--welcome-overlay) 0%, rgba(34, 197, 94, 0.1) 100%) !important;
 }
 
-.welcome-section .upcoming-events .event-title,
-.welcome-section .events-list .event-title {
-    color: white !important;
-    font-weight: 700 !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+.welcome-section .insight-card.info {
+    border-color: rgba(59, 130, 246, 0.3) !important;
+    background: linear-gradient(135deg, var(--welcome-overlay) 0%, rgba(59, 130, 246, 0.1) 100%) !important;
 }
 
-.welcome-section .upcoming-events .event-time,
-.welcome-section .events-list .event-time {
-    color: rgba(255, 255, 255, 0.95) !important;
-    font-weight: 600 !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+.welcome-section .insight-card.warning {
+    border-color: rgba(245, 158, 11, 0.3) !important;
+    background: linear-gradient(135deg, var(--welcome-overlay) 0%, rgba(245, 158, 11, 0.1) 100%) !important;
 }
 
-/* Stat items should maintain white background with dark text for readability */
-.welcome-section .stat-item {
-    background: rgba(255, 255, 255, 0.95) !important;
-    color: var(--text-primary) !important;
-    text-shadow: none !important;
+/* Dark Theme Support (if needed) */
+[data-theme="dark"] .welcome-section .insight-card {
+    background: var(--welcome-overlay) !important;
+    border-color: var(--welcome-border) !important;
 }
 
-.welcome-section .stat-item * {
-    color: var(--text-primary) !important;
-    text-shadow: none !important;
+[data-theme="dark"] .welcome-section .insight-card h4 {
+    color: var(--welcome-text) !important;
 }
 
-.welcome-section .stat-number {
-    color: var(--primary-600) !important;
-    text-shadow: none !important;
-}
-
-.welcome-section .stat-label {
-    color: var(--text-secondary) !important;
-    text-shadow: none !important;
-}
-
-/* Button text fixes */
-.welcome-section .btn.primary {
-    color: var(--primary-600) !important;
-    background: white !important;
-}
-
-.welcome-section .btn.secondary {
-    color: white !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
-}
-
-/* Quick insights text */
-.welcome-section .insight-card h4 {
-    color: white !important;
-}
-
-.welcome-section .insight-card p {
-    color: rgba(255, 255, 255, 0.9) !important;
-}
-
-/* Event card content */
-.welcome-section .event-card,
-.welcome-section .event-item {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
-    backdrop-filter: blur(10px) !important;
-}
-
-.welcome-section .event-participants {
-    color: rgba(255, 255, 255, 0.8) !important;
-}
-
-/* Dark mode adjustments */
-[data-theme="dark"] .welcome-section .stat-item {
-    background: rgba(255, 255, 255, 0.95) !important;
-    color: var(--text-primary) !important;
-}
-
-[data-theme="dark"] .welcome-section .stat-item * {
-    color: var(--text-primary) !important;
-}
-
-[data-theme="dark"] .welcome-section .stat-number {
-    color: var(--primary-600) !important;
-}
-
-[data-theme="dark"] .welcome-section .stat-label {
-    color: var(--text-secondary) !important;
-} 
-
-/* Quick Insights Section Styling to Match Welcome Card */
-.welcome-section .quick-insights {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.05) !important;
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(10px);
-}
-
-.welcome-section .insights-grid {
-    gap: 1rem;
-}
-
-.welcome-section .insight-card {
-    background: rgba(255, 255, 255, 0.9) !important;
-    border: 1px solid rgba(255, 255, 255, 0.6) !important;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.welcome-section .insight-card:hover {
-    background: rgba(255, 255, 255, 0.95) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+[data-theme="dark"] .welcome-section .insight-card p {
+    color: var(--welcome-text-secondary) !important;
 } 

@@ -269,7 +269,7 @@
 /* Removed purple glow effects from all elements */
 .update-card,
 .event-card,
-.task-card,
+/* .task-card, - Excluded to preserve enhanced-task-card specific transitions */
 .document-card,
 .resource-card,
 .course-card,
@@ -366,7 +366,7 @@
 .stat-card:hover,
 .update-card:hover,
 .event-card:hover,
-.task-card:hover,
+/* .task-card:hover, - Excluded to preserve enhanced-task-card hover effects */
 .document-card:hover,
 .resource-card:hover,
 .course-card:hover,

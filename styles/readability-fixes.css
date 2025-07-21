@@ -77,7 +77,12 @@ p, span, div, li {
 
 /* Task system fixes */
 .task-system .task-description,
-.task-system .task-meta {
+.task-system .task-meta,
+.enhanced-task-system .task-description,
+.enhanced-task-system .task-meta,
+.enhanced-task-card .task-description,
+.kanban-task-description,
+.task-title-cell p {
     color: var(--text-secondary) !important;
     font-weight: 400 !important;
 }
@@ -367,161 +372,8 @@ button, .btn {
     color: var(--warning-400) !important;
 } 
 
-/* Purple Background Fixes for Welcome Section */
-.welcome-section .upcoming-events .event-title,
-.welcome-section .events-list .event-title {
-    color: white !important;
-    font-weight: 600 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
-}
-
-.welcome-section .upcoming-events .event-time,
-.welcome-section .events-list .event-time {
-    color: rgba(255, 255, 255, 0.95) !important;
-    font-weight: 500 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
-}
-
-.welcome-section .upcoming-events h4,
-.welcome-section .events-title,
-.welcome-section .insights-title {
-    color: white !important;
-    font-weight: 700 !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* Team Spotlight in purple areas - ensure white text */
-.welcome-section .team-spotlight,
-.welcome-section .team-spotlight * {
-    color: white !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
-}
-
-.welcome-section .team-spotlight .member-name {
-    color: white !important;
-    font-weight: 700 !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
-}
-
-.welcome-section .team-spotlight .member-role {
-    color: rgba(255, 255, 255, 0.95) !important;
-    font-weight: 600 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
-}
-
-.welcome-section .team-spotlight .member-department {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-weight: 500 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
-    background: rgba(255, 255, 255, 0.2) !important;
-    backdrop-filter: blur(10px) !important;
-}
-
-.welcome-section .team-spotlight .event-title {
-    color: white !important;
-    font-weight: 600 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
-}
-
-.welcome-section .team-spotlight .event-time {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-weight: 500 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
-}
-
-.welcome-section .team-spotlight .achievements-list li {
-    color: white !important;
-    font-weight: 600 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
-    background: rgba(255, 255, 255, 0.2) !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
-}
-
-.welcome-section .team-spotlight .skill-tag {
-    color: white !important;
-    font-weight: 600 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
-    background: rgba(255, 255, 255, 0.2) !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
-}
-
-/* Event items in purple backgrounds - High Contrast Fixes */
-.welcome-section .event-item,
-.welcome-section .event-card {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border-color: rgba(255, 255, 255, 0.3) !important;
-    backdrop-filter: blur(10px) !important;
-}
-
-.welcome-section .event-item .event-title,
-.welcome-section .event-card .event-title {
-    color: white !important;
-    font-weight: 700 !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
-    font-size: 0.9rem !important;
-}
-
-.welcome-section .event-item .event-time,
-.welcome-section .event-card .event-time {
-    color: rgba(255, 255, 255, 0.95) !important;
-    font-weight: 600 !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
-    font-size: 0.8rem !important;
-}
-
-.welcome-section .event-content {
-    color: white !important;
-}
-
-.welcome-section .event-content * {
-    color: white !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
-}
-
-.welcome-section .event-participants {
-    color: rgba(255, 255, 255, 0.9) !important;
-    font-weight: 500 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
-}
-
-/* Upcoming events section in purple areas */
-.welcome-section .upcoming-events,
-.welcome-section .events-list {
-    color: white !important;
-}
-
-.welcome-section .upcoming-events *,
-.welcome-section .events-list * {
-    color: white !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
-}
-
-.welcome-section .upcoming-events .event-title,
-.welcome-section .events-list .event-title {
-    color: white !important;
-    font-weight: 700 !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
-}
-
-.welcome-section .upcoming-events .event-time,
-.welcome-section .events-list .event-time {
-    color: rgba(255, 255, 255, 0.95) !important;
-    font-weight: 600 !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
-}
-
-/* Override badge styling for event times in purple background areas */
-.welcome-section .event-time.badge,
-.welcome-section .event-time.badge.primary,
-.welcome-section .badge.primary,
-.welcome-section .badge {
-    background: rgba(255, 255, 255, 0.9) !important;
-    color: var(--text-primary) !important;
-    text-shadow: none !important;
-    font-weight: 600 !important;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    backdrop-filter: blur(5px) !important;
-}
+/* Welcome Section Styling - Handled entirely in welcome-section.css */
+/* Removed conflicting !important overrides to prevent style conflicts */
 
 /* Ensure any element with badge class in purple areas is readable */
 .welcome-section .badge,

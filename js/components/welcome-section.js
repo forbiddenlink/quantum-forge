@@ -9,11 +9,30 @@ class WelcomeSection {
         this.initializeStats();
         this.initializeEventsList();
         this.initializeShortcuts();
-        this.initializeProgressBar();
+        this.addDataAttributesToStats();
         
         // Update greeting and stats periodically
         setInterval(() => this.updateGreeting(), 60000); // Every minute
         setInterval(() => this.updateStats(), 30000); // Every 30 seconds
+    }
+
+    addDataAttributesToStats() {
+        // Add data-value attributes for animation if they don't exist
+        const stats = [
+            { selector: '.stat-item[aria-label*="Active projects"] .stat-number', value: 12 },
+            { selector: '.stat-item[aria-label*="Team members"] .stat-number', value: 8 },
+            { selector: '.stat-item[aria-label*="meetings"] .stat-number', value: 3 },
+            { selector: '.stat-item[aria-label*="Tasks completed"] .stat-number', value: 24 },
+            { selector: '.stat-item[aria-label*="due today"] .stat-number', value: 5 },
+            { selector: '.stat-item[aria-label*="Overdue"] .stat-number', value: 2 }
+        ];
+
+        stats.forEach(stat => {
+            const element = document.querySelector(stat.selector);
+            if (element && !element.dataset.value) {
+                element.dataset.value = stat.value;
+            }
+        });
     }
 
     updateGreeting() {
@@ -35,7 +54,7 @@ class WelcomeSection {
     initializeStats() {
         const stats = document.querySelectorAll('.stat-number');
         stats.forEach(stat => {
-            const value = parseInt(stat.dataset.value);
+            const value = parseInt(stat.dataset.value || stat.textContent);
             this.animateNumber(stat, 0, value);
         });
     }
@@ -124,7 +143,7 @@ class WelcomeSection {
         const stats = document.querySelectorAll('.stat-number');
         stats.forEach(stat => {
             const currentValue = parseInt(stat.textContent);
-            const newValue = parseInt(stat.dataset.value);
+            const newValue = parseInt(stat.dataset.value || currentValue);
             if (currentValue !== newValue) {
                 this.animateNumber(stat, currentValue, newValue);
             }

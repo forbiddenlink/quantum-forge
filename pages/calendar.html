@@ -74,6 +74,15 @@
     <link rel="stylesheet" href="../styles/page-specific.css">
 </head>
 <body class="custom-scrollbar">
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2>Loading Calendar</h2>
+            <p>Organizing your schedule and events</p>
+        </div>
+    </div>
+
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="dashboard" role="application">
         <!-- Header will be injected here -->
@@ -235,5 +244,27 @@
     <script src="../js/components/unified-search.js"></script>
     <script src="../js/components/calendar.js?v=2"></script>
     <script src="../js/app.js"></script>
+    
+    <script>
+        // Initialize page-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Calendar page loaded');
+            
+            // Hide loading screen
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                    document.body.classList.remove('loading');
+                }
+            }, 1000);
+
+            // Set active page in sidebar
+            const sidebar = document.querySelector('app-sidebar');
+            if (sidebar && sidebar.setActivePage) {
+                sidebar.setActivePage('calendar');
+            }
+        });
+    </script>
 </body>
 </html> 

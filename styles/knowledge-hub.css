@@ -5,6 +5,9 @@
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-lg);
     transition: all var(--duration-normal) var(--ease-spring);
+    margin: 0;
+    padding: 0;
+    display: block;
 }
 
 .knowledge-hub:hover {
@@ -13,7 +16,7 @@
 }
 
 .hub-header {
-    padding: var(--space-6);
+    padding: var(--space-4);
     border-bottom: 1px solid var(--border-color);
     background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-secondary) 100%);
     display: flex;
@@ -76,7 +79,7 @@
 }
 
 .hub-filters {
-    padding: var(--space-4) var(--space-6);
+    padding: var(--space-3) var(--space-4);
     border-bottom: 1px solid var(--border-color);
     background: var(--bg-secondary);
 }
@@ -275,9 +278,10 @@
 }
 
 .resource-insights {
-    padding: var(--space-6);
+    padding: var(--space-6) var(--space-6) 0 var(--space-6);
     border-top: 1px solid var(--border-color);
     background: var(--bg-secondary);
+    margin-bottom: 0 !important;
 }
 
 .insights-title {

@@ -12,6 +12,9 @@ class Sidebar extends HTMLElement {
         const savedCollapsed = localStorage.getItem('sidebarCollapsed');
         this.collapsed = savedCollapsed === 'true';
         
+        // Detect current page from URL
+        this.detectCurrentPage();
+        
         // Apply initial state without animation
         if (this.collapsed) {
             document.documentElement.style.setProperty('--sidebar-transition', 'none');
@@ -24,6 +27,34 @@ class Sidebar extends HTMLElement {
         this.render();
         this.setupEventListeners();
         this.loadUserPreferences();
+    }
+
+    detectCurrentPage() {
+        const path = window.location.pathname;
+        const filename = path.split('/').pop();
+        
+        // Map filenames to page identifiers
+        const pageMap = {
+            'index.html': 'dashboard',
+            '': 'dashboard', // Root path
+            'projects.html': 'projects',
+            'tasks.html': 'tasks',
+            'team.html': 'team',
+            'calendar.html': 'calendar',
+            'analytics.html': 'analytics',
+            'collaboration.html': 'collaboration',
+            'polls.html': 'polls',
+            'culture.html': 'culture',
+            'office.html': 'office',
+            'documents.html': 'documents',
+            'knowledge.html': 'knowledge',
+            'resources.html': 'resources',
+            'training.html': 'training',
+            'helpdesk.html': 'helpdesk',
+            'handbook.html': 'handbook'
+        };
+        
+        this.activeItem = pageMap[filename] || 'dashboard';
     }
 
     loadUserPreferences() {
@@ -85,6 +116,21 @@ class Sidebar extends HTMLElement {
                                 </a>
                             </li>
                             <li class="nav-item" role="none">
+                                <a href="/pages/tasks.html" class="nav-link ${this.activeItem === 'tasks' ? 'active' : ''}" role="menuitem" data-page="tasks">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 11l3 3L22 4"></path>
+                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                    <span class="nav-text">Tasks</span>
+                                    <button class="favorite-btn ${this.favorites.has('tasks') ? 'active' : ''}" data-page="tasks">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </li>
+                            <li class="nav-item" role="none">
                                 <a href="/pages/team.html" class="nav-link ${this.activeItem === 'team' ? 'active' : ''}" role="menuitem" data-page="team">
                                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -115,6 +161,88 @@ class Sidebar extends HTMLElement {
                                     </button>
                                 </a>
                             </li>
+                            <li class="nav-item" role="none">
+                                <a href="/pages/analytics.html" class="nav-link ${this.activeItem === 'analytics' ? 'active' : ''}" role="menuitem" data-page="analytics">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                                    </svg>
+                                    <span class="nav-text">Analytics</span>
+                                    <button class="favorite-btn ${this.favorites.has('analytics') ? 'active' : ''}" data-page="analytics">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Collaboration Section -->
+                    <div class="nav-section">
+                        <div class="nav-section-header">
+                            <h2 class="nav-section-title">Collaboration</h2>
+                        </div>
+                        <ul class="nav-list" role="menu">
+                            <li class="nav-item" role="none">
+                                <a href="/pages/collaboration.html" class="nav-link ${this.activeItem === 'collaboration' ? 'active' : ''}" role="menuitem" data-page="collaboration">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                    <span class="nav-text">Collaboration Hub</span>
+                                    <button class="favorite-btn ${this.favorites.has('collaboration') ? 'active' : ''}" data-page="collaboration">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </li>
+                            <li class="nav-item" role="none">
+                                <a href="/pages/polls.html" class="nav-link ${this.activeItem === 'polls' ? 'active' : ''}" role="menuitem" data-page="polls">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <path d="M8 12h8"></path>
+                                        <path d="M8 16h6"></path>
+                                    </svg>
+                                    <span class="nav-text">Polls & Feedback</span>
+                                    <button class="favorite-btn ${this.favorites.has('polls') ? 'active' : ''}" data-page="polls">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </li>
+                            <li class="nav-item" role="none">
+                                <a href="/pages/culture.html" class="nav-link ${this.activeItem === 'culture' ? 'active' : ''}" role="menuitem" data-page="culture">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                    </svg>
+                                    <span class="nav-text">Company Culture</span>
+                                    <button class="favorite-btn ${this.favorites.has('culture') ? 'active' : ''}" data-page="culture">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </li>
+                            <li class="nav-item" role="none">
+                                <a href="/pages/office.html" class="nav-link ${this.activeItem === 'office' ? 'active' : ''}" role="menuitem" data-page="office">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                    </svg>
+                                    <span class="nav-text">Office Map</span>
+                                    <button class="favorite-btn ${this.favorites.has('office') ? 'active' : ''}" data-page="office">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
@@ -131,6 +259,20 @@ class Sidebar extends HTMLElement {
                                         <polyline points="13 2 13 9 20 9"></polyline>
                                     </svg>
                                     <span class="nav-text">Documents</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" role="none">
+                                <a href="/pages/knowledge.html" class="nav-link ${this.activeItem === 'knowledge' ? 'active' : ''}" role="menuitem" data-page="knowledge">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                        <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"></path>
+                                    </svg>
+                                    <span class="nav-text">Knowledge Hub</span>
+                                    <button class="favorite-btn ${this.favorites.has('knowledge') ? 'active' : ''}" data-page="knowledge">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                        </svg>
+                                    </button>
                                 </a>
                             </li>
                             <li class="nav-item" role="none">
@@ -288,6 +430,20 @@ class Sidebar extends HTMLElement {
             }
             helpDialog.open();
         });
+    }
+
+    setActivePage(page) {
+        this.activeItem = page;
+        // Update active states
+        this.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.dataset.page === page) {
+                link.classList.add('active');
+            }
+        });
+        
+        // Store current page in localStorage for persistence
+        localStorage.setItem('currentPage', page);
     }
 }
 
