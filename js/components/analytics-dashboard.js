@@ -223,25 +223,90 @@ class AnalyticsDashboard extends HTMLElement {
         const rangeSelector = this.querySelector('.range-selector');
         const refreshBtn = this.querySelector('#refreshAnalytics');
         const viewAllBtn = this.querySelector('#viewAllActivity');
+        const metricCards = this.querySelectorAll('.metric-card');
+        const insightCards = this.querySelectorAll('.insight-card');
 
         if (rangeSelector) {
             rangeSelector.addEventListener('change', (e) => {
                 this.selectedRange = e.target.value;
                 this.updateDashboard();
+                this.announceUpdate(`Analytics updated for ${e.target.value}`);
             });
+
+            // Enhanced accessibility
+            rangeSelector.setAttribute('aria-label', 'Select time range for analytics data');
         }
 
         if (refreshBtn) {
             refreshBtn.addEventListener('click', () => {
                 this.refreshData();
             });
+            
+            // Enhanced accessibility
+            refreshBtn.setAttribute('aria-label', 'Refresh analytics data');
+            refreshBtn.setAttribute('title', 'Refresh analytics data');
         }
 
         if (viewAllBtn) {
             viewAllBtn.addEventListener('click', () => {
                 this.showAllActivity();
             });
+            
+            // Enhanced accessibility
+            viewAllBtn.setAttribute('aria-label', 'View all activity details');
         }
+
+        // Add hover effects and accessibility for metric cards
+        metricCards.forEach((card, index) => {
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-label', `View details for metric ${index + 1}`);
+            
+            card.addEventListener('click', () => {
+                this.highlightMetric(card);
+            });
+            
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.highlightMetric(card);
+                }
+            });
+            
+            card.addEventListener('mouseenter', () => {
+                this.animateMetricCard(card, true);
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                this.animateMetricCard(card, false);
+            });
+        });
+
+        // Add interactions for insight cards
+        insightCards.forEach((card, index) => {
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-label', `View insight details ${index + 1}`);
+            
+            card.addEventListener('click', () => {
+                this.expandInsight(card);
+            });
+            
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.expandInsight(card);
+                }
+            });
+        });
+
+        // Add keyboard navigation
+        this.addEventListener('keydown', (e) => {
+            if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
+                e.preventDefault();
+                this.refreshData();
+            }
+        });
     }
 
     initializeCharts() {
@@ -260,16 +325,30 @@ class AnalyticsDashboard extends HTMLElement {
                     {
                         label: 'Completed Tasks',
                         data: [12, 19, 15, 17, 14, 12, 16],
-                        borderColor: 'rgb(99, 102, 241)',
+                        borderColor: '#6366f1',
+                        backgroundColor: 'rgba(99, 102, 241, 0.1)',
                         tension: 0.4,
-                        fill: false
+                        fill: false,
+                        borderWidth: 3,
+                        pointBackgroundColor: '#6366f1',
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 2,
+                        pointRadius: 5,
+                        pointHoverRadius: 7
                     },
                     {
                         label: 'In Progress',
                         data: [7, 11, 8, 9, 6, 5, 8],
-                        borderColor: 'rgb(249, 115, 22)',
+                        borderColor: '#eab308',
+                        backgroundColor: 'rgba(234, 179, 8, 0.1)',
                         tension: 0.4,
-                        fill: false
+                        fill: false,
+                        borderWidth: 3,
+                        pointBackgroundColor: '#eab308',
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 2,
+                        pointRadius: 5,
+                        pointHoverRadius: 7
                     }
                 ]
             },
@@ -283,23 +362,47 @@ class AnalyticsDashboard extends HTMLElement {
                     tooltip: {
                         mode: 'index',
                         intersect: false,
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        titleColor: '#1e293b',
+                        backgroundColor: '#ffffff',
+                        titleColor: '#0f172a',
                         bodyColor: '#475569',
                         borderColor: '#e2e8f0',
-                        borderWidth: 1
+                        borderWidth: 1,
+                        cornerRadius: 8,
+                        titleFont: {
+                            family: "'Inter', sans-serif",
+                            weight: '600'
+                        },
+                        bodyFont: {
+                            family: "'Inter', sans-serif"
+                        }
                     }
                 },
                 scales: {
                     y: {
                         beginAtZero: true,
                         grid: {
-                            color: 'rgba(226, 232, 240, 0.5)'
+                            color: '#e2e8f0',
+                            lineWidth: 1
+                        },
+                        ticks: {
+                            color: '#475569',
+                            font: {
+                                family: "'Inter', sans-serif",
+                                size: 12
+                            }
                         }
                     },
                     x: {
                         grid: {
                             display: false
+                        },
+                        ticks: {
+                            color: '#475569',
+                            font: {
+                                family: "'Inter', sans-serif",
+                                size: 12,
+                                weight: '500'
+                            }
                         }
                     }
                 }
@@ -320,11 +423,18 @@ class AnalyticsDashboard extends HTMLElement {
                 datasets: [{
                     data: [65, 25, 10],
                     backgroundColor: [
-                        'rgb(99, 102, 241)',
-                        'rgb(249, 115, 22)',
-                        'rgb(226, 232, 240)'
+                        '#6366f1',
+                        '#eab308',
+                        '#e2e8f0'
                     ],
-                    borderWidth: 0
+                    borderColor: [
+                        '#4f46e5',
+                        '#ca8a04',
+                        '#cbd5e1'
+                    ],
+                    borderWidth: 2,
+                    hoverBorderWidth: 3,
+                    hoverOffset: 8
                 }]
             },
             options: {
@@ -336,17 +446,28 @@ class AnalyticsDashboard extends HTMLElement {
                         labels: {
                             boxWidth: 12,
                             padding: 20,
+                            color: '#475569',
                             font: {
-                                family: "'Inter', sans-serif"
+                                family: "'Inter', sans-serif",
+                                size: 12,
+                                weight: '500'
                             }
                         }
                     },
                     tooltip: {
-                        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                        titleColor: '#1e293b',
+                        backgroundColor: '#ffffff',
+                        titleColor: '#0f172a',
                         bodyColor: '#475569',
                         borderColor: '#e2e8f0',
-                        borderWidth: 1
+                        borderWidth: 1,
+                        cornerRadius: 8,
+                        titleFont: {
+                            family: "'Inter', sans-serif",
+                            weight: '600'
+                        },
+                        bodyFont: {
+                            family: "'Inter', sans-serif"
+                        }
                     }
                 },
                 cutout: '75%'
@@ -501,9 +622,14 @@ class AnalyticsDashboard extends HTMLElement {
 
     refreshData() {
         // Simulate data refresh
-        this.querySelector('#refreshAnalytics').style.transform = 'rotate(360deg)';
+        const refreshBtn = this.querySelector('#refreshAnalytics');
+        refreshBtn.style.transform = 'rotate(360deg)';
+        refreshBtn.setAttribute('aria-label', 'Refreshing analytics data...');
+        
         setTimeout(() => {
-            this.querySelector('#refreshAnalytics').style.transform = 'rotate(0deg)';
+            refreshBtn.style.transform = 'rotate(0deg)';
+            refreshBtn.setAttribute('aria-label', 'Refresh analytics data');
+            this.announceUpdate('Analytics data refreshed');
         }, 1000);
 
         // Update with new data
@@ -513,6 +639,86 @@ class AnalyticsDashboard extends HTMLElement {
     showAllActivity() {
         // Navigate to full activity page or show modal
         window.location.href = '/pages/activity.html';
+    }
+
+    // Enhanced interaction methods
+    announceUpdate(message) {
+        // Create or update screen reader announcement
+        let announcer = document.getElementById('analytics-announcer');
+        if (!announcer) {
+            announcer = document.createElement('div');
+            announcer.id = 'analytics-announcer';
+            announcer.setAttribute('aria-live', 'polite');
+            announcer.setAttribute('aria-atomic', 'true');
+            announcer.style.position = 'absolute';
+            announcer.style.left = '-10000px';
+            announcer.style.width = '1px';
+            announcer.style.height = '1px';
+            announcer.style.overflow = 'hidden';
+            document.body.appendChild(announcer);
+        }
+        announcer.textContent = message;
+    }
+
+    highlightMetric(card) {
+        // Remove previous highlights
+        this.querySelectorAll('.metric-card').forEach(c => c.classList.remove('highlighted'));
+        
+        // Add highlight to selected card
+        card.classList.add('highlighted');
+        
+        // Animate the card
+        card.style.transform = 'translateY(-4px) scale(1.02)';
+        setTimeout(() => {
+            card.style.transform = '';
+        }, 300);
+
+        // Announce the metric
+        const label = card.querySelector('.metric-label').textContent;
+        const value = card.querySelector('.metric-value span:first-child').textContent;
+        this.announceUpdate(`${label}: ${value}`);
+    }
+
+    animateMetricCard(card, isEntering) {
+        if (isEntering) {
+            card.style.transform = 'translateY(-2px)';
+            card.style.boxShadow = 'var(--shadow-lg)';
+            card.style.borderColor = 'var(--primary-200)';
+        } else if (!card.classList.contains('highlighted')) {
+            card.style.transform = '';
+            card.style.boxShadow = '';
+            card.style.borderColor = '';
+        }
+    }
+
+    expandInsight(card) {
+        // Toggle expanded state
+        const isExpanded = card.classList.contains('expanded');
+        
+        // Remove expanded from all cards
+        this.querySelectorAll('.insight-card').forEach(c => c.classList.remove('expanded'));
+        
+        if (!isExpanded) {
+            card.classList.add('expanded');
+            
+            // Add expanded content if not exists
+            if (!card.querySelector('.insight-expanded')) {
+                const expandedContent = document.createElement('div');
+                expandedContent.className = 'insight-expanded';
+                expandedContent.innerHTML = `
+                    <div style="margin-top: var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--border-color);">
+                        <button class="btn secondary small" style="font-size: var(--font-size-xs);">
+                            Learn More
+                        </button>
+                    </div>
+                `;
+                card.appendChild(expandedContent);
+            }
+            
+            // Announce expansion
+            const title = card.querySelector('h4').textContent;
+            this.announceUpdate(`Expanded insight: ${title}`);
+        }
     }
 }
 

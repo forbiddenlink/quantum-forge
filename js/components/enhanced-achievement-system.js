@@ -3,400 +3,509 @@ class EnhancedAchievementSystem extends HTMLElement {
     constructor() {
         super();
         this.achievements = [];
-        this.userPoints = 0;
         this.userLevel = 1;
-        this.streaks = {
-            login: 0,
-            tasks: 0,
-            collaboration: 0,
-            learning: 0
-        };
-        this.badges = new Map();
-        this.leaderboard = [];
-        this.socialFeatures = {
-            likes: 0,
-            shares: 0,
-            comments: 0
-        };
+        this.userPoints = 0;
+        this.userStreak = 0;
+        this.recentAchievements = [];
+        this.isInitialized = false;
     }
 
     connectedCallback() {
-        this.loadUserData();
+        this.loadAchievements();
         this.render();
         this.setupEventListeners();
-        this.startTracking();
-        this.initializeSocialFeatures();
+        this.startAchievementTracking();
+        this.initializeGamification();
+    }
+
+    loadAchievements() {
+        this.achievements = [
+            {
+                id: 'first_task',
+                title: 'Task Master',
+                description: 'Complete your first task',
+                icon: '📋',
+                points: 10,
+                category: 'productivity',
+                unlocked: false
+            },
+            {
+                id: 'team_collaborator',
+                title: 'Team Player',
+                description: 'Participate in 5 team activities',
+                icon: '👥',
+                points: 25,
+                category: 'collaboration',
+                unlocked: false
+            },
+            {
+                id: 'knowledge_seeker',
+                title: 'Knowledge Seeker',
+                description: 'Read 10 articles from the knowledge hub',
+                icon: '📚',
+                points: 30,
+                category: 'learning',
+                unlocked: false
+            },
+            {
+                id: 'meeting_organizer',
+                title: 'Meeting Organizer',
+                description: 'Schedule and host 3 meetings',
+                icon: '📅',
+                points: 40,
+                category: 'leadership',
+                unlocked: false
+            },
+            {
+                id: 'document_creator',
+                title: 'Document Creator',
+                description: 'Create 5 documents',
+                icon: '📄',
+                points: 35,
+                category: 'productivity',
+                unlocked: false
+            },
+            {
+                id: 'weather_watcher',
+                title: 'Weather Watcher',
+                description: 'Check weather widget 7 days in a row',
+                icon: '🌤️',
+                points: 20,
+                category: 'engagement',
+                unlocked: false
+            },
+            {
+                id: 'poll_participant',
+                title: 'Voice of the Team',
+                description: 'Participate in 5 team polls',
+                icon: '🗳️',
+                points: 15,
+                category: 'engagement',
+                unlocked: false
+            },
+            {
+                id: 'ai_assistant_user',
+                title: 'AI Enthusiast',
+                description: 'Use AI assistant 10 times',
+                icon: '🤖',
+                points: 50,
+                category: 'innovation',
+                unlocked: false
+            }
+        ];
     }
 
     render() {
         this.innerHTML = `
             <div class="enhanced-achievement-system">
                 <div class="achievement-header">
-                    <div class="user-profile-card">
+                    <h3 class="achievement-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                        </svg>
+                        Achievements & Progress
+                    </h3>
+                    <div class="achievement-stats">
                         <div class="level-badge">
-                            <div class="level-ring">
-                                <svg viewBox="0 0 36 36" class="level-progress">
-                                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                                    <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" 
-                                          stroke-dasharray="${this.getLevelProgress()}, 100"/>
-                                </svg>
-                                <span class="level-number">${this.userLevel}</span>
-                            </div>
+                            <span class="level-number">${this.userLevel}</span>
                             <span class="level-label">Level</span>
                         </div>
-                        <div class="user-stats">
-                            <div class="points-display">
-                                <span class="points-number">${this.userPoints.toLocaleString()}</span>
-                                <span class="points-label">Points</span>
-                            </div>
-                            <div class="rank-display">
-                                <span class="rank-number">#${this.getUserRank()}</span>
-                                <span class="rank-label">Rank</span>
-                            </div>
+                        <div class="points-display">
+                            <span class="points-number">${this.userPoints}</span>
+                            <span class="points-label">Points</span>
                         </div>
-                    </div>
-                    
-                    <div class="streak-display">
-                        <div class="streak-item">
-                            <span class="streak-icon">🔥</span>
-                            <span class="streak-count">${this.streaks.login}</span>
-                            <span class="streak-label">Login</span>
-                        </div>
-                        <div class="streak-item">
-                            <span class="streak-icon">✅</span>
-                            <span class="streak-count">${this.streaks.tasks}</span>
-                            <span class="streak-label">Tasks</span>
-                        </div>
-                        <div class="streak-item">
-                            <span class="streak-icon">🤝</span>
-                            <span class="streak-count">${this.streaks.collaboration}</span>
-                            <span class="streak-label">Team</span>
-                        </div>
-                        <div class="streak-item">
-                            <span class="streak-icon">📚</span>
-                            <span class="streak-count">${this.streaks.learning}</span>
-                            <span class="streak-label">Learning</span>
+                        <div class="streak-counter">
+                            <span class="streak-number">${this.userStreak}</span>
+                            <span class="streak-label">Day Streak</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="badges-section">
-                    <h3>Badges & Achievements</h3>
-                    <div class="badges-grid">
-                        ${this.renderBadges()}
+
+                <div class="achievement-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${this.getProgressPercentage()}%"></div>
+                    </div>
+                    <span class="progress-text">${this.userPoints} / ${this.getNextLevelPoints()} points to next level</span>
+                </div>
+
+                <div class="recent-achievements">
+                    <h4>Recent Achievements</h4>
+                    <div class="achievements-list">
+                        ${this.renderRecentAchievements()}
                     </div>
                 </div>
-                
-                <div class="leaderboard-section">
-                    <h3>Leaderboard</h3>
-                    <div class="leaderboard-list">
-                        ${this.renderLeaderboard()}
+
+                <div class="next-achievements">
+                    <h4>Next Achievements</h4>
+                    <div class="achievements-grid">
+                        ${this.renderNextAchievements()}
                     </div>
                 </div>
-                
-                <div class="social-section">
-                    <h3>Social Activity</h3>
-                    <div class="social-stats">
-                        <div class="social-stat">
-                            <span class="social-icon">👍</span>
-                            <span class="social-count">${this.socialFeatures.likes}</span>
-                            <span class="social-label">Likes</span>
-                        </div>
-                        <div class="social-stat">
-                            <span class="social-icon">📤</span>
-                            <span class="social-count">${this.socialFeatures.shares}</span>
-                            <span class="social-label">Shares</span>
-                        </div>
-                        <div class="social-stat">
-                            <span class="social-icon">💬</span>
-                            <span class="social-count">${this.socialFeatures.comments}</span>
-                            <span class="social-label">Comments</span>
-                        </div>
-                    </div>
+
+                <div class="achievement-actions">
+                    <button class="btn secondary" id="viewAllAchievements">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"></path>
+                            <circle cx="12" cy="12" r="10"></circle>
+                        </svg>
+                        View All
+                    </button>
+                    <button class="btn primary" id="shareAchievements">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                            <polyline points="16 6 12 2 8 6"></polyline>
+                            <line x1="12" y1="2" x2="12" y2="15"></line>
+                        </svg>
+                        Share Progress
+                    </button>
                 </div>
             </div>
         `;
     }
 
-    renderBadges() {
-        const badges = [
-            { id: 'first-login', name: 'First Steps', icon: '🚀', earned: true, rarity: 'common' },
-            { id: 'task-master', name: 'Task Master', icon: '🎯', earned: this.streaks.tasks >= 50, rarity: 'rare' },
-            { id: 'team-player', name: 'Team Player', icon: '🤝', earned: this.streaks.collaboration >= 10, rarity: 'epic' },
-            { id: 'knowledge-seeker', name: 'Knowledge Seeker', icon: '📚', earned: this.streaks.learning >= 5, rarity: 'legendary' },
-            { id: 'streak-master', name: 'Streak Master', icon: '🔥', earned: this.streaks.login >= 30, rarity: 'mythic' },
-            { id: 'early-bird', name: 'Early Bird', icon: '🌅', earned: false, rarity: 'common' }
-        ];
-
-        return badges.map(badge => `
-            <div class="badge-card ${badge.earned ? 'earned' : 'locked'} ${badge.rarity}">
-                <div class="badge-icon">${badge.icon}</div>
-                <div class="badge-info">
-                    <h4 class="badge-name">${badge.name}</h4>
-                    <span class="badge-rarity">${badge.rarity}</span>
+    renderRecentAchievements() {
+        if (this.recentAchievements.length === 0) {
+            return `
+                <div class="empty-achievements">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    </svg>
+                    <p>Complete tasks to earn achievements!</p>
                 </div>
-                ${badge.earned ? '<div class="badge-earned">✓</div>' : '<div class="badge-locked">🔒</div>'}
+            `;
+        }
+
+        return this.recentAchievements.slice(0, 3).map(achievement => `
+            <div class="achievement-item unlocked">
+                <div class="achievement-icon">${achievement.icon}</div>
+                <div class="achievement-content">
+                    <h5 class="achievement-title">${achievement.title}</h5>
+                    <p class="achievement-description">${achievement.description}</p>
+                    <span class="achievement-points">+${achievement.points} points</span>
+                </div>
             </div>
         `).join('');
     }
 
-    renderLeaderboard() {
-        const topUsers = [
-            { name: 'Sarah Chen', points: 2840, level: 8, avatar: 'SC' },
-            { name: 'Mike Rodriguez', points: 2650, level: 7, avatar: 'MR' },
-            { name: 'Lisa Thompson', points: 2420, level: 6, avatar: 'LT' },
-            { name: 'You', points: this.userPoints, level: this.userLevel, avatar: 'YO', isCurrentUser: true }
-        ];
+    renderNextAchievements() {
+        const unlockedAchievements = this.achievements.filter(a => a.unlocked);
+        const nextAchievements = this.achievements
+            .filter(a => !a.unlocked)
+            .slice(0, 4);
 
-        return topUsers.map((user, index) => `
-            <div class="leaderboard-item ${user.isCurrentUser ? 'current-user' : ''}">
-                <div class="rank-position">#${index + 1}</div>
-                <div class="user-avatar">${user.avatar}</div>
-                <div class="user-info">
-                    <h4 class="user-name">${user.name}</h4>
-                    <span class="user-level">Level ${user.level}</span>
+        return nextAchievements.map(achievement => `
+            <div class="achievement-item locked">
+                <div class="achievement-icon">${achievement.icon}</div>
+                <div class="achievement-content">
+                    <h5 class="achievement-title">${achievement.title}</h5>
+                    <p class="achievement-description">${achievement.description}</p>
+                    <span class="achievement-points">+${achievement.points} points</span>
                 </div>
-                <div class="user-points">${user.points.toLocaleString()}</div>
             </div>
         `).join('');
-    }
-
-    getLevelProgress() {
-        const pointsForNextLevel = this.userLevel * 100;
-        const pointsInCurrentLevel = this.userPoints % 100;
-        return (pointsInCurrentLevel / 100) * 100;
-    }
-
-    getUserRank() {
-        // Mock rank calculation
-        return Math.max(1, Math.floor(Math.random() * 50) + 1);
-    }
-
-    initializeSocialFeatures() {
-        // Simulate social interactions
-        setInterval(() => {
-            if (Math.random() > 0.7) {
-                this.socialFeatures.likes++;
-                this.updateSocialDisplay();
-            }
-        }, 30000);
-    }
-
-    updateSocialDisplay() {
-        const socialStats = this.querySelectorAll('.social-count');
-        socialStats[0].textContent = this.socialFeatures.likes;
-        socialStats[1].textContent = this.socialFeatures.shares;
-        socialStats[2].textContent = this.socialFeatures.comments;
-    }
-
-    unlockBadge(badgeId) {
-        const badge = this.querySelector(`[data-badge-id="${badgeId}"]`);
-        if (badge && !badge.classList.contains('earned')) {
-            badge.classList.add('earned');
-            badge.classList.remove('locked');
-            
-            // Show unlock animation
-            this.showBadgeUnlockAnimation(badge);
-        }
-    }
-
-    showBadgeUnlockAnimation(badge) {
-        badge.style.animation = 'badgeUnlock 1s ease-out';
-        setTimeout(() => {
-            badge.style.animation = '';
-        }, 1000);
-    }
-
-    addPoints(points, reason = '') {
-        const oldPoints = this.userPoints;
-        this.userPoints += points;
-        
-        // Animate points increase
-        this.animatePointsChange(oldPoints, this.userPoints);
-        
-        // Check for level up
-        const newLevel = Math.floor(this.userPoints / 100) + 1;
-        if (newLevel > this.userLevel) {
-            this.levelUp(newLevel);
-        }
-        
-        // Show points notification
-        this.showPointsNotification(points, reason);
-        
-        this.saveUserData();
-    }
-
-    animatePointsChange(oldPoints, newPoints) {
-        const pointsElement = this.querySelector('.points-number');
-        if (!pointsElement) return;
-
-        const duration = 1000;
-        const startTime = performance.now();
-        
-        const animate = (currentTime) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            const currentPoints = Math.floor(oldPoints + (newPoints - oldPoints) * progress);
-            pointsElement.textContent = currentPoints.toLocaleString();
-            
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            }
-        };
-        
-        requestAnimationFrame(animate);
-    }
-
-    showPointsNotification(points, reason) {
-        const notification = document.createElement('div');
-        notification.className = 'points-notification';
-        notification.innerHTML = `
-            <div class="notification-content">
-                <div class="notification-icon">🎉</div>
-                <div class="notification-text">
-                    <h4>+${points} Points!</h4>
-                    <p>${reason || 'Great work!'}</p>
-                </div>
-            </div>
-        `;
-        
-        document.body.appendChild(notification);
-        setTimeout(() => notification.classList.add('show'), 100);
-        
-        setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
-        }, 3000);
-    }
-
-    levelUp(newLevel) {
-        this.userLevel = newLevel;
-        
-        const notification = document.createElement('div');
-        notification.className = 'level-up-notification enhanced';
-        notification.innerHTML = `
-            <div class="level-up-content">
-                <div class="level-up-icon">🎉</div>
-                <div class="level-up-text">
-                    <h4>Level Up!</h4>
-                    <p>You reached level ${newLevel}</p>
-                    <div class="level-rewards">
-                        <span class="reward">+100 Points</span>
-                        <span class="reward">New Badge</span>
-                        <span class="reward">Profile Frame</span>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        document.body.appendChild(notification);
-        setTimeout(() => notification.classList.add('show'), 100);
-        
-        setTimeout(() => {
-            notification.classList.remove('show');
-            setTimeout(() => notification.remove(), 300);
-        }, 5000);
-    }
-
-    loadUserData() {
-        const savedData = localStorage.getItem('enhancedAchievementData');
-        if (savedData) {
-            const data = JSON.parse(savedData);
-            this.achievements = data.achievements || [];
-            this.userPoints = data.points || 0;
-            this.userLevel = data.level || 1;
-            this.streaks = data.streaks || { login: 0, tasks: 0, collaboration: 0, learning: 0 };
-            this.socialFeatures = data.socialFeatures || { likes: 0, shares: 0, comments: 0 };
-        }
-    }
-
-    saveUserData() {
-        const data = {
-            achievements: this.achievements,
-            points: this.userPoints,
-            level: this.userLevel,
-            streaks: this.streaks,
-            socialFeatures: this.socialFeatures
-        };
-        localStorage.setItem('enhancedAchievementData', JSON.stringify(data));
     }
 
     setupEventListeners() {
-        // Listen for user actions
+        const viewAllBtn = this.querySelector('#viewAllAchievements');
+        const shareBtn = this.querySelector('#shareAchievements');
+
+        if (viewAllBtn) {
+            viewAllBtn.addEventListener('click', () => this.showAllAchievements());
+        }
+
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => this.shareProgress());
+        }
+    }
+
+    startAchievementTracking() {
+        // Track user actions for achievements
+        this.trackTaskCompletion();
+        this.trackTeamActivities();
+        this.trackKnowledgeHubUsage();
+        this.trackMeetingOrganization();
+        this.trackDocumentCreation();
+        this.trackWeatherChecks();
+        this.trackPollParticipation();
+        this.trackAIUsage();
+    }
+
+    trackTaskCompletion() {
         document.addEventListener('taskCompleted', () => {
-            this.streaks.tasks++;
-            this.addPoints(10, 'Task completed');
-            this.checkTaskAchievements();
-        });
-
-        document.addEventListener('collaboration', () => {
-            this.streaks.collaboration++;
-            this.addPoints(5, 'Team collaboration');
-            this.checkCollaborationAchievements();
-        });
-
-        document.addEventListener('learning', () => {
-            this.streaks.learning++;
-            this.addPoints(15, 'Learning milestone');
-            this.checkLearningAchievements();
+            this.checkAchievement('first_task');
         });
     }
 
-    startTracking() {
-        this.trackDailyLogin();
+    trackTeamActivities() {
+        document.addEventListener('teamActivity', () => {
+            this.incrementActivityCount('team_activities');
+            if (this.getActivityCount('team_activities') >= 5) {
+                this.checkAchievement('team_collaborator');
+            }
+        });
+    }
+
+    trackKnowledgeHubUsage() {
+        document.addEventListener('articleRead', () => {
+            this.incrementActivityCount('articles_read');
+            if (this.getActivityCount('articles_read') >= 10) {
+                this.checkAchievement('knowledge_seeker');
+            }
+        });
+    }
+
+    trackMeetingOrganization() {
+        document.addEventListener('meetingScheduled', () => {
+            this.incrementActivityCount('meetings_organized');
+            if (this.getActivityCount('meetings_organized') >= 3) {
+                this.checkAchievement('meeting_organizer');
+            }
+        });
+    }
+
+    trackDocumentCreation() {
+        document.addEventListener('documentCreated', () => {
+            this.incrementActivityCount('documents_created');
+            if (this.getActivityCount('documents_created') >= 5) {
+                this.checkAchievement('document_creator');
+            }
+        });
+    }
+
+    trackWeatherChecks() {
+        document.addEventListener('weatherChecked', () => {
+            this.incrementActivityCount('weather_checks');
+            if (this.getActivityCount('weather_checks') >= 7) {
+                this.checkAchievement('weather_watcher');
+            }
+        });
+    }
+
+    trackPollParticipation() {
+        document.addEventListener('pollParticipated', () => {
+            this.incrementActivityCount('polls_participated');
+            if (this.getActivityCount('polls_participated') >= 5) {
+                this.checkAchievement('poll_participant');
+            }
+        });
+    }
+
+    trackAIUsage() {
+        document.addEventListener('aiUsed', () => {
+            this.incrementActivityCount('ai_usage');
+            if (this.getActivityCount('ai_usage') >= 10) {
+                this.checkAchievement('ai_assistant_user');
+            }
+        });
+    }
+
+    checkAchievement(achievementId) {
+        const achievement = this.achievements.find(a => a.id === achievementId);
+        if (achievement && !achievement.unlocked) {
+            this.unlockAchievement(achievement);
+        }
+    }
+
+    unlockAchievement(achievement) {
+        achievement.unlocked = true;
+        this.userPoints += achievement.points;
+        this.recentAchievements.unshift(achievement);
         
-        setInterval(() => {
-            this.checkForNewAchievements();
-        }, 30000);
+        // Keep only last 5 recent achievements
+        if (this.recentAchievements.length > 5) {
+            this.recentAchievements = this.recentAchievements.slice(0, 5);
+        }
+
+        this.checkLevelUp();
+        this.render();
+        this.showAchievementNotification(achievement);
+        this.saveProgress();
     }
 
-    trackDailyLogin() {
+    checkLevelUp() {
+        const nextLevelPoints = this.getNextLevelPoints();
+        if (this.userPoints >= nextLevelPoints) {
+            this.userLevel++;
+            this.showLevelUpNotification();
+        }
+    }
+
+    getNextLevelPoints() {
+        return this.userLevel * 100;
+    }
+
+    getProgressPercentage() {
+        const currentLevelPoints = (this.userLevel - 1) * 100;
+        const pointsInCurrentLevel = this.userPoints - currentLevelPoints;
+        const pointsNeededForLevel = 100;
+        return Math.min(100, (pointsInCurrentLevel / pointsNeededForLevel) * 100);
+    }
+
+    showAchievementNotification(achievement) {
+        const notification = document.createElement('div');
+        notification.className = 'achievement-notification';
+        notification.innerHTML = `
+            <div class="achievement-notification-content">
+                <div class="achievement-notification-icon">${achievement.icon}</div>
+                <div class="achievement-notification-text">
+                    <h4>Achievement Unlocked!</h4>
+                    <p>${achievement.title}</p>
+                    <span>+${achievement.points} points</span>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Remove notification after 5 seconds
+        setTimeout(() => {
+            notification.remove();
+        }, 5000);
+    }
+
+    showLevelUpNotification() {
+        const notification = document.createElement('div');
+        notification.className = 'level-up-notification';
+        notification.innerHTML = `
+            <div class="level-up-notification-content">
+                <div class="level-up-notification-icon">🎉</div>
+                <div class="level-up-notification-text">
+                    <h4>Level Up!</h4>
+                    <p>You've reached level ${this.userLevel}!</p>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Remove notification after 5 seconds
+        setTimeout(() => {
+            notification.remove();
+        }, 5000);
+    }
+
+    showAllAchievements() {
+        const modal = document.createElement('div');
+        modal.className = 'modal achievement-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>All Achievements</h2>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="achievements-grid">
+                        ${this.achievements.map(achievement => `
+                            <div class="achievement-item ${achievement.unlocked ? 'unlocked' : 'locked'}">
+                                <div class="achievement-icon">${achievement.icon}</div>
+                                <div class="achievement-content">
+                                    <h5 class="achievement-title">${achievement.title}</h5>
+                                    <p class="achievement-description">${achievement.description}</p>
+                                    <span class="achievement-points">+${achievement.points} points</span>
+                                    ${achievement.unlocked ? '<span class="achievement-status">✓ Unlocked</span>' : ''}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Handle close button
+        const closeBtn = modal.querySelector('.close-btn');
+        closeBtn.addEventListener('click', () => modal.remove());
+
+        // Close on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.remove();
+        });
+    }
+
+    shareProgress() {
+        const shareText = `I'm level ${this.userLevel} with ${this.userPoints} points in Quantum Forge! 🚀`;
+        
+        if (navigator.share) {
+            navigator.share({
+                title: 'My Quantum Forge Progress',
+                text: shareText,
+                url: window.location.href
+            });
+        } else {
+            // Fallback: copy to clipboard
+            navigator.clipboard.writeText(shareText).then(() => {
+                this.showNotification('Progress copied to clipboard!', 'success');
+            });
+        }
+    }
+
+    initializeGamification() {
+        // Initialize daily streak tracking
+        this.checkDailyStreak();
+        
+        // Set up daily login tracking
         const today = new Date().toDateString();
         const lastLogin = localStorage.getItem('lastLogin');
         
         if (lastLogin !== today) {
-            this.streaks.login++;
-            this.addPoints(5, 'Daily login');
-            this.checkLoginAchievements();
+            this.userStreak++;
             localStorage.setItem('lastLogin', today);
+            localStorage.setItem('userStreak', this.userStreak);
+        } else {
+            this.userStreak = parseInt(localStorage.getItem('userStreak') || '0');
         }
     }
 
-    checkLoginAchievements() {
-        if (this.streaks.login === 7) {
-            this.unlockBadge('early-bird');
-            this.addPoints(50, 'Week streak!');
+    checkDailyStreak() {
+        const today = new Date();
+        const lastLogin = localStorage.getItem('lastLogin');
+        
+        if (lastLogin) {
+            const lastLoginDate = new Date(lastLogin);
+            const daysDiff = Math.floor((today - lastLoginDate) / (1000 * 60 * 60 * 24));
+            
+            if (daysDiff > 1) {
+                // Streak broken
+                this.userStreak = 0;
+                localStorage.setItem('userStreak', '0');
+            }
         }
     }
 
-    checkTaskAchievements() {
-        if (this.streaks.tasks === 50) {
-            this.unlockBadge('task-master');
-            this.addPoints(100, 'Task master!');
-        }
+    incrementActivityCount(activity) {
+        const count = this.getActivityCount(activity) + 1;
+        localStorage.setItem(`activity_${activity}`, count.toString());
     }
 
-    checkCollaborationAchievements() {
-        if (this.streaks.collaboration === 10) {
-            this.unlockBadge('team-player');
-            this.addPoints(75, 'Team player!');
-        }
+    getActivityCount(activity) {
+        return parseInt(localStorage.getItem(`activity_${activity}`) || '0');
     }
 
-    checkLearningAchievements() {
-        if (this.streaks.learning === 5) {
-            this.unlockBadge('knowledge-seeker');
-            this.addPoints(150, 'Knowledge seeker!');
-        }
+    saveProgress() {
+        localStorage.setItem('userLevel', this.userLevel.toString());
+        localStorage.setItem('userPoints', this.userPoints.toString());
+        localStorage.setItem('userStreak', this.userStreak.toString());
+        localStorage.setItem('recentAchievements', JSON.stringify(this.recentAchievements));
     }
 
-    checkForNewAchievements() {
-        // Additional achievement checks
-        if (this.userPoints >= 1000 && !this.badges.has('points-master')) {
-            this.badges.set('points-master', true);
-            this.addPoints(200, 'Points master!');
-        }
+    loadProgress() {
+        this.userLevel = parseInt(localStorage.getItem('userLevel') || '1');
+        this.userPoints = parseInt(localStorage.getItem('userPoints') || '0');
+        this.userStreak = parseInt(localStorage.getItem('userStreak') || '0');
+        this.recentAchievements = JSON.parse(localStorage.getItem('recentAchievements') || '[]');
+    }
+
+    showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
     }
 }
 

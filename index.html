@@ -5,18 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Quantum Forge company intranet - Your enhanced digital workspace for collaboration, innovation, and growth">
     <meta name="theme-color" content="#6366f1">
-    <!-- Performance optimizations -->
+    
+    <!-- NEW: Enhanced SEO and Performance Meta Tags -->
+    <meta name="keywords" content="intranet, digital workspace, collaboration, productivity, team management, workplace technology">
+    <meta name="author" content="Quantum Forge Team">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Quantum Forge - Enhanced Digital Workspace">
+    <meta property="og:description" content="Next-generation employee portal with AI-powered features, real-time analytics, and seamless collaboration">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quantum-forge.com">
+    <meta property="og:image" content="https://quantum-forge.com/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quantum Forge - Enhanced Digital Workspace">
+    <meta name="twitter:description" content="Next-generation employee portal with AI-powered features, real-time analytics, and seamless collaboration">
+    
+    <!-- NEW: Performance Optimizations -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="styles/main.css" as="style">
     <link rel="preload" href="styles/enhanced.css" as="style">
+    <link rel="preload" href="js/app.js" as="script">
+    
+    <!-- NEW: Critical CSS Inline -->
+    <style>
+        /* Critical rendering path CSS */
+        body { margin: 0; font-family: 'Inter', sans-serif; }
+        .dashboard { min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .loading { display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .loading-spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #6366f1; border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
     
     <title>Quantum Forge - Enhanced Digital Workspace</title>
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Three.js dependencies -->
+    <!-- NEW: Enhanced Library Loading with Fallbacks -->
+    <script>
+        // Performance monitoring
+        window.performance.mark('app-start');
+        
+        // Feature detection
+        window.supportsWebGL = (function() {
+            try {
+                const canvas = document.createElement('canvas');
+                return !!(window.WebGLRenderingContext && 
+                    (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+            } catch(e) {
+                return false;
+            }
+        })();
+        
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/js/service-worker.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+    
+    <!-- Three.js dependencies with fallback -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         // Create OrbitControls if not available
@@ -49,7 +107,7 @@
         }
     </script>
     
-    <!-- Enhanced visualization libraries -->
+    <!-- Enhanced visualization libraries with error handling -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs/Sortable.min.js"></script>
@@ -57,9 +115,19 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css" rel="stylesheet">
     
+    <!-- NEW: Progressive Enhancement -->
+    <script>
+        // Check for modern browser features
+        window.modernBrowser = !!(window.fetch && window.Promise && window.IntersectionObserver);
+        
+        // Graceful degradation for older browsers
+        if (!window.modernBrowser) {
+            document.documentElement.classList.add('legacy-browser');
+        }
+    </script>
+    
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/enhanced.css">
     <link rel="stylesheet" href="styles/enhanced-colors.css">
     <link rel="stylesheet" href="styles/company-news.css">
     <link rel="stylesheet" href="styles/interactive-poll.css">
@@ -68,8 +136,21 @@
     <link rel="stylesheet" href="styles/knowledge-hub.css">
     <link rel="stylesheet" href="styles/sidebar.css">
     <link rel="stylesheet" href="styles/contest-enhancements.css">
+    <link rel="stylesheet" href="styles/enhanced.css">
+    <link rel="stylesheet" href="styles/welcome-section.css">
+    <link rel="stylesheet" href="styles/team.css">
+    <link rel="stylesheet" href="styles/readability-fixes.css">
 </head>
-<body class="custom-scrollbar">
+<body class="custom-scrollbar loading">
+    <!-- NEW: Loading Screen -->
+    <div id="loading-screen" class="loading">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2>Loading Quantum Forge...</h2>
+            <p>Preparing your enhanced digital workspace</p>
+        </div>
+    </div>
+    
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="dashboard" role="application">
         <!-- Header will be injected here -->
@@ -86,6 +167,14 @@
                     <!-- Welcome Section as first card -->
                     <div class="dashboard-item full-width">
                         <div class="welcome-section" role="region" aria-label="Welcome section">
+                            <!-- Modern background elements -->
+                            <div class="particles">
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                                <div class="particle"></div>
+                            </div>
+                            <div class="geometric-accent"></div>
+                            
                             <div class="welcome-header">
                                 <h1 class="welcome-title">
                                     Good afternoon, <span class="user-name">Liz</span>
@@ -208,11 +297,49 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- NEW: Enhanced Quick Insights -->
+                            <div class="quick-insights">
+                                <h3 class="insights-title">
+                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                    </svg>
+                                    Today's Insights
+                                </h3>
+                                <div class="insights-grid">
+                                    <div class="insight-card positive">
+                                        <div class="insight-icon">📈</div>
+                                        <div class="insight-content">
+                                            <h4>Productivity Peak</h4>
+                                            <p>Your team completed 15% more tasks than yesterday</p>
+                                        </div>
+                                    </div>
+                                    <div class="insight-card info">
+                                        <div class="insight-icon">🤝</div>
+                                        <div class="insight-content">
+                                            <h4>Team Collaboration</h4>
+                                            <p>3 new team members joined your projects</p>
+                                        </div>
+                                    </div>
+                                    <div class="insight-card warning">
+                                        <div class="insight-icon">⏰</div>
+                                        <div class="insight-content">
+                                            <h4>Meeting Reminder</h4>
+                                            <p>You have 2 meetings scheduled for today</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="dashboard-item full-width">
                         <office-visualizer></office-visualizer>
+                    </div>
+
+                    <!-- NEW: Company Culture Showcase -->
+                    <div class="dashboard-item full-width">
+                        <company-culture-showcase></company-culture-showcase>
                     </div>
 
                     <div class="dashboard-item full-width">
@@ -241,7 +368,7 @@
                     </div>
 
                     <div class="dashboard-item">
-                        <interactive-poll></interactive-poll>
+                        <enhanced-interactive-poll></enhanced-interactive-poll>
                     </div>
 
                     <div class="dashboard-item">
@@ -262,8 +389,60 @@
     <!-- AI Assistant -->
     <ai-assistant></ai-assistant>
 
+    <!-- NEW: Performance Monitoring -->
+    <script>
+        // Performance monitoring
+        let loadingScreenHidden = false;
+        
+        window.addEventListener('load', () => {
+            window.performance.mark('app-loaded');
+            window.performance.measure('app-load-time', 'app-start', 'app-loaded');
+            
+            const loadTime = performance.getEntriesByName('app-load-time')[0];
+            console.log(`App loaded in ${loadTime.duration}ms`);
+            
+            // Hide loading screen with better timing
+            hideLoadingScreen();
+        });
+
+        // Also hide loading screen when DOM is ready and components are loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Give components time to initialize
+            setTimeout(() => {
+                hideLoadingScreen();
+            }, 1500); // Increased to 1.5 seconds for better component loading
+        });
+
+        // Fallback: hide loading screen after 4 seconds regardless
+        setTimeout(() => {
+            hideLoadingScreen();
+        }, 4000);
+
+        function hideLoadingScreen() {
+            // Prevent multiple calls
+            if (loadingScreenHidden) return;
+            
+            const loadingScreen = document.getElementById('loading-screen');
+            
+            if (loadingScreen && loadingScreen.style.display !== 'none') {
+                loadingScreenHidden = true;
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    // Enable scrolling on body and remove loading class
+                    document.body.style.overflow = 'auto';
+                    document.body.classList.remove('loading');
+                    console.log('✅ Loading screen hidden');
+                }, 300);
+            }
+        }
+    </script>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/services/performance-monitor.js"></script>
+    <script src="js/services/performance-manager.js"></script>
     <script src="js/services/analytics.js"></script>
     <script src="js/components/header.js"></script>
     <script src="js/components/analytics-dashboard.js"></script>
@@ -282,6 +461,8 @@
     <script src="js/components/knowledge-hub.js"></script>
     <script src="js/components/sidebar.js"></script>
     <script src="js/components/help-dialog.js"></script>
+    <script src="js/components/company-culture-showcase.js"></script>
+    <script src="js/components/enhanced-interactive-poll.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

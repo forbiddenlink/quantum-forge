@@ -404,67 +404,64 @@ class OfficeVisualizer extends HTMLElement {
         animate();
     }
 
-    startRealTimeUpdates() {
-        // Simulate real-time updates
-        setInterval(() => {
-            this.updateTeamMemberLocations();
-            this.updateRoomAvailability();
-        }, 5000);
+    initializeRealTimeUpdates() {
+        // Clear any existing interval
+        if (this.realTimeInterval) {
+            clearInterval(this.realTimeInterval);
+        }
+
+        // Simulate real-time updates with reduced frequency
+        this.realTimeInterval = setInterval(() => {
+            // Only update every 4th call (20 seconds instead of 5)
+            if (!this.updateCounter) this.updateCounter = 0;
+            this.updateCounter++;
+            
+            if (this.updateCounter % 4 === 0) {
+                this.updateTeamMemberLocations();
+                this.updateRoomAvailability();
+            }
+            
+            // Stop updates after 15 cycles (75 seconds) to save resources
+            if (this.updateCounter >= 15) {
+                clearInterval(this.realTimeInterval);
+                console.log('Office visualizer updates stopped to save resources');
+            }
+        }, 5000); // Keep 5-second interval but reduce actual updates
     }
 
     updateTeamMemberLocations() {
-        if (!this.isInitialized) return;
-
-        // Simulate team member movement
-        const teamMembers = [
-            { id: 1, name: 'Alice', department: 'Engineering' },
-            { id: 2, name: 'Bob', department: 'Design' },
-            { id: 3, name: 'Charlie', department: 'Marketing' }
-        ];
-
-        teamMembers.forEach(member => {
-            if (!this.teamLocations.has(member.id)) {
-                const geometry = new THREE.SphereGeometry(0.2);
-                const material = new THREE.MeshPhongMaterial({ color: 0x10b981 });
-                const marker = new THREE.Mesh(geometry, material);
-                marker.position.set(
-                    (Math.random() - 0.5) * 15,
-                    0.5,
-                    (Math.random() - 0.5) * 15
-                );
-                this.scene.add(marker);
-
-                this.teamLocations.set(member.id, {
-                    marker,
-                    target: new THREE.Vector3(
-                        (Math.random() - 0.5) * 15,
-                        0.5,
-                        (Math.random() - 0.5) * 15
-                    )
-                });
-            } else {
-                const location = this.teamLocations.get(member.id);
-                location.target.set(
-                    (Math.random() - 0.5) * 15,
-                    0.5,
-                    (Math.random() - 0.5) * 15
-                );
+        // Simulate team member movement with reduced frequency
+        this.teamLocations.forEach((location, memberId) => {
+            // Only update 30% of team members each cycle
+            if (Math.random() > 0.7) {
+                const newX = Math.random() * 20 - 10;
+                const newZ = Math.random() * 20 - 10;
+                location.x = newX;
+                location.z = newZ;
+                
+                const marker = this.getOrCreateTeamMarker(memberId);
+                if (marker) {
+                    marker.position.set(newX, 0.5, newZ);
+                }
             }
         });
     }
 
     updateRoomAvailability() {
-        // Simulate room availability changes
-        const rooms = [
-            { id: 'room1', name: 'Brainstorm Room', floor: 1 },
-            { id: 'room2', name: 'Meeting Room A', floor: 2 },
-            { id: 'room3', name: 'Conference Room', floor: 3 }
-        ];
-
-        rooms.forEach(room => {
-            const isAvailable = Math.random() > 0.5;
-            const hotspot = this.getOrCreateHotspot(room.id);
-            hotspot.material.color.setHex(isAvailable ? 0x10b981 : 0xef4444);
+        // Simulate room availability changes with reduced frequency
+        this.hotspots.forEach((hotspot, roomId) => {
+            // Only update 20% of rooms each cycle
+            if (Math.random() > 0.8) {
+                const statuses = ['available', 'occupied', 'meeting'];
+                const newStatus = statuses[Math.floor(Math.random() * statuses.length)];
+                hotspot.status = newStatus;
+                
+                // Update hotspot appearance
+                if (hotspot.mesh) {
+                    const color = this.getStatusColor(newStatus);
+                    hotspot.mesh.material.color.setHex(color);
+                }
+            }
         });
     }
 

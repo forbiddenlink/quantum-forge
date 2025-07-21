@@ -1,0 +1,660 @@
+/* Readability Fixes - High Priority Overrides */
+
+/* Global text contrast improvements */
+* {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure minimum text contrast ratios */
+body {
+    color: var(--text-primary);
+}
+
+/* High priority text color fixes */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+
+/* Paragraph and body text */
+p, span, div, li {
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+/* Secondary text that should still be readable */
+.text-secondary,
+.meta-text,
+.description,
+.subtitle {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* Specific component fixes */
+.team-spotlight * {
+    color: var(--text-primary);
+}
+
+.team-spotlight .event-title {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+}
+
+.team-spotlight .event-time {
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+    font-size: 0.75rem !important;
+    opacity: 1 !important;
+}
+
+.team-spotlight .member-role,
+.team-spotlight .member-department {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+}
+
+/* Company news fixes */
+.company-news .news-excerpt {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+.company-news .news-meta {
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+}
+
+/* Analytics dashboard fixes */
+.analytics-dashboard .metric-insight,
+.analytics-dashboard .activity-meta {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* Task system fixes */
+.task-system .task-description,
+.task-system .task-meta {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* Weather widget fixes */
+.weather-widget .weather-details {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* Knowledge hub fixes */
+.knowledge-hub .article-meta {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* Achievement system fixes */
+.achievement-system .achievement-description {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* Collaboration hub fixes */
+.collaboration-hub .project-meta {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* Company culture showcase fixes */
+.company-culture-showcase .story-text,
+.company-culture-showcase .value-description {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* Button text readability */
+.btn {
+    font-weight: 500 !important;
+}
+
+.btn.primary {
+    color: white !important;
+}
+
+.btn.secondary {
+    color: var(--text-primary) !important;
+}
+
+/* Navigation text */
+.nav-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+}
+
+.nav-link.active {
+    color: var(--primary-600) !important;
+    font-weight: 600 !important;
+}
+
+/* Form elements */
+input, textarea, select {
+    color: var(--text-primary) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.8 !important;
+}
+
+/* Card content */
+.card .card-title {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+
+.card .card-text,
+.card .card-content {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* Widget content */
+.widget .widget-title {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+
+.widget .widget-content {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* Table content */
+table th {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+
+table td {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* List content */
+ul li, ol li {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* Badge content */
+.badge {
+    font-weight: 500 !important;
+}
+
+/* Alert content */
+.alert {
+    color: var(--text-primary) !important;
+    font-weight: 400 !important;
+}
+
+/* Modal content */
+.modal .modal-title {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+
+.modal .modal-body {
+    color: var(--text-secondary) !important;
+    font-weight: 400 !important;
+}
+
+/* Tooltip content */
+.tooltip {
+    color: white !important;
+    font-weight: 500 !important;
+}
+
+/* Specific font size improvements for readability */
+.font-size-xs {
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+}
+
+.font-size-sm {
+    font-size: 0.9rem !important;
+    font-weight: 400 !important;
+}
+
+/* Dark mode specific fixes */
+[data-theme="dark"] {
+    color: var(--text-primary-dark);
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: var(--text-primary-dark) !important;
+}
+
+[data-theme="dark"] .text-secondary,
+[data-theme="dark"] .meta-text,
+[data-theme="dark"] .description,
+[data-theme="dark"] .subtitle {
+    color: var(--text-secondary-dark) !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    color: var(--text-primary-dark) !important;
+}
+
+[data-theme="dark"] .team-spotlight .event-title {
+    color: var(--text-primary-dark) !important;
+}
+
+[data-theme="dark"] .team-spotlight .event-time {
+    color: var(--text-secondary-dark) !important;
+}
+
+/* Accessibility improvements */
+@media (prefers-contrast: high) {
+    * {
+        color: black !important;
+    }
+    
+    [data-theme="dark"] * {
+        color: white !important;
+    }
+    
+    .text-secondary {
+        color: #333 !important;
+    }
+    
+    [data-theme="dark"] .text-secondary {
+        color: #ccc !important;
+    }
+}
+
+/* Font weight improvements for better readability */
+strong, b {
+    font-weight: 700 !important;
+}
+
+em, i {
+    font-style: italic;
+    font-weight: 500 !important;
+}
+
+/* Link readability */
+a {
+    color: var(--primary-600) !important;
+    font-weight: 500 !important;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-700) !important;
+    text-decoration: underline;
+}
+
+[data-theme="dark"] a {
+    color: var(--primary-400) !important;
+}
+
+[data-theme="dark"] a:hover {
+    color: var(--primary-300) !important;
+}
+
+/* Code readability */
+code, pre {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+    background: var(--bg-secondary) !important;
+    padding: 0.2em 0.4em !important;
+    border-radius: 0.25rem !important;
+}
+
+[data-theme="dark"] code,
+[data-theme="dark"] pre {
+    color: var(--text-primary-dark) !important;
+    background: var(--bg-secondary-dark) !important;
+}
+
+/* Ensure all interactive elements are readable */
+button, .btn {
+    font-weight: 500 !important;
+}
+
+/* Loading and placeholder text */
+.loading-text,
+.placeholder-text {
+    color: var(--text-muted) !important;
+    font-weight: 400 !important;
+    opacity: 0.8 !important;
+}
+
+/* Error and success messages */
+.error-message {
+    color: var(--error-700) !important;
+    font-weight: 500 !important;
+}
+
+.success-message {
+    color: var(--success-700) !important;
+    font-weight: 500 !important;
+}
+
+.warning-message {
+    color: var(--warning-700) !important;
+    font-weight: 500 !important;
+}
+
+[data-theme="dark"] .error-message {
+    color: var(--error-400) !important;
+}
+
+[data-theme="dark"] .success-message {
+    color: var(--success-400) !important;
+}
+
+[data-theme="dark"] .warning-message {
+    color: var(--warning-400) !important;
+} 
+
+/* Purple Background Fixes for Welcome Section */
+.welcome-section .upcoming-events .event-title,
+.welcome-section .events-list .event-title {
+    color: white !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.welcome-section .upcoming-events .event-time,
+.welcome-section .events-list .event-time {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 500 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.welcome-section .upcoming-events h4,
+.welcome-section .events-title,
+.welcome-section .insights-title {
+    color: white !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Team Spotlight in purple areas - ensure white text */
+.welcome-section .team-spotlight,
+.welcome-section .team-spotlight * {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+.welcome-section .team-spotlight .member-name {
+    color: white !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+}
+
+.welcome-section .team-spotlight .member-role {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.welcome-section .team-spotlight .member-department {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.welcome-section .team-spotlight .event-title {
+    color: white !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.welcome-section .team-spotlight .event-time {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.welcome-section .team-spotlight .achievements-list li {
+    color: white !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.welcome-section .team-spotlight .skill-tag {
+    color: white !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Event items in purple backgrounds - High Contrast Fixes */
+.welcome-section .event-item,
+.welcome-section .event-card {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.welcome-section .event-item .event-title,
+.welcome-section .event-card .event-title {
+    color: white !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+    font-size: 0.9rem !important;
+}
+
+.welcome-section .event-item .event-time,
+.welcome-section .event-card .event-time {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7) !important;
+    font-size: 0.8rem !important;
+}
+
+.welcome-section .event-content {
+    color: white !important;
+}
+
+.welcome-section .event-content * {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+}
+
+.welcome-section .event-participants {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Upcoming events section in purple areas */
+.welcome-section .upcoming-events,
+.welcome-section .events-list {
+    color: white !important;
+}
+
+.welcome-section .upcoming-events *,
+.welcome-section .events-list * {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.welcome-section .upcoming-events .event-title,
+.welcome-section .events-list .event-title {
+    color: white !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+.welcome-section .upcoming-events .event-time,
+.welcome-section .events-list .event-time {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Override badge styling for event times in purple background areas */
+.welcome-section .event-time.badge,
+.welcome-section .event-time.badge.primary,
+.welcome-section .badge.primary,
+.welcome-section .badge {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: var(--text-primary) !important;
+    text-shadow: none !important;
+    font-weight: 600 !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+/* Ensure any element with badge class in purple areas is readable */
+.welcome-section .badge,
+.welcome-section [class*="badge"] {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: var(--text-primary) !important;
+    text-shadow: none !important;
+    font-weight: 600 !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Fix result-status badges in purple areas - these are the event time pills */
+.welcome-section .result-status,
+.welcome-section .result-status.primary,
+.welcome-section [class*="result-status"] {
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+    padding: var(--space-1) var(--space-3) !important;
+    border-radius: var(--radius-full) !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+/* Also target any primary colored elements in purple areas */
+.welcome-section [class*="primary"],
+.welcome-section .primary {
+    background: rgba(0, 0, 0, 0.7) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* CRITICAL FIX: Target ONLY team spotlight in purple background areas */
+.team-spotlight .event-time,
+.team-spotlight .event-item .event-time,
+.team-spotlight .upcoming-events .event-time,
+.team-spotlight .events-list .event-time,
+.team-spotlight p.event-time {
+    /* Keep the purple gradient background but ensure it's visible */
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-700)) !important;
+    
+    /* Override ALL conflicting color rules with white text */
+    color: white !important;
+    
+    /* Ensure good contrast and readability */
+    font-weight: 700 !important;
+    text-shadow: none !important;
+    
+    /* Maintain pill styling */
+    padding: var(--space-2) var(--space-4) !important;
+    border-radius: var(--radius-full) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    
+    /* Maintain layout */
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+    
+    /* Add subtle styling */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(5px) !important;
+    
+    /* Ensure proper sizing */
+    font-size: var(--font-size-sm) !important;
+    margin: 0 !important;
+}
+
+/* Ensure all text in purple background areas is white */
+.welcome-section * {
+    color: white !important;
+}
+
+/* Override for stat items to keep proper contrast */
+.welcome-section .stat-item,
+.welcome-section .stat-item * {
+    color: var(--text-primary) !important;
+    text-shadow: none !important;
+}
+
+.welcome-section .stat-number {
+    color: var(--primary-600) !important;
+}
+
+.welcome-section .stat-label {
+    color: var(--text-secondary) !important;
+}
+
+/* Quick actions button text */
+.welcome-section .btn.primary {
+    color: var(--primary-600) !important;
+}
+
+.welcome-section .btn.secondary {
+    color: white !important;
+} 
+
+/* Insight Cards Text Contrast Fixes - High Priority */
+.welcome-section .insight-card {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.welcome-section .insight-card h4,
+.quick-insights .insight-card h4,
+.insights-grid .insight-card h4 {
+    color: #1f2937 !important; /* Dark gray for excellent contrast */
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    text-shadow: none !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.welcome-section .insight-card p,
+.quick-insights .insight-card p,
+.insights-grid .insight-card p {
+    color: #374151 !important; /* Medium dark gray for good readability */
+    font-weight: 500 !important;
+    font-size: 0.85rem !important;
+    text-shadow: none !important;
+    line-height: 1.5 !important;
+}
+
+.welcome-section .insights-title {
+    color: white !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Ensure insight icons are visible */
+.welcome-section .insight-icon {
+    font-size: 1.5rem !important;
+    opacity: 1 !important;
+} 

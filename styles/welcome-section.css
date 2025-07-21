@@ -15,38 +15,278 @@
 .welcome-section {
     margin-bottom: var(--space-3);
     margin-top: 0;
-    background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+    background: 
+        linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 50%, var(--primary-800) 100%),
+        radial-gradient(ellipse at top left, rgba(99, 102, 241, 0.3) 0%, transparent 60%),
+        radial-gradient(ellipse at bottom right, rgba(139, 92, 246, 0.2) 0%, transparent 60%);
     border-radius: var(--radius-2xl);
-    padding: var(--space-3);
-    box-shadow: var(--shadow-xl);
+    padding: var(--space-6);
     position: relative;
     overflow: hidden;
-    color: white;
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    transition: all var(--duration-normal) var(--ease-spring);
+    will-change: transform;
+    transform: translateZ(0);
 }
 
-/* Decorative background elements */
-.welcome-section::before,
+/* Animated mesh gradient overlay */
+.welcome-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        conic-gradient(
+            from 0deg at 50% 50%,
+            transparent 0deg,
+            rgba(255, 255, 255, 0.05) 60deg,
+            transparent 120deg,
+            rgba(255, 255, 255, 0.03) 180deg,
+            transparent 240deg,
+            rgba(255, 255, 255, 0.05) 300deg,
+            transparent 360deg
+        );
+    animation: meshRotate 40s linear infinite;
+    pointer-events: none;
+    will-change: transform;
+    z-index: 1;
+}
+
+/* Subtle wave pattern */
 .welcome-section::after {
     content: '';
     position: absolute;
-    background: radial-gradient(circle, var(--welcome-overlay) 0%, transparent 70%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+    animation: waveShift 30s ease-in-out infinite;
+    pointer-events: none;
+    will-change: transform, opacity;
+    z-index: 1;
+}
+
+/* Floating orbs for subtle decoration */
+.welcome-section .particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.welcome-section .particle {
+    position: absolute;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 70%, transparent 100%);
     border-radius: 50%;
     pointer-events: none;
+    animation: floatOrb 20s ease-in-out infinite;
+    will-change: transform, opacity;
+    filter: blur(1px);
 }
 
-.welcome-section::before {
-    top: -50%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
+.welcome-section .particle:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 25s;
 }
 
-.welcome-section::after {
-    bottom: -30%;
-    left: -10%;
-    width: 400px;
-    height: 400px;
-    opacity: 0.7;
+.welcome-section .particle:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    top: 70%;
+    right: 15%;
+    animation-delay: 8s;
+    animation-duration: 20s;
+}
+
+.welcome-section .particle:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    bottom: 20%;
+    left: 70%;
+    animation-delay: 15s;
+    animation-duration: 30s;
+}
+
+/* Accent line decoration */
+.welcome-section .geometric-accent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 20%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0.2) 80%,
+        transparent 100%
+    );
+    animation: lineGlow 8s ease-in-out infinite;
+    z-index: 2;
+}
+
+.welcome-section .geometric-accent::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    right: -1px;
+    width: 4px;
+    height: 40%;
+    background: rgba(255, 255, 255, 0.1);
+    filter: blur(2px);
+    animation: lineGlow 8s ease-in-out infinite reverse;
+}
+
+.welcome-section .geometric-accent::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    width: 16px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
+    animation: horizontalGlow 6s ease-in-out infinite;
+}
+
+/* Additional decorative elements */
+.welcome-section .mesh-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    animation: meshShift 25s ease-in-out infinite;
+    will-change: transform, opacity;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .welcome-section::before,
+    .welcome-section::after,
+    .welcome-section .particle,
+    .welcome-section .geometric-accent,
+    .welcome-section .geometric-accent::before,
+    .welcome-section .geometric-accent::after,
+    .welcome-section .mesh-gradient {
+        animation: none;
+    }
+    
+    .welcome-section .particle {
+        opacity: 0.3;
+    }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+    .welcome-section .particle {
+        display: none;
+    }
+    
+    .welcome-section .geometric-accent {
+        width: 60px;
+        height: 60px;
+        top: 5%;
+        right: 5%;
+    }
+    
+    .welcome-section .geometric-accent::before {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .welcome-section .geometric-accent::after {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Background animations */
+@keyframes meshRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes waveShift {
+    0%, 100% {
+        transform: translateX(0) translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(10px) translateY(-5px) scale(1.02);
+        opacity: 0.8;
+    }
+}
+
+/* Removed patternMove animation - no longer needed */
+
+@keyframes floatOrb {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateY(-10px) translateX(5px) scale(1.1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-5px) translateX(-8px) scale(0.9);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translateY(-15px) translateX(3px) scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+@keyframes lineGlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scaleY(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scaleY(1.05);
+    }
+}
+
+@keyframes horizontalGlow {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scaleX(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scaleX(1.2);
+    }
 }
 
 /* Welcome Header */
@@ -113,13 +353,6 @@
     background: var(--welcome-hover-overlay);
     border-color: var(--welcome-hover-border);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    animation: pulse 1s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0% { transform: translateY(-4px) scale(1.02); }
-    50% { transform: translateY(-6px) scale(1.03); }
-    100% { transform: translateY(-4px) scale(1.02); }
 }
 
 .stat-number {
@@ -160,7 +393,9 @@
     transition: all var(--duration-normal) var(--ease-spring);
     white-space: nowrap;
     min-width: fit-content;
-    position: relative; /* Add position relative for absolute positioning of shortcut hint */
+    position: relative;
+    /* Remove any transform that could cause movement */
+    transform: none !important;
 }
 
 .quick-actions .btn .btn-icon {
@@ -183,17 +418,35 @@
 }
 
 .quick-actions .btn:hover {
-    transform: translateY(-2px);
+    /* Remove transform to prevent movement */
+    transform: none !important;
+    /* Use box-shadow and background changes instead */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .quick-actions .btn.primary:hover {
     background: white;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transform: none !important;
 }
 
 .quick-actions .btn.secondary:hover {
     background: var(--welcome-hover-overlay);
     border-color: var(--welcome-hover-border);
+    transform: none !important;
+}
+
+/* Override any conflicting button styles from main.css */
+.welcome-section .btn:hover {
+    transform: none !important;
+}
+
+.welcome-section .btn.primary:hover {
+    transform: none !important;
+}
+
+.welcome-section .btn.secondary:hover {
+    transform: none !important;
 }
 
 /* Upcoming Events */
@@ -421,4 +674,138 @@
     .welcome-title .user-name {
         font-size: 2rem;
     }
+} 
+
+/* Purple Background Text Contrast Fixes */
+.welcome-section {
+    color: white !important;
+}
+
+.welcome-section .welcome-title,
+.welcome-section .welcome-subtitle,
+.welcome-section .upcoming-events-title,
+.welcome-section .events-title,
+.welcome-section .insights-title,
+.welcome-section h1,
+.welcome-section h2,
+.welcome-section h3,
+.welcome-section h4,
+.welcome-section h5,
+.welcome-section h6 {
+    color: white !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+}
+
+.welcome-section .upcoming-events .event-title,
+.welcome-section .events-list .event-title {
+    color: white !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+.welcome-section .upcoming-events .event-time,
+.welcome-section .events-list .event-time {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Stat items should maintain white background with dark text for readability */
+.welcome-section .stat-item {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: var(--text-primary) !important;
+    text-shadow: none !important;
+}
+
+.welcome-section .stat-item * {
+    color: var(--text-primary) !important;
+    text-shadow: none !important;
+}
+
+.welcome-section .stat-number {
+    color: var(--primary-600) !important;
+    text-shadow: none !important;
+}
+
+.welcome-section .stat-label {
+    color: var(--text-secondary) !important;
+    text-shadow: none !important;
+}
+
+/* Button text fixes */
+.welcome-section .btn.primary {
+    color: var(--primary-600) !important;
+    background: white !important;
+}
+
+.welcome-section .btn.secondary {
+    color: white !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Quick insights text */
+.welcome-section .insight-card h4 {
+    color: white !important;
+}
+
+.welcome-section .insight-card p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Event card content */
+.welcome-section .event-card,
+.welcome-section .event-item {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.welcome-section .event-participants {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .welcome-section .stat-item {
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .welcome-section .stat-item * {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .welcome-section .stat-number {
+    color: var(--primary-600) !important;
+}
+
+[data-theme="dark"] .welcome-section .stat-label {
+    color: var(--text-secondary) !important;
+} 
+
+/* Quick Insights Section Styling to Match Welcome Card */
+.welcome-section .quick-insights {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px);
+}
+
+.welcome-section .insights-grid {
+    gap: 1rem;
+}
+
+.welcome-section .insight-card {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.welcome-section .insight-card:hover {
+    background: rgba(255, 255, 255, 0.95) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
 } 

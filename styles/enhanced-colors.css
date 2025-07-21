@@ -12,10 +12,10 @@
     --bg-secondary: #f9fafb;
     --bg-tertiary: #f3f4f6;
     
-    /* Text Colors */
-    --text-primary: #111827;
-    --text-secondary: #4b5563;
-    --text-tertiary: #6b7280;
+    /* Text Colors - Improved for better readability */
+    --text-primary: #111827; /* Darker for better contrast */
+    --text-secondary: #374151; /* Darker than before for better readability */
+    --text-tertiary: #4b5563; /* Darker than before */
     
     /* Border Colors */
     --border-light: #e5e7eb;
@@ -47,10 +47,10 @@
     --bg-secondary: #1f2937;
     --bg-tertiary: #374151;
     
-    /* Text Colors */
-    --text-primary: #f9fafb;
-    --text-secondary: #e5e7eb;
-    --text-tertiary: #d1d5db;
+    /* Text Colors - Improved for better readability in dark mode */
+    --text-primary: #f9fafb; /* Keep bright for dark mode */
+    --text-secondary: #f3f4f6; /* Brighter than before for better readability */
+    --text-tertiary: #e5e7eb; /* Brighter than before */
     
     /* Border Colors */
     --border-light: #374151;
@@ -253,8 +253,8 @@
     flex-shrink: 0;
 }
 
-/* Enhanced Cards with Hover Effects */
-.card {
+/* Enhanced Cards with Hover Effects - Only for main dashboard items */
+.dashboard-item > * {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-xl);
@@ -264,7 +264,7 @@
     overflow: hidden;
 }
 
-.card::before {
+.dashboard-item > *::before {
     content: '';
     position: absolute;
     top: 0;
@@ -276,13 +276,29 @@
     transition: transform var(--duration-normal) var(--ease-in-out);
 }
 
-.card:hover::before {
+.dashboard-item > *:hover::before {
     transform: scaleX(1);
 }
 
-.card:hover {
+.dashboard-item > *:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
+}
+
+/* Remove hover effects from inner content */
+.card:not(.dashboard-item > *) {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--duration-normal) var(--ease-in-out);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:not(.dashboard-item > *):hover {
+    box-shadow: var(--shadow-md);
+    transform: none;
 }
 
 /* Enhanced Badges */
