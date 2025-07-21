@@ -9,6 +9,72 @@ class AnalyticsDashboard extends HTMLElement {
         this.realTimeUpdates = null;
         this.taskChart = null;
         this.projectChart = null;
+        this.teamHeatmapChart = null;
+        this.goalChart = null;
+        this.isRealTimeEnabled = true;
+        
+        // Enhanced analytics data
+        this.kpiData = {
+            productivity: { current: 87, target: 85, trend: '+5%', status: 'excellent' },
+            efficiency: { current: 92, target: 90, trend: '+3%', status: 'excellent' },
+            collaboration: { current: 78, target: 80, trend: '-2%', status: 'attention' },
+            satisfaction: { current: 94, target: 85, trend: '+8%', status: 'excellent' }
+        };
+
+        this.goalData = {
+            quarterly: [
+                { name: 'User Acquisition', current: 847, target: 1000, progress: 84.7, status: 'on-track' },
+                { name: 'Product Features', current: 12, target: 15, progress: 80, status: 'on-track' },
+                { name: 'Team Growth', current: 8, target: 10, progress: 80, status: 'on-track' },
+                { name: 'Customer Satisfaction', current: 4.7, target: 4.5, progress: 104.4, status: 'exceeded' }
+            ]
+        };
+
+        this.teamPerformance = {
+            departments: ['Engineering', 'Design', 'Product', 'Marketing', 'Sales'],
+            metrics: ['Productivity', 'Collaboration', 'Innovation', 'Quality'],
+            heatmapData: [
+                [95, 88, 92, 90], // Engineering
+                [87, 94, 96, 92], // Design  
+                [90, 91, 89, 88], // Product
+                [82, 85, 84, 94], // Marketing
+                [88, 79, 82, 89]  // Sales
+            ]
+        };
+
+        this.aiInsights = [
+            {
+                type: 'opportunity',
+                title: 'Peak Performance Window',
+                description: 'Team productivity is 23% higher between 9-11 AM. Consider scheduling critical tasks during this window.',
+                confidence: 94,
+                impact: 'high',
+                category: 'productivity'
+            },
+            {
+                type: 'alert',
+                title: 'Collaboration Bottleneck',
+                description: 'Design team has 40% fewer cross-team interactions this week. Recommend scheduling sync meetings.',
+                confidence: 87,
+                impact: 'medium',
+                category: 'collaboration'
+            },
+            {
+                type: 'prediction',
+                title: 'Goal Achievement Forecast',
+                description: 'Based on current trends, Q1 targets will be exceeded by 12% if current pace continues.',
+                confidence: 91,
+                impact: 'high',
+                category: 'goals'
+            }
+        ];
+
+        this.realtimeActivities = [
+            { type: 'achievement', user: 'Sarah Chen', action: 'completed milestone "API Integration"', time: '2 min ago', priority: 'high' },
+            { type: 'collaboration', user: 'Design Team', action: 'started collaborative session', time: '5 min ago', priority: 'medium' },
+            { type: 'goal', user: 'Product Team', action: 'updated Q1 roadmap progress', time: '8 min ago', priority: 'medium' },
+            { type: 'insight', user: 'AI Assistant', action: 'detected productivity optimization opportunity', time: '12 min ago', priority: 'high' }
+        ];
     }
 
     connectedCallback() {
@@ -56,167 +122,350 @@ class AnalyticsDashboard extends HTMLElement {
         this.innerHTML = `
             <div class="analytics-dashboard">
                 <div class="dashboard-header">
-                    <h2 class="dashboard-title">Analytics Overview</h2>
+                    <h2 class="dashboard-title">
+                        <svg class="dashboard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3v18h18"></path>
+                            <path d="m19 9-5 5-4-4-3 3"></path>
+                        </svg>
+                        Advanced Analytics Hub
+                    </h2>
                     <div class="dashboard-controls">
-                        <select class="range-selector">
-                            <option value="week">This Week</option>
-                            <option value="month">This Month</option>
-                            <option value="quarter">This Quarter</option>
-                        </select>
-                        <button class="btn-icon small" id="refreshAnalytics" aria-label="Refresh analytics">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M23 4v6h-6"></path>
-                                <path d="M1 20v-6h6"></path>
-                                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">
-                            <span id="tasksCompleted">-</span>
-                            <span class="metric-trend positive">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="18 15 12 9 6 15"></polyline>
-                                </svg>
-                                +12%
-                            </span>
-                        </div>
-                        <div class="metric-label">Tasks Completed</div>
-                        <div class="metric-insight">Ahead of weekly goal</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">
-                            <span id="activeProjects">-</span>
-                            <span class="metric-trend positive">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="18 15 12 9 6 15"></polyline>
-                                </svg>
-                                +8%
-                            </span>
-                        </div>
-                        <div class="metric-label">Active Projects</div>
-                        <div class="metric-insight">3 projects on track</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">
-                            <span id="teamOnline">-</span>
-                            <span class="metric-trend positive">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="18 15 12 9 6 15"></polyline>
-                                </svg>
-                                +2
-                            </span>
-                        </div>
-                        <div class="metric-label">Team Members Online</div>
-                        <div class="metric-insight">High collaboration time</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">
-                            <span id="productivity">-</span>
-                            <span class="metric-trend positive">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="18 15 12 9 6 15"></polyline>
-                                </svg>
-                                +15%
-                            </span>
-                        </div>
-                        <div class="metric-label">Productivity Score</div>
-                        <div class="metric-insight">Peak performance period</div>
-                    </div>
-                </div>
-
-                <div class="charts-grid">
-                    <div class="chart-container">
-                        <div class="chart-header">
-                            <div>
-                                <h3 class="chart-title">Task Completion Trend</h3>
-                                <p class="chart-subtitle">Daily task completion over the selected period</p>
-                            </div>
-                            <div class="chart-legend">
-                                <span class="legend-item">
-                                    <span class="legend-color completed"></span>
-                                    Completed
-                                </span>
-                                <span class="legend-item">
-                                    <span class="legend-color in-progress"></span>
-                                    In Progress
-                                </span>
-                            </div>
-                        </div>
-                        <div class="chart" id="taskChart">
-                            <canvas id="taskChartCanvas"></canvas>
-                        </div>
-                    </div>
-                    <div class="chart-container">
-                        <div class="chart-header">
-                            <div>
-                                <h3 class="chart-title">Project Progress</h3>
-                                <p class="chart-subtitle">Overall project completion status</p>
-                            </div>
-                        </div>
-                        <div class="chart" id="projectChart">
-                            <canvas id="projectChartCanvas"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="insights-section">
-                    <h3 class="insights-title">Real-time Insights</h3>
-                    <div class="insights-grid">
-                        <div class="insight-card positive">
-                            <div class="insight-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                            </div>
-                            <div class="insight-content">
-                                <h4>Productivity Peak</h4>
-                                <p>Your team is 23% more productive during morning hours. Consider scheduling important tasks before 2 PM.</p>
-                            </div>
-                        </div>
-                        <div class="insight-card warning">
-                            <div class="insight-icon">
+                        <div class="control-group">
+                            <select class="range-selector">
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                                <option value="quarter">This Quarter</option>
+                                <option value="year">This Year</option>
+                            </select>
+                            <button class="toggle-btn ${this.isRealTimeEnabled ? 'active' : ''}" id="toggleRealTime">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
                                 </svg>
-                            </div>
-                            <div class="insight-content">
-                                <h4>Meeting Overload</h4>
-                                <p>You have 4 meetings scheduled today. Consider blocking 2-hour focus time for deep work.</p>
-                            </div>
-                        </div>
-                        <div class="insight-card info">
-                            <div class="insight-icon">
+                                Real-time
+                            </button>
+                            <button class="btn-icon" id="refreshAnalytics" aria-label="Refresh analytics">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"></path>
+                                    <path d="M23 4v6h-6"></path>
+                                    <path d="M1 20v-6h6"></path>
+                                    <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
                                 </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced KPI Dashboard -->
+                <div class="kpi-dashboard">
+                    <h3 class="section-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                        </svg>
+                        Key Performance Indicators
+                    </h3>
+                    <div class="kpi-grid">
+                        ${Object.entries(this.kpiData).map(([key, kpi]) => `
+                            <div class="advanced-kpi-card ${kpi.status}" data-kpi="${key}">
+                                <div class="kpi-header">
+                                    <h4 class="kpi-name">${key.charAt(0).toUpperCase() + key.slice(1)}</h4>
+                                    <span class="kpi-trend ${kpi.trend.startsWith('+') ? 'positive' : 'negative'}">${kpi.trend}</span>
+                                </div>
+                                <div class="kpi-content">
+                                    <div class="kpi-value">${kpi.current}%</div>
+                                    <div class="kpi-target">Target: ${kpi.target}%</div>
+                                    <div class="kpi-progress">
+                                        <div class="progress-track">
+                                            <div class="progress-fill" style="width: ${(kpi.current / kpi.target) * 100}%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="kpi-status-indicator ${kpi.status}"></div>
                             </div>
-                            <div class="insight-content">
-                                <h4>Team Collaboration</h4>
-                                <p>8 team members are online. Great time for collaborative work and knowledge sharing.</p>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <!-- Goal Tracking Dashboard -->
+                <div class="goals-dashboard">
+                    <h3 class="section-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11l3 3L22 4"></path>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                        Q1 2024 Goals & OKRs
+                    </h3>
+                    <div class="goals-grid">
+                        ${this.goalData.quarterly.map(goal => `
+                            <div class="goal-card ${goal.status}" data-goal="${goal.name}">
+                                <div class="goal-header">
+                                    <h4 class="goal-name">${goal.name}</h4>
+                                    <span class="goal-status ${goal.status}">${goal.status.replace('-', ' ')}</span>
+                                </div>
+                                <div class="goal-metrics">
+                                    <div class="goal-current">${goal.current}${typeof goal.current === 'number' && goal.current < 100 ? '' : ''}</div>
+                                    <div class="goal-target">of ${goal.target} target</div>
+                                </div>
+                                <div class="goal-progress">
+                                    <div class="progress-container">
+                                        <div class="progress-track">
+                                            <div class="progress-fill" style="width: ${Math.min(goal.progress, 100)}%"></div>
+                                        </div>
+                                        <span class="progress-percentage">${goal.progress.toFixed(1)}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <!-- Team Performance Heat Map -->
+                <div class="heatmap-section">
+                    <h3 class="section-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        Team Performance Heat Map
+                    </h3>
+                    <div class="heatmap-container">
+                        <div class="heatmap-grid">
+                            <div class="heatmap-header">
+                                <div class="corner-cell"></div>
+                                ${this.teamPerformance.metrics.map(metric => `
+                                    <div class="metric-header">${metric}</div>
+                                `).join('')}
+                            </div>
+                            ${this.teamPerformance.departments.map((dept, deptIndex) => `
+                                <div class="heatmap-row">
+                                    <div class="dept-header">${dept}</div>
+                                    ${this.teamPerformance.heatmapData[deptIndex].map((value, metricIndex) => `
+                                        <div class="heatmap-cell" data-value="${value}" data-dept="${dept}" data-metric="${this.teamPerformance.metrics[metricIndex]}" style="background-color: ${this.getHeatmapColor(value)}">
+                                            <span class="cell-value">${value}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="heatmap-legend">
+                            <span class="legend-label">Performance Score:</span>
+                            <div class="legend-gradient">
+                                <span class="legend-min">60</span>
+                                <div class="gradient-bar"></div>
+                                <span class="legend-max">100</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="activity-list">
-                    <div class="activity-header">
-                        <h3 class="activity-title">Recent Activity</h3>
-                        <button class="btn secondary small" id="viewAllActivity">View All</button>
+                <!-- AI-Powered Insights -->
+                <div class="ai-insights-section">
+                    <h3 class="section-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                        AI-Powered Insights
+                        <span class="ai-badge">BETA</span>
+                    </h3>
+                    <div class="insights-grid">
+                        ${this.aiInsights.map(insight => `
+                            <div class="ai-insight-card ${insight.type}" data-confidence="${insight.confidence}">
+                                <div class="insight-header">
+                                    <div class="insight-type-icon ${insight.type}">
+                                        ${this.getInsightIcon(insight.type)}
+                                    </div>
+                                    <div class="insight-meta">
+                                        <h4 class="insight-title">${insight.title}</h4>
+                                        <div class="insight-confidence">
+                                            <span class="confidence-label">Confidence:</span>
+                                            <div class="confidence-bar">
+                                                <div class="confidence-fill" style="width: ${insight.confidence}%"></div>
+                                            </div>
+                                            <span class="confidence-value">${insight.confidence}%</span>
+                                        </div>
+                                    </div>
+                                    <span class="impact-badge ${insight.impact}">${insight.impact} impact</span>
+                                </div>
+                                <p class="insight-description">${insight.description}</p>
+                                <div class="insight-actions">
+                                    <button class="action-btn primary">Apply Suggestion</button>
+                                    <button class="action-btn secondary">Learn More</button>
+                                </div>
+                            </div>
+                        `).join('')}
                     </div>
-                    <div id="activityList"></div>
+                </div>
+
+                <!-- Enhanced Charts Section -->
+                <div class="charts-section">
+                    <h3 class="section-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 3v18h18"></path>
+                            <path d="m19 9-5 5-4-4-3 3"></path>
+                        </svg>
+                        Performance Trends
+                    </h3>
+                    <div class="enhanced-charts-grid">
+                        <div class="chart-container enhanced">
+                            <div class="chart-header">
+                                <div class="chart-info">
+                                    <h3 class="chart-title">Task Completion Trends</h3>
+                                    <p class="chart-subtitle">Daily productivity metrics and patterns</p>
+                                </div>
+                                <div class="chart-controls">
+                                    <button class="chart-filter active" data-filter="all">All</button>
+                                    <button class="chart-filter" data-filter="completed">Completed</button>
+                                    <button class="chart-filter" data-filter="progress">In Progress</button>
+                                </div>
+                            </div>
+                            <div class="chart-body" id="taskChart">
+                                <canvas id="taskChartCanvas"></canvas>
+                            </div>
+                        </div>
+                        <div class="chart-container enhanced">
+                            <div class="chart-header">
+                                <div class="chart-info">
+                                    <h3 class="chart-title">Project Distribution</h3>
+                                    <p class="chart-subtitle">Current project status breakdown</p>
+                                </div>
+                            </div>
+                            <div class="chart-body" id="projectChart">
+                                <canvas id="projectChartCanvas"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Real-time Activity Feed -->
+                <div class="activity-section">
+                    <h3 class="section-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M12 1v6m0 6v6"></path>
+                            <path d="m21 12-6-3-6 3-6-3"></path>
+                        </svg>
+                        Live Activity Feed
+                        <div class="activity-status ${this.isRealTimeEnabled ? 'live' : 'paused'}">
+                            <span class="status-dot"></span>
+                            ${this.isRealTimeEnabled ? 'LIVE' : 'PAUSED'}
+                        </div>
+                    </h3>
+                    <div class="activity-controls">
+                        <div class="activity-filters">
+                            <button class="filter-btn active" data-filter="all">All Activity</button>
+                            <button class="filter-btn" data-filter="achievement">Achievements</button>
+                            <button class="filter-btn" data-filter="collaboration">Collaboration</button>
+                            <button class="filter-btn" data-filter="goal">Goals</button>
+                            <button class="filter-btn" data-filter="insight">Insights</button>
+                        </div>
+                        <div class="activity-actions">
+                            <button class="btn-icon" id="pauseActivity" title="Pause real-time updates">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="6" y="4" width="4" height="16"></rect>
+                                    <rect x="14" y="4" width="4" height="16"></rect>
+                                </svg>
+                            </button>
+                            <button class="btn-icon" id="clearActivity" title="Clear activity feed">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path d="m19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="activity-feed" id="activityFeed">
+                        ${this.realtimeActivities.map(activity => `
+                            <div class="activity-item ${activity.type} ${activity.priority}" data-type="${activity.type}">
+                                <div class="activity-icon ${activity.type}">
+                                    ${this.getActivityIcon(activity.type)}
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-main">
+                                        <span class="activity-user">${activity.user}</span>
+                                        <span class="activity-action">${activity.action}</span>
+                                    </div>
+                                    <div class="activity-meta">
+                                        <span class="activity-time">${activity.time}</span>
+                                        <span class="activity-priority ${activity.priority}">${activity.priority} priority</span>
+                                    </div>
+                                </div>
+                                <div class="activity-actions">
+                                    <button class="activity-btn" title="View details">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9 18l6-6-6-6"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
             </div>
         `;
         console.log('Analytics Dashboard rendered, element:', this);
         console.log('Analytics Dashboard innerHTML length:', this.innerHTML.length);
+    }
+
+    getHeatmapColor(value) {
+        // Create a color gradient from red (60) to green (100)
+        const normalizedValue = Math.max(0, Math.min(100, value));
+        const intensity = (normalizedValue - 60) / 40; // Normalize to 0-1 range
+        
+        if (intensity < 0.5) {
+            // Red to yellow
+            const red = 255;
+            const green = Math.round(255 * intensity * 2);
+            return `rgb(${red}, ${green}, 0)`;
+        } else {
+            // Yellow to green
+            const red = Math.round(255 * (1 - (intensity - 0.5) * 2));
+            const green = 255;
+            return `rgb(${red}, ${green}, 0)`;
+        }
+    }
+
+    getInsightIcon(type) {
+        const icons = {
+            opportunity: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>`,
+            alert: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+                <path d="M12 9v4"></path>
+                <path d="m12 17.02.01 0"></path>
+            </svg>`,
+            prediction: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38"></path>
+            </svg>`
+        };
+        return icons[type] || icons.opportunity;
+    }
+
+    getActivityIcon(type) {
+        const icons = {
+            achievement: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                <path d="M4 22h16l-1-7H5l-1 7z"></path>
+                <path d="M8 9h8"></path>
+                <path d="M12 2v7"></path>
+            </svg>`,
+            collaboration: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>`,
+            goal: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4"></path>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg>`,
+            insight: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>`
+        };
+        return icons[type] || icons.insight;
     }
 
     setupEventListeners() {

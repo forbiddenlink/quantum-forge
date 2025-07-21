@@ -1,4 +1,4 @@
-// Office Visualizer Component
+// Enhanced Office Visualizer Component - Dream Workplace Edition
 class OfficeVisualizer extends HTMLElement {
     constructor() {
         super();
@@ -8,56 +8,43 @@ class OfficeVisualizer extends HTMLElement {
         this.officeModel = null;
         this.hotspots = new Map();
         this.teamLocations = new Map();
+        this.desks = new Map();
+        this.meetingRooms = new Map();
         this.isInitialized = false;
         this.animationFrame = null;
+        this.currentFloor = 1;
+        this.raycaster = null;
+        this.mouse = new THREE.Vector2();
+        this.selectedDesk = null;
+        this.teamMembers = this.generateTeamData();
     }
 
     connectedCallback() {
-        // Initial render
         this.render2DView();
-
-        // Initialize after a short delay to ensure Three.js is loaded
         setTimeout(() => {
             if (typeof THREE === 'undefined') {
                 console.error('Three.js not loaded');
                 this.showFallbackContent();
                 return;
             }
-
             try {
                 this.initialize3DView();
             } catch (error) {
                 console.error('Failed to initialize 3D view:', error);
                 this.showFallbackContent();
             }
-        }, 1000); // Increased delay to ensure scripts are loaded
+        }, 1000);
     }
 
-    async loadDependencies() {
-        // Load Three.js if not already loaded
-        if (typeof THREE === 'undefined') {
-            await new Promise((resolve, reject) => {
-                const script = document.createElement('script');
-                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/0.128.0/three.min.js';
-                script.onload = resolve;
-                script.onerror = reject;
-                document.head.appendChild(script);
-            });
-        }
-
-        // Load OrbitControls
-        await new Promise((resolve, reject) => {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js';
-            script.onload = resolve;
-            script.onerror = reject;
-            document.head.appendChild(script);
-        });
-
-        // Verify dependencies are loaded
-        if (typeof THREE === 'undefined' || typeof THREE.OrbitControls === 'undefined') {
-            throw new Error('Failed to load Three.js dependencies');
-        }
+    generateTeamData() {
+        return [
+            { id: 1, name: "Sarah Chen", role: "UX Designer", status: "in-office", desk: "A1", avatar: "👩‍💻" },
+            { id: 2, name: "Marcus Johnson", role: "Frontend Dev", status: "remote", desk: "A2", avatar: "👨‍💼" },
+            { id: 3, name: "Elena Rodriguez", role: "Product Manager", status: "in-meeting", desk: "B1", avatar: "👩‍💼" },
+            { id: 4, name: "David Kim", role: "Backend Dev", status: "in-office", desk: "B2", avatar: "👨‍💻" },
+            { id: 5, name: "Lisa Park", role: "Data Analyst", status: "lunch", desk: "C1", avatar: "👩‍🔬" },
+            { id: 6, name: "Alex Thompson", role: "DevOps", status: "in-office", desk: "C2", avatar: "👨‍🔧" }
+        ];
     }
 
     render2DView() {
@@ -69,123 +56,665 @@ class OfficeVisualizer extends HTMLElement {
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                             <polyline points="9 22 9 12 15 12 15 22"></polyline>
                         </svg>
-                        Office Space
+                        Interactive Office Space
                     </h3>
+                    <div class="office-stats">
+                        <div class="stat-pill">
+                            <span class="stat-icon">👥</span>
+                            <span class="stat-text">4/6 in office</span>
+                        </div>
+                        <div class="stat-pill">
+                            <span class="stat-icon">🏢</span>
+                            <span class="stat-text">2 meetings active</span>
+                        </div>
+                    </div>
                 </div>
+
                 <div id="visualizerCanvas" class="visualizer-canvas">
                     <div class="loading-indicator">
-                        <span class="loading-text">Loading 3D Office View...</span>
-                        <div class="loading-spinner"></div>
+                        <div class="loading-content">
+                            <div class="loading-spinner"></div>
+                            <span class="loading-text">Loading Your Digital Office...</span>
+                            <span class="loading-subtext">Preparing 3D workspace experience</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Enhanced Floor Selector -->
                 <div class="floor-selector">
-                    <button class="floor-btn active" data-floor="1">Floor 1</button>
-                    <button class="floor-btn" data-floor="2">Floor 2</button>
-                    <button class="floor-btn" data-floor="3">Floor 3</button>
+                    <div class="floor-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2z"></path>
+                            <path d="M8 21v-5a2 2 0 012-2h4a2 2 0 012 2v5"></path>
+                        </svg>
+                        <span>Floors</span>
+                    </div>
+                    <button class="floor-btn active" data-floor="1">
+                        <span class="floor-number">1</span>
+                        <span class="floor-label">Main Floor</span>
+                        <span class="floor-occupancy">4 people</span>
+                    </button>
+                    <button class="floor-btn" data-floor="2">
+                        <span class="floor-number">2</span>
+                        <span class="floor-label">Meeting Hub</span>
+                        <span class="floor-occupancy">2 meetings</span>
+                    </button>
+                    <button class="floor-btn" data-floor="3">
+                        <span class="floor-number">3</span>
+                        <span class="floor-label">Executive</span>
+                        <span class="floor-occupancy">1 person</span>
+                    </button>
                 </div>
+
+                <!-- Enhanced Legend -->
                 <div class="legend">
-                    <div class="legend-item">
-                        <span class="legend-dot available"></span>
-                        Available
+                    <div class="legend-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M12 1v6m0 6v6"></path>
+                            <path d="m21 12-6-3-6 3-6-3"></path>
+                        </svg>
+                        <span>Status</span>
                     </div>
-                    <div class="legend-item">
-                        <span class="legend-dot occupied"></span>
-                        Occupied
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <span class="legend-dot available"></span>
+                            <span>Available</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot occupied"></span>
+                            <span>Occupied</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot meeting"></span>
+                            <span>In Meeting</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot remote"></span>
+                            <span>Remote</span>
+                        </div>
                     </div>
-                    <div class="legend-item">
-                        <span class="legend-dot meeting"></span>
-                        In Meeting
+                </div>
+
+                <!-- New: Team Panel -->
+                <div class="team-panel">
+                    <div class="team-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span>Team</span>
+                        <button class="panel-toggle" data-panel="team">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
                     </div>
+                    <div class="team-content">
+                        ${this.teamMembers.map(member => `
+                            <div class="team-member" data-desk="${member.desk}" data-status="${member.status}">
+                                <div class="member-avatar">${member.avatar}</div>
+                                <div class="member-info">
+                                    <span class="member-name">${member.name}</span>
+                                    <span class="member-role">${member.role}</span>
+                                </div>
+                                <div class="member-status ${member.status}">
+                                    ${this.getStatusIcon(member.status)}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <!-- New: Desk Info Panel -->
+                <div class="desk-info-panel" id="deskInfoPanel" style="display: none;">
+                    <div class="desk-info-header">
+                        <h4>Desk Information</h4>
+                        <button class="close-panel" onclick="this.closest('.desk-info-panel').style.display='none'">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="desk-info-content">
+                        <!-- Content will be populated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="office-controls">
+                    <button class="control-btn" id="resetView" title="Reset View">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                            <path d="M21 3v5h-5"></path>
+                            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                            <path d="M3 21v-5h5"></path>
+                        </svg>
+                    </button>
+                    <button class="control-btn" id="toggleMode" title="Toggle View Mode">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                    </button>
                 </div>
             </div>
         `;
     }
 
+    getStatusIcon(status) {
+        const icons = {
+            'in-office': '🟢',
+            'remote': '🏠',
+            'in-meeting': '📞',
+            'lunch': '🍽️',
+            'away': '⏰'
+        };
+        return icons[status] || '❓';
+    }
+
     initialize3DView() {
         const container = this.querySelector('#visualizerCanvas');
-        if (!container) {
-            throw new Error('Canvas container not found');
-        }
+        if (!container) throw new Error('Canvas container not found');
 
-        // Get container dimensions
         const width = container.clientWidth;
-        const height = container.clientHeight || 400;
+        const height = container.clientHeight || 500;
 
-        // Create scene
+        // Enhanced scene setup
         this.scene = new THREE.Scene();
-        this.scene.background = new THREE.Color(0xf5f7fa);
+        this.scene.background = new THREE.Color(0xf0f4f8);
+        this.scene.fog = new THREE.Fog(0xf0f4f8, 50, 200);
 
-        // Create camera with better initial position
-        this.camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-        this.camera.position.set(30, 25, 30);
+        // Enhanced camera
+        this.camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
+        this.camera.position.set(25, 20, 25);
         this.camera.lookAt(0, 0, 0);
 
-        // Create renderer with better quality
+        // Enhanced renderer
         this.renderer = new THREE.WebGLRenderer({
             antialias: true,
-            alpha: true
+            alpha: true,
+            powerPreference: "high-performance"
         });
         this.renderer.setSize(width, height);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        this.renderer.shadowMap.enabled = true;
+        this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        this.renderer.toneMappingExposure = 1.2;
 
-        // Clear container and append renderer
         container.innerHTML = '';
         container.appendChild(this.renderer.domElement);
 
-        // Add orbit controls with better defaults
+        // Enhanced controls
         this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
         this.controls.target.set(0, 2, 0);
         this.controls.enableDamping = true;
-        this.controls.dampingFactor = 0.05;
-        this.controls.minDistance = 20;
-        this.controls.maxDistance = 50;
-        this.controls.maxPolarAngle = Math.PI / 2.1; // Prevent going below ground
+        this.controls.dampingFactor = 0.08;
+        this.controls.minDistance = 15;
+        this.controls.maxDistance = 60;
+        this.controls.maxPolarAngle = Math.PI / 2.2;
         this.controls.enablePan = true;
-        this.controls.panSpeed = 0.5;
-        this.controls.rotateSpeed = 0.5;
+        this.controls.panSpeed = 0.8;
+        this.controls.rotateSpeed = 0.6;
 
-        // Add lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-        this.scene.add(ambientLight);
+        // Enhanced lighting
+        this.setupLighting();
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-        directionalLight.position.set(15, 25, 15);
-        this.scene.add(directionalLight);
+        // Enhanced office model
+        this.loadEnhancedOfficeModel();
 
-        // Add ground with better material
-        const groundGeometry = new THREE.PlaneGeometry(50, 50);
-        const groundMaterial = new THREE.MeshStandardMaterial({
-            color: 0xf8fafc,
-            roughness: 0.9,
-            metalness: 0.1
-        });
-        const ground = new THREE.Mesh(groundGeometry, groundMaterial);
-        ground.rotation.x = -Math.PI / 2;
-        this.scene.add(ground);
+        // Raycaster for interactions
+        this.raycaster = new THREE.Raycaster();
+        this.setupInteractions();
 
-        // Add grid with better colors
-        const gridHelper = new THREE.GridHelper(50, 50, 0xdbe1e8, 0xe2e8f0);
-        gridHelper.position.y = 0.01;
-        this.scene.add(gridHelper);
+        // Resize handler
+        window.addEventListener('resize', () => this.handleResize());
 
-        // Add office model
-        this.loadOfficeModel();
-
-        // Handle resize
-        window.addEventListener('resize', () => {
-            const newWidth = container.clientWidth;
-            const newHeight = container.clientHeight || 400;
-            this.camera.aspect = newWidth / newHeight;
-            this.camera.updateProjectionMatrix();
-            this.renderer.setSize(newWidth, newHeight);
-        });
-
-        // Start animation
         this.isInitialized = true;
         this.animate();
+        this.setupEventHandlers();
+    }
 
-        // Add floor change handler
-        this.setupFloorButtons();
+    setupLighting() {
+        // Ambient light for overall illumination
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        this.scene.add(ambientLight);
+
+        // Main directional light (sun)
+        const mainLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        mainLight.position.set(30, 40, 20);
+        mainLight.castShadow = true;
+        mainLight.shadow.mapSize.width = 2048;
+        mainLight.shadow.mapSize.height = 2048;
+        mainLight.shadow.camera.near = 0.5;
+        mainLight.shadow.camera.far = 100;
+        mainLight.shadow.camera.left = -30;
+        mainLight.shadow.camera.right = 30;
+        mainLight.shadow.camera.top = 30;
+        mainLight.shadow.camera.bottom = -30;
+        this.scene.add(mainLight);
+
+        // Fill light for softer shadows
+        const fillLight = new THREE.DirectionalLight(0x7c85d6, 0.3);
+        fillLight.position.set(-20, 20, -20);
+        this.scene.add(fillLight);
+
+        // Accent lights for warmth
+        const accentLight1 = new THREE.PointLight(0xffc658, 0.5, 20);
+        accentLight1.position.set(8, 8, 8);
+        this.scene.add(accentLight1);
+
+        const accentLight2 = new THREE.PointLight(0xff8a65, 0.4, 15);
+        accentLight2.position.set(-8, 6, -8);
+        this.scene.add(accentLight2);
+    }
+
+    loadEnhancedOfficeModel() {
+        this.officeModel = new THREE.Group();
+        this.scene.add(this.officeModel);
+
+        // Enhanced materials
+        const materials = {
+            wall: new THREE.MeshStandardMaterial({
+                color: 0xfafafa,
+                roughness: 0.7,
+                metalness: 0.1
+            }),
+            glass: new THREE.MeshPhysicalMaterial({
+                color: 0x88c999,
+                transparent: true,
+                opacity: 0.3,
+                roughness: 0.1,
+                metalness: 0.1,
+                transmission: 0.8,
+                thickness: 0.5
+            }),
+            desk: new THREE.MeshStandardMaterial({
+                color: 0x8b5a3c,
+                roughness: 0.3,
+                metalness: 0.1
+            }),
+            floor: new THREE.MeshStandardMaterial({
+                color: 0xf5f5f5,
+                roughness: 0.8,
+                metalness: 0.05
+            })
+        };
+
+        // Enhanced ground
+        const groundGeometry = new THREE.PlaneGeometry(60, 60);
+        const ground = new THREE.Mesh(groundGeometry, materials.floor);
+        ground.rotation.x = -Math.PI / 2;
+        ground.receiveShadow = true;
+        this.scene.add(ground);
+
+        // Create enhanced office structure
+        this.createOfficeStructure(materials);
+        this.createDesks(materials);
+        this.createMeetingRooms(materials);
+        this.createDecorations();
+    }
+
+    createOfficeStructure(materials) {
+        // Main office walls
+        const walls = [
+            { size: [30, 5, 0.3], position: [0, 2.5, -15] },
+            { size: [30, 5, 0.3], position: [0, 2.5, 15] },
+            { size: [0.3, 5, 30], position: [-15, 2.5, 0] },
+            { size: [0.3, 5, 30], position: [15, 2.5, 0] }
+        ];
+
+        walls.forEach(wall => {
+            const geometry = new THREE.BoxGeometry(...wall.size);
+            const mesh = new THREE.Mesh(geometry, materials.wall);
+            mesh.position.set(...wall.position);
+            mesh.castShadow = true;
+            mesh.receiveShadow = true;
+            this.officeModel.add(mesh);
+        });
+    }
+
+    createDesks(materials) {
+        const deskPositions = [
+            { id: 'A1', pos: [-8, 0.5, -8], occupied: true, user: 'Sarah Chen' },
+            { id: 'A2', pos: [-4, 0.5, -8], occupied: false, user: 'Marcus Johnson' },
+            { id: 'B1', pos: [0, 0.5, -8], occupied: true, user: 'Elena Rodriguez' },
+            { id: 'B2', pos: [4, 0.5, -8], occupied: true, user: 'David Kim' },
+            { id: 'C1', pos: [8, 0.5, -8], occupied: false, user: 'Lisa Park' },
+            { id: 'C2', pos: [-8, 0.5, 0], occupied: true, user: 'Alex Thompson' }
+        ];
+
+        deskPositions.forEach(desk => {
+            const deskGroup = new THREE.Group();
+            
+            // Desk surface
+            const deskGeometry = new THREE.BoxGeometry(3, 0.1, 1.5);
+            const deskMesh = new THREE.Mesh(deskGeometry, materials.desk);
+            deskMesh.castShadow = true;
+            deskMesh.receiveShadow = true;
+            deskGroup.add(deskMesh);
+
+            // Monitor
+            const monitorGeometry = new THREE.BoxGeometry(0.8, 0.5, 0.05);
+            const monitorMaterial = new THREE.MeshStandardMaterial({ color: 0x1a1a1a });
+            const monitor = new THREE.Mesh(monitorGeometry, monitorMaterial);
+            monitor.position.set(0, 0.35, 0.3);
+            deskGroup.add(monitor);
+
+            // Chair
+            const chairGeometry = new THREE.CylinderGeometry(0.3, 0.3, 0.8, 8);
+            const chairMaterial = new THREE.MeshStandardMaterial({ 
+                color: desk.occupied ? 0x4f46e5 : 0x94a3b8 
+            });
+            const chair = new THREE.Mesh(chairGeometry, chairMaterial);
+            chair.position.set(0, 0.4, -1.2);
+            deskGroup.add(chair);
+
+            // Status indicator
+            const indicatorGeometry = new THREE.SphereGeometry(0.1, 16, 16);
+            const indicatorColor = desk.occupied ? 0x10b981 : 0xef4444;
+            const indicatorMaterial = new THREE.MeshStandardMaterial({ 
+                color: indicatorColor,
+                emissive: indicatorColor,
+                emissiveIntensity: 0.3
+            });
+            const indicator = new THREE.Mesh(indicatorGeometry, indicatorMaterial);
+            indicator.position.set(1.2, 1, 0);
+            deskGroup.add(indicator);
+
+            deskGroup.position.set(...desk.pos);
+            deskGroup.userData = {
+                type: 'desk',
+                id: desk.id,
+                occupied: desk.occupied,
+                user: desk.user
+            };
+
+            this.desks.set(desk.id, deskGroup);
+            this.officeModel.add(deskGroup);
+        });
+    }
+
+    createMeetingRooms(materials) {
+        const rooms = [
+            { id: 'room1', pos: [10, 1.5, 10], size: [6, 3, 6], name: 'Innovation Hub' },
+            { id: 'room2', pos: [-10, 1.5, 10], size: [6, 3, 6], name: 'Focus Room' }
+        ];
+
+        rooms.forEach(room => {
+            const roomGroup = new THREE.Group();
+            
+            // Glass walls
+            const walls = [
+                { size: [room.size[0], room.size[1], 0.1], pos: [0, 0, -room.size[2]/2] },
+                { size: [room.size[0], room.size[1], 0.1], pos: [0, 0, room.size[2]/2] },
+                { size: [0.1, room.size[1], room.size[2]], pos: [-room.size[0]/2, 0, 0] },
+                { size: [0.1, room.size[1], room.size[2]], pos: [room.size[0]/2, 0, 0] }
+            ];
+
+            walls.forEach(wall => {
+                const geometry = new THREE.BoxGeometry(...wall.size);
+                const mesh = new THREE.Mesh(geometry, materials.glass);
+                mesh.position.set(...wall.pos);
+                mesh.castShadow = true;
+                mesh.receiveShadow = true;
+                roomGroup.add(mesh);
+            });
+
+            // Conference table
+            const tableGeometry = new THREE.BoxGeometry(4, 0.1, 2);
+            const table = new THREE.Mesh(tableGeometry, materials.desk);
+            table.position.set(0, 0.5, 0);
+            table.castShadow = true;
+            roomGroup.add(table);
+
+            roomGroup.position.set(...room.pos);
+            roomGroup.userData = {
+                type: 'meeting-room',
+                id: room.id,
+                name: room.name,
+                capacity: 8,
+                available: Math.random() > 0.5
+            };
+
+            this.meetingRooms.set(room.id, roomGroup);
+            this.officeModel.add(roomGroup);
+        });
+    }
+
+    createDecorations() {
+        // Plants
+        const plantGeometry = new THREE.ConeGeometry(0.3, 1.5, 8);
+        const plantMaterial = new THREE.MeshStandardMaterial({ color: 0x4ade80 });
+        
+        const plantPositions = [
+            [-12, 0.75, -12], [12, 0.75, -12], [0, 0.75, 12], [-6, 0.75, 6], [6, 0.75, 6]
+        ];
+
+        plantPositions.forEach(pos => {
+            const plant = new THREE.Mesh(plantGeometry, plantMaterial);
+            plant.position.set(...pos);
+            plant.castShadow = true;
+            this.officeModel.add(plant);
+        });
+    }
+
+    setupInteractions() {
+        this.renderer.domElement.addEventListener('click', (event) => {
+            this.onMouseClick(event);
+        });
+
+        this.renderer.domElement.addEventListener('mousemove', (event) => {
+            this.onMouseMove(event);
+        });
+    }
+
+    onMouseClick(event) {
+        const rect = this.renderer.domElement.getBoundingClientRect();
+        this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+        this.raycaster.setFromCamera(this.mouse, this.camera);
+        const intersects = this.raycaster.intersectObjects(this.officeModel.children, true);
+
+        if (intersects.length > 0) {
+            let clickedObject = intersects[0].object;
+            
+            // Find the parent group with userData
+            while (clickedObject && !clickedObject.userData.type) {
+                clickedObject = clickedObject.parent;
+            }
+
+            if (clickedObject && clickedObject.userData.type === 'desk') {
+                this.showDeskInfo(clickedObject.userData);
+            } else if (clickedObject && clickedObject.userData.type === 'meeting-room') {
+                this.showRoomInfo(clickedObject.userData);
+            }
+        }
+    }
+
+    onMouseMove(event) {
+        const rect = this.renderer.domElement.getBoundingClientRect();
+        this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+        this.raycaster.setFromCamera(this.mouse, this.camera);
+        const intersects = this.raycaster.intersectObjects(this.officeModel.children, true);
+
+        // Change cursor for interactive objects
+        if (intersects.length > 0) {
+            let hoveredObject = intersects[0].object;
+            while (hoveredObject && !hoveredObject.userData.type) {
+                hoveredObject = hoveredObject.parent;
+            }
+            
+            if (hoveredObject && (hoveredObject.userData.type === 'desk' || hoveredObject.userData.type === 'meeting-room')) {
+                this.renderer.domElement.style.cursor = 'pointer';
+                return;
+            }
+        }
+        this.renderer.domElement.style.cursor = 'default';
+    }
+
+    showDeskInfo(deskData) {
+        const panel = this.querySelector('#deskInfoPanel');
+        const content = panel.querySelector('.desk-info-content');
+        
+        const member = this.teamMembers.find(m => m.desk === deskData.id);
+        
+        content.innerHTML = `
+            <div class="desk-details">
+                <div class="desk-header">
+                    <h5>Desk ${deskData.id}</h5>
+                    <span class="desk-status ${deskData.occupied ? 'occupied' : 'available'}">
+                        ${deskData.occupied ? 'Occupied' : 'Available'}
+                    </span>
+                </div>
+                ${member ? `
+                    <div class="assigned-user">
+                        <div class="user-avatar">${member.avatar}</div>
+                        <div class="user-details">
+                            <span class="user-name">${member.name}</span>
+                            <span class="user-role">${member.role}</span>
+                            <span class="user-status ${member.status}">${this.getStatusIcon(member.status)} ${member.status.replace('-', ' ')}</span>
+                        </div>
+                    </div>
+                ` : ''}
+                <div class="desk-actions">
+                    ${!deskData.occupied ? `
+                        <button class="btn-primary book-desk" data-desk="${deskData.id}">
+                            📅 Book This Desk
+                        </button>
+                    ` : `
+                        <button class="btn-secondary" disabled>
+                            Currently Occupied
+                        </button>
+                    `}
+                </div>
+            </div>
+        `;
+        
+        panel.style.display = 'block';
+    }
+
+    showRoomInfo(roomData) {
+        const panel = this.querySelector('#deskInfoPanel');
+        const content = panel.querySelector('.desk-info-content');
+        
+        content.innerHTML = `
+            <div class="room-details">
+                <div class="room-header">
+                    <h5>${roomData.name}</h5>
+                    <span class="room-status ${roomData.available ? 'available' : 'occupied'}">
+                        ${roomData.available ? 'Available' : 'In Use'}
+                    </span>
+                </div>
+                <div class="room-info">
+                    <p><strong>Capacity:</strong> ${roomData.capacity} people</p>
+                    <p><strong>Equipment:</strong> 4K Display, Video Conferencing</p>
+                    <p><strong>Next Available:</strong> ${roomData.available ? 'Now' : '2:30 PM'}</p>
+                </div>
+                <div class="room-actions">
+                    ${roomData.available ? `
+                        <button class="btn-primary book-room" data-room="${roomData.id}">
+                            📅 Book Meeting Room
+                        </button>
+                    ` : `
+                        <button class="btn-secondary" disabled>
+                            Currently in Use
+                        </button>
+                    `}
+                </div>
+            </div>
+        `;
+        
+        panel.style.display = 'block';
+    }
+
+    setupEventHandlers() {
+        // Floor buttons
+        this.querySelectorAll('.floor-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const floor = parseInt(e.target.dataset.floor);
+                this.switchToFloor(floor);
+                
+                this.querySelectorAll('.floor-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+            });
+        });
+
+        // Control buttons
+        this.querySelector('#resetView')?.addEventListener('click', () => {
+            this.resetCameraView();
+        });
+
+        // Team member interactions
+        this.querySelectorAll('.team-member').forEach(member => {
+            member.addEventListener('click', () => {
+                const deskId = member.dataset.desk;
+                this.focusOnDesk(deskId);
+            });
+        });
+
+        // Panel toggles
+        this.querySelectorAll('.panel-toggle').forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                const panel = e.target.closest('.team-panel');
+                panel.classList.toggle('collapsed');
+            });
+        });
+    }
+
+    focusOnDesk(deskId) {
+        const desk = this.desks.get(deskId);
+        if (desk) {
+            const targetPos = desk.position.clone();
+            targetPos.y += 10;
+            targetPos.z += 8;
+            
+            this.animateCameraTo(targetPos, desk.position);
+        }
+    }
+
+    animateCameraTo(position, lookAt) {
+        const startPos = this.camera.position.clone();
+        const startLookAt = this.controls.target.clone();
+        const duration = 1500;
+        const startTime = Date.now();
+
+        const animate = () => {
+            const elapsed = Date.now() - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+            this.camera.position.lerpVectors(startPos, position, easeProgress);
+            this.controls.target.lerpVectors(startLookAt, lookAt, easeProgress);
+            this.controls.update();
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        };
+
+        animate();
+    }
+
+    resetCameraView() {
+        const targetPos = new THREE.Vector3(25, 20, 25);
+        const targetLookAt = new THREE.Vector3(0, 2, 0);
+        this.animateCameraTo(targetPos, targetLookAt);
+    }
+
+    switchToFloor(floor) {
+        this.currentFloor = floor;
+        const targetHeight = 20 + ((floor - 1) * 8);
+        const targetPos = new THREE.Vector3(25, targetHeight, 25);
+        const targetLookAt = new THREE.Vector3(0, (floor - 1) * 5, 0);
+        
+        this.animateCameraTo(targetPos, targetLookAt);
     }
 
     animate() {
@@ -193,294 +722,33 @@ class OfficeVisualizer extends HTMLElement {
 
         this.animationFrame = requestAnimationFrame(() => this.animate());
 
-        // Update controls
         if (this.controls) {
             this.controls.update();
         }
 
-        // Render scene
+        // Animate status indicators
+        this.desks.forEach(desk => {
+            const indicator = desk.children.find(child => 
+                child.geometry && child.geometry.type === 'SphereGeometry'
+            );
+            if (indicator && desk.userData.occupied) {
+                indicator.position.y = 1 + Math.sin(Date.now() * 0.003) * 0.1;
+            }
+        });
+
         if (this.renderer && this.scene && this.camera) {
             this.renderer.render(this.scene, this.camera);
         }
     }
 
-    loadOfficeModel() {
-        // Create office container
-        this.officeModel = new THREE.Group();
-        this.scene.add(this.officeModel);
+    handleResize() {
+        const container = this.querySelector('#visualizerCanvas');
+        const width = container.clientWidth;
+        const height = container.clientHeight || 500;
 
-        // Materials with better colors and properties
-        const wallMaterial = new THREE.MeshStandardMaterial({
-            color: 0xffffff,
-            roughness: 0.5,
-            metalness: 0.1
-        });
-
-        const glassMaterial = new THREE.MeshStandardMaterial({
-            color: 0x6366f1,
-            transparent: true,
-            opacity: 0.2,
-            roughness: 0.1,
-            metalness: 0.9
-        });
-
-        const deskMaterial = new THREE.MeshStandardMaterial({
-            color: 0x334155,
-            roughness: 0.3,
-            metalness: 0.7
-        });
-
-        // Create main office structure
-        const mainStructure = new THREE.Group();
-
-        // Outer walls with better dimensions
-        const outerWalls = [
-            { size: [20, 4, 0.3], position: [0, 2, -10], rotation: [0, 0, 0] },  // Back wall
-            { size: [20, 4, 0.3], position: [0, 2, 10], rotation: [0, 0, 0] },   // Front wall
-            { size: [0.3, 4, 20], position: [-10, 2, 0], rotation: [0, 0, 0] },  // Left wall
-            { size: [0.3, 4, 20], position: [10, 2, 0], rotation: [0, 0, 0] }    // Right wall
-        ];
-
-        outerWalls.forEach(wall => {
-            const geometry = new THREE.BoxGeometry(...wall.size);
-            const mesh = new THREE.Mesh(geometry, wallMaterial);
-            mesh.position.set(...wall.position);
-            mesh.rotation.set(...wall.rotation);
-            mainStructure.add(mesh);
-        });
-
-        // Meeting rooms with better dimensions
-        const meetingRooms = [
-            { size: [6, 3, 6], position: [-7, 1.5, -7] },
-            { size: [6, 3, 6], position: [7, 1.5, -7] },
-            { size: [6, 3, 6], position: [7, 1.5, 7] }
-        ];
-
-        meetingRooms.forEach(room => {
-            const roomGroup = new THREE.Group();
-            
-            // Glass walls
-            const walls = [
-                { size: [6, 3, 0.1], position: [0, 0, -3], rotation: [0, 0, 0] },
-                { size: [6, 3, 0.1], position: [0, 0, 3], rotation: [0, 0, 0] },
-                { size: [0.1, 3, 6], position: [-3, 0, 0], rotation: [0, 0, 0] },
-                { size: [0.1, 3, 6], position: [3, 0, 0], rotation: [0, 0, 0] }
-            ];
-
-            walls.forEach(wall => {
-                const geometry = new THREE.BoxGeometry(...wall.size);
-                const mesh = new THREE.Mesh(geometry, glassMaterial);
-                mesh.position.set(...wall.position);
-                mesh.rotation.set(...wall.rotation);
-                roomGroup.add(mesh);
-            });
-
-            roomGroup.position.set(...room.position);
-            mainStructure.add(roomGroup);
-        });
-
-        // Desks with better layout
-        const desks = [
-            { position: [-3, 0.5, 0], rotation: 0 },
-            { position: [0, 0.5, 0], rotation: 0 },
-            { position: [3, 0.5, 0], rotation: 0 },
-            { position: [-3, 0.5, 3], rotation: 0 },
-            { position: [0, 0.5, 3], rotation: 0 },
-            { position: [3, 0.5, 3], rotation: 0 }
-        ];
-
-        desks.forEach(desk => {
-            const deskGeometry = new THREE.BoxGeometry(2.5, 0.1, 1.2);
-            const deskMesh = new THREE.Mesh(deskGeometry, deskMaterial);
-            deskMesh.position.set(...desk.position);
-            deskMesh.rotation.y = desk.rotation;
-            mainStructure.add(deskMesh);
-        });
-
-        this.officeModel.add(mainStructure);
-    }
-
-    createHotspot(x, y, z, index) {
-        const geometry = new THREE.SphereGeometry(0.2, 32, 32);
-        const material = new THREE.MeshBasicMaterial({
-            color: 0x10b981,
-            transparent: true,
-            opacity: 0.7
-        });
-
-        const hotspot = new THREE.Mesh(geometry, material);
-        hotspot.position.set(x, y, z);
-        
-        // Add to hotspots collection for animation
-        this.hotspots.set(`room${index}`, hotspot);
-
-        return hotspot;
-    }
-
-    updateTeamLocations() {
-        if (!this.isInitialized) return;
-        
-        // Update team member positions
-        this.teamLocations.forEach((location, memberId) => {
-            if (location && location.marker && location.target) {
-                location.marker.position.lerp(location.target, 0.1);
-            }
-        });
-    }
-
-    getOrCreateTeamMarker(memberId) {
-        if (!this.teamLocations.has(memberId)) {
-            const geometry = new THREE.SphereGeometry(0.1);
-            const material = new THREE.MeshPhongMaterial({ color: 0x10b981 });
-            const marker = new THREE.Mesh(geometry, material);
-            this.scene.add(marker);
-            this.teamLocations.set(memberId, {
-                marker,
-                target: new THREE.Vector3()
-            });
-        }
-        return this.teamLocations.get(memberId).marker;
-    }
-
-    updateHotspots() {
-        // Update interactive hotspots
-        this.hotspots.forEach((hotspot, id) => {
-            hotspot.update();
-        });
-    }
-
-    setupEventListeners() {
-        // Zoom controls
-        this.querySelector('#zoomIn').addEventListener('click', () => {
-            this.camera.position.z = Math.max(2, this.camera.position.z - 0.5);
-        });
-
-        this.querySelector('#zoomOut').addEventListener('click', () => {
-            this.camera.position.z = Math.min(10, this.camera.position.z + 0.5);
-        });
-
-        this.querySelector('#resetView').addEventListener('click', () => {
-            this.camera.position.set(0, 0, 5);
-            this.camera.rotation.set(0, 0, 0);
-        });
-
-        // Floor selection
-        this.querySelectorAll('.floor-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const floor = parseInt(e.target.dataset.floor);
-                this.switchFloor(floor);
-                
-                // Update active state
-                this.querySelectorAll('.floor-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-            });
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            const container = this.querySelector('#visualizerCanvas');
-            const width = container.clientWidth;
-            const height = container.clientHeight;
-
-            this.camera.aspect = width / height;
-            this.camera.updateProjectionMatrix();
-            this.renderer.setSize(width, height);
-        });
-    }
-
-    switchFloor(floorNumber) {
-        // Animate to show selected floor
-        const targetY = (floorNumber - 2) * 0.33;
-        const currentY = this.camera.position.y;
-        
-        const animate = () => {
-            const diff = targetY - currentY;
-            if (Math.abs(diff) > 0.01) {
-                this.camera.position.y += diff * 0.1;
-                requestAnimationFrame(animate);
-            }
-        };
-        
-        animate();
-    }
-
-    initializeRealTimeUpdates() {
-        // Clear any existing interval
-        if (this.realTimeInterval) {
-            clearInterval(this.realTimeInterval);
-        }
-
-        // Simulate real-time updates with reduced frequency
-        this.realTimeInterval = setInterval(() => {
-            // Only update every 4th call (20 seconds instead of 5)
-            if (!this.updateCounter) this.updateCounter = 0;
-            this.updateCounter++;
-            
-            if (this.updateCounter % 4 === 0) {
-                this.updateTeamMemberLocations();
-                this.updateRoomAvailability();
-            }
-            
-            // Stop updates after 15 cycles (75 seconds) to save resources
-            if (this.updateCounter >= 15) {
-                clearInterval(this.realTimeInterval);
-                console.log('Office visualizer updates stopped to save resources');
-            }
-        }, 5000); // Keep 5-second interval but reduce actual updates
-    }
-
-    updateTeamMemberLocations() {
-        // Simulate team member movement with reduced frequency
-        this.teamLocations.forEach((location, memberId) => {
-            // Only update 30% of team members each cycle
-            if (Math.random() > 0.7) {
-                const newX = Math.random() * 20 - 10;
-                const newZ = Math.random() * 20 - 10;
-                location.x = newX;
-                location.z = newZ;
-                
-                const marker = this.getOrCreateTeamMarker(memberId);
-                if (marker) {
-                    marker.position.set(newX, 0.5, newZ);
-                }
-            }
-        });
-    }
-
-    updateRoomAvailability() {
-        // Simulate room availability changes with reduced frequency
-        this.hotspots.forEach((hotspot, roomId) => {
-            // Only update 20% of rooms each cycle
-            if (Math.random() > 0.8) {
-                const statuses = ['available', 'occupied', 'meeting'];
-                const newStatus = statuses[Math.floor(Math.random() * statuses.length)];
-                hotspot.status = newStatus;
-                
-                // Update hotspot appearance
-                if (hotspot.mesh) {
-                    const color = this.getStatusColor(newStatus);
-                    hotspot.mesh.material.color.setHex(color);
-                }
-            }
-        });
-    }
-
-    getOrCreateHotspot(roomId) {
-        if (!this.hotspots.has(roomId)) {
-            const geometry = new THREE.CircleGeometry(0.15);
-            const material = new THREE.MeshBasicMaterial({ color: 0x10b981 });
-            const hotspot = new THREE.Mesh(geometry, material);
-            
-            // Add pulse animation
-            hotspot.update = () => {
-                const scale = 1 + Math.sin(Date.now() * 0.005) * 0.1;
-                hotspot.scale.set(scale, scale, 1);
-            };
-
-            this.scene.add(hotspot);
-            this.hotspots.set(roomId, hotspot);
-        }
-        return this.hotspots.get(roomId);
+        this.camera.aspect = width / height;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(width, height);
     }
 
     showFallbackContent() {
@@ -492,27 +760,21 @@ class OfficeVisualizer extends HTMLElement {
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                             <polyline points="9 22 9 12 15 12 15 22"></polyline>
                         </svg>
-                        Office Space
+                        Office Space Overview
                     </h3>
                 </div>
                 <div class="fallback-content">
                     <div class="office-grid">
-                        <div class="office-area meeting-room" data-status="available">
-                            <span class="area-label">Meeting Room A</span>
-                            <span class="status-badge">Available</span>
-                        </div>
-                        <div class="office-area workspace" data-status="occupied">
-                            <span class="area-label">Open Space</span>
-                            <span class="status-badge">8 people</span>
-                        </div>
-                        <div class="office-area meeting-room" data-status="in-use">
-                            <span class="area-label">Meeting Room B</span>
-                            <span class="status-badge">In Use</span>
-                        </div>
-                        <div class="office-area break-room">
-                            <span class="area-label">Break Room</span>
-                            <span class="status-badge">2 people</span>
-                        </div>
+                        ${this.teamMembers.map(member => `
+                            <div class="office-area workspace" data-status="${member.status}">
+                                <div class="area-header">
+                                    <span class="member-avatar">${member.avatar}</span>
+                                    <span class="area-label">${member.name}</span>
+                                </div>
+                                <span class="status-badge">${member.role}</span>
+                                <span class="status-badge ${member.status}">${this.getStatusIcon(member.status)} ${member.status.replace('-', ' ')}</span>
+                            </div>
+                        `).join('')}
                     </div>
                 </div>
             </div>
@@ -520,63 +782,13 @@ class OfficeVisualizer extends HTMLElement {
     }
 
     disconnectedCallback() {
-        // Cleanup
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
         }
         this.isInitialized = false;
         this.renderer?.dispose();
-        this.scene?.dispose();
-        
-        // Remove all event listeners
-        window.removeEventListener('resize', this.handleResize);
-        this.querySelectorAll('button').forEach(btn => {
-            btn.removeEventListener('click', this.handleButtonClick);
-        });
-    }
-
-    setupFloorButtons() {
-        const buttons = this.querySelectorAll('.floor-btn');
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                const floor = parseInt(button.dataset.floor);
-                this.switchToFloor(floor);
-                
-                // Update active state
-                buttons.forEach(b => b.classList.remove('active'));
-                button.classList.add('active');
-            });
-        });
-    }
-
-    switchToFloor(floor) {
-        // Calculate target camera position based on floor
-        const baseHeight = 25;
-        const floorHeight = 5;
-        const targetHeight = baseHeight + ((floor - 1) * floorHeight);
-        
-        // Smoothly animate camera
-        const startPos = this.camera.position.clone();
-        const targetPos = new THREE.Vector3(30, targetHeight, 30);
-        const duration = 1000; // ms
-        const startTime = Date.now();
-
-        const animateCamera = () => {
-            const elapsed = Date.now() - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            // Ease function
-            const easeProgress = 1 - Math.pow(1 - progress, 3);
-            
-            // Interpolate camera position
-            this.camera.position.lerpVectors(startPos, targetPos, easeProgress);
-            
-            if (progress < 1) {
-                requestAnimationFrame(animateCamera);
-            }
-        };
-
-        animateCamera();
+        this.scene?.clear();
+        window.removeEventListener('resize', () => this.handleResize());
     }
 }
 

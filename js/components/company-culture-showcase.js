@@ -80,6 +80,86 @@ class CompanyCultureShowcase extends HTMLElement {
                 color: "#059669"
             }
         ];
+
+        this.culturePulse = {
+            overall: 92,
+            trend: "+5",
+            categories: [
+                { name: "Work-Life Balance", score: 89, trend: "+3" },
+                { name: "Innovation Culture", score: 95, trend: "+7" },
+                { name: "Team Collaboration", score: 91, trend: "+2" },
+                { name: "Career Growth", score: 88, trend: "+4" }
+            ]
+        };
+
+        this.diversityMetrics = {
+            genderBalance: { male: 52, female: 45, nonBinary: 3 },
+            ageGroups: { "20-29": 35, "30-39": 40, "40-49": 20, "50+": 5 },
+            departments: [
+                { name: "Engineering", diversity: 78 },
+                { name: "Design", diversity: 85 },
+                { name: "Product", diversity: 82 },
+                { name: "Marketing", diversity: 90 }
+            ]
+        };
+
+        this.recognitions = [
+            {
+                name: "Alex Thompson",
+                achievement: "Innovation Champion",
+                description: "Led breakthrough AI integration project",
+                date: "2 days ago",
+                icon: "🏆",
+                color: "#f59e0b"
+            },
+            {
+                name: "Sarah Chen",
+                achievement: "Collaboration Award", 
+                description: "Mentored 5 junior developers this quarter",
+                date: "1 week ago",
+                icon: "🤝",
+                color: "#10b981"
+            },
+            {
+                name: "Marcus Rodriguez",
+                achievement: "User Impact Award",
+                description: "Improved user satisfaction by 40%",
+                date: "2 weeks ago",
+                icon: "🎯",
+                color: "#6366f1"
+            }
+        ];
+
+        this.milestones = [
+            {
+                year: "2024",
+                title: "Global Expansion",
+                description: "Opened offices in 5 new countries",
+                icon: "🌍",
+                active: true
+            },
+            {
+                year: "2023", 
+                title: "1M Users Milestone",
+                description: "Reached 1 million active users worldwide",
+                icon: "🎉",
+                active: false
+            },
+            {
+                year: "2022",
+                title: "Best Workplace Award",
+                description: "Recognized as top 10 workplace in tech",
+                icon: "🏆",
+                active: false
+            },
+            {
+                year: "2021",
+                title: "Carbon Neutral",
+                description: "Achieved carbon neutrality across all operations",
+                icon: "🌱",
+                active: false
+            }
+        ];
     }
 
     connectedCallback() {
@@ -107,9 +187,155 @@ class CompanyCultureShowcase extends HTMLElement {
                 </div>
 
                 <div class="culture-content">
+                    <!-- Real-time Culture Pulse -->
+                    <div class="culture-pulse-section">
+                        <h3 class="section-title">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                            Culture Pulse
+                            <span class="pulse-indicator ${this.culturePulse.trend.startsWith('+') ? 'positive' : 'negative'}">
+                                ${this.culturePulse.trend}% this month
+                            </span>
+                        </h3>
+                        
+                        <div class="pulse-dashboard">
+                            <div class="overall-score">
+                                <div class="score-circle">
+                                    <div class="score-number">${this.culturePulse.overall}</div>
+                                    <div class="score-label">Overall Score</div>
+                                </div>
+                            </div>
+                            
+                            <div class="pulse-categories">
+                                ${this.culturePulse.categories.map(category => `
+                                    <div class="pulse-category">
+                                        <div class="category-header">
+                                            <span class="category-name">${category.name}</span>
+                                            <span class="category-trend ${category.trend.startsWith('+') ? 'positive' : 'negative'}">
+                                                ${category.trend}
+                                            </span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: ${category.score}%"></div>
+                                        </div>
+                                        <span class="category-score">${category.score}/100</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Company Timeline -->
+                    <div class="timeline-section">
+                        <h3 class="section-title">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            Our Journey
+                        </h3>
+                        
+                        <div class="timeline">
+                            ${this.milestones.map((milestone, index) => `
+                                <div class="timeline-item ${milestone.active ? 'active' : ''}" data-index="${index}">
+                                    <div class="timeline-marker">
+                                        <span class="milestone-icon">${milestone.icon}</span>
+                                    </div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-year">${milestone.year}</div>
+                                        <h4 class="timeline-title">${milestone.title}</h4>
+                                        <p class="timeline-description">${milestone.description}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Recognition Wall -->
+                    <div class="recognition-section">
+                        <h3 class="section-title">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                                <path d="M4 22h16l-1-7H5l-1 7z"></path>
+                                <path d="M8 9h8"></path>
+                                <path d="M12 2v7"></path>
+                            </svg>
+                            Recognition Wall
+                        </h3>
+                        
+                        <div class="recognition-wall">
+                            ${this.recognitions.map(recognition => `
+                                <div class="recognition-card" style="--accent-color: ${recognition.color}">
+                                    <div class="recognition-icon" style="background: ${recognition.color}20">
+                                        <span>${recognition.icon}</span>
+                                    </div>
+                                    <div class="recognition-content">
+                                        <h4 class="recognition-name">${recognition.name}</h4>
+                                        <div class="recognition-achievement">${recognition.achievement}</div>
+                                        <p class="recognition-description">${recognition.description}</p>
+                                        <div class="recognition-date">${recognition.date}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Diversity & Inclusion Dashboard -->
+                    <div class="diversity-section">
+                        <h3 class="section-title">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            Diversity & Inclusion
+                        </h3>
+                        
+                        <div class="diversity-dashboard">
+                            <div class="diversity-chart">
+                                <h4>Gender Balance</h4>
+                                <div class="chart-container">
+                                    <div class="gender-bars">
+                                        <div class="gender-bar">
+                                            <label>Male</label>
+                                            <div class="bar" style="width: ${this.diversityMetrics.genderBalance.male}%"></div>
+                                            <span>${this.diversityMetrics.genderBalance.male}%</span>
+                                        </div>
+                                        <div class="gender-bar">
+                                            <label>Female</label>
+                                            <div class="bar" style="width: ${this.diversityMetrics.genderBalance.female}%"></div>
+                                            <span>${this.diversityMetrics.genderBalance.female}%</span>
+                                        </div>
+                                        <div class="gender-bar">
+                                            <label>Non-Binary</label>
+                                            <div class="bar" style="width: ${this.diversityMetrics.genderBalance.nonBinary}%"></div>
+                                            <span>${this.diversityMetrics.genderBalance.nonBinary}%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="department-diversity">
+                                <h4>Department Diversity Index</h4>
+                                ${this.diversityMetrics.departments.map(dept => `
+                                    <div class="dept-item">
+                                        <span class="dept-name">${dept.name}</span>
+                                        <div class="dept-progress">
+                                            <div class="dept-fill" style="width: ${dept.diversity}%"></div>
+                                        </div>
+                                        <span class="dept-score">${dept.diversity}%</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Employee Stories Section -->
                     <div class="stories-section">
-                        <h3 class="stories-title">
+                        <h3 class="section-title">
                             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
@@ -160,7 +386,7 @@ class CompanyCultureShowcase extends HTMLElement {
 
                     <!-- Company Values Section -->
                     <div class="values-section">
-                        <h3 class="values-title">
+                        <h3 class="section-title">
                             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                             </svg>
@@ -212,6 +438,9 @@ class CompanyCultureShowcase extends HTMLElement {
         const nextBtn = this.querySelector('.story-nav.next');
         const indicators = this.querySelectorAll('.story-indicator');
         const valueCards = this.querySelectorAll('.value-card');
+        const timelineItems = this.querySelectorAll('.timeline-item');
+        const recognitionCards = this.querySelectorAll('.recognition-card');
+        const pulseCategories = this.querySelectorAll('.pulse-category');
 
         if (prevBtn) {
             prevBtn.addEventListener('click', () => this.previousStory());
@@ -255,6 +484,35 @@ class CompanyCultureShowcase extends HTMLElement {
                     this.highlightValue(index);
                 }
             });
+        });
+
+        // Timeline interactions
+        timelineItems.forEach((item, index) => {
+            item.addEventListener('click', () => this.highlightTimeline(index));
+            item.addEventListener('mouseenter', () => this.animateTimelineItem(item, true));
+            item.addEventListener('mouseleave', () => this.animateTimelineItem(item, false));
+            
+            item.setAttribute('role', 'button');
+            item.setAttribute('tabindex', '0');
+            item.setAttribute('aria-label', `Learn more about ${this.milestones[index].title}`);
+        });
+
+        // Recognition card interactions
+        recognitionCards.forEach((card, index) => {
+            card.addEventListener('click', () => this.showRecognitionDetails(index));
+            card.addEventListener('mouseenter', () => this.animateRecognitionCard(card, true));
+            card.addEventListener('mouseleave', () => this.animateRecognitionCard(card, false));
+            
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('aria-label', `View ${this.recognitions[index].achievement} details`);
+        });
+
+        // Pulse category interactions
+        pulseCategories.forEach((category, index) => {
+            category.addEventListener('click', () => this.showPulseDetails(index));
+            category.addEventListener('mouseenter', () => this.animatePulseCategory(category, true));
+            category.addEventListener('mouseleave', () => this.animatePulseCategory(category, false));
         });
 
         // Add keyboard navigation for stories
@@ -387,18 +645,169 @@ class CompanyCultureShowcase extends HTMLElement {
         }, 3000);
     }
 
+    highlightTimeline(index) {
+        const timelineItems = this.querySelectorAll('.timeline-item');
+        timelineItems.forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+        
+        // Show detailed milestone info
+        this.showMilestoneNotification(this.milestones[index]);
+    }
+
+    animateTimelineItem(item, isEntering) {
+        if (isEntering) {
+            item.style.transform = 'translateX(8px) scale(1.02)';
+        } else if (!item.classList.contains('active')) {
+            item.style.transform = 'translateX(0) scale(1)';
+        }
+    }
+
+    showRecognitionDetails(index) {
+        const recognition = this.recognitions[index];
+        this.showDetailedNotification({
+            title: recognition.achievement,
+            subtitle: recognition.name,
+            description: recognition.description,
+            icon: recognition.icon,
+            color: recognition.color,
+            action: 'View Full Profile'
+        });
+    }
+
+    animateRecognitionCard(card, isEntering) {
+        if (isEntering) {
+            card.style.transform = 'translateY(-8px) scale(1.02)';
+            card.style.boxShadow = 'var(--shadow-xl)';
+        } else {
+            card.style.transform = 'translateY(0) scale(1)';
+            card.style.boxShadow = 'var(--shadow-sm)';
+        }
+    }
+
+    showPulseDetails(index) {
+        const category = this.culturePulse.categories[index];
+        this.showDetailedNotification({
+            title: category.name,
+            subtitle: `Score: ${category.score}/100`,
+            description: `This metric has improved by ${category.trend} this month, showing positive momentum in our culture initiatives.`,
+            icon: '📊',
+            color: '#6366f1',
+            action: 'View Detailed Analytics'
+        });
+    }
+
+    animatePulseCategory(category, isEntering) {
+        if (isEntering) {
+            category.style.transform = 'translateY(-4px)';
+            category.style.boxShadow = 'var(--shadow-lg)';
+        } else {
+            category.style.transform = 'translateY(0)';
+            category.style.boxShadow = 'var(--shadow-sm)';
+        }
+    }
+
+    showMilestoneNotification(milestone) {
+        const notification = document.createElement('div');
+        notification.className = 'milestone-notification';
+        notification.innerHTML = `
+            <div class="milestone-notification-content">
+                <div class="milestone-notification-header">
+                    <div class="milestone-notification-icon">
+                        <span>${milestone.icon}</span>
+                    </div>
+                    <div class="milestone-notification-info">
+                        <h4>${milestone.title}</h4>
+                        <span class="milestone-year">${milestone.year}</span>
+                    </div>
+                </div>
+                <p class="milestone-notification-description">${milestone.description}</p>
+                <button class="milestone-action-btn">Learn More</button>
+            </div>
+        `;
+
+        this.appendChild(notification);
+
+        // Animate in
+        setTimeout(() => {
+            notification.style.opacity = '1';
+            notification.style.transform = 'translateY(0)';
+        }, 10);
+
+        // Remove after 4 seconds
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(-20px)';
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 4000);
+    }
+
+    showDetailedNotification(details) {
+        const notification = document.createElement('div');
+        notification.className = 'detailed-notification';
+        notification.innerHTML = `
+            <div class="detailed-notification-content">
+                <div class="detailed-notification-header">
+                    <div class="detailed-notification-icon" style="background: ${details.color}20; color: ${details.color}">
+                        <span>${details.icon}</span>
+                    </div>
+                    <div class="detailed-notification-info">
+                        <h4>${details.title}</h4>
+                        <span class="detailed-subtitle">${details.subtitle}</span>
+                    </div>
+                    <button class="notification-close" onclick="this.closest('.detailed-notification').remove()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <p class="detailed-notification-description">${details.description}</p>
+                <button class="detailed-action-btn" style="background: ${details.color}">
+                    ${details.action}
+                </button>
+            </div>
+        `;
+
+        this.appendChild(notification);
+
+        // Animate in
+        setTimeout(() => {
+            notification.style.opacity = '1';
+            notification.style.transform = 'translateY(0)';
+        }, 10);
+    }
+
     initializeAnimations() {
         // Animate stats on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-in');
+                    
+                    // Animate progress bars
+                    const progressBars = entry.target.querySelectorAll('.progress-fill, .bar, .dept-fill');
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
                 }
             });
         });
 
         const statItems = this.querySelectorAll('.stat-item');
+        const sections = this.querySelectorAll('.culture-pulse-section, .diversity-section, .timeline-section, .recognition-section');
+        
         statItems.forEach(item => observer.observe(item));
+        sections.forEach(section => observer.observe(section));
+
+        // Add entrance animations
+        this.classList.add('culture-loaded');
     }
 }
 
