@@ -43,16 +43,205 @@
   animation: fadeInScale 0.6s ease-out;
 }
 
+/* Purple Glow for All Main Cards - Non-pulsing */
+.dashboard-item,
+.widget,
+.stat-card,
+.update-card,
+.event-card,
+.task-card,
+.document-card,
+.resource-card,
+.course-card,
+.benefit-card,
+.achievement-card,
+.milestone-card,
+.user-card,
+.team-member,
+.article-card,
+.policy-card,
+.value-card,
+.insight-card,
+.recommendation-card,
+.frequently-used-item,
+.quick-access-link,
+.action-card,
+.resource-category,
+.handbook-section,
+.settings-section,
+.category-card,
+.version-item,
+.ticket-card,
+.space-card,
+.resource-item,
+.event-item,
+.member-spotlight,
+.kanban-column,
+.timeline-project,
+.settings-card,
+.profile-section,
+.info-item,
+.contact-link,
+.skill-tag,
+.matrix-row,
+.avatar-sm,
+.notification-item,
+.command-item,
+.search-result,
+.result-item,
+.placeholder-item,
+.filter-chip,
+.range-selector,
+.metric-card,
+.chart-container,
+.activity-item,
+.goal-item,
+.achievement-item,
+.milestone-item,
+.level-badge,
+.points-display,
+.streak-item,
+.next-achievement,
+.achievement-notification,
+.level-up-notification,
+.connection-status,
+.document-info,
+.space-info,
+.article-content,
+.insight-content,
+.recommendation-content,
+.frequently-used-content,
+.quick-access-content,
+.action-content,
+.category-content,
+.handbook-content,
+.settings-content,
+.version-content,
+.ticket-content,
+.space-content,
+.resource-content,
+.event-content,
+.member-content,
+.team-content,
+.course-content,
+.benefit-content,
+.achievement-content,
+.milestone-content,
+.user-content,
+.policy-content,
+.value-content,
+.insight-content,
+.recommendation-content,
+.frequently-used-content {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effect for cards */
+.dashboard-item:hover,
+.widget:hover,
+.stat-card:hover,
+.update-card:hover,
+.event-card:hover,
+.task-card:hover,
+.document-card:hover,
+.resource-card:hover,
+.course-card:hover,
+.benefit-card:hover,
+.achievement-card:hover,
+.milestone-card:hover,
+.user-card:hover,
+.team-member:hover,
+.article-card:hover,
+.policy-card:hover,
+.value-card:hover,
+.insight-card:hover,
+.recommendation-card:hover,
+.frequently-used-item:hover,
+.quick-access-link:hover,
+.action-card:hover,
+.resource-category:hover,
+.handbook-section:hover,
+.settings-section:hover,
+.category-card:hover,
+.version-item:hover,
+.ticket-card:hover,
+.space-card:hover,
+.resource-item:hover,
+.event-item:hover,
+.member-spotlight:hover,
+.kanban-column:hover,
+.timeline-project:hover,
+.settings-card:hover,
+.profile-section:hover,
+.info-item:hover,
+.contact-link:hover,
+.skill-tag:hover,
+.matrix-row:hover,
+.avatar-sm:hover,
+.notification-item:hover,
+.command-item:hover,
+.search-result:hover,
+.result-item:hover,
+.placeholder-item:hover,
+.filter-chip:hover,
+.range-selector:hover,
+.metric-card:hover,
+.chart-container:hover,
+.activity-item:hover,
+.goal-item:hover,
+.achievement-item:hover,
+.milestone-item:hover,
+.level-badge:hover,
+.points-display:hover,
+.streak-item:hover,
+.next-achievement:hover,
+.achievement-notification:hover,
+.level-up-notification:hover,
+.connection-status:hover,
+.document-info:hover,
+.space-info:hover,
+.article-content:hover,
+.insight-content:hover,
+.recommendation-content:hover,
+.frequently-used-content:hover,
+.quick-access-content:hover,
+.action-content:hover,
+.category-content:hover,
+.handbook-content:hover,
+.settings-content:hover,
+.version-content:hover,
+.ticket-content:hover,
+.space-content:hover,
+.resource-content:hover,
+.event-content:hover,
+.member-content:hover,
+.team-content:hover,
+.course-content:hover,
+.benefit-content:hover,
+.achievement-content:hover,
+.milestone-content:hover,
+.user-content:hover,
+.policy-content:hover,
+.value-content:hover,
+.insight-content:hover,
+.recommendation-content:hover,
+.frequently-used-content:hover {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Remove the pulsing animation from dashboard items */
 .dashboard-item {
-  animation: pulse-glow 2s ease-in-out infinite;
+  animation: none;
 }
 
 .dashboard-item:nth-child(even) {
-  animation-delay: 2s;
+  animation: none;
 }
 
 .dashboard-item:nth-child(3n) {
-  animation-delay: 4s;
+  animation: none;
 }
 
 /* Achievement System Enhancements */
@@ -158,10 +347,7 @@
 
 /* Enhanced Typography */
 .welcome-title {
-  background: linear-gradient(135deg, var(--primary-600), var(--primary-400));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: white !important;
   font-weight: 800;
   letter-spacing: -0.025em;
 }
