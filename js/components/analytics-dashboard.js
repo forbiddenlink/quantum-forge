@@ -1,5 +1,4 @@
-// Enhanced Analytics Dashboard Component
-
+// Enhanced Analytics Dashboard Component - Dream Intranet Homepage
 class AnalyticsDashboard extends HTMLElement {
     constructor() {
         super();
@@ -12,86 +11,43 @@ class AnalyticsDashboard extends HTMLElement {
         this.teamHeatmapChart = null;
         this.goalChart = null;
         this.isRealTimeEnabled = true;
+        this.isInitialized = false;
+        this.particles = [];
+        this.animationFrame = null;
+        this.pulseAnimation = null;
+        this.updateInterval = null;
+        this.chartInstances = new Map();
+        this.activeInsightIndex = 0;
+        this.insightRotationInterval = null;
         
-        // Enhanced analytics data
-        this.kpiData = {
-            productivity: { current: 87, target: 85, trend: '+5%', status: 'excellent' },
-            efficiency: { current: 92, target: 90, trend: '+3%', status: 'excellent' },
-            collaboration: { current: 78, target: 80, trend: '-2%', status: 'attention' },
-            satisfaction: { current: 94, target: 85, trend: '+8%', status: 'excellent' }
+        // Enhanced analytics options
+        this.options = {
+            theme: 'light',
+            animations: true,
+            realTimeUpdates: true,
+            chartRefreshRate: 5000,
+            insightRotationInterval: 8000,
+            particleCount: 15
         };
 
-        this.goalData = {
-            quarterly: [
-                { name: 'User Acquisition', current: 847, target: 1000, progress: 84.7, status: 'on-track' },
-                { name: 'Product Features', current: 12, target: 15, progress: 80, status: 'on-track' },
-                { name: 'Team Growth', current: 8, target: 10, progress: 80, status: 'on-track' },
-                { name: 'Customer Satisfaction', current: 4.7, target: 4.5, progress: 104.4, status: 'exceeded' }
-            ]
-        };
-
-        this.teamPerformance = {
-            departments: ['Engineering', 'Design', 'Product', 'Marketing', 'Sales'],
-            metrics: ['Productivity', 'Collaboration', 'Innovation', 'Quality'],
-            heatmapData: [
-                [95, 88, 92, 90], // Engineering
-                [87, 94, 96, 92], // Design  
-                [90, 91, 89, 88], // Product
-                [82, 85, 84, 94], // Marketing
-                [88, 79, 82, 89]  // Sales
-            ]
-        };
-
-        this.aiInsights = [
-            {
-                type: 'opportunity',
-                title: 'Peak Performance Window',
-                description: 'Team productivity is 23% higher between 9-11 AM. Consider scheduling critical tasks during this window.',
-                confidence: 94,
-                impact: 'high',
-                category: 'productivity'
-            },
-            {
-                type: 'alert',
-                title: 'Collaboration Bottleneck',
-                description: 'Design team has 40% fewer cross-team interactions this week. Recommend scheduling sync meetings.',
-                confidence: 87,
-                impact: 'medium',
-                category: 'collaboration'
-            },
-            {
-                type: 'prediction',
-                title: 'Goal Achievement Forecast',
-                description: 'Based on current trends, Q1 targets will be exceeded by 12% if current pace continues.',
-                confidence: 91,
-                impact: 'high',
-                category: 'goals'
-            }
-        ];
-
-        this.realtimeActivities = [
-            { type: 'achievement', user: 'Sarah Chen', action: 'completed milestone "API Integration"', time: '2 min ago', priority: 'high' },
-            { type: 'collaboration', user: 'Design Team', action: 'started collaborative session', time: '5 min ago', priority: 'medium' },
-            { type: 'goal', user: 'Product Team', action: 'updated Q1 roadmap progress', time: '8 min ago', priority: 'medium' },
-            { type: 'insight', user: 'AI Assistant', action: 'detected productivity optimization opportunity', time: '12 min ago', priority: 'high' }
-        ];
-    }
-
-    getInsightIcon(type) {
-        const icons = {
-            'opportunity': '<path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>',
-            'alert': '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line>',
-            'prediction': '<path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>',
-            'recommendation': '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>'
-        };
-        return icons[type] || icons['recommendation'];
+        // Initialize immediately if possible
+        if (window.analyticsService) {
+            this.data = window.analyticsService.data;
+        }
     }
 
     connectedCallback() {
-        console.log('Analytics Dashboard connected');
+        if (this.isInitialized) return;
+        
+        console.log('Analytics Dashboard connecting...');
+        
         this.render();
         this.setupEventListeners();
         this.initializeCharts();
+        this.initializeParticles();
+        this.initializeAnimations();
+        this.startRealTimeUpdates();
+        this.startInsightRotation();
         
         // Subscribe to analytics updates
         if (window.analyticsService) {
@@ -100,35 +56,335 @@ class AnalyticsDashboard extends HTMLElement {
                 console.log('Analytics Dashboard received data:', data);
                 this.data = data;
                 this.updateDashboard();
+            }, {
+                metrics: ['kpiData', 'teamPerformance', 'aiInsights', 'goals', 'activities']
             });
-
-            // Generate mock data for testing
-            window.analyticsService.generateMockData();
         } else {
             console.error('Analytics service not found!');
         }
 
-        // Start real-time updates
-        this.startRealTimeUpdates();
+        // Add entrance animation
+        setTimeout(() => {
+            this.classList.add('dashboard-loaded');
+            console.log('Analytics Dashboard loaded and animated');
+        }, 100);
+        
+        this.isInitialized = true;
+        console.log('Analytics Dashboard initialized');
+    }
+
+    setupEventListeners() {
+        console.log('Setting up Analytics Dashboard event listeners...');
+        
+        // Range selector
+        const rangeSelector = this.querySelector('.range-selector');
+        if (rangeSelector) {
+            rangeSelector.addEventListener('change', (e) => {
+                this.selectedRange = e.target.value;
+                this.refreshData();
+            });
+        }
+
+        // Real-time toggle
+        const toggleRealTime = this.querySelector('#toggleRealTime');
+        if (toggleRealTime) {
+            toggleRealTime.addEventListener('click', () => {
+                this.isRealTimeEnabled = !this.isRealTimeEnabled;
+                toggleRealTime.classList.toggle('active', this.isRealTimeEnabled);
+                if (this.isRealTimeEnabled) {
+                    this.startRealTimeUpdates();
+                } else {
+                    if (this.realTimeUpdates) {
+                        clearInterval(this.realTimeUpdates);
+                    }
+                }
+            });
+        }
+
+        // Refresh button
+        const refreshBtn = this.querySelector('#refreshAnalytics');
+        if (refreshBtn) {
+            refreshBtn.addEventListener('click', () => {
+                this.refreshData();
+            });
+        }
+
+        // KPI card interactions
+        this.querySelectorAll('.kpi-card').forEach(card => {
+            card.addEventListener('mouseenter', () => this.animateKPICard(card, true));
+            card.addEventListener('mouseleave', () => this.animateKPICard(card, false));
+            card.addEventListener('click', () => this.highlightMetric(card));
+        });
+
+        // Goal card interactions
+        this.querySelectorAll('.goal-card').forEach(card => {
+            card.addEventListener('mouseenter', () => this.animateGoalCard(card, true));
+            card.addEventListener('mouseleave', () => this.animateGoalCard(card, false));
+        });
+
+        // AI Insight card interactions
+        this.querySelectorAll('.ai-insight-card').forEach(card => {
+            card.addEventListener('mouseenter', () => this.animateInsightCard(card, true));
+            card.addEventListener('mouseleave', () => this.animateInsightCard(card, false));
+            card.addEventListener('click', () => this.expandInsight(card));
+        });
+
+        // Chart container interactions
+        this.querySelectorAll('.chart-container').forEach(container => {
+            container.addEventListener('mouseenter', () => this.animateChartContainer(container, true));
+            container.addEventListener('mouseleave', () => this.animateChartContainer(container, false));
+        });
+
+        // Activity item interactions
+        this.querySelectorAll('.activity-item').forEach(item => {
+            item.addEventListener('mouseenter', () => this.animateActivityItem(item, true));
+            item.addEventListener('mouseleave', () => this.animateActivityItem(item, false));
+        });
+
+        // Chart filters
+        this.querySelectorAll('.chart-filter').forEach(filter => {
+            filter.addEventListener('click', (e) => {
+                const filterType = e.target.dataset.filter;
+                this.querySelectorAll('.chart-filter').forEach(f => f.classList.remove('active'));
+                e.target.classList.add('active');
+                this.updateCharts(filterType);
+            });
+        });
+
+        // Activity filters
+        this.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const filterType = e.target.dataset.filter;
+                this.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                
+                const activityItems = this.querySelectorAll('.activity-item');
+                activityItems.forEach(item => {
+                    if (filterType === 'all' || item.dataset.type === filterType) {
+                        item.style.display = '';
+                        setTimeout(() => item.style.opacity = '1', 10);
+                    } else {
+                        item.style.opacity = '0';
+                        setTimeout(() => item.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+
+        console.log('Analytics Dashboard event listeners setup complete');
     }
 
     disconnectedCallback() {
+        console.log('Analytics Dashboard disconnecting...');
         if (this.unsubscribe) {
             this.unsubscribe();
         }
         if (this.realTimeUpdates) {
             clearInterval(this.realTimeUpdates);
         }
-        if (this.taskChart) {
-            this.taskChart.destroy();
+        if (this.insightRotationInterval) {
+            clearInterval(this.insightRotationInterval);
         }
-        if (this.projectChart) {
-            this.projectChart.destroy();
+        if (this.animationFrame) {
+            cancelAnimationFrame(this.animationFrame);
         }
+        this.chartInstances.forEach(chart => chart.destroy());
+        this.chartInstances.clear();
+        console.log('Analytics Dashboard cleanup complete');
+    }
+
+    initializeParticles() {
+        const particlesContainer = document.createElement('div');
+        particlesContainer.className = 'analytics-particles';
+        this.appendChild(particlesContainer);
+        
+        // Create floating particles
+        for (let i = 0; i < this.options.particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'analytics-particle';
+            particle.style.cssText = `
+                position: absolute;
+                width: ${Math.random() * 6 + 2}px;
+                height: ${Math.random() * 6 + 2}px;
+                background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.2));
+                border-radius: 50%;
+                pointer-events: none;
+                animation: analyticsFloat ${Math.random() * 20 + 10}s ease-in-out infinite;
+                animation-delay: ${Math.random() * 5}s;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+            `;
+            particlesContainer.appendChild(particle);
+        }
+        
+        // Add particle animation CSS
+        if (!document.querySelector('#analytics-particle-styles')) {
+            const style = document.createElement('style');
+            style.id = 'analytics-particle-styles';
+            style.textContent = `
+                @keyframes analyticsFloat {
+                    0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+                    25% { transform: translateY(-20px) translateX(10px); opacity: 0.7; }
+                    50% { transform: translateY(-40px) translateX(-5px); opacity: 0.5; }
+                    75% { transform: translateY(-20px) translateX(-10px); opacity: 0.8; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+
+    initializeAnimations() {
+        // Animate elements on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    
+                    // Animate progress bars
+                    const progressBars = entry.target.querySelectorAll('.progress-fill, .bar');
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                            bar.style.transition = 'width 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                        }, 200);
+                    });
+                }
+            });
+        });
+
+        const animateElements = this.querySelectorAll('.kpi-card, .goal-card, .ai-insight-card, .chart-container');
+        animateElements.forEach(el => observer.observe(el));
+    }
+
+    startRealTimeUpdates() {
+        if (!this.isRealTimeEnabled) return;
+        
+        this.realTimeUpdates = setInterval(() => {
+            this.updateRandomMetrics();
+        }, this.options.chartRefreshRate);
+    }
+
+    startInsightRotation() {
+        if (this.insightRotationInterval) {
+            clearInterval(this.insightRotationInterval);
+        }
+
+        this.insightRotationInterval = setInterval(() => {
+            this.rotateInsights();
+        }, this.options.insightRotationInterval);
+    }
+
+    rotateInsights() {
+        const insights = this.querySelectorAll('.ai-insight-card');
+        if (!insights.length) return;
+
+        insights[this.activeInsightIndex].classList.remove('active');
+        this.activeInsightIndex = (this.activeInsightIndex + 1) % insights.length;
+        insights[this.activeInsightIndex].classList.add('active');
+    }
+
+    updateRandomMetrics() {
+        if (!this.data) return;
+        
+        // Randomly update some KPIs
+        Object.keys(this.data.kpiData).forEach(kpi => {
+            if (Math.random() > 0.7) {
+                const change = Math.random() > 0.5 ? 1 : -1;
+                this.data.kpiData[kpi].current = Math.max(0, Math.min(100, this.data.kpiData[kpi].current + change));
+                this.data.kpiData[kpi].trend = `${change >= 0 ? '+' : ''}${change}%`;
+                
+                // Animate the change
+                const kpiCard = this.querySelector(`[data-kpi="${kpi}"]`);
+                if (kpiCard) {
+                    kpiCard.classList.add('pulse');
+                    setTimeout(() => kpiCard.classList.remove('pulse'), 1000);
+                }
+            }
+        });
+        
+        this.updateDashboard();
     }
 
     render() {
         console.log('Analytics Dashboard rendering with data:', this.data);
+        
+        // Initialize with default data if none is available
+        if (!this.data) {
+            this.data = {
+                kpiData: {
+                    productivity: { current: 0, target: 100, trend: '0%', status: 'attention' },
+                    efficiency: { current: 0, target: 100, trend: '0%', status: 'attention' },
+                    collaboration: { current: 0, target: 100, trend: '0%', status: 'attention' },
+                    satisfaction: { current: 0, target: 100, trend: '0%', status: 'attention' }
+                },
+                teamPerformance: {
+                    departments: ['Engineering', 'Design', 'Product', 'Marketing', 'Sales'],
+                    metrics: ['Productivity', 'Collaboration', 'Innovation', 'Quality'],
+                    heatmapData: Array(5).fill(Array(4).fill(60))
+                },
+                aiInsights: [
+                    {
+                        type: 'opportunity',
+                        title: 'Loading Insights...',
+                        description: 'Real-time analytics data is being processed.',
+                        confidence: 100,
+                        impact: 'medium',
+                        category: 'system'
+                    }
+                ],
+                goals: {
+                    quarterly: [
+                        { name: 'Loading...', current: 0, target: 100, progress: 0, status: 'on-track' }
+                    ]
+                },
+                taskChart: [0, 0, 0, 0, 0, 0, 0],
+                projectChart: [0, 0, 0],
+                activities: [
+                    { type: 'system', text: 'Loading activities...', time: 'just now', impact: 'low' }
+                ]
+            };
+        }
+
+        // Ensure all required data structures exist
+        this.data.kpiData = this.data.kpiData || {
+            productivity: { current: 0, target: 100, trend: '0%', status: 'attention' },
+            efficiency: { current: 0, target: 100, trend: '0%', status: 'attention' },
+            collaboration: { current: 0, target: 100, trend: '0%', status: 'attention' },
+            satisfaction: { current: 0, target: 100, trend: '0%', status: 'attention' }
+        };
+
+        this.data.teamPerformance = this.data.teamPerformance || {
+            departments: ['Engineering', 'Design', 'Product', 'Marketing', 'Sales'],
+            metrics: ['Productivity', 'Collaboration', 'Innovation', 'Quality'],
+            heatmapData: Array(5).fill(Array(4).fill(60))
+        };
+
+        this.data.goals = this.data.goals || {
+            quarterly: [
+                { name: 'Loading...', current: 0, target: 100, progress: 0, status: 'on-track' }
+            ]
+        };
+
+        this.data.aiInsights = this.data.aiInsights || [
+            {
+                type: 'opportunity',
+                title: 'Loading Insights...',
+                description: 'Real-time analytics data is being processed.',
+                confidence: 100,
+                impact: 'medium',
+                category: 'system'
+            }
+        ];
+
+        this.data.activities = this.data.activities || [
+            { type: 'system', text: 'Loading activities...', time: 'just now', impact: 'low' }
+        ];
+
+        this.data.taskChart = this.data.taskChart || [0, 0, 0, 0, 0, 0, 0];
+        this.data.projectChart = this.data.projectChart || [0, 0, 0];
+        
         this.innerHTML = `
             <div class="analytics-dashboard">
                 <div class="dashboard-header">
@@ -174,7 +430,7 @@ class AnalyticsDashboard extends HTMLElement {
                         Key Performance Indicators
                     </h3>
                     <div class="kpi-grid">
-                        ${Object.entries(this.kpiData).map(([key, kpi]) => `
+                        ${Object.entries(this.data.kpiData).map(([key, kpi]) => `
                             <div class="advanced-kpi-card ${kpi.status}" data-kpi="${key}">
                                 <div class="kpi-header">
                                     <h4 class="kpi-name">${key.charAt(0).toUpperCase() + key.slice(1)}</h4>
@@ -221,7 +477,7 @@ class AnalyticsDashboard extends HTMLElement {
                         Q1 2024 Goals & OKRs
                     </h3>
                     <div class="goals-grid">
-                        ${this.goalData.quarterly.map(goal => {
+                        ${this.data.goals.quarterly.map(goal => {
                             const circumference = 2 * Math.PI * 54;
                             const offset = circumference * (1 - goal.progress / 100);
                             const strokeColor = goal.status === 'exceeded' ? 'var(--success-500)' : 'var(--primary-500)';
@@ -282,15 +538,15 @@ class AnalyticsDashboard extends HTMLElement {
                         <div class="heatmap-grid">
                             <div class="heatmap-header">
                                 <div class="corner-cell"></div>
-                                ${this.teamPerformance.metrics.map(metric => `
+                                ${this.data.teamPerformance.metrics.map(metric => `
                                     <div class="metric-header">${metric}</div>
                                 `).join('')}
                             </div>
-                            ${this.teamPerformance.departments.map((dept, deptIndex) => `
+                            ${this.data.teamPerformance.departments.map((dept, deptIndex) => `
                                 <div class="heatmap-row">
                                     <div class="dept-header">${dept}</div>
-                                    ${this.teamPerformance.heatmapData[deptIndex].map((value, metricIndex) => `
-                                        <div class="heatmap-cell" data-value="${value}" data-dept="${dept}" data-metric="${this.teamPerformance.metrics[metricIndex]}" style="background-color: ${this.getHeatmapColor(value)}">
+                                    ${this.data.teamPerformance.heatmapData[deptIndex].map((value, metricIndex) => `
+                                        <div class="heatmap-cell" data-value="${value}" data-dept="${dept}" data-metric="${this.data.teamPerformance.metrics[metricIndex]}" style="background-color: ${this.getHeatmapColor(value)}">
                                             <span class="cell-value">${value}</span>
                                         </div>
                                     `).join('')}
@@ -318,7 +574,7 @@ class AnalyticsDashboard extends HTMLElement {
                         <span class="ai-badge">BETA</span>
                     </h3>
                     <div class="insights-grid">
-                                                ${this.aiInsights.map(insight => `
+                                                ${this.data.aiInsights.map(insight => `
                             <div class="ai-insight-card ${insight.type}" data-confidence="${insight.confidence}">
                                 <div class="insight-header">
                                     <div class="insight-type-icon ${insight.type}">
@@ -432,7 +688,7 @@ class AnalyticsDashboard extends HTMLElement {
                         </div>
                     </div>
                     <div class="activity-feed" id="activityFeed">
-                        ${this.realtimeActivities.map(activity => `
+                        ${this.data.activities.map(activity => `
                             <div class="activity-item ${activity.type} ${activity.priority}" data-type="${activity.type}">
                                 <div class="activity-icon ${activity.type}">
                                     ${this.getActivityIcon(activity.type)}
@@ -545,446 +801,444 @@ class AnalyticsDashboard extends HTMLElement {
         return icons[type] || icons.insight;
     }
 
-    setupEventListeners() {
-        const rangeSelector = this.querySelector('.range-selector');
-        const refreshBtn = this.querySelector('#refreshAnalytics');
-        const viewAllBtn = this.querySelector('#viewAllActivity');
-        const metricCards = this.querySelectorAll('.metric-card');
-        const insightCards = this.querySelectorAll('.insight-card');
-
-        if (rangeSelector) {
-            rangeSelector.addEventListener('change', (e) => {
-                this.selectedRange = e.target.value;
-                this.updateDashboard();
-                this.announceUpdate(`Analytics updated for ${e.target.value}`);
-            });
-
-            // Enhanced accessibility
-            rangeSelector.setAttribute('aria-label', 'Select time range for analytics data');
-        }
-
-        if (refreshBtn) {
-            refreshBtn.addEventListener('click', () => {
-                this.refreshData();
-            });
-            
-            // Enhanced accessibility
-            refreshBtn.setAttribute('aria-label', 'Refresh analytics data');
-            refreshBtn.setAttribute('title', 'Refresh analytics data');
-        }
-
-        if (viewAllBtn) {
-            viewAllBtn.addEventListener('click', () => {
-                this.showAllActivity();
-            });
-            
-            // Enhanced accessibility
-            viewAllBtn.setAttribute('aria-label', 'View all activity details');
-        }
-
-        // Add hover effects and accessibility for metric cards
-        metricCards.forEach((card, index) => {
-            card.setAttribute('tabindex', '0');
-            card.setAttribute('role', 'button');
-            card.setAttribute('aria-label', `View details for metric ${index + 1}`);
-            
-            card.addEventListener('click', () => {
-                this.highlightMetric(card);
-            });
-            
-            card.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    this.highlightMetric(card);
-                }
-            });
-            
-            card.addEventListener('mouseenter', () => {
-                this.animateMetricCard(card, true);
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                this.animateMetricCard(card, false);
-            });
-        });
-
-        // Add interactions for insight cards
-        insightCards.forEach((card, index) => {
-            card.setAttribute('tabindex', '0');
-            card.setAttribute('role', 'button');
-            card.setAttribute('aria-label', `View insight details ${index + 1}`);
-            
-            card.addEventListener('click', () => {
-                this.expandInsight(card);
-            });
-            
-            card.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    this.expandInsight(card);
-                }
-            });
-        });
-
-        // Add keyboard navigation
-        this.addEventListener('keydown', (e) => {
-            if (e.key === 'F5' || (e.ctrlKey && e.key === 'r')) {
-                e.preventDefault();
-                this.refreshData();
-            }
-        });
-    }
-
     initializeCharts() {
-        // Initialize Task Completion Chart
+        // Task Completion Chart
         const taskCanvas = this.querySelector('#taskChartCanvas');
-        if (!taskCanvas) {
-            console.error('Task chart canvas not found');
-            return;
-        }
-        const taskCtx = taskCanvas.getContext('2d');
-        this.taskChart = new Chart(taskCtx, {
-            type: 'line',
-            data: {
-                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                datasets: [
-                    {
-                        label: 'Completed Tasks',
-                        data: [12, 19, 15, 17, 14, 12, 16],
-                        borderColor: '#6366f1',
-                        backgroundColor: 'rgba(99, 102, 241, 0.1)',
-                        tension: 0.4,
-                        fill: false,
-                        borderWidth: 3,
-                        pointBackgroundColor: '#6366f1',
-                        pointBorderColor: '#ffffff',
-                        pointBorderWidth: 2,
-                        pointRadius: 5,
-                        pointHoverRadius: 7
-                    },
-                    {
-                        label: 'In Progress',
-                        data: [7, 11, 8, 9, 6, 5, 8],
-                        borderColor: '#eab308',
-                        backgroundColor: 'rgba(234, 179, 8, 0.1)',
-                        tension: 0.4,
-                        fill: false,
-                        borderWidth: 3,
-                        pointBackgroundColor: '#eab308',
-                        pointBorderColor: '#ffffff',
-                        pointBorderWidth: 2,
-                        pointRadius: 5,
-                        pointHoverRadius: 7
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        mode: 'index',
-                        intersect: false,
-                        backgroundColor: '#ffffff',
-                        titleColor: '#0f172a',
-                        bodyColor: '#475569',
-                        borderColor: '#e2e8f0',
-                        borderWidth: 1,
-                        cornerRadius: 8,
-                        titleFont: {
-                            family: "'Inter', sans-serif",
-                            weight: '600'
+        if (taskCanvas) {
+            const taskCtx = taskCanvas.getContext('2d');
+            const taskChart = new Chart(taskCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [
+                        {
+                            label: 'Completed Tasks',
+                            data: [12, 19, 15, 17, 14, 12, 16],
+                            borderColor: '#6366f1',
+                            backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                            tension: 0.4,
+                            fill: true,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#6366f1',
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2,
+                            pointRadius: 5,
+                            pointHoverRadius: 7
                         },
-                        bodyFont: {
-                            family: "'Inter', sans-serif"
+                        {
+                            label: 'In Progress',
+                            data: [7, 11, 8, 9, 6, 5, 8],
+                            borderColor: '#eab308',
+                            backgroundColor: 'rgba(234, 179, 8, 0.1)',
+                            tension: 0.4,
+                            fill: true,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#eab308',
+                            pointBorderColor: '#ffffff',
+                            pointBorderWidth: 2,
+                            pointRadius: 5,
+                            pointHoverRadius: 7
                         }
-                    }
+                    ]
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: {
-                            color: '#e2e8f0',
-                            lineWidth: 1
-                        },
-                        ticks: {
-                            color: '#475569',
-                            font: {
-                                family: "'Inter', sans-serif",
-                                size: 12
-                            }
-                        }
-                    },
-                    x: {
-                        grid: {
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
                             display: false
                         },
-                        ticks: {
-                            color: '#475569',
-                            font: {
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: '#ffffff',
+                            titleColor: '#0f172a',
+                            bodyColor: '#475569',
+                            borderColor: '#e2e8f0',
+                            borderWidth: 1,
+                            cornerRadius: 8,
+                            padding: 12,
+                            titleFont: {
                                 family: "'Inter', sans-serif",
-                                size: 12,
-                                weight: '500'
+                                weight: '600',
+                                size: 14
+                            },
+                            bodyFont: {
+                                family: "'Inter', sans-serif",
+                                size: 13
+                            },
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.parsed.y} tasks`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: '#e2e8f0',
+                                lineWidth: 1,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: '#475569',
+                                font: {
+                                    family: "'Inter', sans-serif",
+                                    size: 12
+                                },
+                                padding: 8
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#475569',
+                                font: {
+                                    family: "'Inter', sans-serif",
+                                    size: 12,
+                                    weight: '500'
+                                },
+                                padding: 8
                             }
                         }
                     }
                 }
-            }
-        });
-
-        // Initialize Project Progress Chart
-        const projectCanvas = this.querySelector('#projectChartCanvas');
-        if (!projectCanvas) {
-            console.error('Project chart canvas not found');
-            return;
+            });
+            this.chartInstances.set('task', taskChart);
         }
-        const projectCtx = projectCanvas.getContext('2d');
-        this.projectChart = new Chart(projectCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Completed', 'In Progress', 'Not Started'],
-                datasets: [{
-                    data: [65, 25, 10],
-                    backgroundColor: [
-                        '#6366f1',
-                        '#eab308',
-                        '#e2e8f0'
-                    ],
-                    borderColor: [
-                        '#4f46e5',
-                        '#ca8a04',
-                        '#cbd5e1'
-                    ],
-                    borderWidth: 2,
-                    hoverBorderWidth: 3,
-                    hoverOffset: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'right',
-                        labels: {
-                            boxWidth: 12,
-                            padding: 20,
-                            color: '#475569',
-                            font: {
+
+        // Project Progress Chart
+        const projectCanvas = this.querySelector('#projectChartCanvas');
+        if (projectCanvas) {
+            const projectCtx = projectCanvas.getContext('2d');
+            const projectChart = new Chart(projectCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Completed', 'In Progress', 'Not Started'],
+                    datasets: [{
+                        data: [65, 25, 10],
+                        backgroundColor: [
+                            '#6366f1',
+                            '#eab308',
+                            '#e2e8f0'
+                        ],
+                        borderColor: [
+                            '#4f46e5',
+                            '#ca8a04',
+                            '#cbd5e1'
+                        ],
+                        borderWidth: 2,
+                        hoverBorderWidth: 3,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                boxWidth: 12,
+                                padding: 20,
+                                color: '#475569',
+                                font: {
+                                    family: "'Inter', sans-serif",
+                                    size: 12,
+                                    weight: '500'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#ffffff',
+                            titleColor: '#0f172a',
+                            bodyColor: '#475569',
+                            borderColor: '#e2e8f0',
+                            borderWidth: 1,
+                            cornerRadius: 8,
+                            padding: 12,
+                            titleFont: {
                                 family: "'Inter', sans-serif",
-                                size: 12,
-                                weight: '500'
+                                weight: '600',
+                                size: 14
+                            },
+                            bodyFont: {
+                                family: "'Inter', sans-serif",
+                                size: 13
+                            },
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: ${context.parsed}%`;
+                                }
                             }
                         }
                     },
-                    tooltip: {
-                        backgroundColor: '#ffffff',
-                        titleColor: '#0f172a',
-                        bodyColor: '#475569',
-                        borderColor: '#e2e8f0',
-                        borderWidth: 1,
-                        cornerRadius: 8,
-                        titleFont: {
-                            family: "'Inter', sans-serif",
-                            weight: '600'
-                        },
-                        bodyFont: {
-                            family: "'Inter', sans-serif"
-                        }
-                    }
-                },
-                cutout: '75%'
-            }
-        });
-    }
-
-    startRealTimeUpdates() {
-        this.realTimeUpdates = setInterval(() => {
-            this.updateRealTimeMetrics();
-        }, 30000); // Update every 30 seconds
-    }
-
-    updateRealTimeMetrics() {
-        // Simulate real-time updates
-        const teamOnline = Math.floor(Math.random() * 5) + 6; // 6-10 team members
-        const productivity = Math.floor(Math.random() * 20) + 80; // 80-100 productivity score
-
-        const teamOnlineEl = this.querySelector('#teamOnline');
-        const productivityEl = this.querySelector('#productivity');
-        
-        if (teamOnlineEl) {
-            teamOnlineEl.textContent = teamOnline;
+                    cutout: '75%'
+                }
+            });
+            this.chartInstances.set('project', projectChart);
         }
-        
-        if (productivityEl) {
-            productivityEl.textContent = productivity;
-        }
-
-        // Update insights based on real-time data
-        this.updateInsights();
-    }
-
-    updateInsights() {
-        const insights = this.querySelectorAll('.insight-card');
-        insights.forEach(insight => {
-            // Add subtle animation to show real-time updates
-            insight.style.transform = 'scale(1.02)';
-            setTimeout(() => {
-                insight.style.transform = 'scale(1)';
-            }, 200);
-        });
     }
 
     updateDashboard() {
-        console.log('Analytics Dashboard updating with data:', this.data);
-        if (!this.data) {
-            console.log('No data available for update');
-            return;
-        }
-
-        this.updateMetrics();
-        this.updateTaskChart();
-        this.updateProjectChart();
-        this.updateActivityList();
-        this.updateInsights();
-    }
-
-    updateMetrics() {
-        console.log('Updating metrics with data:', this.data.metrics);
-        const metrics = this.data.metrics || {};
+        if (!this.data) return;
         
-        const tasksCompletedEl = this.querySelector('#tasksCompleted');
-        const activeProjectsEl = this.querySelector('#activeProjects');
-        const teamOnlineEl = this.querySelector('#teamOnline');
-        const productivityEl = this.querySelector('#productivity');
-        
-        if (tasksCompletedEl) tasksCompletedEl.textContent = metrics.tasksCompleted || '0';
-        if (activeProjectsEl) activeProjectsEl.textContent = metrics.activeProjects || '0';
-        if (teamOnlineEl) teamOnlineEl.textContent = metrics.teamOnline || '0';
-        if (productivityEl) productivityEl.textContent = metrics.productivity || '0';
-        
-        console.log('Metrics updated:', {
-            tasksCompleted: metrics.tasksCompleted || '0',
-            activeProjects: metrics.activeProjects || '0',
-            teamOnline: metrics.teamOnline || '0',
-            productivity: metrics.productivity || '0'
+        // Update KPIs
+        Object.entries(this.data.kpiData).forEach(([key, kpi]) => {
+            const kpiCard = this.querySelector(`[data-kpi="${key}"]`);
+            if (kpiCard) {
+                const valueEl = kpiCard.querySelector('.kpi-value');
+                const trendEl = kpiCard.querySelector('.kpi-trend');
+                const progressFill = kpiCard.querySelector('.progress-fill');
+                
+                if (valueEl) {
+                    this.animateNumber(valueEl, parseInt(valueEl.textContent), kpi.current);
+                }
+                
+                if (trendEl) {
+                    trendEl.textContent = kpi.trend;
+                    trendEl.className = `kpi-trend ${kpi.trend.startsWith('+') ? 'positive' : 'negative'}`;
+                }
+                
+                if (progressFill) {
+                    progressFill.style.width = `${(kpi.current / kpi.target) * 100}%`;
+                }
+                
+                kpiCard.className = `kpi-card ${kpi.status}`;
+            }
         });
-    }
 
-    updateTaskChart() {
-        if (!this.taskChart) return;
-        
-        const labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-        const completed = labels.map(() => Math.floor(Math.random() * 10) + 10);
-        const inProgress = labels.map(() => Math.floor(Math.random() * 8) + 5);
+        // Update team performance heatmap
+        const heatmapCells = this.querySelectorAll('.heatmap-cell');
+        this.data.teamPerformance.heatmapData.forEach((row, deptIndex) => {
+            row.forEach((value, metricIndex) => {
+                const cell = heatmapCells[deptIndex * 4 + metricIndex];
+                if (cell) {
+                    cell.style.backgroundColor = this.getHeatmapColor(value);
+                    cell.querySelector('.cell-value').textContent = value;
+                }
+            });
+        });
 
-        this.taskChart.data.datasets[0].data = completed;
-        this.taskChart.data.datasets[1].data = inProgress;
-        this.taskChart.update();
-    }
+        // Update goals
+        this.data.goals.quarterly.forEach(goal => {
+            const goalCard = this.querySelector(`[data-goal="${goal.name}"]`);
+            if (goalCard) {
+                const progressEl = goalCard.querySelector('.progress-fill');
+                const progressText = goalCard.querySelector('.goal-progress-value');
+                const statusBadge = goalCard.querySelector('.goal-status');
+                
+                if (progressEl) {
+                    progressEl.style.width = `${goal.progress}%`;
+                }
+                
+                if (progressText) {
+                    progressText.textContent = `${goal.progress.toFixed(1)}%`;
+                }
+                
+                if (statusBadge) {
+                    statusBadge.className = `goal-status ${goal.status}`;
+                    statusBadge.textContent = goal.status.replace('-', ' ');
+                }
+            }
+        });
 
-    updateProjectChart() {
-        if (!this.projectChart) return;
-        
-        const completed = Math.floor(Math.random() * 30) + 50;
-        const inProgress = Math.floor(Math.random() * 20) + 20;
-        const notStarted = 100 - completed - inProgress;
-
-        this.projectChart.data.datasets[0].data = [completed, inProgress, notStarted];
-        this.projectChart.update();
-    }
-
-    updateActivityList() {
-        const activityList = this.querySelector('#activityFeed');
-        if (!activityList) {
-            console.warn('Analytics Dashboard: activityFeed element not found');
-            return;
-        }
-        
-        const activities = this.data.activities || [
-            { type: 'task', text: 'Completed homepage redesign', time: '2 hours ago', user: 'Alex Chen' },
-            { type: 'project', text: 'Project Alpha milestone reached', time: '4 hours ago', user: 'Sarah Johnson' },
-            { type: 'meeting', text: 'Team standup completed', time: '6 hours ago', user: 'David Kim' },
-            { type: 'update', text: 'Updated API documentation', time: '8 hours ago', user: 'Emma Wilson' }
-        ];
-
-        activityList.innerHTML = activities.map(activity => `
-            <div class="activity-item">
-                <div class="activity-icon ${activity.type}">
-                    ${this.getActivityIcon(activity.type)}
-                </div>
-                <div class="activity-content">
-                    <div class="activity-text">${activity.text}</div>
-                    <div class="activity-meta">
-                        <span class="activity-time">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
+        // Update AI insights
+        const insightsContainer = this.querySelector('.ai-insights-grid');
+        if (insightsContainer) {
+            insightsContainer.innerHTML = this.data.aiInsights.map((insight, index) => `
+                <div class="ai-insight-card ${insight.type} ${index === 0 ? 'active' : ''}" data-confidence="${insight.confidence}">
+                    <div class="insight-header">
+                        <div class="insight-type-icon ${insight.type}">
+                            ${this.getInsightIcon(insight.type)}
+                        </div>
+                        <div class="insight-meta">
+                            <h4 class="insight-title">${insight.title}</h4>
+                            <div class="insight-confidence">
+                                <div class="confidence-bar">
+                                    <div class="confidence-fill" style="width: ${insight.confidence}%">
+                                        <div class="confidence-glow"></div>
+                                    </div>
+                                    <span class="confidence-label">${insight.confidence}% confidence</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="impact-badge ${insight.impact}">
+                            ${insight.impact} impact
+                            <svg class="impact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                ${this.getImpactIcon(insight.impact)}
                             </svg>
-                            ${activity.time}
                         </span>
-                        <span class="activity-user">by ${activity.user}</span>
+                    </div>
+                    <p class="insight-description">${insight.description}</p>
+                    <div class="insight-actions">
+                        <button class="insight-action-btn primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Apply Suggestion
+                        </button>
+                        <button class="insight-action-btn secondary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 16v-4"></path>
+                                <path d="M12 8h.01"></path>
+                            </svg>
+                            Learn More
+                        </button>
                     </div>
                 </div>
-            </div>
-        `).join('');
+            `).join('');
+        }
+
+        // Update activity feed
+        const activityFeed = this.querySelector('#activityFeed');
+        if (activityFeed) {
+            activityFeed.innerHTML = this.data.activities.map(activity => `
+                <div class="activity-item ${activity.type} ${activity.impact}" data-type="${activity.type}">
+                    <div class="activity-icon ${activity.type}">
+                        ${this.getActivityIcon(activity.type)}
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-text">${activity.text}</div>
+                        <div class="activity-meta">
+                            <span class="activity-time">
+                                <svg class="time-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                ${activity.time}
+                            </span>
+                            <span class="activity-impact ${activity.impact}">
+                                ${activity.impact} impact
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Update charts
+        this.updateCharts();
     }
 
-    getActivityIcon(type) {
-        const icons = {
-            task: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="9 11 12 14 22 4"></polyline>
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-            </svg>`,
-            project: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-            </svg>`,
-            meeting: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>`,
-            update: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="17 8 12 3 7 8"></polyline>
-                <line x1="12" y1="3" x2="12" y2="15"></line>
-            </svg>`
-        };
-        return icons[type] || icons.update;
+    updateCharts() {
+        // Update task completion chart
+        const taskChart = this.chartInstances.get('task');
+        if (taskChart && this.data.taskChart) {
+            taskChart.data.datasets[0].data = this.data.taskChart;
+            taskChart.update('none'); // Use 'none' mode for smoother updates
+        }
+
+        // Update project progress chart
+        const projectChart = this.chartInstances.get('project');
+        if (projectChart && this.data.projectChart) {
+            projectChart.data.datasets[0].data = this.data.projectChart;
+            projectChart.update('none');
+        }
     }
 
     refreshData() {
-        // Simulate data refresh
         const refreshBtn = this.querySelector('#refreshAnalytics');
         if (refreshBtn) {
             refreshBtn.style.transform = 'rotate(360deg)';
             refreshBtn.setAttribute('aria-label', 'Refreshing analytics data...');
             
             setTimeout(() => {
-                if (refreshBtn) {
-                    refreshBtn.style.transform = 'rotate(0deg)';
-                    refreshBtn.setAttribute('aria-label', 'Refresh analytics data');
-                }
-                this.announceUpdate('Analytics data refreshed');
+                refreshBtn.style.transform = 'rotate(0deg)';
+                refreshBtn.setAttribute('aria-label', 'Refresh analytics data');
+                this.showNotification('Analytics data refreshed', 'success');
             }, 1000);
         }
 
-        // Update with new data
-        this.updateDashboard();
+        // Request new data from service
+        window.analyticsService?.generateMockData();
     }
 
-    showAllActivity() {
-        // Navigate to full activity page or show modal
-        window.location.href = '/pages/activity.html';
+    showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `analytics-notification ${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <div class="notification-icon">
+                    ${this.getNotificationIcon(type)}
+                </div>
+                <span class="notification-text">${message}</span>
+                <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+            notification.style.opacity = '1';
+        }, 10);
+
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            notification.style.opacity = '0';
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
     }
 
-    // Enhanced interaction methods
+    getNotificationIcon(type) {
+        const icons = {
+            success: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>',
+            error: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>',
+            warning: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
+            info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>'
+        };
+        return icons[type] || icons.info;
+    }
+
+    animateNumber(element, start, end) {
+        const duration = 1000;
+        const steps = 30;
+        const increment = (end - start) / steps;
+        let current = start;
+        const interval = duration / steps;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                clearInterval(timer);
+                element.textContent = end;
+            } else {
+                element.textContent = Math.round(current);
+            }
+        }, interval);
+    }
+
+    getHeatmapColor(value) {
+        // Create a color gradient from red (60) to green (100)
+        const normalizedValue = Math.max(0, Math.min(100, value));
+        const intensity = (normalizedValue - 60) / 40; // Normalize to 0-1 range
+        
+        if (intensity < 0.5) {
+            // Red to yellow
+            const red = 255;
+            const green = Math.round(255 * intensity * 2);
+            return `rgb(${red}, ${green}, 0)`;
+        } else {
+            // Yellow to green
+            const red = Math.round(255 * (1 - (intensity - 0.5) * 2));
+            const green = 255;
+            return `rgb(${red}, ${green}, 0)`;
+        }
+    }
+
     announceUpdate(message) {
         // Create or update screen reader announcement
         let announcer = document.getElementById('analytics-announcer');
@@ -1005,7 +1259,7 @@ class AnalyticsDashboard extends HTMLElement {
 
     highlightMetric(card) {
         // Remove previous highlights
-        this.querySelectorAll('.metric-card').forEach(c => c.classList.remove('highlighted'));
+        this.querySelectorAll('.kpi-card').forEach(c => c.classList.remove('highlighted'));
         
         // Add highlight to selected card
         card.classList.add('highlighted');
@@ -1017,20 +1271,68 @@ class AnalyticsDashboard extends HTMLElement {
         }, 300);
 
         // Announce the metric
-        const label = card.querySelector('.metric-label').textContent;
-        const value = card.querySelector('.metric-value span:first-child').textContent;
+        const label = card.querySelector('.kpi-name').textContent;
+        const value = card.querySelector('.kpi-value').textContent;
         this.announceUpdate(`${label}: ${value}`);
     }
 
-    animateMetricCard(card, isEntering) {
+    animateKPICard(card, isEntering) {
         if (isEntering) {
-            card.style.transform = 'translateY(-2px)';
+            card.style.transform = 'translateY(-4px)';
             card.style.boxShadow = 'var(--shadow-lg)';
             card.style.borderColor = 'var(--primary-200)';
-        } else if (!card.classList.contains('highlighted')) {
+        } else {
             card.style.transform = '';
             card.style.boxShadow = '';
             card.style.borderColor = '';
+        }
+    }
+
+    animateGoalCard(card, isEntering) {
+        if (isEntering) {
+            card.style.transform = 'translateY(-4px) scale(1.02)';
+            card.style.boxShadow = 'var(--shadow-xl)';
+        } else {
+            card.style.transform = '';
+            card.style.boxShadow = '';
+        }
+    }
+
+    animateInsightCard(card, isEntering) {
+        if (isEntering) {
+            card.style.transform = 'translateY(-4px) scale(1.02)';
+            card.style.boxShadow = 'var(--shadow-xl)';
+            const insightIcon = card.querySelector('.insight-icon');
+            if (insightIcon) {
+                insightIcon.style.transform = 'scale(1.1)';
+            }
+        } else {
+            card.style.transform = '';
+            card.style.boxShadow = '';
+            const insightIcon = card.querySelector('.insight-icon');
+            if (insightIcon) {
+                insightIcon.style.transform = '';
+            }
+        }
+    }
+
+    animateChartContainer(container, isEntering) {
+        if (isEntering) {
+            container.style.transform = 'translateY(-2px)';
+            container.style.boxShadow = 'var(--shadow-lg)';
+        } else {
+            container.style.transform = '';
+            container.style.boxShadow = '';
+        }
+    }
+
+    animateActivityItem(item, isEntering) {
+        if (isEntering) {
+            item.style.transform = 'translateX(8px)';
+            item.style.backgroundColor = 'var(--bg-hover)';
+        } else {
+            item.style.transform = '';
+            item.style.backgroundColor = '';
         }
     }
 
@@ -1039,7 +1341,7 @@ class AnalyticsDashboard extends HTMLElement {
         const isExpanded = card.classList.contains('expanded');
         
         // Remove expanded from all cards
-        this.querySelectorAll('.insight-card').forEach(c => c.classList.remove('expanded'));
+        this.querySelectorAll('.ai-insight-card').forEach(c => c.classList.remove('expanded'));
         
         if (!isExpanded) {
             card.classList.add('expanded');
@@ -1105,4 +1407,7 @@ class AnalyticsDashboard extends HTMLElement {
 }
 
 // Register the custom element
-customElements.define('analytics-dashboard', AnalyticsDashboard); 
+if (!customElements.get('analytics-dashboard')) {
+    customElements.define('analytics-dashboard', AnalyticsDashboard);
+    console.log('✅ Analytics Dashboard component registered');
+} 

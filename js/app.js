@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Performance monitoring
     performance.mark('app-init-start');
     
+    // Initialize analytics service first
+    if (window.analyticsService) {
+        console.log('Starting analytics service data generation...');
+        window.analyticsService.generateMockData();
+    }
+    
     // Initialize core features first
     initializeTheme();
     initializeSidebar();

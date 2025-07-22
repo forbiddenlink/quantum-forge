@@ -12,5 +12,8 @@
   "description": "Quantum Forge company intranet - A modern internal platform for team collaboration",
   "devDependencies": {
     "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "chart.js": "^4.5.0"
   }
 }

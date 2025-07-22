@@ -152,6 +152,7 @@
     <link rel="stylesheet" href="styles/enhanced.css">
     <link rel="stylesheet" href="styles/welcome-section.css">
     <link rel="stylesheet" href="styles/team.css">
+    <link rel="stylesheet" href="styles/analytics-dashboard.css">
     <!-- Temporarily commented out to debug calendar icon issue -->
     <!-- <link rel="stylesheet" href="styles/readability-fixes.css"> -->
     <link rel="stylesheet" href="styles/analytics-icons.css">
@@ -432,52 +433,60 @@
 
     <!-- NEW: Performance Monitoring -->
     <script>
-        // Performance monitoring
-        let loadingScreenHidden = false;
-        
-        window.addEventListener('load', () => {
-            window.performance.mark('app-loaded');
-            window.performance.measure('app-load-time', 'app-start', 'app-loaded');
-            
-            const loadTime = performance.getEntriesByName('app-load-time')[0];
-            console.log(`App loaded in ${loadTime.duration}ms`);
-            
-            // Hide loading screen with better timing
-            hideLoadingScreen();
-        });
+        // Initialize page-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start analytics service
+            if (window.analyticsService) {
+                window.analyticsService.generateMockData();
+            }
 
-        // Also hide loading screen when DOM is ready and components are loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            // Give components time to initialize
+            // Performance monitoring
+            let loadingScreenHidden = false;
+            
+            window.addEventListener('load', () => {
+                window.performance.mark('app-loaded');
+                window.performance.measure('app-load-time', 'app-start', 'app-loaded');
+                
+                const loadTime = performance.getEntriesByName('app-load-time')[0];
+                console.log(`App loaded in ${loadTime.duration}ms`);
+                
+                // Hide loading screen with better timing
+                hideLoadingScreen();
+            });
+
+            // Also hide loading screen when DOM is ready and components are loaded
+            document.addEventListener('DOMContentLoaded', () => {
+                // Give components time to initialize
+                setTimeout(() => {
+                    hideLoadingScreen();
+                }, 1500); // Increased to 1.5 seconds for better component loading
+            });
+
+            // Fallback: hide loading screen after 4 seconds regardless
             setTimeout(() => {
                 hideLoadingScreen();
-            }, 1500); // Increased to 1.5 seconds for better component loading
-        });
+            }, 4000);
 
-        // Fallback: hide loading screen after 4 seconds regardless
-        setTimeout(() => {
-            hideLoadingScreen();
-        }, 4000);
-
-        function hideLoadingScreen() {
-            // Prevent multiple calls
-            if (loadingScreenHidden) return;
-            
-            const loadingScreen = document.getElementById('loading-screen');
-            
-            if (loadingScreen && loadingScreen.style.display !== 'none') {
-                loadingScreenHidden = true;
-                loadingScreen.style.opacity = '0';
-                loadingScreen.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                    // Enable scrolling on body and remove loading class
-                    document.body.style.overflow = 'auto';
-                    document.body.classList.remove('loading');
-                    console.log('✅ Loading screen hidden');
-                }, 300);
+            function hideLoadingScreen() {
+                // Prevent multiple calls
+                if (loadingScreenHidden) return;
+                
+                const loadingScreen = document.getElementById('loading-screen');
+                
+                if (loadingScreen && loadingScreen.style.display !== 'none') {
+                    loadingScreenHidden = true;
+                    loadingScreen.style.opacity = '0';
+                    loadingScreen.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                        // Enable scrolling on body and remove loading class
+                        document.body.style.overflow = 'auto';
+                        document.body.classList.remove('loading');
+                        console.log('✅ Loading screen hidden');
+                    }, 300);
+                }
             }
-        }
+        });
     </script>
 
     <!-- Scripts -->
@@ -485,6 +494,7 @@
     <script src="js/services/performance-monitor.js"></script>
     <script src="js/services/performance-manager.js"></script>
     <script src="js/services/analytics.js"></script>
+    <script src="js/app.js"></script>
     <script src="js/components/header.js"></script>
     <script src="js/components/analytics-dashboard.js"></script>
     <script src="js/components/task-system.js"></script>
@@ -504,6 +514,5 @@
     <script src="js/components/help-dialog.js"></script>
     <script src="js/components/company-culture-showcase.js"></script>
     <script src="js/components/enhanced-interactive-poll.js"></script>
-    <script src="js/app.js"></script>
 </body>
 </html>
