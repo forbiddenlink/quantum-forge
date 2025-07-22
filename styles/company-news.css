@@ -7,7 +7,7 @@
     border: 1px solid var(--border-color);
     transition: all var(--duration-normal) var(--ease-spring);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     margin-bottom: var(--space-6);
 }
 
@@ -61,10 +61,17 @@
 
 .news-title::before {
     content: '📰';
-    font-size: var(--font-size-2xl);
+    font-size: 16px !important;
     filter: none;
-    -webkit-text-fill-color: initial;
+    -webkit-text-fill-color: initial !important;
+    background: none !important;
     animation: gentle-bounce 3s ease-in-out infinite;
+}
+
+/* Force icon size with higher specificity */
+.company-news .news-title::before {
+    font-size: 16px !important;
+    line-height: 1 !important;
 }
 
 .news-filters {
@@ -143,6 +150,13 @@
     font-weight: 500;
     cursor: pointer;
     transition: all var(--duration-normal) var(--ease-spring);
+}
+
+/* Fix the size of category filter button icons */
+.category-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+    flex-shrink: 0;
 }
 
 .category-btn:hover {
@@ -311,6 +325,13 @@
     gap: var(--space-1);
     text-transform: capitalize;
     letter-spacing: 0.05em;
+}
+
+/* Fix the size of category icons */
+.news-category svg {
+    width: 12px !important;
+    height: 12px !important;
+    flex-shrink: 0;
 }
 
 .news-category.company {
@@ -1095,7 +1116,13 @@ company-news:not(:empty) .loading-placeholder {
     }
     
     .news-title::before {
-        font-size: var(--font-size-lg);
+        font-size: 14px !important;
+    }
+    
+    /* Force mobile icon size with higher specificity */
+    .company-news .news-title::before {
+        font-size: 14px !important;
+        line-height: 1 !important;
     }
     
     .news-details {
@@ -1128,5 +1155,17 @@ company-news:not(:empty) .loading-placeholder {
     
     .news-reactions {
         flex-wrap: wrap;
+    }
+    
+    /* Make category icons even smaller on mobile */
+    .news-category svg {
+        width: 10px !important;
+        height: 10px !important;
+    }
+    
+    /* Make category filter button icons even smaller on mobile */
+    .category-btn svg {
+        width: 12px !important;
+        height: 12px !important;
     }
 } 

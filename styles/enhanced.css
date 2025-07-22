@@ -209,6 +209,9 @@ app-sidebar {
     display: flex;
     flex-direction: column;
     padding: var(--space-4);
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
 }
 
 /* Custom components should fill container but maintain their own internal structure */
@@ -236,7 +239,9 @@ enhanced-task-system,
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
     display: block !important;
-    overflow: hidden !important;
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
 }
 
 .knowledge-hub > *:last-child,
@@ -543,8 +548,8 @@ enhanced-task-system,
 }
 
 .notifications-list {
-    max-height: 400px;
-    overflow-y: auto;
+    max-height: none;
+    overflow-y: visible;
     background: var(--bg-elevated);
 }
 
@@ -784,100 +789,9 @@ enhanced-task-system,
     gap: var(--space-6);
 }
 
-/* Enhanced welcome section with better personalization - Override by main.css */
-.welcome-section {
-    width: 100%;
-    margin: 0;
-    padding: var(--space-6);
-    background: linear-gradient(135deg, var(--primary-600), var(--primary-700)) !important;
-    color: white !important;
-    position: relative;
-    border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-lg);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    z-index: 20;
-    min-height: auto;
-    padding-bottom: var(--space-6);
-    overflow: hidden;
-}
+/* Welcome section styles moved to welcome-section.css */
 
-.welcome-section > * {
-    position: relative;
-    z-index: 10;
-    flex-shrink: 0;
-}
-
-.welcome-header {
-    position: relative;
-    z-index: 10;
-}
-
-.welcome-title {
-    position: relative;
-    z-index: 10;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.welcome-subtitle {
-    position: relative;
-    z-index: 10;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-}
-
-.welcome-stats {
-    position: relative;
-    z-index: 10;
-}
-
-/* Removed conflicting welcome-section::before styles */
-
-.welcome-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    position: relative;
-    z-index: 10;
-}
-
-/* Override welcome-section.css styles with higher specificity */
-.welcome-section .welcome-title {
-    font-size: 1.75rem !important;
-    font-weight: 700 !important;
-    margin: 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 0.75rem !important;
-    color: white !important;
-    text-shadow: 
-        0 2px 4px rgba(0, 0, 0, 0.8),
-        0 4px 8px rgba(0, 0, 0, 0.6),
-        0 0 0 2px rgba(0, 0, 0, 0.3) !important;
-    letter-spacing: -0.02em !important;
-    position: relative !important;
-    z-index: 10 !important;
-}
-
-.welcome-section .welcome-title .user-name {
-    color: white !important;
-    font-weight: 800 !important;
-    font-size: 1.75rem !important;
-}
-
-.welcome-section .welcome-subtitle {
-    margin: 0 !important;
-    opacity: 0.95 !important;
-    font-size: 1rem !important;
-    color: white !important;
-    text-shadow: 
-        0 1px 3px rgba(0, 0, 0, 0.8),
-        0 2px 6px rgba(0, 0, 0, 0.6),
-        0 0 0 1px rgba(0, 0, 0, 0.4) !important;
-    font-weight: 500 !important;
-    position: relative !important;
-    z-index: 10 !important;
-}
+/* Welcome section styles moved to welcome-section.css */
 
 /* Welcome Stats Grid */
 .welcome-stats {
@@ -888,41 +802,16 @@ enhanced-task-system,
     width: 100%;
 }
 
-.welcome-section .stat-item {
-    background: rgba(255, 255, 255, 0.95) !important;
-    padding: 1.25rem 1rem !important;
-    border-radius: var(--radius-lg) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    transition: all 0.2s ease !important;
-    width: 100% !important;
-    color: var(--text-primary) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-    border: none !important;
-    backdrop-filter: none !important;
-}
+/* Welcome section stat styles moved to welcome-section.css */
 
 .stat-item:hover {
     transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.15);
 }
 
-.welcome-section .stat-number {
-    font-size: 1.75rem !important;
-    font-weight: 700 !important;
-    margin-bottom: 0.75rem !important;
-    color: var(--primary-600) !important;
-    text-shadow: none !important;
-}
+/* Welcome section stat number styles moved to welcome-section.css */
 
-/* Fix insights title text color */
-.welcome-section .insights-title {
-    color: white !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-    font-weight: 600 !important;
-}
+/* Welcome section insights title styles moved to welcome-section.css */
 
 .stat-label {
     font-size: 0.75rem;
@@ -2011,46 +1900,7 @@ enhanced-task-system,
     }
 } 
 
-/* Enhanced Welcome Section Styles */
-.welcome-section {
-    width: 100%;
-    margin: 0;
-    padding: 1.5rem;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
-    color: white;
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-/* Removed conflicting welcome-section background styles */
-
-.welcome-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.welcome-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: white !important;
-}
-
-.welcome-subtitle {
-    margin: 0;
-    opacity: 0.9;
-    font-size: 0.875rem;
-    color: white !important;
-}
+/* Welcome section styles moved to welcome-section.css */
 
 /* Welcome Stats Grid */
 .welcome-stats {
@@ -2190,10 +2040,7 @@ enhanced-task-system,
 }
 
 @media (max-width: 768px) {
-    .welcome-section {
-        min-height: 700px;
-        margin-bottom: 3rem;  /* Slightly reduced on mobile */
-    }
+    /* Welcome section mobile styles moved to welcome-section.css */
     
     .dashboard-grid {
         margin-top: 4rem;

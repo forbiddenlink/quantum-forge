@@ -173,34 +173,7 @@ its /* ===== UNIFIED DESIGN SYSTEM ===== */
 
 /* ===== UNIFIED COMPONENT STYLES ===== */
 
-/* Unified Welcome Section */
-.welcome-section {
-    background: 
-        radial-gradient(ellipse 800px 600px at top left, rgba(139, 92, 246, 0.5) 0%, transparent 50%),
-        radial-gradient(ellipse 600px 800px at bottom right, rgba(99, 102, 241, 0.5) 0%, transparent 50%),
-        radial-gradient(ellipse 400px 400px at center, rgba(167, 139, 250, 0.3) 0%, transparent 70%),
-        linear-gradient(135deg, var(--primary-500) 0%, var(--primary-700) 100%) !important;
-    color: var(--text-on-primary) !important;
-    border-radius: var(--radius-2xl);
-    padding: var(--space-6);
-    box-shadow: var(--shadow-lg);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-}
-
-.welcome-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: none;
-    pointer-events: none;
-    z-index: 1;
-}
+/* Welcome section styles moved to welcome-section.css */
 
 .welcome-section > * {
     position: relative;
@@ -421,9 +394,7 @@ its /* ===== UNIFIED DESIGN SYSTEM ===== */
         grid-template-columns: 1fr;
     }
     
-    .welcome-section {
-        padding: var(--space-4);
-    }
+    /* Welcome section mobile styles moved to welcome-section.css */
     
     .stat-item {
         padding: var(--space-3);

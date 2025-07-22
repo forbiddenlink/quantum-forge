@@ -442,71 +442,8 @@ button, .btn {
     margin: 0 !important;
 }
 
-/* Ensure all text in purple background areas is white */
-.welcome-section * {
-    color: white !important;
-}
+/* Welcome section text colors handled by welcome-section.css */
 
-/* Override for stat items to keep proper contrast */
-.welcome-section .stat-item,
-.welcome-section .stat-item * {
-    color: var(--text-primary) !important;
-    text-shadow: none !important;
-}
+/* Welcome section stat and button styles moved to welcome-section.css */ 
 
-.welcome-section .stat-number {
-    color: var(--primary-600) !important;
-}
-
-.welcome-section .stat-label {
-    color: var(--text-secondary) !important;
-}
-
-/* Quick actions button text */
-.welcome-section .btn.primary {
-    color: var(--primary-600) !important;
-}
-
-.welcome-section .btn.secondary {
-    color: white !important;
-} 
-
-/* Insight Cards Text Contrast Fixes - High Priority */
-.welcome-section .insight-card {
-    background: rgba(255, 255, 255, 0.9) !important;
-    border: 1px solid rgba(255, 255, 255, 0.6) !important;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-}
-
-.welcome-section .insight-card h4,
-.quick-insights .insight-card h4,
-.insights-grid .insight-card h4 {
-    color: #1f2937 !important; /* Dark gray for excellent contrast */
-    font-weight: 700 !important;
-    font-size: 0.95rem !important;
-    text-shadow: none !important;
-    margin-bottom: 0.5rem !important;
-}
-
-.welcome-section .insight-card p,
-.quick-insights .insight-card p,
-.insights-grid .insight-card p {
-    color: #374151 !important; /* Medium dark gray for good readability */
-    font-weight: 500 !important;
-    font-size: 0.85rem !important;
-    text-shadow: none !important;
-    line-height: 1.5 !important;
-}
-
-.welcome-section .insights-title {
-    color: white !important;
-    font-weight: 700 !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
-}
-
-/* Ensure insight icons are visible */
-.welcome-section .insight-icon {
-    font-size: 1.5rem !important;
-    opacity: 1 !important;
-} 
+/* Welcome section insight card styles moved to welcome-section.css */ 

@@ -77,6 +77,16 @@ class AnalyticsDashboard extends HTMLElement {
         ];
     }
 
+    getInsightIcon(type) {
+        const icons = {
+            'opportunity': '<path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>',
+            'alert': '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line>',
+            'prediction': '<path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>',
+            'recommendation': '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>'
+        };
+        return icons[type] || icons['recommendation'];
+    }
+
     connectedCallback() {
         console.log('Analytics Dashboard connected');
         this.render();
@@ -308,7 +318,7 @@ class AnalyticsDashboard extends HTMLElement {
                         <span class="ai-badge">BETA</span>
                     </h3>
                     <div class="insights-grid">
-                        ${this.aiInsights.map(insight => `
+                                                ${this.aiInsights.map(insight => `
                             <div class="ai-insight-card ${insight.type}" data-confidence="${insight.confidence}">
                                 <div class="insight-header">
                                     <div class="insight-type-icon ${insight.type}">
@@ -334,14 +344,14 @@ class AnalyticsDashboard extends HTMLElement {
                                 </div>
                                 <p class="insight-description">${insight.description}</p>
                                 <div class="insight-actions">
-                                    <button class="action-btn primary">
-                                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <button class="insight-action-btn primary">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M5 13l4 4L19 7"></path>
                                         </svg>
                                         Apply Suggestion
                                     </button>
-                                    <button class="action-btn secondary">
-                                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <button class="insight-action-btn secondary">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <circle cx="12" cy="12" r="10"></circle>
                                             <path d="M12 16v-4"></path>
                                             <path d="M12 8h.01"></path>
@@ -461,6 +471,18 @@ class AnalyticsDashboard extends HTMLElement {
         `;
         console.log('Analytics Dashboard rendered, element:', this);
         console.log('Analytics Dashboard innerHTML length:', this.innerHTML.length);
+        
+        // Add entrance animations for AI insights
+        setTimeout(() => {
+            const insightCards = this.querySelectorAll('.ai-insight-card');
+            console.log('🎭 Adding animate-in class to', insightCards.length, 'insight cards');
+            insightCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate-in');
+                    console.log(`✨ Animated insight card ${index}`);
+                }, index * 150); // Stagger the animations
+            });
+        }, 100);
     }
 
     getHeatmapColor(value) {

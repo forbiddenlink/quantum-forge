@@ -621,9 +621,10 @@
 
 /* NEW: Enhanced Activity Stream */
 .activity-stream {
-    max-height: 300px;
-    overflow-y: auto;
+    max-height: none !important;
+    overflow-y: visible !important;
     padding-right: 0.5rem;
+    height: auto !important;
 }
 
 .activity-item {
@@ -974,7 +975,9 @@
     }
     
     .activity-stream {
-        max-height: 200px;
+        max-height: none !important;
+        height: auto !important;
+        overflow: visible !important;
     }
     
     .chart-container {
@@ -3241,7 +3244,9 @@
     }
     
     .activity-feed {
-        max-height: 300px;
+        max-height: none !important;
+        height: auto !important;
+        overflow: visible !important;
     }
     
     .activity-item {
@@ -4350,3 +4355,32 @@ body.loading {
         border-radius: var(--radius-lg);
     }
 } 
+
+/* Force activity feed to expand */
+.activity-feed {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Force real-time-stats component to expand */
+.real-time-stats {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+/* Force live-feed to expand */
+.live-feed {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+/* Force dashboard items containing real-time-stats to expand */
+.dashboard-item:has(real-time-stats),
+.dashboard-item:has(.real-time-stats) {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}

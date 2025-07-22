@@ -11,7 +11,7 @@
     <link rel="preload" href="../styles/main.css" as="style">
     <link rel="preload" href="../styles/enhanced.css" as="style">
     
-    <title>Resources Hub - Quantum Forge</title>
+    <title>Knowledge Hub - Quantum Forge</title>
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@
     <link rel="stylesheet" href="../styles/interactive-poll.css">
     <link rel="stylesheet" href="../styles/real-time-stats.css">
     <link rel="stylesheet" href="../styles/office-visualizer.css">
-    <link rel="stylesheet" href="../styles/knowledge-hub.css">
+    <link rel="stylesheet" href="../styles/enhanced-knowledge-hub.css">
     <link rel="stylesheet" href="../styles/sidebar.css">
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/welcome-section.css">
@@ -89,8 +89,8 @@
 
                 <div class="page-header">
                     <div class="header-content">
-                        <h1 class="page-title">Resources Hub</h1>
-                        <p class="page-description">Access and manage all company resources, tools, and knowledge in one place.</p>
+                        <h1 class="page-title">Knowledge Hub</h1>
+                        <p class="page-description">AI-powered learning resources, personalized recommendations, and comprehensive knowledge management.</p>
                     </div>
                     <div class="header-actions">
                         <button class="btn btn-secondary" onclick="exportResources()">
@@ -111,193 +111,8 @@
                     </div>
                 </div>
 
-                <!-- Advanced Search -->
-                <section class="search-section" aria-labelledby="search-title">
-                    <h2 id="search-title" class="sr-only">Search Resources</h2>
-                    <div class="search-container">
-                        <div class="search-input-group">
-                            <div class="search-bar">
-                                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                </svg>
-                                <input type="search" placeholder="Search resources..." class="search-input" id="resourceSearch">
-                                <button class="search-filter-btn" onclick="toggleFilters()" aria-expanded="false">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M3 6h18M6 12h12m-9 6h6"></path>
-                                    </svg>
-                                    Filters
-                                </button>
-                            </div>
-                        </div>
-                        <div class="search-filters" id="searchFilters" hidden>
-                            <div class="filter-group">
-                                <label class="filter-label">Type</label>
-                                <div class="filter-options">
-                                    <label class="filter-option">
-                                        <input type="checkbox" name="type" value="document">
-                                        Documents
-                                    </label>
-                                    <label class="filter-option">
-                                        <input type="checkbox" name="type" value="template">
-                                        Templates
-                                    </label>
-                                    <label class="filter-option">
-                                        <input type="checkbox" name="type" value="tool">
-                                        Tools
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="filter-group">
-                                <label class="filter-label">Department</label>
-                                <div class="filter-options">
-                                    <label class="filter-option">
-                                        <input type="checkbox" name="department" value="marketing">
-                                        Marketing
-                                    </label>
-                                    <label class="filter-option">
-                                        <input type="checkbox" name="department" value="engineering">
-                                        Engineering
-                                    </label>
-                                    <label class="filter-option">
-                                        <input type="checkbox" name="department" value="design">
-                                        Design
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="filter-group">
-                                <label class="filter-label">Date</label>
-                                <div class="filter-options">
-                                    <select class="filter-select" name="date">
-                                        <option value="all">All Time</option>
-                                        <option value="today">Today</option>
-                                        <option value="week">This Week</option>
-                                        <option value="month">This Month</option>
-                                        <option value="year">This Year</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="filter-actions">
-                                <button class="btn btn-text" onclick="resetFilters()">Reset</button>
-                                <button class="btn btn-primary" onclick="applyFilters()">Apply Filters</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Resource Categories -->
-                <section class="categories-section" aria-labelledby="categories-title">
-                    <h2 id="categories-title" class="section-title">Resource Categories</h2>
-                    <div class="categories-grid">
-                        <div class="category-card" onclick="showCategory('templates')" tabindex="0" role="button">
-                            <div class="category-icon" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                    <polyline points="14 2 14 8 20 8"></polyline>
-                                </svg>
-                            </div>
-                            <div class="category-content">
-                                <h3>Templates</h3>
-                                <p>Standardized documents and forms for consistent work</p>
-                                <div class="category-meta">
-                                    <span class="category-count">12 items</span>
-                                    <span class="category-updated">Updated today</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="category-card" onclick="showCategory('brand')" tabindex="0" role="button">
-                            <div class="category-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                                </svg>
-                            </div>
-                            <div class="category-content">
-                                <h3>Brand Assets</h3>
-                                <p>Logos, colors, and design resources for brand consistency</p>
-                                <div class="category-meta">
-                                    <span class="category-count">8 items</span>
-                                    <span class="category-updated">Updated 2 days ago</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="category-card" onclick="showCategory('guidelines')" tabindex="0" role="button">
-                            <div class="category-icon" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                </svg>
-                            </div>
-                            <div class="category-content">
-                                <h3>Guidelines</h3>
-                                <p>Best practices, standards, and process documentation</p>
-                                <div class="category-meta">
-                                    <span class="category-count">15 items</span>
-                                    <span class="category-updated">Updated this week</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="category-card" onclick="showCategory('tools')" tabindex="0" role="button">
-                            <div class="category-icon" style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-                                </svg>
-                            </div>
-                            <div class="category-content">
-                                <h3>Tools</h3>
-                                <p>Software, utilities, and productivity applications</p>
-                                <div class="category-meta">
-                                    <span class="category-count">10 items</span>
-                                    <span class="category-updated">Updated yesterday</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="category-card" onclick="showCategory('training')" tabindex="0" role="button">
-                            <div class="category-icon" style="background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                                </svg>
-                            </div>
-                            <div class="category-content">
-                                <h3>Training Materials</h3>
-                                <p>Learning resources, tutorials, and documentation</p>
-                                <div class="category-meta">
-                                    <span class="category-count">20 items</span>
-                                    <span class="category-updated">Updated 3 days ago</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="category-card" onclick="showCategory('policies')" tabindex="0" role="button">
-                            <div class="category-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-                                </svg>
-                            </div>
-                            <div class="category-content">
-                                <h3>Policies</h3>
-                                <p>Company policies, procedures, and compliance documents</p>
-                                <div class="category-meta">
-                                    <span class="category-count">18 items</span>
-                                    <span class="category-updated">Updated this month</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-
-
-                <script>
-                    function showCategory(category) {
-                        // Implementation will depend on how you want to handle category navigation
-                        console.log('Showing category:', category);
-                    }
-                </script>
+                <!-- Enhanced Knowledge Hub Component -->
+                <enhanced-knowledge-hub></enhanced-knowledge-hub>
 
                 <!-- Recent Resources -->
                 <div class="recent-resources">
@@ -437,7 +252,7 @@
     <script src="../js/components/achievement-system.js"></script>
     <script src="../js/components/collaboration-hub.js"></script>
     <script src="../js/components/office-visualizer.js"></script>
-    <script src="../js/components/knowledge-hub.js"></script>
+    <script src="../js/components/enhanced-knowledge-hub.js"></script>
     <script src="../js/components/sidebar.js"></script>
     <script src="../js/components/help-dialog.js"></script>
     <script src="../js/components/unified-search.js"></script>

@@ -47,7 +47,7 @@ class Sidebar extends HTMLElement {
             'culture.html': 'culture',
             'office.html': 'office',
             'documents.html': 'documents',
-            'knowledge.html': 'knowledge',
+            'resources.html': 'knowledge',
             'resources.html': 'resources',
             'training.html': 'training',
             'helpdesk.html': 'helpdesk',
@@ -262,7 +262,7 @@ class Sidebar extends HTMLElement {
                                 </a>
                             </li>
                             <li class="nav-item" role="none">
-                                <a href="/pages/knowledge.html" class="nav-link ${this.activeItem === 'knowledge' ? 'active' : ''}" role="menuitem" data-page="knowledge">
+                                <a href="/pages/resources.html" class="nav-link ${this.activeItem === 'knowledge' ? 'active' : ''}" role="menuitem" data-page="knowledge">
                                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="3"></circle>
                                         <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"></path>
