@@ -790,8 +790,16 @@ class AnalyticsDashboard extends HTMLElement {
         const teamOnline = Math.floor(Math.random() * 5) + 6; // 6-10 team members
         const productivity = Math.floor(Math.random() * 20) + 80; // 80-100 productivity score
 
-        this.querySelector('#teamOnline').textContent = teamOnline;
-        this.querySelector('#productivity').textContent = productivity;
+        const teamOnlineEl = this.querySelector('#teamOnline');
+        const productivityEl = this.querySelector('#productivity');
+        
+        if (teamOnlineEl) {
+            teamOnlineEl.textContent = teamOnline;
+        }
+        
+        if (productivityEl) {
+            productivityEl.textContent = productivity;
+        }
 
         // Update insights based on real-time data
         this.updateInsights();
@@ -868,7 +876,12 @@ class AnalyticsDashboard extends HTMLElement {
     }
 
     updateActivityList() {
-        const activityList = this.querySelector('#activityList');
+        const activityList = this.querySelector('#activityFeed');
+        if (!activityList) {
+            console.warn('Analytics Dashboard: activityFeed element not found');
+            return;
+        }
+        
         const activities = this.data.activities || [
             { type: 'task', text: 'Completed homepage redesign', time: '2 hours ago', user: 'Alex Chen' },
             { type: 'project', text: 'Project Alpha milestone reached', time: '4 hours ago', user: 'Sarah Johnson' },
@@ -927,14 +940,18 @@ class AnalyticsDashboard extends HTMLElement {
     refreshData() {
         // Simulate data refresh
         const refreshBtn = this.querySelector('#refreshAnalytics');
-        refreshBtn.style.transform = 'rotate(360deg)';
-        refreshBtn.setAttribute('aria-label', 'Refreshing analytics data...');
-        
-        setTimeout(() => {
-            refreshBtn.style.transform = 'rotate(0deg)';
-            refreshBtn.setAttribute('aria-label', 'Refresh analytics data');
-            this.announceUpdate('Analytics data refreshed');
-        }, 1000);
+        if (refreshBtn) {
+            refreshBtn.style.transform = 'rotate(360deg)';
+            refreshBtn.setAttribute('aria-label', 'Refreshing analytics data...');
+            
+            setTimeout(() => {
+                if (refreshBtn) {
+                    refreshBtn.style.transform = 'rotate(0deg)';
+                    refreshBtn.setAttribute('aria-label', 'Refresh analytics data');
+                }
+                this.announceUpdate('Analytics data refreshed');
+            }, 1000);
+        }
 
         // Update with new data
         this.updateDashboard();

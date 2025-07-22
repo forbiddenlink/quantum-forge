@@ -42,6 +42,25 @@ function initializeComponentsWithDelay() {
             initializeTaskSystem();
             initializeNotifications();
             initializeUserProfile();
+            
+            // Initialize company news component
+            const companyNews = document.querySelector('company-news');
+            if (companyNews) {
+                console.log('Initializing company news component...');
+                // Remove loading placeholder
+                const loadingPlaceholder = companyNews.querySelector('.loading-placeholder');
+                if (loadingPlaceholder) {
+                    loadingPlaceholder.remove();
+                }
+                // Force a re-render of the component
+                if (companyNews.connectedCallback) {
+                    companyNews.connectedCallback();
+                } else {
+                    console.error('Company news component missing connectedCallback method');
+                }
+            } else {
+                console.warn('Company news component not found in DOM');
+            }
         } catch (error) {
             console.warn('Core component initialization error:', error);
         }
