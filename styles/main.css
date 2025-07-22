@@ -503,81 +503,12 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 /* Welcome section styles handled by welcome-section.css */
 
-/* COOL DUAL CIRCLE BACKGROUND - ELEGANT & VISIBLE */
-.welcome-section::before {
-    content: '';
-    position: absolute;
-    top: -25%;
-    right: -25%;
-    width: 150%;
-    height: 150%;
-    background: 
-        radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.12) 20%, rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0.04) 60%, transparent 80%);
-    border-radius: 50%;
-    animation: gentleFloat 90s ease-in-out infinite reverse;
-    pointer-events: none;
-    z-index: 1;
-    filter: blur(0.8px);
-    box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.1);
-}
-
-.welcome-section::after {
-    content: '';
-    position: absolute;
-    top: -20%;
-    left: -20%;
-    width: 140%;
-    height: 140%;
-    background: 
-        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.10) 30%, rgba(255, 255, 255, 0.06) 50%, transparent 75%),
-        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 30%, rgba(255, 255, 255, 0.04) 50%, transparent 75%);
-    animation: gentleFloat 25s ease-in-out infinite;
-    pointer-events: none;
-    z-index: 1;
-    filter: blur(0.6px);
-    box-shadow: inset 0 0 40px rgba(255, 255, 255, 0.08);
-}
-
-/* COOL FLOATING PARTICLES - ENHANCED VISIBILITY */
-.welcome-section .particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.welcome-section .particle {
-    position: absolute;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.08) 30%, rgba(255, 255, 255, 0.04) 60%, transparent 85%);
-    border-radius: 50%;
-    animation: gentleFloat 30s ease-in-out infinite;
-    filter: blur(0.4px);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-.welcome-section .particle:nth-child(1) {
-    width: 120px;
-    height: 120px;
-    top: 20%;
-    right: 25%;
-    animation: gentleFloat 35s ease-in-out infinite reverse;
-}
-
-.welcome-section .particle:nth-child(2) {
-    width: 80px;
-    height: 80px;
-    top: 70%;
-    left: 20%;
-    animation: gentleFloat 40s ease-in-out infinite;
-}
+/* Welcome section styles handled by welcome-section.css */
 
 @keyframes gentleFloat {
     0%, 100% {
@@ -892,12 +823,13 @@ body {
 .dashboard-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--space-6);
     align-items: flex-start;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: var(--space-6);
     min-height: fit-content;
+    overflow: hidden;
 }
 
 .dashboard-item {
@@ -1088,6 +1020,41 @@ body {
     display: flex;
     align-items: center;
     gap: var(--space-3);
+}
+
+/* Override for Today's Insights to ensure white text */
+.quick-insights .insights-title {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    background-clip: unset !important;
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* NUCLEAR OPTION - Override ALL btn-icon hover effects for Today's Insights */
+.quick-insights .insights-title .btn-icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: white !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+.quick-insights .insights-title .btn-icon:hover svg,
+.quick-insights .insights-title .btn-icon:hover path {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+/* Override CSS variables for the insights section */
+.quick-insights .insights-title .btn-icon {
+    --primary-50: rgba(255, 255, 255, 0.1) !important;
+    --primary-300: rgba(255, 255, 255, 0.3) !important;
+    --primary-600: white !important;
+    --text-primary: white !important;
+    --bg-hover: rgba(255, 255, 255, 0.2) !important;
 }
 
 .ai-insights-grid {
@@ -3258,11 +3225,6 @@ office-visualizer {
 .activity-icon.project {
     background: var(--success-100);
     color: var(--success-600);
-}
-
-.activity-icon.meeting {
-    background: var(--warning-100);
-    color: var(--warning-600);
 }
 
 .activity-icon.update {
@@ -7931,6 +7893,8 @@ app-header {
     font-size: var(--font-size-xs);
     margin: 0;
     opacity: 0.8;
+}
+
 /* Modern CSS Reset */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -8436,7 +8400,7 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 /* Welcome section styles handled by welcome-section.css */
@@ -8831,6 +8795,7 @@ body {
     margin: 0 auto;
     padding: 1rem;
     min-height: fit-content;
+    overflow: hidden;
 }
 
 .dashboard-item {
@@ -11191,11 +11156,6 @@ office-visualizer {
 .activity-icon.project {
     background: var(--success-100);
     color: var(--success-600);
-}
-
-.activity-icon.meeting {
-    background: var(--warning-100);
-    color: var(--warning-600);
 }
 
 .activity-icon.update {

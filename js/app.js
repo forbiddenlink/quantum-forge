@@ -520,3 +520,158 @@ function announceToScreenReader(message) {
         document.body.removeChild(announcement);
     }, 1000);
 }
+
+// Force white text in Today's Insights section
+
+// NUCLEAR OPTION - Force white hover effects for Today's Insights
+function forceWhiteHoverEffects() {
+    const insightsIcon = document.querySelector('.quick-insights .insights-title .custom-insights-icon');
+    if (insightsIcon) {
+        // Add event listeners to force white hover
+        insightsIcon.addEventListener('mouseenter', function() {
+            this.style.background = 'rgba(255, 255, 255, 0.2)';
+            this.style.color = 'white';
+            this.style.stroke = 'white';
+            this.style.transform = 'scale(1.05)';
+            this.style.boxShadow = '0 2px 8px rgba(255, 255, 255, 0.2)';
+            
+            const path = this.querySelector('path');
+            if (path) {
+                path.style.color = 'white';
+                path.style.stroke = 'white';
+                path.style.fill = 'none';
+            }
+        });
+        
+        insightsIcon.addEventListener('mouseleave', function() {
+            this.style.background = 'rgba(255, 255, 255, 0.1)';
+            this.style.color = 'white';
+            this.style.stroke = 'white';
+            this.style.transform = '';
+            this.style.boxShadow = '';
+            
+            const path = this.querySelector('path');
+            if (path) {
+                path.style.color = 'white';
+                path.style.stroke = 'white';
+                path.style.fill = 'none';
+            }
+        });
+    }
+}
+
+// FORCE CALENDAR ICON POSITIONING
+function fixCalendarIconPosition() {
+    const calendarIcon = document.querySelector('.upcoming-events-title .calendar-icon-container');
+    const title = document.querySelector('.upcoming-events-title');
+    
+    if (calendarIcon && title) {
+        // Force the title to be flex
+        title.style.display = 'flex';
+        title.style.alignItems = 'center';
+        title.style.gap = '12px';
+        title.style.flexDirection = 'row';
+        title.style.justifyContent = 'flex-start';
+        
+        // Force the icon container positioning
+        calendarIcon.style.display = 'inline-flex';
+        calendarIcon.style.alignItems = 'center';
+        calendarIcon.style.justifyContent = 'center';
+        calendarIcon.style.width = '24px';
+        calendarIcon.style.height = '24px';
+        calendarIcon.style.background = 'rgba(255, 255, 255, 0.1)';
+        calendarIcon.style.borderRadius = '6px';
+        calendarIcon.style.padding = '6px';
+        calendarIcon.style.marginRight = '12px';
+        calendarIcon.style.flexShrink = '0';
+        calendarIcon.style.boxSizing = 'border-box';
+        calendarIcon.style.position = 'relative';
+        calendarIcon.style.verticalAlign = 'middle';
+        calendarIcon.style.alignSelf = 'center';
+        calendarIcon.style.float = 'none';
+        calendarIcon.style.clear = 'none';
+        calendarIcon.style.top = 'auto';
+        calendarIcon.style.left = 'auto';
+        calendarIcon.style.bottom = 'auto';
+        calendarIcon.style.right = 'auto';
+        calendarIcon.style.transform = 'none';
+        
+        // Force the SVG positioning
+        const svg = calendarIcon.querySelector('.custom-insights-icon');
+        if (svg) {
+            svg.style.width = '12px';
+            svg.style.height = '12px';
+            svg.style.color = 'white';
+            svg.style.stroke = 'white';
+            svg.style.fill = 'none';
+            svg.style.display = 'block';
+            svg.style.position = 'relative';
+            svg.style.top = 'auto';
+            svg.style.left = 'auto';
+            svg.style.bottom = 'auto';
+            svg.style.right = 'auto';
+            svg.style.transform = 'none';
+            svg.style.verticalAlign = 'middle';
+            svg.style.margin = '0';
+            svg.style.padding = '0';
+            svg.style.float = 'none';
+            svg.style.clear = 'none';
+            svg.style.background = 'none';
+            svg.style.borderRadius = '0';
+        }
+    }
+}
+
+// FORCE ICON SIZING AND POSITIONING
+function fixCalendarIcon() {
+    const calendarIcon = document.querySelector('.upcoming-events-title .custom-insights-icon');
+    if (calendarIcon) {
+        // Make it exactly like the "Today's Insights" icon
+        calendarIcon.style.display = 'inline-block';
+        calendarIcon.style.verticalAlign = 'middle';
+    }
+}
+
+// Call the function when the DOM is ready
+document.addEventListener('DOMContentLoaded', forceWhiteHoverEffects);
+function forceWhiteTextInInsights() {
+    const insightsSection = document.querySelector('.quick-insights');
+    if (insightsSection) {
+        const textElements = insightsSection.querySelectorAll('h4, p, span, div, strong, em, b, i');
+        textElements.forEach(element => {
+            if (element.tagName !== 'svg' && !element.closest('svg')) {
+                element.style.color = 'white';
+                element.style.setProperty('color', 'white', 'important');
+            }
+        });
+        
+        // Also force CSS variables
+        insightsSection.style.setProperty('--text-primary', 'white', 'important');
+        insightsSection.style.setProperty('--text-secondary', 'white', 'important');
+        insightsSection.style.setProperty('--text-tertiary', 'white', 'important');
+        insightsSection.style.setProperty('--text-muted', 'white', 'important');
+    }
+}
+
+// Run the function after DOM is loaded and periodically
+document.addEventListener('DOMContentLoaded', () => {
+    forceWhiteTextInInsights();
+    
+    // Run periodically to catch any dynamic changes
+    setInterval(forceWhiteTextInInsights, 1000);
+    
+    // Fix calendar icon positioning
+    fixCalendarIconPosition();
+    
+    // Also run it after a short delay to ensure all styles are loaded
+    setTimeout(fixCalendarIconPosition, 100);
+    setTimeout(fixCalendarIconPosition, 500);
+    setTimeout(fixCalendarIconPosition, 1000);
+});
+
+// Also run when the page is fully loaded
+window.addEventListener('load', forceWhiteTextInInsights);
+
+// Run when page loads
+document.addEventListener('DOMContentLoaded', fixCalendarIcon);
+window.addEventListener('load', fixCalendarIcon);

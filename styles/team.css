@@ -1713,6 +1713,22 @@
     color: var(--primary-600);
 }
 
+/* Override for Today's Insights to prevent gray hover */
+.quick-insights .insights-title .btn-icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: white !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+.quick-insights .insights-title .btn-icon:hover svg,
+.quick-insights .insights-title .btn-icon:hover path {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
 .btn-icon svg {
     width: 16px;
     height: 16px;

@@ -37,6 +37,17 @@
         .loading { display: flex; justify-content: center; align-items: center; height: 100vh; }
         .loading-spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #6366f1; border-radius: 50%; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* CALENDAR ICON - Match Today's Insights exactly */
+        .upcoming-events-title .custom-insights-icon {
+            width: 32px !important;
+            height: 32px !important;
+            stroke: var(--welcome-text) !important;
+            stroke-width: 2px !important;
+            color: var(--welcome-text) !important;
+            fill: none !important;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+        }
     </style>
     
     <title>Quantum Forge - Enhanced Digital Workspace</title>
@@ -139,8 +150,12 @@
     <link rel="stylesheet" href="styles/enhanced.css">
     <link rel="stylesheet" href="styles/welcome-section.css">
     <link rel="stylesheet" href="styles/team.css">
-    <link rel="stylesheet" href="styles/readability-fixes.css">
+    <!-- Temporarily commented out to debug calendar icon issue -->
+    <!-- <link rel="stylesheet" href="styles/readability-fixes.css"> -->
     <link rel="stylesheet" href="styles/analytics-icons.css">
+    <!-- <link rel="stylesheet" href="styles/calendar-icon-fix.css"> -->
+    
+
 </head>
 <body class="custom-scrollbar loading">
     <!-- NEW: Loading Screen -->
@@ -176,10 +191,14 @@
                             
                             <div class="welcome-header">
                                 <h1 class="welcome-title">
-                                    Good afternoon, <span class="user-name">Liz</span>
+                                    <span class="greeting">Good afternoon</span>, <span class="user-name">Liz</span>
                                     <span class="welcome-emoji" role="img" aria-label="Waving hand">👋</span>
                                 </h1>
-                                <p class="welcome-subtitle">New opportunities await - let's seize them!</p>
+                                <p class="welcome-subtitle">Your dream digital workspace is ready - let's make today extraordinary!</p>
+                                <div class="welcome-status">
+                                    <span class="status-indicator online"></span>
+                                    <span class="status-text">All systems operational</span>
+                                </div>
                             </div>
 
                             <div class="welcome-stats" role="group" aria-label="Quick statistics">
@@ -247,12 +266,9 @@
                             </div>
 
                             <div class="upcoming-events">
-                                <h2 class="upcoming-events-title">
-                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                <h2 class="upcoming-events-title" style="display: flex !important; align-items: center !important; gap: 12px !important;">
+                                    <svg class="custom-insights-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true" style="color: white !important; stroke: white !important; background: rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 6px; transition: all 0.3s ease;">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                                     </svg>
                                     Upcoming Events
                                 </h2>
@@ -301,8 +317,8 @@
 
                             <!-- NEW: Enhanced Quick Insights -->
                             <div class="quick-insights">
-                                <h3 class="insights-title">
-                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <h3 class="insights-title" style="color: white !important;">
+                                    <svg class="custom-insights-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" aria-hidden="true" style="color: white !important; stroke: white !important; background: rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 6px; transition: all 0.3s ease;">
                                         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                                     </svg>
                                     Today's Insights

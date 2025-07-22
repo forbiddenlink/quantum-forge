@@ -1,5 +1,382 @@
 /* Readability Fixes - High Priority Overrides */
 
+/* FINAL NUCLEAR OPTION - Override ALL possible gray hover effects for Today's Insights */
+.quick-insights .insights-title .btn-icon:hover,
+.quick-insights .insights-title .btn-icon:hover *,
+.quick-insights .insights-title .btn-icon:hover svg,
+.quick-insights .insights-title .btn-icon:hover path {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Override ALL CSS variables for the insights section */
+.quick-insights .insights-title .btn-icon {
+    --primary-50: rgba(255, 255, 255, 0.1) !important;
+    --primary-300: rgba(255, 255, 255, 0.3) !important;
+    --primary-600: white !important;
+    --text-primary: white !important;
+    --bg-hover: rgba(255, 255, 255, 0.2) !important;
+    --surface-hover: rgba(255, 255, 255, 0.1) !important;
+    --text-secondary: white !important;
+}
+
+/* Maximum specificity override */
+html body .quick-insights .insights-title .btn-icon:hover,
+body .quick-insights .insights-title .btn-icon:hover,
+#app .quick-insights .insights-title .btn-icon:hover,
+.dashboard .quick-insights .insights-title .btn-icon:hover,
+.main-content .quick-insights .insights-title .btn-icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: white !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+html body .quick-insights .insights-title .btn-icon:hover svg,
+body .quick-insights .insights-title .btn-icon:hover svg,
+#app .quick-insights .insights-title .btn-icon:hover svg,
+.dashboard .quick-insights .insights-title .btn-icon:hover svg,
+.main-content .quick-insights .insights-title .btn-icon:hover svg,
+html body .quick-insights .insights-title .btn-icon:hover path,
+body .quick-insights .insights-title .btn-icon:hover path,
+#app .quick-insights .insights-title .btn-icon:hover path,
+.dashboard .quick-insights .insights-title .btn-icon:hover path,
+.main-content .quick-insights .insights-title .btn-icon:hover path {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+/* CUSTOM INSIGHTS ICON - COMPLETELY SEPARATE FROM btn-icon */
+.custom-insights-icon {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transition: all 0.3s ease !important;
+    width: 32px !important;
+    height: 32px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.custom-insights-icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+.custom-insights-icon:hover path {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+/* Override any potential inheritance */
+.quick-insights .insights-title .custom-insights-icon,
+.quick-insights .insights-title .custom-insights-icon:hover,
+.quick-insights .insights-title .custom-insights-icon:focus,
+.quick-insights .insights-title .custom-insights-icon:active {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+.quick-insights .insights-title .custom-insights-icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.05) !important;
+}
+
+/* CALENDAR ICON FIX - Ensure proper centering */
+.calendar-icon-fixed {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+/* SPECIFIC FIX FOR UPCOMING EVENTS CALENDAR ICON */
+.upcoming-events-title .custom-insights-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    margin-right: 12px !important;
+    flex-shrink: 0 !important;
+}
+
+.upcoming-events-title .custom-insights-icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Maximum specificity for upcoming events calendar icon */
+html body .upcoming-events-title .custom-insights-icon,
+body .upcoming-events-title .custom-insights-icon,
+#app .upcoming-events-title .custom-insights-icon,
+.dashboard .upcoming-events-title .custom-insights-icon,
+.main-content .upcoming-events-title .custom-insights-icon,
+.welcome-section .upcoming-events-title .custom-insights-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    margin-right: 12px !important;
+    flex-shrink: 0 !important;
+}
+
+/* NUCLEAR OPTION - Override ALL possible conflicting styles for calendar icon */
+html body .welcome-section .upcoming-events-title .custom-insights-icon,
+body .welcome-section .upcoming-events-title .custom-insights-icon,
+#app .welcome-section .upcoming-events-title .custom-insights-icon,
+.dashboard .welcome-section .upcoming-events-title .custom-insights-icon,
+.main-content .welcome-section .upcoming-events-title .custom-insights-icon,
+html body .upcoming-events-title .custom-insights-icon,
+body .upcoming-events-title .custom-insights-icon,
+#app .upcoming-events-title .custom-insights-icon,
+.dashboard .upcoming-events-title .custom-insights-icon,
+.main-content .upcoming-events-title .custom-insights-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    margin-right: 12px !important;
+    flex-shrink: 0 !important;
+    transform: none !important;
+    top: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+    right: auto !important;
+}
+
+/* CALENDAR ICON WRAPPER FIX - Target the new wrapper structure */
+.calendar-icon-wrapper {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    margin-right: 12px !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+.calendar-icon-wrapper svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    display: block !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: none !important;
+}
+
+/* Maximum specificity for calendar icon wrapper */
+html body .upcoming-events-title .calendar-icon-wrapper,
+body .upcoming-events-title .calendar-icon-wrapper,
+#app .upcoming-events-title .calendar-icon-wrapper,
+.dashboard .upcoming-events-title .calendar-icon-wrapper,
+.main-content .upcoming-events-title .calendar-icon-wrapper,
+.welcome-section .upcoming-events-title .calendar-icon-wrapper {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    margin-right: 12px !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+html body .upcoming-events-title .calendar-icon-wrapper svg,
+body .upcoming-events-title .calendar-icon-wrapper svg,
+#app .upcoming-events-title .calendar-icon-wrapper svg,
+.dashboard .upcoming-events-title .calendar-icon-wrapper svg,
+.main-content .upcoming-events-title .calendar-icon-wrapper svg,
+.welcome-section .upcoming-events-title .calendar-icon-wrapper svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    display: block !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: none !important;
+}
+
+.calendar-icon-fixed:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Maximum specificity for calendar icon */
+html body .calendar-icon-fixed,
+body .calendar-icon-fixed,
+#app .calendar-icon-fixed,
+.dashboard .calendar-icon-fixed,
+.main-content .calendar-icon-fixed,
+html body .welcome-section .upcoming-events-title .calendar-icon-fixed,
+body .welcome-section .upcoming-events-title .calendar-icon-fixed,
+#app .welcome-section .upcoming-events-title .calendar-icon-fixed,
+.dashboard .welcome-section .upcoming-events-title .calendar-icon-fixed,
+.main-content .welcome-section .upcoming-events-title .calendar-icon-fixed {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+/* Calendar icon container - match Today's Insights exactly */
+.calendar-icon-container {
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    padding: 8px !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+.calendar-icon-container svg {
+    width: 24px !important;
+    height: 24px !important;
+    stroke-width: 2px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+.calendar-icon-container:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Maximum specificity for calendar icon container */
+html body .calendar-icon-container,
+body .calendar-icon-container,
+#app .calendar-icon-container,
+.dashboard .calendar-icon-container,
+.main-content .calendar-icon-container,
+html body .welcome-section .upcoming-events-title .calendar-icon-container,
+body .welcome-section .upcoming-events-title .calendar-icon-container,
+#app .welcome-section .upcoming-events-title .calendar-icon-container,
+.dashboard .welcome-section .upcoming-events-title .calendar-icon-container,
+.main-content .welcome-section .upcoming-events-title .calendar-icon-container {
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    padding: 8px !important;
+    transition: all 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+html body .calendar-icon-container svg,
+body .calendar-icon-container svg,
+#app .calendar-icon-container svg,
+.dashboard .calendar-icon-container svg,
+.main-content .calendar-icon-container svg,
+html body .welcome-section .upcoming-events-title .calendar-icon-container svg,
+body .welcome-section .upcoming-events-title .calendar-icon-container svg,
+#app .welcome-section .upcoming-events-title .calendar-icon-container svg,
+.dashboard .welcome-section .upcoming-events-title .calendar-icon-container svg,
+.main-content .welcome-section .upcoming-events-title .calendar-icon-container svg {
+    width: 24px !important;
+    height: 24px !important;
+    stroke-width: 2px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
 /* Global text contrast improvements */
 * {
     text-rendering: optimizeLegibility;

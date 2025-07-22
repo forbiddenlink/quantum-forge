@@ -1,4 +1,4 @@
-/* Enhanced Welcome Section Styles - Cleaned & Optimized */
+/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
 
 :root {
     /* Welcome section specific variables */
@@ -12,64 +12,94 @@
     --welcome-border: rgba(255, 255, 255, 0.2);
     --welcome-border-hover: rgba(255, 255, 255, 0.3);
     --welcome-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Enhanced gradient colors */
+    --welcome-accent-1: #8b5cf6;
+    --welcome-accent-2: #06b6d4;
+    --welcome-accent-3: #10b981;
+    --welcome-accent-4: #f59e0b;
 }
 
-/* Main Welcome Section - FORCE BACKGROUND! */
+/* Main Welcome Section - ENHANCED DREAM DESIGN */
 .welcome-section {
-    margin-bottom: var(--space-6);
-    margin-top: 0;
-    /* Your beloved circle background - ENHANCED and FORCED! */
+    margin-bottom: var(--space-6) !important;
+    margin-top: 0 !important;
+    /* Enhanced background with less transparency */
     background: 
-        radial-gradient(ellipse 800px 600px at top left, rgba(139, 92, 246, 0.5) 0%, transparent 50%),
-        radial-gradient(ellipse 600px 800px at bottom right, rgba(99, 102, 241, 0.5) 0%, transparent 50%),
-        radial-gradient(ellipse 400px 400px at center, rgba(167, 139, 250, 0.3) 0%, transparent 70%),
-        linear-gradient(135deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%) !important;
+        /* Primary gradient */
+        linear-gradient(135deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%),
+        /* Animated accent gradients */
+        radial-gradient(ellipse 1200px 900px at 20% 20%, rgba(139, 92, 246, 0.6) 0%, transparent 50%),
+        radial-gradient(ellipse 900px 1200px at 80% 80%, rgba(6, 182, 212, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 700px 700px at 50% 50%, rgba(16, 185, 129, 0.4) 0%, transparent 70%),
+        radial-gradient(ellipse 500px 500px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
+        /* Enhanced texture overlay */
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px) !important;
     
-    border-radius: var(--radius-2xl);
+    border-radius: var(--radius-2xl) !important;
     padding: var(--space-8) !important;
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--welcome-shadow);
-    border: 1px solid var(--welcome-border);
-    color: var(--welcome-text);
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow: 
+        var(--welcome-shadow),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0 40px rgba(99, 102, 241, 0.3) !important;
+    border: 1px solid var(--welcome-border) !important;
+    color: var(--welcome-text) !important;
     
     /* Smooth transitions */
-    transition: all var(--duration-normal) var(--ease-in-out);
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    
+    /* Enhanced backdrop */
+    backdrop-filter: blur(20px) !important;
+    
+    /* Ensure no scrollbar */
+    max-height: fit-content !important;
+    
+    /* Subtle glow effect */
+    animation: glow 4s ease-in-out infinite !important;
 }
 
-/* Beautiful animated circle overlay */
+/* ENHANCED animated circle overlays */
 .welcome-section::before {
     content: '';
     position: absolute;
-    top: -60%;
-    right: -60%;
-    width: 220%;
-    height: 220%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.15) 30%, transparent 70%);
+    top: -80%;
+    right: -80%;
+    width: 260%;
+    height: 260%;
+    background: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.3) 20%, rgba(255, 255, 255, 0.15) 40%, rgba(255, 255, 255, 0.08) 60%, transparent 80%),
+        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.2) 0%, transparent 40%);
     border-radius: 50%;
-    animation: gentleFloat 15s ease-in-out infinite reverse;
+    animation: dreamFloat 20s ease-in-out infinite reverse;
     pointer-events: none;
     z-index: 1;
+    filter: blur(0.8px);
+    box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.1);
 }
 
-/* SUPER VISIBLE second animated layer! */
 .welcome-section::after {
     content: '';
     position: absolute;
-    top: -30%;
-    left: -30%;
-    width: 160%;
-    height: 160%;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
     background: 
-        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.18) 30%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.15) 30%, transparent 50%),
-        radial-gradient(circle at 20% 70%, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0.16) 30%, transparent 45%);
-    animation: gentleFloat 18s ease-in-out infinite;
+        radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.5) 0%, rgba(6, 182, 212, 0.3) 30%, rgba(6, 182, 212, 0.15) 50%, transparent 70%),
+        radial-gradient(circle at 20% 70%, rgba(16, 185, 129, 0.4) 0%, rgba(16, 185, 129, 0.2) 40%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.3) 0%, rgba(245, 158, 11, 0.15) 30%, transparent 50%);
+    animation: dreamFloat 25s ease-in-out infinite;
     pointer-events: none;
     z-index: 1;
+    filter: blur(0.6px);
+    box-shadow: inset 0 0 60px rgba(6, 182, 212, 0.1);
 }
 
-/* Simplified floating elements - keep just one set */
+/* ENHANCED floating particles with better visibility */
 .welcome-section .particles {
     position: absolute;
     top: 0;
@@ -82,367 +112,630 @@
 
 .welcome-section .particle {
     position: absolute;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
-    animation: floatGently 25s ease-in-out infinite;
+    animation: dreamFloat 30s ease-in-out infinite;
+    filter: blur(0.5px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
 }
 
 .welcome-section .particle:nth-child(1) {
     width: 200px;
     height: 200px;
-    top: 5%;
-    right: 10%;
-    animation: floatGently 20s ease-in-out infinite;
-    animation-delay: 0s;
-    background: radial-gradient(
-        circle, 
-        rgba(255, 255, 255, 0.25) 0%, 
-        rgba(255, 255, 255, 0.15) 40%, 
-        rgba(255, 255, 255, 0.08) 70%, 
-        transparent 100%
-    );
-    filter: blur(1px);
+    top: 8%;
+    right: 12%;
+    animation: dreamFloat 28s ease-in-out infinite reverse;
+    background: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.25) 30%, rgba(255, 255, 255, 0.15) 60%, rgba(255, 255, 255, 0.08) 80%, transparent 100%),
+        radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
 }
 
 .welcome-section .particle:nth-child(2) {
-    width: 150px;
-    height: 150px;
-    bottom: 15%;
-    left: 5%;
-    animation: floatGently 18s ease-in-out infinite reverse;
-    animation-delay: 6s;
-    background: radial-gradient(
-        circle, 
-        rgba(255, 255, 255, 0.22) 0%, 
-        rgba(255, 255, 255, 0.12) 40%, 
-        rgba(255, 255, 255, 0.06) 70%, 
-        transparent 100%
-    );
-    filter: blur(1px);
+    width: 140px;
+    height: 140px;
+    bottom: 18%;
+    left: 8%;
+    animation: dreamFloat 32s ease-in-out infinite;
+    background: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.12) 70%, rgba(255, 255, 255, 0.06) 85%, transparent 100%),
+        radial-gradient(circle at 60% 60%, rgba(6, 182, 212, 0.2) 0%, transparent 50%);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
 }
 
-/* Welcome Header */
+.welcome-section .particle:nth-child(3) {
+    width: 120px;
+    height: 120px;
+    top: 55%;
+    right: 25%;
+    animation: dreamFloat 35s ease-in-out infinite reverse;
+    background: 
+        radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 100%),
+        radial-gradient(circle at 30% 70%, rgba(16, 185, 129, 0.15) 0%, transparent 50%);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.12);
+}
+
+/* Welcome Header - Enhanced typography */
 .welcome-header {
-    position: relative;
-    z-index: 2;
-    margin-bottom: var(--space-6);
+    position: relative !important;
+    z-index: 2 !important;
+    margin-bottom: var(--space-6) !important;
 }
 
 .welcome-title {
-    font-size: clamp(1.875rem, 4vw, 2.5rem);
-    font-weight: 800;
-    color: var(--welcome-text);
-    margin: 0 0 var(--space-3) 0;
-    line-height: 1.2;
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    flex-wrap: wrap;
+    font-size: clamp(2rem, 5vw, 3rem) !important;
+    font-weight: 900 !important;
+    color: var(--welcome-text) !important;
+    margin: 0 0 var(--space-4) 0 !important;
+    line-height: 1.1 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-4) !important;
+    flex-wrap: wrap !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.greeting {
+    color: var(--welcome-text) !important;
+    font-weight: 700 !important;
+    font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
 }
 
 .welcome-title .user-name {
-    color: var(--welcome-text);
-    font-weight: 900;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--welcome-text) !important;
+    font-weight: 900 !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 50%, #e0f2fe 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    position: relative !important;
+}
+
+.welcome-title .user-name::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -2px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent) !important;
+    border-radius: 1px !important;
 }
 
 .welcome-subtitle {
-    font-size: var(--font-size-lg);
-    color: var(--welcome-text-secondary);
-    margin: 0;
-    font-weight: 500;
-}
-
-/* Stats Grid - Clean and consistent */
-.welcome-stats {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: var(--space-4);
-    margin: var(--space-6) 0;
-}
-
-.stat-item {
-    background: var(--welcome-overlay);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--welcome-border);
-    border-radius: var(--radius-xl);
-    padding: var(--space-4);
-    text-align: center;
-    transition: all var(--duration-normal) var(--ease-in-out);
-    /* Override any external styles */
+    font-size: var(--font-size-xl) !important;
     color: var(--welcome-text) !important;
+    margin: 0 0 var(--space-4) 0 !important;
+    font-weight: 600 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+}
+
+.welcome-status {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+    margin-top: var(--space-3) !important;
+}
+
+.status-indicator {
+    width: 8px !important;
+    height: 8px !important;
+    border-radius: 50% !important;
+    background: #10b981 !important;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3) !important;
+    animation: pulse 2s ease-in-out infinite !important;
+}
+
+.status-indicator.online {
+    background: #10b981 !important;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3) !important;
+}
+
+.status-indicator.warning {
+    background: #f59e0b !important;
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3) !important;
+}
+
+.status-indicator.error {
+    background: #ef4444 !important;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3) !important;
+}
+
+.status-text {
+    font-size: var(--font-size-sm) !important;
+    color: var(--welcome-text) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Welcome Stats - Enhanced visibility */
+.welcome-stats {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+    gap: var(--space-4) !important;
+    margin-bottom: var(--space-6) !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Enhanced stat items with less transparency */
+.stat-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--welcome-border) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-5) !important;
+    text-align: center !important;
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+}
+
+.stat-item::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, var(--welcome-accent-1), var(--welcome-accent-2)) !important;
+    transform: scaleX(0) !important;
+    transition: transform var(--duration-normal) var(--ease-in-out) !important;
 }
 
 .stat-item:hover {
-    background: var(--welcome-overlay-hover);
-    border-color: var(--welcome-border-hover);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    border-color: var(--welcome-border-hover) !important;
+    transform: translateY(-2px) !important;
+}
+
+.stat-item:hover::before {
+    transform: scaleX(1) !important;
 }
 
 .stat-number {
-    display: block;
-    font-size: var(--font-size-3xl);
-    font-weight: 700;
-    margin-bottom: var(--space-2);
-    color: var(--welcome-text);
+    display: block !important;
+    font-size: var(--font-size-4xl) !important;
+    font-weight: 800 !important;
+    margin-bottom: var(--space-3) !important;
+    color: var(--welcome-text) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
 }
 
 .stat-label {
-    display: block;
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--welcome-text-muted);
+    display: block !important;
+    font-size: var(--font-size-sm) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    color: var(--welcome-text) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Warning and error states */
 .stat-item.warning .stat-number {
-    color: #fbbf24;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
 }
 
 .stat-item.error .stat-number {
-    color: #f87171;
+    background: linear-gradient(135deg, #f87171 0%, #ef4444 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
 }
 
-/* Quick Actions - No movement on hover */
+/* Quick Actions - Enhanced visibility */
 .quick-actions {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    gap: var(--space-4);
-    margin-top: var(--space-6);
-    flex-wrap: wrap;
+    display: flex !important;
+    gap: var(--space-4) !important;
+    flex-wrap: wrap !important;
+    margin-bottom: var(--space-6) !important;
+    position: relative !important;
+    z-index: 2 !important;
 }
 
+/* Enhanced quick actions with less transparency */
 .quick-actions .btn {
-    padding: var(--space-3) var(--space-5);
-    border-radius: var(--radius-xl);
-    font-weight: 600;
-    font-size: var(--font-size-base);
-    letter-spacing: 0.3px;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    transition: all var(--duration-normal) var(--ease-in-out);
-    white-space: nowrap;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--welcome-border) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-4) var(--space-6) !important;
+    color: var(--welcome-text) !important;
+    font-weight: 600 !important;
+    font-size: var(--font-size-sm) !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Override gray hover effect from contest-enhancements.css */
+.quick-actions .btn .btn-icon:hover {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+.quick-actions .btn:hover .btn-icon {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+.quick-actions .btn::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+    transition: left var(--duration-normal) var(--ease-in-out) !important;
+}
+
+.quick-actions .btn:hover::before {
+    left: 100% !important;
 }
 
 .quick-actions .btn .btn-icon {
-    width: 24px !important;
-    height: 24px !important;
-    flex-shrink: 0;
+    width: 32px !important;
+    height: 32px !important;
+    flex-shrink: 0 !important;
+    stroke: currentColor !important;
+    stroke-width: 2px !important;
+    color: currentColor !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
 }
 
 .quick-actions .btn.primary {
-    background: white !important;
-    color: var(--primary-800) !important;
-    font-weight: 800 !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-    border: 2px solid rgba(255, 255, 255, 0.9) !important;
-    text-shadow: none !important;
-}
-
-.welcome-section .quick-actions .btn.primary {
-    background: white !important;
-    color: var(--primary-800) !important;
-    font-weight: 800 !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-    border: 2px solid rgba(255, 255, 255, 0.9) !important;
-    text-shadow: none !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-}
-
-.welcome-section .quick-actions .btn.primary .btn-icon,
-.welcome-section .quick-actions .btn.primary svg {
-    width: 28px !important;
-    height: 28px !important;
-    color: var(--primary-800) !important;
-    stroke: var(--primary-800) !important;
-    stroke-width: 2px !important;
-    flex-shrink: 0 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.welcome-section .btn.primary .btn-icon {
-    width: 24px !important;
-    height: 24px !important;
-    stroke: currentColor !important;
-    stroke-width: 2px !important;
-    flex-shrink: 0 !important;
-    display: inline-block !important;
-    vertical-align: middle !important;
-    margin-right: 8px !important;
+    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%) !important;
+    border-color: var(--primary-400) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
 }
 
 .quick-actions .btn.primary:hover {
-    background: white !important;
-    color: var(--primary-900) !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
-    border-color: white !important;
-    transform: none !important;
+    background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4) !important;
 }
 
 .quick-actions .btn.secondary {
-    background: var(--welcome-overlay);
-    color: var(--welcome-text);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--welcome-border);
+    background: linear-gradient(135deg, var(--welcome-overlay) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    border-color: var(--welcome-border) !important;
 }
 
 .quick-actions .btn.secondary:hover {
-    background: var(--welcome-overlay-hover);
-    border-color: var(--welcome-border-hover);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border-color: var(--welcome-border-hover) !important;
+    transform: translateY(-2px) !important;
 }
 
-/* Events Section */
+/* Comprehensive override for all welcome section button icons */
+.welcome-section .btn-icon:hover,
+.welcome-section .btn:hover .btn-icon,
+.welcome-section .quick-actions .btn .btn-icon:hover,
+.welcome-section .quick-actions .btn:hover .btn-icon {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+/* Force white color for welcome section icons */
+.welcome-section .btn-icon {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+.welcome-section .btn:hover .btn-icon {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+/* Maximum specificity override to prevent gray hover */
+html body .welcome-section .btn-icon:hover,
+body .welcome-section .btn-icon:hover,
+#app .welcome-section .btn-icon:hover,
+.dashboard .welcome-section .btn-icon:hover,
+.main-content .welcome-section .btn-icon:hover {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+/* Maximum specificity override for Today's Insights icons */
+html body .quick-insights .insights-title .btn-icon:hover,
+body .quick-insights .insights-title .btn-icon:hover,
+#app .quick-insights .insights-title .btn-icon:hover,
+.dashboard .quick-insights .insights-title .btn-icon:hover,
+.main-content .quick-insights .insights-title .btn-icon:hover {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transform: scale(1.05) !important;
+}
+
+html body .quick-insights .insights-title .btn-icon:hover svg,
+body .quick-insights .insights-title .btn-icon:hover svg,
+#app .quick-insights .insights-title .btn-icon:hover svg,
+.dashboard .quick-insights .insights-title .btn-icon:hover svg,
+.main-content .quick-insights .insights-title .btn-icon:hover svg {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+/* Enhanced Events Section */
 .upcoming-events {
-    position: relative;
-    z-index: 2;
-    margin-top: var(--space-8);
-    padding: var(--space-6);
-    background: var(--welcome-overlay);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--welcome-border);
-    border-radius: var(--radius-xl);
-}
-
-.upcoming-events-title {
-    color: var(--welcome-text);
-    font-size: var(--font-size-xl);
-    font-weight: 600;
-    margin-bottom: var(--space-6);
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-}
-
-.events-list {
-    display: grid;
-    gap: var(--space-4);
-    max-height: 400px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--welcome-border) transparent;
-}
-
-.events-list::-webkit-scrollbar {
-    width: 6px;
-}
-
-.events-list::-webkit-scrollbar-thumb {
-    background-color: var(--welcome-border);
-    border-radius: var(--radius-full);
-}
-
-.event-card {
-    background: var(--welcome-overlay);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--welcome-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-4);
-    transition: all var(--duration-normal) var(--ease-in-out);
-}
-
-.event-card:hover {
-    background: var(--welcome-overlay-hover);
-    border-color: var(--welcome-border-hover);
-    transform: none;
-}
-
-.event-time {
-    color: var(--welcome-text-muted);
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--space-2);
-    font-weight: 500;
-}
-
-.event-title {
-    color: var(--welcome-text);
-    font-weight: 600;
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-2);
-}
-
-.event-participants {
-    color: var(--welcome-text-muted);
-    font-size: var(--font-size-sm);
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-}
-
-/* Quick Insights - FORCE VISIBILITY! */
-.welcome-section .quick-insights {
     position: relative !important;
     z-index: 2 !important;
     margin-top: var(--space-8) !important;
     padding: var(--space-8) !important;
-    padding-bottom: var(--space-8) !important;
-    background: var(--welcome-overlay) !important;
-    backdrop-filter: blur(8px) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
     border: 1px solid var(--welcome-border) !important;
     border-radius: var(--radius-xl) !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
-.welcome-section .insights-title {
-    color: white !important;
+/* Section Title Icons - Make them larger and more visible */
+.upcoming-events-title svg,
+.upcoming-events-title .icon,
+.welcome-section .insights-title svg,
+.welcome-section .insights-title .icon {
+    width: 32px !important;
+    height: 32px !important;
+    stroke: var(--welcome-text) !important;
+    stroke-width: 2px !important;
+    color: var(--welcome-text) !important;
+    fill: none !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* Additional specific targeting for upcoming events icon */
+.upcoming-events-title *,
+.upcoming-events-title svg,
+.upcoming-events-title .btn-icon,
+.upcoming-events-title .icon,
+.upcoming-events-title [class*="icon"] {
+    width: 32px !important;
+    height: 32px !important;
+    stroke: var(--welcome-text) !important;
+    stroke-width: 2px !important;
+    color: var(--welcome-text) !important;
+    fill: none !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* Force all icons in section titles to be large */
+.upcoming-events-title svg,
+.upcoming-events-title .btn-icon,
+.upcoming-events-title .icon,
+.upcoming-events-title [class*="icon"],
+.welcome-section .insights-title svg,
+.welcome-section .insights-title .btn-icon,
+.welcome-section .insights-title .icon,
+.welcome-section .insights-title [class*="icon"] {
+    width: 32px !important;
+    height: 32px !important;
+    stroke: var(--welcome-text) !important;
+    stroke-width: 2px !important;
+    color: var(--welcome-text) !important;
+    fill: none !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* CALENDAR ICON - Match Today's Insights exactly */
+.upcoming-events-title .custom-insights-icon {
+    width: 32px !important;
+    height: 32px !important;
+    stroke: var(--welcome-text) !important;
+    stroke-width: 2px !important;
+    color: var(--welcome-text) !important;
+    fill: none !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* CALENDAR ICON WRAPPER - REMOVED - No longer needed */
+
+/* MAXIMUM SPECIFICITY CALENDAR RULES - REMOVED - No longer needed */
+
+.upcoming-events-title {
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-2xl) !important;
     font-weight: 700 !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    margin-bottom: var(--space-6) !important;
     display: flex !important;
     align-items: center !important;
     gap: var(--space-3) !important;
-    margin-bottom: var(--space-6) !important;
-    padding-bottom: var(--space-4) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
-.welcome-section .insights-title svg {
-    width: 28px !important;
-    height: 28px !important;
-    color: #FCD34D !important;
+.events-list {
+    display: grid !important;
+    gap: var(--space-4) !important;
+    max-height: 400px !important;
+    overflow-y: auto !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--welcome-border) transparent !important;
+}
+
+.events-list::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+.events-list::-webkit-scrollbar-thumb {
+    background-color: var(--welcome-border) !important;
+    border-radius: var(--radius-full) !important;
+}
+
+.event-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.06) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--welcome-border) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-5) !important;
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.event-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 4px !important;
+    height: 100% !important;
+    background: linear-gradient(180deg, var(--welcome-accent-1), var(--welcome-accent-2)) !important;
+    transform: scaleY(0) !important;
+    transition: transform var(--duration-normal) var(--ease-in-out) !important;
+}
+
+.event-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    border-color: var(--welcome-border-hover) !important;
+    transform: translateX(4px) !important;
+}
+
+.event-card:hover::before {
+    transform: scaleY(1) !important;
+}
+
+.event-time {
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-sm) !important;
+    margin-bottom: var(--space-2) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.event-title {
+    color: var(--welcome-text) !important;
+    font-weight: 700 !important;
+    font-size: var(--font-size-lg) !important;
+    margin-bottom: var(--space-3) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+.event-participants {
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-sm) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.event-participants svg {
+    width: 24px !important;
+    height: 24px !important;
+    stroke: currentColor !important;
     stroke-width: 2px !important;
+    color: currentColor !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* Today's Insights Section - Glassmorphism Style */
+.welcome-section .insights-section {
+    position: relative !important;
+    z-index: 2 !important;
+    margin-top: var(--space-8) !important;
+    padding: var(--space-8) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid var(--welcome-border) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.welcome-section .insights-title {
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-2xl) !important;
+    font-weight: 700 !important;
+    margin-bottom: var(--space-6) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
 .welcome-section .insights-grid {
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
     gap: var(--space-4) !important;
-    padding-bottom: var(--space-6) !important;
 }
 
 .welcome-section .insight-card {
-    background: var(--welcome-overlay) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.06) 100%) !important;
+    backdrop-filter: blur(10px) !important;
     border: 1px solid var(--welcome-border) !important;
     border-radius: var(--radius-lg) !important;
-    padding: var(--space-4) !important;
+    padding: var(--space-5) !important;
     transition: all var(--duration-normal) var(--ease-in-out) !important;
-    backdrop-filter: blur(10px) !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.welcome-section .insight-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 4px !important;
+    height: 100% !important;
+    background: linear-gradient(180deg, var(--welcome-accent-1), var(--welcome-accent-2)) !important;
+    transform: scaleY(0) !important;
+    transition: transform var(--duration-normal) var(--ease-in-out) !important;
 }
 
 .welcome-section .insight-card:hover {
-    background: var(--welcome-overlay-hover) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
     border-color: var(--welcome-border-hover) !important;
-    transform: none !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    transform: translateX(4px) !important;
+}
+
+.welcome-section .insight-card:hover::before {
+    transform: scaleY(1) !important;
+}
+
+.welcome-section .insight-card h4 {
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: 700 !important;
+    margin-bottom: var(--space-2) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.welcome-section .insight-card p {
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-sm) !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
 }
 
 .welcome-section .insight-card .insight-icon {
@@ -461,21 +754,8 @@
     width: 24px !important;
     height: 24px !important;
     stroke-width: 2px !important;
-}
-
-.welcome-section .insight-card h4 {
     color: var(--welcome-text) !important;
-    font-size: var(--font-size-lg) !important;
-    font-weight: 700 !important;
-    margin-bottom: var(--space-2) !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
-}
-
-.welcome-section .insight-card p {
-    color: var(--welcome-text-secondary) !important;
-    font-size: var(--font-size-sm) !important;
-    margin: 0 !important;
-    line-height: 1.5 !important;
+    stroke: var(--welcome-text) !important;
 }
 
 .welcome-section .insight-card.positive .insight-icon {
@@ -493,141 +773,816 @@
     background: rgba(245, 158, 11, 0.1) !important;
 }
 
-/* Enhanced Animations - More Visible and Beautiful */
-@keyframes gentleRotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* Quick Insights Section - Force white text */
+.quick-insights {
+    position: relative !important;
+    z-index: 2 !important;
+    margin-top: var(--space-8) !important;
+    padding: var(--space-8) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid var(--welcome-border) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
 }
 
-@keyframes gentleFloat {
-    0%, 100% {
-        transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
-        opacity: 0.9;
-    }
-    25% {
-        transform: translateX(25px) translateY(-30px) scale(1.15) rotate(5deg);
-        opacity: 1;
-    }
-    50% {
-        transform: translateX(-20px) translateY(-15px) scale(0.85) rotate(-3deg);
-        opacity: 0.95;
-    }
-    75% {
-        transform: translateX(-30px) translateY(25px) scale(1.08) rotate(2deg);
-        opacity: 1;
-    }
+.quick-insights .insights-title {
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-2xl) !important;
+    font-weight: 700 !important;
+    margin-bottom: var(--space-6) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
-@keyframes floatGently {
-    0%, 100% {
-        transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
-        opacity: 0.9;
-    }
-    25% {
-        transform: translateY(-40px) translateX(35px) scale(1.25) rotate(8deg);
-        opacity: 1;
-    }
-    50% {
-        transform: translateY(-25px) translateX(-25px) scale(0.75) rotate(-5deg);
-        opacity: 0.95;
-    }
-    75% {
-        transform: translateY(-50px) translateX(20px) scale(1.12) rotate(3deg);
-        opacity: 1;
-    }
+.quick-insights .insights-title svg,
+.quick-insights .insights-title .icon {
+    width: 32px !important;
+    height: 32px !important;
+    stroke: var(--welcome-text) !important;
+    stroke-width: 2px !important;
+    color: var(--welcome-text) !important;
+    fill: none !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
 }
 
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-    .welcome-section::before,
-    .welcome-section::after,
-    .welcome-section .particle {
-        animation: none;
-    }
-    
-    .welcome-section .particle {
-        opacity: 0.3;
-    }
-    
-    .stat-item:hover,
-    .event-card:hover,
-    .insight-card:hover,
-    .quick-actions .btn:hover {
-        transform: none;
-    }
+/* Ensure Today's Insights icons are always visible */
+.quick-insights .insights-title .btn-icon {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .welcome-section {
-        padding: var(--space-6) !important;
-        /* Keep visible circles on mobile but smaller */
-        background: 
-            radial-gradient(ellipse 400px 300px at top left, rgba(139, 92, 246, 0.4) 0%, transparent 50%),
-            radial-gradient(ellipse 300px 400px at bottom right, rgba(99, 102, 241, 0.4) 0%, transparent 50%),
-            linear-gradient(135deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%) !important;
-    }
-    
-    .welcome-stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-3);
-    }
-    
-    .quick-actions {
-        flex-direction: column;
-    }
-    
-    .quick-actions .btn {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .welcome-section .insights-grid {
-        grid-template-columns: 1fr !important;
-    }
-    
-    /* Hide particles on mobile for performance */
-    .welcome-section .particle {
-        display: none;
-    }
+/* Comprehensive override for Today's Insights to prevent dark hover */
+.quick-insights .insights-title .btn-icon,
+.quick-insights .insights-title .btn-icon:hover,
+.quick-insights .insights-title .btn-icon:focus,
+.quick-insights .insights-title .btn-icon:active {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
 }
 
-@media (max-width: 480px) {
-    .welcome-stats {
-        grid-template-columns: 1fr;
-    }
-    
-    .welcome-title {
-        font-size: var(--font-size-2xl);
-    }
+.quick-insights .insights-title .btn-icon:hover,
+.quick-insights .insights-title .btn-icon:focus,
+.quick-insights .insights-title .btn-icon:active {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transform: scale(1.05) !important;
 }
 
-/* Special styling for different insight types */
-.welcome-section .insight-card.positive {
-    border-color: rgba(34, 197, 94, 0.3) !important;
-    background: linear-gradient(135deg, var(--welcome-overlay) 0%, rgba(34, 197, 94, 0.1) 100%) !important;
+.quick-insights .insights-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: var(--space-4) !important;
 }
 
-.welcome-section .insight-card.info {
-    border-color: rgba(59, 130, 246, 0.3) !important;
-    background: linear-gradient(135deg, var(--welcome-overlay) 0%, rgba(59, 130, 246, 0.1) 100%) !important;
+.quick-insights .insight-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.06) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--welcome-border) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-5) !important;
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 
-.welcome-section .insight-card.warning {
-    border-color: rgba(245, 158, 11, 0.3) !important;
-    background: linear-gradient(135deg, var(--welcome-overlay) 0%, rgba(245, 158, 11, 0.1) 100%) !important;
+.quick-insights .insight-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 4px !important;
+    height: 100% !important;
+    background: linear-gradient(180deg, var(--welcome-accent-1), var(--welcome-accent-2)) !important;
+    transform: scaleY(0) !important;
+    transition: transform var(--duration-normal) var(--ease-in-out) !important;
 }
 
-/* Dark Theme Support (if needed) */
-[data-theme="dark"] .welcome-section .insight-card {
-    background: var(--welcome-overlay) !important;
-    border-color: var(--welcome-border) !important;
+.quick-insights .insight-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    border-color: var(--welcome-border-hover) !important;
+    transform: translateX(4px) !important;
 }
 
-[data-theme="dark"] .welcome-section .insight-card h4 {
+.quick-insights .insight-card:hover::before {
+    transform: scaleY(1) !important;
+}
+
+.quick-insights .insight-card h4 {
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: 700 !important;
+    margin-bottom: var(--space-2) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.quick-insights .insight-card p {
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-sm) !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.quick-insights .insight-card .insight-icon {
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: var(--space-3) !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    padding: 8px !important;
+}
+
+.quick-insights .insight-card .insight-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+    stroke-width: 2px !important;
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+}
+
+.quick-insights .insight-card.positive .insight-icon {
+    color: #10B981 !important;
+    background: rgba(16, 185, 129, 0.1) !important;
+}
+
+.quick-insights .insight-card.info .insight-icon {
+    color: #3B82F6 !important;
+    background: rgba(59, 130, 246, 0.1) !important;
+}
+
+.quick-insights .insight-card.warning .insight-icon {
+    color: #F59E0B !important;
+    background: rgba(245, 158, 11, 0.1) !important;
+}
+
+/* Prevent gray hover effects on insight icons */
+.quick-insights .insight-card:hover .insight-icon {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: inherit !important;
+}
+
+.quick-insights .insight-card.positive:hover .insight-icon {
+    color: #10B981 !important;
+    background: rgba(16, 185, 129, 0.15) !important;
+}
+
+.quick-insights .insight-card.info:hover .insight-icon {
+    color: #3B82F6 !important;
+    background: rgba(59, 130, 246, 0.15) !important;
+}
+
+.quick-insights .insight-card.warning:hover .insight-icon {
+    color: #F59E0B !important;
+    background: rgba(245, 158, 11, 0.15) !important;
+}
+
+.quick-insights .insight-card:hover .insight-icon svg {
+    color: inherit !important;
+    stroke: inherit !important;
+}
+
+/* Override the gray hover effect from contest-enhancements.css */
+.quick-insights .insights-title .btn-icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+.quick-insights .insights-title .btn-icon:hover svg {
+    color: white !important;
+    stroke: white !important;
+}
+
+/* Comprehensive override for all possible gray hover effects */
+.quick-insights .insights-title .btn-icon,
+.quick-insights .insights-title .btn-icon:hover,
+.quick-insights .insights-title .btn-icon:focus,
+.quick-insights .insights-title .btn-icon:active {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+.quick-insights .insights-title .btn-icon svg,
+.quick-insights .insights-title .btn-icon:hover svg,
+.quick-insights .insights-title .btn-icon:focus svg,
+.quick-insights .insights-title .btn-icon:active svg {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+/* NUCLEAR OPTION - Override ALL possible btn-icon hover effects */
+.quick-insights .insights-title .btn-icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+.quick-insights .insights-title .btn-icon:hover svg {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+/* Override any CSS variable-based colors */
+.quick-insights .insights-title .btn-icon,
+.quick-insights .insights-title .btn-icon:hover,
+.quick-insights .insights-title .btn-icon:focus,
+.quick-insights .insights-title .btn-icon:active {
+    --primary-50: rgba(255, 255, 255, 0.1) !important;
+    --primary-300: rgba(255, 255, 255, 0.3) !important;
+    --primary-600: white !important;
+    --text-primary: white !important;
+    --bg-hover: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Maximum specificity override for the contest-enhancements.css hover effect */
+html body .quick-insights .insights-title .btn-icon:hover,
+body .quick-insights .insights-title .btn-icon:hover,
+#app .quick-insights .insights-title .btn-icon:hover,
+.dashboard .quick-insights .insights-title .btn-icon:hover,
+.main-content .quick-insights .insights-title .btn-icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: white !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+html body .quick-insights .insights-title .btn-icon:hover svg,
+body .quick-insights .insights-title .btn-icon:hover svg,
+#app .quick-insights .insights-title .btn-icon:hover svg,
+.dashboard .quick-insights .insights-title .btn-icon:hover svg,
+.main-content .quick-insights .insights-title .btn-icon:hover svg {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+/* NUCLEAR OPTION - Target the exact element with maximum specificity */
+.quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover,
+.quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover *,
+.quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover path {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+/* Override any potential CSS variable inheritance */
+.quick-insights .insights-title .btn-icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: white !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+.quick-insights .insights-title .btn-icon:hover svg,
+.quick-insights .insights-title .btn-icon:hover path {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+/* Override any remaining conflicting styles */
+.quick-insights .insight-card.positive {
+    border-left: 4px solid #10B981 !important;
+}
+
+.quick-insights .insight-card.info {
+    border-left: 4px solid #3B82F6 !important;
+}
+
+.quick-insights .insight-card.warning {
+    border-left: 4px solid #F59E0B !important;
+} 
+
+/* MOST AGGRESSIVE OVERRIDE - Force white text in Today's Insights */
+.quick-insights,
+.quick-insights *,
+.quick-insights *::before,
+.quick-insights *::after {
+    color: white !important;
     color: var(--welcome-text) !important;
 }
 
-[data-theme="dark"] .welcome-section .insight-card p {
-    color: var(--welcome-text-secondary) !important;
+/* Force white text on all text elements */
+.quick-insights h1,
+.quick-insights h2,
+.quick-insights h3,
+.quick-insights h4,
+.quick-insights h5,
+.quick-insights h6,
+.quick-insights p,
+.quick-insights span,
+.quick-insights div,
+.quick-insights strong,
+.quick-insights em,
+.quick-insights b,
+.quick-insights i {
+    color: white !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Specific targeting for insight content */
+.quick-insights .insight-content,
+.quick-insights .insight-content *,
+.quick-insights .insight-content h4,
+.quick-insights .insight-content p,
+.quick-insights .insight-content span,
+.quick-insights .insight-content div {
+    color: white !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Override any CSS variables that might be causing dark text */
+.quick-insights,
+.quick-insights * {
+    --text-primary: white !important;
+    --text-secondary: white !important;
+    --text-tertiary: white !important;
+    color: white !important;
+}
+
+/* Force white text with maximum specificity */
+body .quick-insights,
+html body .quick-insights,
+#app .quick-insights,
+.dashboard .quick-insights,
+.main-content .quick-insights {
+    color: white !important;
+}
+
+body .quick-insights *,
+html body .quick-insights *,
+#app .quick-insights *,
+.dashboard .quick-insights *,
+.main-content .quick-insights * {
+    color: white !important;
+}
+
+/* Target specific insight card elements */
+.quick-insights .insight-card h4,
+.quick-insights .insight-card p,
+.quick-insights .insight-card span,
+.quick-insights .insight-card div,
+.quick-insights .insight-content h4,
+.quick-insights .insight-content p,
+.quick-insights .insight-content span,
+.quick-insights .insight-content div {
+    color: white !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Override any remaining dark text */
+.quick-insights [class*="insight"] {
+    color: white !important;
+}
+
+.quick-insights [class*="content"] {
+    color: white !important;
+}
+
+/* Force white text on all direct children */
+.quick-insights > * {
+    color: white !important;
+}
+
+.quick-insights > * > * {
+    color: white !important;
+}
+
+.quick-insights > * > * > * {
+    color: white !important;
 } 
+
+/* Force the "Today's Insights" title to be white */
+.quick-insights .insights-title,
+.quick-insights h3,
+.quick-insights h3.insights-title {
+    color: white !important;
+    color: var(--welcome-text) !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Target the text content specifically */
+.quick-insights .insights-title:not(svg),
+.quick-insights h3:not(svg),
+.quick-insights .insights-title span,
+.quick-insights h3 span {
+    color: white !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Override any inline styles */
+.quick-insights .insights-title[style*="color"],
+.quick-insights h3[style*="color"] {
+    color: white !important;
+}
+
+/* Force white text with maximum specificity for the title */
+body .quick-insights .insights-title,
+html body .quick-insights .insights-title,
+#app .quick-insights .insights-title,
+.dashboard .quick-insights .insights-title,
+.main-content .quick-insights .insights-title {
+    color: white !important;
+}
+
+/* Target any text node within the title */
+.quick-insights .insights-title::text,
+.quick-insights h3::text {
+    color: white !important;
+} 
+
+/* NUCLEAR OPTION - Force "Today's Insights" title to be white */
+.quick-insights h3.insights-title {
+    color: white !important;
+    color: var(--welcome-text) !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Target the text node specifically */
+.quick-insights h3.insights-title:not(svg) {
+    color: white !important;
+}
+
+/* Override any inline styles on the h3 */
+.quick-insights h3.insights-title[style*="color"] {
+    color: white !important;
+}
+
+/* Maximum specificity for the title */
+body .quick-insights h3.insights-title,
+html body .quick-insights h3.insights-title,
+#app .quick-insights h3.insights-title,
+.dashboard .quick-insights h3.insights-title,
+.main-content .quick-insights h3.insights-title {
+    color: white !important;
+}
+
+/* Force white text on the h3 element */
+.quick-insights h3 {
+    color: white !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Override any CSS variables that might be causing dark text */
+.quick-insights h3.insights-title {
+    --text-primary: white !important;
+    --text-secondary: white !important;
+    --text-tertiary: white !important;
+    color: white !important;
+}
+
+/* Target any remaining text elements */
+.quick-insights h3.insights-title * {
+    color: white !important;
+} 
+
+/* ULTIMATE NUCLEAR OVERRIDE - Target the specific insight-content elements */
+.quick-insights .insight-content h4,
+.quick-insights .insight-content p,
+.quick-insights .insight-content span,
+.quick-insights .insight-content div,
+.quick-insights .insight-content strong,
+.quick-insights .insight-content em,
+.quick-insights .insight-content b,
+.quick-insights .insight-content i {
+    color: white !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Override the main.css styles with maximum specificity */
+body .quick-insights .insight-content h4,
+html body .quick-insights .insight-content h4,
+#app .quick-insights .insight-content h4,
+.dashboard .quick-insights .insight-content h4,
+.main-content .quick-insights .insight-content h4 {
+    color: white !important;
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: 700 !important;
+    margin-bottom: var(--space-2) !important;
+}
+
+body .quick-insights .insight-content p,
+html body .quick-insights .insight-content p,
+#app .quick-insights .insight-content p,
+.dashboard .quick-insights .insight-content p,
+.main-content .quick-insights .insight-content p {
+    color: white !important;
+    color: var(--welcome-text) !important;
+    font-size: var(--font-size-sm) !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+}
+
+/* Override any CSS variables that might be causing dark text */
+.quick-insights .insight-content,
+.quick-insights .insight-content * {
+    --text-primary: white !important;
+    --text-secondary: white !important;
+    --text-tertiary: white !important;
+    color: white !important;
+}
+
+/* Force white text on all insight-content elements with maximum specificity */
+.quick-insights .insight-content,
+.quick-insights .insight-content *,
+.quick-insights .insight-content *::before,
+.quick-insights .insight-content *::after {
+    color: white !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Override any remaining dark text with !important */
+.quick-insights .insight-content h4[style*="color"],
+.quick-insights .insight-content p[style*="color"],
+.quick-insights .insight-content span[style*="color"],
+.quick-insights .insight-content div[style*="color"] {
+    color: white !important;
+}
+
+/* Final nuclear option - target every possible selector */
+.quick-insights [class*="insight"] [class*="content"] h4,
+.quick-insights [class*="insight"] [class*="content"] p,
+.quick-insights [class*="insight"] [class*="content"] span,
+.quick-insights [class*="insight"] [class*="content"] div {
+    color: white !important;
+    color: var(--welcome-text) !important;
+} 
+
+/* ULTIMATE OVERRIDE - Override readability-fixes.css and any other CSS */
+html body .quick-insights .insight-content h4,
+html body .quick-insights .insight-content p,
+html body .quick-insights .insight-content span,
+html body .quick-insights .insight-content div,
+html body .quick-insights .insight-content strong,
+html body .quick-insights .insight-content em,
+html body .quick-insights .insight-content b,
+html body .quick-insights .insight-content i {
+    color: white !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Override any CSS variables that might be set by other files */
+.quick-insights .insight-content,
+.quick-insights .insight-content * {
+    --text-primary: white !important;
+    --text-secondary: white !important;
+    --text-tertiary: white !important;
+    --text-muted: white !important;
+    color: white !important;
+}
+
+/* Force white text with maximum specificity for all text elements */
+html body .quick-insights .insight-content h4,
+html body .quick-insights .insight-content p,
+html body .quick-insights .insight-content span,
+html body .quick-insights .insight-content div {
+    color: white !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Override any inline styles or computed styles */
+.quick-insights .insight-content h4[style*="color"],
+.quick-insights .insight-content p[style*="color"],
+.quick-insights .insight-content span[style*="color"],
+.quick-insights .insight-content div[style*="color"] {
+    color: white !important;
+}
+
+/* Final override for any remaining dark text */
+.quick-insights .insight-content * {
+    color: white !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Override for insight card icons to prevent disappearing */
+.quick-insights .insight-card .insight-icon svg,
+.quick-insights .insight-card:hover .insight-icon svg {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+/* Maximum specificity for insight card icons */
+html body .quick-insights .insight-card .insight-icon svg,
+body .quick-insights .insight-card .insight-icon svg,
+#app .quick-insights .insight-card .insight-icon svg,
+.dashboard .quick-insights .insight-card .insight-icon svg,
+.main-content .quick-insights .insight-card .insight-icon svg {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+html body .quick-insights .insight-card:hover .insight-icon svg,
+body .quick-insights .insight-card:hover .insight-icon svg,
+#app .quick-insights .insight-card:hover .insight-icon svg,
+.dashboard .quick-insights .insight-card:hover .insight-icon svg,
+.main-content .quick-insights .insight-card:hover .insight-icon svg {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+/* Override for upcoming events icon to prevent gray hover */
+.upcoming-events-title .btn-icon:hover,
+.upcoming-events-title svg:hover {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+/* Maximum specificity for upcoming events icon */
+html body .upcoming-events-title .btn-icon:hover,
+body .upcoming-events-title .btn-icon:hover,
+#app .upcoming-events-title .btn-icon:hover,
+.dashboard .upcoming-events-title .btn-icon:hover,
+.main-content .upcoming-events-title .btn-icon:hover {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+html body .upcoming-events-title svg:hover,
+body .upcoming-events-title svg:hover,
+#app .upcoming-events-title svg:hover,
+.dashboard .upcoming-events-title svg:hover,
+.main-content .upcoming-events-title svg:hover {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+/* NUCLEAR OPTION - Override ALL possible upcoming events icon hover effects */
+.upcoming-events-title .btn-icon,
+.upcoming-events-title .btn-icon:hover,
+.upcoming-events-title .btn-icon:focus,
+.upcoming-events-title .btn-icon:active,
+.upcoming-events-title svg,
+.upcoming-events-title svg:hover,
+.upcoming-events-title svg:focus,
+.upcoming-events-title svg:active {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+}
+
+/* Override any CSS variables that might be causing gray colors */
+.upcoming-events-title .btn-icon,
+.upcoming-events-title .btn-icon:hover,
+.upcoming-events-title svg,
+.upcoming-events-title svg:hover {
+    --primary-50: transparent !important;
+    --primary-300: transparent !important;
+    --primary-600: white !important;
+    --text-primary: white !important;
+    --bg-hover: transparent !important;
+}
+
+/* ULTIMATE OVERRIDE - Target the exact element with maximum specificity */
+html body .welcome-section .upcoming-events-title .btn-icon:hover,
+html body .welcome-section .upcoming-events-title svg:hover,
+body .welcome-section .upcoming-events-title .btn-icon:hover,
+body .welcome-section .upcoming-events-title svg:hover,
+#app .welcome-section .upcoming-events-title .btn-icon:hover,
+#app .welcome-section .upcoming-events-title svg:hover,
+.dashboard .welcome-section .upcoming-events-title .btn-icon:hover,
+.dashboard .welcome-section .upcoming-events-title svg:hover,
+.main-content .welcome-section .upcoming-events-title .btn-icon:hover,
+.main-content .welcome-section .upcoming-events-title svg:hover {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    background: transparent !important;
+    border-color: transparent !important;
+}
+
+/* Style for custom events icon to match insights icon */
+.welcome-section .upcoming-events-title .custom-events-icon {
+    width: 40px !important;
+    height: 40px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    transition: all 0.3s ease !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+    box-sizing: border-box !important;
+}
+
+/* Fixed calendar icon styling - match Today's Insights exactly */
+.calendar-icon-fixed {
+    width: 32px !important;
+    height: 32px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+}
+
+.calendar-icon-fixed:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Maximum specificity override for calendar icon - match Today's Insights exactly */
+html body .calendar-icon-fixed,
+body .calendar-icon-fixed,
+#app .calendar-icon-fixed,
+.dashboard .calendar-icon-fixed,
+.main-content .calendar-icon-fixed,
+html body .welcome-section .upcoming-events-title .calendar-icon-fixed,
+body .welcome-section .upcoming-events-title .calendar-icon-fixed,
+#app .welcome-section .upcoming-events-title .calendar-icon-fixed,
+.dashboard .welcome-section .upcoming-events-title .calendar-icon-fixed,
+.main-content .welcome-section .upcoming-events-title .calendar-icon-fixed {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+}
+
+/* Override team.css btn-icon styles specifically for our calendar icon */
+.calendar-icon-fixed {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    cursor: default !important;
+}
+
+/* Calendar icon container - match Today's Insights exactly */
+.calendar-icon-container {
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    padding: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.calendar-icon-container svg {
+    width: 24px !important;
+    height: 24px !important;
+    stroke-width: 2px !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+.calendar-icon-container:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
