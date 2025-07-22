@@ -373,14 +373,7 @@ its /* ===== UNIFIED DESIGN SYSTEM ===== */
     }
 }
 
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
+/* Shimmer keyframes removed to prevent distraction */
 
 /* Unified Responsive Design */
 @media (max-width: 1024px) {

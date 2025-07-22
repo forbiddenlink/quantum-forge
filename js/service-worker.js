@@ -1,4 +1,4 @@
-const CACHE_NAME = 'quantum-forge-v1';
+const CACHE_NAME = 'quantum-forge-v2';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',

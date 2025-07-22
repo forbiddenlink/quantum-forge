@@ -844,17 +844,10 @@
         var(--bg-elevated),
         transparent
     );
-    animation: loading-shimmer 1.5s infinite;
+    /* Loading shimmer animation removed to prevent distraction */
 }
 
-@keyframes loading-shimmer {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
+/* Loading shimmer keyframes removed to prevent distraction */
 
 /* Loading Placeholder */
 company-news {

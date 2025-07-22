@@ -1,8 +1,15 @@
-// Company Culture Showcase Component
+// Enhanced Company Culture Showcase Component - Dream Intranet Homepage
 class CompanyCultureShowcase extends HTMLElement {
     constructor() {
         super();
         this.currentStoryIndex = 0;
+        this.particles = [];
+        this.animationFrame = null;
+        this.isAnimating = false;
+        this.updateInterval = null;
+        this.pulseAnimation = null;
+        
+        // Enhanced team data with comprehensive analytics
         this.stories = [
             {
                 name: "Sarah Chen",
@@ -14,7 +21,15 @@ class CompanyCultureShowcase extends HTMLElement {
                 color: "#6366f1",
                 impact: "Mentored 12 junior developers",
                 hobbies: "Rock climbing, Open source contributor",
-                quote: "Here, innovation meets inclusivity."
+                quote: "Here, innovation meets inclusivity.",
+                tenure: "3 years",
+                location: "San Francisco, CA",
+                skills: ["AI/ML", "Leadership", "Mentoring"],
+                achievements: [
+                    { title: "AI Ethics Committee Lead", date: "2024-01", impact: "high" },
+                    { title: "Mentor of the Year", date: "2023-12", impact: "high" },
+                    { title: "Innovation Award", date: "2023-11", impact: "medium" }
+                ]
             },
             {
                 name: "Marcus Rodriguez",
@@ -26,7 +41,15 @@ class CompanyCultureShowcase extends HTMLElement {
                 color: "#10b981",
                 impact: "40% increase in user satisfaction",
                 hobbies: "Marathon runner, Community volunteer",
-                quote: "We don't just build products, we build community."
+                quote: "We don't just build products, we build community.",
+                tenure: "2.5 years",
+                location: "Austin, TX",
+                skills: ["Product Strategy", "User Research", "Team Leadership"],
+                achievements: [
+                    { title: "Product Excellence Award", date: "2024-01", impact: "high" },
+                    { title: "Customer Impact Leader", date: "2023-12", impact: "high" },
+                    { title: "Community Builder", date: "2023-10", impact: "medium" }
+                ]
             },
             {
                 name: "Aisha Patel",
@@ -38,7 +61,15 @@ class CompanyCultureShowcase extends HTMLElement {
                 color: "#f59e0b",
                 impact: "Led accessibility initiative",
                 hobbies: "Digital art, Teaching design",
-                quote: "Design is about making life better for everyone."
+                quote: "Design is about making life better for everyone.",
+                tenure: "4 years",
+                location: "New York, NY",
+                skills: ["UX Design", "Accessibility", "Design Systems"],
+                achievements: [
+                    { title: "Accessibility Champion", date: "2024-01", impact: "high" },
+                    { title: "Design System Architect", date: "2023-11", impact: "high" },
+                    { title: "User Research Pioneer", date: "2023-09", impact: "medium" }
+                ]
             },
             {
                 name: "David Kim",
@@ -50,7 +81,15 @@ class CompanyCultureShowcase extends HTMLElement {
                 color: "#8b5cf6",
                 impact: "Reduced processing time by 60%",
                 hobbies: "Chess player, Tech blogger",
-                quote: "Data with purpose, innovation with responsibility."
+                quote: "Data with purpose, innovation with responsibility.",
+                tenure: "1.5 years",
+                location: "Seattle, WA",
+                skills: ["Machine Learning", "Ethical AI", "Data Engineering"],
+                achievements: [
+                    { title: "ML Innovation Award", date: "2024-01", impact: "high" },
+                    { title: "Ethical AI Advocate", date: "2023-12", impact: "high" },
+                    { title: "Performance Optimization", date: "2023-11", impact: "medium" }
+                ]
             },
             {
                 name: "Elena Martinez",
@@ -62,7 +101,15 @@ class CompanyCultureShowcase extends HTMLElement {
                 color: "#ec4899",
                 impact: "95% team retention rate",
                 hobbies: "Salsa dancing, Mentoring",
-                quote: "Great teams build great products."
+                quote: "Great teams build great products.",
+                tenure: "5 years",
+                location: "Miami, FL",
+                skills: ["Team Leadership", "Technical Architecture", "Mentoring"],
+                achievements: [
+                    { title: "Leadership Excellence", date: "2024-01", impact: "high" },
+                    { title: "Team Builder Award", date: "2023-12", impact: "high" },
+                    { title: "Technical Mentor", date: "2023-10", impact: "medium" }
+                ]
             }
         ];
         
@@ -72,53 +119,65 @@ class CompanyCultureShowcase extends HTMLElement {
                 description: "We embrace new ideas and technologies to solve complex challenges",
                 icon: "🚀",
                 color: "#6366f1",
-                examples: ["AI Ethics Committee", "Innovation Lab", "Hackathons"]
+                examples: ["AI Ethics Committee", "Innovation Lab", "Hackathons"],
+                impact: "95% of employees participate in innovation initiatives",
+                metrics: { participation: 95, satisfaction: 92, projects: 24 }
             },
             {
                 title: "Collaboration",
                 description: "Great things happen when we work together and share knowledge",
                 icon: "🤝",
                 color: "#10b981",
-                examples: ["Cross-team Projects", "Knowledge Sharing", "Mentorship Program"]
+                examples: ["Cross-team Projects", "Knowledge Sharing", "Mentorship Program"],
+                impact: "87% of projects involve cross-functional collaboration",
+                metrics: { collaboration: 87, knowledge_sharing: 94, mentorship: 89 }
             },
             {
                 title: "User-Centric",
                 description: "Every decision we make starts with our users' needs",
                 icon: "🎯",
                 color: "#f59e0b",
-                examples: ["User Research", "Accessibility First", "Customer Feedback Loop"]
+                examples: ["User Research", "Accessibility First", "Customer Feedback Loop"],
+                impact: "98% user satisfaction score across all products",
+                metrics: { satisfaction: 98, accessibility: 96, feedback: 91 }
             },
             {
                 title: "Continuous Learning",
                 description: "We grow together through knowledge sharing and skill development",
                 icon: "📚",
                 color: "#8b5cf6",
-                examples: ["Learning Budget", "Tech Talks", "Conference Speaking"]
+                examples: ["Learning Budget", "Tech Talks", "Conference Speaking"],
+                impact: "Average of 40 hours of learning per employee annually",
+                metrics: { learning_hours: 40, skill_growth: 88, certifications: 156 }
             },
             {
                 title: "Diversity & Inclusion",
                 description: "Different perspectives make us stronger and more innovative",
                 icon: "🌈",
                 color: "#ec4899",
-                examples: ["ERGs", "Inclusive Hiring", "Cultural Celebrations"]
+                examples: ["ERGs", "Inclusive Hiring", "Cultural Celebrations"],
+                impact: "Representation across 15+ countries and 8+ languages",
+                metrics: { diversity_index: 85, inclusion_score: 92, representation: 15 }
             },
             {
                 title: "Sustainability",
                 description: "We build for the future while caring for our planet",
                 icon: "🌱",
                 color: "#059669",
-                examples: ["Green Office", "Carbon Neutral", "Sustainable Tech"]
+                examples: ["Green Office", "Carbon Neutral", "Sustainable Tech"],
+                impact: "100% carbon neutral operations since 2021",
+                metrics: { carbon_neutral: 100, green_energy: 95, waste_reduction: 78 }
             }
         ];
 
         this.culturePulse = {
-            overall: 92,
+            overall: 91,
             trend: "+5",
             categories: [
-                { name: "Work-Life Balance", score: 89, trend: "+3" },
-                { name: "Innovation Culture", score: 95, trend: "+7" },
-                { name: "Team Collaboration", score: 91, trend: "+2" },
-                { name: "Career Growth", score: 88, trend: "+4" }
+                { name: "Work-Life Balance", score: 89, trend: "+3", target: 90 },
+                { name: "Innovation Culture", score: 95, trend: "+7", target: 95 },
+                { name: "Team Collaboration", score: 91, trend: "+2", target: 92 },
+                { name: "Career Growth", score: 88, trend: "+4", target: 90 }
             ]
         };
 
@@ -126,10 +185,10 @@ class CompanyCultureShowcase extends HTMLElement {
             genderBalance: { male: 52, female: 45, nonBinary: 3 },
             ageGroups: { "20-29": 35, "30-39": 40, "40-49": 20, "50+": 5 },
             departments: [
-                { name: "Engineering", diversity: 78 },
-                { name: "Design", diversity: 85 },
-                { name: "Product", diversity: 82 },
-                { name: "Marketing", diversity: 90 }
+                { name: "Engineering", diversity: 78, trend: "+5" },
+                { name: "Design", diversity: 85, trend: "+3" },
+                { name: "Product", diversity: 82, trend: "+4" },
+                { name: "Marketing", diversity: 90, trend: "+2" }
             ]
         };
 
@@ -140,7 +199,9 @@ class CompanyCultureShowcase extends HTMLElement {
                 description: "Led breakthrough AI integration project",
                 date: "2 days ago",
                 icon: "🏆",
-                color: "#f59e0b"
+                color: "#f59e0b",
+                impact: "high",
+                category: "innovation"
             },
             {
                 name: "Sarah Chen",
@@ -148,7 +209,9 @@ class CompanyCultureShowcase extends HTMLElement {
                 description: "Mentored 5 junior developers this quarter",
                 date: "1 week ago",
                 icon: "🤝",
-                color: "#10b981"
+                color: "#10b981",
+                impact: "high",
+                category: "collaboration"
             },
             {
                 name: "Marcus Rodriguez",
@@ -156,7 +219,9 @@ class CompanyCultureShowcase extends HTMLElement {
                 description: "Improved user satisfaction by 40%",
                 date: "2 weeks ago",
                 icon: "🎯",
-                color: "#6366f1"
+                color: "#6366f1",
+                impact: "high",
+                category: "user-impact"
             }
         ];
 
@@ -166,28 +231,36 @@ class CompanyCultureShowcase extends HTMLElement {
                 title: "Global Expansion",
                 description: "Opened offices in 5 new countries",
                 icon: "🌍",
-                active: true
+                active: true,
+                impact: "high",
+                details: "Expanded to Singapore, Berlin, Toronto, Sydney, and São Paulo"
             },
             {
                 year: "2023", 
                 title: "1M Users Milestone",
                 description: "Reached 1 million active users worldwide",
                 icon: "🎉",
-                active: false
+                active: false,
+                impact: "high",
+                details: "Achieved through user-centric design and global partnerships"
             },
             {
                 year: "2022",
                 title: "Best Workplace Award",
                 description: "Recognized as top 10 workplace in tech",
                 icon: "🏆",
-                active: false
+                active: false,
+                impact: "medium",
+                details: "Awarded by Great Place to Work for culture excellence"
             },
             {
                 year: "2021",
                 title: "Carbon Neutral",
                 description: "Achieved carbon neutrality across all operations",
                 icon: "🌱",
-                active: false
+                active: false,
+                impact: "high",
+                details: "Implemented comprehensive sustainability program"
             }
         ];
     }
@@ -195,29 +268,293 @@ class CompanyCultureShowcase extends HTMLElement {
     connectedCallback() {
         this.render();
         this.setupEventListeners();
+        this.initializeParticles();
         this.startStoryRotation();
         this.initializeAnimations();
+        this.startRealTimeUpdates();
+        this.initializeProgressBars();
+        this.initializeHoverEffects();
+        
+        // Add entrance animation
+        setTimeout(() => {
+            this.classList.add('culture-loaded');
+        }, 100);
     }
 
     disconnectedCallback() {
         if (this.storyInterval) {
             clearInterval(this.storyInterval);
         }
+        if (this.updateInterval) {
+            clearInterval(this.updateInterval);
+        }
+        if (this.animationFrame) {
+            cancelAnimationFrame(this.animationFrame);
+        }
+    }
+
+    initializeParticles() {
+        const particlesContainer = document.createElement('div');
+        particlesContainer.className = 'culture-particles';
+        this.appendChild(particlesContainer);
+        
+        // Create floating particles
+        for (let i = 0; i < 8; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'culture-particle';
+            particle.style.cssText = `
+                position: absolute;
+                width: ${Math.random() * 6 + 2}px;
+                height: ${Math.random() * 6 + 2}px;
+                background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.2));
+                border-radius: 50%;
+                pointer-events: none;
+                animation: cultureFloat ${Math.random() * 20 + 10}s ease-in-out infinite;
+                animation-delay: ${Math.random() * 5}s;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+            `;
+            particlesContainer.appendChild(particle);
+        }
+        
+        // Add particle animation CSS
+        if (!document.querySelector('#culture-particle-styles')) {
+            const style = document.createElement('style');
+            style.id = 'culture-particle-styles';
+            style.textContent = `
+                @keyframes cultureFloat {
+                    0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+                    25% { transform: translateY(-20px) translateX(10px); opacity: 0.7; }
+                    50% { transform: translateY(-40px) translateX(-5px); opacity: 0.5; }
+                    75% { transform: translateY(-20px) translateX(-10px); opacity: 0.8; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+
+    initializeProgressBars() {
+        // Animate progress bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.progress-fill, .bar, .dept-fill');
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                            bar.style.transition = 'width 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                        }, 200);
+                    });
+                }
+            });
+        });
+
+        const sections = this.querySelectorAll('.culture-pulse-section, .diversity-section');
+        sections.forEach(section => observer.observe(section));
+    }
+
+    initializeHoverEffects() {
+        // Enhanced hover effects for interactive elements
+        const interactiveElements = this.querySelectorAll('.value-card, .recognition-card, .timeline-item, .pulse-category');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', (e) => {
+                this.createRippleEffect(e);
+            });
+            
+            element.addEventListener('mouseleave', () => {
+                this.removeRippleEffects(element);
+            });
+        });
+    }
+
+    createRippleEffect(event) {
+        const element = event.currentTarget;
+        const ripple = document.createElement('div');
+        ripple.className = 'culture-ripple-effect';
+        ripple.style.cssText = `
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.2);
+            transform: scale(0);
+            animation: cultureRipple 0.6s linear;
+            pointer-events: none;
+            z-index: 1;
+        `;
+        
+        const rect = element.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = event.clientX - rect.left - size / 2;
+        const y = event.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        
+        element.appendChild(ripple);
+        
+        // Add ripple animation CSS if not exists
+        if (!document.querySelector('#culture-ripple-styles')) {
+            const style = document.createElement('style');
+            style.id = 'culture-ripple-styles';
+            style.textContent = `
+                @keyframes cultureRipple {
+                    to {
+                        transform: scale(2);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        setTimeout(() => {
+            if (ripple.parentNode) {
+                ripple.parentNode.removeChild(ripple);
+            }
+        }, 600);
+    }
+
+    removeRippleEffects(element) {
+        const ripples = element.querySelectorAll('.culture-ripple-effect');
+        ripples.forEach(ripple => {
+            if (ripple.parentNode) {
+                ripple.parentNode.removeChild(ripple);
+            }
+        });
+    }
+
+    startRealTimeUpdates() {
+        // Simulate real-time culture pulse updates
+        this.updateInterval = setInterval(() => {
+            this.updateCulturePulse();
+        }, 30000); // Every 30 seconds
+    }
+
+    updateCulturePulse() {
+        const pulseCategories = this.querySelectorAll('.pulse-category');
+        let totalScore = 0;
+        
+        pulseCategories.forEach((category, index) => {
+            const currentScore = this.culturePulse.categories[index].score;
+            const change = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
+            const newScore = Math.max(0, Math.min(100, currentScore + change));
+            
+            if (newScore !== currentScore) {
+                this.culturePulse.categories[index].score = newScore;
+                this.culturePulse.categories[index].trend = change > 0 ? `+${change}` : change < 0 ? `${change}` : '+0';
+                
+                // Update display
+                const scoreElement = category.querySelector('.category-score');
+                const trendElement = category.querySelector('.category-trend');
+                const progressFill = category.querySelector('.progress-fill');
+                
+                if (scoreElement) {
+                    this.animateNumber(scoreElement, currentScore, newScore);
+                }
+                
+                if (trendElement) {
+                    trendElement.textContent = this.culturePulse.categories[index].trend;
+                    trendElement.className = `category-trend ${change > 0 ? 'positive' : change < 0 ? 'negative' : ''}`;
+                }
+                
+                if (progressFill) {
+                    progressFill.style.width = `${newScore}%`;
+                }
+                
+                // Add visual feedback
+                category.style.animation = 'pulse 0.5s ease-in-out';
+                setTimeout(() => {
+                    category.style.animation = '';
+                }, 500);
+            }
+            
+            totalScore += this.culturePulse.categories[index].score;
+        });
+        
+        // Update overall score
+        const newOverallScore = Math.round(totalScore / this.culturePulse.categories.length);
+        if (newOverallScore !== this.culturePulse.overall) {
+            this.updateOverallScore(newOverallScore);
+        }
+    }
+
+    animateNumber(element, start, end) {
+        const duration = 1000;
+        const steps = 30;
+        const increment = (end - start) / steps;
+        let current = start;
+        const interval = duration / steps;
+
+        const timer = setInterval(() => {
+            current += increment;
+            if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                clearInterval(timer);
+                element.textContent = end;
+            } else {
+                element.textContent = Math.round(current);
+            }
+        }, interval);
+    }
+
+    updateOverallScore(newScore) {
+        const scoreCircle = this.querySelector('.score-circle');
+        const scoreNumber = this.querySelector('.score-number');
+        
+        if (scoreCircle && scoreNumber) {
+            const currentScore = this.culturePulse.overall;
+            this.culturePulse.overall = newScore;
+            
+            // Update the CSS custom property for the conic gradient
+            scoreCircle.style.setProperty('--score-value', newScore);
+            
+            // Animate the number
+            this.animateNumber(scoreNumber, currentScore, newScore);
+            
+            // Add visual feedback
+            scoreCircle.style.animation = 'pulse 0.5s ease-in-out';
+            setTimeout(() => {
+                scoreCircle.style.animation = '';
+            }, 500);
+        }
     }
 
     render() {
         this.innerHTML = `
             <div class="company-culture-showcase">
+                <!-- Enhanced Background with Particles -->
+                <div class="culture-background">
+                    <div class="culture-gradient-overlay"></div>
+                    <div class="culture-pattern"></div>
+                </div>
+
                 <div class="culture-header">
                     <h2 class="culture-title">
                         <span class="culture-icon">🏢</span>
                         Our Culture & Values
+                        <span class="culture-badge">Live</span>
                     </h2>
                     <p class="culture-subtitle">Building the future together through innovation, collaboration, and shared values</p>
+                    <div class="culture-stats-preview">
+                        <div class="stat-preview">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">Satisfaction</span>
+                        </div>
+                        <div class="stat-preview">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Countries</span>
+                        </div>
+                        <div class="stat-preview">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Carbon Neutral</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="culture-content">
-                    <!-- Real-time Culture Pulse -->
+                    <!-- Enhanced Real-time Culture Pulse -->
                     <div class="culture-pulse-section">
                         <h3 class="section-title">
                             <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -225,21 +562,24 @@ class CompanyCultureShowcase extends HTMLElement {
                             </svg>
                             Culture Pulse
                             <span class="pulse-indicator ${this.culturePulse.trend.startsWith('+') ? 'positive' : 'negative'}">
+                                <span class="live-dot"></span>
                                 ${this.culturePulse.trend}% this month
                             </span>
                         </h3>
                         
                         <div class="pulse-dashboard">
                             <div class="overall-score">
-                                <div class="score-circle">
-                                    <div class="score-number">${this.culturePulse.overall}</div>
-                                    <div class="score-label">Overall Score</div>
+                                <div class="score-circle" style="--score-value: ${this.culturePulse.overall}">
+                                    <div class="score-content">
+                                        <div class="score-number" data-value="${this.culturePulse.overall}">${this.culturePulse.overall}</div>
+                                        <div class="score-label">Overall Score</div>
+                                    </div>
                                 </div>
                             </div>
                             
                             <div class="pulse-categories">
                                 ${this.culturePulse.categories.map(category => `
-                                    <div class="pulse-category">
+                                    <div class="pulse-category" data-target="${category.target}">
                                         <div class="category-header">
                                             <span class="category-name">${category.name}</span>
                                             <span class="category-trend ${category.trend.startsWith('+') ? 'positive' : 'negative'}">
@@ -248,6 +588,7 @@ class CompanyCultureShowcase extends HTMLElement {
                                         </div>
                                         <div class="progress-bar">
                                             <div class="progress-fill" style="width: ${category.score}%"></div>
+                                            <div class="progress-target" style="left: ${category.target}%"></div>
                                         </div>
                                         <span class="category-score">${category.score}/100</span>
                                     </div>
@@ -256,7 +597,7 @@ class CompanyCultureShowcase extends HTMLElement {
                         </div>
                     </div>
 
-                    <!-- Company Timeline -->
+                    <!-- Enhanced Company Timeline -->
                     <div class="timeline-section">
                         <h3 class="section-title">
                             <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -264,18 +605,24 @@ class CompanyCultureShowcase extends HTMLElement {
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
                             Our Journey
+                            <span class="timeline-progress">4/4 Milestones</span>
                         </h3>
                         
                         <div class="timeline">
                             ${this.milestones.map((milestone, index) => `
-                                <div class="timeline-item ${milestone.active ? 'active' : ''}" data-index="${index}">
+                                <div class="timeline-item ${milestone.active ? 'active' : ''}" data-index="${index}" data-impact="${milestone.impact}">
                                     <div class="timeline-marker">
                                         <span class="milestone-icon">${milestone.icon}</span>
+                                        <div class="milestone-glow"></div>
                                     </div>
                                     <div class="timeline-content">
                                         <div class="timeline-year">${milestone.year}</div>
                                         <h4 class="timeline-title">${milestone.title}</h4>
                                         <p class="timeline-description">${milestone.description}</p>
+                                        <div class="timeline-details">${milestone.details}</div>
+                                        <div class="timeline-impact ${milestone.impact}">
+                                            <span class="impact-label">${milestone.impact} Impact</span>
+                                        </div>
                                     </div>
                                 </div>
                             `).join('')}
@@ -363,7 +710,7 @@ class CompanyCultureShowcase extends HTMLElement {
                         </div>
                     </div>
 
-                    <!-- Employee Stories Section -->
+                    <!-- Enhanced Employee Stories Section -->
                     <div class="stories-section">
                         <h3 class="section-title">
                             <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -373,23 +720,45 @@ class CompanyCultureShowcase extends HTMLElement {
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg>
                             Employee Stories
+                            <span class="stories-count">${this.stories.length} Stories</span>
                         </h3>
                         
                         <div class="story-carousel">
                             <div class="story-card active" data-index="0">
                                 <div class="story-avatar" style="background: linear-gradient(135deg, ${this.stories[0].color}20, ${this.stories[0].color}40)">
                                     <span class="avatar-emoji">${this.stories[0].avatar}</span>
+                                    <div class="avatar-status online"></div>
                                 </div>
                                 <div class="story-content">
                                     <div class="story-header">
                                         <h4 class="story-name">${this.stories[0].name}</h4>
                                         <span class="story-role">${this.stories[0].role}</span>
                                         <span class="story-department">${this.stories[0].department}</span>
+                                        <div class="story-meta">
+                                            <span class="story-tenure">${this.stories[0].tenure}</span>
+                                            <span class="story-location">${this.stories[0].location}</span>
+                                        </div>
                                     </div>
+                                    <blockquote class="story-quote">"${this.stories[0].quote}"</blockquote>
                                     <p class="story-text">${this.stories[0].story}</p>
-                                    <div class="story-achievement">
-                                        <span class="achievement-badge">🏆</span>
-                                        <span>${this.stories[0].achievement}</span>
+                                    <div class="story-achievements">
+                                        <div class="achievement-item">
+                                            <span class="achievement-badge">🏆</span>
+                                            <span>${this.stories[0].achievement}</span>
+                                        </div>
+                                        <div class="achievement-item">
+                                            <span class="achievement-badge">💫</span>
+                                            <span>${this.stories[0].impact}</span>
+                                        </div>
+                                    </div>
+                                    <div class="story-skills">
+                                        ${this.stories[0].skills.map(skill => `
+                                            <span class="skill-tag">${skill}</span>
+                                        `).join('')}
+                                    </div>
+                                    <div class="story-hobbies">
+                                        <span class="hobbies-label">Outside work:</span>
+                                        <span class="hobbies-text">${this.stories[0].hobbies}</span>
                                     </div>
                                 </div>
                             </div>
@@ -414,13 +783,14 @@ class CompanyCultureShowcase extends HTMLElement {
                         </div>
                     </div>
 
-                    <!-- Company Values Section -->
+                    <!-- Enhanced Company Values Section -->
                     <div class="values-section">
                         <h3 class="section-title">
                             <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                             </svg>
                             Our Core Values
+                            <span class="values-count">${this.values.length} Values</span>
                         </h3>
                         
                         <div class="values-grid">
@@ -428,12 +798,29 @@ class CompanyCultureShowcase extends HTMLElement {
                                 <div class="value-card" data-index="${index}" style="--value-color: ${value.color}">
                                     <div class="value-icon" style="background: linear-gradient(135deg, ${value.color}20, ${value.color}40)">
                                         <span class="value-emoji">${value.icon}</span>
+                                        <div class="value-icon-glow"></div>
                                     </div>
                                     <div class="value-content">
                                         <h4 class="value-title">${value.title}</h4>
                                         <p class="value-description">${value.description}</p>
+                                        <div class="value-impact">
+                                            <span class="impact-text">${value.impact}</span>
+                                        </div>
+                                        <div class="value-metrics">
+                                            ${Object.entries(value.metrics).map(([key, val]) => `
+                                                <div class="metric-item">
+                                                    <span class="metric-value">${val}${key.includes('_') ? '' : '%'}</span>
+                                                    <span class="metric-label">${key.replace('_', ' ')}</span>
+                                                </div>
+                                            `).join('')}
+                                        </div>
                                     </div>
                                     <div class="value-glow"></div>
+                                    <div class="value-examples">
+                                        ${value.examples.map(example => `
+                                            <span class="example-tag">${example}</span>
+                                        `).join('')}
+                                    </div>
                                 </div>
                             `).join('')}
                         </div>
@@ -589,12 +976,17 @@ class CompanyCultureShowcase extends HTMLElement {
         storyCard.innerHTML = `
             <div class="story-avatar" style="background: linear-gradient(135deg, ${story.color}20, ${story.color}40)">
                 <span class="avatar-emoji">${story.avatar}</span>
+                <div class="avatar-status online"></div>
             </div>
             <div class="story-content">
                 <div class="story-header">
                     <h4 class="story-name">${story.name}</h4>
                     <span class="story-role">${story.role}</span>
                     <span class="story-department">${story.department}</span>
+                    <div class="story-meta">
+                        <span class="story-tenure">${story.tenure}</span>
+                        <span class="story-location">${story.location}</span>
+                    </div>
                 </div>
                 <blockquote class="story-quote">"${story.quote}"</blockquote>
                 <p class="story-text">${story.story}</p>
@@ -607,6 +999,11 @@ class CompanyCultureShowcase extends HTMLElement {
                         <span class="achievement-badge">💫</span>
                         <span>${story.impact}</span>
                     </div>
+                </div>
+                <div class="story-skills">
+                    ${story.skills.map(skill => `
+                        <span class="skill-tag">${skill}</span>
+                    `).join('')}
                 </div>
                 <div class="story-hobbies">
                     <span class="hobbies-label">Outside work:</span>

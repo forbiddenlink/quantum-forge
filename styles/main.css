@@ -533,14 +533,7 @@ body {
     }
 }
 
-@keyframes shimmer {
-    0%, 100% { 
-        opacity: 1; 
-    }
-    50% { 
-        opacity: 0.7; 
-    }
-}
+/* Shimmer keyframes removed to prevent distraction */
 
 .welcome-header {
     display: flex;
@@ -848,6 +841,7 @@ body {
 .dashboard-item.full-width {
     flex: 1 1 100%;
     margin: 0;
+    margin-bottom: var(--space-6);
 }
 
 .dashboard-item > * {
@@ -861,6 +855,40 @@ body {
     display: block !important;
     height: auto !important;
     max-height: none !important;
+}
+
+/* Specific spacing for office container */
+.dashboard-item.office-container {
+    margin-bottom: var(--space-8) !important;
+    position: relative !important;
+    z-index: 1 !important;
+    overflow: visible !important;
+}
+
+/* Ensure proper spacing between office and culture sections */
+.dashboard-item.office-container + .dashboard-item:has(company-culture-showcase) {
+    margin-top: var(--space-8) !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Ensure office visualizer doesn't overflow */
+.dashboard-item.office-container office-visualizer {
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: 700px !important;
+}
+
+/* Fix for any potential overflow issues */
+.dashboard-item.office-container .dream-workspace {
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 1 !important;
+    margin-bottom: 0 !important;
 }
 
 /* Purple glow ONLY for main dashboard items - exclude all inner content */
@@ -3858,10 +3886,7 @@ office-visualizer {
     /* Removed shimmer animation to prevent distraction */
 }
 
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
+/* Shimmer keyframes removed to prevent distraction */
 
 /* Task Card Meta */
 .task-card-meta {
@@ -8499,14 +8524,7 @@ body {
     }
 }
 
-@keyframes shimmer {
-    0%, 100% { 
-        opacity: 1; 
-    }
-    50% { 
-        opacity: 0.7; 
-    }
-}
+/* Shimmer keyframes removed to prevent distraction */
 
 .welcome-header {
     display: flex;
@@ -11789,10 +11807,7 @@ office-visualizer {
     /* Removed shimmer animation to prevent distraction */
 }
 
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
+/* Shimmer keyframes removed to prevent distraction */
 
 /* Task Card Meta */
 .task-card-meta {

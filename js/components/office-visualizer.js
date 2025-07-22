@@ -1,4 +1,4 @@
-// Enhanced Office Visualizer Component - Dream Workplace Edition
+// Enhanced Office Visualizer Component - Dream Workspace Edition
 class OfficeVisualizer extends HTMLElement {
     constructor() {
         super();
@@ -14,194 +14,358 @@ class OfficeVisualizer extends HTMLElement {
         this.animationFrame = null;
         this.currentFloor = 1;
         this.raycaster = null;
-        this.mouse = new THREE.Vector2();
+        this.mouse = null; // Will be initialized when THREE.js is available
         this.selectedDesk = null;
         this.teamMembers = this.generateTeamData();
+        this.officeStats = this.generateOfficeStats();
     }
 
     connectedCallback() {
-        this.render2DView();
-        setTimeout(() => {
-            if (typeof THREE === 'undefined') {
-                console.error('Three.js not loaded');
-                this.showFallbackContent();
-                return;
-            }
-            try {
-                this.initialize3DView();
-            } catch (error) {
-                console.error('Failed to initialize 3D view:', error);
-                this.showFallbackContent();
-            }
-        }, 1000);
+        console.log('Office Visualizer: connectedCallback called');
+        
+        try {
+            // Always show the Dream Workspace Hub design
+            console.log('Office Visualizer: Rendering Dream Workspace Hub');
+            this.renderDreamWorkspace();
+            console.log('Office Visualizer: Dream Workspace Hub rendered successfully');
+        } catch (error) {
+            console.error('Error in connectedCallback:', error);
+            this.showFallbackContent();
+        }
     }
 
     generateTeamData() {
         return [
-            { id: 1, name: "Sarah Chen", role: "UX Designer", status: "in-office", desk: "A1", avatar: "👩‍💻" },
-            { id: 2, name: "Marcus Johnson", role: "Frontend Dev", status: "remote", desk: "A2", avatar: "👨‍💼" },
-            { id: 3, name: "Elena Rodriguez", role: "Product Manager", status: "in-meeting", desk: "B1", avatar: "👩‍💼" },
-            { id: 4, name: "David Kim", role: "Backend Dev", status: "in-office", desk: "B2", avatar: "👨‍💻" },
-            { id: 5, name: "Lisa Park", role: "Data Analyst", status: "lunch", desk: "C1", avatar: "👩‍🔬" },
-            { id: 6, name: "Alex Thompson", role: "DevOps", status: "in-office", desk: "C2", avatar: "👨‍🔧" }
+            { id: 1, name: "Sarah Chen", role: "UX Designer", status: "in-office", desk: "A1", avatar: "👩‍💻", department: "Design", location: "Main Floor" },
+            { id: 2, name: "Marcus Johnson", role: "Frontend Dev", status: "remote", desk: "A2", avatar: "👨‍💼", department: "Engineering", location: "Remote" },
+            { id: 3, name: "Elena Rodriguez", role: "Product Manager", status: "in-meeting", desk: "B1", avatar: "👩‍💼", department: "Product", location: "Meeting Hub" },
+            { id: 4, name: "David Kim", role: "Backend Dev", status: "in-office", desk: "B2", avatar: "👨‍💻", department: "Engineering", location: "Main Floor" },
+            { id: 5, name: "Lisa Park", role: "Data Analyst", status: "lunch", desk: "C1", avatar: "👩‍🔬", department: "Analytics", location: "Main Floor" },
+            { id: 6, name: "Alex Thompson", role: "DevOps", status: "in-office", desk: "C2", avatar: "👨‍🔧", department: "Engineering", location: "Main Floor" },
+            { id: 7, name: "Maria Garcia", role: "Marketing Lead", status: "in-office", desk: "D1", avatar: "👩‍💼", department: "Marketing", location: "Main Floor" },
+            { id: 8, name: "James Wilson", role: "Sales Director", status: "in-meeting", desk: "D2", avatar: "👨‍💼", department: "Sales", location: "Meeting Hub" }
         ];
     }
 
-    render2DView() {
+    generateOfficeStats() {
+        return {
+            totalDesks: 24,
+            occupiedDesks: 18,
+            availableDesks: 6,
+            meetingRooms: 8,
+            activeMeetings: 3,
+            availableRooms: 5,
+            totalFloors: 3,
+            currentFloor: 1,
+            departments: 6,
+            remoteWorkers: 4,
+            inOfficeWorkers: 14
+        };
+    }
+
+    renderDreamWorkspace() {
+        console.log('🎉 DREAM WORKSPACE HUB V2 LOADED! 🎉');
+        console.log('Office Visualizer: Starting renderDreamWorkspace');
+        
+        // Ensure the component is visible
+        this.style.display = 'block';
+        this.style.visibility = 'visible';
+        this.style.opacity = '1';
+        
         this.innerHTML = `
-            <div class="office-visualizer">
-                <div class="visualizer-header">
-                    <h3 class="visualizer-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>
-                        Interactive Office Space
-                    </h3>
-                    <div class="office-stats">
-                        <div class="stat-pill">
-                            <span class="stat-icon">👥</span>
-                            <span class="stat-text">4/6 in office</span>
-                        </div>
-                        <div class="stat-pill">
-                            <span class="stat-icon">🏢</span>
-                            <span class="stat-text">2 meetings active</span>
-                        </div>
-                    </div>
+            <div class="dream-workspace">
+                <!-- Enhanced Background Elements -->
+                <div class="workspace-particles">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
                 </div>
-
-                <div id="visualizerCanvas" class="visualizer-canvas">
-                    <div class="loading-indicator">
-                        <div class="loading-content">
-                            <div class="loading-spinner"></div>
-                            <span class="loading-text">Loading Your Digital Office...</span>
-                            <span class="loading-subtext">Preparing 3D workspace experience</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Enhanced Floor Selector -->
-                <div class="floor-selector">
-                    <div class="floor-header">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2z"></path>
-                            <path d="M8 21v-5a2 2 0 012-2h4a2 2 0 012 2v5"></path>
-                        </svg>
-                        <span>Floors</span>
-                    </div>
-                    <button class="floor-btn active" data-floor="1">
-                        <span class="floor-number">1</span>
-                        <span class="floor-label">Main Floor</span>
-                        <span class="floor-occupancy">4 people</span>
-                    </button>
-                    <button class="floor-btn" data-floor="2">
-                        <span class="floor-number">2</span>
-                        <span class="floor-label">Meeting Hub</span>
-                        <span class="floor-occupancy">2 meetings</span>
-                    </button>
-                    <button class="floor-btn" data-floor="3">
-                        <span class="floor-number">3</span>
-                        <span class="floor-label">Executive</span>
-                        <span class="floor-occupancy">1 person</span>
-                    </button>
-                </div>
-
-                <!-- Enhanced Legend -->
-                <div class="legend">
-                    <div class="legend-header">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="3"></circle>
-                            <path d="M12 1v6m0 6v6"></path>
-                            <path d="m21 12-6-3-6 3-6-3"></path>
-                        </svg>
-                        <span>Status</span>
-                    </div>
-                    <div class="legend-items">
-                        <div class="legend-item">
-                            <span class="legend-dot available"></span>
-                            <span>Available</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-dot occupied"></span>
-                            <span>Occupied</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-dot meeting"></span>
-                            <span>In Meeting</span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="legend-dot remote"></span>
-                            <span>Remote</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- New: Team Panel -->
-                <div class="team-panel">
-                    <div class="team-header">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                        <span>Team</span>
-                        <button class="panel-toggle" data-panel="team">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polyline points="6 9 12 15 18 9"></polyline>
+                
+                <!-- Workspace Header -->
+                <div class="workspace-header">
+                    <div class="header-content">
+                        <h2 class="workspace-title">
+                            <svg class="workspace-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
                             </svg>
-                        </button>
+                            Dream Workspace Hub
+                        </h2>
+                        <p class="workspace-subtitle">Your perfect digital workspace - where innovation meets collaboration</p>
+                        <div class="workspace-status">
+                            <span class="status-indicator online"></span>
+                            <span class="status-text">All systems operational • ${this.officeStats.inOfficeWorkers} team members active</span>
+                        </div>
                     </div>
-                    <div class="team-content">
-                        ${this.teamMembers.map(member => `
-                            <div class="team-member" data-desk="${member.desk}" data-status="${member.status}">
-                                <div class="member-avatar">${member.avatar}</div>
-                                <div class="member-info">
-                                    <span class="member-name">${member.name}</span>
-                                    <span class="member-role">${member.role}</span>
-                                </div>
-                                <div class="member-status ${member.status}">
-                                    ${this.getStatusIcon(member.status)}
+                    
+                    <!-- Workspace Stats -->
+                    <div class="workspace-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">${this.officeStats.occupiedDesks}/${this.officeStats.totalDesks}</span>
+                            <span class="stat-label">Desks Active</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">${this.officeStats.activeMeetings}</span>
+                            <span class="stat-label">Live Meetings</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">${this.officeStats.availableRooms}</span>
+                            <span class="stat-label">Rooms Free</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">${this.officeStats.remoteWorkers}</span>
+                            <span class="stat-label">Remote Team</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Workspace Content -->
+                <div class="workspace-content">
+                    <!-- Live Activity Feed -->
+                    <div class="activity-feed-section">
+                        <div class="section-header">
+                            <h3>Live Activity Feed</h3>
+                            <span class="live-indicator">LIVE</span>
+                        </div>
+                        <div class="activity-stream">
+                            <div class="activity-item">
+                                <div class="activity-avatar">👩‍💻</div>
+                                <div class="activity-content">
+                                    <span class="activity-user">Sarah Chen</span>
+                                    <span class="activity-action">joined the Design Review meeting</span>
+                                    <span class="activity-time">2 min ago</span>
                                 </div>
                             </div>
-                        `).join('')}
+                            <div class="activity-item">
+                                <div class="activity-avatar">👨‍💼</div>
+                                <div class="activity-content">
+                                    <span class="activity-user">Marcus Johnson</span>
+                                    <span class="activity-action">completed task "Update homepage"</span>
+                                    <span class="activity-time">5 min ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-avatar">👩‍💼</div>
+                                <div class="activity-content">
+                                    <span class="activity-user">Elena Rodriguez</span>
+                                    <span class="activity-action">shared document "Q4 Strategy"</span>
+                                    <span class="activity-time">8 min ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-avatar">🎉</div>
+                                <div class="activity-content">
+                                    <span class="activity-user">Team Achievement</span>
+                                    <span class="activity-action">reached 100% project completion</span>
+                                    <span class="activity-time">12 min ago</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- New: Desk Info Panel -->
-                <div class="desk-info-panel" id="deskInfoPanel" style="display: none;">
-                    <div class="desk-info-header">
-                        <h4>Desk Information</h4>
-                        <button class="close-panel" onclick="this.closest('.desk-info-panel').style.display='none'">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                            </svg>
-                        </button>
+                    <!-- Quick Actions Hub -->
+                    <div class="quick-actions-hub">
+                        <div class="section-header">
+                            <h3>Quick Actions</h3>
+                        </div>
+                        <div class="actions-grid">
+                            <button class="action-card primary">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 5v14M5 12h14"/>
+                                </svg>
+                                <span>New Project</span>
+                            </button>
+                            <button class="action-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                                <span>Schedule Meeting</span>
+                            </button>
+                            <button class="action-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                <span>Create Document</span>
+                            </button>
+                            <button class="action-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                                <span>Invite Team</span>
+                            </button>
+                        </div>
                     </div>
-                    <div class="desk-info-content">
-                        <!-- Content will be populated dynamically -->
-                    </div>
-                </div>
 
-                <!-- Controls -->
-                <div class="office-controls">
-                    <button class="control-btn" id="resetView" title="Reset View">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
-                            <path d="M21 3v5h-5"></path>
-                            <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
-                            <path d="M3 21v-5h5"></path>
-                        </svg>
-                    </button>
-                    <button class="control-btn" id="toggleMode" title="Toggle View Mode">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                        </svg>
-                    </button>
+                    <!-- Team Spotlight -->
+                    <div class="team-spotlight-section">
+                        <div class="section-header">
+                            <h3>Team Spotlight</h3>
+                            <span class="spotlight-badge">This Week</span>
+                        </div>
+                        <div class="spotlight-grid">
+                            ${this.teamMembers.slice(0, 4).map(member => `
+                                <div class="spotlight-card ${member.status}">
+                                    <div class="member-avatar-large">${member.avatar}</div>
+                                    <div class="member-info">
+                                        <h4 class="member-name">${member.name}</h4>
+                                        <p class="member-role">${member.role}</p>
+                                        <div class="member-status-indicator">
+                                            <span class="status-dot ${member.status}"></span>
+                                            <span class="status-text">${member.status.replace('-', ' ')}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Office Map -->
+                    <div class="office-map-section">
+                        <div class="section-header">
+                            <h3>Office Map</h3>
+                            <span class="map-status">${this.officeStats.inOfficeWorkers} people in office</span>
+                        </div>
+                        <div class="office-grid">
+                            <!-- Meeting Rooms -->
+                            <div class="office-area">
+                                <h4>Meeting Rooms</h4>
+                                <div class="room-list">
+                                    <div class="room available">
+                                        <div class="room-info">
+                                            <span class="room-name">Room A</span>
+                                            <span class="room-status">Available</span>
+                                        </div>
+                                        <button class="book-btn">Book</button>
+                                    </div>
+                                    <div class="room occupied">
+                                        <div class="room-info">
+                                            <span class="room-name">Room B</span>
+                                            <span class="room-status">In Use</span>
+                                        </div>
+                                        <button class="book-btn" disabled>Occupied</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Workstations -->
+                            <div class="office-area">
+                                <h4>Workstations</h4>
+                                <div class="desk-list">
+                                    <div class="desk occupied">
+                                        <div class="desk-info">
+                                            <span class="desk-name">A1</span>
+                                            <span class="desk-user">👩‍💻 Sarah Chen</span>
+                                        </div>
+                                    </div>
+                                    <div class="desk occupied">
+                                        <div class="desk-info">
+                                            <span class="desk-name">A2</span>
+                                            <span class="desk-user">👨‍💻 David Kim</span>
+                                        </div>
+                                    </div>
+                                    <div class="desk available">
+                                        <div class="desk-info">
+                                            <span class="desk-name">A3</span>
+                                            <span class="desk-status">Available</span>
+                                        </div>
+                                        <button class="book-btn">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Events -->
+                    <div class="events-wrapper">
+                        <div class="events-section">
+                            <div class="section-header">
+                                <h3>Upcoming Events</h3>
+                                <span class="events-count">3 today</span>
+                            </div>
+                            <div class="events-content">
+                                <div class="event-card">
+                                    <time class="event-time">10:00</time>
+                                    <div class="event-details">
+                                        <h4>Design Review</h4>
+                                        <p>Room A • 5 people</p>
+                                    </div>
+                                    <button class="join-btn">Join</button>
+                                </div>
+                                <div class="event-card">
+                                    <time class="event-time">2:30</time>
+                                    <div class="event-details">
+                                        <h4>Standup</h4>
+                                        <p>Virtual • 12 people</p>
+                                    </div>
+                                    <button class="join-btn">Join</button>
+                                </div>
+                                <div class="event-card">
+                                    <time class="event-time">4:00</time>
+                                    <div class="event-details">
+                                        <h4>Client Demo</h4>
+                                        <p>Hub • 8 people</p>
+                                    </div>
+                                    <button class="join-btn">Join</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resources Hub -->
+                    <div class="resources-section">
+                        <div class="section-header">
+                            <h3>Quick Resources</h3>
+                        </div>
+                        <div class="resources-grid">
+                            <a href="#" class="resource-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                <span>Employee Handbook</span>
+                            </a>
+                            <a href="#" class="resource-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <path d="M21 12c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2z"/>
+                                    <path d="M3 12c1 0 2-1 2-2s-1-2-2-2-2 1-2 2 1 2 2 2z"/>
+                                </svg>
+                                <span>IT Support</span>
+                            </a>
+                            <a href="#" class="resource-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <span>Training Portal</span>
+                            </a>
+                            <a href="#" class="resource-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                    <polyline points="16 6 12 2 8 6"/>
+                                    <line x1="12" y1="2" x2="12" y2="15"/>
+                                </svg>
+                                <span>Benefits Info</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
+        
+        // Ensure the component is visible
+        this.style.display = 'block';
+        this.style.visibility = 'visible';
+        this.style.opacity = '1';
+        this.style.minHeight = '700px';
+        
+        console.log('Office Visualizer: Dream workspace rendered successfully');
     }
 
     getStatusIcon(status) {
@@ -560,10 +724,10 @@ class OfficeVisualizer extends HTMLElement {
     }
 
     showDeskInfo(deskData) {
-        const panel = this.querySelector('#deskInfoPanel');
+        const panel = this.querySelector('#infoPanel');
         if (!panel) return;
 
-        const content = panel.querySelector('.desk-info-content');
+        const content = panel.querySelector('.info-content');
         if (!content) return;
         
         const member = this.teamMembers.find(m => m.desk === deskData.id);
@@ -609,10 +773,10 @@ class OfficeVisualizer extends HTMLElement {
     }
 
     showRoomInfo(roomData) {
-        const panel = this.querySelector('#deskInfoPanel');
+        const panel = this.querySelector('#infoPanel');
         if (!panel) return;
 
-        const content = panel.querySelector('.desk-info-content');
+        const content = panel.querySelector('.info-content');
         if (!content) return;
         
         content.innerHTML = `
@@ -676,7 +840,7 @@ class OfficeVisualizer extends HTMLElement {
                 this.focusOnDesk(deskId);
                 
                 // Close desk info panel before showing new one
-                const deskInfoPanel = this.querySelector('#deskInfoPanel');
+                const deskInfoPanel = this.querySelector('#infoPanel');
                 if (deskInfoPanel) {
                     deskInfoPanel.style.display = 'none';
                 }
@@ -686,7 +850,7 @@ class OfficeVisualizer extends HTMLElement {
         // Panel toggles
         this.querySelectorAll('.panel-toggle').forEach(toggle => {
             toggle.addEventListener('click', (e) => {
-                const panel = e.currentTarget.closest('.team-panel, .floor-selector');
+                const panel = e.currentTarget.closest('.team-panel, .floor-panel');
                 if (panel) {
                     panel.classList.toggle('collapsed');
                     // Update toggle button aria-expanded state
@@ -699,7 +863,7 @@ class OfficeVisualizer extends HTMLElement {
 
         // Close panels when clicking outside
         document.addEventListener('click', (e) => {
-            if (!e.target.closest('.office-visualizer')) {
+            if (!e.target.closest('.dream-workspace')) {
                 this.closeAllPanels();
             }
         });
@@ -712,7 +876,7 @@ class OfficeVisualizer extends HTMLElement {
         });
 
         // Prevent panel drag
-        this.querySelectorAll('.team-panel, .floor-selector, .legend, .desk-info-panel').forEach(panel => {
+        this.querySelectorAll('.team-panel, .floor-panel, .legend-panel').forEach(panel => {
             panel.addEventListener('mousedown', (e) => {
                 if (e.target.closest('.panel-header, .close-panel')) {
                     e.stopPropagation();
@@ -729,15 +893,85 @@ class OfficeVisualizer extends HTMLElement {
                 this.adjustPanelPositions();
             }, 100);
         });
+
+        // Action buttons
+        this.querySelectorAll('.action-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const action = e.currentTarget.dataset.action;
+                this.handleAction(action);
+            });
+        });
+
+        // Toggle mode button
+        this.querySelector('#toggleMode')?.addEventListener('click', () => {
+            this.toggleViewMode();
+        });
+    }
+
+    handleAction(action) {
+        switch (action) {
+            case 'book-desk':
+                this.showNotification('Desk booking feature coming soon!', 'info');
+                break;
+            case 'schedule-meeting':
+                this.showNotification('Meeting scheduler will be available soon!', 'info');
+                break;
+            case 'find-colleague':
+                this.showNotification('Colleague finder feature coming soon!', 'info');
+                break;
+            case 'workspace-map':
+                this.showNotification('Interactive workspace map coming soon!', 'info');
+                break;
+            default:
+                console.log('Action not implemented:', action);
+        }
+    }
+
+    toggleViewMode() {
+        const canvas = this.querySelector('#visualizerCanvas');
+        if (canvas) {
+            canvas.classList.toggle('enhanced-mode');
+            this.showNotification('View mode toggled!', 'success');
+        }
+    }
+
+    showNotification(message, type = 'info') {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `workspace-notification ${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <span class="notification-message">${message}</span>
+                <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        `;
+        
+        // Add to workspace
+        const workspace = this.querySelector('.dream-workspace');
+        if (workspace) {
+            workspace.appendChild(notification);
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
     }
 
     closeAllPanels() {
-        const deskInfoPanel = this.querySelector('#deskInfoPanel');
+        const deskInfoPanel = this.querySelector('#infoPanel');
         if (deskInfoPanel) {
             deskInfoPanel.style.display = 'none';
         }
         
-        this.querySelectorAll('.team-panel, .floor-selector').forEach(panel => {
+        this.querySelectorAll('.team-panel, .floor-panel').forEach(panel => {
             panel.classList.add('collapsed');
             const toggle = panel.querySelector('.panel-toggle');
             if (toggle) {
@@ -747,11 +981,11 @@ class OfficeVisualizer extends HTMLElement {
     }
 
     adjustPanelPositions() {
-        const visualizer = this.querySelector('.office-visualizer');
+        const visualizer = this.querySelector('.dream-workspace');
         if (!visualizer) return;
 
         const bounds = visualizer.getBoundingClientRect();
-        const panels = this.querySelectorAll('.team-panel, .floor-selector, .legend, .desk-info-panel');
+        const panels = this.querySelectorAll('.team-panel, .floor-panel, .legend-panel');
 
         panels.forEach(panel => {
             const panelBounds = panel.getBoundingClientRect();
@@ -860,33 +1094,327 @@ class OfficeVisualizer extends HTMLElement {
     }
 
     showFallbackContent() {
+        console.log('Office Visualizer: Showing fallback content');
+        
         this.innerHTML = `
-            <div class="office-visualizer fallback">
-                <div class="visualizer-header">
-                    <h3 class="visualizer-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>
-                        Office Space Overview
-                    </h3>
+            <div class="dream-workspace fallback" style="display: block; visibility: visible; opacity: 1; min-height: 700px;">
+                <div class="workspace-header">
+                    <div class="header-content">
+                        <h2 class="workspace-title">
+                            <svg class="workspace-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                            Dream Workspace Hub
+                        </h2>
+                        <p class="workspace-subtitle">Your perfect digital workspace - where innovation meets collaboration</p>
+                        <div class="workspace-status">
+                            <span class="status-indicator online"></span>
+                            <span class="status-text">All systems operational • ${this.officeStats.inOfficeWorkers} team members active</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Workspace Stats -->
+                    <div class="workspace-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">${this.officeStats.occupiedDesks}/${this.officeStats.totalDesks}</span>
+                            <span class="stat-label">Desks Active</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">${this.officeStats.activeMeetings}</span>
+                            <span class="stat-label">Live Meetings</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">${this.officeStats.availableRooms}</span>
+                            <span class="stat-label">Rooms Free</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">${this.officeStats.remoteWorkers}</span>
+                            <span class="stat-label">Remote Team</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="fallback-content">
-                    <div class="office-grid">
-                        ${this.teamMembers.map(member => `
-                            <div class="office-area workspace" data-status="${member.status}">
-                                <div class="area-header">
-                                    <span class="member-avatar">${member.avatar}</span>
-                                    <span class="area-label">${member.name}</span>
+                
+                <div class="workspace-content">
+                    <!-- Live Activity Feed -->
+                    <div class="activity-feed-section">
+                        <div class="section-header">
+                            <h3>Live Activity Feed</h3>
+                            <span class="live-indicator">LIVE</span>
+                        </div>
+                        <div class="activity-stream">
+                            <div class="activity-item">
+                                <div class="activity-avatar">👩‍💻</div>
+                                <div class="activity-content">
+                                    <span class="activity-user">Sarah Chen</span>
+                                    <span class="activity-action">joined the Design Review meeting</span>
+                                    <span class="activity-time">2 min ago</span>
                                 </div>
-                                <span class="status-badge">${member.role}</span>
-                                <span class="status-badge ${member.status}">${this.getStatusIcon(member.status)} ${member.status.replace('-', ' ')}</span>
                             </div>
-                        `).join('')}
+                            <div class="activity-item">
+                                <div class="activity-avatar">👨‍💼</div>
+                                <div class="activity-content">
+                                    <span class="activity-user">Marcus Johnson</span>
+                                    <span class="activity-action">completed task "Update homepage"</span>
+                                    <span class="activity-time">5 min ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-avatar">👩‍💼</div>
+                                <div class="activity-content">
+                                    <span class="activity-user">Elena Rodriguez</span>
+                                    <span class="activity-action">shared document "Q4 Strategy"</span>
+                                    <span class="activity-time">8 min ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-avatar">🎉</div>
+                                <div class="activity-content">
+                                    <span class="activity-user">Team Achievement</span>
+                                    <span class="activity-action">reached 100% project completion</span>
+                                    <span class="activity-time">12 min ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions Hub -->
+                    <div class="quick-actions-hub">
+                        <div class="section-header">
+                            <h3>Quick Actions</h3>
+                        </div>
+                        <div class="actions-grid">
+                            <button class="action-card primary">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 5v14M5 12h14"/>
+                                </svg>
+                                <span>New Project</span>
+                            </button>
+                            <button class="action-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                                <span>Schedule Meeting</span>
+                            </button>
+                            <button class="action-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                <span>Create Document</span>
+                            </button>
+                            <button class="action-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                                <span>Invite Team</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Team Spotlight -->
+                    <div class="team-spotlight-section">
+                        <div class="section-header">
+                            <h3>Team Spotlight</h3>
+                            <span class="spotlight-badge">This Week</span>
+                        </div>
+                        <div class="spotlight-grid">
+                            ${this.teamMembers.slice(0, 4).map(member => `
+                                <div class="spotlight-card ${member.status}">
+                                    <div class="member-avatar-large">${member.avatar}</div>
+                                    <div class="member-info">
+                                        <h4 class="member-name">${member.name}</h4>
+                                        <p class="member-role">${member.role}</p>
+                                        <div class="member-status-indicator">
+                                            <span class="status-dot ${member.status}"></span>
+                                            <span class="status-text">${member.status.replace('-', ' ')}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Events -->
+                    <div class="events-section">
+                        <div class="section-header">
+                            <h3>Upcoming Events</h3>
+                            <span class="events-count">${this.officeStats.activeMeetings} today</span>
+                        </div>
+                        <div class="events-list">
+                            <div class="event-card">
+                                <div class="event-time">10:00 AM</div>
+                                <div class="event-details">
+                                    <h4>Design Review Meeting</h4>
+                                    <p>Conference Room A • 5 participants</p>
+                                </div>
+                                <button class="join-btn">Join</button>
+                            </div>
+                            <div class="event-card">
+                                <div class="event-time">2:30 PM</div>
+                                <div class="event-details">
+                                    <h4>Weekly Standup</h4>
+                                    <p>Virtual Meeting • 12 participants</p>
+                                </div>
+                                <button class="join-btn">Join</button>
+                            </div>
+                            <div class="event-card">
+                                <div class="event-time">4:00 PM</div>
+                                <div class="event-details">
+                                    <h4>Client Presentation</h4>
+                                    <p>Meeting Hub • 8 participants</p>
+                                </div>
+                                <button class="join-btn">Join</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Office Map -->
+                    <div class="office-map-section">
+                        <div class="section-header">
+                            <h3>Office Map</h3>
+                            <span class="map-status">${this.officeStats.inOfficeWorkers} people in office</span>
+                        </div>
+                        <div class="office-grid">
+                            <!-- Meeting Rooms -->
+                            <div class="office-area">
+                                <h4>Meeting Rooms</h4>
+                                <div class="room-list">
+                                    <div class="room available">
+                                        <div class="room-info">
+                                            <span class="room-name">Room A</span>
+                                            <span class="room-status">Available</span>
+                                        </div>
+                                        <button class="book-btn">Book</button>
+                                    </div>
+                                    <div class="room occupied">
+                                        <div class="room-info">
+                                            <span class="room-name">Room B</span>
+                                            <span class="room-status">In Use</span>
+                                        </div>
+                                        <button class="book-btn" disabled>Occupied</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Workstations -->
+                            <div class="office-area">
+                                <h4>Workstations</h4>
+                                <div class="desk-list">
+                                    <div class="desk occupied">
+                                        <div class="desk-info">
+                                            <span class="desk-name">A1</span>
+                                            <span class="desk-user">👩‍💻 Sarah Chen</span>
+                                        </div>
+                                    </div>
+                                    <div class="desk occupied">
+                                        <div class="desk-info">
+                                            <span class="desk-name">A2</span>
+                                            <span class="desk-user">👨‍💻 David Kim</span>
+                                        </div>
+                                    </div>
+                                    <div class="desk available">
+                                        <div class="desk-info">
+                                            <span class="desk-name">A3</span>
+                                            <span class="desk-status">Available</span>
+                                        </div>
+                                        <button class="book-btn">Book</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Events -->
+                    <div class="events-container">
+                        <div class="events-section">
+                            <div class="section-header">
+                                <h3>Upcoming Events</h3>
+                                <span class="events-count">3 today</span>
+                            </div>
+                            <div class="events-list">
+                                <div class="event-card">
+                                    <div class="event-time">10:00</div>
+                                    <div class="event-details">
+                                        <h4>Design Review</h4>
+                                        <p>Room A • 5 people</p>
+                                    </div>
+                                    <button class="join-btn">Join</button>
+                                </div>
+                                <div class="event-card">
+                                    <div class="event-time">2:30</div>
+                                    <div class="event-details">
+                                        <h4>Standup</h4>
+                                        <p>Virtual • 12 people</p>
+                                    </div>
+                                    <button class="join-btn">Join</button>
+                                </div>
+                                <div class="event-card">
+                                    <div class="event-time">4:00</div>
+                                    <div class="event-details">
+                                        <h4>Client Demo</h4>
+                                        <p>Hub • 8 people</p>
+                                    </div>
+                                    <button class="join-btn">Join</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resources Hub -->
+                    <div class="resources-section">
+                        <div class="section-header">
+                            <h3>Quick Resources</h3>
+                        </div>
+                        <div class="resources-grid">
+                            <a href="#" class="resource-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                <span>Employee Handbook</span>
+                            </a>
+                            <a href="#" class="resource-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <path d="M21 12c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2z"/>
+                                    <path d="M3 12c1 0 2-1 2-2s-1-2-2-2-2 1-2 2 1 2 2 2z"/>
+                                </svg>
+                                <span>IT Support</span>
+                            </a>
+                            <a href="#" class="resource-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <span>Training Portal</span>
+                            </a>
+                            <a href="#" class="resource-card">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                                    <polyline points="16 6 12 2 8 6"/>
+                                    <line x1="12" y1="2" x2="12" y2="15"/>
+                                </svg>
+                                <span>Benefits Info</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         `;
+        
+        // Ensure the component is visible
+        this.style.display = 'block';
+        this.style.visibility = 'visible';
+        this.style.opacity = '1';
+        this.style.minHeight = '700px';
+        
+        console.log('Office Visualizer: Fallback content displayed');
     }
 
     disconnectedCallback() {
@@ -900,4 +1428,5 @@ class OfficeVisualizer extends HTMLElement {
     }
 }
 
-customElements.define('office-visualizer', OfficeVisualizer); 
+customElements.define('office-visualizer', OfficeVisualizer);
+console.log('Office Visualizer component registered successfully'); 

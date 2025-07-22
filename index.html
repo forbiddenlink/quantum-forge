@@ -74,7 +74,7 @@
         // Service Worker Registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/js/service-worker.js')
+                navigator.serviceWorker.register('/js/service-worker.js?v=2')
                     .then(registration => {
                         console.log('SW registered: ', registration);
                     })
@@ -144,9 +144,11 @@
     <link rel="stylesheet" href="styles/interactive-poll.css">
     <link rel="stylesheet" href="styles/real-time-stats.css">
     <link rel="stylesheet" href="styles/office-visualizer.css">
+    <link rel="stylesheet" href="styles/dream-workspace.css?v=7">
     <link rel="stylesheet" href="styles/enhanced-knowledge-hub.css">
     <link rel="stylesheet" href="styles/sidebar.css">
     <link rel="stylesheet" href="styles/contest-enhancements.css">
+    <link rel="stylesheet" href="styles/culture-blur-fix.css">
     <link rel="stylesheet" href="styles/enhanced.css">
     <link rel="stylesheet" href="styles/welcome-section.css">
     <link rel="stylesheet" href="styles/team.css">
@@ -496,7 +498,7 @@
     <script src="js/components/ai-assistant.js"></script>
     <script src="js/components/achievement-system.js"></script>
     <script src="js/components/collaboration-hub.js"></script>
-    <script src="js/components/office-visualizer.js"></script>
+    <script src="js/components/office-visualizer.js?v=3"></script>
     <script src="js/components/enhanced-knowledge-hub.js"></script>
     <script src="js/components/sidebar.js"></script>
     <script src="js/components/help-dialog.js"></script>

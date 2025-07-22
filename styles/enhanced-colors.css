@@ -193,10 +193,7 @@
     /* Removed shimmer animation to prevent distraction */
 }
 
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
+/* Shimmer keyframes removed to prevent distraction */
 
 /* Enhanced Form Elements */
 .form-input {

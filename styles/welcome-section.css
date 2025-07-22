@@ -249,6 +249,16 @@
     color: var(--welcome-text) !important;
     font-weight: 600 !important;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    /* Enhanced text rendering for status text */
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-feature-settings: "kern" 1, "liga" 1 !important;
+    /* Force hardware acceleration for crisp rendering */
+    transform: translateZ(0) !important;
+    backface-visibility: hidden !important;
+    perspective: 1000px !important;
+    will-change: transform !important;
 }
 
 /* Welcome Stats - Enhanced visibility */
@@ -261,10 +271,11 @@
     z-index: 2 !important;
 }
 
-/* Enhanced stat items with less transparency */
+/* Enhanced stat items with less transparency - FIXED: Removed blur effect */
 .stat-item {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
-    backdrop-filter: blur(10px) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     border: 1px solid var(--welcome-border) !important;
     border-radius: var(--radius-xl) !important;
     padding: var(--space-5) !important;
@@ -1586,3 +1597,23 @@ body .welcome-section .upcoming-events-title .calendar-icon-fixed,
     transform: scale(1.05) !important;
     box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
 }
+
+/* ULTIMATE OVERRIDE: Force remove all blur effects from stat-item elements */
+html body .stat-item,
+html body .stat-item *,
+html body .company-culture-showcase .stat-item,
+html body .company-culture-showcase .stat-item *,
+html body .culture-stats .stat-item,
+html body .culture-stats .stat-item * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+  transform: none !important;
+  -webkit-transform: none !important;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  font-smooth: never !important;
+}
+ 
+ 
