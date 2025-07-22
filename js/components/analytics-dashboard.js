@@ -123,7 +123,7 @@ class AnalyticsDashboard extends HTMLElement {
             <div class="analytics-dashboard">
                 <div class="dashboard-header">
                     <h2 class="dashboard-title">
-                        <svg class="dashboard-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 3v18h18"></path>
                             <path d="m19 9-5 5-4-4-3 3"></path>
                         </svg>
@@ -138,14 +138,14 @@ class AnalyticsDashboard extends HTMLElement {
                                 <option value="year">This Year</option>
                             </select>
                             <button class="toggle-btn ${this.isRealTimeEnabled ? 'active' : ''}" id="toggleRealTime">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <circle cx="12" cy="12" r="10"></circle>
                                     <polyline points="12 6 12 12 16 14"></polyline>
                                 </svg>
                                 Real-time
                             </button>
-                            <button class="btn-icon" id="refreshAnalytics" aria-label="Refresh analytics">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <button class="refresh-btn" id="refreshAnalytics" aria-label="Refresh analytics">
+                                <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M23 4v6h-6"></path>
                                     <path d="M1 20v-6h6"></path>
                                     <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
@@ -158,7 +158,7 @@ class AnalyticsDashboard extends HTMLElement {
                 <!-- Advanced KPI Dashboard -->
                 <div class="kpi-dashboard">
                     <h3 class="section-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
                         Key Performance Indicators
@@ -168,18 +168,34 @@ class AnalyticsDashboard extends HTMLElement {
                             <div class="advanced-kpi-card ${kpi.status}" data-kpi="${key}">
                                 <div class="kpi-header">
                                     <h4 class="kpi-name">${key.charAt(0).toUpperCase() + key.slice(1)}</h4>
-                                    <span class="kpi-trend ${kpi.trend.startsWith('+') ? 'positive' : 'negative'}">${kpi.trend}</span>
+                                    <span class="kpi-trend ${kpi.trend.startsWith('+') ? 'positive' : 'negative'}">
+                                        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M23 6l-9.5 9.5-5-5L1 18"></path>
+                                        </svg>
+                                        ${kpi.trend}
+                                    </span>
                                 </div>
                                 <div class="kpi-content">
-                                    <div class="kpi-value">${kpi.current}%</div>
-                                    <div class="kpi-target">Target: ${kpi.target}%</div>
+                                    <div class="kpi-value-wrapper">
+                                        <div class="kpi-value">${kpi.current}<span class="kpi-unit">%</span></div>
+                                        <div class="kpi-target">Target: ${kpi.target}%</div>
+                                    </div>
                                     <div class="kpi-progress">
                                         <div class="progress-track">
-                                            <div class="progress-fill" style="width: ${(kpi.current / kpi.target) * 100}%"></div>
+                                            <div class="progress-fill ${kpi.status}" style="width: ${(kpi.current / kpi.target) * 100}%">
+                                                <div class="progress-glow"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="kpi-status-indicator ${kpi.status}"></div>
+                                <div class="kpi-footer">
+                                    <span class="status-badge ${kpi.status}">
+                                        ${kpi.status.charAt(0).toUpperCase() + kpi.status.slice(1)}
+                                        <svg class="status-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            ${this.getStatusIcon(kpi.status)}
+                                        </svg>
+                                    </span>
+                                </div>
                             </div>
                         `).join('')}
                     </div>
@@ -188,40 +204,63 @@ class AnalyticsDashboard extends HTMLElement {
                 <!-- Goal Tracking Dashboard -->
                 <div class="goals-dashboard">
                     <h3 class="section-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M9 11l3 3L22 4"></path>
                             <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                         </svg>
                         Q1 2024 Goals & OKRs
                     </h3>
                     <div class="goals-grid">
-                        ${this.goalData.quarterly.map(goal => `
-                            <div class="goal-card ${goal.status}" data-goal="${goal.name}">
-                                <div class="goal-header">
-                                    <h4 class="goal-name">${goal.name}</h4>
-                                    <span class="goal-status ${goal.status}">${goal.status.replace('-', ' ')}</span>
-                                </div>
-                                <div class="goal-metrics">
-                                    <div class="goal-current">${goal.current}${typeof goal.current === 'number' && goal.current < 100 ? '' : ''}</div>
-                                    <div class="goal-target">of ${goal.target} target</div>
-                                </div>
-                                <div class="goal-progress">
-                                    <div class="progress-container">
-                                        <div class="progress-track">
-                                            <div class="progress-fill" style="width: ${Math.min(goal.progress, 100)}%"></div>
+                        ${this.goalData.quarterly.map(goal => {
+                            const circumference = 2 * Math.PI * 54;
+                            const offset = circumference * (1 - goal.progress / 100);
+                            const strokeColor = goal.status === 'exceeded' ? 'var(--success-500)' : 'var(--primary-500)';
+                            
+                            return `
+                                <div class="goal-card ${goal.status}" data-goal="${goal.name}">
+                                    <div class="goal-header">
+                                        <h4 class="goal-name">${goal.name}</h4>
+                                        <span class="goal-status ${goal.status}">
+                                            ${goal.status.replace('-', ' ')}
+                                            <svg class="status-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                ${this.getStatusIcon(goal.status)}
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="goal-metrics">
+                                        <div class="goal-progress-circle">
+                                            <svg class="progress-ring" width="120" height="120" viewBox="0 0 120 120">
+                                                <circle class="progress-ring-circle-bg" cx="60" cy="60" r="54" />
+                                                <circle class="progress-ring-circle" cx="60" cy="60" r="54" 
+                                                    stroke="${strokeColor}"
+                                                    stroke-dasharray="${circumference}"
+                                                    stroke-dashoffset="${offset}"
+                                                />
+                                            </svg>
+                                            <div class="goal-current">${goal.current}</div>
+                                            <div class="goal-target">of ${goal.target}</div>
                                         </div>
-                                        <span class="progress-percentage">${goal.progress.toFixed(1)}%</span>
+                                        <div class="goal-details">
+                                            <div class="goal-progress-label">Progress</div>
+                                            <div class="goal-progress-value">${goal.progress.toFixed(1)}%</div>
+                                            <div class="goal-trend">
+                                                <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M23 6l-9.5 9.5-5-5L1 18"></path>
+                                                </svg>
+                                                +5% this week
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        `).join('')}
+                            `;
+                        }).join('')}
                     </div>
                 </div>
 
                 <!-- Team Performance Heat Map -->
                 <div class="heatmap-section">
                     <h3 class="section-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                             <circle cx="9" cy="7" r="4"></circle>
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -262,7 +301,7 @@ class AnalyticsDashboard extends HTMLElement {
                 <!-- AI-Powered Insights -->
                 <div class="ai-insights-section">
                     <h3 class="section-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                         </svg>
                         AI-Powered Insights
@@ -278,19 +317,37 @@ class AnalyticsDashboard extends HTMLElement {
                                     <div class="insight-meta">
                                         <h4 class="insight-title">${insight.title}</h4>
                                         <div class="insight-confidence">
-                                            <span class="confidence-label">Confidence:</span>
                                             <div class="confidence-bar">
-                                                <div class="confidence-fill" style="width: ${insight.confidence}%"></div>
+                                                <div class="confidence-fill" style="width: ${insight.confidence}%">
+                                                    <div class="confidence-glow"></div>
+                                                </div>
+                                                <span class="confidence-label">${insight.confidence}% confidence</span>
                                             </div>
-                                            <span class="confidence-value">${insight.confidence}%</span>
                                         </div>
                                     </div>
-                                    <span class="impact-badge ${insight.impact}">${insight.impact} impact</span>
+                                    <span class="impact-badge ${insight.impact}">
+                                        ${insight.impact} impact
+                                        <svg class="impact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            ${this.getImpactIcon(insight.impact)}
+                                        </svg>
+                                    </span>
                                 </div>
                                 <p class="insight-description">${insight.description}</p>
                                 <div class="insight-actions">
-                                    <button class="action-btn primary">Apply Suggestion</button>
-                                    <button class="action-btn secondary">Learn More</button>
+                                    <button class="action-btn primary">
+                                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        Apply Suggestion
+                                    </button>
+                                    <button class="action-btn secondary">
+                                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <path d="M12 16v-4"></path>
+                                            <path d="M12 8h.01"></path>
+                                        </svg>
+                                        Learn More
+                                    </button>
                                 </div>
                             </div>
                         `).join('')}
@@ -300,7 +357,7 @@ class AnalyticsDashboard extends HTMLElement {
                 <!-- Enhanced Charts Section -->
                 <div class="charts-section">
                     <h3 class="section-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 3v18h18"></path>
                             <path d="m19 9-5 5-4-4-3 3"></path>
                         </svg>
@@ -337,10 +394,10 @@ class AnalyticsDashboard extends HTMLElement {
                     </div>
                 </div>
 
-                <!-- Enhanced Real-time Activity Feed -->
+                <!-- Activity Feed -->
                 <div class="activity-section">
                     <h3 class="section-title">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="3"></circle>
                             <path d="M12 1v6m0 6v6"></path>
                             <path d="m21 12-6-3-6 3-6-3"></path>
@@ -353,25 +410,15 @@ class AnalyticsDashboard extends HTMLElement {
                     </h3>
                     <div class="activity-controls">
                         <div class="activity-filters">
-                            <button class="filter-btn active" data-filter="all">All Activity</button>
-                            <button class="filter-btn" data-filter="achievement">Achievements</button>
-                            <button class="filter-btn" data-filter="collaboration">Collaboration</button>
-                            <button class="filter-btn" data-filter="goal">Goals</button>
-                            <button class="filter-btn" data-filter="insight">Insights</button>
-                        </div>
-                        <div class="activity-actions">
-                            <button class="btn-icon" id="pauseActivity" title="Pause real-time updates">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="6" y="4" width="4" height="16"></rect>
-                                    <rect x="14" y="4" width="4" height="16"></rect>
-                                </svg>
-                            </button>
-                            <button class="btn-icon" id="clearActivity" title="Clear activity feed">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="3 6 5 6 21 6"></polyline>
-                                    <path d="m19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                </svg>
-                            </button>
+                            ${['All Activity', 'Achievements', 'Collaboration', 'Goals', 'Insights'].map(filter => `
+                                <button class="filter-btn ${filter === 'All Activity' ? 'active' : ''}" 
+                                        data-filter="${filter.toLowerCase()}">
+                                    <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        ${this.getFilterIcon(filter)}
+                                    </svg>
+                                    ${filter}
+                                </button>
+                            `).join('')}
                         </div>
                     </div>
                     <div class="activity-feed" id="activityFeed">
@@ -386,17 +433,26 @@ class AnalyticsDashboard extends HTMLElement {
                                         <span class="activity-action">${activity.action}</span>
                                     </div>
                                     <div class="activity-meta">
-                                        <span class="activity-time">${activity.time}</span>
-                                        <span class="activity-priority ${activity.priority}">${activity.priority} priority</span>
+                                        <span class="activity-time">
+                                            <svg class="time-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <polyline points="12 6 12 12 16 14"></polyline>
+                                            </svg>
+                                            ${activity.time}
+                                        </span>
+                                        <span class="activity-priority ${activity.priority}">
+                                            <svg class="priority-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                ${this.getPriorityIcon(activity.priority)}
+                                            </svg>
+                                            ${activity.priority} priority
+                                        </span>
                                     </div>
                                 </div>
-                                <div class="activity-actions">
-                                    <button class="activity-btn" title="View details">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <path d="M9 18l6-6-6-6"></path>
-                                        </svg>
-                                    </button>
-                                </div>
+                                <button class="activity-expand" title="View details">
+                                    <svg class="expand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 18l6-6-6-6"></path>
+                                    </svg>
+                                </button>
                             </div>
                         `).join('')}
                     </div>
@@ -428,8 +484,7 @@ class AnalyticsDashboard extends HTMLElement {
     getInsightIcon(type) {
         const icons = {
             opportunity: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-            </svg>`,
+                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>`,
             alert: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
                 <path d="M12 9v4"></path>
@@ -968,6 +1023,45 @@ class AnalyticsDashboard extends HTMLElement {
             const title = card.querySelector('h4').textContent;
             this.announceUpdate(`Expanded insight: ${title}`);
         }
+    }
+
+    getStatusIcon(status) {
+        const icons = {
+            'excellent': '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>',
+            'attention': '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>',
+            'on-track': '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>',
+            'exceeded': '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>'
+        };
+        return icons[status] || icons['on-track'];
+    }
+
+    getImpactIcon(impact) {
+        const icons = {
+            'high': '<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>',
+            'medium': '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>',
+            'low': '<circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path>'
+        };
+        return icons[impact] || icons['medium'];
+    }
+
+    getFilterIcon(filter) {
+        const icons = {
+            'All Activity': '<path d="M4 21v-7m4 7V9m4 12V3m4 18v-5m4 5v-11"></path>',
+            'Achievements': '<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6m12 0h1.5a2.5 2.5 0 0 1 0 5H18"></path><path d="M4 22h16"></path><path d="M8 9h8"></path><path d="M12 2v7"></path>',
+            'Collaboration': '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>',
+            'Goals': '<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>',
+            'Insights': '<path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path>'
+        };
+        return icons[filter] || icons['All Activity'];
+    }
+
+    getPriorityIcon(priority) {
+        const icons = {
+            'high': '<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>',
+            'medium': '<circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line>',
+            'low': '<circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path>'
+        };
+        return icons[priority] || icons['medium'];
     }
 }
 

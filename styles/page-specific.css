@@ -2424,3 +2424,1249 @@
         font-size: var(--font-size-3xl) !important;
     }
 } 
+
+/* Analytics Dashboard Styles */
+.analytics-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding: var(--space-6);
+    background: var(--bg-base);
+    border-radius: var(--radius-2xl);
+}
+
+/* Section Icons */
+.analytics-dashboard .section-icon-svg {
+    min-width: 20px !important;
+    min-height: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    color: var(--primary-600);
+    flex-shrink: 0;
+}
+
+.analytics-dashboard .section-icon-svg path,
+.analytics-dashboard .section-icon-svg circle,
+.analytics-dashboard .section-icon-svg polyline {
+    stroke-width: 2px !important;
+    stroke: currentColor !important;
+}
+
+/* KPI Card Icons */
+.analytics-dashboard .advanced-kpi-card .kpi-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.analytics-dashboard .kpi-trend {
+    padding: var(--space-1) var(--space-2);
+}
+
+.analytics-dashboard .kpi-trend .trend-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.analytics-dashboard .kpi-status-icon {
+    width: 48px;
+    height: 48px;
+    opacity: 0.1;
+    position: absolute;
+    right: var(--space-4);
+    bottom: var(--space-4);
+}
+
+.analytics-dashboard .status-badge .status-icon {
+    width: 12px;
+    height: 12px;
+}
+
+/* Goal Card Icons */
+.analytics-dashboard .goal-card .status-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.analytics-dashboard .goal-trend .trend-icon {
+    width: 12px;
+    height: 12px;
+}
+
+/* Activity Icons */
+.analytics-dashboard .activity-icon {
+    width: 28px;
+    height: 28px;
+    padding: var(--space-1);
+}
+
+.analytics-dashboard .activity-icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+.analytics-dashboard .time-icon,
+.analytics-dashboard .priority-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.analytics-dashboard .filter-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.analytics-dashboard .activity-expand {
+    width: 24px;
+    height: 24px;
+}
+
+.analytics-dashboard .expand-icon {
+    width: 12px;
+    height: 12px;
+}
+
+/* Insight Icons */
+.analytics-dashboard .insight-type-icon {
+    width: 28px;
+    height: 28px;
+    padding: var(--space-1);
+}
+
+.analytics-dashboard .insight-type-icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+.analytics-dashboard .impact-icon {
+    width: 12px;
+    height: 12px;
+}
+
+.analytics-dashboard .btn-icon {
+    width: 12px;
+    height: 12px;
+}
+
+/* Header Controls */
+.analytics-dashboard .select-wrapper .select-icon {
+    width: 12px;
+    height: 12px;
+    right: var(--space-3);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    pointer-events: none;
+}
+
+.analytics-dashboard .toggle-btn {
+    padding: var(--space-1) var(--space-3);
+}
+
+.analytics-dashboard .toggle-btn .section-icon-svg {
+    min-width: 14px !important;
+    min-height: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.analytics-dashboard .refresh-btn {
+    width: 28px;
+    height: 28px;
+    padding: var(--space-1);
+}
+
+.analytics-dashboard .refresh-btn .section-icon-svg {
+    min-width: 14px !important;
+    min-height: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* Status Badges */
+.analytics-dashboard .status-badge {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-size-xs);
+}
+
+.analytics-dashboard .impact-badge {
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-size-xs);
+}
+
+/* Action Buttons */
+.analytics-dashboard .action-btn {
+    padding: var(--space-1) var(--space-3);
+}
+
+.analytics-dashboard .dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-6);
+    padding: var(--space-4);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.analytics-dashboard .dashboard-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-400));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.analytics-dashboard .control-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.analytics-dashboard .select-wrapper {
+    position: relative;
+    min-width: 150px;
+}
+
+.analytics-dashboard .range-selector {
+    width: 100%;
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    appearance: none;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.analytics-dashboard .range-selector:hover {
+    border-color: var(--primary-400);
+}
+
+.analytics-dashboard .toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.analytics-dashboard .toggle-btn.active {
+    background: var(--primary-50);
+    border-color: var(--primary-200);
+    color: var(--primary-600);
+}
+
+.analytics-dashboard .refresh-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-base);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.analytics-dashboard .refresh-btn:hover {
+    background: var(--primary-50);
+    border-color: var(--primary-200);
+    color: var(--primary-600);
+    transform: rotate(180deg);
+}
+
+/* KPI Cards */
+.analytics-dashboard .kpi-dashboard {
+    background: linear-gradient(135deg, var(--primary-50) 0%, white 100%);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    border: 1px solid var(--primary-100);
+    box-shadow: var(--shadow-lg);
+}
+
+.analytics-dashboard .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+}
+
+.analytics-dashboard .advanced-kpi-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    border: 1px solid var(--border-color);
+    transition: all var(--duration-normal) var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+}
+
+.analytics-dashboard .advanced-kpi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-200);
+}
+
+.analytics-dashboard .kpi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+}
+
+.analytics-dashboard .kpi-name {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.analytics-dashboard .kpi-trend {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+}
+
+.analytics-dashboard .kpi-trend.positive {
+    background: var(--success-50);
+    color: var(--success-600);
+}
+
+.analytics-dashboard .kpi-trend.negative {
+    background: var(--error-50);
+    color: var(--error-600);
+}
+
+.analytics-dashboard .trend-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.analytics-dashboard .kpi-value-wrapper {
+    text-align: center;
+    margin-bottom: var(--space-4);
+}
+
+.analytics-dashboard .kpi-value {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-400));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.analytics-dashboard .kpi-unit {
+    font-size: var(--font-size-xl);
+    opacity: 0.7;
+}
+
+.analytics-dashboard .kpi-target {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-top: var(--space-2);
+}
+
+.analytics-dashboard .kpi-progress {
+    margin-top: var(--space-4);
+}
+
+.analytics-dashboard .progress-track {
+    height: 8px;
+    background: var(--bg-muted);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.analytics-dashboard .progress-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    position: relative;
+    transition: width var(--duration-normal) var(--ease-spring);
+}
+
+.analytics-dashboard .progress-fill.excellent {
+    background: linear-gradient(90deg, var(--success-400), var(--success-500));
+}
+
+.analytics-dashboard .progress-fill.attention {
+    background: linear-gradient(90deg, var(--warning-400), var(--warning-500));
+}
+
+.analytics-dashboard .progress-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+.analytics-dashboard .kpi-footer {
+    margin-top: var(--space-4);
+    text-align: center;
+}
+
+.analytics-dashboard .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.analytics-dashboard .status-badge.excellent {
+    background: var(--success-50);
+    color: var(--success-600);
+}
+
+.analytics-dashboard .status-badge.attention {
+    background: var(--warning-50);
+    color: var(--warning-600);
+}
+
+.analytics-dashboard .status-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Goals Section */
+.analytics-dashboard .goals-dashboard {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    border: 1px solid var(--border-color);
+}
+
+.analytics-dashboard .goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+}
+
+.analytics-dashboard .goal-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    border: 1px solid var(--border-color);
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.analytics-dashboard .goal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-200);
+}
+
+.analytics-dashboard .goal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+}
+
+.analytics-dashboard .goal-name {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.analytics-dashboard .goal-status {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.analytics-dashboard .goal-status.on-track {
+    background: var(--success-50);
+    color: var(--success-600);
+}
+
+.analytics-dashboard .goal-status.exceeded {
+    background: var(--primary-50);
+    color: var(--primary-600);
+}
+
+.analytics-dashboard .goal-metrics {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.analytics-dashboard .goal-progress-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.analytics-dashboard .progress-ring {
+    transform: rotate(-90deg);
+}
+
+.analytics-dashboard .progress-ring-circle-bg {
+    fill: none;
+    stroke: var(--bg-muted);
+    stroke-width: 8;
+}
+
+.analytics-dashboard .progress-ring-circle {
+    fill: none;
+    stroke: var(--primary-500);
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dashoffset var(--duration-normal) var(--ease-spring);
+}
+
+.analytics-dashboard .goal-current {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.analytics-dashboard .goal-target {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.analytics-dashboard .goal-details {
+    flex: 1;
+}
+
+.analytics-dashboard .goal-progress-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-1);
+}
+
+.analytics-dashboard .goal-progress-value {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.analytics-dashboard .goal-trend {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--success-600);
+}
+
+/* AI Insights */
+.analytics-dashboard .ai-insights-section {
+    background: linear-gradient(135deg, var(--primary-50) 0%, white 100%);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    border: 1px solid var(--primary-100);
+}
+
+.analytics-dashboard .ai-badge {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-2);
+    background: var(--primary-100);
+    color: var(--primary-700);
+    border-radius: var(--radius-full);
+    margin-left: var(--space-2);
+}
+
+.analytics-dashboard .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+}
+
+.analytics-dashboard .ai-insight-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    border: 1px solid var(--border-color);
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.analytics-dashboard .ai-insight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-200);
+}
+
+.analytics-dashboard .insight-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+.analytics-dashboard .insight-type-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-lg);
+    background: var(--primary-50);
+    color: var(--primary-600);
+    flex-shrink: 0;
+}
+
+.analytics-dashboard .insight-meta {
+    flex: 1;
+}
+
+.analytics-dashboard .insight-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-2) 0;
+}
+
+.analytics-dashboard .confidence-bar {
+    height: 6px;
+    background: var(--bg-muted);
+    border-radius: var(--radius-full);
+    position: relative;
+    overflow: hidden;
+}
+
+.analytics-dashboard .confidence-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-400), var(--primary-500));
+    border-radius: var(--radius-full);
+    position: relative;
+}
+
+.analytics-dashboard .confidence-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+.analytics-dashboard .confidence-label {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    margin-top: var(--space-1);
+    display: block;
+}
+
+.analytics-dashboard .impact-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.analytics-dashboard .impact-badge.high {
+    background: var(--error-50);
+    color: var(--error-600);
+}
+
+.analytics-dashboard .impact-badge.medium {
+    background: var(--warning-50);
+    color: var(--warning-600);
+}
+
+.analytics-dashboard .impact-badge.low {
+    background: var(--success-50);
+    color: var(--success-600);
+}
+
+.analytics-dashboard .impact-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.analytics-dashboard .insight-description {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    margin: var(--space-4) 0;
+}
+
+.analytics-dashboard .insight-actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.analytics-dashboard .action-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.analytics-dashboard .action-btn.primary {
+    background: var(--primary-600);
+    color: white;
+    border: none;
+}
+
+.analytics-dashboard .action-btn.primary:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+}
+
+.analytics-dashboard .action-btn.secondary {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.analytics-dashboard .action-btn.secondary:hover {
+    background: var(--bg-muted);
+    transform: translateY(-2px);
+}
+
+.analytics-dashboard .btn-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Activity Feed */
+.analytics-dashboard .activity-section {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    border: 1px solid var(--border-color);
+}
+
+.analytics-dashboard .activity-status {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    margin-left: var(--space-4);
+}
+
+.analytics-dashboard .activity-status.live {
+    background: var(--success-50);
+    color: var(--success-600);
+}
+
+.analytics-dashboard .activity-status.paused {
+    background: var(--warning-50);
+    color: var(--warning-600);
+}
+
+.analytics-dashboard .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: pulse 2s infinite;
+}
+
+.analytics-dashboard .activity-controls {
+    margin-bottom: var(--space-6);
+}
+
+.analytics-dashboard .activity-filters {
+    display: flex;
+    gap: var(--space-2);
+    overflow-x: auto;
+    padding-bottom: var(--space-2);
+}
+
+.analytics-dashboard .filter-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    background: var(--bg-base);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.analytics-dashboard .filter-btn:hover {
+    background: var(--bg-muted);
+    color: var(--text-primary);
+}
+
+.analytics-dashboard .filter-btn.active {
+    background: var(--primary-50);
+    border-color: var(--primary-200);
+    color: var(--primary-600);
+}
+
+.analytics-dashboard .filter-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.analytics-dashboard .activity-feed {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.analytics-dashboard .activity-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: white;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.analytics-dashboard .activity-item:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-200);
+}
+
+.analytics-dashboard .activity-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-lg);
+    background: var(--primary-50);
+    color: var(--primary-600);
+    flex-shrink: 0;
+}
+
+.analytics-dashboard .activity-content {
+    flex: 1;
+}
+
+.analytics-dashboard .activity-main {
+    display: flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-1);
+}
+
+.analytics-dashboard .activity-user {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.analytics-dashboard .activity-action {
+    color: var(--text-secondary);
+}
+
+.analytics-dashboard .activity-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: var(--font-size-sm);
+}
+
+.analytics-dashboard .activity-time {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    color: var(--text-tertiary);
+}
+
+.analytics-dashboard .time-icon {
+    width: 14px;
+    height: 14px;
+}
+
+.analytics-dashboard .activity-priority {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.analytics-dashboard .activity-priority.high {
+    color: var(--error-600);
+}
+
+.analytics-dashboard .activity-priority.medium {
+    color: var(--warning-600);
+}
+
+.analytics-dashboard .activity-priority.low {
+    color: var(--success-600);
+}
+
+.analytics-dashboard .priority-icon {
+    width: 14px;
+    height: 14px;
+}
+
+.analytics-dashboard .activity-expand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    background: var(--bg-base);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.analytics-dashboard .activity-expand:hover {
+    background: var(--primary-50);
+    border-color: var(--primary-200);
+    color: var(--primary-600);
+    transform: scale(1.1);
+}
+
+.analytics-dashboard .expand-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Animations */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .analytics-dashboard {
+    background: var(--bg-base);
+}
+
+[data-theme="dark"] .analytics-dashboard .kpi-dashboard,
+[data-theme="dark"] .analytics-dashboard .ai-insights-section {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, var(--bg-elevated) 100%);
+    border-color: rgba(99, 102, 241, 0.2);
+}
+
+[data-theme="dark"] .analytics-dashboard .advanced-kpi-card,
+[data-theme="dark"] .analytics-dashboard .ai-insight-card,
+[data-theme="dark"] .analytics-dashboard .activity-item {
+    background: var(--bg-elevated);
+}
+
+[data-theme="dark"] .analytics-dashboard .goal-card {
+    background: var(--bg-elevated);
+}
+
+[data-theme="dark"] .analytics-dashboard .progress-ring-circle-bg {
+    stroke: var(--bg-muted);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .analytics-dashboard {
+        padding: var(--space-4);
+    }
+
+    .analytics-dashboard .section-icon-svg {
+        min-width: 32px !important;
+        min-height: 32px !important;
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    .analytics-dashboard .kpi-grid,
+    .analytics-dashboard .goals-grid,
+    .analytics-dashboard .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-dashboard .goal-metrics {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .analytics-dashboard .activity-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .analytics-dashboard .activity-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+
+    .analytics-dashboard .activity-expand {
+        align-self: flex-end;
+        margin-top: var(--space-2);
+    }
+} 
+
+/* Analytics Dashboard Icons - High Specificity */
+.main-content .analytics-dashboard .section-title .section-icon-svg {
+    min-width: 20px !important;
+    min-height: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    color: var(--primary-600) !important;
+    flex-shrink: 0;
+}
+
+.main-content .analytics-dashboard .section-title .section-icon-svg path,
+.main-content .analytics-dashboard .section-title .section-icon-svg circle,
+.main-content .analytics-dashboard .section-title .section-icon-svg polyline {
+    stroke-width: 2px !important;
+    stroke: currentColor !important;
+}
+
+/* KPI Card Icons */
+.main-content .analytics-dashboard .advanced-kpi-card .kpi-trend .trend-icon {
+    min-width: 12px !important;
+    min-height: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+.main-content .analytics-dashboard .advanced-kpi-card .status-badge .status-icon {
+    min-width: 12px !important;
+    min-height: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* Activity Icons */
+.main-content .analytics-dashboard .activity-icon {
+    min-width: 28px !important;
+    min-height: 28px !important;
+    width: 28px !important;
+    height: 28px !important;
+    padding: var(--space-1);
+}
+
+.main-content .analytics-dashboard .activity-icon svg {
+    min-width: 14px !important;
+    min-height: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.main-content .analytics-dashboard .time-icon,
+.main-content .analytics-dashboard .priority-icon {
+    min-width: 12px !important;
+    min-height: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* Header Controls */
+.main-content .analytics-dashboard .select-wrapper .select-icon {
+    min-width: 12px !important;
+    min-height: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+.main-content .analytics-dashboard .toggle-btn .section-icon-svg {
+    min-width: 14px !important;
+    min-height: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.main-content .analytics-dashboard .refresh-btn {
+    min-width: 28px !important;
+    min-height: 28px !important;
+    width: 28px !important;
+    height: 28px !important;
+    padding: var(--space-1);
+}
+
+.main-content .analytics-dashboard .refresh-btn .section-icon-svg {
+    min-width: 14px !important;
+    min-height: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* Insight Icons */
+.main-content .analytics-dashboard .insight-type-icon {
+    min-width: 28px !important;
+    min-height: 28px !important;
+    width: 28px !important;
+    height: 28px !important;
+    padding: var(--space-1);
+}
+
+.main-content .analytics-dashboard .insight-type-icon svg {
+    min-width: 14px !important;
+    min-height: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.main-content .analytics-dashboard .impact-icon {
+    min-width: 12px !important;
+    min-height: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+.main-content .analytics-dashboard .btn-icon {
+    min-width: 12px !important;
+    min-height: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* Goal Card Icons */
+.main-content .analytics-dashboard .goal-card .status-icon {
+    min-width: 12px !important;
+    min-height: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+.main-content .analytics-dashboard .goal-trend .trend-icon {
+    min-width: 12px !important;
+    min-height: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* Filter Icons */
+.main-content .analytics-dashboard .filter-icon {
+    min-width: 12px !important;
+    min-height: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+.main-content .analytics-dashboard .activity-expand {
+    min-width: 24px !important;
+    min-height: 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.main-content .analytics-dashboard .expand-icon {
+    min-width: 12px !important;
+    min-height: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+// ... rest of the existing styles ...
+
+/* Remove these conflicting styles */
+.main-content .section-icon-svg,
+.analytics-dashboard .section-icon-svg,
+.main-content .section-icon-svg {
+    /* Remove these duplicate styles */
+}
+
+/* Replace with this single, highly specific set */
+body .main-content .analytics-dashboard .section-title .section-icon-svg,
+body .main-content .analytics-dashboard .section-icon-svg {
+    min-width: 20px !important;
+    min-height: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    color: var(--primary-600) !important;
+    flex-shrink: 0;
+}
+
+body .main-content .analytics-dashboard .section-title .section-icon-svg path,
+body .main-content .analytics-dashboard .section-title .section-icon-svg circle,
+body .main-content .analytics-dashboard .section-title .section-icon-svg polyline,
+body .main-content .analytics-dashboard .section-icon-svg path,
+body .main-content .analytics-dashboard .section-icon-svg circle,
+body .main-content .analytics-dashboard .section-icon-svg polyline {
+    stroke-width: 2px !important;
+    stroke: currentColor !important;
+}
+
+/* Special cases for smaller icons */
+body .main-content .analytics-dashboard .toggle-btn .section-icon-svg,
+body .main-content .analytics-dashboard .refresh-btn .section-icon-svg,
+body .main-content .analytics-dashboard .action-btn .section-icon-svg {
+    min-width: 14px !important;
+    min-height: 14px !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* Keep the rest of the existing styles but add 'body' prefix for maximum specificity */
+body .main-content .analytics-dashboard .advanced-kpi-card .kpi-trend .trend-icon {
+    min-width: 12px !important;
+    min-height: 12px !important;
+    width: 12px !important;
+    height: 12px !important;
+}
+
+// ... rest of the existing styles with 'body' prefix ...
