@@ -8,15 +8,47 @@
     z-index: 1;
 }
 
-/* Ensure UI elements are always visible */
-.office-visualizer .floor-selector,
-.office-visualizer .legend,
-.office-visualizer .team-panel,
-.office-visualizer .desk-info-panel {
-    z-index: 1000 !important;
-    position: absolute !important;
+/* Ensure UI elements are always visible and properly layered */
+.office-visualizer {
+    --panel-z-index-base: 1000;
+    --panel-spacing: var(--space-4);
+    position: relative;
+    isolation: isolate;
 }
 
+.office-visualizer .floor-selector {
+    z-index: calc(var(--panel-z-index-base) + 20);
+    position: absolute;
+    right: var(--panel-spacing);
+    top: calc(var(--space-16) + var(--panel-spacing));
+}
+
+.office-visualizer .legend {
+    z-index: calc(var(--panel-z-index-base) + 10);
+    position: absolute;
+    left: var(--panel-spacing);
+    bottom: var(--panel-spacing);
+}
+
+.office-visualizer .team-panel {
+    z-index: calc(var(--panel-z-index-base) + 30);
+    position: absolute;
+    left: var(--panel-spacing);
+    top: calc(var(--space-16) + var(--panel-spacing));
+}
+
+.office-visualizer .desk-info-panel {
+    z-index: calc(var(--panel-z-index-base) + 40);
+    position: absolute;
+    right: var(--panel-spacing);
+    bottom: var(--panel-spacing);
+}
+
+.office-visualizer .office-controls {
+    z-index: calc(var(--panel-z-index-base) + 15);
+}
+
+/* Enhanced container styles */
 .office-visualizer {
     background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-secondary) 100%);
     border-radius: var(--radius-2xl);
@@ -807,89 +839,63 @@
     to { transform: rotate(360deg); }
 }
 
+/* Improved panel positioning and spacing */
+.team-panel, .floor-selector {
+    max-height: calc(100% - var(--space-32));
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
+}
+
+.team-panel::-webkit-scrollbar,
+.floor-selector::-webkit-scrollbar {
+    width: 4px;
+}
+
+.team-panel::-webkit-scrollbar-thumb,
+.floor-selector::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.3);
+    border-radius: var(--radius-full);
+}
+
+/* Enhanced panel backdrop */
+.floor-selector,
+.legend,
+.team-panel,
+.desk-info-panel {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 4px 8px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(20px);
+    transition: all 0.3s var(--ease-spring);
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
+    .office-visualizer {
+        --panel-spacing: var(--space-3);
+    }
+
     .team-panel {
-        position: absolute;
-        left: var(--space-4);
-        top: var(--space-4);
-        max-width: calc(50vw - var(--space-8));
+        max-width: 45%;
     }
-    
+
     .floor-selector {
-        position: absolute;
-        right: var(--space-4);
-        top: var(--space-4);
-        flex-direction: column;
-        width: 180px;
-        max-width: calc(40vw);
-        max-height: calc(100vh - 120px);
-        overflow-x: visible;
-        overflow-y: auto;
-        padding: var(--space-3);
-    }
-    
-    .floor-btn {
-        min-width: auto;
-        flex-shrink: 0;
-        width: 100%;
+        max-width: 45%;
     }
 }
 
 @media (max-width: 768px) {
     .office-visualizer {
+        --panel-spacing: var(--space-2);
         height: 600px;
     }
 
-    .visualizer-header {
-        padding: var(--space-4);
-        flex-direction: column;
-        gap: var(--space-3);
-        align-items: flex-start;
-    }
-
-    .office-stats {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    .team-panel {
-        position: absolute;
-        left: var(--space-3);
-        top: var(--space-3);
-        max-width: calc(40vw);
-        max-height: calc(50vh);
-    }
-
-    .floor-selector {
-        position: absolute;
-        right: var(--space-3);
-        top: var(--space-3);
-        flex-direction: column;
-        width: 160px;
-        max-width: calc(35vw);
-        max-height: calc(100vh - 100px);
-        overflow-x: visible;
-        overflow-y: auto;
-        padding: var(--space-2);
-    }
-
-    .floor-btn {
-        min-width: auto;
-        text-align: left;
-        padding: var(--space-2);
-        width: 100%;
-    }
-
-    .legend {
-        left: var(--space-3);
-        bottom: var(--space-3);
-        width: auto;
-        max-width: calc(40vw);
-    }
-
-    .office-grid {
-        grid-template-columns: 1fr;
+    .team-panel, .floor-selector {
+        max-width: 40%;
     }
 
     .desk-info-panel {
@@ -897,10 +903,9 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        right: auto;
-        bottom: auto;
-        width: calc(100vw - var(--space-8));
+        width: calc(100% - var(--space-8));
         max-width: 400px;
+        margin: 0;
     }
 }
 
@@ -909,31 +914,12 @@
         height: 500px;
     }
 
-    .floor-selector {
-        right: var(--space-2);
-        top: var(--space-2);
-        bottom: auto;
-        padding: var(--space-2);
-        width: 140px;
-        max-width: calc(35vw);
-        max-height: calc(100vh - 80px);
-        flex-direction: column;
-        overflow-y: auto;
-    }
-
-    .floor-btn {
-        padding: var(--space-2);
-        min-width: auto;
-        width: 100%;
-        text-align: left;
-    }
-
-    .team-panel {
-        max-width: 100%;
+    .team-panel, .floor-selector {
+        max-width: calc(50% - var(--space-2));
     }
 
     .legend {
-        max-width: calc(100vw - var(--space-4));
+        max-width: calc(100% - var(--space-4));
     }
 }
 

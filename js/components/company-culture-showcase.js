@@ -8,37 +8,61 @@ class CompanyCultureShowcase extends HTMLElement {
                 name: "Sarah Chen",
                 role: "Senior Developer",
                 department: "Engineering",
-                story: "I joined Quantum Forge 3 years ago and have grown from a junior developer to leading our AI initiatives. The culture of continuous learning and innovation has been incredible.",
+                story: "I joined Quantum Forge 3 years ago and have grown from a junior developer to leading our AI initiatives. The culture of continuous learning and mentorship has been transformative. I've had the opportunity to work on cutting-edge projects while maintaining a healthy work-life balance.",
                 achievement: "Led 5 major AI projects",
                 avatar: "👩‍💻",
-                color: "#6366f1"
+                color: "#6366f1",
+                impact: "Mentored 12 junior developers",
+                hobbies: "Rock climbing, Open source contributor",
+                quote: "Here, innovation meets inclusivity."
             },
             {
                 name: "Marcus Rodriguez",
                 role: "Product Manager",
                 department: "Product",
-                story: "The collaborative environment here is unmatched. Every team member's voice is heard, and we've built products that truly make a difference in people's lives.",
+                story: "The collaborative environment here is unmatched. Every team member's voice is heard, and we've built products that truly make a difference in people's lives. Our flexible work policy allows me to be there for my family while delivering impactful solutions.",
                 achievement: "Launched 3 successful products",
                 avatar: "👨‍💼",
-                color: "#10b981"
+                color: "#10b981",
+                impact: "40% increase in user satisfaction",
+                hobbies: "Marathon runner, Community volunteer",
+                quote: "We don't just build products, we build community."
             },
             {
                 name: "Aisha Patel",
                 role: "UX Designer",
                 department: "Design",
-                story: "Quantum Forge's commitment to user-centered design has allowed me to create experiences that users love. The cross-functional collaboration is inspiring.",
+                story: "Quantum Forge's commitment to user-centered design and accessibility has allowed me to create experiences that everyone can enjoy. The cross-functional collaboration and emphasis on continuous learning have helped me grow both professionally and personally.",
                 achievement: "Improved user satisfaction by 40%",
                 avatar: "👩‍🎨",
-                color: "#f59e0b"
+                color: "#f59e0b",
+                impact: "Led accessibility initiative",
+                hobbies: "Digital art, Teaching design",
+                quote: "Design is about making life better for everyone."
             },
             {
                 name: "David Kim",
                 role: "Data Scientist",
                 department: "Analytics",
-                story: "The data-driven culture here has enabled me to work on cutting-edge ML projects. The support for innovation and experimentation is phenomenal.",
+                story: "The data-driven culture here has enabled me to work on cutting-edge ML projects while maintaining ethical AI practices. The support for innovation and experimentation is phenomenal, and we're encouraged to share our findings with the wider tech community.",
                 achievement: "Developed 8 ML models",
                 avatar: "👨‍🔬",
-                color: "#8b5cf6"
+                color: "#8b5cf6",
+                impact: "Reduced processing time by 60%",
+                hobbies: "Chess player, Tech blogger",
+                quote: "Data with purpose, innovation with responsibility."
+            },
+            {
+                name: "Elena Martinez",
+                role: "Engineering Manager",
+                department: "Platform",
+                story: "What sets Quantum Forge apart is our commitment to both technical excellence and human development. We've created an environment where engineers can innovate while growing as leaders. Our mentorship program has become a model for other companies.",
+                achievement: "Built high-performing team of 20",
+                avatar: "👩‍💼",
+                color: "#ec4899",
+                impact: "95% team retention rate",
+                hobbies: "Salsa dancing, Mentoring",
+                quote: "Great teams build great products."
             }
         ];
         
@@ -47,37 +71,43 @@ class CompanyCultureShowcase extends HTMLElement {
                 title: "Innovation First",
                 description: "We embrace new ideas and technologies to solve complex challenges",
                 icon: "🚀",
-                color: "#6366f1"
+                color: "#6366f1",
+                examples: ["AI Ethics Committee", "Innovation Lab", "Hackathons"]
             },
             {
                 title: "Collaboration",
                 description: "Great things happen when we work together and share knowledge",
                 icon: "🤝",
-                color: "#10b981"
+                color: "#10b981",
+                examples: ["Cross-team Projects", "Knowledge Sharing", "Mentorship Program"]
             },
             {
                 title: "User-Centric",
                 description: "Every decision we make starts with our users' needs",
                 icon: "🎯",
-                color: "#f59e0b"
+                color: "#f59e0b",
+                examples: ["User Research", "Accessibility First", "Customer Feedback Loop"]
             },
             {
                 title: "Continuous Learning",
                 description: "We grow together through knowledge sharing and skill development",
                 icon: "📚",
-                color: "#8b5cf6"
+                color: "#8b5cf6",
+                examples: ["Learning Budget", "Tech Talks", "Conference Speaking"]
             },
             {
                 title: "Diversity & Inclusion",
                 description: "Different perspectives make us stronger and more innovative",
                 icon: "🌈",
-                color: "#ec4899"
+                color: "#ec4899",
+                examples: ["ERGs", "Inclusive Hiring", "Cultural Celebrations"]
             },
             {
                 title: "Sustainability",
                 description: "We build for the future while caring for our planet",
                 icon: "🌱",
-                color: "#059669"
+                color: "#059669",
+                examples: ["Green Office", "Carbon Neutral", "Sustainable Tech"]
             }
         ];
 
@@ -190,7 +220,7 @@ class CompanyCultureShowcase extends HTMLElement {
                     <!-- Real-time Culture Pulse -->
                     <div class="culture-pulse-section">
                         <h3 class="section-title">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                             </svg>
                             Culture Pulse
@@ -229,7 +259,7 @@ class CompanyCultureShowcase extends HTMLElement {
                     <!-- Company Timeline -->
                     <div class="timeline-section">
                         <h3 class="section-title">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
@@ -255,7 +285,7 @@ class CompanyCultureShowcase extends HTMLElement {
                     <!-- Recognition Wall -->
                     <div class="recognition-section">
                         <h3 class="section-title">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
                                 <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
                                 <path d="M4 22h16l-1-7H5l-1 7z"></path>
@@ -285,7 +315,7 @@ class CompanyCultureShowcase extends HTMLElement {
                     <!-- Diversity & Inclusion Dashboard -->
                     <div class="diversity-section">
                         <h3 class="section-title">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
                                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -336,7 +366,7 @@ class CompanyCultureShowcase extends HTMLElement {
                     <!-- Employee Stories Section -->
                     <div class="stories-section">
                         <h3 class="section-title">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
                                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
@@ -387,7 +417,7 @@ class CompanyCultureShowcase extends HTMLElement {
                     <!-- Company Values Section -->
                     <div class="values-section">
                         <h3 class="section-title">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                             </svg>
                             Our Core Values
@@ -555,7 +585,7 @@ class CompanyCultureShowcase extends HTMLElement {
         const indicators = this.querySelectorAll('.story-indicator');
         const story = this.stories[this.currentStoryIndex];
 
-        // Update story content
+        // Update story content with enhanced layout
         storyCard.innerHTML = `
             <div class="story-avatar" style="background: linear-gradient(135deg, ${story.color}20, ${story.color}40)">
                 <span class="avatar-emoji">${story.avatar}</span>
@@ -566,10 +596,21 @@ class CompanyCultureShowcase extends HTMLElement {
                     <span class="story-role">${story.role}</span>
                     <span class="story-department">${story.department}</span>
                 </div>
+                <blockquote class="story-quote">"${story.quote}"</blockquote>
                 <p class="story-text">${story.story}</p>
-                <div class="story-achievement">
-                    <span class="achievement-badge">🏆</span>
-                    <span>${story.achievement}</span>
+                <div class="story-achievements">
+                    <div class="achievement-item">
+                        <span class="achievement-badge">🏆</span>
+                        <span>${story.achievement}</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="achievement-badge">💫</span>
+                        <span>${story.impact}</span>
+                    </div>
+                </div>
+                <div class="story-hobbies">
+                    <span class="hobbies-label">Outside work:</span>
+                    <span class="hobbies-text">${story.hobbies}</span>
                 </div>
             </div>
         `;
@@ -579,7 +620,7 @@ class CompanyCultureShowcase extends HTMLElement {
             indicator.classList.toggle('active', index === this.currentStoryIndex);
         });
 
-        // Animate the transition
+        // Add animation
         storyCard.style.opacity = '0';
         storyCard.style.transform = 'translateY(10px)';
         

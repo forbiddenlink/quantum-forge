@@ -561,7 +561,10 @@ class OfficeVisualizer extends HTMLElement {
 
     showDeskInfo(deskData) {
         const panel = this.querySelector('#deskInfoPanel');
+        if (!panel) return;
+
         const content = panel.querySelector('.desk-info-content');
+        if (!content) return;
         
         const member = this.teamMembers.find(m => m.desk === deskData.id);
         
@@ -598,11 +601,19 @@ class OfficeVisualizer extends HTMLElement {
         `;
         
         panel.style.display = 'block';
+        
+        // Ensure panel is within bounds after showing
+        requestAnimationFrame(() => {
+            this.adjustPanelPositions();
+        });
     }
 
     showRoomInfo(roomData) {
         const panel = this.querySelector('#deskInfoPanel');
+        if (!panel) return;
+
         const content = panel.querySelector('.desk-info-content');
+        if (!content) return;
         
         content.innerHTML = `
             <div class="room-details">
@@ -632,39 +643,136 @@ class OfficeVisualizer extends HTMLElement {
         `;
         
         panel.style.display = 'block';
+        
+        // Ensure panel is within bounds after showing
+        requestAnimationFrame(() => {
+            this.adjustPanelPositions();
+        });
     }
 
     setupEventHandlers() {
         // Floor buttons
         this.querySelectorAll('.floor-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                const floor = parseInt(e.target.dataset.floor);
+                const floor = parseInt(e.currentTarget.dataset.floor);
                 this.switchToFloor(floor);
                 
                 this.querySelectorAll('.floor-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
+                e.currentTarget.classList.add('active');
             });
         });
 
         // Control buttons
         this.querySelector('#resetView')?.addEventListener('click', () => {
             this.resetCameraView();
+            // Close any open panels when resetting view
+            this.closeAllPanels();
         });
 
         // Team member interactions
         this.querySelectorAll('.team-member').forEach(member => {
-            member.addEventListener('click', () => {
-                const deskId = member.dataset.desk;
+            member.addEventListener('click', (e) => {
+                const deskId = e.currentTarget.dataset.desk;
                 this.focusOnDesk(deskId);
+                
+                // Close desk info panel before showing new one
+                const deskInfoPanel = this.querySelector('#deskInfoPanel');
+                if (deskInfoPanel) {
+                    deskInfoPanel.style.display = 'none';
+                }
             });
         });
 
         // Panel toggles
         this.querySelectorAll('.panel-toggle').forEach(toggle => {
             toggle.addEventListener('click', (e) => {
-                const panel = e.target.closest('.team-panel');
-                panel.classList.toggle('collapsed');
+                const panel = e.currentTarget.closest('.team-panel, .floor-selector');
+                if (panel) {
+                    panel.classList.toggle('collapsed');
+                    // Update toggle button aria-expanded state
+                    e.currentTarget.setAttribute('aria-expanded', 
+                        !panel.classList.contains('collapsed'));
+                }
+                e.stopPropagation();
             });
+        });
+
+        // Close panels when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.office-visualizer')) {
+                this.closeAllPanels();
+            }
+        });
+
+        // Handle escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                this.closeAllPanels();
+            }
+        });
+
+        // Prevent panel drag
+        this.querySelectorAll('.team-panel, .floor-selector, .legend, .desk-info-panel').forEach(panel => {
+            panel.addEventListener('mousedown', (e) => {
+                if (e.target.closest('.panel-header, .close-panel')) {
+                    e.stopPropagation();
+                }
+            });
+        });
+
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                this.handleResize();
+                this.adjustPanelPositions();
+            }, 100);
+        });
+    }
+
+    closeAllPanels() {
+        const deskInfoPanel = this.querySelector('#deskInfoPanel');
+        if (deskInfoPanel) {
+            deskInfoPanel.style.display = 'none';
+        }
+        
+        this.querySelectorAll('.team-panel, .floor-selector').forEach(panel => {
+            panel.classList.add('collapsed');
+            const toggle = panel.querySelector('.panel-toggle');
+            if (toggle) {
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
+    adjustPanelPositions() {
+        const visualizer = this.querySelector('.office-visualizer');
+        if (!visualizer) return;
+
+        const bounds = visualizer.getBoundingClientRect();
+        const panels = this.querySelectorAll('.team-panel, .floor-selector, .legend, .desk-info-panel');
+
+        panels.forEach(panel => {
+            const panelBounds = panel.getBoundingClientRect();
+            
+            // Ensure panels don't go outside visualizer bounds
+            if (panelBounds.right > bounds.right) {
+                panel.style.right = '0';
+                panel.style.left = 'auto';
+            }
+            if (panelBounds.left < bounds.left) {
+                panel.style.left = '0';
+                panel.style.right = 'auto';
+            }
+            if (panelBounds.bottom > bounds.bottom) {
+                panel.style.bottom = '0';
+                panel.style.top = 'auto';
+            }
+            if (panelBounds.top < bounds.top) {
+                panel.style.top = '0';
+                panel.style.bottom = 'auto';
+            }
         });
     }
 
