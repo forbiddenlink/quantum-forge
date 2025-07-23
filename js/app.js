@@ -488,27 +488,107 @@ function initializePersonalization() {
     console.log('Personalization system initialized');
 }
 
-// Keyboard shortcuts
+/**
+ * Initialize enhanced keyboard shortcuts with accessibility support
+ * Includes focus management, screen reader announcements, and mobile-friendly navigation
+ * @since v2.0.0 - Contest Enhancement
+ */
 function initializeKeyboardShortcuts() {
+    try {
+        // Detect keyboard usage for enhanced focus indicators
+        let isUsingKeyboard = false;
+    
     document.addEventListener('keydown', (e) => {
-        // Command palette toggle
-        if (e.ctrlKey && e.key === 'k') {
+        isUsingKeyboard = true;
+        document.body.classList.add('keyboard-user');
+        
+        // Command palette toggle - Ctrl/Cmd + K
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
             e.preventDefault();
             const commandPalette = document.querySelector('command-palette');
             if (commandPalette && commandPalette.toggle) {
                 commandPalette.toggle();
+                announceToScreenReader('Command palette toggled');
             }
         }
         
-        // Theme toggle
-        if (e.ctrlKey && e.key === 't') {
+        // Theme toggle - Ctrl/Cmd + T
+        if ((e.ctrlKey || e.metaKey) && e.key === 't') {
             e.preventDefault();
-            toggleTheme();
+            const newTheme = toggleTheme();
+            announceToScreenReader(`Theme changed to ${newTheme} mode`);
+        }
+        
+        // Help dialog - F1 or Shift + ?
+        if (e.key === 'F1' || (e.shiftKey && e.key === '?')) {
+            e.preventDefault();
+            const helpDialog = document.querySelector('help-dialog');
+            if (helpDialog && helpDialog.toggle) {
+                helpDialog.toggle();
+                announceToScreenReader('Help dialog opened');
+            }
+        }
+        
+        // AI Assistant - Ctrl/Cmd + /
+        if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+            e.preventDefault();
+            const aiAssistant = document.querySelector('ai-assistant');
+            if (aiAssistant && aiAssistant.toggle) {
+                aiAssistant.toggle();
+                announceToScreenReader('AI Assistant toggled');
+            }
+        }
+        
+        // Escape key - close open dialogs and panels
+        if (e.key === 'Escape') {
+            const openPanels = document.querySelectorAll('.ai-assistant.open, .command-palette.active, .help-dialog.open');
+            if (openPanels.length > 0) {
+                openPanels.forEach(panel => {
+                    if (panel.classList.contains('open')) panel.classList.remove('open');
+                    if (panel.classList.contains('active')) panel.classList.remove('active');
+                });
+                announceToScreenReader('Panel closed');
+            }
+        }
+        
+        // Focus management - Tab navigation enhancement
+        if (e.key === 'Tab') {
+            // Ensure visible focus indicators
+            document.body.classList.add('keyboard-user');
         }
     });
+    
+    // Remove keyboard user class on mouse usage
+    document.addEventListener('mousedown', () => {
+        isUsingKeyboard = false;
+        document.body.classList.remove('keyboard-user');
+    });
+    
+    // Re-add on focus to handle tab navigation
+    document.addEventListener('focusin', () => {
+        if (isUsingKeyboard) {
+            document.body.classList.add('keyboard-user');
+        }
+    });
+    
+    } catch (error) {
+        console.error('Error initializing keyboard shortcuts:', error);
+        // Fallback: Basic keyboard shortcuts still work
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                console.warn('Command palette shortcut disabled due to initialization error');
+            }
+        });
+    }
 }
 
-// Screen reader announcements
+/**
+ * Announce messages to screen readers for accessibility
+ * Creates a temporary live region to communicate dynamic changes
+ * @param {string} message - The message to announce to screen readers
+ * @since v2.0.0 - Contest Enhancement
+ */
 function announceToScreenReader(message) {
     const announcement = document.createElement('div');
     announcement.setAttribute('aria-live', 'polite');

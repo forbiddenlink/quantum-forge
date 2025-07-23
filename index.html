@@ -208,28 +208,47 @@
         }
     </script>
     
-    <link rel="stylesheet" href="styles/components.css">
+    <!-- PERFORMANCE OPTIMIZED: Critical CSS First, Non-Critical Async -->
+    <!-- Critical CSS for First Paint -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/enhanced-colors.css">
-    <link rel="stylesheet" href="styles/company-news.css">
-    <link rel="stylesheet" href="styles/interactive-poll.css">
-    <link rel="stylesheet" href="styles/real-time-stats.css">
-    <link rel="stylesheet" href="styles/office-visualizer.css">
-    <link rel="stylesheet" href="styles/dream-workspace.css?v=7">
-    <link rel="stylesheet" href="styles/enhanced-knowledge-hub.css">
-    <link rel="stylesheet" href="styles/sidebar.css">
-    <link rel="stylesheet" href="styles/contest-enhancements.css">
-    <link rel="stylesheet" href="styles/culture-blur-fix.css">
     <link rel="stylesheet" href="styles/enhanced.css">
+    <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/welcome-section.css">
-    <link rel="stylesheet" href="styles/team.css">
-    <link rel="stylesheet" href="styles/analytics-dashboard.css">
-    <!-- Temporarily commented out to debug calendar icon issue -->
-    <!-- <link rel="stylesheet" href="styles/readability-fixes.css"> -->
-    <link rel="stylesheet" href="styles/analytics-icons.css">
-    <!-- <link rel="stylesheet" href="styles/calendar-icon-fix.css"> -->
-    <!-- LOAD THIS LAST TO OVERRIDE ALL CONFLICTING STYLES -->
-    <link rel="stylesheet" href="styles/team-analytics-fix.css">
+    <link rel="stylesheet" href="styles/responsive-system.css">
+    
+    <!-- Non-Critical CSS - Load Asynchronously for Better Performance -->
+    <link rel="preload" href="styles/enhanced-colors.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/company-news.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/interactive-poll.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/real-time-stats.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/office-visualizer.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/dream-workspace.css?v=7" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/enhanced-knowledge-hub.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/sidebar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/contest-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/culture-blur-fix.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/team.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/analytics-dashboard.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/analytics-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/team-analytics-fix.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- Fallback for browsers that don't support preload -->
+    <noscript>
+        <link rel="stylesheet" href="styles/enhanced-colors.css">
+        <link rel="stylesheet" href="styles/company-news.css">
+        <link rel="stylesheet" href="styles/interactive-poll.css">
+        <link rel="stylesheet" href="styles/real-time-stats.css">
+        <link rel="stylesheet" href="styles/office-visualizer.css">
+        <link rel="stylesheet" href="styles/dream-workspace.css?v=7">
+        <link rel="stylesheet" href="styles/enhanced-knowledge-hub.css">
+        <link rel="stylesheet" href="styles/sidebar.css">
+        <link rel="stylesheet" href="styles/contest-enhancements.css">
+        <link rel="stylesheet" href="styles/culture-blur-fix.css">
+        <link rel="stylesheet" href="styles/team.css">
+        <link rel="stylesheet" href="styles/analytics-dashboard.css">
+        <link rel="stylesheet" href="styles/analytics-icons.css">
+        <link rel="stylesheet" href="styles/team-analytics-fix.css">
+    </noscript>
     
 
 </head>
@@ -244,6 +263,10 @@
     </div>
     
     <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Live region for dynamic announcements -->
+    <div aria-live="polite" aria-atomic="true" class="live-region" id="announcements"></div>
+    
     <div class="dashboard" role="application">
         <!-- Header will be injected here -->
         <app-header></app-header>

@@ -138,8 +138,8 @@ class Sidebar extends HTMLElement {
                                         <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"></path>
                                     </svg>
                                     <span class="nav-text">Team</span>
-                                    <button class="favorite-btn ${this.favorites.has('team') ? 'active' : ''}" data-page="team">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <button class="favorite-btn ${this.favorites.has('team') ? 'active' : ''}" data-page="team" aria-label="${this.favorites.has('team') ? 'Remove team from favorites' : 'Add team to favorites'}" aria-pressed="${this.favorites.has('team')}">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                                         </svg>
                                     </button>
@@ -154,8 +154,8 @@ class Sidebar extends HTMLElement {
                                         <line x1="3" y1="10" x2="21" y2="10"></line>
                                     </svg>
                                     <span class="nav-text">Calendar</span>
-                                    <button class="favorite-btn ${this.favorites.has('calendar') ? 'active' : ''}" data-page="calendar">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <button class="favorite-btn ${this.favorites.has('calendar') ? 'active' : ''}" data-page="calendar" aria-label="${this.favorites.has('calendar') ? 'Remove calendar from favorites' : 'Add calendar to favorites'}" aria-pressed="${this.favorites.has('calendar')}">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                                         </svg>
                                     </button>
@@ -429,6 +429,33 @@ class Sidebar extends HTMLElement {
                 document.body.appendChild(helpDialog);
             }
             helpDialog.open();
+        });
+
+        // Mobile menu functionality
+        this.addEventListener('click', (e) => {
+            const navLink = e.target.closest('.nav-link');
+            if (navLink && window.innerWidth <= 1024) {
+                // Close mobile menu after navigation on mobile
+                document.body.classList.remove('nav-open');
+                announceToScreenReader(`Navigated to ${navLink.textContent.trim()}`);
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024 && 
+                document.body.classList.contains('nav-open') && 
+                !this.contains(e.target) && 
+                !e.target.closest('.menu-button')) {
+                document.body.classList.remove('nav-open');
+            }
+        });
+
+        // Close mobile menu on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                document.body.classList.remove('nav-open');
+            }
         });
     }
 

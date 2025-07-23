@@ -1544,56 +1544,220 @@ body {
     transform: scale(1.02);
 }
 
-/* Responsive Design for AI Components */
-@media (max-width: 768px) {
-    .ai-quick-actions-panel {
-        right: -100vw !important;
-        width: calc(100vw - var(--space-8));
-        max-width: none;
-        pointer-events: none;
-        opacity: 0;
-        visibility: hidden;
+/* ===== UNIFIED RESPONSIVE DESIGN SYSTEM ===== */
+
+/* Standardized Breakpoints - Mobile First Approach */
+:root {
+    /* Consistent breakpoints across all components */
+    --breakpoint-xs: 480px;   /* Small phones */
+    --breakpoint-sm: 640px;   /* Large phones */
+    --breakpoint-md: 768px;   /* Tablets */
+    --breakpoint-lg: 1024px;  /* Small laptops */
+    --breakpoint-xl: 1280px;  /* Large laptops */
+    --breakpoint-2xl: 1536px; /* Desktops */
+}
+
+/* Global Mobile Optimizations */
+@media (max-width: 480px) {
+    /* Small phones - Extra compact layout */
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-3) !important;
+        padding: var(--space-2) !important;
     }
     
-    .ai-quick-actions-panel.active {
-        right: 0 !important;
-        pointer-events: auto;
-        opacity: 1;
-        visibility: visible;
+    .dashboard-item {
+        margin: 0 !important;
+        border-radius: var(--radius-lg) !important;
     }
     
-    .ai-insights-grid {
-        grid-template-columns: 1fr;
+    .dashboard-item > * {
+        padding: var(--space-3) !important;
     }
     
-    .ai-notification {
-        right: -100vw;
-        max-width: calc(100vw - var(--space-8));
+    /* Improve text sizing on small screens */
+    .welcome-title {
+        font-size: var(--font-size-xl) !important;
     }
     
-    .ai-notification.show {
-        right: var(--space-4);
+    .welcome-subtitle {
+        font-size: var(--font-size-base) !important;
     }
     
-    .smart-action-btn {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--space-2);
+    /* Compact stats layout */
+    .welcome-stats {
+        grid-template-columns: 1fr 1fr !important;
+        gap: var(--space-2) !important;
+    }
+    
+    .stat-item {
+        padding: var(--space-3) !important;
+    }
+    
+    .stat-number {
+        font-size: var(--font-size-xl) !important;
     }
 }
-.dashboard-item .goal-item::before,
-.dashboard-item .achievement-item::before,
-.dashboard-item .milestone-item::before,
-.dashboard-item .level-badge::before,
-.dashboard-item .points-display::before,
-.dashboard-item .streak-item::before,
-.dashboard-item .next-achievement::before,
-.dashboard-item .achievement-notification::before,
-.dashboard-item .level-up-notification::before,
-.dashboard-item .connection-status::before,
-.dashboard-item .document-info::before,
-.dashboard-item .space-info::before,
-.dashboard-item .article-content::before,
+
+@media (max-width: 640px) {
+    /* Large phones - Optimized mobile layout */
+    .main-container {
+        flex-direction: column !important;
+    }
+    
+    app-sidebar {
+        width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+        top: 0 !important;
+        order: 2 !important;
+    }
+    
+    .main-content {
+        order: 1 !important;
+        padding: var(--space-3) !important;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-4) !important;
+    }
+    
+    /* Mobile-optimized welcome section */
+    .welcome-section {
+        padding: var(--space-4) !important;
+        margin-bottom: var(--space-4) !important;
+    }
+    
+    .welcome-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--space-3) !important;
+    }
+    
+    .quick-actions {
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+    }
+    
+    .quick-actions .btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Tablets - Enhanced mobile experience */
+    .header {
+        padding: 0 var(--space-4) !important;
+    }
+    
+    .header-right {
+        gap: var(--space-2) !important;
+    }
+    
+    .action-button {
+        padding: var(--space-2) !important;
+    }
+    
+    /* Hide less critical elements on tablets */
+    .user-dropdown .user-details {
+        display: none !important;
+    }
+    
+    /* Optimize component grids */
+    .kpi-grid,
+    .goals-grid,
+    .news-grid,
+    .pinned-grid,
+    .insights-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-4) !important;
+    }
+    
+    /* Better modal behavior */
+    .modal-content {
+        width: calc(100vw - var(--space-8)) !important;
+        max-width: none !important;
+        margin: var(--space-4) !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* Small laptops - Compact desktop layout */
+    app-sidebar {
+        width: 240px !important;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-5) !important;
+    }
+    
+    .dashboard-item.full-width {
+        grid-column: 1 !important;
+    }
+    
+    /* Adjust component layouts */
+    .kpi-grid,
+    .goals-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    /* Compact navigation */
+    .nav-text {
+        font-size: var(--font-size-sm) !important;
+    }
+}
+
+/* Landscape orientation optimizations */
+@media (orientation: landscape) and (max-height: 600px) {
+    .welcome-section {
+        padding: var(--space-4) var(--space-6) !important;
+    }
+    
+    .sidebar {
+        height: 100vh !important;
+        overflow-y: auto !important;
+    }
+}
+
+/* High-DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-icon,
+    .user-avatar,
+    .stat-item {
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+    }
+}
+
+/* Touch device optimizations */
+@media (pointer: coarse) {
+    /* Larger touch targets */
+    button, .btn, .nav-link, .action-button {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+    
+    /* Better spacing for touch */
+    .quick-actions {
+        gap: var(--space-4) !important;
+    }
+    
+    .nav-item {
+        margin-bottom: var(--space-1) !important;
+    }
+}
+
+/* Container queries for modern browsers */
+@container (max-width: 400px) {
+    .dashboard-item {
+        border-radius: var(--radius-md) !important;
+        padding: var(--space-3) !important;
+    }
+}
+
+// ... existing code ...
 .dashboard-item .insight-content::before,
 .dashboard-item .recommendation-content::before,
 .dashboard-item .frequently-used-content::before,
@@ -5746,87 +5910,6 @@ office-visualizer {
     opacity: 1;
 }
 
-/* Enhanced Responsive Design */
-@media (max-width: 1024px) {
-    .header-content {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-6);
-    }
-    
-    .task-stats {
-        flex-direction: column;
-    }
-    
-    .stat-card {
-        min-width: auto;
-    }
-    
-    .task-controls {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-4);
-    }
-    
-    .search-and-filters {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .action-controls {
-        justify-content: space-between;
-    }
-    
-    .insights-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .task-system-header {
-        padding: var(--space-6);
-    }
-    
-    .task-content {
-        padding: var(--space-4);
-    }
-    
-    .task-insights {
-        padding: var(--space-3) var(--space-4) 0 var(--space-4);
-        margin-top: var(--space-3);
-        margin-bottom: 0 !important;
-    }
-    
-    .task-system-title {
-        font-size: var(--font-size-3xl);
-        flex-direction: column;
-        gap: var(--space-2);
-        text-align: center;
-    }
-    
-    .filter-controls {
-        flex-direction: column;
-    }
-    
-    .enhanced-select {
-        min-width: auto;
-    }
-    
-    .action-controls {
-        flex-direction: column;
-    }
-    
-    .stat-card {
-        padding: var(--space-4);
-    }
-    
-    .insight-card {
-        flex-direction: column;
-        text-align: center;
-        padding: var(--space-4);
-    }
-}
-
 /* Backward Compatibility for existing task-system class */
 .task-system {
     background: var(--bg-elevated);
@@ -6133,27 +6216,6 @@ office-visualizer {
     font-size: var(--font-size-sm);
 }
 
-@media (max-width: 768px) {
-    .weather-header {
-        flex-direction: column;
-        gap: var(--space-3);
-        align-items: flex-start;
-    }
-
-    .current-weather {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .weather-details {
-        justify-content: center;
-    }
-
-    .forecast-list {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    }
-}
-
 /* Team Spotlight Text Readability Fixes */
 .team-spotlight .event-title,
 .team-spotlight .event-time,
@@ -6227,8 +6289,6 @@ h1, h2, h3, h4, h5, h6,
     font-size: var(--font-size-xs) !important;
 }
 
-/* Welcome section styles moved to welcome-section.css */
-
 /* Enhanced contrast for small text */
 .font-size-xs,
 .text-xs {
@@ -6241,8 +6301,6 @@ h1, h2, h3, h4, h5, h6,
     color: var(--text-secondary) !important;
     font-weight: 400 !important;
 }
-
-/* Welcome section insight styles moved to welcome-section.css */
 
 .insight-card h4 {
     color: var(--text-primary) !important;
@@ -9465,43 +9523,156 @@ body {
     transform: scale(1.02);
 }
 
-/* Responsive Design for AI Components */
-@media (max-width: 768px) {
-    .ai-quick-actions-panel {
-        right: -100vw !important;
-        width: calc(100vw - var(--space-8));
-        max-width: none;
-        pointer-events: none;
-        opacity: 0;
-        visibility: hidden;
+/* Enhanced Focus States and Accessibility */
+.focus-visible,
+*:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--primary-500) !important;
+    outline-offset: 2px !important;
+    border-radius: var(--radius-md) !important;
+    z-index: 100 !important;
+}
+
+/* Skip to main content link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary-600);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    z-index: 1000;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+    top: 6px;
+}
+
+/* Enhanced keyboard navigation indicators */
+.keyboard-user *:focus {
+    outline: 3px solid var(--primary-500) !important;
+    outline-offset: 2px !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    * {
+        border-color: currentColor !important;
     }
     
-    .ai-quick-actions-panel.active {
-        right: 0 !important;
-        pointer-events: auto;
-        opacity: 1;
-        visibility: visible;
+    .btn {
+        border: 2px solid currentColor !important;
     }
     
-    .ai-insights-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .ai-notification {
-        right: -100vw;
-        max-width: calc(100vw - var(--space-8));
-    }
-    
-    .ai-notification.show {
-        right: var(--space-4);
-    }
-    
-    .smart-action-btn {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--space-2);
+    .card, .widget {
+        border: 2px solid currentColor !important;
     }
 }
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Screen reader only content */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.sr-only-focusable:focus {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: inherit !important;
+    margin: inherit !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
+}
+
+/* Live region for dynamic content announcements */
+.live-region {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Enhanced interactive element states */
+.interactive {
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-in-out);
+}
+
+.interactive:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.interactive:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.interactive:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Color contrast improvements */
+.contrast-enhanced {
+    background-color: var(--bg-base) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Ensure sufficient color contrast for links */
+a {
+    color: var(--primary-600);
+    text-decoration-color: var(--primary-400);
+}
+
+a:hover, a:focus {
+    color: var(--primary-700);
+    text-decoration-color: var(--primary-600);
+}
+
+/* Dark mode link adjustments */
+[data-theme="dark"] a {
+    color: var(--primary-400);
+}
+
+[data-theme="dark"] a:hover, 
+[data-theme="dark"] a:focus {
+    color: var(--primary-300);
+}
+
 .dashboard-item .goal-item::before,
 .dashboard-item .achievement-item::before,
 .dashboard-item .milestone-item::before,
@@ -13667,87 +13838,6 @@ office-visualizer {
     opacity: 1;
 }
 
-/* Enhanced Responsive Design */
-@media (max-width: 1024px) {
-    .header-content {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-6);
-    }
-    
-    .task-stats {
-        flex-direction: column;
-    }
-    
-    .stat-card {
-        min-width: auto;
-    }
-    
-    .task-controls {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-4);
-    }
-    
-    .search-and-filters {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .action-controls {
-        justify-content: space-between;
-    }
-    
-    .insights-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .task-system-header {
-        padding: var(--space-6);
-    }
-    
-    .task-content {
-        padding: var(--space-4);
-    }
-    
-    .task-insights {
-        padding: var(--space-3) var(--space-4) 0 var(--space-4);
-        margin-top: var(--space-3);
-        margin-bottom: 0 !important;
-    }
-    
-    .task-system-title {
-        font-size: var(--font-size-3xl);
-        flex-direction: column;
-        gap: var(--space-2);
-        text-align: center;
-    }
-    
-    .filter-controls {
-        flex-direction: column;
-    }
-    
-    .enhanced-select {
-        min-width: auto;
-    }
-    
-    .action-controls {
-        flex-direction: column;
-    }
-    
-    .stat-card {
-        padding: var(--space-4);
-    }
-    
-    .insight-card {
-        flex-direction: column;
-        text-align: center;
-        padding: var(--space-4);
-    }
-}
-
 /* Backward Compatibility for existing task-system class */
 .task-system {
     background: var(--bg-elevated);
@@ -14054,27 +14144,6 @@ office-visualizer {
     font-size: var(--font-size-sm);
 }
 
-@media (max-width: 768px) {
-    .weather-header {
-        flex-direction: column;
-        gap: var(--space-3);
-        align-items: flex-start;
-    }
-
-    .current-weather {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .weather-details {
-        justify-content: center;
-    }
-
-    .forecast-list {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    }
-}
-
 /* Team Spotlight Text Readability Fixes */
 .team-spotlight .event-title,
 .team-spotlight .event-time,
@@ -14148,8 +14217,6 @@ h1, h2, h3, h4, h5, h6,
     font-size: var(--font-size-xs) !important;
 }
 
-/* Welcome section styles moved to welcome-section.css */
-
 /* Enhanced contrast for small text */
 .font-size-xs,
 .text-xs {
@@ -14162,8 +14229,6 @@ h1, h2, h3, h4, h5, h6,
     color: var(--text-secondary) !important;
     font-weight: 400 !important;
 }
-
-/* Welcome section insight styles moved to welcome-section.css */
 
 .insight-card h4 {
     color: var(--text-primary) !important;
@@ -20887,217 +20952,6 @@ input:checked + .slider:before {
 .event-time::before {
     content: '🕐';
     font-size: var(--font-size-sm);
-}
-
-/* Enhanced Responsive Design */
-@media (max-width: 1024px) {
-    .team-spotlight {
-        padding: var(--space-6);
-    }
-    
-    .spotlight-title {
-        font-size: var(--font-size-xl);
-    }
-    
-    .member-avatar-large {
-        width: 70px;
-        height: 70px;
-    }
-}
-
-@media (max-width: 768px) {
-    .team-spotlight {
-        padding: var(--space-4);
-        margin-bottom: var(--space-4);
-    }
-    
-    .spotlight-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-4);
-        margin-bottom: var(--space-6);
-    }
-    
-    .spotlight-title {
-        font-size: var(--font-size-lg);
-        flex-direction: column;
-        gap: var(--space-2);
-        text-align: center;
-        align-self: stretch;
-    }
-    
-    .spotlight-controls {
-        align-self: center;
-    }
-    
-    .member-header {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--space-3);
-    }
-    
-    .member-avatar-large {
-        width: 80px;
-        height: 80px;
-        align-self: center;
-    }
-    
-    .member-info {
-        align-items: center;
-    }
-    
-    .member-department {
-        align-self: center;
-    }
-    
-    .member-spotlight {
-        padding: var(--space-4);
-    }
-    
-    .skills-tags {
-        justify-content: center;
-    }
-    
-    .upcoming-events {
-        padding: var(--space-4);
-        margin-top: var(--space-4);
-    }
-    
-    .events-title {
-        font-size: var(--font-size-lg);
-        margin-bottom: var(--space-4);
-    }
-    
-    .events-title::before {
-        font-size: var(--font-size-lg);
-    }
-    
-    .event-item {
-        padding: var(--space-4);
-        gap: var(--space-3);
-        min-height: 70px;
-    }
-    
-    .event-icon {
-        width: 44px;
-        height: 44px;
-    }
-    
-    .event-icon svg {
-        width: 22px;
-        height: 22px;
-    }
-    
-    .event-title {
-        font-size: var(--font-size-base);
-        margin-bottom: var(--space-2);
-        font-weight: 800;
-        color: #1a202c !important;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-    
-    .event-time {
-        font-size: var(--font-size-sm);
-        padding: var(--space-2) var(--space-3);
-        color: var(--white);
-        font-weight: 700;
-    }
-}
-
-@media (max-width: 480px) {
-    .team-spotlight {
-        padding: var(--space-3);
-    }
-    
-    .spotlight-title {
-        font-size: var(--font-size-base);
-    }
-    
-    .spotlight-title::before {
-        font-size: var(--font-size-lg);
-    }
-    
-    .member-spotlight {
-        padding: var(--space-3);
-    }
-    
-    .member-name {
-        font-size: var(--font-size-lg);
-    }
-    
-    .member-avatar-large {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .spotlight-controls .btn-icon.small {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .spotlight-controls .btn-icon.small svg {
-        width: 18px;
-        height: 18px;
-    }
-    
-    .skills-tags {
-        gap: var(--space-2);
-    }
-    
-    .skill-tag {
-        padding: var(--space-1) var(--space-3);
-        font-size: var(--font-size-xs);
-    }
-    
-    .upcoming-events {
-        padding: var(--space-3);
-        margin-top: var(--space-3);
-    }
-    
-    .events-title {
-        font-size: var(--font-size-base);
-        margin-bottom: var(--space-3);
-        gap: var(--space-2);
-    }
-    
-    .events-title::before {
-        font-size: var(--font-size-base);
-    }
-    
-    .event-item {
-        padding: var(--space-3);
-        gap: var(--space-3);
-        min-height: 60px;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .event-icon {
-        width: 40px;
-        height: 40px;
-        align-self: flex-start;
-    }
-    
-    .event-icon svg {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .event-title {
-        font-size: var(--font-size-base);
-        margin-bottom: var(--space-2);
-        font-weight: 800;
-        color: #1a202c !important;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    }
-    
-    .event-time {
-        font-size: var(--font-size-sm);
-        padding: var(--space-2) var(--space-3);
-        gap: var(--space-1);
-        color: var(--white);
-        font-weight: 700;
-    }
 }
 
 /* Smart Quick Access Component Styles */
