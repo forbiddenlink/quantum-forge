@@ -1,0 +1,407 @@
+/* Mobile Performance Enhancements for Complex Components */
+/* Optimizes heavy components for smooth mobile performance */
+
+/* ===== MOBILE PERFORMANCE OPTIMIZATIONS ===== */
+
+/* Mobile-specific performance variables */
+:root {
+    --mobile-animation-duration: 150ms; /* Faster animations on mobile */
+    --mobile-transition-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --mobile-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --mobile-shadow-medium: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== TASK SYSTEM MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+    /* Task System Performance */
+    .enhanced-task-system {
+        /* Reduce complexity on mobile */
+        .ai-insights-grid {
+            grid-template-columns: 1fr !important;
+            gap: var(--space-3) !important;
+        }
+        
+        .task-cards-grid {
+            grid-template-columns: 1fr !important;
+            gap: var(--space-4) !important;
+        }
+        
+        /* Simplify task cards for mobile */
+        .enhanced-task-card {
+            padding: var(--space-4) !important;
+            margin-bottom: var(--space-3) !important;
+            
+            /* Reduce visual complexity */
+            box-shadow: var(--mobile-shadow-light) !important;
+            border-radius: var(--radius-lg) !important;
+            
+            /* Optimize animations */
+            transition: all var(--mobile-animation-duration) var(--mobile-transition-timing) !important;
+        }
+        
+        .enhanced-task-card:active {
+            transform: scale(0.98) !important;
+            box-shadow: var(--mobile-shadow-medium) !important;
+        }
+        
+        /* Simplify task controls */
+        .task-controls {
+            flex-direction: column !important;
+            gap: var(--space-3) !important;
+        }
+        
+        .search-and-filters {
+            flex-direction: column !important;
+            gap: var(--space-3) !important;
+        }
+        
+        .filter-controls {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: var(--space-2) !important;
+        }
+        
+        /* Hide complex UI on mobile for performance */
+        .task-analytics {
+            display: none !important;
+        }
+    }
+}
+
+/* ===== ANALYTICS DASHBOARD MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+    .analytics-dashboard {
+        /* Simplify dashboard layout */
+        .kpi-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: var(--space-3) !important;
+        }
+        
+        .advanced-kpi-card {
+            padding: var(--space-3) !important;
+            
+            /* Reduce visual effects for performance */
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            
+            .kpi-progress {
+                height: 4px !important;
+            }
+        }
+        
+        /* Simplify charts on mobile */
+        .enhanced-charts-grid {
+            grid-template-columns: 1fr !important;
+            gap: var(--space-4) !important;
+        }
+        
+        .chart-container {
+            /* Reduce chart complexity */
+            .chart-body {
+                height: 200px !important;
+            }
+            
+            /* Hide chart controls on mobile */
+            .chart-controls {
+                display: none !important;
+            }
+        }
+        
+        /* Hide heavy components on mobile */
+        .heatmap-section {
+            display: none !important;
+        }
+        
+        /* Simplify activity feed */
+        .activity-section {
+            .activity-controls {
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+            
+            .activity-filters {
+                flex-wrap: nowrap !important;
+                gap: var(--space-2) !important;
+            }
+            
+            .filter-btn {
+                white-space: nowrap !important;
+                flex-shrink: 0 !important;
+            }
+        }
+    }
+}
+
+/* ===== KNOWLEDGE HUB MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+    .enhanced-knowledge-hub {
+        /* Simplify search interface */
+        .hub-controls {
+            flex-direction: column !important;
+            gap: var(--space-3) !important;
+        }
+        
+        .view-controls {
+            justify-content: center !important;
+        }
+        
+        /* Mobile-friendly resource cards */
+        .enhanced-resource-card {
+            padding: var(--space-4) !important;
+            
+            .resource-meta {
+                flex-direction: column !important;
+                gap: var(--space-2) !important;
+            }
+            
+            .resource-actions {
+                flex-direction: column !important;
+                gap: var(--space-2) !important;
+            }
+            
+            .resource-btn {
+                width: 100% !important;
+                justify-content: center !important;
+            }
+        }
+        
+        /* Hide complex sections on mobile */
+        .learning-analytics {
+            .analytics-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Simplify analytics cards */
+            .analytics-card {
+                padding: var(--space-3) !important;
+            }
+        }
+        
+        /* Simplify learning paths */
+        .learning-paths-grid {
+            grid-template-columns: 1fr !important;
+        }
+    }
+}
+
+/* ===== COMPANY CULTURE MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+    .company-culture-showcase {
+        /* Simplify culture sections */
+        .culture-pulse-section {
+            .pulse-dashboard {
+                flex-direction: column !important;
+            }
+            
+            .overall-score {
+                margin-bottom: var(--space-4) !important;
+            }
+            
+            .pulse-categories {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-3) !important;
+            }
+        }
+        
+        /* Simplify timeline */
+        .timeline-section {
+            .timeline {
+                .timeline-item {
+                    padding-left: var(--space-4) !important;
+                    
+                    .timeline-marker {
+                        left: 0 !important;
+                    }
+                }
+            }
+        }
+        
+        /* Hide complex visualizations on mobile */
+        .diversity-section {
+            .diversity-dashboard {
+                .diversity-chart {
+                    display: none !important;
+                }
+            }
+        }
+        
+        /* Simplify story carousel */
+        .stories-section {
+            .story-carousel {
+                .story-card {
+                    flex-direction: column !important;
+                    text-align: center !important;
+                    
+                    .story-avatar {
+                        margin: 0 auto var(--space-4) auto !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ===== COLLABORATION HUB MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+    .collaboration-hub {
+        .hub-content {
+            .users-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: var(--space-3) !important;
+            }
+            
+            .user-card {
+                padding: var(--space-3) !important;
+                
+                .user-actions {
+                    margin-top: var(--space-2) !important;
+                    justify-content: center !important;
+                }
+            }
+            
+            .spaces-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        
+        .hub-actions {
+            flex-direction: column !important;
+            gap: var(--space-3) !important;
+            
+            .btn {
+                width: 100% !important;
+                justify-content: center !important;
+            }
+        }
+    }
+}
+
+/* ===== OFFICE VISUALIZER MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+    .enhanced-office-visualizer {
+        /* Disable 3D visualizations on mobile for performance */
+        .office-visualization {
+            display: none !important;
+        }
+        
+        /* Show simple floor plan instead */
+        .mobile-floor-plan {
+            display: block !important;
+            padding: var(--space-4) !important;
+            background: var(--bg-elevated) !important;
+            border-radius: var(--radius-lg) !important;
+            text-align: center !important;
+        }
+        
+        /* Simplify controls */
+        .visualization-controls {
+            flex-direction: column !important;
+            gap: var(--space-2) !important;
+        }
+    }
+}
+
+/* ===== GENERAL MOBILE PERFORMANCE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+    /* Reduce animation complexity */
+    * {
+        animation-duration: var(--mobile-animation-duration) !important;
+        transition-duration: var(--mobile-animation-duration) !important;
+    }
+    
+    /* Disable expensive visual effects */
+    .particle,
+    .analytics-particle,
+    .culture-particle {
+        display: none !important;
+    }
+    
+    /* Simplify shadows and effects */
+    .widget,
+    .dashboard-item,
+    .card {
+        box-shadow: var(--mobile-shadow-light) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    /* Optimize images and media */
+    img,
+    video {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    /* Touch-optimized interactive elements */
+    button,
+    .btn,
+    .action-btn,
+    .nav-link {
+        min-height: 44px !important;
+        min-width: 44px !important;
+        padding: var(--space-3) var(--space-4) !important;
+    }
+    
+    /* Optimize scrolling */
+    .scrollable-container {
+        -webkit-overflow-scrolling: touch !important;
+        overflow-scrolling: touch !important;
+    }
+}
+
+/* ===== LANDSCAPE MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) and (orientation: landscape) {
+    .analytics-dashboard .kpi-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+    
+    .task-cards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ===== VERY SMALL SCREENS (320px-479px) ===== */
+@media (max-width: 479px) {
+    /* Extra performance optimizations for very small screens */
+    .ai-insights-section,
+    .analytics-section,
+    .heatmap-section {
+        display: none !important;
+    }
+    
+    /* Show simplified versions */
+    .mobile-simplified-stats {
+        display: block !important;
+        padding: var(--space-4) !important;
+        background: var(--bg-elevated) !important;
+        border-radius: var(--radius-lg) !important;
+        text-align: center !important;
+    }
+    
+    /* Ultra-compact layout */
+    .dashboard-grid {
+        padding: var(--space-2) !important;
+        gap: var(--space-2) !important;
+    }
+    
+    .dashboard-item {
+        padding: var(--space-3) !important;
+    }
+}
+
+/* ===== HIGH DPI MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* Optimize for retina mobile displays */
+    .icon,
+    .stat-icon,
+    .nav-icon {
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+    }
+}
+
+/* ===== END MOBILE PERFORMANCE ENHANCEMENTS ===== */ 

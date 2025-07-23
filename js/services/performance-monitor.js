@@ -84,7 +84,9 @@ class PerformanceMonitor {
 
     monitorMemory() {
         if ('memory' in performance) {
-            setInterval(() => {
+            this.memoryInterval = setInterval(() => {
+                if (!this.isMonitoring) return;
+                
                 try {
                     const memory = performance.memory;
                     this.metrics.memoryUsage = memory.usedJSHeapSize / 1024 / 1024; // MB

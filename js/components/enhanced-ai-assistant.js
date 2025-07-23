@@ -21,6 +21,15 @@ class EnhancedAIAssistant extends HTMLElement {
         this.startContextualAnalysis();
     }
 
+    disconnectedCallback() {
+        console.log('Enhanced AI Assistant disconnecting...');
+        if (this.contextualAnalysisInterval) {
+            clearInterval(this.contextualAnalysisInterval);
+            this.contextualAnalysisInterval = null;
+        }
+        console.log('Enhanced AI Assistant cleanup complete');
+    }
+
     render() {
         this.innerHTML = `
             <div class="enhanced-ai-assistant ${this.isOpen ? 'open' : ''}">
@@ -334,8 +343,8 @@ class EnhancedAIAssistant extends HTMLElement {
     }
 
     startContextualAnalysis() {
-        // Analyze user behavior for better predictions
-        setInterval(() => {
+        // Analyze user behavior for better predictions - STORE THE INTERVAL
+        this.contextualAnalysisInterval = setInterval(() => {
             this.analyzeUserContext();
         }, 60000); // Every minute
     }

@@ -70,9 +70,19 @@ class EnhancedKnowledgeHub extends HTMLElement {
     }
 
     disconnectedCallback() {
+        console.log('Enhanced Knowledge Hub disconnecting...');
         if (this.realTimeUpdates) {
             clearInterval(this.realTimeUpdates);
+            this.realTimeUpdates = null;
         }
+        
+        // Disconnect intersection observer
+        if (this.observer) {
+            this.observer.disconnect();
+            this.observer = null;
+        }
+        
+        console.log('Enhanced Knowledge Hub cleanup complete');
     }
 
     loadEnhancedResources() {
@@ -921,6 +931,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
 
         const animateElements = this.querySelectorAll('.enhanced-resource-card, .ai-insight-card, .learning-path-card, .analytics-card');
         animateElements.forEach(el => observer.observe(el));
+        this.observer = observer; // Store observer for cleanup
     }
 
     showNotification(message, type = 'info') {

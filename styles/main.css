@@ -3137,6 +3137,348 @@ office-visualizer {
     }
 }
 
+/* Mobile responsiveness for color picker */
+@media (max-width: 768px) {
+    .color-picker-dropdown {
+        right: 10px;
+        min-width: calc(100vw - 20px);
+        max-width: 320px;
+    }
+    
+    .color-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-2);
+    }
+    
+    .color-option {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Ensure all icons in welcome section use theme colors */
+.welcome-section svg,
+.welcome-section .btn-icon,
+html body .welcome-section svg,
+body .welcome-section svg,
+#app .welcome-section svg,
+.dashboard .welcome-section svg,
+.main-content .welcome-section svg {
+    color: var(--welcome-text-muted) !important;
+    stroke: var(--welcome-text-muted) !important;
+}
+
+/* CRITICAL FIX: Override hardcoded purple colors in event elements */
+.event-time,
+.welcome-section .event-time,
+.upcoming-events .event-time,
+.events-list .event-time,
+html body .welcome-section .event-time,
+body .welcome-section .event-time,
+#app .welcome-section .event-time,
+.dashboard .welcome-section .event-time,
+.main-content .welcome-section .event-time,
+html body .event-time,
+body .event-time,
+#app .event-time,
+.dashboard .event-time,
+.main-content .event-time {
+    color: var(--welcome-text-muted) !important;
+    background: var(--primary-500) !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-1) var(--space-2) !important;
+    font-weight: 600 !important;
+    font-size: var(--font-size-xs) !important;
+}
+
+/* Fix event participants colors */
+.event-participants,
+.welcome-section .event-participants,
+.upcoming-events .event-participants,
+.events-list .event-participants,
+html body .welcome-section .event-participants,
+body .welcome-section .event-participants,
+#app .welcome-section .event-participants,
+.dashboard .welcome-section .event-participants,
+.main-content .welcome-section .event-participants {
+    color: var(--welcome-text-muted) !important;
+}
+
+/* Fix event participants SVG icons */
+.event-participants svg,
+.welcome-section .event-participants svg,
+.upcoming-events .event-participants svg,
+.events-list .event-participants svg,
+html body .welcome-section .event-participants svg,
+body .welcome-section .event-participants svg,
+#app .welcome-section .event-participants svg,
+.dashboard .welcome-section .event-participants svg,
+.main-content .welcome-section .event-participants svg {
+    stroke: var(--welcome-text-muted) !important;
+    color: var(--welcome-text-muted) !important;
+}
+
+/* Fix event titles to use proper white color on gradient background */
+.event-title,
+.welcome-section .event-title,
+.upcoming-events .event-title,
+.events-list .event-title,
+html body .welcome-section .event-title,
+body .welcome-section .event-title,
+#app .welcome-section .event-title,
+.dashboard .welcome-section .event-title,
+.main-content .welcome-section .event-title {
+    color: var(--welcome-text) !important;
+}
+
+/* Enhanced Calendar Quick Info */
+.calendar-quick-info {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    margin-top: var(--space-4);
+    padding: var(--space-4);
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+}
+
+.quick-stat {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    transition: all var(--duration-normal) var(--ease-in-out);
+}
+
+.quick-stat:hover {
+    background: var(--bg-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.quick-stat svg {
+    width: 16px;
+    height: 16px;
+    color: var(--primary-500);
+}
+
+.quick-stat-value {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.quick-stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-left: var(--space-1);
+}
+
+/* Header Color Picker Styles */
+.color-picker-menu {
+    position: relative;
+}
+
+.color-picker-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    min-width: 320px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s var(--ease-in-out);
+    z-index: 1000;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.color-picker-menu .color-picker-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.color-picker-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.color-picker-header h3 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.close-color-picker {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-lg);
+    transition: all var(--duration-normal) var(--ease-in-out);
+}
+
+.close-color-picker:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.color-options {
+    padding: var(--space-4);
+}
+
+.preset-colors p {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin: 0 0 var(--space-3) 0;
+    font-weight: 500;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.color-option {
+    width: 60px;
+    height: 60px;
+    border: 3px solid white;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    position: relative;
+    transition: all var(--duration-normal) var(--ease-spring);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+    border-color: var(--gray-300);
+}
+
+.color-option:focus {
+    outline: 2px solid var(--primary-500);
+    outline-offset: 2px;
+}
+
+.color-check {
+    color: white;
+    font-weight: bold;
+    font-size: var(--font-size-lg);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.custom-color {
+    margin-bottom: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-color);
+}
+
+.custom-color label {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2);
+    font-weight: 500;
+}
+
+.custom-color input[type="color"] {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--duration-normal) var(--ease-in-out);
+}
+
+.custom-color input[type="color"]:hover {
+    box-shadow: var(--shadow-md);
+    transform: scale(1.02);
+}
+
+.color-info {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+    text-align: center;
+    padding: var(--space-3);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    font-style: italic;
+}
+
+/* Dark mode adjustments for color picker */
+[data-theme="dark"] .color-picker-dropdown {
+    background: var(--gray-800);
+    border-color: var(--gray-700);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .color-picker-header {
+    border-color: var(--gray-700);
+}
+
+[data-theme="dark"] .custom-color {
+    border-color: var(--gray-700);
+}
+
+[data-theme="dark"] .color-info {
+    background: var(--gray-700);
+}
+
+/* Mobile responsiveness for color picker */
+@media (max-width: 768px) {
+    .color-picker-dropdown {
+        right: 10px;
+        min-width: calc(100vw - 20px);
+        max-width: 320px;
+    }
+    
+    .color-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-2);
+    }
+    
+    .color-option {
+        width: 50px;
+        height: 50px;
+    }
+}
+
 @media (max-width: 480px) {
     .analytics-dashboard {
         padding: var(--space-3);
@@ -21198,11 +21540,6 @@ input:checked + .slider:before {
 
 .recommendation-action:hover::before {
     opacity: 1;
-}
-
-.recommendation-action:hover svg {
-    color: white;
-    transform: translateX(2px);
 }
 
 .recommendation-action svg {

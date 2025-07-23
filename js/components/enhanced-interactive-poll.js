@@ -60,9 +60,12 @@ class EnhancedInteractivePoll extends HTMLElement {
     }
 
     disconnectedCallback() {
+        console.log('Enhanced Interactive Poll disconnecting...');
         if (this.pollInterval) {
             clearInterval(this.pollInterval);
+            this.pollInterval = null;
         }
+        console.log('Enhanced Interactive Poll cleanup complete');
         if (this.chartInstance) {
             this.chartInstance.destroy();
         }

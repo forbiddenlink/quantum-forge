@@ -20,21 +20,26 @@
     --welcome-accent-4: #f59e0b;
 }
 
-/* Main Welcome Section - ENHANCED DREAM DESIGN */
+/* 🚀 CONTEST-WINNING WELCOME SECTION - SPECTACULAR DESIGN */
 .welcome-section {
     margin-bottom: var(--space-6) !important;
     margin-top: 0 !important;
-    /* Enhanced background with less transparency */
+    /* ENHANCED Multi-layer animated background */
     background: 
-        /* Primary gradient */
+        /* Animated gradient waves */
+        linear-gradient(45deg, var(--welcome-bg-start) 0%, transparent 50%, var(--welcome-bg-start) 100%),
+        linear-gradient(-45deg, var(--welcome-bg-end) 0%, transparent 50%, var(--welcome-bg-end) 100%),
+        linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%),
+        /* Primary gradient base */
         linear-gradient(135deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%),
         /* Animated accent gradients */
-        radial-gradient(ellipse 1200px 900px at 20% 20%, rgba(139, 92, 246, 0.6) 0%, transparent 50%),
-        radial-gradient(ellipse 900px 1200px at 80% 80%, rgba(6, 182, 212, 0.5) 0%, transparent 50%),
-        radial-gradient(ellipse 700px 700px at 50% 50%, rgba(16, 185, 129, 0.4) 0%, transparent 70%),
-        radial-gradient(ellipse 500px 500px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
-        /* Enhanced texture overlay */
-        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px) !important;
+        radial-gradient(ellipse 1400px 1000px at 20% 20%, rgba(139, 92, 246, 0.6) 0%, transparent 50%),
+        radial-gradient(ellipse 1000px 1400px at 80% 80%, rgba(6, 182, 212, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 800px 800px at 50% 50%, rgba(16, 185, 129, 0.4) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
+        /* Enhanced texture overlay with animation */
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
     
     border-radius: var(--radius-2xl) !important;
     padding: var(--space-8) !important;
@@ -44,7 +49,8 @@
         var(--welcome-shadow),
         0 0 0 1px rgba(255, 255, 255, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.4),
-        0 0 40px rgba(99, 102, 241, 0.3) !important;
+        0 0 60px rgba(99, 102, 241, 0.4),
+        0 0 120px rgba(99, 102, 241, 0.2) !important;
     border: 1px solid var(--welcome-border) !important;
     color: var(--welcome-text) !important;
     
@@ -57,49 +63,168 @@
     /* Ensure no scrollbar */
     max-height: fit-content !important;
     
-    /* Subtle glow effect */
-    animation: glow 4s ease-in-out infinite !important;
+    /* SPECTACULAR glow and animation effects */
+    animation: 
+        welcomeGlow 6s ease-in-out infinite,
+        backgroundShift 20s linear infinite,
+        subtlePulse 4s ease-in-out infinite !important;
+    
+    /* 3D transform for depth */
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
-/* ENHANCED animated circle overlays */
+/* 🎨 SPECTACULAR KEYFRAME ANIMATIONS */
+@keyframes welcomeGlow {
+    0%, 100% { 
+        box-shadow: 
+            var(--welcome-shadow),
+            0 0 0 1px rgba(255, 255, 255, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4),
+            0 0 60px rgba(99, 102, 241, 0.4),
+            0 0 120px rgba(99, 102, 241, 0.2);
+    }
+    25% { 
+        box-shadow: 
+            var(--welcome-shadow),
+            0 0 0 1px rgba(255, 255, 255, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5),
+            0 0 80px rgba(139, 92, 246, 0.5),
+            0 0 140px rgba(139, 92, 246, 0.3);
+    }
+    50% { 
+        box-shadow: 
+            var(--welcome-shadow),
+            0 0 0 1px rgba(255, 255, 255, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.45),
+            0 0 70px rgba(6, 182, 212, 0.45),
+            0 0 130px rgba(6, 182, 212, 0.25);
+    }
+    75% { 
+        box-shadow: 
+            var(--welcome-shadow),
+            0 0 0 1px rgba(255, 255, 255, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.48),
+            0 0 75px rgba(16, 185, 129, 0.48),
+            0 0 135px rgba(16, 185, 129, 0.28);
+    }
+}
+
+@keyframes backgroundShift {
+    0% { background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%; }
+    25% { background-position: 100% 0%, 0% 100%, 25% 50%, 0% 0%, 25% 25%, 75% 75%, 45% 55%, 15% 75%, 25% 25%, 25% 25%; }
+    50% { background-position: 100% 100%, 0% 0%, 50% 50%, 0% 0%, 30% 30%, 70% 70%, 40% 60%, 20% 70%, 50% 50%, 50% 50%; }
+    75% { background-position: 0% 100%, 100% 0%, 75% 50%, 0% 0%, 35% 35%, 65% 65%, 35% 65%, 25% 65%, 75% 75%, 75% 75%; }
+    100% { background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%; }
+}
+
+@keyframes subtlePulse {
+    0%, 100% { transform: scale(1) translateZ(0); }
+    50% { transform: scale(1.01) translateZ(10px); }
+}
+
+/* ✨ ANIMATED FLOATING GEOMETRIC SHAPES */
 .welcome-section::before {
     content: '';
     position: absolute;
-    top: -80%;
-    right: -80%;
-    width: 260%;
-    height: 260%;
+    top: -100%;
+    right: -100%;
+    width: 300%;
+    height: 300%;
     background: 
-        radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.3) 20%, rgba(255, 255, 255, 0.15) 40%, rgba(255, 255, 255, 0.08) 60%, transparent 80%),
-        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.4) 0%, transparent 50%),
-        radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.2) 0%, transparent 40%);
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.1) 45%, transparent 60%),
+        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.5) 0%, rgba(139, 92, 246, 0.3) 20%, transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.4) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 50%),
+        radial-gradient(circle at 60% 20%, rgba(16, 185, 129, 0.3) 0%, transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.25) 0%, transparent 35%);
     border-radius: 50%;
-    animation: dreamFloat 20s ease-in-out infinite reverse;
+    animation: spectacularFloat 25s ease-in-out infinite reverse;
     pointer-events: none;
     z-index: 1;
-    filter: blur(0.8px);
-    box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.1);
+    filter: blur(1px);
+    box-shadow: 
+        inset 0 0 100px rgba(255, 255, 255, 0.15),
+        0 0 200px rgba(255, 255, 255, 0.1);
+    transform-origin: center center;
 }
 
 .welcome-section::after {
     content: '';
     position: absolute;
-    top: -40%;
-    left: -40%;
-    width: 180%;
-    height: 180%;
+    top: -60%;
+    left: -60%;
+    width: 220%;
+    height: 220%;
     background: 
-        radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.5) 0%, rgba(6, 182, 212, 0.3) 30%, rgba(6, 182, 212, 0.15) 50%, transparent 70%),
-        radial-gradient(circle at 20% 70%, rgba(16, 185, 129, 0.4) 0%, rgba(16, 185, 129, 0.2) 40%, transparent 60%),
-        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.3) 0%, rgba(245, 158, 11, 0.15) 30%, transparent 50%);
-    animation: dreamFloat 25s ease-in-out infinite;
+        radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.6) 0%, rgba(6, 182, 212, 0.4) 20%, rgba(6, 182, 212, 0.2) 40%, transparent 60%),
+        radial-gradient(circle at 20% 70%, rgba(16, 185, 129, 0.5) 0%, rgba(16, 185, 129, 0.3) 25%, rgba(16, 185, 129, 0.15) 50%, transparent 70%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.4) 0%, rgba(245, 158, 11, 0.2) 20%, rgba(245, 158, 11, 0.1) 40%, transparent 60%),
+        radial-gradient(circle at 50% 10%, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.15) 30%, transparent 50%);
+    animation: spectacularFloat 30s ease-in-out infinite;
     pointer-events: none;
     z-index: 1;
-    filter: blur(0.6px);
-    box-shadow: inset 0 0 60px rgba(6, 182, 212, 0.1);
+    filter: blur(0.8px);
+    box-shadow: 
+        inset 0 0 80px rgba(6, 182, 212, 0.2),
+        0 0 150px rgba(6, 182, 212, 0.1);
+    transform-origin: center center;
 }
 
-/* ENHANCED floating particles with better visibility */
+/* 🌟 ENHANCED FLOATING ANIMATION */
+@keyframes spectacularFloat {
+    0%, 100% {
+        transform: 
+            translateX(0px) 
+            translateY(0px) 
+            scale(1) 
+            rotate(0deg)
+            rotateX(0deg)
+            rotateY(0deg);
+        opacity: 0.8;
+    }
+    20% {
+        transform: 
+            translateX(20px) 
+            translateY(-30px) 
+            scale(1.05) 
+            rotate(2deg)
+            rotateX(5deg)
+            rotateY(3deg);
+        opacity: 1;
+    }
+    40% {
+        transform: 
+            translateX(-15px) 
+            translateY(-15px) 
+            scale(0.95) 
+            rotate(-1deg)
+            rotateX(-3deg)
+            rotateY(-2deg);
+        opacity: 0.9;
+    }
+    60% {
+        transform: 
+            translateX(-25px) 
+            translateY(20px) 
+            scale(1.03) 
+            rotate(1.5deg)
+            rotateX(4deg)
+            rotateY(2deg);
+        opacity: 0.95;
+    }
+    80% {
+        transform: 
+            translateX(15px) 
+            translateY(25px) 
+            scale(0.97) 
+            rotate(-0.8deg)
+            rotateX(-2deg)
+            rotateY(-1deg);
+        opacity: 1;
+    }
+}
+
+/* 🎯 SPECTACULAR PARTICLE SYSTEM - Enhanced */
 .welcome-section .particles {
     position: absolute;
     top: 0;
@@ -107,51 +232,125 @@
     right: 0;
     bottom: 0;
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
+    overflow: hidden;
 }
 
+/* 🌈 LARGE FEATURE PARTICLES */
 .welcome-section .particle {
     position: absolute;
     border-radius: 50%;
-    animation: dreamFloat 30s ease-in-out infinite;
+    pointer-events: none;
     filter: blur(0.5px);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
 }
 
 .welcome-section .particle:nth-child(1) {
-    width: 200px;
-    height: 200px;
-    top: 8%;
-    right: 12%;
-    animation: dreamFloat 28s ease-in-out infinite reverse;
+    width: 250px;
+    height: 250px;
+    top: 5%;
+    right: 8%;
+    animation: dreamyFloat 30s ease-in-out infinite reverse;
     background: 
-        radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.25) 30%, rgba(255, 255, 255, 0.15) 60%, rgba(255, 255, 255, 0.08) 80%, transparent 100%),
-        radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
-    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+        radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.35) 20%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0.05) 80%, transparent 100%),
+        radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.4) 0%, rgba(139, 92, 246, 0.2) 30%, transparent 60%);
+    box-shadow: 
+        0 0 60px rgba(255, 255, 255, 0.3),
+        inset 0 0 40px rgba(255, 255, 255, 0.1);
+    transform-origin: center center;
 }
 
 .welcome-section .particle:nth-child(2) {
-    width: 140px;
-    height: 140px;
-    bottom: 18%;
-    left: 8%;
-    animation: dreamFloat 32s ease-in-out infinite;
+    width: 180px;
+    height: 180px;
+    bottom: 12%;
+    left: 5%;
+    animation: dreamyFloat 35s ease-in-out infinite;
     background: 
-        radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.12) 70%, rgba(255, 255, 255, 0.06) 85%, transparent 100%),
-        radial-gradient(circle at 60% 60%, rgba(6, 182, 212, 0.2) 0%, transparent 50%);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+        radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.08) 75%, transparent 100%),
+        radial-gradient(circle at 60% 60%, rgba(6, 182, 212, 0.3) 0%, rgba(6, 182, 212, 0.15) 40%, transparent 60%);
+    box-shadow: 
+        0 0 45px rgba(255, 255, 255, 0.25),
+        inset 0 0 30px rgba(6, 182, 212, 0.1);
+    transform-origin: center center;
 }
 
 .welcome-section .particle:nth-child(3) {
-    width: 120px;
-    height: 120px;
-    top: 55%;
-    right: 25%;
-    animation: dreamFloat 35s ease-in-out infinite reverse;
+    width: 140px;
+    height: 140px;
+    top: 50%;
+    right: 20%;
+    animation: dreamyFloat 40s ease-in-out infinite reverse;
     background: 
-        radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 100%),
-        radial-gradient(circle at 30% 70%, rgba(16, 185, 129, 0.15) 0%, transparent 50%);
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.12);
+        radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.25) 30%, rgba(255, 255, 255, 0.12) 60%, rgba(255, 255, 255, 0.06) 80%, transparent 100%),
+        radial-gradient(circle at 30% 70%, rgba(16, 185, 129, 0.25) 0%, rgba(16, 185, 129, 0.1) 50%, transparent 70%);
+    box-shadow: 
+        0 0 35px rgba(255, 255, 255, 0.2),
+        inset 0 0 25px rgba(16, 185, 129, 0.08);
+    transform-origin: center center;
+}
+
+/* 🎭 ENHANCED DREAMY FLOAT ANIMATION */
+@keyframes dreamyFloat {
+    0%, 100% {
+        transform: 
+            translateX(0px) 
+            translateY(0px) 
+            scale(1) 
+            rotate(0deg)
+            rotateZ(0deg);
+        opacity: 0.7;
+        filter: blur(0.5px) hue-rotate(0deg);
+    }
+    16% {
+        transform: 
+            translateX(25px) 
+            translateY(-35px) 
+            scale(1.08) 
+            rotate(3deg)
+            rotateZ(2deg);
+        opacity: 1;
+        filter: blur(0.3px) hue-rotate(60deg);
+    }
+    33% {
+        transform: 
+            translateX(-20px) 
+            translateY(-20px) 
+            scale(0.92) 
+            rotate(-1.5deg)
+            rotateZ(-1deg);
+        opacity: 0.85;
+        filter: blur(0.7px) hue-rotate(120deg);
+    }
+    50% {
+        transform: 
+            translateX(-30px) 
+            translateY(25px) 
+            scale(1.05) 
+            rotate(2deg)
+            rotateZ(1.5deg);
+        opacity: 0.95;
+        filter: blur(0.4px) hue-rotate(180deg);
+    }
+    66% {
+        transform: 
+            translateX(18px) 
+            translateY(30px) 
+            scale(0.96) 
+            rotate(-1deg)
+            rotateZ(-0.5deg);
+        opacity: 1;
+        filter: blur(0.6px) hue-rotate(240deg);
+    }
+    83% {
+        transform: 
+            translateX(12px) 
+            translateY(-15px) 
+            scale(1.02) 
+            rotate(0.5deg)
+            rotateZ(0.8deg);
+        opacity: 0.9;
+        filter: blur(0.5px) hue-rotate(300deg);
+    }
 }
 
 /* Welcome Header - Enhanced typography */
@@ -1643,3 +1842,709 @@ body .welcome-section .event-participants svg,
   color: #64748b !important;
   fill: none !important;
 }
+
+/* 🌟 FLOATING EMOJI PARTICLES - Contest Enhancement */
+.welcome-section .floating-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 3;
+    overflow: hidden;
+}
+
+.welcome-section .floating-icon {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.6;
+    pointer-events: none;
+    animation: iconFloat 25s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.welcome-section .floating-icon:nth-child(1) {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 28s;
+}
+
+.welcome-section .floating-icon:nth-child(2) {
+    top: 25%;
+    right: 15%;
+    animation-delay: -5s;
+    animation-duration: 32s;
+}
+
+.welcome-section .floating-icon:nth-child(3) {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: -10s;
+    animation-duration: 35s;
+}
+
+.welcome-section .floating-icon:nth-child(4) {
+    bottom: 30%;
+    right: 25%;
+    animation-delay: -15s;
+    animation-duration: 30s;
+}
+
+.welcome-section .floating-icon:nth-child(5) {
+    top: 40%;
+    left: 60%;
+    animation-delay: -20s;
+    animation-duration: 26s;
+}
+
+.welcome-section .floating-icon:nth-child(6) {
+    top: 60%;
+    right: 40%;
+    animation-delay: -8s;
+    animation-duration: 38s;
+}
+
+@keyframes iconFloat {
+    0%, 100% {
+        transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateX(30px) translateY(-40px) rotate(90deg) scale(1.2);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateX(-20px) translateY(-20px) rotate(180deg) scale(0.8);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translateX(-35px) translateY(30px) rotate(270deg) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* 🌈 AURORA EFFECT - Gradient Waves */
+.welcome-section .aurora-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: 
+        linear-gradient(45deg, transparent 0%, rgba(139, 92, 246, 0.1) 25%, transparent 50%, rgba(6, 182, 212, 0.1) 75%, transparent 100%),
+        linear-gradient(-45deg, transparent 0%, rgba(16, 185, 129, 0.08) 30%, transparent 60%, rgba(245, 158, 11, 0.08) 90%, transparent 100%);
+    background-size: 400% 400%, 300% 300%;
+    animation: auroraShift 15s ease-in-out infinite;
+    filter: blur(2px);
+    opacity: 0.7;
+}
+
+@keyframes auroraShift {
+    0%, 100% {
+        background-position: 0% 50%, 100% 50%;
+        opacity: 0.7;
+    }
+    25% {
+        background-position: 100% 0%, 0% 100%;
+        opacity: 0.9;
+    }
+    50% {
+        background-position: 100% 100%, 0% 0%;
+        opacity: 0.6;
+    }
+    75% {
+        background-position: 0% 100%, 100% 0%;
+        opacity: 0.8;
+    }
+}
+
+/* ⭐ CONSTELLATION PATTERN - Connecting Lines */
+.welcome-section .constellation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.3;
+}
+
+.welcome-section .constellation-line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    height: 1px;
+    transform-origin: left center;
+    animation: constellationPulse 8s ease-in-out infinite;
+}
+
+.welcome-section .constellation-line:nth-child(1) {
+    top: 20%;
+    left: 15%;
+    width: 120px;
+    transform: rotate(25deg);
+    animation-delay: 0s;
+}
+
+.welcome-section .constellation-line:nth-child(2) {
+    top: 35%;
+    right: 20%;
+    width: 80px;
+    transform: rotate(-15deg);
+    animation-delay: -2s;
+}
+
+.welcome-section .constellation-line:nth-child(3) {
+    bottom: 25%;
+    left: 25%;
+    width: 100px;
+    transform: rotate(45deg);
+    animation-delay: -4s;
+}
+
+.welcome-section .constellation-line:nth-child(4) {
+    bottom: 40%;
+    right: 30%;
+    width: 60px;
+    transform: rotate(-30deg);
+    animation-delay: -6s;
+}
+
+@keyframes constellationPulse {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(1) rotate(var(--rotation, 0deg));
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1) rotate(var(--rotation, 0deg));
+    }
+}
+
+/* 🎆 SPARKLE PARTICLES - Tiny Animated Dots */
+.welcome-section .sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.welcome-section .sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.3) 70%, transparent 100%);
+    border-radius: 50%;
+    animation: sparkleAnimation 3s ease-in-out infinite;
+}
+
+.welcome-section .sparkle:nth-child(odd) {
+    animation-duration: 2.5s;
+    animation-delay: -1s;
+}
+
+.welcome-section .sparkle:nth-child(even) {
+    animation-duration: 3.5s;
+    animation-delay: -2s;
+}
+
+.welcome-section .sparkle:nth-child(3n) {
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.8) 0%, rgba(139, 92, 246, 0.2) 70%, transparent 100%);
+}
+
+.welcome-section .sparkle:nth-child(5n) {
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.8) 0%, rgba(6, 182, 212, 0.2) 70%, transparent 100%);
+}
+
+@keyframes sparkleAnimation {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5) rotate(180deg);
+    }
+}
+
+/* 🌊 WAVE DISTORTION EFFECT */
+.welcome-section .wave-distortion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+    background: 
+        radial-gradient(ellipse 200px 100px at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 150px 75px at 80% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 180px 90px at 50% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+    background-size: 100% 100%;
+    animation: waveDistort 12s ease-in-out infinite;
+    filter: blur(1px);
+}
+
+@keyframes waveDistort {
+    0%, 100% {
+        transform: translateX(0%) scaleX(1) scaleY(1);
+        background-position: 0% 50%, 100% 30%, 50% 80%;
+    }
+    25% {
+        transform: translateX(5%) scaleX(1.1) scaleY(0.9);
+        background-position: 25% 60%, 75% 40%, 60% 70%;
+    }
+    50% {
+        transform: translateX(-3%) scaleX(0.9) scaleY(1.1);
+        background-position: 50% 70%, 50% 50%, 70% 60%;
+    }
+    75% {
+        transform: translateX(2%) scaleX(1.05) scaleY(0.95);
+        background-position: 75% 40%, 25% 60%, 40% 90%;
+    }
+}
+
+/* 🎨 INTERACTIVE MOUSE FOLLOW EFFECT */
+.welcome-section:hover {
+    animation-play-state: paused;
+    transform: scale(1.002) translateZ(5px);
+}
+
+.welcome-section .mouse-follower {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 50%, transparent 70%);
+    pointer-events: none;
+    z-index: 2;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+}
+
+.welcome-section:hover .mouse-follower {
+    opacity: 1;
+}
+
+/* 🔮 HOLOGRAPHIC SHIMMER EFFECT */
+.welcome-section .holographic-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 5;
+    background: linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.03) 25%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.03) 75%, 
+        transparent 100%
+    );
+    background-size: 60px 60px;
+    animation: holographicShimmer 8s linear infinite;
+    opacity: 0.6;
+    mix-blend-mode: overlay;
+}
+
+@keyframes holographicShimmer {
+    0% {
+        background-position: -60px -60px;
+    }
+    100% {
+        background-position: 60px 60px;
+    }
+}
+
+/* 🎯 PULSING ENERGY RINGS */
+.welcome-section .energy-rings {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.welcome-section .energy-ring {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: energyPulse 6s ease-in-out infinite;
+}
+
+.welcome-section .energy-ring:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.welcome-section .energy-ring:nth-child(2) {
+    width: 400px;
+    height: 400px;
+    top: -200px;
+    left: -200px;
+    animation-delay: -2s;
+}
+
+.welcome-section .energy-ring:nth-child(3) {
+    width: 600px;
+    height: 600px;
+    top: -300px;
+    left: -300px;
+    animation-delay: -4s;
+}
+
+@keyframes energyPulse {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(1);
+        border-color: rgba(99, 102, 241, 0.3);
+    }
+}
+
+/* 📱 MOBILE RESPONSIVENESS & PERFORMANCE OPTIMIZATIONS */
+@media (max-width: 768px) {
+    .welcome-section {
+        padding: var(--space-6) var(--space-4) !important;
+        /* Reduce animation complexity on mobile for better performance */
+        animation: 
+            welcomeGlow 8s ease-in-out infinite,
+            subtlePulse 6s ease-in-out infinite !important;
+    }
+    
+    /* Simplify background effects on mobile */
+    .welcome-section::before {
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        right: -50%;
+        animation-duration: 30s;
+        filter: blur(2px);
+    }
+    
+    .welcome-section::after {
+        width: 150%;
+        height: 150%;
+        top: -25%;
+        left: -25%;
+        animation-duration: 35s;
+        filter: blur(1.5px);
+    }
+    
+    /* Optimize particles for mobile */
+    .welcome-section .particle:nth-child(1) {
+        width: 150px;
+        height: 150px;
+        animation-duration: 35s;
+    }
+    
+    .welcome-section .particle:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        animation-duration: 40s;
+    }
+    
+    .welcome-section .particle:nth-child(3) {
+        width: 100px;
+        height: 100px;
+        animation-duration: 45s;
+    }
+    
+    /* Reduce floating icons on mobile */
+    .welcome-section .floating-icon:nth-child(n+4) {
+        display: none;
+    }
+    
+    .welcome-section .floating-icon {
+        font-size: 1.5rem;
+        animation-duration: 30s;
+    }
+    
+    /* Reduce sparkles on mobile */
+    .welcome-section .sparkle:nth-child(n+11) {
+        display: none;
+    }
+    
+    /* Simplify constellation on mobile */
+    .welcome-section .constellation-line:nth-child(n+3) {
+        display: none;
+    }
+    
+    /* Reduce energy rings on mobile */
+    .welcome-section .energy-ring:nth-child(3) {
+        display: none;
+    }
+    
+    /* Optimize aurora effect */
+    .welcome-section .aurora-effect {
+        animation-duration: 20s;
+        filter: blur(3px);
+        opacity: 0.5;
+    }
+    
+    /* Disable mouse follower on mobile */
+    .welcome-section .mouse-follower {
+        display: none;
+    }
+    
+    /* Optimize holographic overlay */
+    .welcome-section .holographic-overlay {
+        animation-duration: 12s;
+        opacity: 0.3;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-section {
+        padding: var(--space-4) var(--space-3) !important;
+        border-radius: var(--radius-xl) !important;
+        
+        /* Further reduce animations on small screens */
+        animation: welcomeGlow 10s ease-in-out infinite !important;
+    }
+    
+    /* Minimal particles on very small screens */
+    .welcome-section .particle:nth-child(n+2) {
+        display: none;
+    }
+    
+    .welcome-section .particle:nth-child(1) {
+        width: 100px;
+        height: 100px;
+        animation-duration: 40s;
+    }
+    
+    /* Reduce floating icons further */
+    .welcome-section .floating-icon:nth-child(n+3) {
+        display: none;
+    }
+    
+    /* Minimal sparkles */
+    .welcome-section .sparkle:nth-child(n+6) {
+        display: none;
+    }
+    
+    /* Hide constellation on very small screens */
+    .welcome-section .constellation {
+        display: none;
+    }
+    
+    /* Hide wave distortion on very small screens */
+    .welcome-section .wave-distortion {
+        display: none;
+    }
+}
+
+/* 🎭 PERFORMANCE OPTIMIZATIONS */
+@media (prefers-reduced-motion: reduce) {
+    .welcome-section,
+    .welcome-section::before,
+    .welcome-section::after,
+    .welcome-section .particle,
+    .welcome-section .floating-icon,
+    .welcome-section .sparkle,
+    .welcome-section .aurora-effect,
+    .welcome-section .constellation-line,
+    .welcome-section .wave-distortion,
+    .welcome-section .holographic-overlay,
+    .welcome-section .energy-ring {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 🚀 HIGH PERFORMANCE MODE */
+@media (max-width: 1024px) and (max-height: 768px) {
+    /* Optimize for tablets and smaller laptops */
+    .welcome-section {
+        animation-duration: 8s, 25s, 6s !important;
+    }
+    
+    .welcome-section::before,
+    .welcome-section::after {
+        animation-duration: 30s, 35s !important;
+    }
+    
+    .welcome-section .particle {
+        animation-duration: 35s !important;
+    }
+    
+    .welcome-section .floating-icon {
+        animation-duration: 30s !important;
+    }
+    
+    .welcome-section .aurora-effect {
+        animation-duration: 18s !important;
+    }
+    
+    .welcome-section .holographic-overlay {
+        animation-duration: 10s !important;
+    }
+}
+
+/* 🎨 ACCESSIBILITY ENHANCEMENTS */
+@media (forced-colors: active) {
+    .welcome-section {
+        background: Canvas !important;
+        color: CanvasText !important;
+        border-color: ButtonBorder !important;
+    }
+    
+    .welcome-section::before,
+    .welcome-section::after,
+    .welcome-section .aurora-effect,
+    .welcome-section .wave-distortion,
+    .welcome-section .holographic-overlay {
+        display: none !important;
+    }
+    
+    .welcome-section .particle,
+    .welcome-section .floating-icon,
+    .welcome-section .sparkle,
+    .welcome-section .constellation-line,
+    .welcome-section .energy-ring {
+        display: none !important;
+    }
+}
+
+/* 🌟 CONTEST-WINNING HOVER EFFECTS */
+.welcome-section:hover .particle {
+    animation-play-state: paused;
+    transform: scale(1.1);
+    filter: brightness(1.2) saturate(1.3);
+}
+
+.welcome-section:hover .floating-icon {
+    animation-play-state: paused;
+    transform: scale(1.2) rotate(45deg);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+.welcome-section:hover .sparkle {
+    animation-duration: 1s !important;
+    opacity: 1 !important;
+}
+
+.welcome-section:hover .aurora-effect {
+    opacity: 1;
+    filter: blur(1px);
+}
+
+.welcome-section:hover .constellation-line {
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.welcome-section:hover .energy-ring {
+    animation-duration: 3s !important;
+    border-color: rgba(99, 102, 241, 0.6) !important;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+/* 💫 SPECTACULAR FOCUS EFFECTS */
+.welcome-section:focus-within {
+    outline: 3px solid rgba(99, 102, 241, 0.5);
+    outline-offset: 4px;
+    box-shadow: 
+        var(--welcome-shadow),
+        0 0 0 1px rgba(255, 255, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        0 0 80px rgba(99, 102, 241, 0.6),
+        0 0 160px rgba(99, 102, 241, 0.4) !important;
+}
+
+/* 🎯 LOADING ANIMATION */
+.welcome-section.loading {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: welcomeLoad 1.5s ease-out forwards;
+}
+
+@keyframes welcomeLoad {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+    }
+    60% {
+        opacity: 0.8;
+        transform: scale(1.02) translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* 🏆 CONTEST WINNER BADGE EFFECT */
+.welcome-section.contest-winner {
+    position: relative;
+}
+
+.welcome-section.contest-winner::before {
+    content: '🏆';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    z-index: 10;
+    animation: winnerBadge 2s ease-in-out infinite;
+}
+
+@keyframes winnerBadge {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+    50% {
+        transform: scale(1.1) rotate(5deg);
+        text-shadow: 0 0 30px rgba(255, 215, 0, 1);
+    }
+}
+
+/* 🎨 GPU ACCELERATION FOR SMOOTH PERFORMANCE */
+.welcome-section,
+.welcome-section::before,
+.welcome-section::after,
+.welcome-section .particle,
+.welcome-section .floating-icon,
+.welcome-section .sparkle,
+.welcome-section .aurora-effect,
+.welcome-section .constellation-line,
+.welcome-section .wave-distortion,
+.welcome-section .mouse-follower,
+.welcome-section .holographic-overlay,
+.welcome-section .energy-ring {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* 🌈 THEME SYNCHRONIZATION */
+.welcome-section[data-theme="dark"] {
+    --welcome-bg-start: #1e293b;
+    --welcome-bg-end: #0f172a;
+    --welcome-text: #f8fafc;
+    --welcome-overlay: rgba(255, 255, 255, 0.05);
+}
+
+/* Welcome Header - Enhanced typography */

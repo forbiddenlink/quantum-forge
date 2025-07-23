@@ -19,6 +19,15 @@ class AchievementSystem extends HTMLElement {
         this.startTracking();
     }
 
+    disconnectedCallback() {
+        console.log('Achievement System disconnecting...');
+        if (this.achievementInterval) {
+            clearInterval(this.achievementInterval);
+            this.achievementInterval = null;
+        }
+        console.log('Achievement System cleanup complete');
+    }
+
     render() {
         this.innerHTML = `
             <div class="achievement-system">
@@ -125,7 +134,7 @@ class AchievementSystem extends HTMLElement {
         this.trackDailyLogin();
         
         // Set up periodic checks
-        setInterval(() => {
+        this.achievementInterval = setInterval(() => {
             this.checkForNewAchievements();
         }, 30000); // Check every 30 seconds
     }

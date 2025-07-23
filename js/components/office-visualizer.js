@@ -1083,14 +1083,17 @@ class OfficeVisualizer extends HTMLElement {
         }
     }
 
-    handleResize() {
-        const container = this.querySelector('#visualizerCanvas');
-        const width = container.clientWidth;
-        const height = container.clientHeight || 500;
-
-        this.camera.aspect = width / height;
-        this.camera.updateProjectionMatrix();
-        this.renderer.setSize(width, height);
+    handleResize = () => {
+        if (this.renderer && this.camera) {
+            const container = this.querySelector('#visualizerCanvas');
+            if (container) {
+                const width = container.clientWidth;
+                const height = container.clientHeight || 500;
+                this.camera.aspect = width / height;
+                this.camera.updateProjectionMatrix();
+                this.renderer.setSize(width, height);
+            }
+        }
     }
 
     showFallbackContent() {
@@ -1418,13 +1421,30 @@ class OfficeVisualizer extends HTMLElement {
     }
 
     disconnectedCallback() {
+        console.log('Office Visualizer disconnecting...');
+        
+        // Cancel animation frame
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
+            this.animationFrame = null;
         }
-        this.isInitialized = false;
-        this.renderer?.dispose();
-        this.scene?.clear();
-        window.removeEventListener('resize', () => this.handleResize());
+        
+        // Clean up Three.js scene
+        if (this.scene) {
+            this.scene.clear();
+            this.scene = null;
+        }
+        
+        // Clean up renderer
+        if (this.renderer) {
+            this.renderer.dispose();
+            this.renderer = null;
+        }
+        
+        // Remove window event listeners
+        window.removeEventListener('resize', this.handleResize);
+        
+        console.log('Office Visualizer cleanup complete');
     }
 }
 

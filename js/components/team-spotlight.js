@@ -236,13 +236,34 @@ class TeamSpotlight extends HTMLElement {
     }
 
     disconnectedCallback() {
+        console.log('Team Spotlight disconnecting...');
         this.stopAutoplay();
         this.stopRealTimeUpdates();
+        
+        // Clean up the real-time data interval that wasn't being tracked
+        if (this.realTimeDataInterval) {
+            clearInterval(this.realTimeDataInterval);
+            this.realTimeDataInterval = null;
+        }
+        
+        // Disconnect intersection observer
+        if (this.observer) {
+            this.observer.disconnect();
+            this.observer = null;
+        }
+        
+        // Cancel animation frames
+        if (this.animationFrame) {
+            cancelAnimationFrame(this.animationFrame);
+            this.animationFrame = null;
+        }
+        
+        console.log('Team Spotlight cleanup complete');
     }
 
     initializeRealTimeData() {
-        // Simulate real-time productivity updates
-        setInterval(() => {
+        // Simulate real-time productivity updates - STORE THE INTERVAL ID
+        this.realTimeDataInterval = setInterval(() => {
             this.members.forEach(member => {
                 // Small random productivity fluctuations
                 const change = (Math.random() - 0.5) * 2;

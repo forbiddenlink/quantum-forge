@@ -81,6 +81,8 @@ class AnalyticsService {
             dataPoints: 0,
             errorCount: 0
         };
+        this.debounceTimeout = null;
+        this.isActive = false;
 
         // Immediately notify any subscribers with initial data
         this.notifySubscribers(this.data);
@@ -311,25 +313,54 @@ class AnalyticsService {
         };
     }
 
-    // Method to manually stop updates
-    stopUpdates() {
-        if (window.performanceManager) {
-            window.performanceManager.clearInterval('analytics-data');
+    startRealTimeUpdates() {
+        if (this.isActive) return; // Prevent multiple intervals
+        
+        this.isActive = true;
+        console.log('Analytics Service: Starting real-time updates');
+        
+        if (window.performanceManager && window.performanceManager.createManagedInterval) {
+            // Use performance manager for better resource management
+            this.updateInterval = window.performanceManager.createManagedInterval(() => {
+                if (!this.isActive) return;
+                this.generateMockData();
+                this.notifySubscribers();
+                this.performanceMetrics.dataPoints++;
+            }, 8000, { updateFrequency: 2 });
+        } else {
+            // Fallback with proper cleanup tracking
+            console.warn('Performance manager not available, using direct interval');
+            this.updateInterval = setInterval(() => {
+                if (!this.isActive) return;
+                this.queueUpdate();
+            }, 10000);
         }
-        if (this.updateInterval) {
-            clearInterval(this.updateInterval);
-            this.updateInterval = null;
-        }
-        this.isRealTimeEnabled = false;
-        console.log('Analytics service updates manually stopped');
     }
 
-    // Method to restart updates if needed
-    restartUpdates() {
-        this.updateCounter = 0;
-        this.isRealTimeEnabled = true;
-        this.generateMockData();
-        console.log('Analytics service updates restarted');
+    stopRealTimeUpdates() {
+        console.log('Analytics Service: Stopping real-time updates');
+        this.isActive = false;
+        
+        if (this.updateInterval) {
+            if (window.performanceManager && window.performanceManager.clearManagedInterval) {
+                window.performanceManager.clearManagedInterval(this.updateInterval);
+            } else {
+                clearInterval(this.updateInterval);
+            }
+            this.updateInterval = null;
+        }
+        
+        if (this.debounceTimeout) {
+            clearTimeout(this.debounceTimeout);
+            this.debounceTimeout = null;
+        }
+    }
+
+    destroy() {
+        console.log('Analytics Service: Destroying...');
+        this.stopRealTimeUpdates();
+        this.subscribers.clear();
+        console.log('Analytics Service: Destroyed');
     }
 
     // Method to toggle real-time updates
@@ -338,9 +369,9 @@ class AnalyticsService {
         console.log(`Real-time updates ${this.isRealTimeEnabled ? 'enabled' : 'disabled'}`);
         
         if (this.isRealTimeEnabled) {
-            this.restartUpdates();
+            this.startRealTimeUpdates();
         } else {
-            this.stopUpdates();
+            this.stopRealTimeUpdates();
         }
     }
 }

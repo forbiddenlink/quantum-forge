@@ -215,11 +215,20 @@ class CollaborationHub extends HTMLElement {
 
     startRealTimeUpdates() {
         // Simulate real-time updates
-        setInterval(() => {
+        this.realTimeInterval = setInterval(() => {
             this.updateActiveUsers();
             this.updateSharedDocuments();
             this.updateCollaborativeSpaces();
         }, 5000);
+    }
+
+    disconnectedCallback() {
+        console.log('Collaboration Hub disconnecting...');
+        if (this.realTimeInterval) {
+            clearInterval(this.realTimeInterval);
+            this.realTimeInterval = null;
+        }
+        console.log('Collaboration Hub cleanup complete');
     }
 
     loadMockData() {

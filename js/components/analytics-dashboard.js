@@ -181,13 +181,33 @@ class AnalyticsDashboard extends HTMLElement {
         }
         if (this.realTimeUpdates) {
             clearInterval(this.realTimeUpdates);
+            this.realTimeUpdates = null;
         }
         if (this.insightRotationInterval) {
             clearInterval(this.insightRotationInterval);
+            this.insightRotationInterval = null;
         }
+        if (this.updateInterval) {
+            clearInterval(this.updateInterval);
+            this.updateInterval = null;
+        }
+        
+        // Cancel animation frames
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
+            this.animationFrame = null;
         }
+        if (this.pulseAnimation) {
+            cancelAnimationFrame(this.pulseAnimation);
+            this.pulseAnimation = null;
+        }
+        
+        // Disconnect any observers
+        if (this.observer) {
+            this.observer.disconnect();
+            this.observer = null;
+        }
+        
         this.chartInstances.forEach(chart => chart.destroy());
         this.chartInstances.clear();
         console.log('Analytics Dashboard cleanup complete');

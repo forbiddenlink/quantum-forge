@@ -540,12 +540,29 @@ class EnhancedOfficeVisualizer extends HTMLElement {
     }
 
     disconnectedCallback() {
+        console.log('Enhanced Office Visualizer disconnecting...');
+        
+        // Cancel animation frame
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
+            this.animationFrame = null;
         }
+        
+        // Remove window event listener
+        window.removeEventListener('resize', this.onWindowResize);
+        
+        // Clean up Three.js resources
+        if (this.scene) {
+            this.scene.clear();
+            this.scene = null;
+        }
+        
         if (this.renderer) {
             this.renderer.dispose();
+            this.renderer = null;
         }
+        
+        console.log('Enhanced Office Visualizer cleanup complete');
     }
 }
 

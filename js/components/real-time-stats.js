@@ -23,14 +23,26 @@ class RealTimeStats extends HTMLElement {
     }
 
     disconnectedCallback() {
+        console.log('Real-time Stats disconnecting...');
         if (this.updateInterval) {
             clearInterval(this.updateInterval);
+            this.updateInterval = null;
         }
+        
+        // Cancel any animation frames
+        if (this.animationFrame) {
+            cancelAnimationFrame(this.animationFrame);
+            this.animationFrame = null;
+        }
+        
         this.chartInstances.forEach(chart => {
             if (chart && chart.destroy) {
                 chart.destroy();
             }
         });
+        this.chartInstances = [];
+        
+        console.log('Real-time Stats cleanup complete');
     }
 
     render() {

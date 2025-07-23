@@ -42,7 +42,19 @@ class CompanyNews extends HTMLElement {
     }
 
     disconnectedCallback() {
-        this.stopAutoplay();
+        console.log('Company News disconnecting...');
+        if (this.autoplayInterval) {
+            clearInterval(this.autoplayInterval);
+            this.autoplayInterval = null;
+        }
+        
+        // Cancel animation frames
+        if (this.animationFrame) {
+            cancelAnimationFrame(this.animationFrame);
+            this.animationFrame = null;
+        }
+        
+        console.log('Company News cleanup complete');
     }
 
     loadNews() {

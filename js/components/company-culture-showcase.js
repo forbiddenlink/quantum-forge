@@ -282,15 +282,34 @@ class CompanyCultureShowcase extends HTMLElement {
     }
 
     disconnectedCallback() {
+        console.log('Company Culture Showcase disconnecting...');
         if (this.storyInterval) {
             clearInterval(this.storyInterval);
+            this.storyInterval = null;
         }
         if (this.updateInterval) {
             clearInterval(this.updateInterval);
+            this.updateInterval = null;
         }
+        
+        // Disconnect intersection observers
+        if (this.observer) {
+            this.observer.disconnect();
+            this.observer = null;
+        }
+        
+        if (this.animationObserver) {
+            this.animationObserver.disconnect();
+            this.animationObserver = null;
+        }
+        
+        // Cancel animation frames
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
+            this.animationFrame = null;
         }
+        
+        console.log('Company Culture Showcase cleanup complete');
     }
 
     initializeParticles() {

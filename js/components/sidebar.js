@@ -5,6 +5,7 @@ class Sidebar extends HTMLElement {
         this.activeItem = 'dashboard';
         this.favorites = new Set(['calendar', 'team', 'projects']);
         this.collapsed = false;
+        this.resizeHandler = this.handleResize.bind(this);
     }
 
     connectedCallback() {
@@ -58,6 +59,24 @@ class Sidebar extends HTMLElement {
                 console.log('🔄 Double-click toggle added to sidebar header');
             }
         }, 200);
+
+        // Add resize listener
+        window.addEventListener('resize', this.resizeHandler);
+    }
+
+    disconnectedCallback() {
+        console.log('Sidebar disconnecting...');
+        // Remove resize listener
+        window.removeEventListener('resize', this.resizeHandler);
+        console.log('Sidebar cleanup complete');
+    }
+
+    handleResize() {
+        // Handle resize logic here
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile && this.classList.contains('active')) {
+            this.classList.remove('active');
+        }
     }
 
     detectCurrentPage() {

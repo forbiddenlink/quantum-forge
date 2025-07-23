@@ -90,16 +90,32 @@ class EnhancedTaskSystem extends HTMLElement {
     }
     
     disconnectedCallback() {
+        console.log('Task System disconnecting...');
         if (this.realTimeUpdates) {
             clearInterval(this.realTimeUpdates);
+            this.realTimeUpdates = null;
         }
         this.stopRealTimeUpdates();
+        
+        // Clean up the performance tracking interval
+        if (this.performanceInterval) {
+            clearInterval(this.performanceInterval);
+            this.performanceInterval = null;
+        }
+        
+        // Clean up the insight protection interval (line 224)
+        if (this.insightProtectionInterval) {
+            clearInterval(this.insightProtectionInterval);
+            this.insightProtectionInterval = null;
+        }
         
         // Clean up the insight protection observer
         if (this.insightObserver) {
             this.insightObserver.disconnect();
             this.insightObserver = null;
         }
+        
+        console.log('Task System cleanup complete');
     }
     
     startRealTimeUpdates() {
@@ -221,13 +237,13 @@ class EnhancedTaskSystem extends HTMLElement {
              // Store the observer for cleanup
              this.insightObserver = observer;
              
-             // Also set up a periodic check as a backup
-             setInterval(() => {
-                 const hasVisibleInsights = insightsContainer.querySelectorAll('.ai-insight-card').length > 0;
-                 if (!hasVisibleInsights && !this.isDeliberatelyClearing) {
-                     console.log('🛡️ Periodic check: AI insights missing, restoring...');
-                     this.forceRenderAIInsights();
-                 }
+                         // Also set up a periodic check as a backup - STORE THE INTERVAL
+            this.insightProtectionInterval = setInterval(() => {
+                const hasVisibleInsights = insightsContainer.querySelectorAll('.ai-insight-card').length > 0;
+                if (!hasVisibleInsights && !this.isDeliberatelyClearing) {
+                    console.log('🛡️ Periodic check: AI insights missing, restoring...');
+                    this.forceRenderAIInsights();
+                }
              }, 10000); // Check every 10 seconds
          }
      }

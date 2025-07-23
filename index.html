@@ -273,13 +273,18 @@
         }
     </script>
     
-    <!-- RESTORED: Essential CSS for Page Function -->
-    <!-- Core styles that must load immediately -->
+    <!-- EMERGENCY MEMORY LEAK FIX - LOAD FIRST -->
+    <script src="js/emergency-memory-fix.js"></script>
+    
+    <!-- ENHANCED ACCESSIBILITY FEATURES -->
+    <script src="js/components/accessibility-enhancements.js"></script>
+    
+    <!-- RESTORED: Your original working CSS -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/enhanced.css">
-    <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/welcome-section.css">
-    <link rel="stylesheet" href="styles/responsive-system.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/simple-mobile.css">
     
     <!-- Additional CSS - Load Asynchronously for Better Performance -->
     <link rel="preload" href="styles/enhanced-colors.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -299,6 +304,8 @@
     <link rel="preload" href="styles/team-chat-widget.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="styles/component-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="styles/smart-search-overlay.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/mobile-performance-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/accessibility-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- Fallback for browsers that don't support preload -->
     <noscript>
@@ -319,6 +326,8 @@
         <link rel="stylesheet" href="styles/team-chat-widget.css">
         <link rel="stylesheet" href="styles/component-enhancements.css">
         <link rel="stylesheet" href="styles/smart-search-overlay.css">
+        <link rel="stylesheet" href="styles/mobile-performance-enhancements.css">
+        <link rel="stylesheet" href="styles/accessibility-enhancements.css">
     </noscript>
     
 
@@ -332,6 +341,16 @@
             <p>Preparing your enhanced digital workspace</p>
         </div>
     </div>
+    
+    <script>
+        // SIMPLE LOADING SCREEN FIX
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+            }
+        }, 100);
+    </script>
     
     <script>
         console.log('🚀 Quantum Forge loading...');
@@ -384,6 +403,21 @@
             console.log('Fallback timer triggered, hiding loading screen...');
             hideLoadingScreen();
         }, 3000);
+
+        // Simple fallback
+        setTimeout(() => {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                loadingScreen.style.display = 'none';
+            }
+            
+            // Contest enhancement: Add subtle loading complete effect
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.3s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 50);
+        }, 200);
     </script>
     
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -710,5 +744,7 @@
     <script src="js/components/enhanced-interactive-poll.js"></script>
     <script src="js/components/team-chat-widget.js"></script>
     <script src="js/components/smart-search-overlay.js"></script>
+    <script src="js/components/simple-color-picker.js"></script>
+    
 </body>
 </html>
