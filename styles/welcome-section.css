@@ -374,23 +374,29 @@
 }
 
 .greeting {
+    color: white !important;
     color: var(--welcome-text) !important;
     font-weight: 700 !important;
     font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
-    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
+    /* Remove gradient to ensure solid white color */
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: white !important;
+    background-clip: unset !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
 .welcome-title .user-name {
+    color: white !important;
     color: var(--welcome-text) !important;
     font-weight: 900 !important;
-    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 50%, #e0f2fe 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
+    /* Remove gradient to ensure solid white color */
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: white !important;
+    background-clip: unset !important;
     position: relative !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
 .welcome-title .user-name::after {
@@ -443,12 +449,8 @@
     box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3) !important;
 }
 
+/* Enhanced text rendering for status text */
 .status-text {
-    font-size: var(--font-size-sm) !important;
-    color: var(--welcome-text) !important;
-    font-weight: 600 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
-    /* Enhanced text rendering for status text */
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
@@ -458,6 +460,11 @@
     backface-visibility: hidden !important;
     perspective: 1000px !important;
     will-change: transform !important;
+    /* CRITICAL FIX: Make status text white for better visibility */
+    color: white !important;
+    color: var(--welcome-text) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Welcome Stats - Enhanced visibility */
@@ -512,6 +519,7 @@
     font-size: var(--font-size-4xl) !important;
     font-weight: 800 !important;
     margin-bottom: var(--space-3) !important;
+    color: white !important;
     color: var(--welcome-text) !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
     background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important;
@@ -526,6 +534,7 @@
     font-weight: 600 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.8px !important;
+    color: white !important;
     color: var(--welcome-text) !important;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
@@ -833,11 +842,11 @@ body .quick-insights .insights-title .btn-icon:hover svg,
 }
 
 .event-time {
-    color: #64748b !important;
+    color: rgba(255, 255, 255, 0.8) !important;
     font-size: var(--font-size-sm) !important;
     margin-bottom: var(--space-2) !important;
     font-weight: 500 !important;
-    text-shadow: none !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
@@ -851,23 +860,24 @@ body .welcome-section .event-title,
 #app .welcome-section .event-title,
 .dashboard .welcome-section .event-title,
 .main-content .welcome-section .event-title {
-    color: #475569 !important;
+    color: white !important;
+    color: var(--welcome-text) !important;
     font-weight: 600 !important;
     font-size: var(--font-size-base) !important;
     margin-bottom: var(--space-3) !important;
-    text-shadow: none !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
 
 .event-participants {
-    color: #64748b !important;
+    color: rgba(255, 255, 255, 0.8) !important;
     font-size: var(--font-size-sm) !important;
     display: flex !important;
     align-items: center !important;
     gap: var(--space-2) !important;
     font-weight: 500 !important;
-    text-shadow: none !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
@@ -1704,6 +1714,207 @@ body .welcome-section .upcoming-events-title svg:hover,
     border-color: transparent !important;
 }
 
+/* COMPREHENSIVE FIX - Override team.css btn-icon hover for ALL welcome section icons */
+.welcome-section .btn-icon,
+.welcome-section .btn-icon:hover,
+.welcome-section .btn-icon:focus,
+.welcome-section .btn-icon:active,
+html body .welcome-section .btn-icon,
+html body .welcome-section .btn-icon:hover,
+html body .welcome-section .btn-icon:focus,
+html body .welcome-section .btn-icon:active,
+body .welcome-section .btn-icon,
+body .welcome-section .btn-icon:hover,
+body .welcome-section .btn-icon:focus,
+body .welcome-section .btn-icon:active,
+#app .welcome-section .btn-icon,
+#app .welcome-section .btn-icon:hover,
+#app .welcome-section .btn-icon:focus,
+#app .welcome-section .btn-icon:active,
+.dashboard .welcome-section .btn-icon,
+.dashboard .welcome-section .btn-icon:hover,
+.dashboard .welcome-section .btn-icon:focus,
+.dashboard .welcome-section .btn-icon:active,
+.main-content .welcome-section .btn-icon,
+.main-content .welcome-section .btn-icon:hover,
+.main-content .welcome-section .btn-icon:focus,
+.main-content .welcome-section .btn-icon:active {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    border-color: transparent !important;
+    /* Override any CSS variables that might be causing gray colors */
+    --primary-50: transparent !important;
+    --primary-600: white !important;
+    --surface-hover: transparent !important;
+    --text-secondary: white !important;
+}
+
+/* Force white color on ALL SVG elements within welcome section icons */
+.welcome-section .btn-icon svg,
+.welcome-section .btn-icon:hover svg,
+.welcome-section .btn-icon:focus svg,
+.welcome-section .btn-icon:active svg,
+html body .welcome-section .btn-icon svg,
+html body .welcome-section .btn-icon:hover svg,
+html body .welcome-section .btn-icon:focus svg,
+html body .welcome-section .btn-icon:active svg,
+body .welcome-section .btn-icon svg,
+body .welcome-section .btn-icon:hover svg,
+body .welcome-section .btn-icon:focus svg,
+body .welcome-section .btn-icon:active svg,
+#app .welcome-section .btn-icon svg,
+#app .welcome-section .btn-icon:hover svg,
+#app .welcome-section .btn-icon:focus svg,
+#app .welcome-section .btn-icon:active svg,
+.dashboard .welcome-section .btn-icon svg,
+.dashboard .welcome-section .btn-icon:hover svg,
+.dashboard .welcome-section .btn-icon:focus svg,
+.dashboard .welcome-section .btn-icon:active svg,
+.main-content .welcome-section .btn-icon svg,
+.main-content .welcome-section .btn-icon:hover svg,
+.main-content .welcome-section .btn-icon:focus svg,
+.main-content .welcome-section .btn-icon:active svg {
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+/* Override team.css specifically for welcome section quick action buttons */
+.welcome-section .quick-actions .btn-icon,
+.welcome-section .quick-actions .btn-icon:hover,
+.welcome-section .quick-actions .btn-icon:focus,
+.welcome-section .quick-actions .btn-icon:active,
+html body .welcome-section .quick-actions .btn-icon,
+html body .welcome-section .quick-actions .btn-icon:hover,
+html body .welcome-section .quick-actions .btn-icon:focus,
+html body .welcome-section .quick-actions .btn-icon:active {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+    border-color: transparent !important;
+    /* Override CSS variables */
+    --primary-50: transparent !important;
+    --primary-600: white !important;
+    --surface-hover: transparent !important;
+    --text-secondary: white !important;
+}
+
+/* Make sure status text is always white with maximum specificity */
+.welcome-section .status-text,
+.welcome-section .welcome-status .status-text,
+html body .welcome-section .status-text,
+html body .welcome-section .welcome-status .status-text,
+body .welcome-section .status-text,
+body .welcome-section .welcome-status .status-text,
+#app .welcome-section .status-text,
+#app .welcome-section .welcome-status .status-text,
+.dashboard .welcome-section .status-text,
+.dashboard .welcome-section .welcome-status .status-text,
+.main-content .welcome-section .status-text,
+.main-content .welcome-section .welcome-status .status-text {
+    color: white !important;
+    color: var(--welcome-text) !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    /* Override any CSS variables that might be causing dark text */
+    --text-primary: white !important;
+    --text-secondary: white !important;
+    --text-tertiary: white !important;
+    --text-muted: white !important;
+}
+
+/* COMPREHENSIVE FIX - Make ALL stat elements white and visible */
+.welcome-section .stat-number,
+.welcome-section .stat-label,
+.welcome-section .welcome-stats .stat-number,
+.welcome-section .welcome-stats .stat-label,
+.welcome-section .stat-item .stat-number,
+.welcome-section .stat-item .stat-label,
+html body .welcome-section .stat-number,
+html body .welcome-section .stat-label,
+html body .welcome-section .welcome-stats .stat-number,
+html body .welcome-section .welcome-stats .stat-label,
+html body .welcome-section .stat-item .stat-number,
+html body .welcome-section .stat-item .stat-label,
+body .welcome-section .stat-number,
+body .welcome-section .stat-label,
+body .welcome-section .welcome-stats .stat-number,
+body .welcome-section .welcome-stats .stat-label,
+body .welcome-section .stat-item .stat-number,
+body .welcome-section .stat-item .stat-label,
+#app .welcome-section .stat-number,
+#app .welcome-section .stat-label,
+#app .welcome-section .welcome-stats .stat-number,
+#app .welcome-section .welcome-stats .stat-label,
+#app .welcome-section .stat-item .stat-number,
+#app .welcome-section .stat-item .stat-label,
+.dashboard .welcome-section .stat-number,
+.dashboard .welcome-section .stat-label,
+.dashboard .welcome-section .welcome-stats .stat-number,
+.dashboard .welcome-section .welcome-stats .stat-label,
+.dashboard .welcome-section .stat-item .stat-number,
+.dashboard .welcome-section .stat-item .stat-label,
+.main-content .welcome-section .stat-number,
+.main-content .welcome-section .stat-label,
+.main-content .welcome-section .welcome-stats .stat-number,
+.main-content .welcome-section .welcome-stats .stat-label,
+.main-content .welcome-section .stat-item .stat-number,
+.main-content .welcome-section .stat-item .stat-label {
+    color: white !important;
+    color: var(--welcome-text) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+    /* Override any CSS variables that might be causing dark text */
+    --text-primary: white !important;
+    --text-secondary: white !important;
+    --text-tertiary: white !important;
+    --text-muted: white !important;
+}
+
+/* COMPREHENSIVE FIX - Make greeting and user name text more visible */
+.welcome-section .greeting,
+.welcome-section .user-name,
+.welcome-section .welcome-title .greeting,
+.welcome-section .welcome-title .user-name,
+html body .welcome-section .greeting,
+html body .welcome-section .user-name,
+html body .welcome-section .welcome-title .greeting,
+html body .welcome-section .welcome-title .user-name,
+body .welcome-section .greeting,
+body .welcome-section .user-name,
+body .welcome-section .welcome-title .greeting,
+body .welcome-section .welcome-title .user-name,
+#app .welcome-section .greeting,
+#app .welcome-section .user-name,
+#app .welcome-section .welcome-title .greeting,
+#app .welcome-section .welcome-title .user-name,
+.dashboard .welcome-section .greeting,
+.dashboard .welcome-section .user-name,
+.dashboard .welcome-section .welcome-title .greeting,
+.dashboard .welcome-section .welcome-title .user-name,
+.main-content .welcome-section .greeting,
+.main-content .welcome-section .user-name,
+.main-content .welcome-section .welcome-title .greeting,
+.main-content .welcome-section .welcome-title .user-name {
+    color: white !important;
+    color: var(--welcome-text) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    /* Remove any gradient effects */
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: white !important;
+    background-clip: unset !important;
+    /* Override any CSS variables that might be causing dark text */
+    --text-primary: white !important;
+    --text-secondary: white !important;
+    --text-tertiary: white !important;
+    --text-muted: white !important;
+}
+
 /* Style for custom events icon to match insights icon */
 .welcome-section .upcoming-events-title .custom-events-icon {
     width: 40px !important;
@@ -1828,19 +2039,193 @@ html body .culture-stats .stat-item * {
   font-smooth: never !important;
 }
 
-/* Force participant icons to be the correct color */
+/* COMPREHENSIVE FIX - Make ALL upcoming events icons white */
+.upcoming-events svg,
+.upcoming-events .btn-icon,
+.upcoming-events .icon,
+.upcoming-events [class*="icon"],
 .event-participants svg,
 .event-participants .btn-icon,
+.event-participants .icon,
+.event-participants [class*="icon"],
+.event-card svg,
+.event-card .btn-icon,
+.event-card .icon,
+.event-card [class*="icon"],
+.events-list svg,
+.events-list .btn-icon,
+.events-list .icon,
+.events-list [class*="icon"],
+.welcome-section .upcoming-events svg,
+.welcome-section .upcoming-events .btn-icon,
+.welcome-section .upcoming-events .icon,
+.welcome-section .upcoming-events [class*="icon"],
 .welcome-section .event-participants svg,
 .welcome-section .event-participants .btn-icon,
+.welcome-section .event-participants .icon,
+.welcome-section .event-participants [class*="icon"],
+.welcome-section .event-card svg,
+.welcome-section .event-card .btn-icon,
+.welcome-section .event-card .icon,
+.welcome-section .event-card [class*="icon"],
+.welcome-section .events-list svg,
+.welcome-section .events-list .btn-icon,
+.welcome-section .events-list .icon,
+.welcome-section .events-list [class*="icon"],
+html body .welcome-section .upcoming-events svg,
+html body .welcome-section .upcoming-events .btn-icon,
+html body .welcome-section .upcoming-events .icon,
+html body .welcome-section .upcoming-events [class*="icon"],
 html body .welcome-section .event-participants svg,
+html body .welcome-section .event-participants .btn-icon,
+html body .welcome-section .event-participants .icon,
+html body .welcome-section .event-participants [class*="icon"],
+html body .welcome-section .event-card svg,
+html body .welcome-section .event-card .btn-icon,
+html body .welcome-section .event-card .icon,
+html body .welcome-section .event-card [class*="icon"],
+html body .welcome-section .events-list svg,
+html body .welcome-section .events-list .btn-icon,
+html body .welcome-section .events-list .icon,
+html body .welcome-section .events-list [class*="icon"],
+body .welcome-section .upcoming-events svg,
+body .welcome-section .upcoming-events .btn-icon,
+body .welcome-section .upcoming-events .icon,
+body .welcome-section .upcoming-events [class*="icon"],
 body .welcome-section .event-participants svg,
+body .welcome-section .event-participants .btn-icon,
+body .welcome-section .event-participants .icon,
+body .welcome-section .event-participants [class*="icon"],
+body .welcome-section .event-card svg,
+body .welcome-section .event-card .btn-icon,
+body .welcome-section .event-card .icon,
+body .welcome-section .event-card [class*="icon"],
+body .welcome-section .events-list svg,
+body .welcome-section .events-list .btn-icon,
+body .welcome-section .events-list .icon,
+body .welcome-section .events-list [class*="icon"],
+#app .welcome-section .upcoming-events svg,
+#app .welcome-section .upcoming-events .btn-icon,
+#app .welcome-section .upcoming-events .icon,
+#app .welcome-section .upcoming-events [class*="icon"],
 #app .welcome-section .event-participants svg,
+#app .welcome-section .event-participants .btn-icon,
+#app .welcome-section .event-participants .icon,
+#app .welcome-section .event-participants [class*="icon"],
+#app .welcome-section .event-card svg,
+#app .welcome-section .event-card .btn-icon,
+#app .welcome-section .event-card .icon,
+#app .welcome-section .event-card [class*="icon"],
+#app .welcome-section .events-list svg,
+#app .welcome-section .events-list .btn-icon,
+#app .welcome-section .events-list .icon,
+#app .welcome-section .events-list [class*="icon"],
+.dashboard .welcome-section .upcoming-events svg,
+.dashboard .welcome-section .upcoming-events .btn-icon,
+.dashboard .welcome-section .upcoming-events .icon,
+.dashboard .welcome-section .upcoming-events [class*="icon"],
 .dashboard .welcome-section .event-participants svg,
-.main-content .welcome-section .event-participants svg {
-  stroke: #64748b !important;
-  color: #64748b !important;
+.dashboard .welcome-section .event-participants .btn-icon,
+.dashboard .welcome-section .event-participants .icon,
+.dashboard .welcome-section .event-participants [class*="icon"],
+.dashboard .welcome-section .event-card svg,
+.dashboard .welcome-section .event-card .btn-icon,
+.dashboard .welcome-section .event-card .icon,
+.dashboard .welcome-section .event-card [class*="icon"],
+.dashboard .welcome-section .events-list svg,
+.dashboard .welcome-section .events-list .btn-icon,
+.dashboard .welcome-section .events-list .icon,
+.dashboard .welcome-section .events-list [class*="icon"],
+.main-content .welcome-section .upcoming-events svg,
+.main-content .welcome-section .upcoming-events .btn-icon,
+.main-content .welcome-section .upcoming-events .icon,
+.main-content .welcome-section .upcoming-events [class*="icon"],
+.main-content .welcome-section .event-participants svg,
+.main-content .welcome-section .event-participants .btn-icon,
+.main-content .welcome-section .event-participants .icon,
+.main-content .welcome-section .event-participants [class*="icon"],
+.main-content .welcome-section .event-card svg,
+.main-content .welcome-section .event-card .btn-icon,
+.main-content .welcome-section .event-card .icon,
+.main-content .welcome-section .event-card [class*="icon"],
+.main-content .welcome-section .events-list svg,
+.main-content .welcome-section .events-list .btn-icon,
+.main-content .welcome-section .events-list .icon,
+.main-content .welcome-section .events-list [class*="icon"] {
+  stroke: white !important;
+  color: white !important;
   fill: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  /* Override any CSS variables */
+  --primary-50: transparent !important;
+  --primary-600: white !important;
+  --surface-hover: transparent !important;
+  --text-secondary: white !important;
+}
+
+/* HOVER STATES - Override gray hover for upcoming events icons */
+.upcoming-events svg:hover,
+.upcoming-events .btn-icon:hover,
+.upcoming-events .icon:hover,
+.upcoming-events [class*="icon"]:hover,
+.event-participants svg:hover,
+.event-participants .btn-icon:hover,
+.event-participants .icon:hover,
+.event-participants [class*="icon"]:hover,
+.event-card svg:hover,
+.event-card .btn-icon:hover,
+.event-card .icon:hover,
+.event-card [class*="icon"]:hover,
+.events-list svg:hover,
+.events-list .btn-icon:hover,
+.events-list .icon:hover,
+.events-list [class*="icon"]:hover,
+.welcome-section .upcoming-events svg:hover,
+.welcome-section .upcoming-events .btn-icon:hover,
+.welcome-section .upcoming-events .icon:hover,
+.welcome-section .upcoming-events [class*="icon"]:hover,
+.welcome-section .event-participants svg:hover,
+.welcome-section .event-participants .btn-icon:hover,
+.welcome-section .event-participants .icon:hover,
+.welcome-section .event-participants [class*="icon"]:hover,
+.welcome-section .event-card svg:hover,
+.welcome-section .event-card .btn-icon:hover,
+.welcome-section .event-card .icon:hover,
+.welcome-section .event-card [class*="icon"]:hover,
+.welcome-section .events-list svg:hover,
+.welcome-section .events-list .btn-icon:hover,
+.welcome-section .events-list .icon:hover,
+.welcome-section .events-list [class*="icon"]:hover,
+html body .welcome-section .upcoming-events svg:hover,
+html body .welcome-section .upcoming-events .btn-icon:hover,
+html body .welcome-section .upcoming-events .icon:hover,
+html body .welcome-section .upcoming-events [class*="icon"]:hover,
+html body .welcome-section .event-participants svg:hover,
+html body .welcome-section .event-participants .btn-icon:hover,
+html body .welcome-section .event-participants .icon:hover,
+html body .welcome-section .event-participants [class*="icon"]:hover,
+html body .welcome-section .event-card svg:hover,
+html body .welcome-section .event-card .btn-icon:hover,
+html body .welcome-section .event-card .icon:hover,
+html body .welcome-section .event-card [class*="icon"]:hover,
+html body .welcome-section .events-list svg:hover,
+html body .welcome-section .events-list .btn-icon:hover,
+html body .welcome-section .events-list .icon:hover,
+html body .welcome-section .events-list [class*="icon"]:hover {
+  stroke: white !important;
+  color: white !important;
+  fill: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  transform: scale(1.05) !important;
+  /* Override any CSS variables */
+  --primary-50: transparent !important;
+  --primary-600: white !important;
+  --surface-hover: transparent !important;
+  --text-secondary: white !important;
 }
 
 /* 🌟 FLOATING EMOJI PARTICLES - Contest Enhancement */
@@ -2545,6 +2930,337 @@ body .welcome-section .event-participants svg,
     --welcome-bg-end: #0f172a;
     --welcome-text: #f8fafc;
     --welcome-overlay: rgba(255, 255, 255, 0.05);
+}
+
+/* ♿ ACCESSIBILITY ENHANCEMENTS - CONTEST WINNING */
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .welcome-section {
+        background: linear-gradient(135deg, #000080 0%, #000040 100%) !important;
+        border: 2px solid #ffffff !important;
+        color: #ffffff !important;
+    }
+    
+    .welcome-section .particle,
+    .welcome-section .floating-icon,
+    .welcome-section .sparkle,
+    .welcome-section .aurora-effect,
+    .welcome-section .wave-distortion,
+    .welcome-section .holographic-overlay {
+        display: none !important;
+    }
+    
+    .welcome-section .stat-item,
+    .welcome-section .quick-actions .btn,
+    .welcome-section .event-card {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 2px solid #000000 !important;
+    }
+}
+
+/* Enhanced Focus Indicators */
+.welcome-section *:focus-visible {
+    outline: 3px solid #ffff00 !important;
+    outline-offset: 2px !important;
+    box-shadow: 
+        0 0 0 6px rgba(255, 255, 0, 0.3),
+        0 0 20px rgba(255, 255, 0, 0.5) !important;
+    border-radius: 4px !important;
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+/* Enhanced Button Focus States */
+.welcome-section .btn:focus-visible,
+.welcome-section .stat-item:focus-visible,
+.welcome-section .event-card:focus-visible {
+    transform: scale(1.05) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: var(--primary-700) !important;
+    font-weight: 600 !important;
+}
+
+/* Keyboard Navigation Enhancement */
+.welcome-section .keyboard-nav-helper {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    opacity: 0;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.welcome-section:focus-within .keyboard-nav-helper {
+    opacity: 1;
+}
+
+/* Screen Reader Only Content */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Skip Links */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 10000;
+    font-weight: 600;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* 🎨 CREATIVE CONTEST ENHANCEMENTS */
+
+/* Interactive Data Visualization Containers */
+.welcome-section .data-viz-container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: var(--space-4);
+    margin: var(--space-4) 0;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Animated Progress Rings */
+.welcome-section .progress-ring {
+    width: 80px;
+    height: 80px;
+    transform: rotate(-90deg);
+}
+
+.welcome-section .progress-ring-circle {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.3);
+    stroke-width: 4;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.5s ease;
+}
+
+.welcome-section .progress-ring-progress {
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-dasharray: 0, 251.2;
+    transition: stroke-dasharray 0.8s ease;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+/* Smart Recommendation Cards */
+.welcome-section .smart-recommendations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.welcome-section .recommendation-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-section .recommendation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.welcome-section .recommendation-card:hover::before {
+    left: 100%;
+}
+
+.welcome-section .recommendation-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* AI Insights Pulse Animation */
+.welcome-section .ai-insight {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    margin: var(--space-2) 0;
+}
+
+.welcome-section .ai-insight::before {
+    content: '🤖';
+    animation: aiPulse 2s ease-in-out infinite;
+}
+
+@keyframes aiPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); filter: brightness(1.3); }
+}
+
+/* Real-time Activity Indicators */
+.welcome-section .live-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.welcome-section .live-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: livePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+    0%, 100% { 
+        opacity: 1; 
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    50% { 
+        opacity: 0.7; 
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+}
+
+/* Interactive Stat Cards with Micro-animations */
+.welcome-section .stat-item {
+    position: relative;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.welcome-section .stat-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.welcome-section .stat-item:hover::after {
+    width: 200px;
+    height: 200px;
+}
+
+.welcome-section .stat-item:hover {
+    transform: translateY(-8px) scale(1.05);
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-section .stat-number {
+    font-weight: 900;
+    font-size: 2rem;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-section .stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
+
+/* Quick Action Buttons Enhancement */
+.welcome-section .quick-actions .btn {
+    position: relative;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.welcome-section .quick-actions .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.welcome-section .quick-actions .btn:hover::before {
+    left: 100%;
+}
+
+.welcome-section .quick-actions .btn:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Event Cards */
+.welcome-section .event-card {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.welcome-section .event-card:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: translateX(8px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Welcome Header - Enhanced typography */
