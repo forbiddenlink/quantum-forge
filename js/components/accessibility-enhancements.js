@@ -32,7 +32,12 @@ class AccessibilityEnhancements {
         this.liveRegion.setAttribute('aria-atomic', 'true');
         this.liveRegion.className = 'live-region';
         this.liveRegion.id = 'live-region';
-        document.body.appendChild(this.liveRegion);
+        
+        if (document.body) {
+            document.body.appendChild(this.liveRegion);
+        } else {
+            console.warn('Document body not ready for accessibility enhancements');
+        }
 
         // Create status announcer for immediate announcements
         this.statusAnnouncer = document.createElement('div');

@@ -652,11 +652,12 @@ window.toggleSidebar = function() {
         console.log('✅ Emergency toggle completed. Collapsed:', !isCollapsed);
     } else {
         console.error('❌ Sidebar element not found');
-    }
-};
-
         console.log('🔧 Sidebar component loaded. Emergency toggle available: window.toggleSidebar()');
         console.log('✅ TOGGLE BUTTON FIXED: Now properly positioned in collapsed sidebar strip!');
         
         // Add floating toggle button click handler for collapsed state
-        this.setupFloatingToggle(); 
+        if (this.setupFloatingToggle) {
+            this.setupFloatingToggle();
+        }
+    }
+}; 

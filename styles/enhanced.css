@@ -177,6 +177,7 @@ app-sidebar {
     position: relative;
     z-index: 10;
     margin-top: 0; /* Removed margin top to fix welcome section positioning */
+    align-items: flex-start; /* Ensure items align to top */
 }
 
 .dashboard-item {
@@ -190,6 +191,8 @@ app-sidebar {
     overflow: hidden;
     position: relative;
     z-index: 1;
+    min-height: 300px;
+    max-height: none;
 }
 
 .dashboard-item:hover {
@@ -201,6 +204,43 @@ app-sidebar {
 .dashboard-item.full-width {
     flex: 0 0 100%;
     width: 100%;
+}
+
+/* Special row layout for task system and knowledge hub */
+.dashboard-row {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    flex: 0 0 100%; /* Take full width in the main grid */
+}
+
+.dashboard-row .dashboard-item {
+    flex: 1;
+    min-width: 0; /* Allow flex items to shrink */
+    height: auto;
+    max-height: none; /* Remove height limit to prevent truncation */
+    overflow: visible; /* Allow content to flow naturally */
+}
+
+/* Mobile responsive layout for dashboard rows */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        flex-direction: column;
+    }
+    
+    .dashboard-item {
+        flex: 0 0 100%;
+    }
+    
+    .dashboard-row {
+        flex-direction: column;
+        flex: none;
+    }
+    
+    .dashboard-row .dashboard-item {
+        flex: none;
+        width: 100%;
+    }
 }
 
 /* Ensure components fill their containers */
@@ -220,6 +260,7 @@ app-sidebar {
 .dashboard-item > team-spotlight,
 .dashboard-item > company-news,
 .dashboard-item > knowledge-hub,
+.dashboard-item > enhanced-knowledge-hub,
 .dashboard-item > weather-widget,
 .dashboard-item > enhanced-interactive-poll,
 .dashboard-item > company-culture-showcase,
@@ -227,6 +268,63 @@ app-sidebar {
 .dashboard-item > office-visualizer {
     width: 100%;
     display: block;
+}
+
+/* Ensure enhanced knowledge hub fills its container without affecting layout */
+.dashboard-item > enhanced-knowledge-hub {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove any conflicting styles from dashboard-item when it contains enhanced-knowledge-hub */
+.dashboard-item:has(> enhanced-knowledge-hub) {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    min-height: 300px !important;
+    width: 100% !important;
+}
+
+/* Fallback for browsers that don't support :has() */
+.dashboard-item.knowledge-hub-container {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    min-height: 300px !important;
+    width: 100% !important;
+}
+
+/* Remove conflicting styles from dashboard-item when it contains task system */
+.dashboard-item:has(> task-system),
+.dashboard-item:has(> enhanced-task-system) {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    min-height: 300px !important;
+    width: 100% !important;
+    overflow: visible !important;
+}
+
+/* Fallback for browsers that don't support :has() */
+.dashboard-item.task-system-container {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    min-height: 300px !important;
+    width: 100% !important;
+    overflow: visible !important;
 }
 
 /* Aggressive spacing fix for knowledge-hub and task-system */

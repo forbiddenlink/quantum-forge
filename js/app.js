@@ -20,9 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize welcome section if it exists
     const welcomeElement = document.querySelector('.welcome-section');
-    if (welcomeElement) {
+    if (welcomeElement && typeof WelcomeSection !== 'undefined') {
         welcomeSection = new WelcomeSection();
         console.log('Welcome section initialized');
+    } else if (welcomeElement) {
+        console.log('Welcome section element found but WelcomeSection class not available');
     }
     
     // Initialize analytics service if available

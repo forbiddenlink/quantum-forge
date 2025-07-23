@@ -282,6 +282,8 @@
     <!-- RESTORED: Your original working CSS -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/enhanced.css">
+    <!-- SPECTACULAR TASK MANAGEMENT SYSTEM STYLES -->
+    <link rel="stylesheet" href="styles/enhanced-task-system.css">
     <link rel="stylesheet" href="styles/welcome-section.css">
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/simple-mobile.css">
@@ -293,7 +295,7 @@
     <link rel="preload" href="styles/real-time-stats.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="styles/office-visualizer.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="styles/dream-workspace.css?v=7" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/enhanced-knowledge-hub.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="styles/enhanced-knowledge-hub.css">
     <link rel="preload" href="styles/sidebar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="styles/contest-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="styles/culture-blur-fix.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -330,6 +332,158 @@
         <link rel="stylesheet" href="styles/accessibility-enhancements.css">
     </noscript>
     
+    <!-- SERVICE WORKER REGISTRATION -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/js/service-worker.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(registrationError => console.log('SW registration failed'));
+            });
+        }
+    </script>
+
+    <!-- 🚨🚨🚨 ULTIMATE NUCLEAR CSS OVERRIDE - LOADS ABSOLUTELY LAST 🚨🚨🚨 -->
+    <style id="knowledge-hub-nuclear-override">
+        /* This loads LAST and overrides EVERYTHING */
+        
+        /* ULTIMATE FORCE SPECTACULAR BACKGROUND */
+        html body .enhanced-knowledge-hub.spectacular-mode,
+        html body .main-content .enhanced-knowledge-hub.spectacular-mode,
+        html body .dashboard .enhanced-knowledge-hub.spectacular-mode {
+            background: 
+                linear-gradient(45deg, var(--primary-500) 0%, transparent 50%, var(--primary-500) 100%),
+                linear-gradient(-45deg, var(--primary-600) 0%, transparent 50%, var(--primary-600) 100%),
+                linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%),
+                linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%),
+                radial-gradient(ellipse 1200px 800px at 20% 20%, rgba(139, 92, 246, 0.5) 0%, transparent 50%),
+                radial-gradient(ellipse 800px 1200px at 80% 80%, rgba(6, 182, 212, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse 600px 600px at 50% 50%, rgba(16, 185, 129, 0.3) 0%, transparent 70%),
+                radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
+                repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
+            border-radius: var(--radius-2xl) !important;
+            padding: var(--space-8) !important;
+            color: white !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            box-shadow: 
+                0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+                0 10px 10px -5px rgba(0, 0, 0, 0.04),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                0 0 60px rgba(99, 102, 241, 0.4),
+                0 0 120px rgba(99, 102, 241, 0.2) !important;
+        }
+
+        /* ULTIMATE FORCE ALL TEXT WHITE */
+        html body .enhanced-knowledge-hub *:not(input):not(select):not(textarea):not(.search-input),
+        html body .enhanced-knowledge-hub.spectacular-mode *:not(input):not(select):not(textarea):not(.search-input),
+        html body .enhanced-knowledge-hub h1,
+        html body .enhanced-knowledge-hub h2,
+        html body .enhanced-knowledge-hub h3,
+        html body .enhanced-knowledge-hub h4,
+        html body .enhanced-knowledge-hub h5,
+        html body .enhanced-knowledge-hub h6,
+        html body .enhanced-knowledge-hub p,
+        html body .enhanced-knowledge-hub span,
+        html body .enhanced-knowledge-hub div,
+        html body .enhanced-knowledge-hub .insight-title,
+        html body .enhanced-knowledge-hub .section-title,
+        html body .enhanced-knowledge-hub .hub-title,
+        html body .enhanced-knowledge-hub .resource-title,
+        html body .enhanced-knowledge-hub .stat-label,
+        html body .enhanced-knowledge-hub .confidence-text,
+        html body .enhanced-knowledge-hub .insight-description,
+        html body .enhanced-knowledge-hub .resource-summary {
+            color: white !important;
+        }
+
+        /* ULTIMATE FORCE ALL CARDS GLASS MORPHISM */
+        html body .enhanced-knowledge-hub .ai-insight-card,
+        html body .enhanced-knowledge-hub .analytics-card,
+        html body .enhanced-knowledge-hub .learning-path-card,
+        html body .enhanced-knowledge-hub .enhanced-resource-card,
+        html body .enhanced-knowledge-hub .resource-card,
+        html body .enhanced-knowledge-hub .insight-card,
+        html body .enhanced-knowledge-hub .stat-card,
+        html body .enhanced-knowledge-hub .card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+            backdrop-filter: blur(15px) !important;
+            -webkit-backdrop-filter: blur(15px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+            border-radius: var(--radius-xl) !important;
+            padding: var(--space-5) !important;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+        }
+
+        /* ULTIMATE FORCE SECTIONS TRANSPARENT */
+        html body .enhanced-knowledge-hub .ai-insights-section,
+        html body .enhanced-knowledge-hub .learning-analytics,
+        html body .enhanced-knowledge-hub .learning-paths-section,
+        html body .enhanced-knowledge-hub .resources-section,
+        html body .enhanced-knowledge-hub .section {
+            background: transparent !important;
+            background-color: transparent !important;
+        }
+
+        /* ULTIMATE FORCE BUTTONS */
+        html body .enhanced-knowledge-hub button,
+        html body .enhanced-knowledge-hub .btn,
+        html body .enhanced-knowledge-hub .resource-btn,
+        html body .enhanced-knowledge-hub .insight-action-btn {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)) !important;
+            color: white !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: var(--radius-lg) !important;
+        }
+
+        /* ULTIMATE FORCE BADGES */
+        html body .enhanced-knowledge-hub .badge,
+        html body .enhanced-knowledge-hub .tag,
+        html body .enhanced-knowledge-hub .resource-tag,
+        html body .enhanced-knowledge-hub .impact-badge,
+        html body .enhanced-knowledge-hub .confidence-indicator,
+        html body .enhanced-knowledge-hub .priority-badge {
+            background: rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        }
+
+        /* ULTIMATE REMOVE WHITE BACKGROUNDS */
+        html body .enhanced-knowledge-hub *:not(input):not(select):not(textarea):not(.search-input):not(.search-icon) {
+            background-color: transparent !important;
+        }
+
+        /* FORCE GRIDS TO DISPLAY */
+        html body .enhanced-knowledge-hub .ai-insights-grid,
+        html body .enhanced-knowledge-hub .analytics-grid,
+        html body .enhanced-knowledge-hub .learning-paths-grid,
+        html body .enhanced-knowledge-hub .resources-container {
+            display: grid !important;
+            background: transparent !important;
+        }
+
+        /* OVERRIDE ANY INLINE STYLES */
+        html body .enhanced-knowledge-hub [style*="background: white"],
+        html body .enhanced-knowledge-hub [style*="background-color: white"],
+        html body .enhanced-knowledge-hub [style*="background: #fff"],
+        html body .enhanced-knowledge-hub [style*="background-color: #fff"],
+        html body .enhanced-knowledge-hub [style*="background: #ffffff"],
+        html body .enhanced-knowledge-hub [style*="background-color: #ffffff"] {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+            backdrop-filter: blur(15px) !important;
+        }
+
+        html body .enhanced-knowledge-hub [style*="color: black"],
+        html body .enhanced-knowledge-hub [style*="color: #000"],
+        html body .enhanced-knowledge-hub [style*="color: #000000"],
+        html body .enhanced-knowledge-hub [style*="color: rgb(0, 0, 0)"] {
+            color: white !important;
+        }
+    </style>
 
 </head>
 <body class="custom-scrollbar loading">
@@ -629,13 +783,15 @@
                         <analytics-dashboard></analytics-dashboard>
                     </div>
 
-                    <!-- Task Management and Knowledge Hub - Core Productivity -->
-                    <div class="dashboard-item">
-                        <task-system></task-system>
-                    </div>
+                    <!-- Task Management and Knowledge Hub - Core Productivity (Side by Side) -->
+                    <div class="dashboard-row">
+                        <div class="dashboard-item task-system-container">
+                            <task-system></task-system>
+                        </div>
 
-                    <div class="dashboard-item">
-                        <enhanced-knowledge-hub></enhanced-knowledge-hub>
+                        <div class="dashboard-item knowledge-hub-container">
+                            <enhanced-knowledge-hub></enhanced-knowledge-hub>
+                        </div>
                     </div>
 
                     <!-- Team Communication and News - Social Layer -->

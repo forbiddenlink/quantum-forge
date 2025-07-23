@@ -452,14 +452,14 @@ p, span, div, li {
     font-weight: 400 !important;
 }
 
-/* Task system fixes */
-.task-system .task-description,
-.task-system .task-meta,
-.enhanced-task-system .task-description,
-.enhanced-task-system .task-meta,
-.enhanced-task-card .task-description,
-.kanban-task-description,
-.task-title-cell p {
+/* Task system fixes - EXCLUDE enhanced versions to preserve white text */
+.task-system .task-description:not(.enhanced-task-system .task-description):not(.enhanced-task-card .task-description),
+.task-system .task-meta:not(.enhanced-task-system .task-meta):not(.enhanced-task-card .task-meta),
+.enhanced-task-system:not(.spectacular-mode) .task-description,
+.enhanced-task-system:not(.spectacular-mode) .task-meta,
+.enhanced-task-card:not(.spectacular) .task-description,
+.kanban-task-description:not(.enhanced-task-system .kanban-task-description):not(.enhanced-knowledge-hub .kanban-task-description),
+.task-title-cell p:not(.enhanced-task-system .task-title-cell p):not(.enhanced-knowledge-hub .task-title-cell p) {
     color: var(--text-secondary) !important;
     font-weight: 400 !important;
 }
@@ -470,10 +470,61 @@ p, span, div, li {
     font-weight: 400 !important;
 }
 
-/* Knowledge hub fixes */
-.knowledge-hub .article-meta {
+/* Knowledge hub fixes - EXCLUDE enhanced spectacular mode */
+.knowledge-hub .article-meta:not(.enhanced-knowledge-hub.spectacular-mode .article-meta):not(.enhanced-knowledge-hub .spectacular .article-meta) {
     color: var(--text-secondary) !important;
     font-weight: 400 !important;
+}
+
+/* CRITICAL: Preserve white text in enhanced sections */
+/* Enhanced task system white text */
+.enhanced-task-system.spectacular-mode h1,
+.enhanced-task-system.spectacular-mode h2,
+.enhanced-task-system.spectacular-mode h3,
+.enhanced-task-system.spectacular-mode h4,
+.enhanced-task-system.spectacular-mode h5,
+.enhanced-task-system.spectacular-mode h6,
+.enhanced-task-system.spectacular-mode p,
+.enhanced-task-system.spectacular-mode span:not(.btn):not(.badge),
+.enhanced-task-system.spectacular-mode div:not(.btn):not(.badge),
+.enhanced-task-card.spectacular .task-title,
+.enhanced-task-card.spectacular .task-description,
+.enhanced-task-card.spectacular .task-meta {
+    color: white !important;
+}
+
+/* Enhanced knowledge hub white text - be more specific */
+.enhanced-knowledge-hub.spectacular-mode h1,
+.enhanced-knowledge-hub.spectacular-mode h2,
+.enhanced-knowledge-hub.spectacular-mode h3,
+.enhanced-knowledge-hub.spectacular-mode h4,
+.enhanced-knowledge-hub.spectacular-mode h5,
+.enhanced-knowledge-hub.spectacular-mode h6,
+.enhanced-knowledge-hub.spectacular-mode p,
+.enhanced-knowledge-hub.spectacular-mode .hub-title,
+.enhanced-knowledge-hub.spectacular-mode .hub-subtitle,
+.enhanced-knowledge-hub.spectacular-mode .insights-title,
+.enhanced-knowledge-hub.spectacular-mode .section-title,
+.enhanced-knowledge-hub.spectacular-mode .analytics-title,
+.enhanced-knowledge-hub.spectacular-mode .resource-title,
+.enhanced-knowledge-hub.spectacular-mode .resource-summary,
+.enhanced-knowledge-hub.spectacular-mode .meta-item,
+.enhanced-knowledge-hub.spectacular-mode .stat-value,
+.enhanced-knowledge-hub.spectacular-mode .stat-label,
+.enhanced-knowledge-hub.spectacular-mode .insight-title,
+.enhanced-knowledge-hub.spectacular-mode .insight-description,
+.enhanced-knowledge-hub.spectacular-mode .path-title,
+.enhanced-knowledge-hub.spectacular-mode .path-description {
+    color: white !important;
+}
+
+/* Do NOT apply white color to buttons and badges - they have their own colors */
+.enhanced-knowledge-hub.spectacular-mode .resource-btn,
+.enhanced-knowledge-hub.spectacular-mode .badge,
+.enhanced-knowledge-hub.spectacular-mode .filter-chip,
+.enhanced-task-system.spectacular-mode .btn,
+.enhanced-task-system.spectacular-mode .badge {
+    color: inherit !important;
 }
 
 /* Achievement system fixes */

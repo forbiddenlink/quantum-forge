@@ -119,7 +119,7 @@ class AnalyticsService {
     generateMockData() {
         // Use performance manager instead of direct setInterval
         if (window.performanceManager) {
-            window.performanceManager.registerInterval('analytics-data', () => {
+            window.performanceManager.createManagedInterval('analytics-data', () => {
                 if (!this.isRealTimeEnabled) return;
                 
                 this.updateCounter++;

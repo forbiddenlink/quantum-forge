@@ -1,7 +1,10 @@
-// Enhanced Knowledge Hub Component - AI-Powered Learning & Resource Management
+console.log('🔥 ENHANCED KNOWLEDGE HUB FILE LOADING...');
+
+// Enhanced Knowledge Hub Component - Contest-Winning AI-Powered Learning & Resource Management
 class EnhancedKnowledgeHub extends HTMLElement {
     constructor() {
         super();
+        console.log('🚀 Enhanced Knowledge Hub constructor called!');
         this.resources = [];
         this.categories = new Set();
         this.searchIndex = null;
@@ -13,60 +16,109 @@ class EnhancedKnowledgeHub extends HTMLElement {
         this.learningPaths = [];
         this.realTimeUpdates = null;
         this.isInitialized = false;
+        this.spectacularMode = true; // Enable contest-winning visual effects
+        this.particleSystem = null;
+        this.observer = null;
         
-        // AI-powered insights
+        // Enhanced AI-powered insights with spectacular visual effects
         this.aiInsights = [
             {
                 type: 'recommendation',
-                title: 'AI Learning Path',
-                description: 'Based on your recent activity, we recommend the "Advanced React Patterns" course',
-                confidence: 94,
+                title: 'Personalized Learning Path',
+                description: 'AI suggests "Advanced React Patterns" course based on your recent activity and skill gaps',
+                confidence: 96,
                 impact: 'high',
-                category: 'learning'
+                category: 'learning',
+                priority: 'urgent',
+                estimatedTime: '2 hours',
+                skillImpact: '+85 points'
             },
             {
                 type: 'trending',
-                title: 'Popular This Week',
-                description: 'Design System documentation has been accessed 127 times this week',
-                confidence: 89,
+                title: 'Trending Knowledge',
+                description: 'Design System documentation has 127% increased engagement this week across your team',
+                confidence: 92,
                 impact: 'medium',
-                category: 'analytics'
+                category: 'analytics',
+                priority: 'important',
+                estimatedTime: '30 min',
+                skillImpact: '+45 points'
             },
             {
                 type: 'update',
-                title: 'New Resources Available',
-                description: '5 new resources added to your department this week',
+                title: 'Fresh Content Alert',
+                description: '5 new AI-curated resources added to your personalized learning library',
                 confidence: 100,
                 impact: 'medium',
-                category: 'updates'
+                category: 'updates',
+                priority: 'normal',
+                estimatedTime: '1 hour',
+                skillImpact: '+60 points'
+            },
+            {
+                type: 'achievement',
+                title: 'Learning Milestone',
+                description: 'You\'re 85% complete on your Frontend Development track - excellent progress!',
+                confidence: 100,
+                impact: 'high',
+                category: 'progress',
+                priority: 'celebration',
+                estimatedTime: '15 min',
+                skillImpact: '+100 points'
             }
         ];
 
-        // Learning analytics
+        // Enhanced learning analytics with visual impact
         this.learningAnalytics = {
             totalResources: 0,
             completedCourses: 0,
-            learningStreak: 0,
+            learningStreak: 7,
             skillGaps: [],
             recommendations: [],
             departmentStats: {},
-            trendingTopics: []
+            trendingTopics: [],
+            aiScore: 94,
+            weeklyGoal: 85,
+            monthlyTarget: 320,
+            leaderboardRank: 12
         };
     }
 
     connectedCallback() {
         if (this.isInitialized) return;
         
-        this.loadEnhancedResources();
-        this.buildAdvancedSearchIndex();
-        this.generateLearningPaths();
-        this.calculateAnalytics();
-        this.render();
-        this.setupEventListeners();
-        this.startRealTimeUpdates();
-        this.initializeAnimations();
+        console.log('🚀 Enhanced Knowledge Hub: connectedCallback called');
+        console.log('🎯 Initial AI Insights count:', this.aiInsights?.length || 0);
         
-        this.isInitialized = true;
+        try {
+            console.log('📚 Loading enhanced resources...');
+            this.loadEnhancedResources();
+            console.log('🔍 Building search index...');
+            this.buildAdvancedSearchIndex();
+            console.log('🎓 Generating learning paths...');
+            this.generateLearningPaths();
+            console.log('📊 Calculating analytics...');
+            this.calculateAnalytics();
+            
+            console.log('📝 Data loaded, starting render...');
+            this.render();
+            
+            console.log('🎧 Setting up event listeners...');
+            this.setupEventListeners();
+            console.log('✨ Initializing spectacular effects...');
+            this.initializeSpectacularEffects();
+            console.log('📡 Starting real-time updates...');
+            this.startRealTimeUpdates();
+            console.log('🎬 Initializing animations...');
+            this.initializeAnimations();
+            
+            this.isInitialized = true;
+            console.log('✅ Enhanced Knowledge Hub fully initialized!');
+            
+        } catch (error) {
+            console.error('❌ Enhanced Knowledge Hub initialization failed:', error);
+            console.error('Error stack:', error.stack);
+        }
     }
 
     disconnectedCallback() {
@@ -76,13 +128,208 @@ class EnhancedKnowledgeHub extends HTMLElement {
             this.realTimeUpdates = null;
         }
         
-        // Disconnect intersection observer
         if (this.observer) {
             this.observer.disconnect();
             this.observer = null;
         }
         
+        if (this.particleSystem) {
+            this.cleanupParticleSystem();
+        }
+        
         console.log('Enhanced Knowledge Hub cleanup complete');
+    }
+
+    handleThemeChange(theme) {
+        // Update component styling based on color picker theme
+        const root = document.documentElement;
+        root.style.setProperty('--knowledge-hub-primary', `hsl(${theme.hue}, ${theme.saturation}%, ${theme.lightness}%)`);
+        root.style.setProperty('--knowledge-hub-primary-light', `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 20, 95)}%)`);
+        root.style.setProperty('--knowledge-hub-primary-dark', `hsl(${theme.hue}, ${theme.saturation}%, ${Math.max(theme.lightness - 20, 5)}%)`);
+        
+        // Trigger visual refresh
+        this.refreshSpectacularEffects();
+    }
+
+    initializeSpectacularEffects() {
+        console.log('✨ Initializing spectacular effects...');
+        
+        // NUCLEAR OPTION - Force spectacular styling on ALL elements
+        setTimeout(() => {
+            const container = this.querySelector('.enhanced-knowledge-hub');
+            if (container) {
+                container.classList.add('spectacular-mode');
+                
+                // FORCE styling on ALL elements
+                const allElements = this.querySelectorAll('*');
+                allElements.forEach(element => {
+                    // Force white text on everything except inputs
+                    if (!element.matches('input, select, textarea')) {
+                        element.style.color = 'white';
+                    }
+                    
+                    // Remove any white backgrounds
+                    if (element.style.backgroundColor === 'white' || 
+                        element.style.backgroundColor === '#fff' || 
+                        element.style.backgroundColor === '#ffffff' ||
+                        element.style.background === 'white' ||
+                        element.style.background === '#fff' ||
+                        element.style.background === '#ffffff') {
+                        element.style.background = 'transparent';
+                        element.style.backgroundColor = 'transparent';
+                    }
+                });
+                
+                // Force styling on all cards with highest priority
+                const cards = this.querySelectorAll('.ai-insight-card, .analytics-card, .learning-path-card, .enhanced-resource-card, .resource-card, .insight-card, .stat-card, .card');
+                cards.forEach(card => {
+                    card.style.setProperty('background', 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%)', 'important');
+                    card.style.setProperty('backdrop-filter', 'blur(15px)', 'important');
+                    card.style.setProperty('-webkit-backdrop-filter', 'blur(15px)', 'important');
+                    card.style.setProperty('border', '1px solid rgba(255, 255, 255, 0.2)', 'important');
+                    card.style.setProperty('color', 'white', 'important');
+                    card.style.setProperty('border-radius', 'var(--radius-xl)', 'important');
+                    card.style.setProperty('padding', 'var(--space-5)', 'important');
+                    card.style.setProperty('box-shadow', '0 8px 20px rgba(99, 102, 241, 0.2)', 'important');
+                });
+                
+                // Force styling on all sections
+                const sections = this.querySelectorAll('.ai-insights-section, .learning-analytics, .learning-paths-section, .resources-section, .section');
+                sections.forEach(section => {
+                    section.style.setProperty('background', 'transparent', 'important');
+                    section.style.setProperty('background-color', 'transparent', 'important');
+                });
+                
+                // Force text colors with highest priority
+                const textElements = this.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, div, .insight-title, .section-title, .hub-title, .resource-title, .stat-label, .confidence-text, .insight-description, .resource-summary');
+                textElements.forEach(element => {
+                    element.style.setProperty('color', 'white', 'important');
+                });
+                
+                // Force button styling
+                const buttons = this.querySelectorAll('button, .btn, .resource-btn, .insight-action-btn');
+                buttons.forEach(button => {
+                    button.style.setProperty('background', 'linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2))', 'important');
+                    button.style.setProperty('color', 'white', 'important');
+                    button.style.setProperty('border', '1px solid rgba(255, 255, 255, 0.3)', 'important');
+                });
+                
+                // Force badges and tags
+                const badges = this.querySelectorAll('.badge, .tag, .resource-tag, .impact-badge, .confidence-indicator, .priority-badge');
+                badges.forEach(badge => {
+                    badge.style.setProperty('background', 'rgba(255, 255, 255, 0.2)', 'important');
+                    badge.style.setProperty('color', 'white', 'important');
+                    badge.style.setProperty('border', '1px solid rgba(255, 255, 255, 0.3)', 'important');
+                });
+                
+                console.log('🚨 NUCLEAR STYLING APPLIED - All elements forced to spectacular mode');
+            }
+        }, 100);
+        
+        // Additional forcing after a longer delay
+        setTimeout(() => {
+            this.forceSpectacularStyling();
+        }, 500);
+        
+        // Create spectacular particle system
+        this.createParticleSystem();
+        
+        // Add floating geometric shapes
+        this.addFloatingShapes();
+        
+        // Initialize sparkle effects
+        this.initializeSparkles();
+        
+        // Add energy rings
+        this.addEnergyRings();
+    }
+
+    createParticleSystem() {
+        const particlesContainer = document.createElement('div');
+        particlesContainer.className = 'knowledge-particles-system';
+        
+        for (let i = 0; i < 15; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'knowledge-particle';
+            particle.style.cssText = `
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                width: ${Math.random() * 8 + 4}px;
+                height: ${Math.random() * 8 + 4}px;
+                animation-delay: ${Math.random() * 5}s;
+                animation-duration: ${Math.random() * 8 + 12}s;
+            `;
+            particlesContainer.appendChild(particle);
+        }
+        
+        this.appendChild(particlesContainer);
+        this.particleSystem = particlesContainer;
+    }
+
+    addFloatingShapes() {
+        // Add floating geometric shapes for visual appeal
+        for (let i = 0; i < 8; i++) {
+            const shape = document.createElement('div');
+            shape.className = 'knowledge-floating-shape';
+            shape.style.cssText = `
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation-delay: ${Math.random() * 10}s;
+                animation-duration: ${Math.random() * 15 + 20}s;
+            `;
+            this.appendChild(shape);
+        }
+    }
+
+    initializeSparkles() {
+        const sparklesContainer = document.createElement('div');
+        sparklesContainer.className = 'knowledge-sparkles';
+        
+        for (let i = 0; i < 12; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'knowledge-sparkle';
+            sparkle.innerHTML = '✨';
+            sparkle.style.cssText = `
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation-delay: ${Math.random() * 6}s;
+                font-size: ${Math.random() * 0.5 + 0.8}rem;
+            `;
+            sparklesContainer.appendChild(sparkle);
+        }
+        
+        this.appendChild(sparklesContainer);
+    }
+
+    addEnergyRings() {
+        for (let i = 0; i < 3; i++) {
+            const ring = document.createElement('div');
+            ring.className = 'knowledge-energy-ring';
+            ring.style.cssText = `
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                animation-delay: ${i * 2}s;
+            `;
+            this.appendChild(ring);
+        }
+    }
+
+    refreshSpectacularEffects() {
+        // Refresh particle colors and effects based on new theme
+        const particles = this.querySelectorAll('.knowledge-particle');
+        particles.forEach(particle => {
+            particle.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+        });
+    }
+
+    cleanupParticleSystem() {
+        if (this.particleSystem) {
+            this.particleSystem.remove();
+            this.particleSystem = null;
+        }
+        
+        // Clean up other spectacular effects
+        this.querySelectorAll('.knowledge-floating-shape, .knowledge-sparkles, .knowledge-energy-ring').forEach(el => el.remove());
     }
 
     loadEnhancedResources() {
@@ -344,44 +591,67 @@ class EnhancedKnowledgeHub extends HTMLElement {
     }
 
     render() {
+        console.log('🚀 Enhanced Knowledge Hub: Starting render...');
+        console.log('🤖 AI Insights data:', this.aiInsights);
+        console.log('📊 Learning Analytics:', this.learningAnalytics);
+        console.log('🎯 AI Insights length:', this.aiInsights?.length || 0);
+        
+        // Check if aiInsights exists and has content
+        if (!this.aiInsights || this.aiInsights.length === 0) {
+            console.error('❌ AI Insights data is missing or empty!');
+        } else {
+            console.log('✅ AI Insights data is available:', this.aiInsights.length, 'insights');
+        }
+        
         this.innerHTML = `
-            <div class="enhanced-knowledge-hub">
-                <!-- Header Section -->
-                <div class="hub-header">
+            <div class="enhanced-knowledge-hub spectacular-mode" style="display: block !important; width: 100% !important; position: relative !important; background: linear-gradient(45deg, var(--primary-500) 0%, transparent 50%, var(--primary-500) 100%), linear-gradient(-45deg, var(--primary-600) 0%, transparent 50%, var(--primary-600) 100%), linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%), linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%), radial-gradient(ellipse 1200px 800px at 20% 20%, rgba(139, 92, 246, 0.5) 0%, transparent 50%), radial-gradient(ellipse 800px 1200px at 80% 80%, rgba(6, 182, 212, 0.4) 0%, transparent 50%), radial-gradient(ellipse 600px 600px at 50% 50%, rgba(16, 185, 129, 0.3) 0%, transparent 70%), radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%), repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px), repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important; border-radius: var(--radius-2xl) !important; padding: var(--space-8) !important; color: white !important; border: 1px solid rgba(255, 255, 255, 0.2) !important; backdrop-filter: blur(20px) !important; animation: knowledgeGlow 6s ease-in-out infinite, knowledgeBackgroundShift 20s linear infinite, knowledgeSubtlePulse 4s ease-in-out infinite !important;">
+                <!-- Spectacular Header Section with Multi-layered Background -->
+                <div class="hub-header spectacular">
                     <div class="header-content">
-                        <h2 class="hub-title">
-                            <svg class="title-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <h2 class="hub-title spectacular">
+                            <svg class="title-icon spectacular" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                <path d="M20 17H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                                <path d="M20 12H6.5a2.5 2.5 0 0 1 0-5H20"></path>
+                                <path d="M20 7H6.5A2.5 2.5 0 0 1 4 4.5"></path>
                             </svg>
-                            AI-Powered Knowledge Hub
+                            Enhanced Knowledge Hub
+                            <span class="spectacular-badge">AI-POWERED</span>
                         </h2>
-                        <p class="hub-subtitle">Intelligent learning resources and personalized recommendations</p>
+                        <p class="hub-subtitle spectacular">Intelligent resource discovery with personalized learning paths</p>
                     </div>
-                    
-                    <div class="hub-controls">
-                        <div class="search-container">
-                            <input type="text" 
-                                   class="enhanced-search" 
-                                   placeholder="🔍 Search courses, documents, or skills..." 
-                                   value="${this.searchQuery}"
-                                   aria-label="Search knowledge resources">
-                            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
-                        </div>
-                        
-                        <div class="view-controls">
-                            <button class="view-btn ${this.viewMode === 'grid' ? 'active' : ''}" data-view="grid" title="Grid View">
+                    <div class="header-actions spectacular">
+                        <div class="search-container spectacular">
+                                <svg class="search-icon spectacular" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <path d="m21 21-4.35-4.35"></path>
+                                </svg>
+                                <input 
+                                    type="text" 
+                                    id="knowledgeSearch" 
+                                class="enhanced-search spectacular" 
+                                    placeholder="AI-powered search..."
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                />
+                            <button class="ai-search-btn spectacular" aria-label="AI Search">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                </svg>
+                            </button>
+                                <div class="search-suggestions spectacular" id="searchSuggestions"></div>
+                            </div>
+                        <div class="view-controls spectacular">
+                            <button class="view-btn spectacular ${this.viewMode === 'grid' ? 'active' : ''}" data-view="grid">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <rect x="3" y="3" width="7" height="7"></rect>
                                     <rect x="14" y="3" width="7" height="7"></rect>
                                     <rect x="14" y="14" width="7" height="7"></rect>
                                     <rect x="3" y="14" width="7" height="7"></rect>
                                 </svg>
+                                Grid
                             </button>
-                            <button class="view-btn ${this.viewMode === 'list' ? 'active' : ''}" data-view="list" title="List View">
+                            <button class="view-btn spectacular ${this.viewMode === 'list' ? 'active' : ''}" data-view="list">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <line x1="8" y1="6" x2="21" y2="6"></line>
                                     <line x1="8" y1="12" x2="21" y2="12"></line>
@@ -390,52 +660,55 @@ class EnhancedKnowledgeHub extends HTMLElement {
                                     <line x1="3" y1="12" x2="3.01" y2="12"></line>
                                     <line x1="3" y1="18" x2="3.01" y2="18"></line>
                                 </svg>
-                            </button>
-                            <button class="view-btn ${this.viewMode === 'timeline' ? 'active' : ''}" data-view="timeline" title="Timeline View">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polyline points="12 6 12 12 16 14"></polyline>
-                                </svg>
+                                List
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- AI Insights Section -->
-                <div class="ai-insights-section">
-                    <h3 class="insights-title">
-                        <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <!-- AI Insights Section with Spectacular Enhancement -->
+                <div class="ai-insights-section spectacular" style="background: transparent !important;">
+                    <h3 class="insights-title spectacular">
+                        <svg class="section-icon-svg spectacular" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                         </svg>
-                        AI-Powered Insights
+                        AI-Powered Learning Insights
+                        <span class="live-indicator spectacular">🔴 LIVE</span>
                     </h3>
-                    <div class="ai-insights-grid">
-                        ${this.aiInsights.map(insight => `
-                            <div class="ai-insight-card ${insight.type}">
-                                <div class="insight-header">
-                                    <div class="insight-icon ${insight.type}">
+                    <div class="ai-insights-grid spectacular">
+                        ${this.aiInsights.map((insight, index) => {
+                            console.log(`🎯 Rendering insight ${index + 1}:`, insight.title);
+                            return `
+                            <div class="ai-insight-card spectacular ${insight.type}" data-priority="${insight.priority}" style="animation-delay: ${index * 0.1}s; background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important; backdrop-filter: blur(15px) !important; border: 1px solid rgba(255, 255, 255, 0.2) !important; color: white !important; border-radius: var(--radius-xl) !important; padding: var(--space-5) !important;">
+                                <div class="insight-header spectacular">
+                                    <div class="insight-icon spectacular ${insight.type}">
                                         ${this.getInsightIcon(insight.type)}
                                     </div>
-                                    <div class="insight-meta">
-                                        <h4 class="insight-title">${insight.title}</h4>
-                                        <div class="confidence-indicator">
-                                            <div class="confidence-bar">
-                                                <div class="confidence-fill" style="width: ${insight.confidence}%"></div>
+                                    <div class="insight-meta spectacular">
+                                        <h4 class="insight-title spectacular">${insight.title}</h4>
+                                        <div class="insight-badges spectacular">
+                                            <span class="priority-badge ${insight.priority}">${insight.priority}</span>
+                                            <span class="time-badge">${insight.estimatedTime}</span>
+                                            <span class="skill-badge">${insight.skillImpact}</span>
+                                        </div>
+                                        <div class="confidence-indicator spectacular">
+                                            <div class="confidence-bar spectacular">
+                                                <div class="confidence-fill spectacular" style="width: ${insight.confidence}%"></div>
                                             </div>
-                                            <span class="confidence-text">${insight.confidence}% confidence</span>
+                                            <span class="confidence-text spectacular">${insight.confidence}% AI confidence</span>
                                         </div>
                                     </div>
-                                    <div class="impact-badge ${insight.impact}">${insight.impact} impact</div>
+                                    <div class="impact-badge spectacular ${insight.impact}">${insight.impact} impact</div>
                                 </div>
-                                <p class="insight-description">${insight.description}</p>
-                                <div class="insight-actions">
-                                    <button class="insight-action-btn primary">
+                                <p class="insight-description spectacular">${insight.description}</p>
+                                <div class="insight-actions spectacular">
+                                    <button class="insight-action-btn spectacular primary">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M5 13l4 4L19 7"></path>
                                         </svg>
-                                        Apply Suggestion
+                                        Apply AI Suggestion
                                     </button>
-                                    <button class="insight-action-btn secondary">
+                                    <button class="insight-action-btn spectacular secondary">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <circle cx="12" cy="12" r="10"></circle>
                                             <path d="M12 16v-4"></path>
@@ -445,77 +718,90 @@ class EnhancedKnowledgeHub extends HTMLElement {
                                     </button>
                                 </div>
                             </div>
-                        `).join('')}
+                        `;
+                        }).join('')}
                     </div>
                 </div>
 
-                <!-- Learning Analytics Dashboard -->
-                <div class="learning-analytics">
-                    <h3 class="analytics-title">
-                        <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <!-- Enhanced Learning Analytics Dashboard -->
+                <div class="learning-analytics spectacular">
+                    <h3 class="analytics-title spectacular">
+                        <svg class="section-icon-svg spectacular" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 3v18h18"></path>
                             <path d="m19 9-5 5-4-4-3 3"></path>
                         </svg>
-                        Learning Analytics
+                        Smart Learning Analytics
                     </h3>
-                    <div class="analytics-grid">
-                        <div class="analytics-card">
-                            <div class="card-header">
-                                <h4>Your Progress</h4>
-                            </div>
-                            <div class="progress-stats">
-                                <div class="progress-stat">
-                                    <div class="stat-circle">
-                                        <svg class="progress-ring" viewBox="0 0 100 100">
-                                            <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="8"/>
-                                            <circle cx="50" cy="50" r="45" fill="none" stroke="#10b981" stroke-width="8" 
-                                                stroke-dasharray="283" stroke-dashoffset="${283 - (283 * this.learningAnalytics.completedCourses / this.learningAnalytics.totalResources)}"
-                                                transform="rotate(-90 50 50)"/>
+                    <div class="analytics-grid spectacular">
+                        <div class="analytics-card spectacular progress-card">
+                            <div class="card-header spectacular">
+                                <h4>Your Learning Journey</h4>
+                                <div class="progress-ring-container">
+                                    <svg class="progress-ring spectacular" viewBox="0 0 100 100">
+                                        <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255, 255, 255, 0.2)" stroke-width="6"/>
+                                        <circle cx="50" cy="50" r="45" fill="none" stroke="url(#progressGradient)" stroke-width="6" 
+                                            stroke-dasharray="283" stroke-dashoffset="${283 - (283 * this.learningAnalytics.weeklyGoal / 100)}"
+                                            transform="rotate(-90 50 50)" stroke-linecap="round"/>
+                                        <defs>
+                                            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:var(--primary-400);stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:var(--primary-600);stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
                                         </svg>
-                                        <div class="stat-value">${this.learningAnalytics.completedCourses}</div>
+                                    <div class="progress-center">
+                                        <span class="progress-value">${this.learningAnalytics.weeklyGoal}%</span>
+                                        <span class="progress-label">Weekly Goal</span>
                                     </div>
-                                    <div class="stat-label">Courses Completed</div>
                                 </div>
+                            </div>
+                            <div class="progress-stats spectacular">
                                 <div class="progress-stat">
-                                    <div class="streak-badge">
-                                        <span class="streak-number">${this.learningAnalytics.learningStreak}</span>
-                                        <span class="streak-label">Day Streak</span>
+                                    <span class="stat-value">${this.learningAnalytics.completedCourses}</span>
+                                    <span class="stat-label">Courses Completed</span>
                                     </div>
+                                <div class="progress-stat">
+                                    <span class="stat-value">${this.learningAnalytics.learningStreak}</span>
+                                    <span class="stat-label">Day Streak</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="analytics-card">
-                            <div class="card-header">
-                                <h4>Skill Gaps</h4>
+                        <div class="analytics-card spectacular skill-gaps-card">
+                            <div class="card-header spectacular">
+                                <h4>AI-Detected Skill Gaps</h4>
+                                <span class="ai-powered-badge">🤖 AI</span>
                             </div>
-                            <div class="skill-gaps">
+                            <div class="skill-gaps spectacular">
                                 ${this.learningAnalytics.skillGaps.map(gap => `
-                                    <div class="skill-gap-item priority-${gap.priority}">
+                                    <div class="skill-gap-item spectacular priority-${gap.priority}">
                                         <div class="gap-info">
                                             <span class="gap-skill">${gap.skill}</span>
                                             <span class="gap-level">${gap.gap} Priority</span>
                                         </div>
-                                        <div class="gap-progress">
+                                        <div class="gap-progress spectacular">
                                             <div class="gap-fill ${gap.priority}"></div>
                                         </div>
+                                        <button class="gap-action-btn spectacular">Fix</button>
                                     </div>
                                 `).join('')}
                             </div>
                         </div>
 
-                        <div class="analytics-card">
-                            <div class="card-header">
-                                <h4>Trending Topics</h4>
+                        <div class="analytics-card spectacular trending-card">
+                            <div class="card-header spectacular">
+                                <h4>Trending in Your Network</h4>
+                                <div class="trend-indicator spectacular">📈 +127%</div>
                             </div>
-                            <div class="trending-topics">
+                            <div class="trending-topics spectacular">
                                 ${this.learningAnalytics.trendingTopics.map((topic, index) => `
-                                    <div class="trending-item">
-                                        <div class="trending-rank">#${index + 1}</div>
+                                    <div class="trending-item spectacular" style="animation-delay: ${index * 0.1}s">
+                                        <div class="trending-rank spectacular">#${index + 1}</div>
                                         <div class="trending-info">
                                             <span class="trending-title">${topic.title}</span>
                                             <span class="trending-stats">${topic.views} views • +${topic.growth}%</span>
                                         </div>
+                                        <div class="trending-spark">✨</div>
                                     </div>
                                 `).join('')}
                             </div>
@@ -523,19 +809,105 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     </div>
                 </div>
 
+                <!-- Enhanced Learning Paths with Spectacular Visuals -->
+                <div class="learning-paths-section spectacular">
+                    <h3 class="section-title spectacular">
+                        <svg class="section-icon-svg spectacular" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11l3 3L22 4"></path>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                        AI-Curated Learning Paths
+                        <span class="path-count-badge">${this.learningPaths.length} active</span>
+                    </h3>
+                    <div class="learning-paths-grid spectacular">
+                        ${this.learningPaths.map((path, index) => `
+                            <div class="learning-path-card spectacular" style="animation-delay: ${index * 0.2}s">
+                                <div class="path-header spectacular">
+                                    <h4 class="path-title">${path.title}</h4>
+                                    <div class="path-meta spectacular">
+                                        <span class="path-duration">⏱️ ${path.duration}</span>
+                                        <span class="path-difficulty">📊 ${path.difficulty}</span>
+                                    </div>
+                                </div>
+                                <p class="path-description">${path.description}</p>
+                                <div class="path-progress spectacular">
+                                    <div class="progress-bar spectacular">
+                                        <div class="progress-fill spectacular" style="width: ${path.progress}%"></div>
+                                        <div class="progress-shine"></div>
+                                    </div>
+                                    <span class="progress-text">${path.progress}% Complete</span>
+                                    <span class="progress-eta">⏰ ${path.estimatedCompletion} remaining</span>
+                                </div>
+                                <div class="path-skills spectacular">
+                                    ${path.skills.map(skill => `
+                                        <span class="skill-badge spectacular">${skill}</span>
+                                    `).join('')}
+                                </div>
+                                <div class="path-actions spectacular">
+                                    <button class="path-btn spectacular primary">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                        </svg>
+                                        Continue Learning
+                                    </button>
+                                    <button class="path-btn spectacular secondary">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <path d="M12 16v-4"></path>
+                                            <path d="M12 8h.01"></path>
+                                        </svg>
+                                        View Roadmap
+                                    </button>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <!-- Enhanced Resources Section -->
+                <div class="resources-section spectacular">
+                    <div class="section-header spectacular">
+                        <h3 class="section-title spectacular">
+                            <svg class="section-icon-svg spectacular" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                            Smart Learning Resources
+                            <span class="resource-count-badge spectacular">${this.getFilteredResources().length} resources</span>
+                        </h3>
+                        <div class="section-actions spectacular">
+                            <button class="action-btn spectacular" id="aiRecommendations">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                </svg>
+                                AI Picks
+                            </button>
+                            <button class="action-btn spectacular" id="sortByPopularity">Most Popular</button>
+                            <button class="action-btn spectacular" id="sortByRecent">Recently Added</button>
+                            <button class="action-btn spectacular" id="sortByRating">Highest Rated</button>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-container spectacular ${this.viewMode}" style="display: grid !important; width: 100% !important;">
+                        ${this.getFilteredResources().map((resource, index) => this.renderEnhancedResourceCard(resource, index)).join('')}
+                    </div>
+                </div>
+
                 <!-- Enhanced Filters -->
-                <div class="enhanced-filters">
+                <div class="enhanced-filters spectacular">
                     <div class="filter-section">
-                        <h4 class="filter-title">Categories</h4>
-                        <div class="filter-chips">
-                            <button class="filter-chip ${this.currentFilter === 'all' ? 'active' : ''}" data-filter="all">
+                        <h4 class="filter-title spectacular">Smart Categories</h4>
+                        <div class="filter-chips spectacular">
+                            <button class="filter-chip spectacular ${this.currentFilter === 'all' ? 'active' : ''}" data-filter="all">
+                                <span class="chip-icon">🎯</span>
                                 All Categories
                                 <span class="chip-count">${this.resources.length}</span>
                             </button>
                             ${Array.from(this.categories).map(category => {
                                 const count = this.resources.filter(r => r.category === category).length;
                                 return `
-                                    <button class="filter-chip ${this.currentFilter === category ? 'active' : ''}" data-filter="${category}">
+                                    <button class="filter-chip spectacular ${this.currentFilter === category ? 'active' : ''}" data-filter="${category}">
+                                        <span class="chip-icon">${this.getCategoryIcon(category)}</span>
                                         ${category}
                                         <span class="chip-count">${count}</span>
                                     </button>
@@ -545,7 +917,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     </div>
                     
                     <div class="filter-section">
-                        <h4 class="filter-title">Difficulty</h4>
+                        <h4 class="filter-title spectacular">Difficulty</h4>
                         <div class="difficulty-filters">
                             <button class="difficulty-btn" data-difficulty="beginner">Beginner</button>
                             <button class="difficulty-btn" data-difficulty="intermediate">Intermediate</button>
@@ -553,73 +925,56 @@ class EnhancedKnowledgeHub extends HTMLElement {
                         </div>
                     </div>
                 </div>
-
-                <!-- Learning Paths -->
-                <div class="learning-paths-section">
-                    <h3 class="section-title">
-                        <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 11l3 3L22 4"></path>
-                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                        </svg>
-                        Recommended Learning Paths
-                    </h3>
-                    <div class="learning-paths-grid">
-                        ${this.learningPaths.map(path => `
-                            <div class="learning-path-card">
-                                <div class="path-header">
-                                    <h4 class="path-title">${path.title}</h4>
-                                    <div class="path-meta">
-                                        <span class="path-duration">${path.duration}</span>
-                                        <span class="path-difficulty">${path.difficulty}</span>
-                                    </div>
-                                </div>
-                                <p class="path-description">${path.description}</p>
-                                <div class="path-progress">
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: ${path.progress}%"></div>
-                                    </div>
-                                    <span class="progress-text">${path.progress}% Complete</span>
-                                </div>
-                                <div class="path-skills">
-                                    ${path.skills.map(skill => `
-                                        <span class="skill-badge">${skill}</span>
-                                    `).join('')}
-                                </div>
-                                <div class="path-actions">
-                                    <button class="path-btn primary">Continue Learning</button>
-                                    <button class="path-btn secondary">View Details</button>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-
-                <!-- Resources Grid -->
-                <div class="resources-section">
-                    <div class="section-header">
-                        <h3 class="section-title">
-                            <svg class="section-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                            </svg>
-                            Learning Resources
-                        </h3>
-                        <div class="section-actions">
-                            <button class="action-btn" id="sortByPopularity">Most Popular</button>
-                            <button class="action-btn" id="sortByRecent">Recently Added</button>
-                            <button class="action-btn" id="sortByRating">Highest Rated</button>
-                        </div>
-                    </div>
-                    
-                    <div class="resources-container ${this.viewMode}">
-                        ${this.getFilteredResources().map(resource => this.renderEnhancedResourceCard(resource)).join('')}
-                    </div>
-                </div>
             </div>
         `;
+        // Add post-render verification
+        setTimeout(() => {
+            console.log('🔍 POST-RENDER VERIFICATION:');
+            const insightsSection = this.querySelector('.ai-insights-section');
+            const insightsGrid = this.querySelector('.ai-insights-grid');
+            const insightCards = this.querySelectorAll('.ai-insight-card');
+            
+            console.log('📍 AI Insights Section found:', !!insightsSection);
+            console.log('📍 AI Insights Grid found:', !!insightsGrid);
+            console.log('📍 AI Insight Cards found:', insightCards.length);
+            
+            if (insightsSection) {
+                console.log('📐 Section dimensions:', {
+                    offsetWidth: insightsSection.offsetWidth,
+                    offsetHeight: insightsSection.offsetHeight,
+                    display: getComputedStyle(insightsSection).display,
+                    visibility: getComputedStyle(insightsSection).visibility
+                });
+            }
+            
+            if (insightsGrid) {
+                console.log('📐 Grid dimensions:', {
+                    offsetWidth: insightsGrid.offsetWidth,
+                    offsetHeight: insightsGrid.offsetHeight,
+                    innerHTML: insightsGrid.innerHTML.length + ' chars'
+                });
+            }
+            
+            if (insightCards.length === 0) {
+                console.error('❌ NO AI INSIGHT CARDS FOUND IN DOM!');
+                console.log('🔍 Checking for any element with "insight" in class name...');
+                const anyInsightElements = this.querySelectorAll('[class*="insight"]');
+                console.log('📍 Elements with "insight" in class:', anyInsightElements.length);
+                anyInsightElements.forEach((el, i) => {
+                    console.log(`   ${i+1}. ${el.className}`);
+                });
+            } else {
+                console.log('✅ AI Insight cards successfully rendered!');
+                insightCards.forEach((card, i) => {
+                    console.log(`   Card ${i+1}: ${card.querySelector('.insight-title')?.textContent}`);
+                });
+            }
+        }, 100);
+        
+        console.log('📝 Render method completed successfully');
     }
 
-    renderEnhancedResourceCard(resource) {
+    renderEnhancedResourceCard(resource, index = 0) {
         const difficultyColor = {
             'Beginner': 'success',
             'Intermediate': 'warning', 
@@ -627,31 +982,33 @@ class EnhancedKnowledgeHub extends HTMLElement {
         };
 
         return `
-            <div class="enhanced-resource-card ${resource.isNew ? 'new' : ''} ${resource.isFeatured ? 'featured' : ''}" data-id="${resource.id}">
-                <div class="resource-header">
-                    <div class="resource-icon ${resource.type}">
+            <div class="enhanced-resource-card spectacular ${resource.isNew ? 'new' : ''} ${resource.isFeatured ? 'featured' : ''}" 
+                 data-id="${resource.id}" style="animation-delay: ${index * 0.1}s">
+                <div class="resource-header spectacular">
+                    <div class="resource-icon spectacular ${resource.type}">
                         ${this.getResourceIcon(resource.type)}
                     </div>
-                    <div class="resource-badges">
-                        ${resource.isNew ? '<span class="badge new">NEW</span>' : ''}
-                        ${resource.isFeatured ? '<span class="badge featured">FEATURED</span>' : ''}
-                        <span class="badge difficulty ${difficultyColor[resource.difficulty]}">${resource.difficulty}</span>
+                    <div class="resource-badges spectacular">
+                        ${resource.isNew ? '<span class="badge spectacular new">✨ NEW</span>' : ''}
+                        ${resource.isFeatured ? '<span class="badge spectacular featured">🏆 FEATURED</span>' : ''}
+                        <span class="badge spectacular difficulty ${difficultyColor[resource.difficulty]}">${resource.difficulty}</span>
+                        <span class="badge spectacular ai-score">🤖 ${resource.aiScore}</span>
                     </div>
                 </div>
                 
-                <div class="resource-content">
-                    <h4 class="resource-title">${resource.title}</h4>
-                    <p class="resource-summary">${resource.summary}</p>
+                <div class="resource-content spectacular">
+                    <h4 class="resource-title spectacular">${resource.title}</h4>
+                    <p class="resource-summary spectacular">${resource.summary}</p>
                     
-                    <div class="resource-meta">
-                        <div class="meta-item">
+                    <div class="resource-meta spectacular">
+                        <div class="meta-item spectacular">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <polyline points="12 6 12 12 16 14"></polyline>
                             </svg>
                             <span>${resource.duration}</span>
                         </div>
-                        <div class="meta-item">
+                        <div class="meta-item spectacular">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                 <circle cx="9" cy="7" r="4"></circle>
@@ -660,7 +1017,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                             </svg>
                             <span>${resource.instructor}</span>
                         </div>
-                        <div class="meta-item">
+                        <div class="meta-item spectacular">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                             </svg>
@@ -668,36 +1025,37 @@ class EnhancedKnowledgeHub extends HTMLElement {
                         </div>
                     </div>
                     
-                    <div class="resource-stats">
-                        <div class="stat">
+                    <div class="resource-stats spectacular">
+                        <div class="stat spectacular">
                             <span class="stat-value">${resource.views}</span>
                             <span class="stat-label">Views</span>
                         </div>
-                        <div class="stat">
+                        <div class="stat spectacular">
                             <span class="stat-value">${resource.completionRate}%</span>
                             <span class="stat-label">Completion</span>
                         </div>
-                        <div class="stat">
-                            <span class="stat-value">${resource.aiScore}</span>
-                            <span class="stat-label">AI Score</span>
+                        <div class="stat spectacular">
+                            <span class="stat-value">${resource.downloads}</span>
+                            <span class="stat-label">Downloads</span>
                         </div>
                     </div>
                     
-                    <div class="resource-tags">
+                    <div class="resource-tags spectacular">
                         ${resource.tags.map(tag => `
-                            <span class="resource-tag">${tag}</span>
+                            <span class="resource-tag spectacular">#${tag}</span>
                         `).join('')}
                     </div>
                 </div>
                 
-                <div class="resource-actions">
-                    <button class="resource-btn primary" data-action="start">
+                <div class="resource-actions spectacular">
+                    <button class="resource-btn spectacular primary" data-action="start">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polygon points="5 3 19 12 5 21 5 3"></polygon>
                         </svg>
                         Start Learning
+                        <div class="btn-shimmer"></div>
                     </button>
-                    <button class="resource-btn secondary" data-action="preview">
+                    <button class="resource-btn spectacular secondary" data-action="preview">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="10"></circle>
                             <path d="M12 16v-4"></path>
@@ -705,6 +1063,17 @@ class EnhancedKnowledgeHub extends HTMLElement {
                         </svg>
                         Preview
                     </button>
+                    <button class="resource-btn spectacular tertiary" data-action="bookmark">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="resource-hover-effects">
+                    <div class="hover-particle"></div>
+                    <div class="hover-particle"></div>
+                    <div class="hover-particle"></div>
                 </div>
             </div>
         `;
@@ -757,6 +1126,20 @@ class EnhancedKnowledgeHub extends HTMLElement {
         return icons[type] || icons.recommendation;
     }
 
+    getCategoryIcon(category) {
+        const icons = {
+            'Development': '💻',
+            'Design': '🎨',
+            'Product': '🚀',
+            'Analytics': '📊',
+            'Sales': '💰',
+            'Security': '🔒',
+            'Marketing': '📈',
+            'Leadership': '👑'
+        };
+        return icons[category] || '📚';
+    }
+
     getFilteredResources() {
         let filtered = this.resources;
         
@@ -778,48 +1161,89 @@ class EnhancedKnowledgeHub extends HTMLElement {
     }
 
     setupEventListeners() {
-        // Search functionality
-        const searchInput = this.querySelector('.enhanced-search');
+        // Search functionality with AI enhancement
+        const searchInput = this.querySelector('.enhanced-search, #knowledgeSearch');
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
                 this.searchQuery = e.target.value;
                 this.updateResourceDisplay();
+                
+                // Add AI search suggestions
+                if (this.searchQuery.length > 2) {
+                    this.showAISearchSuggestions();
+                }
             });
         }
 
-        // View mode controls
+        // AI search button
+        const aiSearchBtn = this.querySelector('.ai-search-btn');
+        if (aiSearchBtn) {
+            aiSearchBtn.addEventListener('click', () => {
+                this.performAISearch();
+            });
+        }
+
+        // Enhanced view mode controls
         this.querySelectorAll('.view-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 this.viewMode = e.currentTarget.dataset.view;
                 this.updateViewMode();
+                this.triggerSpectacularTransition();
             });
         });
 
-        // Filter controls
+        // Enhanced filter controls
         this.querySelectorAll('.filter-chip').forEach(chip => {
             chip.addEventListener('click', (e) => {
                 this.currentFilter = e.currentTarget.dataset.filter;
                 this.updateFilters();
+                this.triggerSpectacularTransition();
             });
         });
 
-        // Resource actions
+        // Resource actions with enhanced feedback
         this.addEventListener('click', (e) => {
             const actionBtn = e.target.closest('[data-action]');
             if (actionBtn) {
                 const action = actionBtn.dataset.action;
                 const resourceId = parseInt(actionBtn.closest('.enhanced-resource-card').dataset.id);
-                this.handleResourceAction(action, resourceId);
+                this.handleResourceAction(action, resourceId, actionBtn);
             }
         });
 
-        // Sort controls
+        // AI recommendations button
+        const aiRecommendationsBtn = this.querySelector('#aiRecommendations');
+        if (aiRecommendationsBtn) {
+            aiRecommendationsBtn.addEventListener('click', () => {
+                this.showAIRecommendations();
+            });
+        }
+
+        // Sort controls with spectacular effects
         this.querySelectorAll('.action-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
+                if (e.currentTarget.id.startsWith('sortBy')) {
                 const sortBy = e.currentTarget.id.replace('sortBy', '').toLowerCase();
                 this.sortResources(sortBy);
+                    this.triggerSpectacularTransition();
+                }
             });
         });
+
+        // Add spectacular hover effects to cards
+        this.addEventListener('mouseenter', (e) => {
+            const card = e.target.closest('.enhanced-resource-card, .ai-insight-card, .learning-path-card, .analytics-card');
+            if (card) {
+                this.addHoverSparkles(card);
+            }
+        }, true);
+
+        this.addEventListener('mouseleave', (e) => {
+            const card = e.target.closest('.enhanced-resource-card, .ai-insight-card, .learning-path-card, .analytics-card');
+            if (card) {
+                this.removeHoverSparkles(card);
+            }
+        }, true);
     }
 
     updateResourceDisplay() {
@@ -853,9 +1277,15 @@ class EnhancedKnowledgeHub extends HTMLElement {
         this.updateResourceDisplay();
     }
 
-    handleResourceAction(action, resourceId) {
+    handleResourceAction(action, resourceId, button) {
         const resource = this.resources.find(r => r.id === resourceId);
         if (!resource) return;
+
+        // Add button animation
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = 'scale(1)';
+        }, 150);
 
         switch (action) {
             case 'start':
@@ -864,17 +1294,26 @@ class EnhancedKnowledgeHub extends HTMLElement {
             case 'preview':
                 this.previewResource(resource);
                 break;
+            case 'bookmark':
+                this.bookmarkResource(resource);
+                break;
         }
     }
 
     startLearning(resource) {
         console.log('Starting learning:', resource.title);
-        this.showNotification(`Starting "${resource.title}"`, 'success');
+        this.showNotification(`🚀 Starting "${resource.title}" - Happy learning!`, 'success');
+        this.triggerSpectacularTransition();
     }
 
     previewResource(resource) {
         console.log('Previewing resource:', resource.title);
-        this.showNotification(`Previewing "${resource.title}"`, 'info');
+        this.showNotification(`👀 Previewing "${resource.title}"`, 'info');
+    }
+
+    bookmarkResource(resource) {
+        console.log('Bookmarking resource:', resource.title);
+        this.showNotification(`📚 Bookmarked "${resource.title}"`, 'success');
     }
 
     sortResources(sortBy) {
@@ -936,26 +1375,244 @@ class EnhancedKnowledgeHub extends HTMLElement {
 
     showNotification(message, type = 'info') {
         const notification = document.createElement('div');
-        notification.className = `knowledge-notification ${type}`;
+        notification.className = `knowledge-notification spectacular ${type}`;
         notification.innerHTML = `
-            <div class="notification-content">
+            <div class="notification-content spectacular">
+                <div class="notification-icon">${this.getNotificationIcon(type)}</div>
                 <span class="notification-text">${message}</span>
+                <button class="notification-close" onclick="this.parentElement.parentElement.remove()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
             </div>
         `;
 
         document.body.appendChild(notification);
 
         setTimeout(() => {
-            notification.style.transform = 'translateY(0)';
+            notification.style.transform = 'translateX(0)';
             notification.style.opacity = '1';
         }, 10);
 
         setTimeout(() => {
-            notification.style.transform = 'translateY(-100%)';
+            notification.style.transform = 'translateX(100%)';
             notification.style.opacity = '0';
             setTimeout(() => notification.remove(), 300);
-        }, 3000);
+        }, 4000);
+    }
+
+    getNotificationIcon(type) {
+        const icons = {
+            success: '✅',
+            info: 'ℹ️',
+            warning: '⚠️',
+            error: '❌'
+        };
+        return icons[type] || 'ℹ️';
+    }
+
+    performAISearch() {
+        this.showNotification('🤖 AI is analyzing your search...', 'info');
+        
+        // Simulate AI search processing
+        setTimeout(() => {
+            this.showNotification('✨ AI found enhanced results for you!', 'success');
+            this.updateResourceDisplay();
+        }, 1500);
+    }
+
+    showAISearchSuggestions() {
+        // Implementation for AI search suggestions
+        console.log('Showing AI search suggestions for:', this.searchQuery);
+    }
+
+    showAIRecommendations() {
+        // Filter resources by AI score and show them
+        const aiRecommended = this.resources
+            .filter(r => r.aiScore > 90)
+            .sort((a, b) => b.aiScore - a.aiScore);
+        
+        this.showNotification(`🤖 Found ${aiRecommended.length} AI-recommended resources!`, 'success');
+        this.triggerSpectacularTransition();
+    }
+
+    triggerSpectacularTransition() {
+        // Add spectacular transition effects
+        const cards = this.querySelectorAll('.enhanced-resource-card, .ai-insight-card, .learning-path-card');
+        cards.forEach((card, index) => {
+            card.style.animation = 'none';
+            card.style.animationDelay = `${index * 0.05}s`;
+            setTimeout(() => {
+                card.style.animation = 'knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+            }, 10);
+        });
+    }
+
+    addHoverSparkles(element) {
+        if (!this.spectacularMode) return;
+        
+        for (let i = 0; i < 3; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'hover-sparkle';
+            sparkle.innerHTML = '✨';
+            sparkle.style.cssText = `
+                position: absolute;
+                left: ${Math.random() * 100}%;
+                top: ${Math.random() * 100}%;
+                pointer-events: none;
+                z-index: 10;
+                animation: knowledgeSparkleFloat 1s ease-out forwards;
+                font-size: 0.8rem;
+            `;
+            element.appendChild(sparkle);
+            
+            setTimeout(() => sparkle.remove(), 1000);
+        }
+    }
+
+    removeHoverSparkles(element) {
+        const sparkles = element.querySelectorAll('.hover-sparkle');
+        sparkles.forEach(sparkle => sparkle.remove());
+    }
+
+    forceSpectacularStyling() {
+        console.log('🔥 ULTIMATE FORCE: Applying nuclear styling...');
+        
+        // ULTRA-AGGRESSIVE: Apply styling every 100ms for the first 15 seconds
+        const ultraForceInterval = setInterval(() => {
+            const container = this.querySelector('.enhanced-knowledge-hub');
+            if (!container) {
+                clearInterval(ultraForceInterval);
+                return;
+            }
+            
+            // Force container to be spectacular with maximum specificity
+            container.className = 'enhanced-knowledge-hub spectacular-mode';
+            container.style.cssText = `
+                background: 
+                    linear-gradient(45deg, var(--primary-500) 0%, transparent 50%, var(--primary-500) 100%),
+                    linear-gradient(-45deg, var(--primary-600) 0%, transparent 50%, var(--primary-600) 100%),
+                    linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%),
+                    linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%),
+                    radial-gradient(ellipse 1200px 800px at 20% 20%, rgba(139, 92, 246, 0.5) 0%, transparent 50%),
+                    radial-gradient(ellipse 800px 1200px at 80% 80%, rgba(6, 182, 212, 0.4) 0%, transparent 50%),
+                    radial-gradient(ellipse 600px 600px at 50% 50%, rgba(16, 185, 129, 0.3) 0%, transparent 70%),
+                    radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
+                    repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
+                    repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
+                border-radius: var(--radius-2xl) !important;
+                padding: var(--space-8) !important;
+                color: white !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                animation: knowledgeGlow 6s ease-in-out infinite, knowledgeBackgroundShift 20s linear infinite, knowledgeSubtlePulse 4s ease-in-out infinite !important;
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 60px rgba(99, 102, 241, 0.4), 0 0 120px rgba(99, 102, 241, 0.2) !important;
+            `;
+            
+            // Force ALL elements to have white text
+            const allElements = this.querySelectorAll('*');
+            allElements.forEach(element => {
+                if (!element.matches('input, select, textarea, .search-input')) {
+                    element.style.setProperty('color', 'white', 'important');
+                    
+                    // Remove any non-transparent backgrounds
+                    if (element.style.backgroundColor && 
+                        element.style.backgroundColor !== 'transparent' && 
+                        element.style.backgroundColor !== 'rgba(0, 0, 0, 0)') {
+                        element.style.setProperty('background-color', 'transparent', 'important');
+                    }
+                }
+            });
+            
+            // Force cards with ultra-high specificity
+            const cards = this.querySelectorAll('.ai-insight-card, .analytics-card, .learning-path-card, .enhanced-resource-card, .resource-card, .insight-card, .stat-card, .card');
+            cards.forEach(card => {
+                card.style.cssText = `
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+                    backdrop-filter: blur(15px) !important;
+                    -webkit-backdrop-filter: blur(15px) !important;
+                    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                    color: white !important;
+                    border-radius: var(--radius-xl) !important;
+                    padding: var(--space-5) !important;
+                    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+                `;
+            });
+            
+            // Force sections to be transparent
+            const sections = this.querySelectorAll('.ai-insights-section, .learning-analytics, .learning-paths-section, .resources-section, .section');
+            sections.forEach(section => {
+                section.style.setProperty('background', 'transparent', 'important');
+                section.style.setProperty('background-color', 'transparent', 'important');
+            });
+            
+            // Force buttons
+            const buttons = this.querySelectorAll('button, .btn, .resource-btn, .insight-action-btn');
+            buttons.forEach(button => {
+                button.style.cssText = `
+                    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)) !important;
+                    color: white !important;
+                    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+                    border-radius: var(--radius-lg) !important;
+                `;
+            });
+            
+            // Force badges
+            const badges = this.querySelectorAll('.badge, .tag, .resource-tag, .impact-badge, .confidence-indicator, .priority-badge');
+            badges.forEach(badge => {
+                badge.style.cssText = `
+                    background: rgba(255, 255, 255, 0.2) !important;
+                    color: white !important;
+                    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+                `;
+            });
+            
+            console.log('🚨 NUCLEAR STYLING CYCLE COMPLETE');
+            
+        }, 100); // Every 100ms for maximum override
+        
+        // Stop ultra-forcing after 15 seconds, then continue with normal forcing
+        setTimeout(() => {
+            clearInterval(ultraForceInterval);
+            console.log('🎯 Ultra-force complete, continuing with normal enforcement...');
+            
+            // Continue with less frequent forcing
+            const normalForceInterval = setInterval(() => {
+                const container = this.querySelector('.enhanced-knowledge-hub');
+                if (!container) {
+                    clearInterval(normalForceInterval);
+                    return;
+                }
+                
+                // Apply styling less frequently
+                container.classList.add('spectacular-mode');
+                const allText = this.querySelectorAll('*:not(input):not(select):not(textarea)');
+                allText.forEach(el => {
+                    if (el.textContent && el.textContent.trim()) {
+                        el.style.setProperty('color', 'white', 'important');
+                    }
+                });
+                
+            }, 1000); // Every 1 second
+            
+            // Stop normal forcing after 30 more seconds
+            setTimeout(() => {
+                clearInterval(normalForceInterval);
+                console.log('🏁 All styling enforcement complete');
+            }, 30000);
+            
+        }, 15000);
     }
 }
 
-customElements.define('enhanced-knowledge-hub', EnhancedKnowledgeHub); 
+console.log('📝 About to register Enhanced Knowledge Hub component...');
+try {
+    customElements.define('enhanced-knowledge-hub', EnhancedKnowledgeHub);
+    console.log('✅ Enhanced Knowledge Hub component registered successfully!');
+} catch (error) {
+    console.error('❌ Failed to register Enhanced Knowledge Hub component:', error);
+    console.error('Error details:', error.message);
+} 

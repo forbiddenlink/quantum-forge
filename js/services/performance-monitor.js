@@ -126,7 +126,7 @@ class PerformanceMonitor {
         
         // Stop all intervals
         if (window.performanceManager) {
-            window.performanceManager.clearAllIntervals();
+            window.performanceManager.emergencyCleanupAll();
         }
         
         // Disable animations

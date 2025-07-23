@@ -5,17 +5,39 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--bg-elevated);
-    border-bottom: 1px solid var(--border-color);
+    background: 
+        /* Spectacular gradient matching analytics dashboard */
+        linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 50%, var(--primary-700) 100%),
+        /* Subtle pattern overlay */
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.05) 2px, rgba(255, 255, 255, 0.05) 4px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     position: sticky;
     top: 0;
     z-index: 50;
     transition: all var(--duration-normal) var(--ease-in-out);
+    
+    /* Enhanced glassmorphism effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 
+        0 4px 20px rgba(99, 102, 241, 0.15),
+        0 0 30px rgba(99, 102, 241, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 [data-theme="dark"] .header {
-    background: var(--gray-800);
-    border-color: var(--gray-700);
+    background: 
+        /* Spectacular gradient matching analytics dashboard */
+        linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 50%, var(--primary-700) 100%),
+        /* Subtle pattern overlay */
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.05) 2px, rgba(255, 255, 255, 0.05) 4px);
+    border-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 
+        0 4px 20px rgba(99, 102, 241, 0.15),
+        0 0 30px rgba(99, 102, 241, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .header-left {
@@ -35,7 +57,7 @@
     align-items: center;
     gap: var(--space-3);
     text-decoration: none;
-    color: var(--text-primary);
+    color: white;
     min-width: fit-content;
     transition: transform var(--duration-normal) var(--ease-spring);
 }
@@ -67,16 +89,15 @@
 .logo-text {
     font-weight: 700;
     font-size: var(--font-size-xl);
-    background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* Ensure text is visible on gradient background */
 }
 
 .menu-button {
     display: none;
     padding: var(--space-2);
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.9);
     border-radius: var(--radius-md);
     transition: all var(--duration-normal) var(--ease-in-out);
     background: none;
@@ -85,8 +106,9 @@
 }
 
 .menu-button:hover {
-    background: var(--bg-hover);
-    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: scale(1.05);
 }
 
 .menu-button svg {
@@ -97,7 +119,7 @@
 /* Action Buttons */
 .action-button {
     padding: var(--space-2);
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.9);
     border: none;
     background: none;
     border-radius: var(--radius-md);
@@ -110,8 +132,9 @@
 }
 
 .action-button:hover {
-    background: var(--bg-hover);
-    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: scale(1.05);
 }
 
 .action-button svg {

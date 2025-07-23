@@ -1,128 +1,609 @@
-/* Enhanced Knowledge Hub Styles */
-.enhanced-knowledge-hub {
-    background: var(--bg-elevated);
-    border-radius: var(--radius-2xl);
+/* 🏆 CONTEST-WINNING ENHANCED KNOWLEDGE HUB - Spectacular Visual Design */
+:root {
+    /* Knowledge Hub specific colors matching analytics patterns */
+    --knowledge-primary: var(--primary-500);
+    --knowledge-success: var(--success-500);
+    --knowledge-warning: var(--warning-500);
+    --knowledge-error: var(--error-500);
+    
+    /* Spectacular gradients for knowledge hub */
+    --knowledge-gradient: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    --knowledge-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
+    --knowledge-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
+    --knowledge-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
+    
+    /* Contest-winning effect colors */
+    --knowledge-glow: rgba(99, 102, 241, 0.4);
+    --knowledge-accent-1: #8b5cf6;
+    --knowledge-accent-2: #06b6d4;
+    --knowledge-accent-3: #10b981;
+    --knowledge-accent-4: #f59e0b;
+    
+    /* Dynamic color picker integration */
+    --knowledge-hub-primary: var(--primary-500);
+    --knowledge-hub-primary-light: var(--primary-400);
+    --knowledge-hub-primary-dark: var(--primary-600);
+}
+
+/* 🚀 SPECTACULAR KNOWLEDGE HUB CONTAINER - EXACTLY MATCHING TASK MANAGEMENT */
+.enhanced-knowledge-hub.spectacular-mode {
+    /* ENHANCED Multi-layer animated background - EXACT MATCH to task system */
+    background: 
+        /* Animated gradient waves */
+        linear-gradient(45deg, var(--primary-500) 0%, transparent 50%, var(--primary-500) 100%),
+        linear-gradient(-45deg, var(--primary-600) 0%, transparent 50%, var(--primary-600) 100%),
+        linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%),
+        /* Primary gradient base */
+        linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%),
+        /* Animated accent gradients */
+        radial-gradient(ellipse 1200px 800px at 20% 20%, rgba(139, 92, 246, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 800px 1200px at 80% 80%, rgba(6, 182, 212, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse 600px 600px at 50% 50%, rgba(16, 185, 129, 0.3) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
+        /* Enhanced texture overlay with animation */
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
+    
+    border-radius: var(--radius-2xl) !important;
+    padding: var(--space-8) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    margin-bottom: var(--space-6) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    
+    /* Spectacular glow and animation effects matching task system */
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(99, 102, 241, 0.4),
+        0 0 120px rgba(99, 102, 241, 0.2) !important;
+        
+    /* Smooth transitions */
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    
+    /* Enhanced backdrop */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    
+    /* SPECTACULAR glow and animation effects */
+    animation: 
+        knowledgeGlow 6s ease-in-out infinite,
+        knowledgeBackgroundShift 20s linear infinite,
+        knowledgeSubtlePulse 4s ease-in-out infinite !important;
+    
+    /* 3D transform for depth */
+    transform-style: preserve-3d !important;
+    perspective: 1000px !important;
+    
+    /* Ensure exact dimensions matching task system */
+    min-height: auto;
+    height: auto;
+    width: 100%;
+    max-width: none;
+}
+
+/* 🎨 SPECTACULAR KEYFRAME ANIMATIONS - MATCHING TASK SYSTEM */
+@keyframes knowledgeGlow {
+    0%, 100% { 
+        box-shadow: 
+            0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+            0 10px 10px -5px rgba(0, 0, 0, 0.04),
+            0 0 0 1px rgba(255, 255, 255, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4),
+            0 0 60px rgba(99, 102, 241, 0.4),
+            0 0 120px rgba(99, 102, 241, 0.2);
+    }
+    25% { 
+        box-shadow: 
+            0 25px 30px -5px rgba(0, 0, 0, 0.12), 
+            0 12px 12px -5px rgba(0, 0, 0, 0.06),
+            0 0 0 1px rgba(255, 255, 255, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5),
+            0 0 80px rgba(139, 92, 246, 0.5),
+            0 0 140px rgba(139, 92, 246, 0.3);
+    }
+    50% { 
+        box-shadow: 
+            0 22px 27px -5px rgba(0, 0, 0, 0.11), 
+            0 11px 11px -5px rgba(0, 0, 0, 0.05),
+            0 0 0 1px rgba(255, 255, 255, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.45),
+            0 0 70px rgba(6, 182, 212, 0.45),
+            0 0 130px rgba(6, 182, 212, 0.25);
+    }
+    75% { 
+        box-shadow: 
+            0 24px 29px -5px rgba(0, 0, 0, 0.13), 
+            0 13px 13px -5px rgba(0, 0, 0, 0.07),
+            0 0 0 1px rgba(255, 255, 255, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.48),
+            0 0 75px rgba(16, 185, 129, 0.48),
+            0 0 135px rgba(16, 185, 129, 0.28);
+    }
+}
+
+@keyframes knowledgeBackgroundShift {
+    0% { background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%; }
+    25% { background-position: 100% 0%, 0% 100%, 25% 50%, 0% 0%, 25% 25%, 75% 75%, 45% 55%, 15% 75%, 25% 25%, 25% 25%; }
+    50% { background-position: 100% 100%, 0% 0%, 50% 50%, 0% 0%, 30% 30%, 70% 70%, 40% 60%, 20% 70%, 50% 50%, 50% 50%; }
+    75% { background-position: 0% 100%, 100% 0%, 75% 50%, 0% 0%, 35% 35%, 65% 65%, 35% 65%, 25% 65%, 75% 75%, 75% 75%; }
+    100% { background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%; }
+}
+
+@keyframes knowledgeSubtlePulse {
+    0%, 100% { transform: scale(1) translateZ(0); }
+    50% { transform: scale(1.003) translateZ(3px); }
+}
+
+@keyframes knowledgeSpectacularEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9) rotateX(10deg);
+        filter: blur(10px);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(-5px) scale(1.02) rotateX(-2deg);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg);
+        filter: blur(0);
+    }
+}
+
+@keyframes knowledgeSparkleFloat {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.5);
+    }
+}
+
+/* ✨ FLOATING GEOMETRIC SHAPES */
+.enhanced-knowledge-hub::before {
+    content: '';
+    position: absolute;
+    top: -80%;
+    right: -80%;
+    width: 260%;
+    height: 260%;
+    background: 
+        radial-gradient(circle at 40% 40%, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0.2) 20%, transparent 50%),
+        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.15) 25%, transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0.1) 30%, transparent 50%);
+    border-radius: 50%;
+    animation: knowledgeFloat 20s ease-in-out infinite reverse;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(1px);
+}
+
+.enhanced-knowledge-hub::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.4) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 50%),
+        radial-gradient(circle at 20% 70%, rgba(16, 185, 129, 0.3) 0%, rgba(16, 185, 129, 0.15) 30%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.1) 35%, transparent 60%);
+    animation: knowledgeFloat 25s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(0.8px);
+}
+
+@keyframes knowledgeFloat {
+    0%, 100% {
+        transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateX(20px) translateY(-25px) scale(1.05) rotate(2deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateX(-15px) translateY(-15px) scale(0.95) rotate(-1deg);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translateX(-20px) translateY(20px) scale(1.02) rotate(1deg);
+        opacity: 0.9;
+    }
+}
+
+/* 🌟 SPECTACULAR PARTICLE SYSTEM */
+.knowledge-particles-system {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 2;
     overflow: hidden;
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-lg);
-    transition: all var(--duration-normal) var(--ease-spring);
-    margin: 0;
-    padding: 0;
-    display: block;
-    height: 100%;
 }
 
-.enhanced-knowledge-hub:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-xl);
+.knowledge-particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(0.5px);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+    background: radial-gradient(circle, var(--knowledge-hub-primary) 0%, transparent 70%);
+    animation: knowledgeParticleFloat 15s ease-in-out infinite;
 }
 
-/* Header Section - Updated for dashboard compatibility */
-.hub-header {
-    padding: var(--space-6);
-    border-bottom: 1px solid var(--border-color);
-    background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-secondary) 100%);
+@keyframes knowledgeParticleFloat {
+    0%, 100% {
+        transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+        opacity: 0.4;
+        filter: blur(0.5px) hue-rotate(0deg);
+    }
+    25% {
+        transform: translateX(30px) translateY(-40px) scale(1.2) rotate(90deg);
+        opacity: 0.8;
+        filter: blur(0.3px) hue-rotate(90deg);
+    }
+    50% {
+        transform: translateX(-25px) translateY(-25px) scale(0.8) rotate(180deg);
+        opacity: 0.6;
+        filter: blur(0.7px) hue-rotate(180deg);
+    }
+    75% {
+        transform: translateX(-35px) translateY(35px) scale(1.1) rotate(270deg);
+        opacity: 0.7;
+        filter: blur(0.4px) hue-rotate(270deg);
+    }
+}
+
+/* ✨ SPARKLE EFFECTS */
+.knowledge-sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.knowledge-sparkle {
+    position: absolute;
+    animation: knowledgeSparkle 2.5s ease-in-out infinite;
+}
+
+@keyframes knowledgeSparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(180deg);
+    }
+}
+
+/* 🎯 ENERGY RINGS */
+.knowledge-energy-ring {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgba(99, 102, 241, 0.3);
+    border-radius: 50%;
+    animation: knowledgeEnergyPulse 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 3;
+}
+
+@keyframes knowledgeEnergyPulse {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.3);
+        border-color: rgba(99, 102, 241, 0.1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(1);
+        border-color: rgba(99, 102, 241, 0.4);
+    }
+}
+
+/* SPECTACULAR HEADER SECTION - IMPROVED ALIGNMENT */
+.hub-header.spectacular {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 2;
+    background: none !important;
+    background-color: transparent !important;
+    gap: var(--space-4);
     flex-wrap: wrap;
+    width: 100%;
+    min-height: auto;
 }
 
-.header-content {
-    flex: 1;
-    min-width: 0;
-}
-
-.hub-title {
-    font-size: var(--font-size-xl);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 var(--space-2);
+.hub-title.spectacular {
+    font-size: var(--font-size-3xl);
+    font-weight: 900;
+    color: white !important;
+    margin: 0;
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: white !important;
+    background-clip: unset !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
 }
 
-.title-icon {
-    width: 24px;
-    height: 24px;
-    color: var(--primary-500);
-    flex-shrink: 0;
+.title-icon.spectacular {
+    width: 32px;
+    height: 32px;
+    stroke: white !important;
+    stroke-width: 2px;
+    color: white !important;
+    fill: none !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.hub-subtitle {
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
+.ai-badge.spectacular {
+    background: linear-gradient(135deg, var(--knowledge-accent-1), var(--knowledge-accent-2)) !important;
+    color: white !important;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    animation: knowledgeAiPulse 2s ease-in-out infinite;
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes knowledgeAiPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.hub-subtitle.spectacular {
+    font-size: var(--font-size-lg);
+    color: rgba(255, 255, 255, 0.8);
     margin: 0;
     line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.hub-controls {
+.hub-stats.spectacular {
     display: flex;
-    flex-direction: column;
     gap: var(--space-4);
-    align-items: flex-end;
+    margin-top: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.stat-bubble {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-lg);
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    min-width: 80px;
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.stat-bubble:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+}
+
+.stat-value {
+    display: block;
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: white;
+    margin-bottom: var(--space-1);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* HUB CONTROLS CONTAINER - PERFECT ALIGNMENT */
+.hub-controls.spectacular {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    width: auto;
     flex-shrink: 0;
 }
 
-.search-container {
+/* SPECTACULAR SEARCH CONTAINER - MATCHING WELCOME/ANALYTICS SECTIONS */
+.search-container.spectacular {
     position: relative;
     width: 320px;
     min-width: 280px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(15px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    display: flex !important;
+    align-items: center !important;
+    height: 56px;
 }
 
-.enhanced-search {
-    padding: var(--space-3) var(--space-4) var(--space-3) var(--space-12);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-xl);
-    background: var(--bg-secondary);
-    color: var(--text-primary);
+/* 🚨 CRITICAL FIX: Override main.css knowledge-hub search styles with higher specificity */
+.enhanced-knowledge-hub.spectacular-mode .search-container .enhanced-search.spectacular,
+.enhanced-knowledge-hub.spectacular-mode .search-input,
+html body .enhanced-knowledge-hub.spectacular-mode .search-container .enhanced-search,
+html body .enhanced-knowledge-hub.spectacular-mode .search-input,
+html body .knowledge-hub.spectacular-mode .search-input {
+    padding: var(--space-3) var(--space-12) var(--space-3) var(--space-12) !important;
+    border: none !important;
+    border-radius: var(--radius-lg) !important;
+    background: transparent !important;
+    color: white !important;
+    font-size: var(--font-size-sm) !important;
+    font-weight: 500 !important;
+    width: 100% !important;
+    height: 40px !important;
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    outline: none !important;
+}
+
+.enhanced-search.spectacular {
+    padding: var(--space-3) var(--space-12) var(--space-3) var(--space-12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
     font-size: var(--font-size-sm);
+    font-weight: 500;
     width: 100%;
     transition: all var(--duration-normal) var(--ease-in-out);
-    box-shadow: var(--shadow-sm);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.enhanced-search:focus {
+/* Focus and placeholder states with higher specificity to override main.css */
+.enhanced-knowledge-hub.spectacular-mode .search-container .enhanced-search.spectacular:focus,
+.enhanced-knowledge-hub.spectacular-mode .search-input:focus,
+html body .enhanced-knowledge-hub.spectacular-mode .search-container .enhanced-search:focus,
+html body .enhanced-knowledge-hub.spectacular-mode .search-input:focus,
+html body .knowledge-hub.spectacular-mode .search-input:focus {
+    outline: none !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-1px) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .search-container .enhanced-search.spectacular::placeholder,
+.enhanced-knowledge-hub.spectacular-mode .search-input::placeholder,
+html body .enhanced-knowledge-hub.spectacular-mode .search-container .enhanced-search::placeholder,
+html body .enhanced-knowledge-hub.spectacular-mode .search-input::placeholder,
+html body .knowledge-hub.spectacular-mode .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-weight: 400 !important;
+}
+
+.enhanced-search.spectacular:focus {
     outline: none;
-    border-color: var(--primary-500);
-    box-shadow: 0 0 0 3px var(--primary-100);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
     transform: translateY(-1px);
-    background: var(--bg-elevated);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%);
 }
 
-.enhanced-search::placeholder {
-    color: var(--text-tertiary);
+.enhanced-search.spectacular::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
-.search-icon {
+/* Search icon with higher specificity to override main.css */
+.enhanced-knowledge-hub.spectacular-mode .search-icon.spectacular,
+.enhanced-knowledge-hub.spectacular-mode .search-icon,
+html body .enhanced-knowledge-hub.spectacular-mode .search-icon,
+html body .knowledge-hub.spectacular-mode .search-icon {
+    position: absolute !important;
+    left: var(--space-4) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 18px !important;
+    height: 18px !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    pointer-events: none !important;
+    stroke: white !important;
+    fill: none !important;
+    z-index: 2 !important;
+}
+
+.search-icon.spectacular {
     position: absolute;
     left: var(--space-4);
     top: 50%;
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     pointer-events: none;
+    stroke: white !important;
 }
 
-.view-controls {
+.ai-search-btn.spectacular {
+    position: absolute !important;
+    right: var(--space-3) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 32px !important;
+    height: 32px !important;
+    background: linear-gradient(135deg, var(--knowledge-accent-1), var(--knowledge-accent-2)) !important;
+    border: none !important;
+    border-radius: var(--radius-lg) !important;
+    color: white !important;
+    cursor: pointer !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 3 !important;
+}
+
+.ai-search-btn.spectacular:hover {
+    transform: translateY(-50%) scale(1.1) !important;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4) !important;
+}
+
+.ai-search-btn.spectacular svg {
+    width: 16px !important;
+    height: 16px !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+/* SPECTACULAR VIEW CONTROLS */
+.view-controls.spectacular {
     display: flex;
     gap: var(--space-2);
-    background: var(--bg-secondary);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(10px);
     border-radius: var(--radius-lg);
     padding: var(--space-1);
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.view-btn {
+.view-btn.spectacular {
     padding: var(--space-2) var(--space-3);
     border: none;
     background: transparent;
     border-radius: var(--radius-md);
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
     transition: all var(--duration-normal) var(--ease-in-out);
     display: flex;
@@ -130,366 +611,517 @@
     gap: var(--space-2);
 }
 
-.view-btn svg {
+.view-btn.spectacular svg {
     width: 16px;
     height: 16px;
+    stroke: currentColor !important;
 }
 
-.view-btn:hover {
-    background: var(--bg-elevated);
-    color: var(--text-primary);
+.view-btn.spectacular:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
-.view-btn.active {
-    background: var(--primary-500);
+.view-btn.spectacular.active {
+    background: var(--knowledge-hub-primary);
     color: white;
     box-shadow: var(--shadow-sm);
 }
 
-/* AI Insights Section - Simplified for dashboard */
-.ai-insights-section {
-    padding: var(--space-6);
-    border-bottom: 1px solid var(--border-color);
+/* SPECTACULAR AI INSIGHTS SECTION */
+.ai-insights-section.spectacular {
+    margin-bottom: var(--space-8);
+    position: relative;
+    z-index: 2;
 }
 
-.insights-title {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 var(--space-4);
+.insights-title.spectacular {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: white !important;
+    margin-bottom: var(--space-6);
     display: flex;
     align-items: center;
     gap: var(--space-3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
 }
 
-.section-icon-svg {
-    width: 20px;
-    height: 20px;
-    color: var(--primary-500);
+.section-icon-svg.spectacular {
+    width: 24px;
+    height: 24px;
+    stroke: white !important;
+    stroke-width: 2px;
+    color: white !important;
+    fill: none !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.ai-insights-grid {
+.live-indicator.spectacular {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    animation: knowledgeLivePulse 1.5s ease-in-out infinite;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+}
+
+@keyframes knowledgeLivePulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.ai-insights-grid.spectacular {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-4);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-4);
 }
 
-.ai-insight-card {
-    background: var(--bg-secondary);
+.ai-insight-card.spectacular {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(15px);
     border-radius: var(--radius-xl);
-    padding: var(--space-4);
-    border: 1px solid var(--border-color);
+    padding: var(--space-6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all var(--duration-normal) var(--ease-spring);
-    box-shadow: var(--shadow-sm);
-    animation: fadeInUp 0.6s var(--ease-spring) both;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-.ai-insight-card.animate-in {
-    animation: fadeInUp 0.6s var(--ease-spring) both;
+.ai-insight-card.spectacular::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--knowledge-accent-1), var(--knowledge-accent-3));
+    transform: scaleY(0);
+    transition: transform var(--duration-normal) var(--ease-spring);
 }
 
-.ai-insight-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--border-primary);
-    background: var(--bg-elevated);
+.ai-insight-card.spectacular:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
 }
 
-.insight-header {
+.ai-insight-card.spectacular:hover::before {
+    transform: scaleY(1);
+}
+
+.insight-header.spectacular {
     display: flex;
     align-items: flex-start;
-    gap: var(--space-3);
-    margin-bottom: var(--space-3);
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
 }
 
-.insight-icon {
-    width: 40px;
-    height: 40px;
+.insight-icon.spectacular {
+    width: 48px;
+    height: 48px;
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
     flex-shrink: 0;
-    background: var(--primary-100);
-    color: var(--primary-600);
 }
 
-.insight-icon.recommendation {
-    background: var(--success-100);
-    color: var(--success-600);
+.insight-icon.spectacular.recommendation {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success-200);
 }
 
-.insight-icon.trending {
-    background: var(--warning-100);
-    color: var(--warning-600);
+.insight-icon.spectacular.trending {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--warning-200);
 }
 
-.insight-icon.update {
-    background: var(--info-100);
-    color: var(--info-600);
+.insight-icon.spectacular.update {
+    background: rgba(6, 182, 212, 0.2);
+    color: #67e8f9;
 }
 
-.insight-icon svg {
+.insight-icon.spectacular.achievement {
+    background: rgba(139, 92, 246, 0.2);
+    color: #c4b5fd;
+}
+
+.insight-icon.spectacular svg {
     width: 20px;
     height: 20px;
+    stroke: currentColor !important;
 }
 
-.insight-meta {
+.insight-meta.spectacular {
     flex: 1;
-    min-width: 0;
 }
 
-.insight-title {
-    font-size: var(--font-size-base);
+.insight-title.spectacular {
+    font-size: var(--font-size-lg);
     font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 var(--space-2);
-    line-height: 1.3;
+    color: white;
+    margin: 0 0 var(--space-2) 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.confidence-indicator {
+.insight-badges.spectacular {
     display: flex;
-    align-items: center;
     gap: var(--space-2);
+    margin-bottom: var(--space-2);
+    flex-wrap: wrap;
 }
 
-.confidence-bar {
-    flex: 1;
-    height: 4px;
-    background: var(--bg-tertiary);
-    border-radius: var(--radius-full);
-    overflow: hidden;
-}
-
-.confidence-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--success-400) 0%, var(--success-500) 100%);
-    border-radius: var(--radius-full);
-    transition: width var(--duration-normal) var(--ease-in-out);
-}
-
-.confidence-text {
-    font-size: var(--font-size-xs);
-    color: var(--text-tertiary);
-    white-space: nowrap;
-}
-
-.impact-badge {
+.priority-badge {
     padding: var(--space-1) var(--space-2);
     border-radius: var(--radius-md);
     font-size: var(--font-size-xs);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    background: var(--bg-tertiary);
-    color: var(--text-secondary);
 }
 
-.impact-badge.high {
-    background: var(--success-100);
-    color: var(--success-700);
+.priority-badge.urgent {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
 }
 
-.impact-badge.medium {
-    background: var(--warning-100);
-    color: var(--warning-700);
+.priority-badge.important {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fcd34d;
 }
 
-.impact-badge.low {
-    background: var(--info-100);
-    color: var(--info-700);
+.priority-badge.normal {
+    background: rgba(99, 102, 241, 0.2);
+    color: #c7d2fe;
 }
 
-.insight-description {
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin: 0 0 var(--space-3);
+.priority-badge.celebration {
+    background: rgba(16, 185, 129, 0.2);
+    color: #86efac;
 }
 
-.insight-actions {
-    display: flex;
-    gap: var(--space-2);
-}
-
-.insight-action-btn {
-    padding: var(--space-2) var(--space-3);
-    border: 1px solid var(--border-color);
+.time-badge, .skill-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    padding: var(--space-1) var(--space-2);
     border-radius: var(--radius-md);
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     font-weight: 500;
-    cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-in-out);
+}
+
+.confidence-indicator.spectacular {
     display: flex;
     align-items: center;
     gap: var(--space-2);
+}
+
+.confidence-bar.spectacular {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.confidence-fill.spectacular {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success-400), var(--success-500));
+    border-radius: var(--radius-full);
+    transition: width var(--duration-normal) var(--ease-in-out);
+    position: relative;
+}
+
+.confidence-fill.spectacular::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: knowledgeConfidenceShimmer 2s infinite;
+}
+
+@keyframes knowledgeConfidenceShimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.confidence-text.spectacular {
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+}
+
+.impact-badge.spectacular {
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.impact-badge.spectacular.high {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+}
+
+.impact-badge.spectacular.medium {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fcd34d;
+}
+
+.impact-badge.spectacular.low {
+    background: rgba(99, 102, 241, 0.2);
+    color: #c7d2fe;
+}
+
+.insight-description.spectacular {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    margin: 0 0 var(--space-4) 0;
+}
+
+.insight-actions.spectacular {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.insight-action-btn.spectacular {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
     flex: 1;
     justify-content: center;
 }
 
-.insight-action-btn svg {
-    width: 14px;
-    height: 14px;
+.insight-action-btn.spectacular.primary {
+    background: linear-gradient(135deg, var(--success-500), var(--success-600));
+    color: white !important;
+    border-color: var(--success-400);
 }
 
-.insight-action-btn.primary {
-    background: var(--primary-500);
-    color: white;
-    border-color: var(--primary-500);
+.insight-action-btn.spectacular.primary:hover {
+    background: linear-gradient(135deg, var(--success-400), var(--success-500)) !important;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
 }
 
-.insight-action-btn.primary:hover {
-    background: var(--primary-600);
-    transform: translateY(-1px);
+.insight-action-btn.spectacular.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white !important;
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
-.insight-action-btn.secondary:hover {
-    background: var(--bg-elevated);
-    border-color: var(--border-primary);
-    color: var(--text-primary);
+.insight-action-btn.spectacular.secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: white !important;
 }
 
-/* Learning Analytics - Simplified for dashboard */
-.learning-analytics {
-    padding: var(--space-6);
-    border-bottom: 1px solid var(--border-color);
+.insight-action-btn.spectacular svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor !important;
 }
 
-.analytics-title {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 var(--space-4);
+/* SPECTACULAR LEARNING ANALYTICS */
+.learning-analytics.spectacular {
+    margin-bottom: var(--space-8);
+    position: relative;
+    z-index: 2;
+}
+
+.analytics-title.spectacular {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: white !important;
+    margin-bottom: var(--space-6);
     display: flex;
     align-items: center;
     gap: var(--space-3);
-}
-
-.analytics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-4);
-}
-
-.analytics-card {
-    background: var(--bg-secondary);
-    border-radius: var(--radius-xl);
-    padding: var(--space-4);
-    border: 1px solid var(--border-color);
-    transition: all var(--duration-normal) var(--ease-spring);
-    box-shadow: var(--shadow-sm);
-    animation: fadeInUp 0.6s var(--ease-spring) both;
-}
-
-.analytics-card.animate-in {
-    animation: fadeInUp 0.6s var(--ease-spring) both;
-}
-
-.analytics-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--border-primary);
-    background: var(--bg-elevated);
-}
-
-.card-header {
-    margin-bottom: var(--space-3);
-}
-
-.card-header h4 {
-    font-size: var(--font-size-base);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0;
-    line-height: 1.3;
-}
-
-.progress-stats {
-    display: flex;
-    align-items: center;
-    gap: var(--space-4);
-}
-
-.progress-stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
-}
-
-.stat-circle {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     position: relative;
-    width: 60px;
-    height: 60px;
+    z-index: 2;
 }
 
-.progress-ring {
+.analytics-grid.spectacular {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+}
+
+.analytics-card.spectacular {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(15px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--duration-normal) var(--ease-spring);
+    color: white;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.analytics-card.spectacular::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--knowledge-hub-primary), var(--knowledge-accent-2), var(--knowledge-accent-3));
+    transform: scaleX(0);
+    transition: transform var(--duration-normal) var(--ease-spring);
+}
+
+.analytics-card.spectacular:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.analytics-card.spectacular:hover::before {
+    transform: scaleX(1);
+}
+
+.card-header.spectacular {
+    margin-bottom: var(--space-4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header.spectacular h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: white;
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.ai-powered-badge {
+    background: linear-gradient(135deg, var(--knowledge-accent-1), var(--knowledge-accent-2));
+    color: white;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    animation: knowledgeAiPulse 2s ease-in-out infinite;
+}
+
+.progress-ring-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.progress-ring.spectacular {
     width: 100%;
     height: 100%;
     transform: rotate(-90deg);
 }
 
-.progress-ring circle {
+.progress-ring.spectacular circle {
     fill: none;
     stroke-width: 6;
+    stroke-linecap: round;
 }
 
-.stat-value {
+.progress-center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: var(--font-size-lg);
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1;
-}
-
-.stat-label {
-    font-size: var(--font-size-xs);
-    color: var(--text-tertiary);
     text-align: center;
-    line-height: 1.2;
 }
 
-.streak-badge {
-    background: linear-gradient(135deg, var(--warning-400) 0%, var(--warning-500) 100%);
+.progress-value {
+    display: block;
+    font-size: var(--font-size-xl);
+    font-weight: 700;
     color: white;
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius-xl);
-    text-align: center;
-    box-shadow: var(--shadow-md);
-}
-
-.streak-number {
-    display: block;
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
     line-height: 1;
 }
 
-.streak-label {
+.progress-label {
     display: block;
     font-size: var(--font-size-xs);
-    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.7);
     margin-top: var(--space-1);
 }
 
-.skill-gaps {
+.progress-stats.spectacular {
+    display: flex;
+    justify-content: space-around;
+    margin-top: var(--space-4);
+}
+
+.progress-stat {
+    text-align: center;
+}
+
+.progress-stat .stat-value {
+    display: block;
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: white;
+    margin-bottom: var(--space-1);
+}
+
+.progress-stat .stat-label {
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.skill-gaps.spectacular {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
 }
 
-.skill-gap-item {
+.skill-gap-item.spectacular {
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    padding: var(--space-2);
-    border-radius: var(--radius-md);
-    background: var(--bg-tertiary);
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.1);
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.skill-gap-item.spectacular:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(4px);
 }
 
 .gap-info {
@@ -500,22 +1132,22 @@
 .gap-skill {
     display: block;
     font-size: var(--font-size-sm);
-    font-weight: 500;
-    color: var(--text-primary);
+    font-weight: 600;
+    color: white;
     line-height: 1.3;
 }
 
 .gap-level {
     display: block;
     font-size: var(--font-size-xs);
-    color: var(--text-tertiary);
+    color: rgba(255, 255, 255, 0.7);
     margin-top: var(--space-1);
 }
 
-.gap-progress {
+.gap-progress.spectacular {
     width: 60px;
     height: 4px;
-    background: var(--bg-secondary);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: var(--radius-full);
     overflow: hidden;
 }
@@ -527,43 +1159,73 @@
 }
 
 .gap-fill.urgent {
-    background: var(--danger-500);
+    background: var(--error-500);
+    width: 85%;
 }
 
 .gap-fill.important {
     background: var(--warning-500);
+    width: 65%;
 }
 
 .gap-fill.nice-to-have {
     background: var(--success-500);
+    width: 35%;
 }
 
-.trending-topics {
+.gap-action-btn.spectacular {
+    background: var(--knowledge-hub-primary);
+    color: white;
+    border: none;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.gap-action-btn.spectacular:hover {
+    background: var(--knowledge-hub-primary-dark);
+    transform: scale(1.05);
+}
+
+.trend-indicator.spectacular {
+    background: linear-gradient(135deg, var(--success-500), var(--success-600));
+    color: white;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+}
+
+.trending-topics.spectacular {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-3);
 }
 
-.trending-item {
+.trending-item.spectacular {
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    padding: var(--space-2);
-    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
     transition: all var(--duration-normal) var(--ease-in-out);
     cursor: pointer;
+    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-.trending-item:hover {
-    background: var(--bg-tertiary);
-    transform: translateX(2px);
+.trending-item.spectacular:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
 }
 
-.trending-rank {
+.trending-rank.spectacular {
     width: 24px;
     height: 24px;
     border-radius: var(--radius-md);
-    background: var(--primary-500);
+    background: var(--knowledge-hub-primary);
     color: white;
     display: flex;
     align-items: center;
@@ -582,7 +1244,7 @@
     display: block;
     font-size: var(--font-size-sm);
     font-weight: 500;
-    color: var(--text-primary);
+    color: white;
     line-height: 1.3;
     margin-bottom: var(--space-1);
     overflow: hidden;
@@ -593,15 +1255,602 @@
 .trending-stats {
     display: block;
     font-size: var(--font-size-xs);
-    color: var(--text-tertiary);
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.2;
 }
 
-/* Enhanced Filters - Simplified for dashboard */
-.enhanced-filters {
+.trending-spark {
+    font-size: var(--font-size-sm);
+    animation: knowledgeSparkle 2s ease-in-out infinite;
+}
+
+/* SPECTACULAR LEARNING PATHS */
+.learning-paths-section.spectacular {
+    margin-bottom: var(--space-8);
+    position: relative;
+    z-index: 2;
+}
+
+.section-title.spectacular {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: white !important;
+    margin-bottom: var(--space-6);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.path-count-badge {
+    background: linear-gradient(135deg, var(--knowledge-accent-2), var(--knowledge-accent-3));
+    color: white;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+}
+
+.learning-paths-grid.spectacular {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+}
+
+.learning-path-card.spectacular {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(15px);
+    border-radius: var(--radius-xl);
     padding: var(--space-6);
-    border-bottom: 1px solid var(--border-color);
-    background: var(--bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--duration-normal) var(--ease-spring);
+    color: white;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.learning-path-card.spectacular::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--knowledge-accent-2), var(--knowledge-accent-3));
+    transform: scaleY(0);
+    transition: transform var(--duration-normal) var(--ease-spring);
+}
+
+.learning-path-card.spectacular:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(99, 102, 241, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.learning-path-card.spectacular:hover::before {
+    transform: scaleY(1);
+}
+
+.path-header.spectacular {
+    margin-bottom: var(--space-3);
+}
+
+.path-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: white;
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.3;
+}
+
+.path-meta.spectacular {
+    display: flex;
+    gap: var(--space-3);
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.path-description {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    margin: 0 0 var(--space-4) 0;
+}
+
+.path-progress.spectacular {
+    margin-bottom: var(--space-4);
+}
+
+.progress-bar.spectacular {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: var(--space-2);
+    position: relative;
+}
+
+.progress-fill.spectacular {
+    height: 100%;
+    background: linear-gradient(90deg, var(--success-400), var(--success-500));
+    border-radius: var(--radius-full);
+    transition: width var(--duration-normal) var(--ease-in-out);
+    position: relative;
+}
+
+.progress-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: knowledgeProgressShimmer 2s infinite;
+}
+
+@keyframes knowledgeProgressShimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.progress-text {
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--space-1);
+}
+
+.progress-eta {
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.path-skills.spectacular {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.skill-badge.spectacular {
+    padding: var(--space-1) var(--space-2);
+    background: var(--knowledge-hub-primary);
+    color: white;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    opacity: 0.9;
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.skill-badge.spectacular:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.path-actions.spectacular {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.path-btn.spectacular {
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex: 1;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.path-btn.spectacular svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor !important;
+}
+
+.path-btn.spectacular.primary {
+    background: linear-gradient(135deg, var(--knowledge-hub-primary), var(--knowledge-hub-primary-dark));
+    border-color: var(--knowledge-hub-primary);
+}
+
+.path-btn.spectacular.primary:hover {
+    background: linear-gradient(135deg, var(--knowledge-hub-primary-light), var(--knowledge-hub-primary));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+}
+
+.path-btn.spectacular.secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.path-btn.spectacular.tertiary {
+    flex: 0 0 auto;
+    padding: var(--space-3);
+}
+
+.path-btn.spectacular.tertiary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px) scale(1.05);
+}
+
+.btn-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: knowledgeBtnShimmer 3s infinite;
+}
+
+@keyframes knowledgeBtnShimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.resource-hover-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-in-out);
+}
+
+.enhanced-resource-card.spectacular:hover .resource-hover-effects {
+    opacity: 1;
+}
+
+.hover-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--knowledge-hub-primary);
+    border-radius: 50%;
+    animation: knowledgeHoverParticle 1s ease-out infinite;
+}
+
+.hover-particle:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.hover-particle:nth-child(2) {
+    top: 60%;
+    right: 30%;
+    animation-delay: 0.3s;
+}
+
+.hover-particle:nth-child(3) {
+    bottom: 30%;
+    left: 70%;
+    animation-delay: 0.6s;
+}
+
+@keyframes knowledgeHoverParticle {
+    0% {
+        opacity: 0;
+        transform: scale(0) translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) translateY(-10px);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0) translateY(-20px);
+}
+}
+
+/* ENHANCED RESOURCE CARDS */
+.enhanced-resource-card.spectacular {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(15px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--duration-normal) var(--ease-spring);
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.enhanced-resource-card.spectacular::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--knowledge-accent-2), var(--knowledge-accent-3));
+    transform: scaleY(0);
+    transition: transform var(--duration-normal) var(--ease-spring);
+}
+
+.enhanced-resource-card.spectacular:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(99, 102, 241, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.enhanced-resource-card.spectacular:hover::before {
+    transform: scaleY(1);
+}
+
+/* Removed duplicate pseudo-element badges - using JavaScript-generated badges instead */
+
+.resource-header.spectacular {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-4);
+}
+
+.resource-icon.spectacular {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    margin-bottom: var(--space-3);
+}
+
+.resource-icon.spectacular.course {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success-200);
+}
+
+.resource-icon.spectacular.documentation {
+    background: rgba(6, 182, 212, 0.2);
+    color: #67e8f9;
+}
+
+.resource-icon.spectacular.workshop {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--warning-200);
+}
+
+.resource-icon.spectacular.playbook {
+    background: rgba(139, 92, 246, 0.2);
+    color: #c4b5fd;
+}
+
+.resource-icon.spectacular.training {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+}
+
+.resource-icon.spectacular svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor !important;
+}
+
+.resource-badges.spectacular {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.badge.spectacular {
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge.spectacular.new {
+    background: rgba(16, 185, 129, 0.2);
+    color: #86efac;
+}
+
+.badge.spectacular.featured {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fcd34d;
+}
+
+.badge.spectacular.difficulty.success {
+    background: rgba(16, 185, 129, 0.2);
+    color: #86efac;
+}
+
+.badge.spectacular.difficulty.warning {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fcd34d;
+}
+
+.badge.spectacular.difficulty.danger {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+}
+
+.badge.spectacular.ai-score {
+    background: linear-gradient(135deg, var(--knowledge-accent-1), var(--knowledge-accent-2));
+    color: white;
+    animation: knowledgeAiPulse 2s ease-in-out infinite;
+}
+
+.resource-content.spectacular {
+    margin-bottom: var(--space-4);
+}
+
+.resource-title.spectacular {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: white !important;
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.3;
+}
+
+.resource-summary.spectacular {
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.8) !important;
+    line-height: 1.5;
+    margin: 0 0 var(--space-3) 0;
+}
+
+.resource-meta.spectacular {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.meta-item.spectacular {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.meta-item.spectacular svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor !important;
+}
+
+.resource-stats.spectacular {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: var(--space-3);
+    padding: var(--space-3);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+}
+
+.stat.spectacular {
+    text-align: center;
+}
+
+.stat.spectacular .stat-value {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: white !important;
+    margin-bottom: var(--space-1);
+}
+
+.stat.spectacular .stat-label {
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.resource-tags.spectacular {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.resource-tag.spectacular {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8) !important;
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+}
+
+.resource-actions.spectacular {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.resource-btn.spectacular {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.1);
+    color: white !important;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex: 1;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.resource-btn.spectacular svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor !important;
+}
+
+.resource-btn.spectacular.primary {
+    background: linear-gradient(135deg, var(--knowledge-hub-primary), var(--knowledge-hub-primary-dark));
+    border-color: var(--knowledge-hub-primary);
+}
+
+.resource-btn.spectacular.primary:hover {
+    background: linear-gradient(135deg, var(--knowledge-hub-primary-light), var(--knowledge-hub-primary));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+}
+
+.resource-btn.spectacular.secondary {
+    background: rgba(255, 255, 255, 0.15);
+    color: white !important;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.resource-btn.spectacular.secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: white !important;
+}
+
+.resource-btn.spectacular.tertiary {
+    flex: 0 0 auto;
+    padding: var(--space-3);
+}
+
+.resource-btn.spectacular.tertiary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* SPECTACULAR FILTERS */
+.enhanced-filters.spectacular {
+    padding: var(--space-6);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    margin-top: var(--space-8);
 }
 
 .filter-section {
@@ -612,27 +1861,27 @@
     margin-bottom: 0;
 }
 
-.filter-title {
+.filter-title.spectacular {
     font-size: var(--font-size-sm);
     font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 var(--space-3);
+    color: white;
+    margin: 0 0 var(--space-3) 0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.filter-chips {
+.filter-chips.spectacular {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
 }
 
-.filter-chip {
+.filter-chip.spectacular {
     padding: var(--space-2) var(--space-3);
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--radius-lg);
-    background: var(--bg-elevated);
-    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
     font-size: var(--font-size-sm);
     font-weight: 500;
     cursor: pointer;
@@ -643,689 +1892,2058 @@
     white-space: nowrap;
 }
 
-.filter-chip:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--border-primary);
-    color: var(--text-primary);
+.filter-chip.spectacular:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
     transform: translateY(-1px);
 }
 
-.filter-chip.active {
-    background: var(--primary-500);
+.filter-chip.spectacular.active {
+    background: var(--knowledge-hub-primary);
     color: white;
-    border-color: var(--primary-500);
+    border-color: var(--knowledge-hub-primary);
     box-shadow: var(--shadow-sm);
+}
+
+.chip-icon {
+    font-size: var(--font-size-sm);
 }
 
 .chip-count {
-    background: var(--bg-tertiary);
-    color: var(--text-tertiary);
+    background: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.9);
     padding: var(--space-1) var(--space-2);
     border-radius: var(--radius-md);
     font-size: var(--font-size-xs);
     font-weight: 600;
 }
 
-.difficulty-filters {
-    display: flex;
-    gap: var(--space-2);
-}
-
-.difficulty-btn {
-    padding: var(--space-2) var(--space-3);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    background: var(--bg-elevated);
-    color: var(--text-secondary);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-in-out);
-    flex: 1;
-}
-
-.difficulty-btn:hover {
-    background: var(--bg-tertiary);
-    border-color: var(--border-primary);
-    color: var(--text-primary);
-    transform: translateY(-1px);
-}
-
-/* Learning Paths Section - Simplified for dashboard */
-.learning-paths-section {
-    padding: var(--space-6);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.section-title {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 var(--space-4);
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-}
-
-.learning-paths-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-4);
-}
-
-.learning-path-card {
-    background: var(--bg-secondary);
-    border-radius: var(--radius-xl);
-    padding: var(--space-4);
-    border: 1px solid var(--border-color);
-    transition: all var(--duration-normal) var(--ease-spring);
-    box-shadow: var(--shadow-sm);
-    animation: fadeInUp 0.6s var(--ease-spring) both;
-}
-
-.learning-path-card.animate-in {
-    animation: fadeInUp 0.6s var(--ease-spring) both;
-}
-
-.learning-path-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--border-primary);
-    background: var(--bg-elevated);
-}
-
-.path-header {
-    margin-bottom: var(--space-3);
-}
-
-.path-title {
-    font-size: var(--font-size-base);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 var(--space-2);
-    line-height: 1.3;
-}
-
-.path-meta {
-    display: flex;
-    gap: var(--space-3);
-    font-size: var(--font-size-xs);
-    color: var(--text-tertiary);
-}
-
-.path-description {
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin: 0 0 var(--space-3);
-}
-
-.path-progress {
-    margin-bottom: var(--space-3);
-}
-
-.progress-bar {
-    width: 100%;
-    height: 6px;
-    background: var(--bg-tertiary);
-    border-radius: var(--radius-full);
-    overflow: hidden;
-    margin-bottom: var(--space-2);
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--success-400) 0%, var(--success-500) 100%);
-    border-radius: var(--radius-full);
-    transition: width var(--duration-normal) var(--ease-in-out);
-}
-
-.progress-text {
-    font-size: var(--font-size-xs);
-    color: var(--text-tertiary);
-    text-align: center;
-}
-
-.path-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-bottom: var(--space-3);
-}
-
-.skill-badge {
-    padding: var(--space-1) var(--space-2);
-    background: var(--primary-100);
-    color: var(--primary-700);
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-xs);
-    font-weight: 500;
-}
-
-.path-actions {
-    display: flex;
-    gap: var(--space-2);
-}
-
-.path-btn {
-    padding: var(--space-2) var(--space-3);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-in-out);
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    flex: 1;
-    justify-content: center;
-}
-
-.path-btn.primary {
-    background: var(--primary-500);
-    color: white;
-    border-color: var(--primary-500);
-}
-
-.path-btn.primary:hover {
-    background: var(--primary-600);
-    transform: translateY(-1px);
-}
-
-.path-btn.secondary:hover {
-    background: var(--bg-elevated);
-    border-color: var(--border-primary);
-    color: var(--text-primary);
-}
-
-/* Resources Section - Simplified for dashboard */
-.resources-section {
-    padding: var(--space-6);
-}
-
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-4);
-    flex-wrap: wrap;
-    gap: var(--space-4);
-}
-
-.section-actions {
-    display: flex;
-    gap: var(--space-2);
-}
-
-.action-btn {
-    padding: var(--space-2) var(--space-3);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-in-out);
-    white-space: nowrap;
-}
-
-.action-btn:hover {
-    background: var(--bg-elevated);
-    border-color: var(--border-primary);
-    color: var(--text-primary);
-    transform: translateY(-1px);
-}
-
-.resources-container {
-    display: grid;
-    gap: var(--space-4);
-}
-
-.resources-container.grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-6);
-}
-
-.resources-container.list {
-    grid-template-columns: 1fr;
-}
-
-.resources-container.timeline {
-    grid-template-columns: 1fr;
-}
-
-.enhanced-resource-card {
-    background: var(--bg-secondary);
-    border-radius: var(--radius-xl);
-    padding: var(--space-6);
-    border: 1px solid var(--border-color);
-    transition: all var(--duration-normal) var(--ease-spring);
-    box-shadow: var(--shadow-sm);
-    position: relative;
-    overflow: hidden;
-    animation: fadeInUp 0.6s var(--ease-spring) both;
-}
-
-.enhanced-resource-card.animate-in {
-    animation: fadeInUp 0.6s var(--ease-spring) both;
-}
-
-.enhanced-resource-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--border-primary);
-    background: var(--bg-elevated);
-}
-
-.enhanced-resource-card.new::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--success-400) 0%, var(--success-500) 100%);
-}
-
-.enhanced-resource-card.featured::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-400) 0%, var(--primary-500) 100%);
-}
-
-.resource-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: var(--space-4);
-    gap: var(--space-3);
-}
-
-.resource-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    background: var(--primary-100);
-    color: var(--primary-600);
-}
-
-.resource-icon.course {
-    background: var(--success-100);
-    color: var(--success-600);
-}
-
-.resource-icon.documentation {
-    background: var(--info-100);
-    color: var(--info-600);
-}
-
-.resource-icon.workshop {
-    background: var(--warning-100);
-    color: var(--warning-600);
-}
-
-.resource-icon.playbook {
-    background: var(--danger-100);
-    color: var(--danger-600);
-}
-
-.resource-icon.training {
-    background: var(--purple-100);
-    color: var(--purple-600);
-}
-
-.resource-icon svg {
-    width: 24px;
-    height: 24px;
-}
-
-.resource-badges {
-    display: flex;
-    gap: var(--space-2);
-    flex-wrap: wrap;
-}
-
-.badge {
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-xs);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    background: var(--bg-tertiary);
-    color: var(--text-secondary);
-}
-
-.badge.new {
-    background: var(--success-100);
-    color: var(--success-700);
-}
-
-.badge.featured {
-    background: var(--primary-100);
-    color: var(--primary-700);
-}
-
-.badge.difficulty {
-    background: var(--warning-100);
-    color: var(--warning-700);
-}
-
-.badge.difficulty.success {
-    background: var(--success-100);
-    color: var(--success-700);
-}
-
-.badge.difficulty.warning {
-    background: var(--warning-100);
-    color: var(--warning-700);
-}
-
-.badge.difficulty.danger {
-    background: var(--danger-100);
-    color: var(--danger-700);
-}
-
-.resource-content {
-    margin-bottom: var(--space-4);
-}
-
-.resource-title {
-    font-size: var(--font-size-base);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 var(--space-3);
-    line-height: 1.3;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.resource-summary {
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    line-height: 1.5;
-    margin: 0 0 var(--space-4);
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.resource-meta {
-    display: flex;
-    gap: var(--space-4);
-    margin-bottom: var(--space-4);
-    flex-wrap: wrap;
-}
-
-.meta-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: var(--font-size-xs);
-    color: var(--text-tertiary);
-    padding: var(--space-1) var(--space-2);
-}
-
-.meta-item svg {
-    width: 14px;
-    height: 14px;
-}
-
-.resource-stats {
-    display: flex;
-    gap: var(--space-4);
-    margin-bottom: var(--space-4);
-    flex-wrap: wrap;
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2);
-}
-
-.stat-value {
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    color: var(--text-primary);
-    line-height: 1.2;
-    margin-bottom: var(--space-1);
-}
-
-.stat-label {
-    font-size: var(--font-size-xs);
-    color: var(--text-tertiary);
-    text-align: center;
-    line-height: 1.2;
-    margin-top: var(--space-1);
-}
-
-.resource-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-bottom: var(--space-4);
-}
-
-.resource-tag {
-    padding: var(--space-2) var(--space-3);
-    background: var(--bg-tertiary);
-    color: var(--text-secondary);
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-xs);
-    font-weight: 500;
-}
-
-.resource-actions {
-    display: flex;
-    gap: var(--space-2);
-    margin-top: var(--space-2);
-}
-
-.resource-btn {
-    padding: var(--space-3) var(--space-4);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    background: var(--bg-secondary);
-    color: var(--text-secondary);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-in-out);
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    flex: 1;
-    justify-content: center;
-}
-
-.resource-btn svg {
-    width: 14px;
-    height: 14px;
-}
-
-.resource-btn.primary {
-    background: var(--primary-500);
-    color: white;
-    border-color: var(--primary-500);
-}
-
-.resource-btn.primary:hover {
-    background: var(--primary-600);
-    transform: translateY(-1px);
-}
-
-.resource-btn.secondary:hover {
-    background: var(--bg-elevated);
-    border-color: var(--border-primary);
-    color: var(--text-primary);
-}
-
-/* Notification System */
-.knowledge-notification {
+/* SPECTACULAR NOTIFICATIONS */
+.knowledge-notification.spectacular {
     position: fixed;
     top: var(--space-6);
     right: var(--space-6);
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: var(--radius-xl);
     padding: var(--space-4);
-    box-shadow: var(--shadow-xl);
-    z-index: 1000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
     max-width: 400px;
-    animation: slideInRight 0.3s var(--ease-spring);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: white;
+}
+
+.knowledge-notification.spectacular.success {
+    border-left: 4px solid var(--success-500);
+}
+
+.knowledge-notification.spectacular.info {
+    border-left: 4px solid var(--knowledge-hub-primary);
+}
+
+.knowledge-notification.spectacular.warning {
+    border-left: 4px solid var(--warning-500);
+}
+
+.knowledge-notification.spectacular.error {
+    border-left: 4px solid var(--error-500);
+}
+
+.notification-content.spectacular {
     display: flex;
     align-items: flex-start;
     gap: var(--space-3);
 }
 
-.knowledge-notification.success {
-    border-left: 4px solid var(--success-500);
+.notification-icon {
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
 }
 
-.knowledge-notification.info {
-    border-left: 4px solid var(--info-500);
+.notification-text {
+    flex: 1;
+    font-weight: 500;
+    line-height: 1.4;
 }
 
-/* Responsive Design */
+.notification-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-1);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    transition: all var(--duration-normal) var(--ease-in-out);
+    flex-shrink: 0;
+}
+
+.notification-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.notification-close svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor !important;
+}
+
+/* RESPONSIVE DESIGN */
 @media (max-width: 1024px) {
-    .hub-header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-4);
+    .enhanced-knowledge-hub.spectacular-mode {
+        padding: var(--space-6);
+        animation: knowledgeGlow 8s ease-in-out infinite;
     }
     
-    .hub-controls {
-        align-items: stretch;
-    }
-    
-    .search-container {
-        width: 100%;
-    }
-    
-    .ai-insights-grid {
+    .ai-insights-grid.spectacular {
         grid-template-columns: 1fr;
     }
     
-    .analytics-grid {
+    .analytics-grid.spectacular {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .learning-paths-grid {
+    .learning-paths-grid.spectacular {
         grid-template-columns: 1fr;
     }
     
-    .resources-container.grid {
+    .resources-container.spectacular.grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 }
 
 @media (max-width: 768px) {
-    .hub-header {
+    .enhanced-knowledge-hub.spectacular-mode {
         padding: var(--space-4);
+        animation: knowledgeSubtlePulse 6s ease-in-out infinite;
     }
     
-    .ai-insights-section,
-    .learning-analytics,
-    .enhanced-filters,
-    .learning-paths-section,
-    .resources-section {
-        padding: var(--space-4);
+    .hub-header.spectacular {
+        flex-direction: column;
+        gap: var(--space-4);
+        align-items: stretch;
     }
     
-    .enhanced-filters {
-        padding: var(--space-4);
+    .hub-controls.spectacular {
+        align-items: stretch;
+        flex-direction: column;
+        gap: var(--space-3);
     }
     
-    .section-header {
+    .search-container.spectacular {
+        width: 100%;
+    }
+    
+    .analytics-grid.spectacular {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header.spectacular {
         flex-direction: column;
         align-items: stretch;
         gap: var(--space-3);
     }
     
-    .section-actions {
+    .section-actions.spectacular {
         justify-content: center;
     }
     
-    .resources-container.grid {
+    .resources-container.spectacular.grid {
         grid-template-columns: 1fr;
     }
     
-    .resource-meta {
-        gap: var(--space-3);
-    }
-    
-    .resource-stats {
-        gap: var(--space-3);
-    }
-    
-    .resource-actions {
+    .resource-actions.spectacular {
         flex-direction: column;
+    }
+    
+    /* Reduce particle count on mobile */
+    .knowledge-particle:nth-child(n+8) {
+        display: none;
+    }
+    
+    .knowledge-sparkle:nth-child(n+6) {
+        display: none;
     }
 }
 
 @media (max-width: 480px) {
-    .filter-chips {
+    .enhanced-knowledge-hub.spectacular-mode {
+        padding: var(--space-3);
+        border-radius: var(--radius-xl);
+        /* Reduce blur effects for better readability on mobile */
+        backdrop-filter: blur(3px) !important;
+        -webkit-backdrop-filter: blur(3px) !important;
+        /* Slower animations for better performance */
+        animation: knowledgeBackgroundShift 60s linear infinite;
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .ai-insight-card,
+    .enhanced-knowledge-hub.spectacular-mode .analytics-card,
+    .enhanced-knowledge-hub.spectacular-mode .learning-path-card,
+    .enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card {
+        backdrop-filter: blur(3px) !important;
+        -webkit-backdrop-filter: blur(3px) !important;
+    }
+    
+    .hub-title.spectacular {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .filter-chips.spectacular {
         gap: var(--space-1);
     }
     
-    .filter-chip {
+    .filter-chip.spectacular {
         padding: var(--space-1) var(--space-2);
         font-size: var(--font-size-xs);
     }
     
-    .difficulty-filters {
-        flex-direction: column;
-    }
-    
-    .difficulty-btn {
-        text-align: center;
-    }
-    
-    .path-actions {
-        flex-direction: column;
-    }
-    
-    .knowledge-notification {
+    .knowledge-notification.spectacular {
         top: var(--space-4);
         right: var(--space-4);
         left: var(--space-4);
         max-width: none;
     }
+
+    /* Minimal particles */
+    .knowledge-particle:nth-child(n+5) {
+        display: none;
+    }
+    
+    /* Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+        .enhanced-knowledge-hub.spectacular-mode {
+            animation: none !important;
+        }
+        
+        .enhanced-knowledge-hub.spectacular-mode *,
+        .enhanced-knowledge-hub.spectacular-mode *::before,
+        .enhanced-knowledge-hub.spectacular-mode *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+    
+    .knowledge-sparkle:nth-child(n+4) {
+        display: none;
+    }
 }
 
-/* Animation Delays */
-.ai-insight-card:nth-child(1) { animation-delay: 0.1s; }
-.ai-insight-card:nth-child(2) { animation-delay: 0.2s; }
-.ai-insight-card:nth-child(3) { animation-delay: 0.3s; }
+/* PERFORMANCE OPTIMIZATIONS */
+@media (prefers-reduced-motion: reduce) {
+    .enhanced-knowledge-hub.spectacular-mode,
+    .enhanced-knowledge-hub.spectacular-mode::before,
+    .enhanced-knowledge-hub.spectacular-mode::after,
+    .knowledge-particle,
+    .knowledge-sparkle,
+    .knowledge-energy-ring {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
 
-.analytics-card:nth-child(1) { animation-delay: 0.1s; }
-.analytics-card:nth-child(2) { animation-delay: 0.2s; }
-.analytics-card:nth-child(3) { animation-delay: 0.3s; }
+/* Dark mode enhancements */
+/* 🌙 DARK MODE SUPPORT - MATCHING TASK SYSTEM */
+[data-theme="dark"] .enhanced-knowledge-hub.spectacular-mode {
+    /* Enhanced dark mode background matching task system */
+    background: 
+        /* Animated gradient waves for dark mode */
+        linear-gradient(45deg, var(--primary-400) 0%, transparent 50%, var(--primary-400) 100%),
+        linear-gradient(-45deg, var(--primary-500) 0%, transparent 50%, var(--primary-500) 100%),
+        linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.5) 25%, transparent 50%, rgba(6, 182, 212, 0.5) 75%, transparent 100%),
+        /* Primary gradient base for dark mode */
+        linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%),
+        /* Enhanced accent gradients for dark mode */
+        radial-gradient(ellipse 1200px 800px at 20% 20%, rgba(139, 92, 246, 0.6) 0%, transparent 50%),
+        radial-gradient(ellipse 800px 1200px at 80% 80%, rgba(6, 182, 212, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 600px 600px at 50% 50%, rgba(16, 185, 129, 0.4) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.4) 0%, transparent 60%),
+        /* Dark mode texture overlay */
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.1) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.05) 4px, rgba(255, 255, 255, 0.05) 8px) !important;
+    
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #f8fafc;
+}
 
-.learning-path-card:nth-child(1) { animation-delay: 0.1s; }
-.learning-path-card:nth-child(2) { animation-delay: 0.2s; }
+/* GPU acceleration for smooth performance */
+.enhanced-knowledge-hub.spectacular-mode,
+.enhanced-knowledge-hub.spectacular-mode::before,
+.enhanced-knowledge-hub.spectacular-mode::after,
+.knowledge-particle,
+.knowledge-sparkle,
+.knowledge-energy-ring,
+.ai-insight-card.spectacular,
+.analytics-card.spectacular,
+.learning-path-card.spectacular,
+.enhanced-resource-card.spectacular {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
 
-.enhanced-resource-card:nth-child(1) { animation-delay: 0.1s; }
-.enhanced-resource-card:nth-child(2) { animation-delay: 0.2s; }
-.enhanced-resource-card:nth-child(3) { animation-delay: 0.3s; }
-.enhanced-resource-card:nth-child(4) { animation-delay: 0.4s; }
-.enhanced-resource-card:nth-child(5) { animation-delay: 0.5s; }
-.enhanced-resource-card:nth-child(6) { animation-delay: 0.6s; } 
+/* Ensure all headings and text are white in spectacular mode */
+.enhanced-knowledge-hub.spectacular-mode h1,
+.enhanced-knowledge-hub.spectacular-mode h2,
+.enhanced-knowledge-hub.spectacular-mode h3,
+.enhanced-knowledge-hub.spectacular-mode h4,
+.enhanced-knowledge-hub.spectacular-mode h5,
+.enhanced-knowledge-hub.spectacular-mode h6,
+.enhanced-knowledge-hub.spectacular-mode p,
+.enhanced-knowledge-hub.spectacular-mode span,
+.enhanced-knowledge-hub.spectacular-mode div,
+.enhanced-knowledge-hub.spectacular-mode .resource-title,
+.enhanced-knowledge-hub.spectacular-mode .resource-summary,
+.enhanced-knowledge-hub.spectacular-mode .meta-item,
+.enhanced-knowledge-hub.spectacular-mode .stat-value,
+.enhanced-knowledge-hub.spectacular-mode .stat-label,
+.enhanced-knowledge-hub.spectacular-mode .resource-tag,
+.enhanced-knowledge-hub.spectacular-mode .notification-text,
+.enhanced-knowledge-hub.spectacular-mode .notification-close {
+    color: white !important;
+}
+
+/* Force all content in resource cards to be white */
+.enhanced-resource-card.spectacular,
+.enhanced-resource-card.spectacular *,
+.enhanced-resource-card.spectacular h1,
+.enhanced-resource-card.spectacular h2,
+.enhanced-resource-card.spectacular h3,
+.enhanced-resource-card.spectacular h4,
+.enhanced-resource-card.spectacular h5,
+.enhanced-resource-card.spectacular h6,
+.enhanced-resource-card.spectacular p,
+.enhanced-resource-card.spectacular span,
+.enhanced-resource-card.spectacular div {
+    color: white !important;
+    background-color: transparent !important;
+}
+
+/* Ensure no white backgrounds on any sub-elements */
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card *,
+.enhanced-knowledge-hub.spectacular-mode .ai-insight-card *,
+.enhanced-knowledge-hub.spectacular-mode .learning-path-card *,
+.enhanced-knowledge-hub.spectacular-mode .analytics-card * {
+    background-color: transparent !important;
+    color: white !important;
+}
+
+/* Force white on all SVG elements */
+.enhanced-knowledge-hub.spectacular-mode svg,
+.enhanced-knowledge-hub.spectacular-mode svg *,
+.enhanced-knowledge-hub.spectacular-mode svg path,
+.enhanced-knowledge-hub.spectacular-mode svg circle,
+.enhanced-knowledge-hub.spectacular-mode svg line,
+.enhanced-knowledge-hub.spectacular-mode svg polyline,
+.enhanced-knowledge-hub.spectacular-mode svg polygon,
+.enhanced-knowledge-hub.spectacular-mode svg rect {
+    stroke: white !important;
+    fill: none !important;
+    color: white !important;
+}
+
+/* 🚨 CRITICAL FIX: Override main.css white backgrounds for knowledge hub cards */
+html body .enhanced-knowledge-hub.spectacular-mode .ai-insight-card,
+/* REMOVED CONFLICTING WHITE BACKGROUND RULE #1 */
+
+/* ENHANCED PROGRESS RING SVG ELEMENTS - COMPLETION */
+.progress-ring.spectacular circle {
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+}
+
+.progress-ring.spectacular circle:first-child {
+    stroke: rgba(255, 255, 255, 0.2);
+}
+
+.progress-ring.spectacular circle:last-child {
+    stroke: url(#progressGradient);
+    stroke-dasharray: 283;
+    stroke-dashoffset: 283;
+    transition: stroke-dashoffset 1.5s var(--ease-spring);
+}
+
+/* Progress gradient definition */
+.progress-ring.spectacular defs {
+    display: block;
+}
+
+.progress-ring.spectacular .progress-gradient {
+    --start-color: var(--knowledge-hub-primary);
+    --end-color: var(--knowledge-hub-primary-dark);
+}
+
+/* Enhanced progress ring container with spectacular effects */
+.progress-ring-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--space-4) auto;
+}
+
+.progress-ring-container::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--knowledge-accent-1), var(--knowledge-accent-2), var(--knowledge-accent-3));
+    opacity: 0.3;
+    z-index: -1;
+    animation: knowledgeProgressGlow 3s ease-in-out infinite;
+}
+
+@keyframes knowledgeProgressGlow {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: scale(1); 
+    }
+    50% { 
+        opacity: 0.6; 
+        transform: scale(1.05); 
+    }
+}
+
+.progress-ring.spectacular {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    filter: drop-shadow(0 4px 8px rgba(99, 102, 241, 0.3));
+}
+
+/* Enhanced progress center with better styling */
+.progress-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.progress-value {
+    display: block;
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.progress-label {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: var(--space-1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ENHANCED SKILL GAP PROGRESS BARS - COMPLETION */
+.gap-progress.spectacular {
+    width: 80px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gap-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width var(--duration-normal) var(--ease-spring);
+    position: relative;
+    background: linear-gradient(90deg, var(--error-400), var(--error-500));
+}
+
+.gap-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: knowledgeGapShimmer 2s infinite;
+}
+
+@keyframes knowledgeGapShimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.gap-fill.urgent {
+    background: linear-gradient(90deg, var(--error-400), var(--error-500));
+    width: 90%;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+}
+
+.gap-fill.important {
+    background: linear-gradient(90deg, var(--warning-400), var(--warning-500));
+    width: 70%;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+.gap-fill.nice-to-have {
+    background: linear-gradient(90deg, var(--success-400), var(--success-500));
+    width: 40%;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+/* Enhanced skill gap item styling */
+.skill-gap-item.spectacular {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border-radius: var(--radius-xl);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all var(--duration-normal) var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-gap-item.spectacular::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--error-400), var(--error-500));
+    transform: scaleY(0);
+    transition: transform var(--duration-normal) var(--ease-spring);
+}
+
+.skill-gap-item.spectacular.priority-urgent::before {
+    background: linear-gradient(180deg, var(--error-400), var(--error-500));
+}
+
+.skill-gap-item.spectacular.priority-important::before {
+    background: linear-gradient(180deg, var(--warning-400), var(--warning-500));
+}
+
+.skill-gap-item.spectacular.priority-nice-to-have::before {
+    background: linear-gradient(180deg, var(--success-400), var(--success-500));
+}
+
+.skill-gap-item.spectacular:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.1) 100%);
+    transform: translateX(6px) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.skill-gap-item.spectacular:hover::before {
+    transform: scaleY(1);
+}
+
+/* Enhanced gap info styling */
+.gap-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.gap-skill {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: white;
+    line-height: 1.3;
+    margin-bottom: var(--space-1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.gap-level {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: var(--space-1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+/* Enhanced gap action button */
+.gap-action-btn.spectacular {
+    background: linear-gradient(135deg, var(--knowledge-hub-primary), var(--knowledge-hub-primary-dark));
+    color: white;
+    border: none;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.gap-action-btn.spectacular::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left var(--duration-normal) var(--ease-spring);
+}
+
+.gap-action-btn.spectacular:hover {
+    background: linear-gradient(135deg, var(--knowledge-hub-primary-light), var(--knowledge-hub-primary));
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+.gap-action-btn.spectacular:hover::before {
+    left: 100%;
+}
+
+/* ENHANCED TRENDING TOPICS STYLING - COMPLETION */
+.trending-item.spectacular {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    border-radius: var(--radius-xl);
+    transition: all var(--duration-normal) var(--ease-spring);
+    cursor: pointer;
+    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.trending-item.spectacular::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--knowledge-accent-2), var(--knowledge-accent-3));
+    transform: scaleY(0);
+    transition: transform var(--duration-normal) var(--ease-spring);
+}
+
+.trending-item.spectacular:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    transform: translateX(6px) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.trending-item.spectacular:hover::before {
+    transform: scaleY(1);
+}
+
+/* Enhanced trending rank styling */
+.trending-rank.spectacular {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--knowledge-hub-primary), var(--knowledge-hub-primary-dark));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.trending-rank.spectacular::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+    animation: knowledgeRankShimmer 2s ease-in-out infinite;
+}
+
+@keyframes knowledgeRankShimmer {
+    0%, 100% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+}
+
+/* Enhanced trending info styling */
+.trending-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.trending-title {
+    display: block;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: white;
+    line-height: 1.3;
+    margin-bottom: var(--space-2);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.trending-stats {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+/* Enhanced trending spark animation */
+.trending-spark {
+    font-size: var(--font-size-lg);
+    animation: knowledgeTrendingSpark 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+}
+
+@keyframes knowledgeTrendingSpark {
+    0%, 100% { 
+        opacity: 0.6; 
+        transform: scale(1) rotate(0deg); 
+    }
+    25% { 
+        opacity: 1; 
+        transform: scale(1.2) rotate(90deg); 
+    }
+    50% { 
+        opacity: 0.8; 
+        transform: scale(1.1) rotate(180deg); 
+    }
+    75% { 
+        opacity: 1; 
+        transform: scale(1.3) rotate(270deg); 
+    }
+}
+
+/* ENHANCED ANALYTICS CARD INTERACTION EFFECTS */
+.analytics-card.spectacular.progress-card:hover {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.1) 100%) !important;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.analytics-card.spectacular.skill-gaps-card:hover {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.1) 100%) !important;
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.analytics-card.spectacular.trending-card:hover {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0.1) 100%) !important;
+    border-color: rgba(139, 92, 246, 0.3);
+}
+
+/* Enhanced analytics card headers */
+.analytics-card.spectacular .card-header.spectacular {
+    margin-bottom: var(--space-5);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+}
+
+.analytics-card.spectacular .card-header.spectacular::after {
+    content: '';
+    position: absolute;
+    bottom: -var(--space-3);
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.analytics-card.spectacular .card-header.spectacular h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Enhanced AI powered badge */
+.ai-powered-badge {
+    background: linear-gradient(135deg, var(--knowledge-accent-1), var(--knowledge-accent-2));
+    color: white;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: knowledgeAiPulse 2s ease-in-out infinite;
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.ai-powered-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: knowledgeAiBadgeShimmer 3s ease-in-out infinite;
+}
+
+@keyframes knowledgeAiBadgeShimmer {
+    0%, 100% { left: -100%; }
+    50% { left: 100%; }
+}
+
+/* RESPONSIVE ENHANCEMENTS FOR ANALYTICS SECTION */
+@media (max-width: 1024px) {
+    .analytics-grid.spectacular {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+    
+    .progress-ring-container {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .trending-item.spectacular {
+        padding: var(--space-3);
+        gap: var(--space-3);
+    }
+    
+    .skill-gap-item.spectacular {
+        padding: var(--space-3);
+        gap: var(--space-2);
+    }
+}
+
+@media (max-width: 768px) {
+    .analytics-grid.spectacular {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+    
+    .progress-ring-container {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .progress-value {
+        font-size: var(--font-size-lg);
+    }
+    
+    .trending-title {
+        font-size: var(--font-size-sm);
+    }
+    
+    .gap-skill {
+        font-size: var(--font-size-xs);
+    }
+    
+    .gap-progress.spectacular {
+        width: 60px;
+        height: 6px;
+    }
+}
+
+/* PERFORMANCE OPTIMIZATIONS FOR ANALYTICS */
+.analytics-card.spectacular,
+.analytics-card.spectacular::before,
+.progress-ring-container,
+.progress-ring-container::before,
+.skill-gap-item.spectacular,
+.trending-item.spectacular {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* ACCESSIBILITY ENHANCEMENTS FOR ANALYTICS */
+.analytics-card.spectacular:focus-within {
+    outline: 3px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+.skill-gap-item.spectacular[tabindex="0"]:focus,
+.trending-item.spectacular[tabindex="0"]:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%);
+}
+
+/* HIGH CONTRAST MODE SUPPORT FOR ANALYTICS */
+@media (prefers-contrast: high) {
+    .analytics-card.spectacular {
+        background: rgba(0, 0, 0, 0.9) !important;
+        border: 2px solid #ffffff !important;
+    }
+    
+    .progress-ring.spectacular circle {
+        stroke-width: 8;
+    }
+    
+    .gap-fill,
+    .trending-rank.spectacular {
+        border: 1px solid #ffffff;
+    }
+}
+
+/* REDUCED MOTION SUPPORT FOR ANALYTICS */
+@media (prefers-reduced-motion: reduce) {
+    .progress-ring-container::before,
+    .gap-fill::after,
+    .trending-rank.spectacular::before,
+    .trending-spark,
+    .ai-powered-badge::before {
+        animation: none !important;
+    }
+    
+    .skill-gap-item.spectacular:hover,
+    .trending-item.spectacular:hover {
+        transform: none !important;
+    }
+}
+
+/* 🔧 ENHANCED FIXES FOR RESOURCE CARDS - Combat any white background overrides */
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card,
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card *,
+html body .enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card,
+html body .enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card * {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    background-color: transparent !important;
+    color: white !important;
+}
+
+/* 🎯 SPECIFIC FIXES FOR RESOURCE CARD COMPONENTS */
+.enhanced-knowledge-hub.spectacular-mode .resource-header,
+.enhanced-knowledge-hub.spectacular-mode .resource-content,
+.enhanced-knowledge-hub.spectacular-mode .resource-actions,
+.enhanced-knowledge-hub.spectacular-mode .resource-meta,
+.enhanced-knowledge-hub.spectacular-mode .resource-stats,
+.enhanced-knowledge-hub.spectacular-mode .resource-tags {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: white !important;
+}
+
+/* 🔧 FIX BUTTON STYLING - No more white on white */
+.enhanced-knowledge-hub.spectacular-mode .resource-btn.spectacular.primary {
+    background: linear-gradient(135deg, var(--knowledge-hub-primary), var(--knowledge-hub-primary-dark)) !important;
+    border: 1px solid var(--knowledge-hub-primary) !important;
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-btn.spectacular.secondary {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-btn.spectacular.tertiary {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+/* 🔧 FIX BUTTON HOVER STATES */
+.enhanced-knowledge-hub.spectacular-mode .resource-btn.spectacular.primary:hover {
+    background: linear-gradient(135deg, var(--knowledge-hub-primary-light), var(--knowledge-hub-primary)) !important;
+    color: white !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-btn.spectacular.secondary:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    color: white !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-btn.spectacular.tertiary:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    color: white !important;
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 🔧 FIX ALIGNMENT ISSUES IN KNOWLEDGE HUB */
+.enhanced-knowledge-hub.spectacular-mode .hub-header.spectacular {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 2;
+    background: none !important;
+    background-color: transparent !important;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: auto;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .header-content {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.enhanced-knowledge-hub.spectacular-mode .header-actions.spectacular {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    min-width: 300px;
+}
+
+/* 🔧 FIX SEARCH CONTAINER ALIGNMENT */
+.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular {
+    position: relative;
+    width: 320px;
+    min-width: 280px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(15px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    display: flex !important;
+    align-items: center !important;
+    height: 56px;
+}
+
+/* 🔧 FIX FILTER CONTROLS ALIGNMENT */
+.enhanced-knowledge-hub.spectacular-mode .filter-controls.spectacular {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .filter-select.spectacular {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    min-width: 150px;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .view-toggle.spectacular {
+    padding: var(--space-2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.enhanced-knowledge-hub.spectacular-mode .view-toggle.spectacular:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+}
+
+/* 🔧 FIX RESOURCES CONTAINER LAYOUT */
+.enhanced-knowledge-hub.spectacular-mode .resources-container.spectacular {
+    display: grid;
+    gap: var(--space-6);
+    width: 100%;
+    margin-top: var(--space-6);
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resources-container.spectacular.grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resources-container.spectacular.list {
+    grid-template-columns: 1fr;
+}
+
+/* 🔧 FIX SECTION HEADER ALIGNMENT */
+.enhanced-knowledge-hub.spectacular-mode .section-header.spectacular {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+.enhanced-knowledge-hub.spectacular-mode .section-actions.spectacular {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* 🔧 ENSURE PROPER SPACING IN AI INSIGHTS GRID */
+.enhanced-knowledge-hub.spectacular-mode .ai-insights-grid.spectacular {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+}
+
+/* 🔧 ENSURE PROPER SPACING IN ANALYTICS GRID */
+.enhanced-knowledge-hub.spectacular-mode .analytics-grid.spectacular {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+}
+
+/* 🔧 ENSURE PROPER SPACING IN LEARNING PATHS GRID */
+.enhanced-knowledge-hub.spectacular-mode .learning-paths-grid.spectacular {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+}
+
+/* 🔧 FIX RESPONSIVE LAYOUT ISSUES */
+@media (max-width: 1024px) {
+    .enhanced-knowledge-hub.spectacular-mode .hub-header.spectacular {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-4);
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .header-content {
+        min-width: auto;
+        text-align: center;
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .header-actions.spectacular {
+        justify-content: center;
+        min-width: auto;
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .search-container.spectacular {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .ai-insights-grid.spectacular {
+        grid-template-columns: 1fr;
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .analytics-grid.spectacular {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .learning-paths-grid.spectacular {
+        grid-template-columns: 1fr;
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .resources-container.spectacular.grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .enhanced-knowledge-hub.spectacular-mode .hub-header.spectacular {
+        padding: var(--space-4);
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .header-actions.spectacular {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-3);
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .filter-controls.spectacular {
+        justify-content: center;
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .section-header.spectacular {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: var(--space-3);
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .section-actions.spectacular {
+        justify-content: center;
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .analytics-grid.spectacular {
+        grid-template-columns: 1fr;
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .resources-container.spectacular.grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .resource-actions.spectacular {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .resource-btn.spectacular {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .enhanced-knowledge-hub.spectacular-mode {
+        padding: var(--space-3);
+        border-radius: var(--radius-xl);
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .hub-title.spectacular {
+        font-size: var(--font-size-2xl);
+        text-align: center;
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .search-container.spectacular {
+        padding: var(--space-2);
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .filter-controls.spectacular {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .enhanced-knowledge-hub.spectacular-mode .filter-select.spectacular {
+        width: 100%;
+    }
+}
+
+/* 🔧 ENHANCED RESOURCE CARD FIXES WITH FORCED DISPLAY */
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card,
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular {
+    display: block !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    width: 100% !important;
+    min-height: 200px !important;
+}
+
+/* 🔧 ENSURE RESOURCE CARD TEXT IS VISIBLE */
+.enhanced-knowledge-hub.spectacular-mode .resource-title.spectacular {
+    font-size: var(--font-size-lg) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 0 var(--space-2) 0 !important;
+    line-height: 1.3 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-summary.spectacular {
+    font-size: var(--font-size-sm) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    line-height: 1.5 !important;
+    margin: 0 0 var(--space-3) 0 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .meta-item.spectacular {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-1) !important;
+    font-size: var(--font-size-xs) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-weight: 500 !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .stat-value {
+    display: block !important;
+    font-size: var(--font-size-sm) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin-bottom: var(--space-1) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .stat-label {
+    font-size: var(--font-size-xs) !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-weight: 500 !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-tag.spectacular {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    padding: var(--space-1) var(--space-2) !important;
+    border-radius: var(--radius-md) !important;
+    font-size: var(--font-size-xs) !important;
+    font-weight: 500 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 🔧 BUTTON TEXT CONTRAST FIXES */
+.enhanced-knowledge-hub.spectacular-mode .resource-btn.spectacular {
+    padding: var(--space-2) var(--space-3) !important;
+    border-radius: var(--radius-lg) !important;
+    font-size: var(--font-size-sm) !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+    flex: 1 !important;
+    justify-content: center !important;
+    position: relative !important;
+    overflow: hidden !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 🔧 BADGE STYLING FIXES */
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular {
+    padding: var(--space-1) var(--space-2) !important;
+    border-radius: var(--radius-md) !important;
+    font-size: var(--font-size-xs) !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular.new {
+    background: rgba(16, 185, 129, 0.2) !important;
+    color: #86efac !important;
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular.featured {
+    background: rgba(245, 158, 11, 0.2) !important;
+    color: #fcd34d !important;
+    border: 1px solid rgba(245, 158, 11, 0.3) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular.difficulty.success {
+    background: rgba(16, 185, 129, 0.2) !important;
+    color: #86efac !important;
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular.difficulty.warning {
+    background: rgba(245, 158, 11, 0.2) !important;
+    color: #fcd34d !important;
+    border: 1px solid rgba(245, 158, 11, 0.3) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular.difficulty.danger {
+    background: rgba(239, 68, 68, 0.2) !important;
+    color: #fca5a5 !important;
+    border: 1px solid rgba(239, 68, 68, 0.3) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular.ai-score {
+    background: linear-gradient(135deg, var(--knowledge-accent-1), var(--knowledge-accent-2)) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    animation: knowledgeAiPulse 2s ease-in-out infinite !important;
+}
+
+/* 🔧 RESOURCE ICON STYLING */
+.enhanced-knowledge-hub.spectacular-mode .resource-icon.spectacular {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: var(--radius-lg) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    flex-shrink: 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-icon.spectacular.course {
+    background: rgba(16, 185, 129, 0.2) !important;
+    color: var(--success-200) !important;
+    border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-icon.spectacular.documentation {
+    background: rgba(6, 182, 212, 0.2) !important;
+    color: #67e8f9 !important;
+    border-color: rgba(6, 182, 212, 0.3) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-icon.spectacular.workshop {
+    background: rgba(245, 158, 11, 0.2) !important;
+    color: var(--warning-200) !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-icon.spectacular.playbook {
+    background: rgba(139, 92, 246, 0.2) !important;
+    color: #c4b5fd !important;
+    border-color: rgba(139, 92, 246, 0.3) !important;
+}
+
+/* 🔧 RESOURCE STATS CONTAINER */
+.enhanced-knowledge-hub.spectacular-mode .resource-stats.spectacular {
+    display: flex !important;
+    justify-content: space-around !important;
+    margin: var(--space-3) 0 !important;
+    padding: var(--space-3) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .stat.spectacular {
+    text-align: center !important;
+}
+
+/* 🔧 RESOURCE ACTIONS CONTAINER */
+.enhanced-knowledge-hub.spectacular-mode .resource-actions.spectacular {
+    display: flex !important;
+    gap: var(--space-2) !important;
+    margin-top: var(--space-4) !important;
+}
+
+/* 🔧 SVG ICON FIXES */
+.enhanced-knowledge-hub.spectacular-mode .resource-icon.spectacular svg,
+.enhanced-knowledge-hub.spectacular-mode .resource-btn.spectacular svg,
+.enhanced-knowledge-hub.spectacular-mode .meta-item.spectacular svg {
+    width: 16px !important;
+    height: 16px !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-icon.spectacular svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* 🔧 RESOURCE CARD HOVER EFFECTS */
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular:hover {
+    transform: translateY(-6px) scale(1.02) !important;
+    box-shadow: 0 25px 50px rgba(99, 102, 241, 0.4) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+}
+
+/* 🔧 PREVENT ANY WHITE BACKGROUND OVERRIDES */
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular,
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular *:not(.resource-btn):not(.badge) {
+    background-color: transparent !important;
+}
+
+/* 🔧 ENSURE PROPER SPACING */
+.enhanced-knowledge-hub.spectacular-mode .resource-header.spectacular {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    margin-bottom: var(--space-4) !important;
+    background: transparent !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-content.spectacular {
+    margin-bottom: var(--space-4) !important;
+    background: transparent !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-meta.spectacular {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: var(--space-3) !important;
+    margin-bottom: var(--space-3) !important;
+    background: transparent !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-tags.spectacular {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: var(--space-2) !important;
+    margin-bottom: var(--space-4) !important;
+    background: transparent !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-badges.spectacular {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: var(--space-2) !important;
+    background: transparent !important;
+}
+
+/* 🚨 CRITICAL CSS FIXES FOR KNOWLEDGE HUB DISPLAY ISSUES */
+
+/* 🚨 FORCE OVERRIDE ALL MAIN.CSS CONFLICTS */
+html body .enhanced-knowledge-hub,
+html body .enhanced-knowledge-hub.spectacular-mode,
+.dashboard .enhanced-knowledge-hub,
+.dashboard .enhanced-knowledge-hub.spectacular-mode {
+    display: block !important;
+    width: 100% !important;
+    position: relative !important;
+    z-index: 1 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+/* 🚨 OVERRIDE ANY AI INSIGHT CARD CONFLICTS FROM MAIN.CSS */
+html body .enhanced-knowledge-hub.spectacular-mode .ai-insight-card,
+/* 🔥 FORCE DARK BACKGROUNDS WITH MAXIMUM SPECIFICITY */
+html body .enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular,
+html body .enhanced-knowledge-hub.spectacular-mode .analytics-card,
+html body .enhanced-knowledge-hub.spectacular-mode .ai-insight-card,
+body .enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular,
+body .enhanced-knowledge-hub.spectacular-mode .analytics-card,
+body .enhanced-knowledge-hub.spectacular-mode .ai-insight-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: white !important;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* 🚨 ULTIMATE BLACK TEXT OVERRIDE - HIGHEST SPECIFICITY */
+html body .enhanced-knowledge-hub.spectacular-mode,
+html body .enhanced-knowledge-hub.spectacular-mode *,
+html body .enhanced-knowledge-hub.spectacular-mode h1,
+html body .enhanced-knowledge-hub.spectacular-mode h2,
+html body .enhanced-knowledge-hub.spectacular-mode h3,
+html body .enhanced-knowledge-hub.spectacular-mode h4,
+html body .enhanced-knowledge-hub.spectacular-mode h5,
+html body .enhanced-knowledge-hub.spectacular-mode h6,
+html body .enhanced-knowledge-hub.spectacular-mode p,
+html body .enhanced-knowledge-hub.spectacular-mode span,
+html body .enhanced-knowledge-hub.spectacular-mode div,
+html body .enhanced-knowledge-hub.spectacular-mode .analytics-title,
+html body .enhanced-knowledge-hub.spectacular-mode .section-title,
+html body .enhanced-knowledge-hub.spectacular-mode .insights-title,
+html body .enhanced-knowledge-hub.spectacular-mode .hub-title,
+html body .enhanced-knowledge-hub.spectacular-mode .insight-title,
+html body .enhanced-knowledge-hub.spectacular-mode .resource-title,
+html body .enhanced-knowledge-hub.spectacular-mode .resource-summary,
+html body .enhanced-knowledge-hub.spectacular-mode .trending-title,
+html body .enhanced-knowledge-hub.spectacular-mode .gap-skill,
+html body .enhanced-knowledge-hub.spectacular-mode .stat-value,
+html body .enhanced-knowledge-hub.spectacular-mode .stat-label,
+html body .enhanced-knowledge-hub.spectacular-mode .confidence-text,
+html body .enhanced-knowledge-hub.spectacular-mode .insight-description,
+html body .enhanced-knowledge-hub.spectacular-mode .meta-item,
+html body .enhanced-knowledge-hub.spectacular-mode .progress-value,
+html body .enhanced-knowledge-hub.spectacular-mode .progress-label,
+html body .enhanced-knowledge-hub.spectacular-mode .trending-stats,
+html body .enhanced-knowledge-hub.spectacular-mode .gap-level,
+html body .enhanced-knowledge-hub.spectacular-mode .notification-text,
+.dashboard .enhanced-knowledge-hub.spectacular-mode *:not(input):not(select):not(textarea),
+.main-content .enhanced-knowledge-hub.spectacular-mode *:not(input):not(select):not(textarea) {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 🚨 OVERRIDE SPECIFIC BLACK COLOR DECLARATIONS */
+html body .enhanced-knowledge-hub.spectacular-mode *[style*="color: black"],
+html body .enhanced-knowledge-hub.spectacular-mode *[style*="color: #000"],
+html body .enhanced-knowledge-hub.spectacular-mode *[style*="color: #000000"],
+html body .enhanced-knowledge-hub.spectacular-mode *[style*="color: #111"],
+html body .enhanced-knowledge-hub.spectacular-mode *[style*="color: #1e293b"],
+html body .enhanced-knowledge-hub.spectacular-mode *[style*="color: var(--text-primary)"] {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+}
+
+/* 🚨 OVERRIDE RESPONSIVE SYSTEM BLACK TEXT */
+@media (max-width: 768px) {
+    html body .enhanced-knowledge-hub.spectacular-mode *,
+    .dashboard .enhanced-knowledge-hub.spectacular-mode * {
+    color: white !important;
+    }
+}
+
+/* 🚨 OVERRIDE ANY REMAINING VAR(--TEXT-PRIMARY) USAGE */
+html body .enhanced-knowledge-hub.spectacular-mode [style*="var(--text-primary)"],
+html body .enhanced-knowledge-hub.spectacular-mode .insight-title,
+html body .enhanced-knowledge-hub.spectacular-mode .analytics-title,
+html body .enhanced-knowledge-hub.spectacular-mode .section-title,
+html body .enhanced-knowledge-hub.spectacular-mode .hub-title,
+html body .enhanced-knowledge-hub.spectacular-mode .card-header h4,
+.dashboard .enhanced-knowledge-hub.spectacular-mode .analytics-card h4,
+.dashboard .enhanced-knowledge-hub.spectacular-mode .learning-path-card h4 {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+}
+
+/* 🚨 FORCE WHITE TEXT ON ALL ANALYTICS ELEMENTS */
+html body .enhanced-knowledge-hub.spectacular-mode .learning-analytics *,
+html body .enhanced-knowledge-hub.spectacular-mode .analytics-grid *,
+html body .enhanced-knowledge-hub.spectacular-mode .analytics-card *,
+html body .enhanced-knowledge-hub.spectacular-mode .progress-stat *,
+html body .enhanced-knowledge-hub.spectacular-mode .skill-gap-item *,
+html body .enhanced-knowledge-hub.spectacular-mode .trending-item *,
+.dashboard .enhanced-knowledge-hub.spectacular-mode .learning-analytics *,
+.dashboard .enhanced-knowledge-hub.spectacular-mode .analytics-grid *,
+.dashboard .enhanced-knowledge-hub.spectacular-mode .analytics-card * {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+}
+
+/* 🚨 ENSURE SVG ICONS ARE WHITE */
+html body .enhanced-knowledge-hub.spectacular-mode svg,
+html body .enhanced-knowledge-hub.spectacular-mode svg *,
+.dashboard .enhanced-knowledge-hub.spectacular-mode svg,
+.dashboard .enhanced-knowledge-hub.spectacular-mode svg * {
+    stroke: white !important;
+    fill: none !important;
+    color: white !important;
+}
+
+/* 🚨 NUCLEAR OPTION - APPLY TO ALL POSSIBLE SELECTORS */
+.enhanced-knowledge-hub.spectacular-mode *:not(input):not(select):not(textarea):not(button):not(.badge):not(.resource-btn) {
+    color: white !important;
+}
+
+/* 🚨 FORCE BUTTONS TO HAVE PROPER CONTRAST */
+html body .enhanced-knowledge-hub.spectacular-mode button,
+html body .enhanced-knowledge-hub.spectacular-mode .btn,
+html body .enhanced-knowledge-hub.spectacular-mode .resource-btn,
+html body .enhanced-knowledge-hub.spectacular-mode .insight-action-btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 🚨 FINAL SAFETY NET - CATCH ANY MISSED ELEMENTS */
+.enhanced-knowledge-hub.spectacular-mode .learning-analytics,
+.enhanced-knowledge-hub.spectacular-mode .analytics-grid,
+.enhanced-knowledge-hub.spectacular-mode .analytics-card,
+.enhanced-knowledge-hub.spectacular-mode .ai-insights-section,
+.enhanced-knowledge-hub.spectacular-mode .ai-insights-grid,
+.enhanced-knowledge-hub.spectacular-mode .ai-insight-card {
+    color: white !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .learning-analytics *,
+.enhanced-knowledge-hub.spectacular-mode .analytics-grid *,
+.enhanced-knowledge-hub.spectacular-mode .analytics-card *,
+.enhanced-knowledge-hub.spectacular-mode .ai-insights-section *,
+.enhanced-knowledge-hub.spectacular-mode .ai-insights-grid *,
+.enhanced-knowledge-hub.spectacular-mode .ai-insight-card * {
+    color: white !important;
+}
+
+/* 🚨 ABSOLUTELY FINAL CATCH-ALL */
+.enhanced-knowledge-hub.spectacular-mode {
+    --text-primary: white !important;
+    --text-secondary: rgba(255, 255, 255, 0.8) !important;
+    --text-tertiary: rgba(255, 255, 255, 0.7) !important;
+    --text-muted: rgba(255, 255, 255, 0.6) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode * {
+    color: inherit !important;
+}
+
+/* END CRITICAL FIXES */
+
+/* 🚨 CRITICAL FIX: FORCE ALL TEXT WHITE IN SPECTACULAR MODE */
+
+/* Override any global styles that set black text */
+.enhanced-knowledge-hub.spectacular-mode,
+.enhanced-knowledge-hub.spectacular-mode *:not(input):not(select):not(textarea) {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+}
+
+/* Specifically target the analytics section where black text was appearing */
+.enhanced-knowledge-hub.spectacular-mode .learning-analytics,
+.enhanced-knowledge-hub.spectacular-mode .learning-analytics *,
+.enhanced-knowledge-hub.spectacular-mode .analytics-grid,
+.enhanced-knowledge-hub.spectacular-mode .analytics-grid *,
+.enhanced-knowledge-hub.spectacular-mode .analytics-card,
+.enhanced-knowledge-hub.spectacular-mode .analytics-card *,
+.enhanced-knowledge-hub.spectacular-mode .ai-insights-section,
+.enhanced-knowledge-hub.spectacular-mode .ai-insights-section *,
+.enhanced-knowledge-hub.spectacular-mode .ai-insights-grid,
+.enhanced-knowledge-hub.spectacular-mode .ai-insights-grid *,
+.enhanced-knowledge-hub.spectacular-mode .ai-insight-card,
+.enhanced-knowledge-hub.spectacular-mode .ai-insight-card * {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+}
+
+/* Override any CSS custom properties that might set dark text */
+.enhanced-knowledge-hub.spectacular-mode {
+    --text-primary: white !important;
+    --text-secondary: rgba(255, 255, 255, 0.8) !important;
+    --text-tertiary: rgba(255, 255, 255, 0.7) !important;
+    --text-muted: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Use the highest possible specificity to override any conflicting styles */
+html body .dashboard .enhanced-knowledge-hub.spectacular-mode *:not(input):not(select):not(textarea):not(button) {
+    color: white !important;
+}
+
+/* Ensure buttons maintain readability while fitting the design */
+.enhanced-knowledge-hub.spectacular-mode button,
+.enhanced-knowledge-hub.spectacular-mode .btn,
+.enhanced-knowledge-hub.spectacular-mode .resource-btn,
+.enhanced-knowledge-hub.spectacular-mode .insight-action-btn {
+    color: white !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Ensure SVG icons are also white */
+.enhanced-knowledge-hub.spectacular-mode svg {
+    stroke: white !important;
+    fill: none !important;
+    color: white !important;
+}
+
+/* END CRITICAL FIX */
+
+/* 🔧 CRITICAL UI FIXES FOR KNOWLEDGE HUB */
+
+/* 🔧 FIX SEARCH ICON AND STAR ALIGNMENT */
+.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular {
+    position: relative;
+    width: 320px;
+    min-width: 280px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(15px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    display: flex !important;
+    align-items: center !important;
+    height: 56px;
+}
+
+/* Fix search input positioning and alignment */
+.enhanced-knowledge-hub.spectacular-mode .enhanced-search.spectacular {
+    flex: 1;
+    padding: var(--space-3) var(--space-10) var(--space-3) var(--space-3);
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .enhanced-search.spectacular::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+/* Fix search icon positioning */
+.enhanced-knowledge-hub.spectacular-mode .search-icon {
+    position: absolute;
+    right: var(--space-4);
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.8);
+    width: 20px;
+    height: 20px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Fix star favorite button positioning */
+.enhanced-knowledge-hub.spectacular-mode .star-btn.spectacular {
+    position: absolute;
+    right: var(--space-10);
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-md);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    z-index: 4;
+    cursor: pointer;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .star-btn.spectacular:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fbbf24;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* 📚 SMART LEARNING RESOURCES - PROPER DARK CARDS WITH LARGER SIZING */
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: var(--radius-2xl) !important;
+    padding: var(--space-8) !important; /* Increased padding for larger size */
+    position: relative !important;
+    overflow: visible !important;
+    margin-bottom: var(--space-6) !important; /* Increased margin */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+    min-height: 200px !important; /* Ensure minimum height */
+}
+
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular:hover {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 1) 0%, rgba(30, 41, 59, 0.95) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    transform: translateY(-4px) scale(1.02) !important; /* Slight scale on hover */
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+}
+
+/* LARGER TEXT SIZING AND BETTER CONTRAST */
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular .resource-title.spectacular,
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular h3,
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular h4 {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+    font-size: var(--font-size-xl) !important; /* Increased font size */
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    margin-bottom: var(--space-4) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular .resource-summary.spectacular,
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular .resource-description,
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular p {
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+    font-size: var(--font-size-base) !important; /* Increased font size */
+    line-height: 1.6 !important;
+    margin-bottom: var(--space-3) !important;
+}
+
+/* LARGER RESOURCE ICONS */
+.enhanced-knowledge-hub.spectacular-mode .resource-icon.spectacular {
+    width: 64px !important; /* Increased from 48px */
+    height: 64px !important; /* Increased from 48px */
+    border-radius: var(--radius-xl) !important;
+    margin-bottom: var(--space-4) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-icon.spectacular svg {
+    width: 28px !important; /* Increased from 20px */
+    height: 28px !important; /* Increased from 20px */
+}
+
+/* 🏷️ FIX BADGE BUTTON OVERLAPPING */
+.enhanced-knowledge-hub.spectacular-mode .resource-badges.spectacular {
+    position: absolute !important;
+    top: var(--space-4) !important;
+    right: var(--space-4) !important;
+    display: flex !important;
+        flex-direction: column !important;
+    gap: var(--space-2) !important;
+    z-index: 10 !important;
+    align-items: flex-end !important;
+}
+
+/* REMOVED - Duplicate badge styling moved below */
+
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular.new {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.9), rgba(5, 150, 105, 0.9)) !important;
+    color: white !important;
+    border-color: rgba(16, 185, 129, 0.5) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular.featured {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.9), rgba(217, 119, 6, 0.9)) !important;
+    color: white !important;
+    border-color: rgba(245, 158, 11, 0.5) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular.difficulty {
+    margin-top: var(--space-1) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular.difficulty.success {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.9), rgba(21, 128, 61, 0.9)) !important;
+    color: white !important;
+    border-color: rgba(34, 197, 94, 0.5) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular.difficulty.warning {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.9), rgba(217, 119, 6, 0.9)) !important;
+    color: white !important;
+    border-color: rgba(251, 191, 36, 0.5) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular.difficulty.danger {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.9), rgba(185, 28, 28, 0.9)) !important;
+    color: white !important;
+    border-color: rgba(239, 68, 68, 0.5) !important;
+}
+
+/* LARGER CONTENT AREA WITH BETTER SPACING */
+.enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card.spectacular .resource-content.spectacular {
+    padding-right: 140px !important; /* Give more space for larger badges */
+    padding-bottom: var(--space-4) !important;
+    flex: 1 !important;
+}
+
+/* ENSURE MAIN CONTAINER HAS PROPER DARK BACKGROUND */
+.enhanced-knowledge-hub.spectacular-mode {
+    background: transparent !important; /* Let the gradient background show through */
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resources-section.spectacular,
+.enhanced-knowledge-hub.spectacular-mode .resources-container.spectacular {
+    background: transparent !important; /* Ensure no white backgrounds */
+}
+
+/* LARGER BUTTONS WITH BETTER SPACING */
+.enhanced-knowledge-hub.spectacular-mode .resource-actions.spectacular {
+    display: flex !important;
+    gap: var(--space-4) !important; /* Increased gap */
+    margin-top: var(--space-6) !important; /* Increased margin */
+    flex-wrap: wrap !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-btn.spectacular {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    padding: var(--space-3) var(--space-6) !important; /* Increased padding */
+    border-radius: var(--radius-xl) !important; /* Larger border radius */
+    font-weight: 600 !important; /* Bolder text */
+    font-size: var(--font-size-sm) !important; /* Larger font */
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(12px) !important;
+    min-height: 44px !important; /* Ensure minimum clickable area */
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-btn.spectacular:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.3)) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+    transform: translateY(-2px) scale(1.05) !important; /* Enhanced hover effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* LARGER LEARNING ANALYTICS SECTION */
+.enhanced-knowledge-hub.spectacular-mode .learning-analytics.spectacular {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: var(--radius-2xl) !important;
+    padding: var(--space-8) !important; /* Increased padding */
+    margin-bottom: var(--space-8) !important; /* Increased margin */
+    min-height: 180px !important; /* Ensure proper height */
+}
+
+.enhanced-knowledge-hub.spectacular-mode .learning-analytics.spectacular .section-title.spectacular {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+    font-size: var(--font-size-2xl) !important; /* Larger title */
+    font-weight: 700 !important;
+    margin-bottom: var(--space-6) !important; /* Increased margin */
+}
+
+/* LARGER STATS AND TEXT */
+.enhanced-knowledge-hub.spectacular-mode .learning-analytics.spectacular * {
+    color: white !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .learning-analytics.spectacular .stat-value {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    font-size: var(--font-size-2xl) !important; /* Larger stat values */
+    font-weight: 800 !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .learning-analytics.spectacular .stat-label {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+    font-size: var(--font-size-base) !important; /* Larger labels */
+    font-weight: 500 !important;
+}
+
+/* LARGER BADGES WITH BETTER SIZING */
+.enhanced-knowledge-hub.spectacular-mode .badge.spectacular {
+    position: relative !important;
+    padding: var(--space-2) var(--space-4) !important; /* Increased padding */
+    border-radius: var(--radius-full) !important;
+    font-size: var(--font-size-sm) !important; /* Increased font size */
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important; /* Enhanced shadow */
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    display: inline-block !important;
+    white-space: nowrap !important;
+    min-width: 80px !important; /* Minimum width for consistency */
+    text-align: center !important;
+}
