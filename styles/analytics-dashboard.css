@@ -405,11 +405,28 @@
     text-align: center;
     font-weight: 600;
     transition: all var(--duration-normal) var(--ease-spring);
+    color: #000000 !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
 }
 
 .heatmap-cell:hover {
     transform: scale(1.05);
     box-shadow: var(--shadow-md);
+}
+
+.heatmap-cell .cell-value {
+    color: #000000 !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
 }
 
 /* AI Insights Section */
@@ -623,6 +640,10 @@
 [data-theme="dark"] .analytics-dashboard {
     background: var(--bg-elevated-dark);
     border-color: var(--border-color-dark);
+}
+
+[data-theme="dark"] .heatmap-cell .cell-value {
+    color: #ffffff !important;
 }
 
 [data-theme="dark"] .kpi-card,

@@ -13,7 +13,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- LOAD THIS LAST TO OVERRIDE ALL CONFLICTING STYLES -->
+    <link rel="stylesheet" href="../styles/analytics-blur-fix.css">
     <style>
+        /* AGGRESSIVE ANALYTICS FIXES - Applied immediately */
+        .analytics-dashboard,
+        .analytics-dashboard *,
+        .analytics-section,
+        .analytics-section *,
+        .analytics-overview,
+        .analytics-overview *,
+        .heatmap-section,
+        .heatmap-section *,
+        .heatmap-cell,
+        .heatmap-cell * {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            filter: none !important;
+            transform: none !important;
+            color: var(--text-primary) !important;
+            -webkit-text-fill-color: var(--text-primary) !important;
+        }
+        
+        .heatmap-cell .cell-value {
+            color: #000000 !important;
+            -webkit-text-fill-color: #000000 !important;
+            font-weight: 600 !important;
+            text-shadow: none !important;
+        }
+        
+        [data-theme="dark"] .heatmap-cell .cell-value {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+        
         /* Loading Screen Styles */
         #loading-screen {
             position: fixed;

@@ -1,0 +1,242 @@
+/* ===== ANALYTICS BLUR FIX - AGGRESSIVE OVERRIDE ===== */
+/* This file MUST be loaded LAST to override all conflicting styles */
+
+/* GLOBAL OVERRIDE - Remove ALL blur effects from analytics */
+.analytics-dashboard,
+.analytics-dashboard *,
+.analytics-dashboard *::before,
+.analytics-dashboard *::after,
+.analytics-section,
+.analytics-section *,
+.analytics-section *::before,
+.analytics-section *::after,
+.analytics-overview,
+.analytics-overview *,
+.analytics-overview *::before,
+.analytics-overview *::after,
+.heatmap-section,
+.heatmap-section *,
+.heatmap-section *::before,
+.heatmap-section *::after,
+.heatmap-container,
+.heatmap-container *,
+.heatmap-container *::before,
+.heatmap-container *::after,
+.heatmap-grid,
+.heatmap-grid *,
+.heatmap-grid *::before,
+.heatmap-grid *::after,
+.heatmap-cell,
+.heatmap-cell *,
+.heatmap-cell *::before,
+.heatmap-cell *::after,
+.overview-card,
+.overview-card *,
+.overview-card *::before,
+.overview-card *::after,
+.kpi-card,
+.kpi-card *,
+.kpi-card *::before,
+.kpi-card *::after,
+.goal-card,
+.goal-card *,
+.goal-card *::before,
+.goal-card *::after,
+.chart-container,
+.chart-container *,
+.chart-container *::before,
+.chart-container *::after,
+.activity-feed,
+.activity-feed *,
+.activity-feed *::before,
+.activity-feed *::after,
+.ai-insight-card,
+.ai-insight-card *,
+.ai-insight-card *::before,
+.ai-insight-card *::after,
+.activity-item,
+.activity-item *,
+.activity-item *::before,
+.activity-item *::after {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    transform-origin: initial !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* FORCE ALL TEXT TO BE READABLE - Override any white text */
+.analytics-dashboard,
+.analytics-dashboard *,
+.analytics-section,
+.analytics-section *,
+.analytics-overview,
+.analytics-overview *,
+.heatmap-section,
+.heatmap-section *,
+.overview-card,
+.overview-card *,
+.kpi-card,
+.kpi-card *,
+.goal-card,
+.goal-card *,
+.chart-container,
+.chart-container *,
+.activity-feed,
+.activity-feed *,
+.ai-insight-card,
+.ai-insight-card *,
+.activity-item,
+.activity-item * {
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+/* SPECIFIC FIXES FOR HEATMAP CELLS */
+.heatmap-cell {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+.heatmap-cell .cell-value {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* SPECIFIC FIXES FOR METRIC NUMBERS */
+.metric-number,
+.kpi-value,
+.goal-current,
+.stat-number,
+.card-metric .metric-number,
+.overview-card .metric-number,
+.kpi-card .kpi-value,
+.goal-card .goal-current {
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* OVERRIDE ANY GRADIENT TEXT */
+.analytics-dashboard [style*="background-clip"],
+.analytics-dashboard [style*="-webkit-background-clip"],
+.analytics-section [style*="background-clip"],
+.analytics-section [style*="-webkit-background-clip"],
+.analytics-overview [style*="background-clip"],
+.analytics-overview [style*="-webkit-background-clip"] {
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+/* OVERRIDE ANY INLINE STYLES */
+.analytics-dashboard [style*="color: white"],
+.analytics-dashboard [style*="color: #fff"],
+.analytics-dashboard [style*="color: #ffffff"],
+.analytics-section [style*="color: white"],
+.analytics-section [style*="color: #fff"],
+.analytics-section [style*="color: #ffffff"],
+.analytics-overview [style*="color: white"],
+.analytics-overview [style*="color: #fff"],
+.analytics-overview [style*="color: #ffffff"] {
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+/* OVERRIDE ANY CLASS-BASED WHITE TEXT */
+.analytics-dashboard .white-text,
+.analytics-dashboard [class*="white"],
+.analytics-dashboard [class*="light"],
+.analytics-section .white-text,
+.analytics-section [class*="white"],
+.analytics-section [class*="light"],
+.analytics-overview .white-text,
+.analytics-overview [class*="white"],
+.analytics-overview [class*="light"] {
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+/* DARK THEME OVERRIDES */
+[data-theme="dark"] .analytics-dashboard,
+[data-theme="dark"] .analytics-dashboard *,
+[data-theme="dark"] .analytics-section,
+[data-theme="dark"] .analytics-section *,
+[data-theme="dark"] .analytics-overview,
+[data-theme="dark"] .analytics-overview * {
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .heatmap-cell,
+[data-theme="dark"] .heatmap-cell .cell-value {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* REMOVE ALL CSS VARIABLES THAT MIGHT CAUSE BLUR */
+:root {
+    --glass-blur: none !important;
+}
+
+[data-theme="dark"] :root {
+    --glass-blur: none !important;
+}
+
+/* FINAL OVERRIDE - Ensure no blur effects can be applied */
+.analytics-dashboard,
+.analytics-dashboard *,
+.analytics-section,
+.analytics-section *,
+.analytics-overview,
+.analytics-overview *,
+.heatmap-section,
+.heatmap-section *,
+.heatmap-cell,
+.heatmap-cell * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+}
+
+/* Force proper text rendering for all analytics elements */
+.analytics-dashboard,
+.analytics-dashboard *,
+.analytics-section,
+.analytics-section *,
+.analytics-overview,
+.analytics-overview * {
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+} 

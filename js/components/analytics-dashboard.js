@@ -546,8 +546,8 @@ class AnalyticsDashboard extends HTMLElement {
                                 <div class="heatmap-row">
                                     <div class="dept-header">${dept}</div>
                                     ${this.data.teamPerformance.heatmapData[deptIndex].map((value, metricIndex) => `
-                                        <div class="heatmap-cell" data-value="${value}" data-dept="${dept}" data-metric="${this.data.teamPerformance.metrics[metricIndex]}" style="background-color: ${this.getHeatmapColor(value)}">
-                                            <span class="cell-value">${value}</span>
+                                        <div class="heatmap-cell" data-value="${value}" data-dept="${dept}" data-metric="${this.data.teamPerformance.metrics[metricIndex]}" style="background-color: ${this.getHeatmapColor(value)}; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; filter: none !important; transform: none !important;">
+                                            <span class="cell-value" style="color: ${document.documentElement.getAttribute('data-theme') === 'dark' ? '#ffffff' : '#000000'} !important; -webkit-text-fill-color: ${document.documentElement.getAttribute('data-theme') === 'dark' ? '#ffffff' : '#000000'} !important; font-weight: 600 !important; text-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; filter: none !important; transform: none !important;">${value}</span>
                                         </div>
                                     `).join('')}
                                 </div>
