@@ -8,9 +8,12 @@ class Sidebar extends HTMLElement {
     }
 
     connectedCallback() {
+        console.log('🚀 Sidebar component connecting...');
+        
         // Load collapsed state from localStorage
         const savedCollapsed = localStorage.getItem('sidebarCollapsed');
         this.collapsed = savedCollapsed === 'true';
+        console.log('📱 Sidebar collapsed state from storage:', this.collapsed);
         
         // Detect current page from URL
         this.detectCurrentPage();
@@ -22,11 +25,39 @@ class Sidebar extends HTMLElement {
             // Force reflow
             document.body.offsetHeight;
             document.documentElement.style.removeProperty('--sidebar-transition');
+            console.log('📱 Applied collapsed state to body');
         }
         
+        this.loadUserPreferences();
         this.render();
         this.setupEventListeners();
-        this.loadUserPreferences();
+        
+        console.log('✅ Sidebar component connected successfully');
+        
+        // Ensure collapse button is always visible
+        setTimeout(() => {
+            const collapseBtn = this.querySelector('.collapse-btn');
+            if (collapseBtn) {
+                collapseBtn.style.display = 'flex';
+                collapseBtn.style.visibility = 'visible';
+                collapseBtn.setAttribute('title', 'Click to toggle sidebar');
+                console.log('👁️ Collapse button visibility ensured');
+            }
+        }, 100);
+        
+        // Add click handler to entire sidebar header as backup
+        setTimeout(() => {
+            const header = this.querySelector('.sidebar-header');
+            if (header) {
+                header.addEventListener('dblclick', () => {
+                    console.log('🔄 Double-click sidebar toggle');
+                    this.collapsed = !this.collapsed;
+                    document.body.classList.toggle('sidebar-collapsed', this.collapsed);
+                    localStorage.setItem('sidebarCollapsed', this.collapsed);
+                });
+                console.log('🔄 Double-click toggle added to sidebar header');
+            }
+        }, 200);
     }
 
     detectCurrentPage() {
@@ -70,6 +101,37 @@ class Sidebar extends HTMLElement {
 
         this.favorites = new Set(mockPreferences.favorites);
         this.recentlyVisited = mockPreferences.recentlyVisited;
+    }
+
+    createCollapseButton() {
+        const header = this.querySelector('.sidebar-header');
+        if (header && !header.querySelector('.collapse-btn')) {
+            const collapseBtn = document.createElement('button');
+            collapseBtn.className = 'collapse-btn';
+            collapseBtn.setAttribute('aria-label', 'Toggle sidebar');
+            collapseBtn.innerHTML = `
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            `;
+            
+            header.appendChild(collapseBtn);
+            
+            // Add event listener to the new button
+            collapseBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('🔄 Manual collapse button clicked, current state:', this.collapsed);
+                
+                this.collapsed = !this.collapsed;
+                document.body.classList.toggle('sidebar-collapsed', this.collapsed);
+                localStorage.setItem('sidebarCollapsed', this.collapsed);
+                
+                console.log('✅ Sidebar toggled via manual button, new state:', this.collapsed);
+            });
+            
+            console.log('✅ Collapse button created manually');
+        }
     }
 
     render() {
@@ -383,14 +445,98 @@ class Sidebar extends HTMLElement {
         return icons[type] || icons.document;
     }
 
+    setupFloatingToggle() {
+        console.log('🎯 Sidebar toggle handler setup (button is now in sidebar header)');
+        
+        // Add keyboard shortcut: Ctrl+B to toggle sidebar
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
+                e.preventDefault();
+                console.log('⌨️ Keyboard shortcut (Ctrl+B) used to toggle sidebar');
+                this.toggleSidebar();
+            }
+        });
+        
+        console.log('⌨️ Keyboard shortcut added: Ctrl+B');
+        
+        // Show help tooltip when sidebar is first collapsed
+        this.showCollapseHelp();
+    }
+    
+    showCollapseHelp() {
+        if (document.body.classList.contains('sidebar-collapsed')) {
+            // Show a temporary notification about how to reopen sidebar
+            setTimeout(() => {
+                const helpDiv = document.createElement('div');
+                helpDiv.style.cssText = `
+                    position: fixed;
+                    top: 80px;
+                    left: 80px;
+                    background: var(--bg-elevated);
+                    color: var(--text-primary);
+                    padding: 12px;
+                    border-radius: 8px;
+                    font-size: 12px;
+                    z-index: 1002;
+                    max-width: 200px;
+                    box-shadow: var(--shadow-lg);
+                    border: 1px solid var(--border-color);
+                    border-left: 4px solid var(--primary-500);
+                `;
+                helpDiv.innerHTML = `
+                    <strong>Sidebar Collapsed</strong><br>
+                    • Click the arrow button in the narrow sidebar<br>
+                    • Press Ctrl+B<br>
+                    • Call window.toggleSidebar()
+                `;
+                
+                document.body.appendChild(helpDiv);
+                
+                // Auto-remove after 5 seconds
+                setTimeout(() => {
+                    if (helpDiv.parentNode) {
+                        helpDiv.remove();
+                    }
+                }, 5000);
+                
+                // Remove on click
+                helpDiv.addEventListener('click', () => helpDiv.remove());
+                
+                console.log('💡 Sidebar help tooltip shown');
+            }, 1000);
+        }
+    }
+
     setupEventListeners() {
         // Collapse button
         const collapseBtn = this.querySelector('.collapse-btn');
-        collapseBtn?.addEventListener('click', () => {
-            this.collapsed = !this.collapsed;
-            document.body.classList.toggle('sidebar-collapsed', this.collapsed);
-            localStorage.setItem('sidebarCollapsed', this.collapsed);
-        });
+        console.log('🔧 Setting up sidebar collapse button:', collapseBtn);
+        
+        if (collapseBtn) {
+            collapseBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('🔄 Sidebar toggle clicked, current state:', this.collapsed);
+                
+                this.collapsed = !this.collapsed;
+                document.body.classList.toggle('sidebar-collapsed', this.collapsed);
+                localStorage.setItem('sidebarCollapsed', this.collapsed);
+                
+                console.log('✅ Sidebar toggled, new state:', this.collapsed);
+                console.log('📱 Body classes:', document.body.className);
+            });
+        } else {
+            console.error('❌ Sidebar collapse button not found!');
+            // Try to find it with a more general selector
+            const backupBtn = document.querySelector('.collapse-btn');
+            console.log('🔍 Backup collapse button search:', backupBtn);
+            
+            // If still not found, create the button manually
+            if (!backupBtn) {
+                console.log('🔧 Creating collapse button manually...');
+                this.createCollapseButton();
+            }
+        }
 
         // Navigation items
         this.querySelectorAll('.nav-link').forEach(link => {
@@ -474,4 +620,24 @@ class Sidebar extends HTMLElement {
     }
 }
 
-customElements.define('app-sidebar', Sidebar); 
+customElements.define('app-sidebar', Sidebar);
+
+// Emergency global sidebar toggle function
+window.toggleSidebar = function() {
+    console.log('🚨 Emergency sidebar toggle called');
+    const sidebar = document.querySelector('app-sidebar');
+    if (sidebar) {
+        const isCollapsed = document.body.classList.contains('sidebar-collapsed');
+        document.body.classList.toggle('sidebar-collapsed', !isCollapsed);
+        localStorage.setItem('sidebarCollapsed', !isCollapsed);
+        console.log('✅ Emergency toggle completed. Collapsed:', !isCollapsed);
+    } else {
+        console.error('❌ Sidebar element not found');
+    }
+};
+
+        console.log('🔧 Sidebar component loaded. Emergency toggle available: window.toggleSidebar()');
+        console.log('✅ TOGGLE BUTTON FIXED: Now properly positioned in collapsed sidebar strip!');
+        
+        // Add floating toggle button click handler for collapsed state
+        this.setupFloatingToggle(); 

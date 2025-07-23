@@ -6,6 +6,42 @@
     <meta name="description" content="Quantum Forge company intranet - Your enhanced digital workspace for collaboration, innovation, and growth">
     <meta name="theme-color" content="#6366f1">
     
+    <!-- Enhanced Accessibility Meta Tags -->
+    <meta name="keywords" content="intranet, digital workspace, collaboration, productivity, team management, workplace technology">
+    <meta name="author" content="Quantum Forge Team">
+    <meta name="robots" content="index, follow">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    
+    <!-- Accessibility: Prefers Reduced Motion -->
+    <style>
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            :root {
+                --border-color: #000000;
+                --text-primary: #000000;
+                --bg-elevated: #ffffff;
+            }
+        }
+        
+        /* Dark Mode Detection */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #0f172a;
+                --text-primary: #f8fafc;
+            }
+        }
+    </style>
+    
     <!-- NEW: Enhanced SEO and Performance Meta Tags -->
     <meta name="keywords" content="intranet, digital workspace, collaboration, productivity, team management, workplace technology">
     <meta name="author" content="Quantum Forge Team">
@@ -34,9 +70,38 @@
         /* Critical rendering path CSS */
         body { margin: 0; font-family: 'Inter', sans-serif; }
         .dashboard { min-height: 100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .loading { display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .loading-spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #6366f1; border-radius: 50%; animation: spin 1s linear infinite; }
+        /* Enhanced Loading Screen Styles */
+        #loading-screen { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            z-index: 9999; 
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+        .loading-content { text-align: center; }
+        .loading-spinner { 
+            width: 50px; 
+            height: 50px; 
+            border: 4px solid rgba(255,255,255,0.3); 
+            border-top: 4px solid #ffffff; 
+            border-radius: 50%; 
+            animation: spin 1s linear infinite; 
+            margin-bottom: 20px;
+        }
+        .loading-content h2 { margin: 10px 0; font-size: 24px; font-weight: 600; }
+        .loading-content p { margin: 0; font-size: 16px; opacity: 0.8; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* Ensure body doesn't scroll when loading */
+        body.loading { overflow: hidden; }
         
         /* CALENDAR ICON - Match Today's Insights exactly */
         .upcoming-events-title .custom-insights-icon {
@@ -208,15 +273,15 @@
         }
     </script>
     
-    <!-- PERFORMANCE OPTIMIZED: Critical CSS First, Non-Critical Async -->
-    <!-- Critical CSS for First Paint -->
+    <!-- RESTORED: Essential CSS for Page Function -->
+    <!-- Core styles that must load immediately -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/enhanced.css">
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/welcome-section.css">
     <link rel="stylesheet" href="styles/responsive-system.css">
     
-    <!-- Non-Critical CSS - Load Asynchronously for Better Performance -->
+    <!-- Additional CSS - Load Asynchronously for Better Performance -->
     <link rel="preload" href="styles/enhanced-colors.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="styles/company-news.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="styles/interactive-poll.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -231,6 +296,9 @@
     <link rel="preload" href="styles/analytics-dashboard.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="styles/analytics-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="styles/team-analytics-fix.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/team-chat-widget.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/component-enhancements.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/smart-search-overlay.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     
     <!-- Fallback for browsers that don't support preload -->
     <noscript>
@@ -248,19 +316,75 @@
         <link rel="stylesheet" href="styles/analytics-dashboard.css">
         <link rel="stylesheet" href="styles/analytics-icons.css">
         <link rel="stylesheet" href="styles/team-analytics-fix.css">
+        <link rel="stylesheet" href="styles/team-chat-widget.css">
+        <link rel="stylesheet" href="styles/component-enhancements.css">
+        <link rel="stylesheet" href="styles/smart-search-overlay.css">
     </noscript>
     
 
 </head>
 <body class="custom-scrollbar loading">
-    <!-- NEW: Loading Screen -->
-    <div id="loading-screen" class="loading">
+    <!-- Loading Screen -->
+    <div id="loading-screen">
         <div class="loading-content">
             <div class="loading-spinner"></div>
             <h2>Loading Quantum Forge...</h2>
             <p>Preparing your enhanced digital workspace</p>
         </div>
     </div>
+    
+    <script>
+        console.log('🚀 Quantum Forge loading...');
+        
+        // Global loading screen management
+        let loadingScreenHidden = false;
+        
+        function hideLoadingScreen() {
+            if (loadingScreenHidden) return;
+            loadingScreenHidden = true;
+            
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    document.body.classList.remove('loading');
+                    document.body.style.overflow = 'auto';
+                    console.log('✅ Loading screen hidden');
+                }, 300);
+            } else {
+                document.body.classList.remove('loading');
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Make function globally available
+        window.hideLoadingScreen = hideLoadingScreen;
+        
+        // Ensure loading screen is visible initially
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            loadingScreen.style.display = 'flex';
+            console.log('✅ Loading screen active');
+        }
+        
+        // Multiple triggers to hide loading screen
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded, hiding loading screen in 1 second...');
+            setTimeout(hideLoadingScreen, 1000);
+        });
+        
+        window.addEventListener('load', () => {
+            console.log('Window loaded, hiding loading screen...');
+            hideLoadingScreen();
+        });
+        
+        // Fallback timer
+        setTimeout(() => {
+            console.log('Fallback timer triggered, hiding loading screen...');
+            hideLoadingScreen();
+        }, 3000);
+    </script>
     
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
@@ -466,20 +590,21 @@
                         </div>
                     </div>
 
-                    <div class="dashboard-item full-width office-container">
-                        <office-visualizer></office-visualizer>
-                    </div>
-
-                    <!-- NEW: Company Culture Showcase -->
-                    <div class="dashboard-item full-width">
-                        <company-culture-showcase></company-culture-showcase>
-                    </div>
-
+                    <!-- Analytics Dashboard - High Priority -->
                     <div class="dashboard-item full-width">
                         <analytics-dashboard></analytics-dashboard>
                     </div>
 
-                    <!-- Two Column Items -->
+                    <!-- Task Management and Knowledge Hub - Core Productivity -->
+                    <div class="dashboard-item">
+                        <task-system></task-system>
+                    </div>
+
+                    <div class="dashboard-item">
+                        <enhanced-knowledge-hub></enhanced-knowledge-hub>
+                    </div>
+
+                    <!-- Team Communication and News - Social Layer -->
                     <div class="dashboard-item">
                         <company-news>
                             <div class="loading-placeholder">
@@ -493,28 +618,32 @@
                         <team-spotlight></team-spotlight>
                     </div>
 
-                    <div class="dashboard-item">
-                        <task-system></task-system>
+                    <!-- Office Visualizer - Interactive Experience -->
+                    <div class="dashboard-item full-width office-container">
+                        <office-visualizer></office-visualizer>
                     </div>
 
+                    <!-- Collaboration and Engagement Tools -->
                     <div class="dashboard-item">
-                        <enhanced-knowledge-hub></enhanced-knowledge-hub>
-                    </div>
-
-                    <div class="dashboard-item">
-                        <weather-widget></weather-widget>
+                        <collaboration-hub></collaboration-hub>
                     </div>
 
                     <div class="dashboard-item">
                         <enhanced-interactive-poll></enhanced-interactive-poll>
                     </div>
 
+                    <!-- Weather and Achievement - Ambient Info -->
                     <div class="dashboard-item">
-                        <collaboration-hub></collaboration-hub>
+                        <weather-widget></weather-widget>
                     </div>
 
                     <div class="dashboard-item">
                         <achievement-system></achievement-system>
+                    </div>
+
+                    <!-- Company Culture Showcase - Brand Experience -->
+                    <div class="dashboard-item full-width">
+                        <company-culture-showcase></company-culture-showcase>
                     </div>
                 </div>
             </main>
@@ -527,7 +656,13 @@
     <!-- AI Assistant -->
     <ai-assistant></ai-assistant>
 
-    <!-- NEW: Performance Monitoring -->
+    <!-- Team Chat Widget -->
+    <team-chat-widget></team-chat-widget>
+
+    <!-- Smart Search Overlay -->
+    <smart-search-overlay></smart-search-overlay>
+
+    <!-- Performance Monitoring -->
     <script>
         // Initialize page-specific functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -537,61 +672,25 @@
             }
 
             // Performance monitoring
-            let loadingScreenHidden = false;
-            
             window.addEventListener('load', () => {
                 window.performance.mark('app-loaded');
                 window.performance.measure('app-load-time', 'app-start', 'app-loaded');
                 
                 const loadTime = performance.getEntriesByName('app-load-time')[0];
                 console.log(`App loaded in ${loadTime.duration}ms`);
-                
-                // Hide loading screen with better timing
-                hideLoadingScreen();
             });
-
-            // Also hide loading screen when DOM is ready and components are loaded
-            document.addEventListener('DOMContentLoaded', () => {
-                // Give components time to initialize
-                setTimeout(() => {
-                    hideLoadingScreen();
-                }, 1500); // Increased to 1.5 seconds for better component loading
-            });
-
-            // Fallback: hide loading screen after 4 seconds regardless
-            setTimeout(() => {
-                hideLoadingScreen();
-            }, 4000);
-
-            function hideLoadingScreen() {
-                // Prevent multiple calls
-                if (loadingScreenHidden) return;
-                
-                const loadingScreen = document.getElementById('loading-screen');
-                
-                if (loadingScreen && loadingScreen.style.display !== 'none') {
-                    loadingScreenHidden = true;
-                    loadingScreen.style.opacity = '0';
-                    loadingScreen.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        loadingScreen.style.display = 'none';
-                        // Enable scrolling on body and remove loading class
-                        document.body.style.overflow = 'auto';
-                        document.body.classList.remove('loading');
-                        console.log('✅ Loading screen hidden');
-                    }, 300);
-                }
-            }
         });
     </script>
 
-    <!-- Scripts -->
+    <!-- Scripts - Restored Working Order -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/services/performance-monitor.js"></script>
     <script src="js/services/performance-manager.js"></script>
+    <script src="js/services/chart-manager.js"></script>
     <script src="js/services/analytics.js"></script>
     <script src="js/app.js"></script>
     <script src="js/components/header.js"></script>
+    <script src="js/components/sidebar.js"></script>
     <script src="js/components/analytics-dashboard.js"></script>
     <script src="js/components/task-system.js"></script>
     <script src="js/components/weather-widget.js"></script>
@@ -606,9 +705,10 @@
     <script src="js/components/collaboration-hub.js"></script>
     <script src="js/components/office-visualizer.js?v=3"></script>
     <script src="js/components/enhanced-knowledge-hub.js"></script>
-    <script src="js/components/sidebar.js"></script>
     <script src="js/components/help-dialog.js"></script>
     <script src="js/components/company-culture-showcase.js"></script>
     <script src="js/components/enhanced-interactive-poll.js"></script>
+    <script src="js/components/team-chat-widget.js"></script>
+    <script src="js/components/smart-search-overlay.js"></script>
 </body>
 </html>

@@ -40,8 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1000); // Reduced from 2000ms to 1000ms
 });
 
-// NEW: Optimized component initialization with staggered loading
+// NEW: Smart Progressive Component Loading System
 function initializeComponentsWithDelay() {
+    // Smart loading with Intersection Observer for better performance
+    if ('IntersectionObserver' in window) {
+        initializeSmartComponentLoading();
+    } else {
+        // Fallback for older browsers
+        initializeFallbackComponentLoading();
+    }
+    
     // Core components first - reduced delay
     setTimeout(() => {
         try {
@@ -49,7 +57,7 @@ function initializeComponentsWithDelay() {
             initializeNotifications();
             initializeUserProfile();
             
-            // Initialize company news component
+            // Initialize company news component with smart loading
             const companyNews = document.querySelector('company-news');
             if (companyNews) {
                 console.log('Initializing company news component...');
@@ -90,6 +98,61 @@ function initializeComponentsWithDelay() {
             console.warn('Contest features initialization error:', error);
         }
     }, 250); // Reduced from 500ms
+}
+
+function initializeSmartComponentLoading() {
+    const componentObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const component = entry.target;
+                const componentName = component.tagName.toLowerCase();
+                
+                // Add loading animation
+                component.style.opacity = '0';
+                component.style.transform = 'translateY(20px)';
+                
+                // Simulate component loading with progressive enhancement
+                requestAnimationFrame(() => {
+                    component.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    component.style.opacity = '1';
+                    component.style.transform = 'translateY(0)';
+                    
+                    // Track performance
+                    console.log(`📈 Component loaded: ${componentName}`);
+                    
+                    // Announce to screen readers
+                    announceToScreenReader(`${componentName.replace('-', ' ')} component loaded`);
+                });
+                
+                // Stop observing once loaded
+                componentObserver.unobserve(component);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+    });
+    
+    // Observe all dashboard components
+    const components = document.querySelectorAll('.dashboard-item > *');
+    components.forEach(component => {
+        componentObserver.observe(component);
+    });
+    
+    console.log('🚀 Smart component loading initialized');
+}
+
+function initializeFallbackComponentLoading() {
+    // Graceful degradation for older browsers
+    const components = document.querySelectorAll('.dashboard-item > *');
+    components.forEach((component, index) => {
+        setTimeout(() => {
+            component.style.opacity = '1';
+            component.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+    
+    console.log('📱 Fallback component loading initialized');
 }
 
 // NEW: Contest-specific features initialization with performance optimization
@@ -272,11 +335,52 @@ function animateNumberChange(element, start, end) {
     requestAnimationFrame(animate);
 }
 
-// Theme management
+// Enhanced Theme Management with Dynamic Workspace Themes
 function initializeTheme() {
-    const theme = localStorage.getItem('theme') || 'light';
+    const theme = localStorage.getItem('theme') || detectPreferredTheme();
     document.documentElement.setAttribute('data-theme', theme);
     document.body.setAttribute('data-theme', theme);
+    
+    // Initialize dynamic workspace themes
+    initializeDynamicWorkspaceThemes();
+}
+
+function detectPreferredTheme() {
+    // Auto-detect based on system preference and time of day
+    const hour = new Date().getHours();
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (systemDark || hour < 7 || hour > 19) {
+        return 'dark';
+    }
+    return 'light';
+}
+
+function initializeDynamicWorkspaceThemes() {
+    // Dynamic theme adaptation based on time and activity
+    const hour = new Date().getHours();
+    let workspaceMode = 'default';
+    
+    if (hour >= 6 && hour < 12) {
+        workspaceMode = 'morning-focus';
+        document.documentElement.style.setProperty('--primary-500', '#4f46e5');
+        announceToScreenReader('Good morning! Workspace optimized for morning productivity');
+    } else if (hour >= 12 && hour < 17) {
+        workspaceMode = 'afternoon-collaboration';
+        document.documentElement.style.setProperty('--primary-500', '#059669');
+        announceToScreenReader('Good afternoon! Workspace optimized for collaboration');
+    } else if (hour >= 17 && hour < 22) {
+        workspaceMode = 'evening-review';
+        document.documentElement.style.setProperty('--primary-500', '#7c2d12');
+        announceToScreenReader('Good evening! Workspace optimized for review and planning');
+    } else {
+        workspaceMode = 'night-minimal';
+        document.documentElement.style.setProperty('--primary-500', '#1e1b4b');
+        announceToScreenReader('Night mode activated for reduced eye strain');
+    }
+    
+    document.body.setAttribute('data-workspace-mode', workspaceMode);
+    console.log(`🎨 Dynamic workspace theme: ${workspaceMode}`);
 }
 
 // Theme toggle function - used by header component and settings

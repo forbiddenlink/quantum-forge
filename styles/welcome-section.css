@@ -501,7 +501,8 @@ body .quick-insights .insights-title .btn-icon:hover svg,
     margin-top: var(--space-8) !important;
     padding: var(--space-8) !important;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
-    backdrop-filter: blur(15px) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     border: 1px solid var(--welcome-border) !important;
     border-radius: var(--radius-xl) !important;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
@@ -600,7 +601,8 @@ body .quick-insights .insights-title .btn-icon:hover svg,
 
 .event-card {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.06) 100%) !important;
-    backdrop-filter: blur(10px) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     border: 1px solid var(--welcome-border) !important;
     border-radius: var(--radius-lg) !important;
     padding: var(--space-5) !important;
@@ -632,42 +634,53 @@ body .quick-insights .insights-title .btn-icon:hover svg,
 }
 
 .event-time {
-    color: var(--welcome-text) !important;
+    color: #64748b !important;
     font-size: var(--font-size-sm) !important;
     margin-bottom: var(--space-2) !important;
-    font-weight: 600 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    font-weight: 500 !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
-.event-title {
-    color: var(--welcome-text) !important;
-    font-weight: 700 !important;
-    font-size: var(--font-size-lg) !important;
+.event-title,
+.upcoming-events .event-title,
+.events-list .event-title,
+.welcome-section .event-title,
+html body .welcome-section .event-title,
+body .welcome-section .event-title,
+#app .welcome-section .event-title,
+.dashboard .welcome-section .event-title,
+.main-content .welcome-section .event-title {
+    color: #475569 !important;
+    font-weight: 600 !important;
+    font-size: var(--font-size-base) !important;
     margin-bottom: var(--space-3) !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
-    background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 .event-participants {
-    color: var(--welcome-text) !important;
+    color: #64748b !important;
     font-size: var(--font-size-sm) !important;
     display: flex !important;
     align-items: center !important;
     gap: var(--space-2) !important;
-    font-weight: 600 !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    font-weight: 500 !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 .event-participants svg {
     width: 24px !important;
     height: 24px !important;
-    stroke: currentColor !important;
+    stroke: #64748b !important;
     stroke-width: 2px !important;
-    color: currentColor !important;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+    color: #64748b !important;
+    fill: none !important;
+    filter: none !important;
 }
 
 /* Today's Insights Section - Glassmorphism Style */
@@ -1615,5 +1628,18 @@ html body .culture-stats .stat-item * {
   -moz-osx-font-smoothing: grayscale !important;
   font-smooth: never !important;
 }
- 
- 
+
+/* Force participant icons to be the correct color */
+.event-participants svg,
+.event-participants .btn-icon,
+.welcome-section .event-participants svg,
+.welcome-section .event-participants .btn-icon,
+html body .welcome-section .event-participants svg,
+body .welcome-section .event-participants svg,
+#app .welcome-section .event-participants svg,
+.dashboard .welcome-section .event-participants svg,
+.main-content .welcome-section .event-participants svg {
+  stroke: #64748b !important;
+  color: #64748b !important;
+  fill: none !important;
+}

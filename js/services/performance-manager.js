@@ -83,22 +83,32 @@ class PerformanceManager {
         // Clear existing interval if any
         this.clearInterval(key);
         
-        const adjustedInterval = this.isLowPowerMode ? interval * 2 : interval;
+        // Aggressive performance optimization
+        const baseInterval = Math.max(interval, 3000); // Minimum 3 seconds
+        const adjustedInterval = this.isLowPowerMode ? baseInterval * 3 : baseInterval;
+        
+        // Reduce max updates further
+        const maxUpdatesForKey = options.critical ? 20 : 10;
         
         const intervalId = setInterval(() => {
             const counter = this.updateCounters.get(key) || 0;
             this.updateCounters.set(key, counter + 1);
             
-            // Check if we should update based on frequency
-            const updateFrequency = options.updateFrequency || 1;
+            // Check if we should update based on frequency (skip more updates)
+            const updateFrequency = options.updateFrequency || 2; // Default skip every other
             if (counter % updateFrequency === 0) {
-                callback();
+                try {
+                    callback();
+                } catch (error) {
+                    console.error(`Error in interval ${key}:`, error);
+                    this.clearInterval(key); // Stop broken intervals
+                }
             }
             
-            // Stop after max updates
-            if (counter >= this.maxUpdates) {
+            // Stop after max updates (reduced limits)
+            if (counter >= maxUpdatesForKey) {
                 this.clearInterval(key);
-                console.log(`🛑 ${key} updates stopped to save resources`);
+                console.log(`🛑 ${key} updates stopped (${counter} cycles completed)`);
             }
         }, adjustedInterval);
         
@@ -107,10 +117,22 @@ class PerformanceManager {
             interval: adjustedInterval,
             originalInterval: interval,
             callback,
-            options
+            options,
+            maxUpdates: maxUpdatesForKey,
+            startTime: Date.now()
         });
         
-        console.log(`📊 Registered interval: ${key} (${adjustedInterval}ms)`);
+        console.log(`📊 Registered interval: ${key} (${adjustedInterval}ms, max: ${maxUpdatesForKey})`);
+        
+        // Auto-cleanup after 2 minutes for non-critical intervals
+        if (!options.critical) {
+            setTimeout(() => {
+                if (this.intervals.has(key)) {
+                    this.clearInterval(key);
+                    console.log(`⏰ Auto-cleared interval: ${key} (2 min timeout)`);
+                }
+            }, 120000);
+        }
     }
 
     updateInterval(key, newInterval) {
@@ -140,14 +162,63 @@ class PerformanceManager {
     }
 
     getPerformanceStats() {
+        const now = Date.now();
+        const intervalDetails = [];
+        
+        this.intervals.forEach((data, key) => {
+            const runtime = (now - data.startTime) / 1000;
+            const counter = this.updateCounters.get(key) || 0;
+            intervalDetails.push({
+                key,
+                runtime: `${runtime.toFixed(1)}s`,
+                cycles: counter,
+                maxCycles: data.maxUpdates,
+                interval: `${data.interval}ms`,
+                remaining: data.maxUpdates - counter
+            });
+        });
+        
         const stats = {
             activeIntervals: this.intervals.size,
             lowPowerMode: this.isLowPowerMode,
-            updateCounters: Object.fromEntries(this.updateCounters)
+            totalCycles: Array.from(this.updateCounters.values()).reduce((a, b) => a + b, 0),
+            intervalDetails,
+            memoryStatus: this.getMemoryStatus()
         };
         
-        console.log('📈 Performance Stats:', stats);
+        console.log('📈 Enhanced Performance Stats:', stats);
         return stats;
+    }
+    
+    getMemoryStatus() {
+        if (performance.memory) {
+            return {
+                used: `${(performance.memory.usedJSHeapSize / 1024 / 1024).toFixed(2)}MB`,
+                total: `${(performance.memory.totalJSHeapSize / 1024 / 1024).toFixed(2)}MB`,
+                limit: `${(performance.memory.jsHeapSizeLimit / 1024 / 1024).toFixed(2)}MB`
+            };
+        }
+        return { status: 'unavailable' };
+    }
+    
+    // Emergency cleanup method
+    emergencyCleanup() {
+        console.log('🚨 EMERGENCY CLEANUP: Clearing all intervals');
+        this.clearAllIntervals();
+        
+        // Force garbage collection if available
+        if (window.gc) {
+            window.gc();
+        }
+        
+        // Clear any remaining timers
+        const highestId = setTimeout(() => {}, 0);
+        for (let i = 0; i < highestId; i++) {
+            clearTimeout(i);
+            clearInterval(i);
+        }
+        
+        console.log('🧹 Emergency cleanup completed');
     }
 }
 

@@ -115,71 +115,68 @@ class AnalyticsService {
     }
 
     generateMockData() {
-        // Clear any existing interval
-        if (this.updateInterval) {
-            clearInterval(this.updateInterval);
-        }
+        // Use performance manager instead of direct setInterval
+        if (window.performanceManager) {
+            window.performanceManager.registerInterval('analytics-data', () => {
+                if (!this.isRealTimeEnabled) return;
+                
+                this.updateCounter++;
+                const startTime = performance.now();
+                
+                // Only update every 3rd call now (even less frequent)
+                if (this.updateCounter % 3 === 0) {
+                    // Update KPIs
+                    Object.keys(this.data.kpiData).forEach(kpi => {
+                        const change = Math.random() > 0.7 ? (Math.random() > 0.5 ? 1 : -1) : 0;
+                        this.data.kpiData[kpi].current = Math.max(0, Math.min(100, this.data.kpiData[kpi].current + change));
+                        this.data.kpiData[kpi].trend = `${change >= 0 ? '+' : ''}${change}%`;
+                        this.data.kpiData[kpi].status = this.getKPIStatus(this.data.kpiData[kpi].current, this.data.kpiData[kpi].target);
+                    });
 
-        // Simulate data updates with reduced frequency and auto-stop
-        this.updateInterval = setInterval(() => {
-            if (!this.isRealTimeEnabled) return;
-            
-            this.updateCounter++;
-            const startTime = performance.now();
-            
-            // Only update every 2nd interval (10 seconds instead of 5)
-            if (this.updateCounter % 2 === 0) {
-                // Update KPIs
-                Object.keys(this.data.kpiData).forEach(kpi => {
-                    const change = Math.random() > 0.7 ? (Math.random() > 0.5 ? 1 : -1) : 0;
-                    this.data.kpiData[kpi].current = Math.max(0, Math.min(100, this.data.kpiData[kpi].current + change));
-                    this.data.kpiData[kpi].trend = `${change >= 0 ? '+' : ''}${change}%`;
-                    this.data.kpiData[kpi].status = this.getKPIStatus(this.data.kpiData[kpi].current, this.data.kpiData[kpi].target);
-                });
+                    // Update team performance
+                    this.data.teamPerformance.heatmapData = this.data.teamPerformance.heatmapData.map(row =>
+                        row.map(value => Math.max(60, Math.min(100, value + (Math.random() > 0.7 ? (Math.random() > 0.5 ? 1 : -1) : 0))))
+                    );
 
-                // Update team performance
-                this.data.teamPerformance.heatmapData = this.data.teamPerformance.heatmapData.map(row =>
-                    row.map(value => Math.max(60, Math.min(100, value + (Math.random() > 0.7 ? (Math.random() > 0.5 ? 1 : -1) : 0))))
-                );
+                    // Update goals
+                    this.data.goals.quarterly = this.data.goals.quarterly.map(goal => {
+                        const change = Math.random() > 0.7 ? (Math.random() > 0.5 ? 1 : -1) : 0;
+                        const newCurrent = Math.max(0, goal.current + change);
+                        return {
+                            ...goal,
+                            current: newCurrent,
+                            progress: (newCurrent / goal.target) * 100,
+                            status: this.getGoalStatus(newCurrent, goal.target)
+                        };
+                    });
 
-                // Update goals
-                this.data.goals.quarterly = this.data.goals.quarterly.map(goal => {
-                    const change = Math.random() > 0.7 ? (Math.random() > 0.5 ? 1 : -1) : 0;
-                    const newCurrent = Math.max(0, goal.current + change);
-                    return {
-                        ...goal,
-                        current: newCurrent,
-                        progress: (newCurrent / goal.target) * 100,
-                        status: this.getGoalStatus(newCurrent, goal.target)
-                    };
-                });
+                    // Generate new AI insights periodically
+                    if (this.updateCounter % 6 === 0) {
+                        this.generateNewInsight();
+                    }
 
-                // Generate new AI insights periodically
-                if (this.updateCounter % 6 === 0) {
-                    this.generateNewInsight();
+                    // Add new activity
+                    if (this.updateCounter % 4 === 0) {
+                        this.addNewActivity();
+                    }
+
+                    // Notify subscribers with debouncing
+                    this.queueUpdate();
                 }
-
-                // Add new activity
-                if (this.updateCounter % 4 === 0) {
-                    this.addNewActivity();
-                }
-
-                // Notify subscribers with debouncing
+                
+                // Track performance metrics
+                const endTime = performance.now();
+                this.performanceMetrics.updateLatency.push(endTime - startTime);
+                this.performanceMetrics.dataPoints++;
+            }, 8000, { updateFrequency: 2 }); // Use performance manager
+        } else {
+            // Fallback if performance manager not available
+            console.warn('Performance manager not available, using direct interval');
+            this.updateInterval = setInterval(() => {
+                // Minimal update logic here
                 this.queueUpdate();
-            }
-            
-            // Track performance metrics
-            const endTime = performance.now();
-            this.performanceMetrics.updateLatency.push(endTime - startTime);
-            this.performanceMetrics.dataPoints++;
-            
-            // Stop updates after maxUpdates to save resources
-            if (this.updateCounter >= this.maxUpdates) {
-                this.stopUpdates();
-                console.log('Analytics service updates stopped to save resources');
-                console.log('Performance metrics:', this.getPerformanceReport());
-            }
-        }, 5000); // Update every 5 seconds
+            }, 10000);
+        }
     }
 
     queueUpdate() {
@@ -316,12 +313,15 @@ class AnalyticsService {
 
     // Method to manually stop updates
     stopUpdates() {
+        if (window.performanceManager) {
+            window.performanceManager.clearInterval('analytics-data');
+        }
         if (this.updateInterval) {
             clearInterval(this.updateInterval);
             this.updateInterval = null;
-            this.isRealTimeEnabled = false;
-            console.log('Analytics service updates manually stopped');
         }
+        this.isRealTimeEnabled = false;
+        console.log('Analytics service updates manually stopped');
     }
 
     // Method to restart updates if needed

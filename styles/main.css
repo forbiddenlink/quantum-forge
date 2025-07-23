@@ -812,21 +812,21 @@ body {
     100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
 }
 
-/* Enhanced Dashboard Grid - Responsive Flexbox Layout */
+/* Enhanced Dashboard Grid - More Compact Layout */
 .dashboard-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-6);
+    gap: var(--space-4); /* Reduced from var(--space-6) */
     align-items: flex-start;
     max-width: 1400px;
     margin: 0 auto;
-    padding: var(--space-6);
+    padding: var(--space-4); /* Reduced from var(--space-6) */
     min-height: fit-content;
     overflow: hidden;
 }
 
 .dashboard-item {
-    flex: 0 0 calc(50% - 0.375rem);
+    flex: 0 0 calc(50% - 0.5rem); /* Adjusted for new gap */
     background: var(--bg-elevated);
     margin: 0 !important;
     padding: 0 !important;
@@ -841,7 +841,7 @@ body {
 .dashboard-item.full-width {
     flex: 1 1 100%;
     margin: 0;
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-4); /* Reduced from var(--space-6) */
 }
 
 .dashboard-item > * {
@@ -859,7 +859,7 @@ body {
 
 /* Specific spacing for office container */
 .dashboard-item.office-container {
-    margin-bottom: var(--space-8) !important;
+    margin-bottom: var(--space-4) !important; /* Reduced from var(--space-8) */
     position: relative !important;
     z-index: 1 !important;
     overflow: visible !important;
@@ -867,7 +867,7 @@ body {
 
 /* Ensure proper spacing between office and culture sections */
 .dashboard-item.office-container + .dashboard-item:has(company-culture-showcase) {
-    margin-top: var(--space-8) !important;
+    margin-top: var(--space-4) !important; /* Reduced from var(--space-8) */
     position: relative !important;
     z-index: 1 !important;
 }
@@ -1757,7 +1757,7 @@ body {
     }
 }
 
-// ... existing code ...
+/* Comprehensive fix for content cut-off issues */
 .dashboard-item .insight-content::before,
 .dashboard-item .recommendation-content::before,
 .dashboard-item .frequently-used-content::before,
@@ -8861,21 +8861,21 @@ body {
     100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
 }
 
-/* Enhanced Dashboard Grid - Responsive Flexbox Layout */
+/* Enhanced Dashboard Grid - More Compact Layout */
 .dashboard-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--space-4); /* Reduced from var(--space-6) */
     align-items: flex-start;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1rem;
+    padding: var(--space-4); /* Reduced from var(--space-6) */
     min-height: fit-content;
     overflow: hidden;
 }
 
 .dashboard-item {
-    flex: 0 0 calc(50% - 0.375rem);
+    flex: 0 0 calc(50% - 0.5rem); /* Adjusted for new gap */
     background: var(--bg-elevated);
     margin: 0 !important;
     padding: 0 !important;
@@ -8890,6 +8890,7 @@ body {
 .dashboard-item.full-width {
     flex: 1 1 100%;
     margin: 0;
+    margin-bottom: var(--space-4); /* Reduced from var(--space-6) */
 }
 
 .dashboard-item > * {
@@ -21381,16 +21382,6 @@ input:checked + .slider:before {
     
     .frequently-used-item {
         padding: var(--space-3);
-    }
-    
-    .frequently-used-icon {
-        width: 36px;
-        height: 36px;
-    }
-    
-    .frequently-used-icon svg {
-        width: 18px;
-        height: 18px;
     }
 }
 

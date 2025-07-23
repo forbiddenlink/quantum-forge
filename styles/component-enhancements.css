@@ -1,0 +1,466 @@
+/* ===== COMPONENT CONSISTENCY ENHANCEMENTS ===== */
+/* Contest Enhancement: Unified Design Language */
+
+/* Universal Component Base Styles */
+analytics-dashboard,
+task-system,
+enhanced-task-system,
+company-news,
+team-spotlight,
+enhanced-knowledge-hub,
+collaboration-hub,
+enhanced-interactive-poll,
+weather-widget,
+achievement-system,
+office-visualizer,
+company-culture-showcase {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    border-radius: var(--radius-xl) !important;
+    overflow: hidden !important;
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border-color) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    position: relative !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+/* Enhanced Hover Effects for All Components */
+.dashboard-item:hover > analytics-dashboard,
+.dashboard-item:hover > task-system,
+.dashboard-item:hover > enhanced-task-system,
+.dashboard-item:hover > company-news,
+.dashboard-item:hover > team-spotlight,
+.dashboard-item:hover > enhanced-knowledge-hub,
+.dashboard-item:hover > collaboration-hub,
+.dashboard-item:hover > enhanced-interactive-poll,
+.dashboard-item:hover > weather-widget,
+.dashboard-item:hover > achievement-system,
+.dashboard-item:hover > office-visualizer,
+.dashboard-item:hover > company-culture-showcase {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+    border-color: var(--primary-200) !important;
+}
+
+/* Micro-interactions: Subtle Glow Effect */
+.dashboard-item > *::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05));
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-in-out);
+    z-index: -1;
+    border-radius: inherit;
+}
+
+.dashboard-item:hover > *::before {
+    opacity: 1;
+}
+
+/* Enhanced Component Headers */
+.widget-header,
+.component-header,
+.section-header,
+.dashboard-header,
+.panel-header {
+    background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-secondary) 100%) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: var(--space-5) var(--space-6) !important;
+    position: relative !important;
+}
+
+.widget-header::after,
+.component-header::after,
+.section-header::after,
+.dashboard-header::after,
+.panel-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: var(--space-6);
+    right: var(--space-6);
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-500), var(--success-500), var(--primary-600));
+    border-radius: var(--radius-full);
+    transform: scaleX(0);
+    transition: transform var(--duration-normal) var(--ease-spring);
+}
+
+.dashboard-item:hover .widget-header::after,
+.dashboard-item:hover .component-header::after,
+.dashboard-item:hover .section-header::after,
+.dashboard-item:hover .dashboard-header::after,
+.dashboard-item:hover .panel-header::after {
+    transform: scaleX(1);
+}
+
+/* Consistent Typography */
+.widget-title,
+.component-title,
+.section-title,
+.dashboard-title,
+.panel-title {
+    font-size: var(--font-size-xl) !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
+}
+
+/* Enhanced Button Consistency */
+button,
+.btn,
+.button,
+.action-btn,
+.primary-btn,
+.secondary-btn {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500 !important;
+    border-radius: var(--radius-lg) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    cursor: pointer !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Micro-interaction: Button Ripple Effect */
+button::after,
+.btn::after,
+.button::after,
+.action-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+    pointer-events: none;
+}
+
+button:active::after,
+.btn:active::after,
+.button:active::after,
+.action-btn:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Enhanced Card Consistency */
+.card,
+.widget-card,
+.component-card,
+.info-card,
+.stat-card,
+.metric-card,
+.achievement-card,
+.event-card,
+.news-card,
+.task-card,
+.user-card,
+.project-card {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-4) var(--space-5) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+
+.card:hover,
+.widget-card:hover,
+.component-card:hover,
+.info-card:hover,
+.stat-card:hover,
+.metric-card:hover,
+.achievement-card:hover,
+.event-card:hover,
+.news-card:hover,
+.task-card:hover,
+.user-card:hover,
+.project-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-xl) !important;
+    border-color: var(--primary-200) !important;
+}
+
+/* Consistent Loading States */
+.loading,
+.skeleton,
+.placeholder {
+    background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--bg-hover) 50%, var(--bg-secondary) 75%) !important;
+    background-size: 200% 100% !important;
+    animation: shimmer 2s infinite !important;
+    border-radius: var(--radius-lg) !important;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Enhanced Form Consistency */
+input,
+textarea,
+select {
+    font-family: 'Inter', sans-serif !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-3) var(--space-4) !important;
+    background: var(--bg-elevated) !important;
+    color: var(--text-primary) !important;
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    font-size: var(--font-size-sm) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none !important;
+    border-color: var(--primary-500) !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Enhanced Icon Consistency */
+.icon,
+.component-icon,
+.widget-icon,
+svg {
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+}
+
+.icon:hover,
+.component-icon:hover,
+.widget-icon:hover,
+button:hover svg,
+.btn:hover svg {
+    transform: scale(1.1) !important;
+    filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.3)) !important;
+}
+
+/* Consistent Avatar Styles */
+.avatar,
+.user-avatar,
+.profile-avatar,
+.team-avatar {
+    border-radius: var(--radius-full) !important;
+    border: 2px solid var(--bg-elevated) !important;
+    box-shadow: var(--shadow-sm) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    overflow: hidden !important;
+}
+
+.avatar:hover,
+.user-avatar:hover,
+.profile-avatar:hover,
+.team-avatar:hover {
+    transform: scale(1.1) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border-color: var(--primary-200) !important;
+}
+
+/* Enhanced Status Indicators */
+.status-indicator,
+.online-indicator,
+.status-dot {
+    animation: pulse-status 2s infinite !important;
+    box-shadow: 0 0 0 0 currentColor !important;
+}
+
+@keyframes pulse-status {
+    0% {
+        box-shadow: 0 0 0 0 currentColor;
+    }
+    70% {
+        box-shadow: 0 0 0 6px transparent;
+    }
+    100% {
+        box-shadow: 0 0 0 0 transparent;
+    }
+}
+
+/* Micro-interaction: Floating Labels */
+.floating-label {
+    position: relative !important;
+}
+
+.floating-label input,
+.floating-label textarea {
+    padding-top: var(--space-6) !important;
+}
+
+.floating-label label {
+    position: absolute !important;
+    left: var(--space-4) !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: var(--bg-elevated) !important;
+    padding: 0 var(--space-2) !important;
+    color: var(--text-secondary) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    pointer-events: none !important;
+    font-size: var(--font-size-sm) !important;
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label,
+.floating-label textarea:focus + label,
+.floating-label textarea:not(:placeholder-shown) + label {
+    top: 0 !important;
+    transform: translateY(-50%) scale(0.85) !important;
+    color: var(--primary-500) !important;
+    font-weight: 500 !important;
+}
+
+/* Enhanced Progress Bars */
+.progress,
+.progress-bar,
+.loading-bar {
+    background: var(--bg-secondary) !important;
+    border-radius: var(--radius-full) !important;
+    overflow: hidden !important;
+    position: relative !important;
+    height: 8px !important;
+}
+
+.progress-fill,
+.progress-bar-fill {
+    background: linear-gradient(90deg, var(--primary-500), var(--primary-600)) !important;
+    height: 100% !important;
+    border-radius: inherit !important;
+    transition: width var(--duration-long) var(--ease-spring) !important;
+    position: relative !important;
+}
+
+.progress-fill::after,
+.progress-bar-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+    animation: progress-shine 2s ease-in-out infinite;
+}
+
+@keyframes progress-shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Enhanced Notification Styles */
+.notification,
+.alert,
+.toast,
+.banner {
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-4) var(--space-5) !important;
+    border-left: 4px solid !important;
+    background: var(--bg-elevated) !important;
+    box-shadow: var(--shadow-lg) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.notification.success,
+.alert.success,
+.toast.success {
+    border-left-color: var(--success-500) !important;
+    background: linear-gradient(90deg, var(--success-50) 0%, var(--bg-elevated) 100%) !important;
+}
+
+.notification.warning,
+.alert.warning,
+.toast.warning {
+    border-left-color: var(--warning-500) !important;
+    background: linear-gradient(90deg, var(--warning-50) 0%, var(--bg-elevated) 100%) !important;
+}
+
+.notification.error,
+.alert.error,
+.toast.error {
+    border-left-color: var(--error-500) !important;
+    background: linear-gradient(90deg, var(--error-50) 0%, var(--bg-elevated) 100%) !important;
+}
+
+.notification.info,
+.alert.info,
+.toast.info {
+    border-left-color: var(--primary-500) !important;
+    background: linear-gradient(90deg, var(--primary-50) 0%, var(--bg-elevated) 100%) !important;
+}
+
+/* Enhanced Responsive Component Behavior */
+@media (max-width: 768px) {
+    .widget-header,
+    .component-header,
+    .section-header,
+    .dashboard-header,
+    .panel-header {
+        padding: var(--space-4) var(--space-4) !important;
+    }
+    
+    .widget-title,
+    .component-title,
+    .section-title,
+    .dashboard-title,
+    .panel-title {
+        font-size: var(--font-size-lg) !important;
+    }
+    
+    .card,
+    .widget-card,
+    .component-card {
+        padding: var(--space-3) var(--space-4) !important;
+    }
+}
+
+/* Enhanced Dark Mode Support */
+[data-theme="dark"] .card,
+[data-theme="dark"] .widget-card,
+[data-theme="dark"] .component-card,
+[data-theme="dark"] .info-card {
+    background: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .widget-header,
+[data-theme="dark"] .component-header,
+[data-theme="dark"] .section-header {
+    background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-secondary) 100%) !important;
+}
+
+/* Enhanced Focus Indicators for Accessibility */
+*:focus-visible {
+    outline: 3px solid var(--primary-500) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.2) !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+/* Performance Optimization: Reduce Animations on Low-End Devices */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+} 

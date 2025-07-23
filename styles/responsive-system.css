@@ -642,3 +642,136 @@
         -webkit-backdrop-filter: none !important;
     }
 } 
+
+/* ===== COMPREHENSIVE LAYOUT OPTIMIZATION ===== */
+
+/* Optimized Main Content Spacing */
+.main-content {
+    padding: var(--space-4) !important;
+    gap: var(--space-4) !important;
+}
+
+/* Component-Specific Optimizations */
+.dashboard-item {
+    margin-bottom: 0 !important;
+}
+
+.dashboard-item.full-width {
+    margin-bottom: var(--space-4) !important;
+}
+
+/* Welcome Section Compact Mode */
+.welcome-section {
+    padding: var(--space-6) !important;
+    margin-bottom: var(--space-4) !important;
+}
+
+.welcome-stats {
+    gap: var(--space-3) !important;
+    margin-bottom: var(--space-4) !important;
+}
+
+.quick-actions {
+    gap: var(--space-3) !important;
+    margin-bottom: var(--space-4) !important;
+}
+
+/* Component Internal Padding Optimization */
+analytics-dashboard,
+task-system,
+enhanced-task-system,
+company-news,
+team-spotlight,
+enhanced-knowledge-hub,
+collaboration-hub,
+enhanced-interactive-poll,
+weather-widget,
+achievement-system {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Ensure proper component heights */
+.dashboard-item > * {
+    min-height: 320px;
+    height: auto !important;
+    max-height: none !important;
+}
+
+.dashboard-item.full-width > * {
+    min-height: auto;
+}
+
+/* Improved Visual Hierarchy */
+.dashboard-grid {
+    gap: var(--space-4) !important;
+    padding: var(--space-4) !important;
+}
+
+/* Enhanced Mobile Layout */
+@media (max-width: 640px) {
+    .main-content {
+        padding: var(--space-3) !important;
+    }
+    
+    .dashboard-grid {
+        gap: var(--space-3) !important;
+        padding: var(--space-3) !important;
+    }
+    
+    .welcome-section {
+        padding: var(--space-4) !important;
+    }
+    
+    .dashboard-item > * {
+        min-height: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: var(--space-2) !important;
+    }
+    
+    .dashboard-grid {
+        gap: var(--space-2) !important;
+        padding: var(--space-2) !important;
+    }
+    
+    .welcome-section {
+        padding: var(--space-3) !important;
+    }
+    
+    .dashboard-item > * {
+        min-height: 240px;
+    }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .dashboard-item {
+        flex: 1 1 100% !important;
+    }
+}
+
+/* Desktop Optimizations */
+@media (min-width: 1025px) {
+    .dashboard-grid {
+        gap: var(--space-5) !important;
+        padding: var(--space-5) !important;
+    }
+    
+    .main-content {
+        padding: var(--space-5) !important;
+    }
+    
+    .dashboard-item > * {
+        min-height: 360px;
+    }
+} 
