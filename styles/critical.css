@@ -69,13 +69,7 @@ body {
     text-decoration: none;
 }
 
-/* Dashboard Grid - Critical Layout */
-.dashboard-grid {
-    display: grid;
-    gap: var(--space-4);
-    width: 100%;
-    grid-template-columns: 1fr;
-}
+/* Dashboard grid defined in main.css to eliminate duplication */
 
 /* Welcome Section - Critical Above-the-Fold */
 .welcome-section {

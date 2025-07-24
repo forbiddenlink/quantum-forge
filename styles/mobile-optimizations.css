@@ -119,16 +119,7 @@
         font-size: var(--font-size-xs) !important;
     }
     
-    /* Simplified dashboard grid */
-    .dashboard-grid {
-        grid-template-columns: 1fr !important;
-        gap: var(--space-2) !important;
-    }
-    
-    .dashboard-item > * {
-        padding: var(--space-3) !important;
-        min-height: auto !important;
-    }
+    /* Dashboard grid mobile styles moved to main.css to eliminate duplication */
     
     /* Compact forms */
     .form-input,
@@ -159,9 +150,7 @@
         grid-template-columns: repeat(4, 1fr) !important;
     }
     
-    .dashboard-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
+    /* Dashboard grid landscape styles moved to main.css */
 }
 
 /* Touch Device Optimizations */
