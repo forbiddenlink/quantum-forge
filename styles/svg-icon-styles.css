@@ -267,30 +267,8 @@
     color: var(--purple-600);
 }
 
-/* Button Icon Styles */
-.btn-icon {
-    width: 20px;
-    height: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: var(--space-2);
-}
-
-.btn-icon svg {
-    width: 16px;
-    height: 16px;
-}
-
-.btn-icon.small {
-    width: 16px;
-    height: 16px;
-}
-
-.btn-icon.small svg {
-    width: 14px;
-    height: 14px;
-}
+/* Button Icon Styles - consolidated with main.css to avoid conflicts */
+/* .btn-icon styles moved to main.css to prevent size conflicts */
 
 /* Navigation Icon Styles */
 .nav-icon {
