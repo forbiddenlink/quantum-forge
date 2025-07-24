@@ -1,0 +1,310 @@
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* Critical performance improvements for Quantum Forge */
+
+/* Reduce paint and layout thrashing */
+* {
+    /* Optimize for performance */
+    will-change: auto;
+    /* Prevent layout shifts */
+    contain: layout style paint;
+}
+
+/* Optimize animations for better performance */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Optimize for low-end devices */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .widget {
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    .widget:hover {
+        transform: none !important;
+    }
+    
+    /* Reduce complex animations on mobile */
+    .welcome-section .particle,
+    .welcome-section .floating-icon,
+    .welcome-section .sparkle {
+        animation: none !important;
+    }
+}
+
+/* Optimize for high-DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-icon,
+    .nav-icon,
+    .btn-icon svg {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Reduce memory usage for large lists */
+.activity-list,
+.notifications-list,
+.task-list {
+    contain: layout style;
+}
+
+/* Optimize scrolling performance */
+.dashboard {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Reduce repaints for fixed elements */
+.header,
+.sidebar {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Optimize modal performance */
+.modal-backdrop {
+    will-change: opacity;
+    contain: layout style paint;
+}
+
+/* Reduce layout thrashing for dynamic content */
+.dashboard-item {
+    contain: layout style;
+}
+
+/* Optimize for print */
+@media print {
+    .sidebar,
+    .header,
+    .modal-backdrop,
+    .notifications-dropdown {
+        display: none !important;
+    }
+    
+    .main-content {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    .welcome-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .dashboard-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+    
+    .widget-title {
+        color: #000 !important;
+        font-weight: bold !important;
+    }
+    
+    .stat-item,
+    .metric-card {
+        border: 1px solid #ccc !important;
+        background: #fff !important;
+    }
+    
+    .stat-number {
+        color: #000 !important;
+        font-weight: bold !important;
+    }
+}
+
+/* Optimize for touch devices */
+@media (pointer: coarse) {
+    button, .btn, .nav-link, .action-button {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px 16px;
+    }
+    
+    .quick-actions {
+        gap: 12px;
+    }
+    
+    .nav-item {
+        padding: 12px 16px;
+        margin: 4px 0;
+    }
+    
+    .stat-item,
+    .metric-card,
+    .dashboard-item {
+        padding: 16px;
+        margin: 8px 0;
+    }
+    
+    .poll-option {
+        padding: 16px;
+        margin: 8px 0;
+    }
+    
+    .vote-btn {
+        min-height: 48px;
+        padding: 12px 20px;
+    }
+}
+
+/* Optimize for landscape mobile */
+@media (orientation: landscape) and (max-height: 600px) {
+    .welcome-section {
+        padding: 1rem;
+    }
+    
+    .sidebar {
+        max-height: 100vh;
+        overflow-y: auto;
+    }
+    
+    .dashboard-grid {
+        gap: 0.5rem;
+    }
+    
+    .dashboard-item.full-width {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Optimize for large screens */
+@media (min-width: 1440px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+    }
+    
+    .main-content {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}
+
+/* Optimize for ultra-wide screens */
+@media (min-width: 1920px) {
+    .dashboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .main-content {
+        max-width: 1800px;
+    }
+}
+
+/* Optimize for dark mode performance */
+[data-theme="dark"] {
+    /* Use CSS custom properties for better performance */
+    color-scheme: dark;
+}
+
+/* Optimize for light mode performance */
+[data-theme="light"] {
+    color-scheme: light;
+}
+
+/* Optimize focus indicators for better performance */
+*:focus-visible {
+    outline: 2px solid var(--primary-500);
+    outline-offset: 2px;
+    transition: outline 0.1s ease;
+}
+
+/* Optimize loading states */
+.loading {
+    pointer-events: none;
+    user-select: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Optimize for reduced data usage */
+@media (prefers-reduced-data: reduce) {
+    .welcome-section .particle,
+    .welcome-section .floating-icon,
+    .welcome-section .sparkle {
+        display: none;
+    }
+    
+    .dashboard-item::before,
+    .dashboard-item::after {
+        display: none;
+    }
+    
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Optimize for high contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --text-primary: #000000;
+        --bg-elevated: #ffffff;
+        --primary-500: #000000;
+        --success-500: #000000;
+        --warning-500: #000000;
+        --error-500: #000000;
+    }
+    
+    [data-theme="dark"] {
+        --border-color: #ffffff;
+        --text-primary: #ffffff;
+        --bg-elevated: #000000;
+        --primary-500: #ffffff;
+        --success-500: #ffffff;
+        --warning-500: #ffffff;
+        --error-500: #ffffff;
+    }
+}
+
+/* Optimize for forced colors mode */
+@media (forced-colors: active) {
+    .btn,
+    .nav-link,
+    .action-button {
+        border: 1px solid CanvasText;
+    }
+    
+    .widget,
+    .dashboard-item,
+    .stat-item {
+        border: 1px solid CanvasText;
+    }
+} 

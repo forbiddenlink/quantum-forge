@@ -2520,6 +2520,7 @@ office-visualizer {
     display: flex;
     align-items: center;
     gap: var(--space-3);
+    background-color: transparent !important;
 }
 
 .dashboard-title::before {
