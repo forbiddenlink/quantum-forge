@@ -2,14 +2,12 @@
 .main-container {
     display: flex;
     width: 100%;
+    min-height: 100vh;
 }
 
 .sidebar {
     width: 280px;
-    flex-shrink: 0;
-    height: auto;
-    min-height: calc(100vh - 72px);
-    max-height: none;
+    height: calc(100vh - 72px);
     background: var(--bg-elevated);
     border-right: 1px solid var(--border-color);
     display: flex;
@@ -18,14 +16,10 @@
     position: sticky;
     top: 72px;
     z-index: 40;
-    overflow: visible;
 }
 
 body.sidebar-collapsed .sidebar {
-    width: 72px !important;
-    min-width: 72px !important;
-    max-width: 72px !important;
-    position: relative;
+    width: 72px;
 }
 
 /* Make sure collapsed sidebar is visible and accessible */
@@ -33,16 +27,11 @@ body.sidebar-collapsed .sidebar {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
-    position: fixed;
-    left: 0;
-    top: 72px; /* Start below the header */
-    height: calc(100vh - 72px); /* Account for header height */
     width: 72px !important;
     min-width: 72px !important;
     max-width: 72px !important;
     background: var(--bg-elevated);
     border-right: 2px solid var(--primary-200); /* Thinner border */
-    z-index: 40;
     box-shadow: var(--shadow-sm);
     flex-direction: column;
     overflow: visible;
@@ -152,47 +141,53 @@ body.sidebar-collapsed .sidebar-footer {
 
 .main-content {
     flex: 1;
-    display: block !important;
-    width: 100% !important;
-    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: var(--space-6);
 }
 
 body.sidebar-collapsed .main-content {
-    margin-left: 72px;
+    margin-left: 0;
 }
 
+body.sidebar-collapsed .main-container {
+    grid-template-columns: 72px 1fr;
+}
+
+/* Sidebar Header */
 .sidebar-header {
     height: 64px;
     padding: var(--space-4);
-    padding-top: calc(var(--space-4) - 2px);
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
     border-bottom: 1px solid var(--border-color);
     position: relative;
-    flex-shrink: 0; /* Add this to prevent header from shrinking */
+    flex-shrink: 0;
+    background: var(--bg-elevated);
 }
 
+body.sidebar-collapsed .sidebar-header {
+    justify-content: center;
+    padding: var(--space-3);
+    width: 72px;
+}
+
+/* Collapse button styles */
 .collapse-btn {
     width: 32px;
     height: 32px;
     border: 1px solid var(--border-color);
     background: var(--bg-elevated);
     color: var(--text-secondary);
-    display: flex !important;
+    display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    padding: 0; /* Remove padding to avoid offset */
+    padding: 0;
     margin-left: auto;
-    margin-top: -4px;
     transition: all 0.2s ease;
-    visibility: visible !important;
-    opacity: 1 !important;
-    z-index: 50;
-    position: relative;
     border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+    position: relative;
+    z-index: 50;
 }
 
 .collapse-btn:hover {
@@ -203,25 +198,29 @@ body.sidebar-collapsed .main-content {
     box-shadow: var(--shadow-md);
 }
 
-.collapse-btn:hover::after {
-    color: var(--primary-800);
+.collapse-btn::after {
+    content: '‹';
+    font-size: 18px;
+    font-weight: 900;
+    color: currentColor;
 }
 
-.collapse-btn:hover svg {
-    color: var(--text-primary) !important;
-    stroke: var(--text-primary) !important;
+body.sidebar-collapsed .collapse-btn::after {
+    content: '›';
 }
 
-.collapse-btn svg {
-    width: 18px;
-    height: 18px;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    stroke: currentColor !important;
-    fill: none !important;
-    stroke-width: 2.5 !important;
-    color: var(--text-secondary) !important;
-    pointer-events: none;
-    display: none !important; /* Hide SVG, use text arrow instead */
+body.sidebar-collapsed .collapse-btn {
+    margin: 0 auto;
+    background: var(--primary-100);
+    border: 2px solid var(--primary-300);
+    color: var(--primary-700);
+}
+
+body.sidebar-collapsed .collapse-btn:hover {
+    background: var(--primary-200);
+    border-color: var(--primary-500);
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
 }
 
 /* Fallback for arrow visibility */
@@ -267,20 +266,20 @@ body.sidebar-collapsed .collapse-btn {
     opacity: 1 !important;
 }
 
+/* Navigation Sections */
 .nav-sections {
     flex: 1;
-    overflow-y: visible;
+    overflow-y: auto;
     padding: var(--space-4);
-    padding-bottom: var(--space-2);
     display: flex;
     flex-direction: column;
     gap: var(--space-6);
-    /* Add custom scrollbar styling */
-    scrollbar-width: thin;
-    scrollbar-color: var(--border-color) transparent;
-    /* Ensure there's space for the footer */
-    margin-bottom: 0;
-    min-height: 0;
+    background: var(--bg-elevated);
+}
+
+/* Hide sections when collapsed */
+body.sidebar-collapsed .nav-sections {
+    display: none;
 }
 
 /* Custom scrollbar for Webkit browsers */
@@ -576,12 +575,15 @@ body.sidebar-collapsed .nav-text {
 @media (max-width: 1024px) {
     .sidebar {
         position: fixed;
-        left: 0;
         transform: translateX(-100%);
     }
 
     .sidebar.active {
         transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
     }
 
     .sidebar-overlay {
@@ -608,6 +610,10 @@ body.sidebar-collapsed .nav-text {
     .sidebar {
         width: 100%;
         max-width: 320px;
+    }
+
+    .main-content {
+        padding: var(--space-4);
     }
 } 
 
