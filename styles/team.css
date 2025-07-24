@@ -1369,16 +1369,7 @@
     animation: slideInUp 0.6s var(--ease-spring) forwards;
 }
 
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+
 
 /* Dark Mode Adjustments */
 [data-theme="dark"] .enhanced-team-spotlight {

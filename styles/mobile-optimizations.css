@@ -436,8 +436,8 @@
 
     /* Mobile Dashboard Grid - Only on mobile */
     .dashboard-grid {
-        display: block !important;
-        width: 100% !important;
+        grid-template-columns: 1fr !important;
+        gap: var(--space-4) !important;
     }
 
     /* Mobile Main Content - Slight padding adjustment */

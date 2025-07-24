@@ -698,10 +698,7 @@
     color: var(--primary-500);
 }
 
-/* Hidden utility */
-.hidden {
-    display: none !important;
-}
+/* Hidden utility moved to main.css for reusability */
 
 /* Responsive Design */
 @media (max-width: 768px) {

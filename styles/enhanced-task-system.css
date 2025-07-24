@@ -7,7 +7,7 @@
     --task-error: var(--error-500);
     
     /* Spectacular gradients for task management */
-    --task-gradient: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    --task-gradient: var(--gradient-primary);
     --task-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
     --task-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
     --task-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
@@ -1042,7 +1042,6 @@ task-system .task-system-title,
     display: block !important; /* Ensure section is always visible */
     width: 100%;
     max-width: 100%;
-    box-sizing: border-box;
     contain: layout style; /* Modern CSS containment for better performance */
 }
 
@@ -1086,7 +1085,6 @@ body .enhanced-task-system .ai-insights-grid,
     gap: var(--space-4) !important;
     width: 100% !important;
     max-width: 100% !important;
-    box-sizing: border-box !important;
 }
 
 html body .enhanced-task-system.spectacular-mode .ai-insight-card,
@@ -1107,7 +1105,6 @@ body .enhanced-task-system .ai-insight-card,
     position: relative !important;
     overflow: hidden !important;
     width: 100% !important;
-    box-sizing: border-box !important;
     display: block !important;
     margin-bottom: var(--space-4) !important;
     float: none !important;
@@ -4213,7 +4210,6 @@ body .dashboard-item task-system .task-controls * {
 .dashboard-item task-system .task-search {
     contain: layout !important;
     min-height: 44px !important;
-    box-sizing: border-box !important;
 }
 
 /* ===== END OF EXISTING CSS ===== */

@@ -41,47 +41,20 @@ app-sidebar {
 
 /* Dashboard grid definition moved to main.css - duplicate removed */
 
+/* Dashboard item layout handled by main.css - conflicts removed */
+
 .dashboard-item {
-    display: block;
-    margin: 1rem 0;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    transition: all var(--duration-normal) var(--ease-in-out);
+    /* Enhanced specific styles only */
     overflow: visible;
-    position: relative;
     z-index: 1;
-    min-height: 200px;
-    width: 100%;
-    padding: 1rem;
+    padding: var(--space-6);
 }
 
 .dashboard-item:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
     border-color: var(--border-hover);
 }
 
-.dashboard-item.full-width {
-    flex: 0 0 100%;
-    width: 100%;
-}
-
-/* Special row layout for task system and knowledge hub */
-.dashboard-row {
-    display: block;
-    width: 100%;
-    margin: 1rem 0;
-}
-
-.dashboard-row .dashboard-item {
-    display: block;
-    width: 100%;
-    margin: 1rem 0;
-    height: auto;
-    overflow: visible;
-}
+/* Dashboard row layout handled by main.css - using grid system */
 
 /* Mobile responsive layout moved to main.css - duplicate removed */
 @media (max-width: 768px) {

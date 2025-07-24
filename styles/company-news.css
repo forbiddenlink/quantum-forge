@@ -7,7 +7,7 @@
     --news-error: var(--error-500);
     
     /* Spectacular gradients for company news */
-    --news-gradient: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    --news-gradient: var(--gradient-primary);
     --news-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
     --news-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
     --news-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));

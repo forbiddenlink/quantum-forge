@@ -9,7 +9,7 @@
     --activity-error: var(--error-500);
     
     /* Spectacular gradients matching enhanced sections */
-    --activity-gradient: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    --activity-gradient: var(--gradient-primary);
     --activity-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
     --activity-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
     --activity-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));

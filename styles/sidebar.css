@@ -19,7 +19,6 @@
     top: 72px;
     z-index: 40;
     overflow: visible;
-    box-sizing: border-box;
 }
 
 body.sidebar-collapsed .sidebar {
@@ -70,7 +69,6 @@ body.sidebar-collapsed .sidebar-header {
     position: relative;
     top: 0;
     flex-shrink: 0;
-    box-sizing: border-box;
     overflow: visible;
 }
 
@@ -496,7 +494,6 @@ body.sidebar-collapsed .nav-text {
     transition: all var(--duration-normal) var(--ease-spring);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 44px;
-    box-sizing: border-box;
 }
 
 .help-button:hover {

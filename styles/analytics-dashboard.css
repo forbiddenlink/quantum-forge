@@ -7,7 +7,7 @@
     --analytics-error: var(--error-500);
     
     /* Spectacular gradients for analytics */
-    --analytics-gradient: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    --analytics-gradient: var(--gradient-primary);
     --analytics-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
     --analytics-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
     --analytics-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
@@ -176,25 +176,6 @@
 .overview-stat .stat-label {
     color: var(--text-secondary) !important;
     -webkit-text-fill-color: var(--text-secondary) !important;
-}
-    25% { 
-        box-shadow: 
-            0 25px 50px rgba(139, 92, 246, 0.3),
-            0 0 80px rgba(139, 92, 246, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.4);
-    }
-    50% { 
-        box-shadow: 
-            0 20px 45px rgba(6, 182, 212, 0.25),
-            0 0 70px rgba(6, 182, 212, 0.35),
-            inset 0 1px 0 rgba(255, 255, 255, 0.35);
-    }
-    75% { 
-        box-shadow: 
-            0 23px 47px rgba(16, 185, 129, 0.28),
-            0 0 75px rgba(16, 185, 129, 0.38),
-            inset 0 1px 0 rgba(255, 255, 255, 0.38);
-    }
 }
 
 @keyframes analyticsBackgroundShift {

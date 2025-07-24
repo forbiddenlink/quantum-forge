@@ -45,7 +45,7 @@
 }
 
 .dashboard-item:hover {
-    transform: translateY(-2px);
+    transform: var(--transform-hover);
     box-shadow: var(--shadow-md);
 }
 
@@ -86,6 +86,11 @@
 }
 
 /* ===== END DASHBOARD GRID LAYOUT ===== */
+
+/* ===== UTILITY CLASSES ===== */
+.hidden {
+    display: none !important;
+}
 
 /* CSS Custom Properties */
 :root {
@@ -193,6 +198,10 @@
     --duration-long: 0.3s;
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --ease-spring: cubic-bezier(0.87, 0, 0.13, 1);
+    
+    /* Consolidated Patterns */
+    --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    --transform-hover: translateY(-2px);
 }
 
 /* Dark Mode Variables */
@@ -202,7 +211,6 @@
     --primary-200: #3d3973;
     --primary-300: #4c4887;
     --primary-400: #5b579b;
-    --primary-500: #6366f1;
     --primary-600: #7c7ff4;
     --primary-700: #9598f7;
     
@@ -3250,12 +3258,7 @@ body .welcome-section .event-title,
 .welcome-stats .stat-item:nth-child(5) { animation-delay: 0.5s; }
 .welcome-stats .stat-item:nth-child(6) { animation-delay: 0.6s; }
 
-@keyframes slideInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* slideInUp animation consolidated below to eliminate duplication */
 
 /* Parallax Scroll Effect */
 .welcome-section {
@@ -12924,17 +12927,6 @@ office-visualizer {
 
 .task-card-exit {
     animation: slideOutDown 0.3s var(--ease-spring);
-}
-
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 @keyframes slideOutDown {

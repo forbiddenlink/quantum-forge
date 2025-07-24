@@ -7,7 +7,7 @@
     --knowledge-error: var(--error-500);
     
     /* Spectacular gradients for knowledge hub */
-    --knowledge-gradient: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    --knowledge-gradient: var(--gradient-primary);
     --knowledge-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
     --knowledge-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
     --knowledge-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
@@ -355,7 +355,7 @@
 
 /* 🔧 PREVENT OVERFLOW AND EXTRA SPACE */
 .enhanced-knowledge-hub.spectacular-mode * {
-    box-sizing: border-box;
+
 }
 
 /* 🔧 ABSOLUTELY NO ELEMENTS EXTENDING BEYOND CONTAINER */
