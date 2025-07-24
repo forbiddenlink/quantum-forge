@@ -23,9 +23,14 @@
     --knowledge-hub-primary: var(--primary-500);
     --knowledge-hub-primary-light: var(--primary-400);
     --knowledge-hub-primary-dark: var(--primary-600);
+    
+    /* 🔧 STANDARDIZED SPACING VALUES FOR CONSISTENT LAYOUT */
+    --knowledge-section-gap: var(--space-6);
+    --knowledge-card-gap: var(--space-4);
+    --knowledge-container-padding: var(--space-6);
 }
 
-/* 🚀 SPECTACULAR KNOWLEDGE HUB CONTAINER - EXACTLY MATCHING TASK MANAGEMENT */
+/* 🚀 SPECTACULAR KNOWLEDGE HUB CONTAINER - EXACT MATCH to task system with FIXED SPACING */
 .enhanced-knowledge-hub.spectacular-mode {
     /* ENHANCED Multi-layer animated background - EXACT MATCH to task system */
     background: 
@@ -45,10 +50,10 @@
         repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
     
     border-radius: var(--radius-2xl) !important;
-    padding: var(--space-8) !important;
+    padding: var(--knowledge-container-padding) !important;
     position: relative !important;
     overflow: hidden !important;
-    margin-bottom: var(--space-6) !important;
+    margin: 0 !important; /* 🔧 Remove all external margins */
     color: white !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     
@@ -78,11 +83,316 @@
     transform-style: preserve-3d !important;
     perspective: 1000px !important;
     
-    /* Ensure exact dimensions matching task system */
+    /* 🔧 FIXED DIMENSIONS - No extra space */
     min-height: auto;
     height: auto;
     width: 100%;
     max-width: none;
+    
+    /* 🔧 ENSURE NO BOTTOM SPACE BLEED */
+    display: flex;
+    flex-direction: column;
+    gap: var(--knowledge-section-gap);
+    
+    /* 🔧 STRICT CONTAINMENT TO PREVENT OVERFLOW */
+    contain: layout style;
+    isolation: isolate;
+    
+    /* 🔧 FORCE CLEAN BOTTOM EDGE - NO EXTRA SPACE */
+    padding-bottom: 0 !important;
+}
+
+/* 🔧 REMOVE LAST CHILD MARGINS TO PREVENT EXTRA BOTTOM SPACE */
+.enhanced-knowledge-hub.spectacular-mode > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .enhanced-filters.spectacular {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* 🔧 STANDARDIZE ALL SECTION SPACING */
+.ai-insights-section.spectacular,
+.learning-analytics.spectacular,
+.learning-paths-section.spectacular,
+.resources-section.spectacular {
+    margin-bottom: 0 !important; /* Remove individual margins, use parent gap instead */
+    position: relative;
+    z-index: 2;
+    background: transparent !important;
+}
+
+/* 🔧 HEADER SECTION SPACING FIX */
+.hub-header.spectacular {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0 !important; /* Remove margin, use parent gap */
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 2;
+    background: none !important;
+    background-color: transparent !important;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: auto;
+}
+
+/* 🔧 GRID SPACING STANDARDIZATION */
+.ai-insights-grid.spectacular {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--knowledge-card-gap);
+    margin-top: 0 !important; /* Remove top margin */
+}
+
+.analytics-grid.spectacular {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--knowledge-card-gap);
+    margin-top: 0 !important; /* Remove top margin */
+}
+
+.learning-paths-grid.spectacular {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--knowledge-card-gap);
+    margin-top: 0 !important; /* Remove top margin */
+}
+
+.resources-container.spectacular {
+    display: grid !important;
+    gap: var(--knowledge-card-gap);
+    width: 100%;
+    margin-top: 0 !important; /* Remove top margin */
+    margin-bottom: 0 !important; /* Remove bottom margin */
+}
+
+/* 🔧 SECTION TITLES CONSISTENT SPACING */
+.insights-title.spectacular,
+.analytics-title.spectacular,
+.section-title.spectacular {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: white !important;
+    margin: 0 0 var(--space-4) 0 !important; /* Standardized bottom margin */
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+/* 🔧 ENHANCED FILTERS - REMOVE EXCESSIVE PADDING */
+.enhanced-filters.spectacular {
+    padding: var(--space-4) 0 !important; /* Reduced padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* 🔧 FILTER SECTION SPACING */
+.filter-section {
+    margin-bottom: var(--space-3) !important; /* Reduced margin */
+}
+
+.filter-section:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* 🔧 CARD INTERNAL SPACING STANDARDIZATION */
+.ai-insight-card.spectacular,
+.analytics-card.spectacular,
+.learning-path-card.spectacular,
+.enhanced-resource-card.spectacular {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(15px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5) !important; /* Standardized padding */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all var(--duration-normal) var(--ease-spring);
+    color: white !important;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    margin: 0 !important; /* Remove any margins from cards */
+}
+
+/* 🔧 RESOURCE ACTIONS SPACING */
+.resource-actions.spectacular {
+    display: flex !important;
+    gap: var(--space-2) !important;
+    margin-top: var(--space-4) !important;
+    margin-bottom: 0 !important; /* Remove bottom margin */
+}
+
+/* 🔧 INSIGHT ACTIONS SPACING */
+.insight-actions.spectacular {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    margin-bottom: 0 !important; /* Remove bottom margin */
+}
+
+/* 🔧 PATH ACTIONS SPACING */
+.path-actions.spectacular {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    margin-bottom: 0 !important; /* Remove bottom margin */
+}
+
+/* 🔧 SECTION HEADER SPACING */
+.section-header.spectacular {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4) !important; /* Standardized margin */
+    flex-wrap: wrap;
+    gap: var(--space-4);
+}
+
+/* 🔧 RESPONSIVE SPACING ADJUSTMENTS */
+@media (max-width: 1024px) {
+    .enhanced-knowledge-hub.spectacular-mode {
+        padding: var(--space-4) !important;
+        gap: var(--space-4); /* Reduced gap on tablets */
+    }
+    
+    .ai-insights-grid.spectacular {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+    
+    .analytics-grid.spectacular {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+    }
+    
+    .learning-paths-grid.spectacular {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+    
+    .resources-container.spectacular.grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-3);
+    }
+}
+
+@media (max-width: 768px) {
+    .enhanced-knowledge-hub.spectacular-mode {
+        padding: var(--space-3) !important;
+        gap: var(--space-3); /* Reduced gap on mobile */
+    }
+    
+    .hub-header.spectacular {
+        flex-direction: column;
+        gap: var(--space-3);
+        align-items: stretch;
+        padding-bottom: var(--space-3);
+    }
+    
+    .analytics-grid.spectacular {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+    
+    .resources-container.spectacular.grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+    
+    .enhanced-filters.spectacular {
+        padding: var(--space-3) 0 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .enhanced-knowledge-hub.spectacular-mode {
+        padding: var(--space-2) !important;
+        gap: var(--space-2); /* Minimal gap on small mobile */
+        border-radius: var(--radius-xl);
+        /* Reduce blur effects for better readability on mobile */
+        backdrop-filter: blur(3px) !important;
+        -webkit-backdrop-filter: blur(3px) !important;
+    }
+    
+    .ai-insight-card.spectacular,
+    .analytics-card.spectacular,
+    .learning-path-card.spectacular,
+    .enhanced-resource-card.spectacular {
+        padding: var(--space-3) !important; /* Reduced padding on mobile */
+        backdrop-filter: blur(3px) !important;
+        -webkit-backdrop-filter: blur(3px) !important;
+    }
+    
+    .hub-title.spectacular {
+        font-size: var(--font-size-2xl);
+    }
+    
+    .insights-title.spectacular,
+    .analytics-title.spectacular,
+    .section-title.spectacular {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--space-3) !important;
+    }
+    
+    .enhanced-filters.spectacular {
+        padding: var(--space-2) 0 !important;
+    }
+    
+    .filter-section {
+        margin-bottom: var(--space-2) !important;
+    }
+}
+
+/* 🔧 PREVENT OVERFLOW AND EXTRA SPACE */
+.enhanced-knowledge-hub.spectacular-mode * {
+    box-sizing: border-box;
+}
+
+/* 🔧 ABSOLUTELY NO ELEMENTS EXTENDING BEYOND CONTAINER */
+.enhanced-knowledge-hub.spectacular-mode .knowledge-sparkles,
+.enhanced-knowledge-hub.spectacular-mode .knowledge-particles-system {
+    clip-path: inset(0 0 0 0);
+    contain: strict;
+}
+
+/* 🔧 HIDE ALL SPARKLE EFFECTS TO PREVENT OVERFLOW */
+.knowledge-sparkle,
+.hover-sparkle,
+.knowledge-sparkles {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* 🔧 CLEAN UP ANY REMAINING SPACING ISSUES */
+.enhanced-knowledge-hub.spectacular-mode .progress-stats.spectacular {
+    margin-bottom: 0 !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .skill-gaps.spectacular {
+    margin-bottom: 0 !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .trending-topics.spectacular {
+    margin-bottom: 0 !important;
+}
+
+.enhanced-knowledge-hub.spectacular-mode .path-skills.spectacular {
+    margin-bottom: var(--space-3) !important; /* Consistent spacing before actions */
+}
+
+.enhanced-knowledge-hub.spectacular-mode .resource-tags.spectacular {
+    margin-bottom: var(--space-3) !important; /* Consistent spacing before actions */
 }
 
 /* 🎨 SPECTACULAR KEYFRAME ANIMATIONS - MATCHING TASK SYSTEM */
@@ -167,40 +477,42 @@
     }
 }
 
-/* ✨ FLOATING GEOMETRIC SHAPES */
+/* ✨ FLOATING GEOMETRIC SHAPES - CONSTRAINED */
 .enhanced-knowledge-hub::before {
     content: '';
     position: absolute;
-    top: -80%;
-    right: -80%;
-    width: 260%;
-    height: 260%;
+    top: -40%;
+    right: -40%;
+    width: 180%;
+    height: 180%;
     background: 
-        radial-gradient(circle at 40% 40%, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0.2) 20%, transparent 50%),
-        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.15) 25%, transparent 40%),
-        radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0.1) 30%, transparent 50%);
+        radial-gradient(circle at 40% 40%, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0.15) 20%, transparent 50%),
+        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0.1) 25%, transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.2) 0%, rgba(6, 182, 212, 0.05) 30%, transparent 50%);
     border-radius: 50%;
     animation: knowledgeFloat 20s ease-in-out infinite reverse;
     pointer-events: none;
     z-index: 1;
     filter: blur(1px);
+    overflow: hidden;
 }
 
 .enhanced-knowledge-hub::after {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
     background: 
-        radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.4) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 50%),
-        radial-gradient(circle at 20% 70%, rgba(16, 185, 129, 0.3) 0%, rgba(16, 185, 129, 0.15) 30%, transparent 60%),
-        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.1) 35%, transparent 60%);
+        radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.3) 0%, rgba(6, 182, 212, 0.15) 25%, transparent 50%),
+        radial-gradient(circle at 20% 70%, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.1) 30%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.05) 35%, transparent 60%);
     animation: knowledgeFloat 25s ease-in-out infinite;
     pointer-events: none;
     z-index: 1;
     filter: blur(0.8px);
+    overflow: hidden;
 }
 
 @keyframes knowledgeFloat {
@@ -209,20 +521,20 @@
         opacity: 0.6;
     }
     25% {
-        transform: translateX(20px) translateY(-25px) scale(1.05) rotate(2deg);
+        transform: translateX(10px) translateY(-10px) scale(1.02) rotate(1deg);
         opacity: 0.8;
     }
     50% {
-        transform: translateX(-15px) translateY(-15px) scale(0.95) rotate(-1deg);
+        transform: translateX(-8px) translateY(-8px) scale(0.98) rotate(-0.5deg);
         opacity: 0.7;
     }
     75% {
-        transform: translateX(-20px) translateY(20px) scale(1.02) rotate(1deg);
+        transform: translateX(-10px) translateY(10px) scale(1.01) rotate(0.5deg);
         opacity: 0.9;
     }
 }
 
-/* 🌟 SPECTACULAR PARTICLE SYSTEM */
+/* 🌟 SPECTACULAR PARTICLE SYSTEM - CONSTRAINED */
 .knowledge-particles-system {
     position: absolute;
     top: 0;
@@ -232,6 +544,7 @@
     pointer-events: none;
     z-index: 2;
     overflow: hidden;
+    border-radius: var(--radius-2xl); /* Match parent border radius */
 }
 
 .knowledge-particle {
@@ -251,23 +564,23 @@
         filter: blur(0.5px) hue-rotate(0deg);
     }
     25% {
-        transform: translateX(30px) translateY(-40px) scale(1.2) rotate(90deg);
+        transform: translateX(15px) translateY(-20px) scale(1.1) rotate(90deg);
         opacity: 0.8;
         filter: blur(0.3px) hue-rotate(90deg);
     }
     50% {
-        transform: translateX(-25px) translateY(-25px) scale(0.8) rotate(180deg);
+        transform: translateX(-15px) translateY(-15px) scale(0.9) rotate(180deg);
         opacity: 0.6;
         filter: blur(0.7px) hue-rotate(180deg);
     }
     75% {
-        transform: translateX(-35px) translateY(35px) scale(1.1) rotate(270deg);
+        transform: translateX(-20px) translateY(20px) scale(1.05) rotate(270deg);
         opacity: 0.7;
         filter: blur(0.4px) hue-rotate(270deg);
     }
 }
 
-/* ✨ SPARKLE EFFECTS */
+/* ✨ SPARKLE EFFECTS - DISABLED TO PREVENT OVERFLOW */
 .knowledge-sparkles {
     position: absolute;
     top: 0;
@@ -276,11 +589,18 @@
     bottom: 0;
     pointer-events: none;
     z-index: 4;
+    overflow: hidden;
+    border-radius: var(--radius-2xl); /* Match parent border radius */
+    display: none !important; /* Completely hide sparkles container */
 }
 
 .knowledge-sparkle {
     position: absolute;
-    animation: knowledgeSparkle 2.5s ease-in-out infinite;
+    animation: none !important; /* Disabled to prevent overflow */
+    /* Constrain sparkles within safe area */
+    max-width: calc(100% - 40px);
+    max-height: calc(100% - 40px);
+    display: none !important; /* Hide all sparkles */
 }
 
 @keyframes knowledgeSparkle {
@@ -319,12 +639,12 @@
     }
 }
 
-/* SPECTACULAR HEADER SECTION - IMPROVED ALIGNMENT */
+/* SPECTACULAR HEADER SECTION - IMPROVED ALIGNMENT - UPDATED TO USE PARENT GAP */
 .hub-header.spectacular {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: var(--space-6);
+    margin-bottom: 0 !important; /* Use parent gap instead */
     padding-bottom: var(--space-4);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
@@ -628,18 +948,19 @@ html body .knowledge-hub.spectacular-mode .search-icon {
     box-shadow: var(--shadow-sm);
 }
 
-/* SPECTACULAR AI INSIGHTS SECTION */
+/* SPECTACULAR AI INSIGHTS SECTION - UPDATED TO USE PARENT GAP */
 .ai-insights-section.spectacular {
-    margin-bottom: var(--space-8);
+    margin-bottom: 0 !important; /* Use parent gap instead */
     position: relative;
     z-index: 2;
+    background: transparent !important;
 }
 
 .insights-title.spectacular {
     font-size: var(--font-size-2xl);
     font-weight: 700;
     color: white !important;
-    margin-bottom: var(--space-6);
+    margin: 0 0 var(--space-4) 0 !important; /* Standardized margin */
     display: flex;
     align-items: center;
     gap: var(--space-3);
@@ -677,8 +998,8 @@ html body .knowledge-hub.spectacular-mode .search-icon {
 .ai-insights-grid.spectacular {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-6);
-    margin-top: var(--space-4);
+    gap: var(--knowledge-card-gap);
+    margin-top: 0 !important; /* Use parent gap instead */
 }
 
 .ai-insight-card.spectacular {
@@ -950,18 +1271,19 @@ html body .knowledge-hub.spectacular-mode .search-icon {
     stroke: currentColor !important;
 }
 
-/* SPECTACULAR LEARNING ANALYTICS */
+/* SPECTACULAR LEARNING ANALYTICS - UPDATED TO USE PARENT GAP */
 .learning-analytics.spectacular {
-    margin-bottom: var(--space-8);
+    margin-bottom: 0 !important; /* Use parent gap instead */
     position: relative;
     z-index: 2;
+    background: transparent !important;
 }
 
 .analytics-title.spectacular {
     font-size: var(--font-size-2xl);
     font-weight: 700;
     color: white !important;
-    margin-bottom: var(--space-6);
+    margin: 0 0 var(--space-4) 0 !important; /* Standardized margin */
     display: flex;
     align-items: center;
     gap: var(--space-3);
@@ -1264,11 +1586,12 @@ html body .knowledge-hub.spectacular-mode .search-icon {
     animation: knowledgeSparkle 2s ease-in-out infinite;
 }
 
-/* SPECTACULAR LEARNING PATHS */
+/* SPECTACULAR LEARNING PATHS - UPDATED TO USE PARENT GAP */
 .learning-paths-section.spectacular {
-    margin-bottom: var(--space-8);
+    margin-bottom: 0 !important; /* Use parent gap instead */
     position: relative;
     z-index: 2;
+    background: transparent !important;
 }
 
 .section-title.spectacular {
@@ -1845,12 +2168,12 @@ html body .knowledge-hub.spectacular-mode .search-icon {
     transform: translateY(-2px) scale(1.05);
 }
 
-/* SPECTACULAR FILTERS */
+/* SPECTACULAR FILTERS - NO EXTRA SPACE */
 .enhanced-filters.spectacular {
-    padding: var(--space-6);
+    padding: var(--space-4) 0 !important; /* Remove side padding, no bottom margin */
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.05);
-    margin-top: var(--space-8);
+    margin: 0 !important; /* Remove all margins - use parent gap */
 }
 
 .filter-section {
@@ -3032,8 +3355,8 @@ html body .enhanced-knowledge-hub.spectacular-mode .enhanced-resource-card * {
 .enhanced-knowledge-hub.spectacular-mode .ai-insights-grid.spectacular {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-6);
-    margin-top: var(--space-4);
+    gap: var(--knowledge-card-gap);
+    margin-top: 0 !important; /* Use parent gap instead */
 }
 
 /* 🔧 ENSURE PROPER SPACING IN ANALYTICS GRID */

@@ -91,6 +91,9 @@ class EnhancedKnowledgeHub extends HTMLElement {
         console.log('🎯 Initial AI Insights count:', this.aiInsights?.length || 0);
         
         try {
+            // Clean up any existing sparkles first
+            document.querySelectorAll('.knowledge-sparkle, .hover-sparkle').forEach(el => el.remove());
+            
             console.log('📚 Loading enhanced resources...');
             this.loadEnhancedResources();
             console.log('🔍 Building search index...');
@@ -114,6 +117,11 @@ class EnhancedKnowledgeHub extends HTMLElement {
             
             this.isInitialized = true;
             console.log('✅ Enhanced Knowledge Hub fully initialized!');
+            
+            // Final cleanup of any sparkles that might have been created
+            setTimeout(() => {
+                document.querySelectorAll('.knowledge-sparkle, .hover-sparkle, .knowledge-sparkles').forEach(el => el.remove());
+            }, 100);
             
         } catch (error) {
             console.error('❌ Enhanced Knowledge Hub initialization failed:', error);
@@ -238,7 +246,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
         this.addFloatingShapes();
         
         // Initialize sparkle effects
-        this.initializeSparkles();
+        // this.initializeSparkles(); // Disabled to prevent overflow
         
         // Add energy rings
         this.addEnergyRings();
@@ -285,15 +293,15 @@ class EnhancedKnowledgeHub extends HTMLElement {
         const sparklesContainer = document.createElement('div');
         sparklesContainer.className = 'knowledge-sparkles';
         
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 6; i++) {
             const sparkle = document.createElement('div');
             sparkle.className = 'knowledge-sparkle';
             sparkle.innerHTML = '✨';
             sparkle.style.cssText = `
-                left: ${Math.random() * 100}%;
-                top: ${Math.random() * 100}%;
+                left: ${Math.random() * 85 + 5}%;
+                top: ${Math.random() * 85 + 5}%;
                 animation-delay: ${Math.random() * 6}s;
-                font-size: ${Math.random() * 0.5 + 0.8}rem;
+                font-size: ${Math.random() * 0.3 + 0.7}rem;
             `;
             sparklesContainer.appendChild(sparkle);
         }
@@ -330,6 +338,9 @@ class EnhancedKnowledgeHub extends HTMLElement {
         
         // Clean up other spectacular effects
         this.querySelectorAll('.knowledge-floating-shape, .knowledge-sparkles, .knowledge-energy-ring').forEach(el => el.remove());
+        
+        // Clean up any escaped sparkles on the page
+        document.querySelectorAll('.knowledge-sparkle, .hover-sparkle').forEach(el => el.remove());
     }
 
     loadEnhancedResources() {
@@ -893,38 +904,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     </div>
                 </div>
 
-                <!-- Enhanced Filters -->
-                <div class="enhanced-filters spectacular">
-                    <div class="filter-section">
-                        <h4 class="filter-title spectacular">Smart Categories</h4>
-                        <div class="filter-chips spectacular">
-                            <button class="filter-chip spectacular ${this.currentFilter === 'all' ? 'active' : ''}" data-filter="all">
-                                <span class="chip-icon">🎯</span>
-                                All Categories
-                                <span class="chip-count">${this.resources.length}</span>
-                            </button>
-                            ${Array.from(this.categories).map(category => {
-                                const count = this.resources.filter(r => r.category === category).length;
-                                return `
-                                    <button class="filter-chip spectacular ${this.currentFilter === category ? 'active' : ''}" data-filter="${category}">
-                                        <span class="chip-icon">${this.getCategoryIcon(category)}</span>
-                                        ${category}
-                                        <span class="chip-count">${count}</span>
-                                    </button>
-                                `;
-                            }).join('')}
-                        </div>
-                    </div>
-                    
-                    <div class="filter-section">
-                        <h4 class="filter-title spectacular">Difficulty</h4>
-                        <div class="difficulty-filters">
-                            <button class="difficulty-btn" data-difficulty="beginner">Beginner</button>
-                            <button class="difficulty-btn" data-difficulty="intermediate">Intermediate</button>
-                            <button class="difficulty-btn" data-difficulty="advanced">Advanced</button>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         `;
         // Add post-render verification
@@ -1451,20 +1431,23 @@ class EnhancedKnowledgeHub extends HTMLElement {
     }
 
     addHoverSparkles(element) {
+        // Disabled to prevent sparkles from escaping container bounds
+        return;
+        
         if (!this.spectacularMode) return;
         
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 1; i++) {
             const sparkle = document.createElement('div');
             sparkle.className = 'hover-sparkle';
             sparkle.innerHTML = '✨';
             sparkle.style.cssText = `
                 position: absolute;
-                left: ${Math.random() * 100}%;
-                top: ${Math.random() * 100}%;
+                left: ${Math.random() * 80 + 10}%;
+                top: ${Math.random() * 80 + 10}%;
                 pointer-events: none;
                 z-index: 10;
                 animation: knowledgeSparkleFloat 1s ease-out forwards;
-                font-size: 0.8rem;
+                font-size: 0.7rem;
             `;
             element.appendChild(sparkle);
             

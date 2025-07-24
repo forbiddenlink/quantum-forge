@@ -288,6 +288,17 @@
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/simple-mobile.css">
     
+    <!-- ✨ CONTEST-WINNING OPTIMIZED LAYOUT ✨ -->
+    <link rel="stylesheet" href="styles/optimized-layout.css">
+    
+    <!-- 🏆 NEW CONTEST COMPONENTS 🏆 -->
+    <link rel="stylesheet" href="styles/live-activity-feed.css">
+    <link rel="stylesheet" href="styles/smart-insights-dashboard.css">
+    <link rel="stylesheet" href="styles/wellness-tracker.css">
+    
+    <!-- 🌟 UNIFIED HOMEPAGE STYLING - Load After All Components 🌟 -->
+    <link rel="stylesheet" href="styles/unified-homepage-styling.css">
+    
     <!-- Additional CSS - Load Asynchronously for Better Performance -->
     <link rel="preload" href="styles/enhanced-colors.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="styles/company-news.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -331,6 +342,20 @@
         <link rel="stylesheet" href="styles/mobile-performance-enhancements.css">
         <link rel="stylesheet" href="styles/accessibility-enhancements.css">
     </noscript>
+    
+    <!-- 🎯 CRITICAL SPACING OVERRIDE - LOADS ABSOLUTELY LAST 🎯 -->
+    <link rel="stylesheet" href="styles/critical-spacing-override.css">
+    
+    <!-- 🚨 FINAL SPACING FIX - LOADS AFTER EVERYTHING 🚨 -->
+    <link rel="stylesheet" href="styles/final-spacing-fix.css">
+    
+    <!-- 🧹 HOMEPAGE DESIGN CLEANUP - LOADS ABSOLUTELY LAST 🧹 -->
+    <link rel="stylesheet" href="styles/homepage-design-cleanup.css">
+    
+    <!-- 🔧 URGENT LAYOUT FIXES - LOADS AFTER EVERYTHING ELSE 🔧 -->
+    <link rel="stylesheet" href="styles/layout-fixes.css">
+    
+
     
     <!-- SERVICE WORKER REGISTRATION -->
     <script>
@@ -589,10 +614,10 @@
 
             <!-- Main Content -->
             <main id="main-content" class="main-content" role="main" aria-label="Main content">
-                <!-- Enhanced Dashboard Grid -->
+                <!-- ✨ CONTEST-WINNING OPTIMIZED DASHBOARD GRID ✨ -->
                 <div class="dashboard-grid">
-                    <!-- Welcome Section as first card -->
-                    <div class="dashboard-item full-width">
+                    <!-- 🎯 Welcome Section - Streamlined and Compact -->
+                    <div class="dashboard-item full-width compact">
                         <div class="welcome-section" role="region" aria-label="Welcome section">
                             <!-- Simplified background elements -->
                             <div class="particles">
@@ -778,60 +803,77 @@
                         </div>
                     </div>
 
-                    <!-- Analytics Dashboard - High Priority -->
-                    <div class="dashboard-item full-width">
+                    <!-- 🏆 NEW CONTEST COMPONENTS ROW - Smart Insights & Live Activity -->
+                    <div class="dashboard-row">
+                        <div class="dashboard-item">
+                            <smart-insights-dashboard></smart-insights-dashboard>
+                        </div>
+                        <div class="dashboard-item">
+                            <live-activity-feed></live-activity-feed>
+                        </div>
+                    </div>
+
+                    <!-- 📊 Analytics Dashboard - High Priority but Compact -->
+                    <div class="dashboard-item full-width compact">
                         <analytics-dashboard></analytics-dashboard>
                     </div>
 
-                    <!-- Task Management and Knowledge Hub - Core Productivity (Side by Side) -->
+                    <!-- 🎯 Task Management and Knowledge Hub - Core Productivity -->
                     <div class="dashboard-row">
                         <div class="dashboard-item task-system-container">
                             <task-system></task-system>
                         </div>
-
                         <div class="dashboard-item knowledge-hub-container">
                             <enhanced-knowledge-hub></enhanced-knowledge-hub>
                         </div>
                     </div>
 
-                    <!-- Team Communication and News - Social Layer -->
-                    <div class="dashboard-item">
-                        <company-news>
-                            <div class="loading-placeholder">
-                                <div class="loading-spinner"></div>
-                                <p>Loading company news...</p>
-                            </div>
-                        </company-news>
+                    <!-- 💚 Wellness & Team Communication -->
+                    <div class="dashboard-row">
+                        <div class="dashboard-item">
+                            <wellness-tracker></wellness-tracker>
+                        </div>
+                        <div class="dashboard-item">
+                            <team-spotlight></team-spotlight>
+                        </div>
                     </div>
 
-                    <div class="dashboard-item">
-                        <team-spotlight></team-spotlight>
+                    <!-- 📰 Company News & Collaboration -->
+                    <div class="dashboard-row">
+                        <div class="dashboard-item">
+                            <company-news>
+                                <div class="loading-placeholder">
+                                    <div class="loading-spinner"></div>
+                                    <p>Loading company news...</p>
+                                </div>
+                            </company-news>
+                        </div>
+                        <div class="dashboard-item">
+                            <collaboration-hub></collaboration-hub>
+                        </div>
                     </div>
 
-                    <!-- Office Visualizer - Interactive Experience -->
+                    <!-- 🏢 Office Visualizer - Interactive Experience -->
                     <div class="dashboard-item full-width office-container">
                         <office-visualizer></office-visualizer>
                     </div>
 
-                    <!-- Collaboration and Engagement Tools -->
-                    <div class="dashboard-item">
-                        <collaboration-hub></collaboration-hub>
+                    <!-- 🎮 Engagement Tools & Utilities -->
+                    <div class="dashboard-row">
+                        <div class="dashboard-item">
+                            <enhanced-interactive-poll></enhanced-interactive-poll>
+                        </div>
+                        <div class="dashboard-item">
+                            <weather-widget></weather-widget>
+                        </div>
                     </div>
 
-                    <div class="dashboard-item">
-                        <enhanced-interactive-poll></enhanced-interactive-poll>
-                    </div>
-
-                    <!-- Weather and Achievement - Ambient Info -->
-                    <div class="dashboard-item">
-                        <weather-widget></weather-widget>
-                    </div>
-
-                    <div class="dashboard-item">
+                    <!-- 🏆 Achievement System - Full Width for Impact -->
+                    <div class="dashboard-item full-width compact">
                         <achievement-system></achievement-system>
                     </div>
 
-                    <!-- Company Culture Showcase - Brand Experience -->
+                    <!-- 🎨 Company Culture Showcase - Brand Experience -->
                     <div class="dashboard-item full-width">
                         <company-culture-showcase></company-culture-showcase>
                     </div>
@@ -901,6 +943,11 @@
     <script src="js/components/team-chat-widget.js"></script>
     <script src="js/components/smart-search-overlay.js"></script>
     <script src="js/components/simple-color-picker.js"></script>
+    
+    <!-- 🏆 NEW CONTEST COMPONENTS SCRIPTS 🏆 -->
+    <script src="js/components/live-activity-feed.js"></script>
+    <script src="js/components/smart-insights-dashboard.js"></script>
+    <script src="js/components/wellness-tracker.js"></script>
     
 </body>
 </html>

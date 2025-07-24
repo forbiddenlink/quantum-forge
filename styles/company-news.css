@@ -1,40 +1,206 @@
-/* Enhanced Company News Component Styles */
-.company-news {
-    background: var(--bg-widget);
-    border-radius: var(--radius-2xl);
-    padding: var(--space-8);
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--border-color);
-    transition: all var(--duration-normal) var(--ease-spring);
-    position: relative;
-    overflow: visible;
-    margin-bottom: var(--space-6);
+/* 🏆 CONTEST-WINNING ENHANCED COMPANY NEWS - Spectacular Visual Design */
+:root {
+    /* Company News specific colors matching other enhanced sections */
+    --news-primary: var(--primary-500);
+    --news-success: var(--success-500);
+    --news-warning: var(--warning-500);
+    --news-error: var(--error-500);
+    
+    /* Spectacular gradients for company news */
+    --news-gradient: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    --news-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
+    --news-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
+    --news-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
+    
+    /* Contest-winning effect colors */
+    --news-glow: rgba(99, 102, 241, 0.4);
+    --news-accent-1: #8b5cf6;
+    --news-accent-2: #06b6d4;
+    --news-accent-3: #10b981;
+    --news-accent-4: #f59e0b;
 }
 
+/* 🚀 SPECTACULAR COMPANY NEWS CONTAINER - MATCHING OTHER ENHANCED SECTIONS */
+.company-news {
+    /* ENHANCED Multi-layer animated background - EXACT MATCH to other sections */
+    background: 
+        /* Animated gradient waves */
+        linear-gradient(45deg, var(--primary-500) 0%, transparent 50%, var(--primary-500) 100%),
+        linear-gradient(-45deg, var(--primary-600) 0%, transparent 50%, var(--primary-600) 100%),
+        linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%),
+        /* Primary gradient base */
+        linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%),
+        /* Animated accent gradients */
+        radial-gradient(ellipse 1200px 800px at 20% 20%, rgba(139, 92, 246, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 800px 1200px at 80% 80%, rgba(6, 182, 212, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse 600px 600px at 50% 50%, rgba(16, 185, 129, 0.3) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
+        /* Enhanced texture overlay with animation */
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
+    
+    border-radius: var(--radius-2xl) !important;
+    padding: var(--space-8) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    margin-bottom: var(--space-6) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    
+    /* Spectacular glow and animation effects matching other sections */
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(99, 102, 241, 0.4),
+        0 0 120px rgba(99, 102, 241, 0.2) !important;
+        
+    /* Smooth transitions */
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    
+    /* Enhanced backdrop */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    
+    /* SPECTACULAR glow and animation effects */
+    animation: 
+        newsGlow 6s ease-in-out infinite,
+        newsBackgroundShift 20s linear infinite,
+        newsSubtlePulse 4s ease-in-out infinite !important;
+    
+    /* 3D transform for depth */
+    transform-style: preserve-3d !important;
+    perspective: 1000px !important;
+}
+
+/* Remove the old simple hover effect */
+.company-news:hover,
+.company-news:focus-within {
+    transform: none !important;
+    box-shadow: 
+        0 25px 30px -5px rgba(0, 0, 0, 0.12), 
+        0 12px 12px -5px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(255, 255, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        0 0 80px rgba(139, 92, 246, 0.5),
+        0 0 140px rgba(139, 92, 246, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Remove the old simple top border */
 .company-news::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, 
-        var(--primary-500) 0%, 
-        var(--warning-500) 50%, 
-        var(--success-500) 100%);
-    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    top: -80%;
+    right: -80%;
+    width: 260%;
+    height: 260%;
+    background: 
+        radial-gradient(circle at 40% 40%, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0.2) 20%, transparent 50%),
+        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.15) 25%, transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0.1) 30%, transparent 50%);
+    border-radius: 50%;
+    animation: newsFloat 20s ease-in-out infinite reverse;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(1px);
 }
 
-.company-news:hover,
-.company-news:focus-within {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--primary-200);
+.company-news::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.4) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 50%),
+        radial-gradient(circle at 20% 70%, rgba(16, 185, 129, 0.3) 0%, rgba(16, 185, 129, 0.15) 30%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.1) 35%, transparent 60%);
+    animation: newsFloat 25s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(0.8px);
 }
 
-.company-news:focus-within {
-    outline: 2px solid var(--primary-300);
-    outline-offset: 2px;
+/* 🎨 SPECTACULAR KEYFRAME ANIMATIONS - MATCHING OTHER SECTIONS */
+@keyframes newsGlow {
+    0%, 100% { 
+        box-shadow: 
+            0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+            0 10px 10px -5px rgba(0, 0, 0, 0.04),
+            0 0 0 1px rgba(255, 255, 255, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4),
+            0 0 60px rgba(99, 102, 241, 0.4),
+            0 0 120px rgba(99, 102, 241, 0.2);
+    }
+    25% { 
+        box-shadow: 
+            0 25px 30px -5px rgba(0, 0, 0, 0.12), 
+            0 12px 12px -5px rgba(0, 0, 0, 0.06),
+            0 0 0 1px rgba(255, 255, 255, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5),
+            0 0 80px rgba(139, 92, 246, 0.5),
+            0 0 140px rgba(139, 92, 246, 0.3);
+    }
+    50% { 
+        box-shadow: 
+            0 22px 27px -5px rgba(0, 0, 0, 0.11), 
+            0 11px 11px -5px rgba(0, 0, 0, 0.05),
+            0 0 0 1px rgba(255, 255, 255, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.45),
+            0 0 70px rgba(6, 182, 212, 0.45),
+            0 0 130px rgba(6, 182, 212, 0.25);
+    }
+    75% { 
+        box-shadow: 
+            0 24px 29px -5px rgba(0, 0, 0, 0.13), 
+            0 13px 13px -5px rgba(0, 0, 0, 0.07),
+            0 0 0 1px rgba(255, 255, 255, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.48),
+            0 0 75px rgba(16, 185, 129, 0.48),
+            0 0 135px rgba(16, 185, 129, 0.28);
+    }
+}
+
+@keyframes newsBackgroundShift {
+    0% { background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%; }
+    25% { background-position: 100% 0%, 0% 100%, 25% 50%, 0% 0%, 25% 25%, 75% 75%, 45% 55%, 15% 75%, 25% 25%, 25% 25%; }
+    50% { background-position: 100% 100%, 0% 0%, 50% 50%, 0% 0%, 30% 30%, 70% 70%, 40% 60%, 20% 70%, 50% 50%, 50% 50%; }
+    75% { background-position: 0% 100%, 100% 0%, 75% 50%, 0% 0%, 35% 35%, 65% 65%, 35% 65%, 25% 65%, 75% 75%, 75% 75%; }
+    100% { background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%; }
+}
+
+@keyframes newsSubtlePulse {
+    0%, 100% { transform: scale(1) translateZ(0); }
+    50% { transform: scale(1.003) translateZ(3px); }
+}
+
+@keyframes newsFloat {
+    0%, 100% {
+        transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateX(20px) translateY(-25px) scale(1.05) rotate(2deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateX(-15px) translateY(-15px) scale(0.95) rotate(-1deg);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translateX(10px) translateY(-20px) scale(1.02) rotate(1deg);
+        opacity: 0.75;
+    }
+}
+
+/* 🌟 ENHANCED TEXT STYLING - ALL WHITE ON GRADIENT BACKGROUND */
+.company-news *:not(input):not(select):not(textarea):not(.search-input) {
+    color: white !important;
+    position: relative;
+    z-index: 10;
 }
 
 .news-header {
@@ -43,56 +209,73 @@
     gap: var(--space-6);
     margin-bottom: var(--space-8);
     padding-bottom: var(--space-4);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    position: relative;
+    z-index: 10;
 }
 
 .news-title {
     font-size: var(--font-size-2xl);
     font-weight: 700;
-    background: linear-gradient(135deg, var(--primary-600), var(--primary-500));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: white !important;
     margin: 0;
     display: flex;
     align-items: center;
     gap: var(--space-3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 10;
 }
 
 .news-title::before {
     content: '📰';
-    font-size: 16px !important;
-    filter: none;
-    -webkit-text-fill-color: initial !important;
-    background: none !important;
+    font-size: 20px !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     animation: gentle-bounce 3s ease-in-out infinite;
+    position: relative;
+    z-index: 10;
 }
 
-/* Force icon size with higher specificity */
-.company-news .news-title::before {
-    font-size: 16px !important;
-    line-height: 1 !important;
+/* 🎨 GLASS MORPHISM CARDS - MATCHING OTHER SECTIONS */
+.news-card,
+.pinned-grid .news-card,
+.news-grid .news-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-5) !important;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
 }
 
-.news-filters {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
+.news-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
+/* 🔍 ENHANCED SEARCH AND FILTERS */
 .search-bar {
-    display: flex;
-    align-items: center;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: var(--radius-lg);
     padding: var(--space-2);
     transition: all var(--duration-normal) var(--ease-spring);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
 }
 
 .search-bar:focus-within {
-    border-color: var(--primary-400);
-    box-shadow: 0 0 0 3px var(--primary-100);
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
 }
 
 .search-bar input {
@@ -101,91 +284,62 @@
     background: none;
     padding: var(--space-2) var(--space-3);
     font-size: var(--font-size-sm);
-    color: var(--text-primary);
+    color: white !important;
     outline: none;
 }
 
 .search-bar input::placeholder {
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.search-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border: none;
-    background: none;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-spring);
-}
-
-.search-btn:hover {
-    color: var(--primary-500);
-}
-
-.search-btn svg {
-    width: 18px;
-    height: 18px;
-}
-
-.category-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-}
-
+/* 🏷️ ENHANCED CATEGORY FILTERS */
 .category-btn {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) var(--space-3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
     border-radius: var(--radius-full);
-    border: 1px solid var(--border-color);
-    background: var(--bg-elevated);
-    color: var(--text-primary);
+    padding: var(--space-2) var(--space-3);
     font-size: var(--font-size-sm);
     font-weight: 500;
     cursor: pointer;
     transition: all var(--duration-normal) var(--ease-spring);
-}
-
-/* Fix the size of category filter button icons */
-.category-btn svg {
-    width: 14px !important;
-    height: 14px !important;
-    flex-shrink: 0;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
 }
 
 .category-btn:hover {
-    background: var(--primary-50);
-    border-color: var(--primary-200);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 
 .category-btn.active {
-    background: var(--primary-500);
-    border-color: var(--primary-500);
-    color: white;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    color: var(--primary-600) !important;
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
 }
 
 .category-count {
-    background: var(--bg-widget);
-    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
     padding: 2px 6px;
     border-radius: var(--radius-full);
     font-size: var(--font-size-xs);
 }
 
 .category-btn.active .category-count {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: rgba(99, 102, 241, 0.2) !important;
+    color: var(--primary-600) !important;
 }
 
-.pinned-news {
-    margin-bottom: var(--space-8);
+/* 📊 ENHANCED STATS SECTION */
+.news-stats {
+    margin-top: var(--space-8);
+    position: relative;
+    z-index: 10;
 }
 
 .section-subtitle {
@@ -194,971 +348,1191 @@
     gap: var(--space-2);
     font-size: var(--font-size-lg);
     font-weight: 600;
-    color: var(--text-primary);
+    color: white !important;
     margin: 0 0 var(--space-4) 0;
     padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .section-subtitle svg {
-    width: 20px;
-    height: 20px;
-    color: var(--primary-500);
-}
-
-.pinned-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-4);
-}
-
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-4);
-    margin-bottom: var(--space-8);
-}
-
-.news-card {
-    background: var(--bg-elevated);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    transition: all var(--duration-normal) var(--ease-spring);
-    box-shadow: var(--shadow-sm);
-    position: relative;
-    cursor: pointer;
-}
-
-.news-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(180deg, var(--primary-500), var(--primary-400));
-    transform: scaleY(0);
-    transition: transform var(--duration-normal) var(--ease-in-out);
-    z-index: 1;
-}
-
-.news-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-200);
-}
-
-.news-card:hover::before {
-    transform: scaleY(1);
-}
-
-.news-card.high::before {
-    background: linear-gradient(180deg, var(--error-500), var(--error-400));
-}
-
-.news-card.medium::before {
-    background: linear-gradient(180deg, var(--warning-500), var(--warning-400));
-}
-
-.news-card.pinned {
-    border-color: var(--primary-300);
-    box-shadow: var(--shadow-md);
-    background: linear-gradient(135deg, var(--primary-50), var(--bg-elevated));
-}
-
-.pinned-badge {
-    position: absolute;
-    top: var(--space-3);
-    right: var(--space-3);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: var(--space-2) var(--space-3);
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-xs);
-    font-weight: 600;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    gap: var(--space-1);
-}
-
-.pinned-badge svg {
-    width: 14px;
-    height: 14px;
-    color: var(--warning-400);
-}
-
-.news-image {
-    position: relative;
-    height: 140px;
-    overflow: hidden;
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-}
-
-.news-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--duration-normal) var(--ease-spring);
-}
-
-.news-card:hover .news-image img {
-    transform: scale(1.08);
-}
-
-.news-category {
-    position: absolute;
-    top: var(--space-3);
-    left: var(--space-3);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: var(--space-2) var(--space-3);
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-xs);
-    font-weight: 600;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    gap: var(--space-1);
-    text-transform: capitalize;
-    letter-spacing: 0.05em;
-}
-
-/* Fix the size of category icons */
-.news-category svg {
-    width: 12px !important;
-    height: 12px !important;
-    flex-shrink: 0;
-}
-
-.news-category.company {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(99, 102, 241, 0.7));
-    border-color: var(--primary-300);
-}
-
-.news-category.achievement {
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.9), rgba(34, 197, 94, 0.7));
-    border-color: var(--success-300);
-}
-
-.news-category.wellness {
-    background: linear-gradient(135deg, rgba(234, 179, 8, 0.9), rgba(234, 179, 8, 0.7));
-    border-color: var(--warning-300);
-}
-
-.news-category.recognition {
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.9), rgba(236, 72, 153, 0.7));
-    border-color: rgba(236, 72, 153, 0.3);
-}
-
-.news-category.tech {
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(139, 92, 246, 0.7));
-    border-color: rgba(139, 92, 246, 0.3);
-}
-
-.news-details {
-    padding: var(--space-6);
-    position: relative;
-    z-index: 2;
-}
-
-.news-headline {
-    font-size: var(--font-size-xl);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0 0 var(--space-3) 0;
-    line-height: 1.3;
-    transition: color var(--duration-normal) var(--ease-in-out);
-}
-
-.news-card:hover .news-headline {
-    color: var(--primary-600);
-}
-
-.news-excerpt {
-    color: var(--text-secondary);
-    font-size: var(--font-size-sm);
-    line-height: 1.6;
-    margin: 0 0 var(--space-4) 0;
-}
-
-.news-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-bottom: var(--space-4);
-}
-
-.tag {
-    background: var(--primary-50);
-    color: var(--primary-700);
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-xs);
-    font-weight: 500;
-}
-
-.news-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: var(--font-size-xs);
-    color: var(--text-muted);
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--border-color);
-    margin-bottom: var(--space-4);
-}
-
-.news-reactions {
-    display: flex;
-    gap: var(--space-2);
-}
-
-.reaction-btn {
-    display: flex;
-    align-items: center;
-    gap: var(--space-1);
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-full);
-    border: 1px solid var(--border-color);
-    background: var(--bg-widget);
-    color: var(--text-muted);
-    font-size: var(--font-size-xs);
-    cursor: pointer;
-    transition: all var(--duration-normal) var(--ease-spring);
-}
-
-.reaction-btn:hover {
-    background: var(--primary-50);
-    border-color: var(--primary-200);
-    color: var(--primary-600);
-    transform: translateY(-1px);
-}
-
-.reaction-btn svg {
-    width: 14px;
-    height: 14px;
-}
-
-.news-stats {
-    margin: var(--space-8) 0;
-    padding: var(--space-6);
-    background: var(--bg-widget);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
+    width: 24px;
+    height: 24px;
+    color: white !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-6);
-    margin-top: var(--space-6);
+    gap: var(--space-4);
+    margin-top: var(--space-4);
 }
 
 .stat-card {
-    background: var(--bg-elevated);
-    border-radius: var(--radius-lg);
-    padding: var(--space-6);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    transition: all var(--duration-normal) var(--ease-spring);
-}
-
-.stat-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-6);
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.stat-label {
-    font-weight: 600;
-    color: var(--text-primary);
-    font-size: var(--font-size-base);
-}
-
-.stat-value {
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    color: var(--text-primary);
-    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.stat-chart {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    margin-top: var(--space-4);
-    flex-grow: 1;
-}
-
-.stat-bar-wrapper {
-    width: 100%;
-    background: var(--bg-widget);
-    border-radius: var(--radius-full);
-    overflow: hidden;
-    height: 36px;
-    margin-bottom: var(--space-2);
-    border: 1px solid var(--border-color);
-    position: relative;
-}
-
-.stat-bar {
-    position: relative;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--space-2) var(--space-4);
-    font-size: var(--font-size-sm);
-    color: white;
-    transition: width 0.6s var(--ease-spring);
-    min-width: 120px;
-    box-shadow: var(--shadow-sm);
-    height: 100%;
-}
-
-.stat-bar.high {
-    background: linear-gradient(135deg, var(--error-400), var(--error-500));
-}
-
-.stat-bar.medium {
-    background: linear-gradient(135deg, var(--warning-400), var(--warning-500));
-}
-
-.stat-bar.low {
-    background: linear-gradient(135deg, var(--success-400), var(--success-500));
-}
-
-.stat-bar .stat-label {
-    text-transform: capitalize;
-    font-weight: 600;
-    margin-right: var(--space-2);
-    color: white;
-    font-size: var(--font-size-sm);
-}
-
-.stat-bar .stat-count {
-    font-weight: 600;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 2px 8px;
-    border-radius: var(--radius-full);
-}
-
-.trending-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    margin-top: var(--space-4);
-    flex-grow: 1;
-}
-
-.trending-item {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-    padding: var(--space-4);
-    background: var(--bg-widget);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border-color);
-    transition: all var(--duration-normal) var(--ease-spring);
-}
-
-.trending-item:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--primary-200);
-    background: var(--primary-50);
-}
-
-.trending-title {
-    font-weight: 600;
-    color: var(--text-primary);
-    font-size: var(--font-size-sm);
-    line-height: 1.4;
-}
-
-.trending-metrics {
-    display: flex;
-    gap: var(--space-3);
-    flex-wrap: wrap;
-    margin-top: var(--space-2);
-}
-
-.metric {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    color: var(--text-muted);
-    font-size: var(--font-size-xs);
-    padding: var(--space-1) var(--space-3);
-    background: var(--bg-elevated);
-    border-radius: var(--radius-full);
-    border: 1px solid var(--border-color);
-    font-weight: 500;
-}
-
-.metric.total {
-    background: var(--primary-50);
-    color: var(--primary-600);
-    border-color: var(--primary-200);
-    font-weight: 600;
-}
-
-.metric svg {
-    width: 14px;
-    height: 14px;
-}
-
-/* Ensure proper spacing and alignment */
-.section-subtitle {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: var(--space-6);
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.section-subtitle svg {
-    width: 20px;
-    height: 20px;
-    color: var(--primary-500);
-}
-
-@keyframes gentle-bounce {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-2px); }
-}
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(100%) scale(0.9);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInSlide {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.notification-toast {
-    position: fixed;
-    bottom: var(--space-6);
-    right: var(--space-6);
-    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
-    color: white;
-    padding: var(--space-4) var(--space-6);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
-    z-index: 1000;
-    animation: slideInUp 0.4s var(--ease-spring);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    font-weight: 500;
-    font-size: var(--font-size-sm);
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-}
-
-.notification-toast::before {
-    content: '✅';
-    font-size: var(--font-size-base);
-}
-
-.news-controls {
-    display: flex;
-    gap: var(--space-3);
-    align-self: flex-end;
-}
-
-.news-controls .btn-icon.small {
-    width: 44px;
-    height: 44px;
-    border-radius: var(--radius-full);
-    border: 1px solid var(--border-color);
-    background: var(--bg-widget);
-    color: var(--text-primary);
-    transition: all var(--duration-normal) var(--ease-spring);
-    box-shadow: var(--shadow-sm);
-    cursor: pointer;
-}
-
-.news-controls .btn-icon.small:hover {
-    background: var(--primary-50);
-    border-color: var(--primary-200);
-    color: var(--primary-600);
-    transform: scale(1.05);
-    box-shadow: var(--shadow-md);
-}
-
-.news-controls .btn-icon.small:active {
-    transform: scale(0.95);
-}
-
-.news-controls .btn-icon.small svg {
-    width: 20px;
-    height: 20px;
-}
-
-.news-author {
-    font-weight: 600;
-    color: var(--primary-600);
-    display: flex;
-    align-items: center;
-    gap: var(--space-1);
-}
-
-.news-author::before {
-    content: '✍️';
-    font-size: var(--font-size-sm);
-}
-
-.news-date {
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: var(--space-1);
-}
-
-.news-date::before {
-    content: '🕒';
-    font-size: var(--font-size-sm);
-}
-
-.reaction-btn.reacted {
-    background: var(--primary-50);
-    border-color: var(--primary-300);
-    color: var(--primary-600);
-}
-
-.reaction-btn.reacted svg {
-    fill: var(--primary-200);
-}
-
-.news-actions {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-4);
-}
-
-.news-actions .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    padding: var(--space-3) var(--space-4);
-    border-radius: var(--radius-lg);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-6) !important;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
     transition: all var(--duration-normal) var(--ease-spring);
     position: relative;
-    overflow: hidden;
-}
-
-.news-actions .btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left var(--duration-slow) var(--ease-in-out);
-}
-
-.news-actions .btn:hover::before {
-    left: 100%;
-}
-
-.news-actions .btn:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
-}
-
-.news-actions .btn .btn-icon {
-    width: 18px;
-    height: 18px;
-}
-
-/* Accessibility Enhancements */
-.news-card:focus-visible {
-    outline: 2px solid var(--primary-400);
-    outline-offset: 2px;
-}
-
-.reaction-btn:focus-visible,
-.category-btn:focus-visible,
-.news-actions .btn:focus-visible {
-    outline: 2px solid var(--primary-400);
-    outline-offset: 2px;
-    box-shadow: var(--shadow-md);
-}
-
-/* Loading States */
-.news-card.loading {
-    pointer-events: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.news-card.loading::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--bg-elevated),
-        transparent
-    );
-    /* Loading shimmer animation removed to prevent distraction */
-}
-
-/* Loading shimmer keyframes removed to prevent distraction */
-
-/* Loading Placeholder */
-company-news {
-    display: block;
-    width: 100%;
-    min-height: 200px;
-    position: relative;
-}
-
-company-news .loading-placeholder {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: var(--bg-widget);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--border-color);
-    padding: var(--space-6);
-    text-align: center;
-    box-shadow: var(--shadow-sm);
-}
-
-company-news .loading-placeholder .loading-spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid var(--border-color);
-    border-top-color: var(--primary-500);
-    border-radius: 50%;
-    animation: spinner 1s linear infinite;
-    margin-bottom: var(--space-4);
-}
-
-company-news .loading-placeholder p {
-    color: var(--text-muted);
-    font-size: var(--font-size-sm);
-    margin: 0;
-    font-weight: 500;
-}
-
-@keyframes spinner {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Make sure the loading placeholder is hidden when content is loaded */
-company-news:not(:empty) .loading-placeholder {
-    display: none;
-}
-
-/* Empty State */
-.news-empty-state {
-    text-align: center;
-    padding: var(--space-8);
-    color: var(--text-muted);
-}
-
-.news-empty-state svg {
-    width: 48px;
-    height: 48px;
-    margin-bottom: var(--space-4);
-    color: var(--text-muted);
-}
-
-.news-empty-state h3 {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    margin-bottom: var(--space-2);
-    color: var(--text-primary);
-}
-
-.news-empty-state p {
-    font-size: var(--font-size-sm);
-    max-width: 400px;
-    margin: 0 auto var(--space-4);
-}
-
-/* Error State */
-.news-error-state {
-    text-align: center;
-    padding: var(--space-8);
-    color: var(--error-600);
-    background: var(--error-50);
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--error-200);
-}
-
-.news-error-state svg {
-    width: 48px;
-    height: 48px;
-    margin-bottom: var(--space-4);
-    color: var(--error-500);
-}
-
-.news-error-state h3 {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    margin-bottom: var(--space-2);
-}
-
-.news-error-state p {
-    font-size: var(--font-size-sm);
-    max-width: 400px;
-    margin: 0 auto var(--space-4);
-    color: var(--error-700);
-}
-
-.news-error-state .btn {
-    background: var(--error-600);
-    color: white;
-    border: none;
-}
-
-.news-error-state .btn:hover {
-    background: var(--error-700);
-}
-
-/* Enhanced Hover States */
-.trending-item {
-    transition: all var(--duration-normal) var(--ease-spring);
-}
-
-.trending-item:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--primary-200);
-    background: var(--primary-50);
-}
-
-.stat-card {
-    transition: all var(--duration-normal) var(--ease-spring);
+    z-index: 10;
 }
 
 .stat-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
     transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--primary-200);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
 }
 
-/* Print Styles */
-@media print {
-    .company-news {
-        box-shadow: none;
-        border: none;
-    }
-
-    .news-controls,
-    .news-actions,
-    .news-reactions,
-    .search-bar,
-    .category-filters {
-        display: none;
-    }
-
-    .news-card {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ccc;
-    }
-
-    .news-image {
-        height: auto;
-    }
-
-    .news-category,
-    .pinned-badge {
-        print-color-adjust: exact;
-        -webkit-print-color-adjust: exact;
-    }
+/* 🎯 ENHANCED PRIORITY BARS */
+.stat-bar-wrapper {
+    margin-bottom: var(--space-3);
 }
 
-@media (max-width: 1024px) {
-    .company-news {
-        padding: var(--space-6);
-    }
-    
-    .news-title {
-        font-size: var(--font-size-xl);
-    }
-    
-    .news-image {
-        height: 120px;
-    }
-    
-    .pinned-grid,
-    .news-grid {
-        grid-template-columns: 1fr;
-    }
+.stat-bar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)) !important;
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-3);
+    margin-bottom: var(--space-2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--duration-normal) var(--ease-spring);
+    backdrop-filter: blur(10px);
 }
 
+.stat-bar.high {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.4), rgba(239, 68, 68, 0.3)) !important;
+}
+
+.stat-bar.medium {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0.3)) !important;
+}
+
+.stat-bar.low {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(34, 197, 94, 0.3)) !important;
+}
+
+.stat-label,
+.stat-count {
+    color: white !important;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 📈 ENHANCED TRENDING SECTION */
+.trending-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    margin-bottom: var(--space-3);
+    transition: all var(--duration-normal) var(--ease-spring);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+}
+
+.trending-item:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* 🔧 ENHANCED CONTROLS */
+.news-controls {
+    display: flex;
+    gap: var(--space-2);
+    position: relative;
+    z-index: 10;
+}
+
+.btn-icon {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    border-radius: var(--radius-lg);
+    padding: var(--space-2);
+    transition: all var(--duration-normal) var(--ease-spring);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.btn-icon:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* 🎨 ENHANCED BADGES AND TAGS */
+.news-category,
+.pinned-badge,
+.priority-badge {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: var(--radius-md);
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 💫 ENHANCED ANIMATIONS */
+@keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-2px) rotate(2deg); }
+    50% { transform: translateY(0px) rotate(0deg); }
+    75% { transform: translateY(-1px) rotate(-1deg); }
+}
+
+/* 🌙 DARK MODE ENHANCEMENTS */
+[data-theme="dark"] .company-news {
+    /* Enhanced dark mode background matching other sections */
+    background: 
+        linear-gradient(45deg, var(--primary-400) 0%, transparent 50%, var(--primary-400) 100%),
+        linear-gradient(-45deg, var(--primary-500) 0%, transparent 50%, var(--primary-500) 100%),
+        linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.5) 25%, transparent 50%, rgba(6, 182, 212, 0.5) 75%, transparent 100%),
+        linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%),
+        radial-gradient(ellipse 1200px 800px at 20% 20%, rgba(139, 92, 246, 0.6) 0%, transparent 50%),
+        radial-gradient(ellipse 800px 1200px at 80% 80%, rgba(6, 182, 212, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 600px 600px at 50% 50%, rgba(16, 185, 129, 0.4) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.4) 0%, transparent 60%),
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.1) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.05) 4px, rgba(255, 255, 255, 0.05) 8px) !important;
+}
+
+/* 🔧 ENHANCED ICON SIZING - MATCHING OTHER SECTIONS */
+
+/* Force proper icon sizes with higher specificity */
+.company-news .news-title::before {
+    font-size: 20px !important;
+    line-height: 1 !important;
+}
+
+/* ALL SVG ICONS - Comprehensive targeting */
+.company-news svg,
+.company-news .section-subtitle svg,
+.company-news .stats-icon,
+.company-news .pin-icon {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.company-news .category-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.company-news .search-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.company-news .btn-icon svg,
+.company-news .btn-icon.small svg,
+.company-news #prevNews svg,
+.company-news #nextNews svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.company-news .news-category svg,
+.company-news .news-card svg {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* Specific targeting for any remaining large icons */
+.company-news .news-filters svg,
+.company-news .news-controls svg,
+.company-news .news-actions svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* Target any icons in stat cards */
+.company-news .stat-card svg {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* Target trending section icons */
+.company-news .trending-item svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* 🚨 UNIVERSAL ICON SIZE CONTROL - Catch-all for any missed icons */
+.company-news * svg:not(.custom-size) {
+    max-width: 20px !important;
+    max-height: 20px !important;
+}
+
+/* Override for specific small icons */
+.company-news .category-filters svg,
+.company-news .category-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+    max-width: 14px !important;
+    max-height: 14px !important;
+}
+
+/* Override for button icons */
+.company-news button svg,
+.company-news .btn svg,
+.company-news .search-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
+}
+
+/* Force emoji icon size */
+.company-news .news-title::before,
+company-news .news-title::before {
+    font-size: 20px !important;
+    line-height: 1 !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+/* 🚨 REMOVE ALL DARK BACKGROUNDS - FORCE GLASS MORPHISM EVERYWHERE */
+
+/* Override any remaining solid backgrounds */
+.company-news .news-filters,
+.company-news .category-filters,
+.company-news .pinned-news,
+.company-news .news-content,
+.company-news .news-stats,
+.company-news .stats-grid,
+.company-news .news-grid,
+.company-news .pinned-grid {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Fix any remaining dark elements */
+.company-news .news-image,
+.company-news .news-details,
+.company-news .news-headline,
+.company-news .news-excerpt,
+.company-news .news-meta,
+.company-news .news-author,
+.company-news .news-date,
+.company-news .news-actions,
+.company-news .news-reactions {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: white !important;
+}
+
+/* 🎯 FIX SOCIAL INTERACTION BUTTONS - GLASS MORPHISM STYLE */
+.company-news .news-reactions button,
+.company-news .news-actions button,
+.company-news .reaction-btn,
+.company-news .like-btn,
+.company-news .comment-btn,
+.company-news .share-btn,
+.company-news .news-reaction-btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-2) var(--space-3) !important;
+    font-size: var(--font-size-xs) !important;
+    font-weight: 500 !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    cursor: pointer !important;
+}
+
+.company-news .news-reactions button:hover,
+.company-news .news-actions button:hover,
+.company-news .reaction-btn:hover,
+.company-news .like-btn:hover,
+.company-news .comment-btn:hover,
+.company-news .share-btn:hover,
+.company-news .news-reaction-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Force icons in reaction buttons to be white */
+.company-news .news-reactions button svg,
+.company-news .news-actions button svg,
+.company-news .reaction-btn svg,
+.company-news .like-btn svg,
+.company-news .comment-btn svg,
+.company-news .share-btn svg,
+.company-news .news-reaction-btn svg {
+    color: white !important;
+    fill: white !important;
+    stroke: white !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* Fix reaction counts/numbers */
+.company-news .news-reactions .reaction-count,
+.company-news .news-reactions .like-count,
+.company-news .news-reactions .comment-count,
+.company-news .news-reactions .share-count {
+    color: white !important;
+    font-weight: 500 !important;
+    margin-left: var(--space-1) !important;
+}
+
+/* Force all inner containers to be transparent */
+.company-news .trending-section,
+.company-news .trending-items,
+.company-news .stat-header,
+.company-news .stat-chart,
+.company-news .stat-bars {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Remove any remaining dark borders and replace with glass borders */
+.company-news *:not(.search-input):not(input):not(select):not(textarea) {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Fix notification toasts if they exist */
+.company-news .notification-toast,
+.company-news .toast {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+/* Fix loading placeholder */
+.company-news .loading-placeholder {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Fix empty states */
+.company-news .news-empty-state,
+.company-news .news-error-state {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+/* Fix any modal or popup elements */
+.company-news .modal,
+.company-news .popup,
+.company-news .dropdown {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+/* 🔍 FIX SEARCH ICON SPECIFICALLY - GLASS MORPHISM STYLE */
+.company-news .search-icon,
+.company-news .search-btn,
+.company-news .search-button,
+.company-news [class*="search"] button,
+.company-news .news-search button,
+.company-news .search-input-wrapper button,
+.company-news .search-container button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-2) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    cursor: pointer !important;
+}
+
+.company-news .search-icon:hover,
+.company-news .search-btn:hover,
+.company-news .search-button:hover,
+.company-news [class*="search"] button:hover,
+.company-news .news-search button:hover,
+.company-news .search-input-wrapper button:hover,
+.company-news .search-container button:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Force search icon SVG to be white */
+.company-news .search-icon svg,
+.company-news .search-btn svg,
+.company-news .search-button svg,
+.company-news [class*="search"] button svg,
+.company-news .news-search button svg,
+.company-news .search-input-wrapper button svg,
+.company-news .search-container button svg {
+    color: white !important;
+    fill: white !important;
+    stroke: white !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* Target any search elements by common attributes */
+.company-news button[aria-label*="search" i],
+.company-news button[title*="search" i],
+.company-news [role="search"] button,
+.company-news form[role="search"] button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+/* Fix any remaining text that might be dark */
+.company-news h1,
+.company-news h2,
+.company-news h3,
+.company-news h4,
+.company-news h5,
+.company-news h6,
+.company-news p,
+.company-news span,
+.company-news div:not(.search-input):not(input),
+.company-news a,
+.company-news button:not(.search-input),
+.company-news label {
+    color: white !important;
+}
+
+/* Force proper z-index layering */
+.company-news .news-header,
+.company-news .news-content,
+.company-news .news-stats {
+    position: relative;
+    z-index: 10;
+}
+
+/* Remove any box-shadow that might look like dark backgrounds */
+.company-news .news-card,
+.company-news .stat-card,
+.company-news .category-btn,
+.company-news .search-bar,
+.company-news .trending-item {
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+}
+
+/* Make sure hover states maintain glass morphism */
+.company-news .news-card:hover,
+.company-news .stat-card:hover,
+.company-news .category-btn:hover,
+.company-news .trending-item:hover {
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* 📊 NEWS INSIGHTS SECTION - ENHANCED GLASS MORPHISM */
+
+/* Fix insights section header */
+.company-news .news-stats .section-subtitle {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 0 var(--space-4) 0 !important;
+    padding-bottom: var(--space-3) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    background: transparent !important;
+}
+
+/* Fix stat cards with proper glass morphism */
+.company-news .stat-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-6) !important;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    position: relative !important;
+    z-index: 10 !important;
+    color: white !important;
+}
+
+.company-news .stat-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Fix stat card headers */
+.company-news .stat-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: var(--space-4) !important;
+    background: transparent !important;
+}
+
+.company-news .stat-header h5 {
+    font-size: var(--font-size-base) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.company-news .stat-total {
+    font-size: var(--font-size-lg) !important;
+    font-weight: 700 !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    padding: var(--space-1) var(--space-3) !important;
+    border-radius: var(--radius-full) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Fix stat chart and bars */
+.company-news .stat-chart {
+    background: transparent !important;
+}
+
+.company-news .stat-bar-wrapper {
+    margin-bottom: var(--space-3) !important;
+}
+
+.company-news .stat-bar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)) !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-2) var(--space-3) !important;
+    margin-bottom: var(--space-2) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.company-news .stat-bar.high {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.4), rgba(239, 68, 68, 0.3)) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.company-news .stat-bar.medium {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0.3)) !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+.company-news .stat-bar.low {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(34, 197, 94, 0.3)) !important;
+    border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+/* Fix stat labels and counts */
+.company-news .stat-label,
+.company-news .stat-count {
+    color: white !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    font-size: var(--font-size-sm) !important;
+}
+
+/* Fix trending section */
+.company-news .trending-list {
+    background: transparent !important;
+}
+
+.company-news .trending-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-4) !important;
+    margin-bottom: var(--space-3) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    backdrop-filter: blur(10px) !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.company-news .trending-item:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Fix trending titles and metrics */
+.company-news .trending-title {
+    font-size: var(--font-size-sm) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 0 var(--space-2) 0 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.company-news .trending-metrics {
+    display: flex !important;
+    gap: var(--space-3) !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+.company-news .trending-metrics .metric {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-1) !important;
+    font-size: var(--font-size-xs) !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    padding: var(--space-1) var(--space-2) !important;
+    border-radius: var(--radius-md) !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    font-weight: 500 !important;
+}
+
+.company-news .trending-metrics .metric.total {
+    background: rgba(99, 102, 241, 0.3) !important;
+    border-color: rgba(99, 102, 241, 0.4) !important;
+    font-weight: 600 !important;
+}
+
+.company-news .trending-metrics .metric svg {
+    width: 12px !important;
+    height: 12px !important;
+    color: white !important;
+    flex-shrink: 0 !important;
+}
+
+/* Fix news actions section */
+.company-news .news-actions {
+    display: flex !important;
+    gap: var(--space-4) !important;
+    justify-content: center !important;
+    padding: var(--space-6) 0 0 0 !important;
+    margin-top: var(--space-6) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: transparent !important;
+}
+
+.company-news .news-actions .btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-3) var(--space-6) !important;
+    font-size: var(--font-size-sm) !important;
+    font-weight: 500 !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+}
+
+.company-news .news-actions .btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1) !important;
+}
+
+.company-news .news-actions .btn svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: white !important;
+}
+
+/* 📱 MOBILE ICON SIZING */
 @media (max-width: 768px) {
-    .company-news {
-        padding: var(--space-4);
-        margin-bottom: var(--space-4);
+    .company-news .news-title::before {
+        font-size: 18px !important;
     }
     
-    .news-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-4);
-        margin-bottom: var(--space-6);
+    .company-news svg,
+    .company-news .section-subtitle svg {
+        width: 18px !important;
+        height: 18px !important;
+        max-width: 18px !important;
+        max-height: 18px !important;
     }
     
-    .news-title {
-        font-size: var(--font-size-lg);
-        flex-direction: column;
-        gap: var(--space-2);
-        text-align: center;
-        align-self: stretch;
+    .company-news .category-btn svg {
+        width: 12px !important;
+        height: 12px !important;
+        max-width: 12px !important;
+        max-height: 12px !important;
     }
     
-    .news-controls {
-        align-self: center;
+    .company-news button svg {
+        width: 14px !important;
+        height: 14px !important;
+        max-width: 14px !important;
+        max-height: 14px !important;
     }
     
-    .news-details {
-        padding: var(--space-4);
+    /* Mobile adjustments for insights section */
+    .company-news .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-3) !important;
     }
     
-    .news-headline {
-        font-size: var(--font-size-lg);
+    .company-news .trending-metrics {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: var(--space-2) !important;
     }
     
-    .news-actions {
-        grid-template-columns: 1fr;
-        gap: var(--space-3);
-    }
-    
-    .news-meta {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-2);
-    }
-    
-    .notification-toast {
-        bottom: var(--space-4);
-        right: var(--space-4);
-        left: var(--space-4);
-        padding: var(--space-3) var(--space-4);
-    }
-    
-    .stats-grid {
-        grid-template-columns: 1fr;
+    .company-news .news-actions {
+        flex-direction: column !important;
+        align-items: center !important;
     }
 }
 
 @media (max-width: 480px) {
-    .company-news {
-        padding: var(--space-3);
-    }
-    
-    .news-title {
-        font-size: var(--font-size-base);
-    }
-    
-    .news-title::before {
-        font-size: 14px !important;
-    }
-    
-    /* Force mobile icon size with higher specificity */
     .company-news .news-title::before {
-        font-size: 14px !important;
-        line-height: 1 !important;
+        font-size: 16px !important;
     }
     
-    .news-details {
-        padding: var(--space-3);
+    .company-news svg {
+        max-width: 16px !important;
+        max-height: 16px !important;
     }
     
-    .news-headline {
-        font-size: var(--font-size-base);
+    .company-news .section-subtitle svg {
+        width: 16px !important;
+        height: 16px !important;
+        max-width: 16px !important;
+        max-height: 16px !important;
     }
     
-    .news-image {
-        height: 100px;
-    }
-    
-    .category-filters {
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-bottom: var(--space-2);
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-    }
-    
-    .category-filters::-webkit-scrollbar {
-        display: none;
-    }
-    
-    .category-btn {
-        flex-shrink: 0;
-    }
-    
-    .news-reactions {
-        flex-wrap: wrap;
-    }
-    
-    /* Make category icons even smaller on mobile */
-    .news-category svg {
+    .company-news .category-btn svg {
         width: 10px !important;
         height: 10px !important;
+        max-width: 10px !important;
+        max-height: 10px !important;
     }
     
-    /* Make category filter button icons even smaller on mobile */
-    .category-btn svg {
+    .company-news .search-btn svg,
+    .company-news button svg {
         width: 12px !important;
         height: 12px !important;
+        max-width: 12px !important;
+        max-height: 12px !important;
     }
-} 
+}
+
+/* 📊 ENHANCED NEWS INSIGHTS SECTION - IMPROVED ALIGNMENT */
+
+/* Fix insights section header alignment */
+.company-news .news-stats .section-subtitle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: var(--space-3) !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 0 var(--space-6) 0 !important;
+    padding: 0 0 var(--space-4) 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    background: transparent !important;
+}
+
+/* Enhanced stats grid with better alignment */
+.company-news .stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: var(--space-5) !important;
+    margin-top: var(--space-6) !important;
+    padding: 0 !important;
+    align-items: start !important;
+}
+
+/* Fix stat cards with consistent alignment */
+.company-news .stat-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-6) !important;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    position: relative !important;
+    z-index: 10 !important;
+    color: white !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+.company-news .stat-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Fix stat card headers with better alignment */
+.company-news .stat-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    margin-bottom: var(--space-5) !important;
+    background: transparent !important;
+    gap: var(--space-3) !important;
+}
+
+.company-news .stat-header h5 {
+    font-size: var(--font-size-lg) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    line-height: 1.3 !important;
+    flex: 1 !important;
+}
+
+.company-news .stat-total {
+    font-size: var(--font-size-xl) !important;
+    font-weight: 700 !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    padding: var(--space-2) var(--space-4) !important;
+    border-radius: var(--radius-full) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    white-space: nowrap !important;
+    align-self: flex-start !important;
+}
+
+/* Enhanced stat chart content with proper alignment */
+.company-news .stat-chart {
+    background: transparent !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    min-height: 200px !important;
+}
+
+/* Improved stat bar wrapper alignment */
+.company-news .stat-bar-wrapper {
+    margin-bottom: var(--space-4) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-2) !important;
+}
+
+/* Enhanced stat bars with perfect alignment */
+.company-news .stat-bar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15)) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-3) var(--space-4) !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    min-height: 48px !important;
+}
+
+.company-news .stat-bar:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25)) !important;
+    transform: translateX(4px) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.company-news .stat-bar.high {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.5), rgba(239, 68, 68, 0.35)) !important;
+    border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
+.company-news .stat-bar.medium {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.5), rgba(245, 158, 11, 0.35)) !important;
+    border-color: rgba(245, 158, 11, 0.4) !important;
+}
+
+.company-news .stat-bar.low {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.5), rgba(34, 197, 94, 0.35)) !important;
+    border-color: rgba(34, 197, 94, 0.4) !important;
+}
+
+/* Perfect alignment for stat labels and counts */
+.company-news .stat-label {
+    color: white !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    font-size: var(--font-size-sm) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    flex: 1 !important;
+    text-align: left !important;
+}
+
+.company-news .stat-count {
+    color: white !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    font-size: var(--font-size-lg) !important;
+    white-space: nowrap !important;
+    text-align: right !important;
+    min-width: 40px !important;
+}
+
+/* Enhanced trending section with better alignment */
+.company-news .trending-list {
+    background: transparent !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+    margin-top: var(--space-2) !important;
+}
+
+.company-news .trending-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-4) var(--space-5) !important;
+    margin-bottom: 0 !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    backdrop-filter: blur(10px) !important;
+    position: relative !important;
+    z-index: 10 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+}
+
+.company-news .trending-item:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    transform: translateY(-2px) translateX(4px) !important;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Perfect trending title alignment */
+.company-news .trending-title {
+    font-size: var(--font-size-base) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    line-height: 1.4 !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: var(--space-2) !important;
+}
+
+/* Enhanced trending metrics with perfect alignment */
+.company-news .trending-metrics {
+    display: flex !important;
+    gap: var(--space-3) !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+}
+
+.company-news .trending-metrics .metric {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+    font-size: var(--font-size-sm) !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    padding: var(--space-2) var(--space-3) !important;
+    border-radius: var(--radius-lg) !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+    min-height: 32px !important;
+}
+
+.company-news .trending-metrics .metric.total {
+    background: rgba(99, 102, 241, 0.4) !important;
+    border-color: rgba(99, 102, 241, 0.5) !important;
+    font-weight: 600 !important;
+    color: white !important;
+}
+
+.company-news .trending-metrics .metric svg {
+    width: 14px !important;
+    height: 14px !important;
+    color: white !important;
+    flex-shrink: 0 !important;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* Enhanced news actions section with perfect alignment */
+.company-news .news-actions {
+    display: flex !important;
+    gap: var(--space-4) !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: var(--space-6) 0 0 0 !important;
+    margin-top: var(--space-6) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: transparent !important;
+    flex-wrap: wrap !important;
+}
+
+.company-news .news-actions .btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: white !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-3) var(--space-6) !important;
+    font-size: var(--font-size-sm) !important;
+    font-weight: 600 !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: var(--space-2) !important;
+    min-height: 44px !important;
+    white-space: nowrap !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.company-news .news-actions .btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15) !important;
+}
+
+.company-news .news-actions .btn svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: white !important;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* 📱 ENHANCED MOBILE ALIGNMENT */
+@media (max-width: 768px) {
+    /* Mobile stats grid - single column for better alignment */
+    .company-news .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-4) !important;
+        margin-top: var(--space-4) !important;
+    }
+    
+    /* Mobile stat card adjustments */
+    .company-news .stat-card {
+        padding: var(--space-5) !important;
+        min-height: auto !important;
+    }
+    
+    /* Mobile stat header alignment */
+    .company-news .stat-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: var(--space-2) !important;
+        margin-bottom: var(--space-4) !important;
+    }
+    
+    .company-news .stat-header h5 {
+        font-size: var(--font-size-base) !important;
+    }
+    
+    .company-news .stat-total {
+        font-size: var(--font-size-lg) !important;
+        align-self: flex-start !important;
+    }
+    
+    /* Mobile trending metrics alignment */
+    .company-news .trending-metrics {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: var(--space-2) !important;
+    }
+    
+    .company-news .trending-metrics .metric {
+        font-size: var(--font-size-xs) !important;
+        padding: var(--space-1) var(--space-2) !important;
+        min-height: 28px !important;
+    }
+    
+    /* Mobile news actions alignment */
+    .company-news .news-actions {
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+        align-items: stretch !important;
+    }
+    
+    .company-news .news-actions .btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small mobile adjustments */
+    .company-news .stats-grid {
+        gap: var(--space-3) !important;
+        margin-top: var(--space-3) !important;
+    }
+    
+    .company-news .stat-card {
+        padding: var(--space-4) !important;
+    }
+    
+    .company-news .stat-chart {
+        min-height: 160px !important;
+    }
+    
+    .company-news .stat-bar {
+        padding: var(--space-2) var(--space-3) !important;
+        min-height: 40px !important;
+    }
+    
+    .company-news .stat-label {
+        font-size: var(--font-size-xs) !important;
+    }
+    
+    .company-news .stat-count {
+        font-size: var(--font-size-base) !important;
+    }
+    
+    .company-news .trending-item {
+        padding: var(--space-3) var(--space-4) !important;
+    }
+    
+    .company-news .trending-title {
+        font-size: var(--font-size-sm) !important;
+    }
+}
