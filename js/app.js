@@ -6,6 +6,42 @@ let analyticsServiceInstance = null;
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Quantum Forge - Loading...');
     
+    // Debug: Check if custom elements are registered
+    console.log('🔍 Checking custom element registration...');
+    const customElementsToCheck = [
+        'analytics-dashboard',
+        'task-system', 
+        'enhanced-knowledge-hub',
+        'live-activity-feed',
+        'smart-insights-dashboard',
+        'wellness-tracker',
+        'team-spotlight',
+        'company-news',
+        'collaboration-hub',
+        'office-visualizer',
+        'enhanced-interactive-poll',
+        'weather-widget',
+        'achievement-system',
+        'company-culture-showcase'
+    ];
+    
+    customElementsToCheck.forEach(tagName => {
+        const isRegistered = customElements.get(tagName);
+        console.log(`${isRegistered ? '✅' : '❌'} ${tagName}: ${isRegistered ? 'Registered' : 'NOT REGISTERED'}`);
+    });
+    
+    // Debug: Check if elements exist in DOM
+    console.log('🔍 Checking DOM elements...');
+    customElementsToCheck.forEach(tagName => {
+        const elements = document.querySelectorAll(tagName);
+        console.log(`📦 ${tagName}: ${elements.length} elements found`);
+        elements.forEach((el, index) => {
+            console.log(`  - Element ${index}:`, el);
+            console.log(`    - innerHTML length: ${el.innerHTML.length}`);
+            console.log(`    - children count: ${el.children.length}`);
+        });
+    });
+    
     // Simple initialization without complex timing
     initializeTheme();
     initializeSidebar();
@@ -36,6 +72,84 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     console.log('✅ Quantum Forge - Ready!');
+    
+    // Fallback: If components are not rendering, show fallback content
+    setTimeout(() => {
+        console.log('🔍 Checking component rendering status...');
+        const componentsToCheck = [
+            'analytics-dashboard',
+            'task-system',
+            'enhanced-knowledge-hub'
+        ];
+        
+        let hasEmptyComponents = false;
+        componentsToCheck.forEach(tagName => {
+            const elements = document.querySelectorAll(tagName);
+            elements.forEach(el => {
+                console.log(`🔍 Checking ${tagName}:`, {
+                    innerHTML: el.innerHTML.length,
+                    offsetWidth: el.offsetWidth,
+                    offsetHeight: el.offsetHeight,
+                    display: getComputedStyle(el).display,
+                    visibility: getComputedStyle(el).visibility,
+                    opacity: getComputedStyle(el).opacity,
+                    position: getComputedStyle(el).position,
+                    zIndex: getComputedStyle(el).zIndex
+                });
+                
+                if (el.innerHTML.trim().length === 0) {
+                    console.warn(`⚠️ Empty component detected: ${tagName}`);
+                    hasEmptyComponents = true;
+                    
+                    // Add fallback content
+                    el.innerHTML = `
+                        <div style="padding: 20px; background: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; color: white;">
+                            <h3>${tagName.replace('-', ' ').toUpperCase()}</h3>
+                            <p>Component is loading...</p>
+                            <div style="width: 40px; height: 40px; border: 4px solid rgba(255,255,255,0.3); border-top: 4px solid white; border-radius: 50%; animation: spin 1s linear infinite; margin: 20px auto;"></div>
+                        </div>
+                    `;
+                } else if (el.offsetWidth === 0 || el.offsetHeight === 0) {
+                    console.warn(`⚠️ Component has no dimensions: ${tagName}`, {
+                        width: el.offsetWidth,
+                        height: el.offsetHeight,
+                        display: getComputedStyle(el).display,
+                        visibility: getComputedStyle(el).visibility
+                    });
+                    
+                    // Force visibility
+                    el.style.display = 'block';
+                    el.style.visibility = 'visible';
+                    el.style.opacity = '1';
+                    el.style.width = '100%';
+                    el.style.height = 'auto';
+                    el.style.minHeight = '200px';
+                }
+            });
+        });
+        
+        if (hasEmptyComponents) {
+            console.log('🛠️ Applied fallback content to empty components');
+        }
+        
+        // Test: Try to manually create a component
+        console.log('🧪 Testing manual component creation...');
+        try {
+            const testElement = document.createElement('analytics-dashboard');
+            console.log('✅ Manual component creation successful:', testElement);
+            
+            // Check if the component has a constructor
+            const constructor = customElements.get('analytics-dashboard');
+            if (constructor) {
+                console.log('✅ Component constructor found:', constructor);
+                console.log('✅ Component prototype:', constructor.prototype);
+            } else {
+                console.log('❌ Component constructor not found');
+            }
+        } catch (error) {
+            console.error('❌ Manual component creation failed:', error);
+        }
+    }, 3000); // Wait 3 seconds for components to render
 });
 
 // Cleanup when page is unloaded

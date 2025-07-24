@@ -1864,28 +1864,34 @@ class SpectacularTaskSystem extends HTMLElement {
 }
 
 console.log('📝 Task System: About to register custom elements...');
-console.log('🔍 task-system already registered:', !!customElements.get('task-system'));
-console.log('🔍 enhanced-task-system already registered:', !!customElements.get('enhanced-task-system'));
 
-try {
-    if (!customElements.get('task-system')) {
+// Check if already registered to prevent duplicate registration
+const taskSystemRegistered = customElements.get('task-system');
+const enhancedTaskSystemRegistered = customElements.get('enhanced-task-system');
+
+console.log('🔍 task-system already registered:', !!taskSystemRegistered);
+console.log('🔍 enhanced-task-system already registered:', !!enhancedTaskSystemRegistered);
+
+// Only register if not already registered
+if (!taskSystemRegistered) {
+    try {
         customElements.define('task-system', SpectacularTaskSystem);
         console.log('✅ task-system custom element registered successfully!');
-    } else {
-        console.log('⚠️ task-system already registered, skipping');
+    } catch (error) {
+        console.error('❌ Failed to register task-system:', error);
     }
-} catch (error) {
-    console.error('❌ Failed to register task-system:', error);
+} else {
+    console.log('⚠️ task-system already registered, skipping');
 }
 
-try {
-    // Also register as enhanced-task-system for CSS compatibility
-    if (!customElements.get('enhanced-task-system')) {
+// Only register enhanced version if not already registered
+if (!enhancedTaskSystemRegistered) {
+    try {
         customElements.define('enhanced-task-system', SpectacularTaskSystem);
         console.log('✅ enhanced-task-system custom element registered successfully!');
-    } else {
-        console.log('⚠️ enhanced-task-system already registered, skipping');
+    } catch (error) {
+        console.error('❌ Failed to register enhanced-task-system:', error);
     }
-} catch (error) {
-    console.error('❌ Failed to register enhanced-task-system:', error);
+} else {
+    console.log('⚠️ enhanced-task-system already registered, skipping');
 } 

@@ -321,7 +321,7 @@ class AnalyticsService {
         
         if (window.performanceManager && window.performanceManager.createManagedInterval) {
             // Use performance manager for better resource management
-            this.updateInterval = window.performanceManager.createManagedInterval(() => {
+            this.updateInterval = window.performanceManager.createManagedInterval('analytics-service', () => {
                 if (!this.isActive) return;
                 this.generateMockData();
                 this.notifySubscribers();
@@ -343,7 +343,9 @@ class AnalyticsService {
         
         if (this.updateInterval) {
             if (window.performanceManager && window.performanceManager.clearManagedInterval) {
-                window.performanceManager.clearManagedInterval(this.updateInterval);
+                // Handle both object format (from managed interval) and direct ID
+                const intervalId = this.updateInterval.id || this.updateInterval;
+                window.performanceManager.clearManagedInterval('analytics-service', intervalId);
             } else {
                 clearInterval(this.updateInterval);
             }

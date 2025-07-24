@@ -1629,6 +1629,28 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 }, index * 150); // Stagger the animations
             });
         }, 100);
+        
+        // 🎬 CRITICAL FIX: Ensure all AI insight cards are visible
+        setTimeout(() => {
+            const insightCards = this.querySelectorAll('.ai-insight-card');
+            insightCards.forEach((card, index) => {
+                if (!card.classList.contains('animate-in')) {
+                    card.classList.add('animate-in');
+                    console.log(`🔧 Fixed visibility for insight card ${index}`);
+                }
+            });
+        }, 500);
+        
+        // 🎬 ADDITIONAL SAFETY CHECK: Force visibility after a longer delay
+        setTimeout(() => {
+            const insightCards = this.querySelectorAll('.ai-insight-card');
+            insightCards.forEach((card, index) => {
+                card.classList.add('animate-in');
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+                console.log(`🛡️ Force-enabled visibility for insight card ${index}`);
+            });
+        }, 1000);
     }
 
     getHeatmapColor(value) {

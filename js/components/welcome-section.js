@@ -962,7 +962,12 @@ class SpectacularWelcomeSection extends HTMLElement {
 }
 
 // Register the custom element
-customElements.define('spectacular-welcome-section', SpectacularWelcomeSection);
+if (!customElements.get('spectacular-welcome-section')) {
+    customElements.define('spectacular-welcome-section', SpectacularWelcomeSection);
+    console.log('✅ spectacular-welcome-section custom element registered successfully!');
+} else {
+    console.log('⚠️ spectacular-welcome-section already registered, skipping');
+}
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {

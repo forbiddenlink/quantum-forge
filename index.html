@@ -273,11 +273,28 @@
         }
     </script>
     
+    <!-- 🚀 PERFORMANCE & SECURITY SERVICES - CRITICAL LOAD -->
+    <script type="module">
+        // Load critical services immediately
+        Promise.all([
+            import('./js/services/performance-optimizer.js'),
+            import('./js/services/security-manager.js')
+        ]).then(() => {
+            console.log('🚀 Critical services loaded');
+            document.body.classList.add('services-ready');
+        }).catch(error => {
+            console.error('❌ Failed to load critical services:', error);
+        });
+    </script>
+
     <!-- EMERGENCY MEMORY LEAK FIX - LOAD FIRST -->
     <script src="js/emergency-memory-fix.js"></script>
     
     <!-- ENHANCED ACCESSIBILITY FEATURES -->
     <script src="js/components/accessibility-enhancements.js"></script>
+    
+    <!-- 🔥 CRITICAL CSS - Fastest First Paint -->
+    <link rel="stylesheet" href="styles/critical.css">
     
     <!-- RESTORED: Your original working CSS -->
     <link rel="stylesheet" href="styles/main.css">
@@ -289,7 +306,10 @@
     <link rel="stylesheet" href="styles/simple-mobile.css">
     
     <!-- ✨ CONTEST-WINNING OPTIMIZED LAYOUT ✨ -->
-    <link rel="stylesheet" href="styles/optimized-layout.css">
+    <!-- Removed non-existent optimized-layout.css file -->
+    
+    <!-- 📱 MOBILE PERFORMANCE OPTIMIZATIONS -->
+    <link rel="stylesheet" href="styles/mobile-optimizations.css">
     
     <!-- 🏆 NEW CONTEST COMPONENTS 🏆 -->
     <link rel="stylesheet" href="styles/live-activity-feed.css">
@@ -343,17 +363,8 @@
         <link rel="stylesheet" href="styles/accessibility-enhancements.css">
     </noscript>
     
-    <!-- 🎯 CRITICAL SPACING OVERRIDE - LOADS ABSOLUTELY LAST 🎯 -->
-    <link rel="stylesheet" href="styles/critical-spacing-override.css">
-    
-    <!-- 🚨 FINAL SPACING FIX - LOADS AFTER EVERYTHING 🚨 -->
-    <link rel="stylesheet" href="styles/final-spacing-fix.css">
-    
-    <!-- 🧹 HOMEPAGE DESIGN CLEANUP - LOADS ABSOLUTELY LAST 🧹 -->
-    <link rel="stylesheet" href="styles/homepage-design-cleanup.css">
-    
-    <!-- 🔧 URGENT LAYOUT FIXES - LOADS AFTER EVERYTHING ELSE 🔧 -->
-    <link rel="stylesheet" href="styles/layout-fixes.css">
+    <!-- 🏆 CONTEST ENHANCEMENTS - PRODUCTION READY -->
+    <script type="module" src="js/contest-enhancements.js"></script>
     
 
     
@@ -387,12 +398,48 @@
                 radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
                 repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
                 repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
-            border-radius: var(--radius-2xl) !important;
-            padding: var(--space-8) !important;
-            color: white !important;
+        }
+
+        /* COMPONENT STYLING TO MATCH WELCOME SECTION */
+        analytics-dashboard,
+        task-system,
+        enhanced-knowledge-hub,
+        live-activity-feed,
+        smart-insights-dashboard,
+        wellness-tracker,
+        team-spotlight,
+        company-news,
+        collaboration-hub,
+        office-visualizer,
+        enhanced-interactive-poll,
+        weather-widget,
+        achievement-system,
+        company-culture-showcase {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            width: 100% !important;
+            height: auto !important;
+            min-height: 200px !important;
+            position: relative !important;
+            z-index: 1 !important;
+            /* Match welcome section's sophisticated gradient background */
+            background: 
+                linear-gradient(45deg, #6366f1 0%, transparent 50%, #6366f1 100%),
+                linear-gradient(-45deg, #4338ca 0%, transparent 50%, #4338ca 100%),
+                linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%),
+                linear-gradient(135deg, #6366f1 0%, #4338ca 100%),
+                radial-gradient(ellipse 1400px 1000px at 20% 20%, rgba(139, 92, 246, 0.6) 0%, transparent 50%),
+                radial-gradient(ellipse 1000px 1400px at 80% 80%, rgba(6, 182, 212, 0.5) 0%, transparent 50%),
+                radial-gradient(ellipse 800px 800px at 50% 50%, rgba(16, 185, 129, 0.4) 0%, transparent 70%),
+                radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
+                repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
+                repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
+            border-radius: 16px !important;
+            padding: 32px !important;
             border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
             backdrop-filter: blur(20px) !important;
-            -webkit-backdrop-filter: blur(20px) !important;
             box-shadow: 
                 0 20px 25px -5px rgba(0, 0, 0, 0.1), 
                 0 10px 10px -5px rgba(0, 0, 0, 0.04),
@@ -400,95 +447,67 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.4),
                 0 0 60px rgba(99, 102, 241, 0.4),
                 0 0 120px rgba(99, 102, 241, 0.2) !important;
+            margin: 20px 0 !important;
         }
 
-        /* ULTIMATE FORCE ALL TEXT WHITE */
-        html body .enhanced-knowledge-hub *:not(input):not(select):not(textarea):not(.search-input),
-        html body .enhanced-knowledge-hub.spectacular-mode *:not(input):not(select):not(textarea):not(.search-input),
-        html body .enhanced-knowledge-hub h1,
-        html body .enhanced-knowledge-hub h2,
-        html body .enhanced-knowledge-hub h3,
-        html body .enhanced-knowledge-hub h4,
-        html body .enhanced-knowledge-hub h5,
-        html body .enhanced-knowledge-hub h6,
-        html body .enhanced-knowledge-hub p,
-        html body .enhanced-knowledge-hub span,
-        html body .enhanced-knowledge-hub div,
-        html body .enhanced-knowledge-hub .insight-title,
-        html body .enhanced-knowledge-hub .section-title,
-        html body .enhanced-knowledge-hub .hub-title,
-        html body .enhanced-knowledge-hub .resource-title,
-        html body .enhanced-knowledge-hub .stat-label,
-        html body .enhanced-knowledge-hub .confidence-text,
-        html body .enhanced-knowledge-hub .insight-description,
-        html body .enhanced-knowledge-hub .resource-summary {
-            color: white !important;
+        /* MINIMAL WELCOME SECTION VISIBILITY - NO STYLING OVERRIDES */
+        .welcome-section {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
 
-        /* ULTIMATE FORCE ALL CARDS GLASS MORPHISM */
-        html body .enhanced-knowledge-hub .ai-insight-card,
-        html body .enhanced-knowledge-hub .analytics-card,
-        html body .enhanced-knowledge-hub .learning-path-card,
-        html body .enhanced-knowledge-hub .enhanced-resource-card,
-        html body .enhanced-knowledge-hub .resource-card,
-        html body .enhanced-knowledge-hub .insight-card,
-        html body .enhanced-knowledge-hub .stat-card,
-        html body .enhanced-knowledge-hub .card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
-            backdrop-filter: blur(15px) !important;
-            -webkit-backdrop-filter: blur(15px) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            color: white !important;
-            border-radius: var(--radius-xl) !important;
-            padding: var(--space-5) !important;
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+        /* DASHBOARD GRID STYLING */
+        .dashboard-grid,
+        .dashboard-row,
+        .dashboard-item {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            width: 100% !important;
+            height: auto !important;
+            min-height: 100px !important;
         }
 
-        /* ULTIMATE FORCE SECTIONS TRANSPARENT */
-        html body .enhanced-knowledge-hub .ai-insights-section,
-        html body .enhanced-knowledge-hub .learning-analytics,
-        html body .enhanced-knowledge-hub .learning-paths-section,
-        html body .enhanced-knowledge-hub .resources-section,
-        html body .enhanced-knowledge-hub .section {
-            background: transparent !important;
-            background-color: transparent !important;
-        }
-
-        /* ULTIMATE FORCE BUTTONS */
-        html body .enhanced-knowledge-hub button,
-        html body .enhanced-knowledge-hub .btn,
-        html body .enhanced-knowledge-hub .resource-btn,
-        html body .enhanced-knowledge-hub .insight-action-btn {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)) !important;
-            color: white !important;
-            border: 1px solid rgba(255, 255, 255, 0.3) !important;
-            border-radius: var(--radius-lg) !important;
-        }
-
-        /* ULTIMATE FORCE BADGES */
-        html body .enhanced-knowledge-hub .badge,
-        html body .enhanced-knowledge-hub .tag,
-        html body .enhanced-knowledge-hub .resource-tag,
-        html body .enhanced-knowledge-hub .impact-badge,
-        html body .enhanced-knowledge-hub .confidence-indicator,
-        html body .enhanced-knowledge-hub .priority-badge {
-            background: rgba(255, 255, 255, 0.2) !important;
-            color: white !important;
-            border: 1px solid rgba(255, 255, 255, 0.3) !important;
-        }
-
-        /* ULTIMATE REMOVE WHITE BACKGROUNDS */
-        html body .enhanced-knowledge-hub *:not(input):not(select):not(textarea):not(.search-input):not(.search-icon) {
-            background-color: transparent !important;
-        }
-
-        /* FORCE GRIDS TO DISPLAY */
-        html body .enhanced-knowledge-hub .ai-insights-grid,
-        html body .enhanced-knowledge-hub .analytics-grid,
-        html body .enhanced-knowledge-hub .learning-paths-grid,
-        html body .enhanced-knowledge-hub .resources-container {
+        .dashboard-grid {
             display: grid !important;
-            background: transparent !important;
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+            padding: 30px !important;
+            background: white !important;
+        }
+
+        .dashboard-row {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 30px !important;
+        }
+
+        .dashboard-item {
+            margin: 0 !important;
+        }
+
+        .dashboard-item.full-width {
+            grid-column: 1 / -1 !important;
+        }
+
+        /* FORCE MAIN CONTENT VISIBILITY */
+        .main-content {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            width: 100% !important;
+            height: auto !important;
+            min-height: 100vh !important;
+            padding: 20px !important;
+            background: white !important;
+        }
+
+        /* FORCE BODY VISIBILITY */
+        body {
+            background: white !important;
+            color: #333 !important;
+            font-family: 'Inter', sans-serif !important;
         }
 
         /* OVERRIDE ANY INLINE STYLES */
@@ -949,5 +968,49 @@
     <script src="js/components/smart-insights-dashboard.js"></script>
     <script src="js/components/wellness-tracker.js"></script>
     
+    <!-- Component Loading Check -->
+    <script>
+        // Ensure all components are loaded before app initialization
+        window.addEventListener('load', () => {
+            console.log('📦 All scripts loaded, checking component registration...');
+            
+            // Force component registration check
+            const components = [
+                'analytics-dashboard',
+                'task-system',
+                'enhanced-knowledge-hub',
+                'live-activity-feed',
+                'smart-insights-dashboard',
+                'wellness-tracker'
+            ];
+            
+            components.forEach(tagName => {
+                if (!customElements.get(tagName)) {
+                    console.error(`❌ Component not registered: ${tagName}`);
+                } else {
+                    console.log(`✅ Component registered: ${tagName}`);
+                }
+            });
+            
+            // Force re-render of components
+            setTimeout(() => {
+                console.log('🔄 Forcing component re-render...');
+                components.forEach(tagName => {
+                    const elements = document.querySelectorAll(tagName);
+                    elements.forEach(el => {
+                        if (el.innerHTML.trim().length === 0) {
+                            console.log(`🔄 Re-rendering empty component: ${tagName}`);
+                            // Trigger connectedCallback by removing and re-adding
+                            const parent = el.parentNode;
+                            if (parent) {
+                                parent.removeChild(el);
+                                parent.appendChild(el);
+                            }
+                        }
+                    });
+                });
+            }, 1000);
+        });
+    </script>
 </body>
 </html>

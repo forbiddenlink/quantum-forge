@@ -35,6 +35,17 @@ class PerformanceManager {
 
     // Create a managed interval that auto-cleans with component
     createManagedInterval(componentName, callback, interval, options = {}) {
+        // Validate parameters
+        if (typeof callback !== 'function') {
+            console.error('createManagedInterval: callback must be a function', { componentName, callback });
+            return null;
+        }
+        
+        if (typeof interval !== 'number' || interval <= 0) {
+            console.error('createManagedInterval: interval must be a positive number', { componentName, interval });
+            return null;
+        }
+        
         const { 
             maxExecutions = Infinity, 
             stopOnHidden = true,
@@ -198,6 +209,19 @@ class PerformanceManager {
         if (this.componentIntervals.has(componentName)) {
             this.componentIntervals.get(componentName).delete(intervalId);
         }
+    }
+
+    // Pause specific managed interval
+    pauseManagedInterval(componentName, intervalId) {
+        // For now, just clear the interval (pause = stop)
+        this.clearManagedInterval(componentName, intervalId);
+    }
+
+    // Resume specific managed interval
+    resumeManagedInterval(componentName, intervalId) {
+        // This would need to be implemented with interval recreation
+        // For now, just log that it's not fully implemented
+        console.warn('Resume functionality not fully implemented for managed intervals');
     }
 
     // Pause all intervals for a component

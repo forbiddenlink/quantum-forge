@@ -20,8 +20,8 @@
 
     /* Mobile Dashboard Grid - Only on mobile */
     .dashboard-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1rem !important;
+        display: block !important;
+        width: 100% !important;
     }
 
     /* Mobile Main Content - Slight padding adjustment */

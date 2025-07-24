@@ -907,8 +907,8 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all var(--duration-normal) var(--ease-spring);
     margin-bottom: var(--space-4);
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: translateY(0);
     cursor: pointer;
     color: white;
     position: relative;
@@ -931,6 +931,25 @@
     opacity: 1;
     transform: translateY(0);
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 🎬 CRITICAL FIX: Ensure all AI insight cards are always visible */
+.ai-insight-card {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.ai-insight-card .insight-title,
+.ai-insight-card .insight-description,
+.ai-insight-card .confidence-label,
+.ai-insight-card .impact-badge {
+    opacity: 1 !important;
+    color: white !important;
+}
+
+.ai-insight-card .insight-action-btn {
+    opacity: 1 !important;
+    pointer-events: auto !important;
 }
 
 .ai-insight-card:hover {
@@ -971,6 +990,27 @@
 .insight-type-icon.alert {
     background: rgba(239, 68, 68, 0.2);
     color: var(--error-200);
+}
+
+/* 🎬 CRITICAL FIX: Ensure alert-type insight cards are always visible */
+.ai-insight-card.alert {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.ai-insight-card.alert .insight-title,
+.ai-insight-card.alert .insight-description,
+.ai-insight-card.alert .confidence-label,
+.ai-insight-card.alert .impact-badge {
+    opacity: 1 !important;
+    color: white !important;
+}
+
+.ai-insight-card.alert .insight-action-btn {
+    opacity: 1 !important;
+    pointer-events: auto !important;
 }
 
 .insight-type-icon.prediction {

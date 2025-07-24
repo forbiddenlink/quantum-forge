@@ -13,6 +13,13 @@ class AccessibilityEnhancements {
     }
 
     init() {
+        // Wait for document.body to be ready
+        if (!document.body) {
+            console.warn('Document body not ready, waiting...');
+            setTimeout(() => this.init(), 100);
+            return;
+        }
+        
         // Create essential accessibility elements
         this.createLiveRegions();
         this.createSkipLinks();
@@ -37,6 +44,7 @@ class AccessibilityEnhancements {
             document.body.appendChild(this.liveRegion);
         } else {
             console.warn('Document body not ready for accessibility enhancements');
+            return;
         }
 
         // Create status announcer for immediate announcements
@@ -45,10 +53,20 @@ class AccessibilityEnhancements {
         this.statusAnnouncer.setAttribute('aria-atomic', 'true');
         this.statusAnnouncer.className = 'status-announcer';
         this.statusAnnouncer.id = 'status-announcer';
-        document.body.appendChild(this.statusAnnouncer);
+        
+        if (document.body) {
+            document.body.appendChild(this.statusAnnouncer);
+        } else {
+            console.warn('Document body not ready for status announcer');
+        }
     }
 
     createSkipLinks() {
+        if (!document.body) {
+            console.warn('Document body not ready for skip links');
+            return;
+        }
+        
         const skipLinks = document.createElement('div');
         skipLinks.className = 'skip-links';
         skipLinks.innerHTML = `
