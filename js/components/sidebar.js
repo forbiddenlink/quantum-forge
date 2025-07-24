@@ -474,6 +474,80 @@ class Sidebar extends HTMLElement {
                 </div>
             </nav>
         `;
+        
+        // 🔧 FORCE LIGHT MODE STYLES IMMEDIATELY AFTER RENDER
+        setTimeout(() => {
+            this.forceLightModeStyles();
+        }, 0);
+    }
+    
+    forceLightModeStyles() {
+        console.log('🔧 Forcing light mode styles on sidebar component');
+        
+        const sidebar = this.querySelector('.sidebar');
+        const sidebarHeader = this.querySelector('.sidebar-header');
+        const navSections = this.querySelector('.nav-sections');
+        const collapseBtn = this.querySelector('.collapse-btn');
+        const helpButton = this.querySelector('.help-button');
+        const navLinks = this.querySelectorAll('.nav-link');
+        
+        if (sidebar) {
+            sidebar.style.cssText = `
+                background: #ffffff !important;
+                background-color: #ffffff !important;
+                background-image: none !important;
+                border-right: 1px solid #e2e8f0 !important;
+                color: #475569 !important;
+            `;
+        }
+        
+        if (sidebarHeader) {
+            sidebarHeader.style.cssText = `
+                background: #ffffff !important;
+                background-color: #ffffff !important;
+                background-image: none !important;
+                border-bottom: 1px solid #e2e8f0 !important;
+            `;
+        }
+        
+        if (navSections) {
+            navSections.style.cssText = `
+                background: #ffffff !important;
+                background-color: #ffffff !important;
+                background-image: none !important;
+            `;
+        }
+        
+        if (collapseBtn) {
+            collapseBtn.style.cssText = `
+                background: #ffffff !important;
+                background-color: #ffffff !important;
+                background-image: none !important;
+                color: #475569 !important;
+                border: 1px solid #e2e8f0 !important;
+            `;
+        }
+        
+        if (helpButton) {
+            helpButton.style.cssText = `
+                background: #ffffff !important;
+                background-color: #ffffff !important;
+                background-image: none !important;
+                color: #475569 !important;
+                border: 1px solid #e2e8f0 !important;
+            `;
+        }
+        
+        navLinks.forEach(link => {
+            link.style.cssText = `
+                color: #475569 !important;
+                background: transparent !important;
+                background-color: transparent !important;
+                background-image: none !important;
+            `;
+        });
+        
+        console.log('✅ Light mode styles applied to sidebar component');
     }
 
     getItemIcon(type) {

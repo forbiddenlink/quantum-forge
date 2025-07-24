@@ -5,12 +5,12 @@ let analyticsServiceInstance = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Quantum Forge - Loading...');
-    
+
     // Debug: Check if custom elements are registered
     console.log('🔍 Checking custom element registration...');
     const customElementsToCheck = [
         'analytics-dashboard',
-        'task-system', 
+        'task-system',
         'enhanced-knowledge-hub',
         'live-activity-feed',
         'smart-insights-dashboard',
@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
         'achievement-system',
         'company-culture-showcase'
     ];
-    
+
     customElementsToCheck.forEach(tagName => {
         const isRegistered = customElements.get(tagName);
         console.log(`${isRegistered ? '✅' : '❌'} ${tagName}: ${isRegistered ? 'Registered' : 'NOT REGISTERED'}`);
     });
-    
+
     // Debug: Check if elements exist in DOM
     console.log('🔍 Checking DOM elements...');
     customElementsToCheck.forEach(tagName => {
@@ -41,19 +41,22 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(`    - children count: ${el.children.length}`);
         });
     });
-    
+
     // Simple initialization without complex timing
     initializeTheme();
     initializeSidebar();
     initializeKeyboardShortcuts();
-    
+
+    // Force sidebar background fix
+    forceSidebarLightMode();
+
     // Initialize performance monitoring
     if (window.PerformanceMonitor) {
         performanceMonitor = new window.PerformanceMonitor();
         performanceMonitor.startMonitoring();
         console.log('Performance monitoring started');
     }
-    
+
     // Initialize welcome section if it exists
     const welcomeElement = document.querySelector('.welcome-section');
     if (welcomeElement && typeof WelcomeSection !== 'undefined') {
@@ -62,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (welcomeElement) {
         console.log('Welcome section element found but WelcomeSection class not available');
     }
-    
+
     // Initialize analytics service if available
     if (window.analyticsService) {
         console.log('Starting analytics service...');
@@ -70,9 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
         analyticsServiceInstance.startRealTimeUpdates();
         analyticsServiceInstance.generateMockData();
     }
-    
+
     console.log('✅ Quantum Forge - Ready!');
-    
+
     // Fallback: If components are not rendering, show fallback content
     setTimeout(() => {
         console.log('🔍 Checking component rendering status...');
@@ -81,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'task-system',
             'enhanced-knowledge-hub'
         ];
-        
+
         let hasEmptyComponents = false;
         componentsToCheck.forEach(tagName => {
             const elements = document.querySelectorAll(tagName);
@@ -96,11 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     position: getComputedStyle(el).position,
                     zIndex: getComputedStyle(el).zIndex
                 });
-                
+
                 if (el.innerHTML.trim().length === 0) {
                     console.warn(`⚠️ Empty component detected: ${tagName}`);
                     hasEmptyComponents = true;
-                    
+
                     // Add fallback content
                     el.innerHTML = `
                         <div style="padding: 20px; background: rgba(255,255,255,0.1); border-radius: 8px; text-align: center; color: white;">
@@ -116,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         display: getComputedStyle(el).display,
                         visibility: getComputedStyle(el).visibility
                     });
-                    
+
                     // Force visibility
                     el.style.display = 'block';
                     el.style.visibility = 'visible';
@@ -127,17 +130,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-        
+
         if (hasEmptyComponents) {
             console.log('🛠️ Applied fallback content to empty components');
         }
-        
+
         // Test: Try to manually create a component
         console.log('🧪 Testing manual component creation...');
         try {
             const testElement = document.createElement('analytics-dashboard');
             console.log('✅ Manual component creation successful:', testElement);
-            
+
             // Check if the component has a constructor
             const constructor = customElements.get('analytics-dashboard');
             if (constructor) {
@@ -155,19 +158,19 @@ document.addEventListener('DOMContentLoaded', () => {
 // Cleanup when page is unloaded
 window.addEventListener('beforeunload', () => {
     console.log('Page unloading, cleaning up all services...');
-    
+
     if (welcomeSection && welcomeSection.destroy) {
         welcomeSection.destroy();
     }
-    
+
     if (performanceMonitor && performanceMonitor.stopMonitoring) {
         performanceMonitor.stopMonitoring();
     }
-    
+
     if (analyticsServiceInstance && analyticsServiceInstance.destroy) {
         analyticsServiceInstance.destroy();
     }
-    
+
     console.log('All services cleaned up');
 });
 
@@ -178,7 +181,7 @@ function hideLoadingScreen() {
         console.log('Hiding loading screen...');
         loadingScreen.style.opacity = '0';
         loadingScreen.style.transition = 'opacity 0.3s ease-out';
-        
+
         setTimeout(() => {
             loadingScreen.style.display = 'none';
             document.body.classList.remove('loading');
@@ -209,17 +212,108 @@ function initializeTheme() {
     const theme = localStorage.getItem('theme') || detectPreferredTheme();
     document.documentElement.setAttribute('data-theme', theme);
     document.body.setAttribute('data-theme', theme);
-    
-    // Load saved user color
-    const savedColor = localStorage.getItem('userColor');
-    if (savedColor) {
-        console.log('Applying saved color theme:', savedColor);
-        document.documentElement.style.setProperty('--primary-500', savedColor);
-        document.documentElement.style.setProperty('--primary-600', darkenColor(savedColor, 0.1));
-        document.documentElement.style.setProperty('--primary-700', darkenColor(savedColor, 0.2));
-        // Also set these commonly used variables
-        document.documentElement.style.setProperty('--primary-500', savedColor);
-        document.documentElement.style.setProperty('--accent-color', savedColor);
+
+    // Load saved user theme (new system with hue/saturation/lightness)
+    const savedTheme = localStorage.getItem('userTheme');
+    if (savedTheme) {
+        try {
+            const themeData = JSON.parse(savedTheme);
+            console.log('Loading saved theme:', themeData);
+
+            // Apply theme using the same method as dynamic color picker
+            applyColorTheme(themeData);
+        } catch (error) {
+            console.warn('Failed to parse saved theme, falling back to default');
+        }
+    } else {
+        // Load legacy saved color if it exists
+        const savedColor = localStorage.getItem('userColor');
+        if (savedColor) {
+            console.log('Loading legacy saved color:', savedColor);
+            // Convert hex to HSL and apply
+            const hsl = hexToHsl(savedColor);
+            if (hsl) {
+                const legacyTheme = {
+                    hue: hsl.h,
+                    saturation: hsl.s,
+                    lightness: hsl.l,
+                    name: 'Imported'
+                };
+                applyColorTheme(legacyTheme);
+            }
+        }
+    }
+}
+
+// Helper function to apply color theme (mirrors dynamic-color-picker logic)
+function applyColorTheme(theme) {
+    // Set user color variables
+    document.documentElement.style.setProperty('--user-primary-h', theme.hue);
+    document.documentElement.style.setProperty('--user-primary-s', theme.saturation + '%');
+    document.documentElement.style.setProperty('--user-primary-l', theme.lightness + '%');
+
+    // Calculate and set derived colors
+    const baseColor = `hsl(${theme.hue}, ${theme.saturation}%, ${theme.lightness}%)`;
+    const lighterColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 10, 95)}%)`;
+    const darkerColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.max(theme.lightness - 10, 5)}%)`;
+    const muchDarkerColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.max(theme.lightness - 20, 5)}%)`;
+    const lightestColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 20, 95)}%)`;
+    const evenLighterColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 30, 97)}%)`;
+    const paleColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 40, 98)}%)`;
+
+    // Set all primary color variations
+    document.documentElement.style.setProperty('--primary-500', baseColor);
+    document.documentElement.style.setProperty('--primary-400', lighterColor);
+    document.documentElement.style.setProperty('--primary-600', darkerColor);
+    document.documentElement.style.setProperty('--primary-700', muchDarkerColor);
+    document.documentElement.style.setProperty('--primary-300', lightestColor);
+    document.documentElement.style.setProperty('--primary-200', evenLighterColor);
+    document.documentElement.style.setProperty('--primary-100', paleColor);
+
+    // Set accent color
+    document.documentElement.style.setProperty('--accent-color', baseColor);
+
+    // Override any hardcoded purple references
+    document.documentElement.style.setProperty('--welcome-bg-start', baseColor);
+    document.documentElement.style.setProperty('--welcome-bg-end', muchDarkerColor);
+    document.documentElement.style.setProperty('--button-primary', baseColor);
+    document.documentElement.style.setProperty('--link-color', baseColor);
+
+    console.log('Color theme applied:', theme, 'Base color:', baseColor);
+}
+
+// Helper function to convert hex to HSL
+function hexToHsl(hex) {
+    try {
+        const r = parseInt(hex.slice(1, 3), 16) / 255;
+        const g = parseInt(hex.slice(3, 5), 16) / 255;
+        const b = parseInt(hex.slice(5, 7), 16) / 255;
+
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
+
+        if (max === min) {
+            h = s = 0;
+        } else {
+            const d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+            switch (max) {
+                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                case g: h = (b - r) / d + 2; break;
+                case b: h = (r - g) / d + 4; break;
+            }
+            h /= 6;
+        }
+
+        return {
+            h: Math.round(h * 360),
+            s: Math.round(s * 100),
+            l: Math.round(l * 100)
+        };
+    } catch (error) {
+        console.warn('Failed to convert hex to HSL:', hex);
+        return null;
     }
 }
 
@@ -227,7 +321,7 @@ function detectPreferredTheme() {
     // Auto-detect based on system preference and time of day
     const hour = new Date().getHours();
     const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
     if (systemDark || hour < 7 || hour > 19) {
         return 'dark';
     }
@@ -249,26 +343,26 @@ function darkenColor(color, amount) {
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
+
     // Add transition class
     document.body.classList.add('theme-transition');
-    
+
     // Change theme
     document.documentElement.setAttribute('data-theme', newTheme);
     document.body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    
+
     // Update theme icon in header if it exists
     const header = document.querySelector('app-header');
     if (header && header.updateThemeIcon) {
         header.updateThemeIcon(newTheme);
     }
-    
+
     // Remove transition class after animation completes
     setTimeout(() => {
         document.body.classList.remove('theme-transition');
     }, 300);
-    
+
     return newTheme;
 }
 
@@ -279,7 +373,7 @@ window.toggleTheme = toggleTheme;
 function initializeSidebar() {
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.querySelector('.sidebar');
-    
+
     if (!menuToggle || !sidebar) return;
 
     menuToggle.addEventListener('click', () => {
@@ -313,11 +407,11 @@ function initializeSearch() {
 
     const searchInput = searchContainer.querySelector('input[type="search"]');
     const searchButton = searchContainer.querySelector('button');
-    
+
     if (searchInput) {
         searchInput.addEventListener('input', debounce(handleSearch, 300));
     }
-    
+
     if (searchButton) {
         searchButton.addEventListener('click', () => {
             if (searchInput && searchInput.value.trim()) {
@@ -341,7 +435,7 @@ function handleSearch(event) {
     searchableElements.forEach(element => {
         const container = element.closest('.widget, .event-item, .project-item, .news-item, .quick-link');
         const text = element.textContent.toLowerCase();
-        
+
         if (query === '') {
             container.style.display = '';
             container.style.opacity = '1';
@@ -391,19 +485,19 @@ async function updateWeather() {
 // Number animation utility
 function animateNumber(start, end, callback, duration = 1000) {
     const startTime = performance.now();
-    
+
     function update(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
+
         const currentValue = Math.floor(start + (end - start) * progress);
         callback(currentValue);
-        
+
         if (progress < 1) {
             requestAnimationFrame(update);
         }
     }
-    
+
     requestAnimationFrame(update);
 }
 
@@ -416,80 +510,80 @@ function initializeKeyboardShortcuts() {
     try {
         // Detect keyboard usage for enhanced focus indicators
         let isUsingKeyboard = false;
-    
-    document.addEventListener('keydown', (e) => {
-        isUsingKeyboard = true;
-        document.body.classList.add('keyboard-user');
-        
-        // Command palette toggle - Ctrl/Cmd + K
-        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-            e.preventDefault();
-            const commandPalette = document.querySelector('command-palette');
-            if (commandPalette && commandPalette.toggle) {
-                commandPalette.toggle();
-                announceToScreenReader('Command palette toggled');
-            }
-        }
-        
-        // Theme toggle - Ctrl/Cmd + T
-        if ((e.ctrlKey || e.metaKey) && e.key === 't') {
-            e.preventDefault();
-            const newTheme = toggleTheme();
-            announceToScreenReader(`Theme changed to ${newTheme} mode`);
-        }
-        
-        // Help dialog - F1 or Shift + ?
-        if (e.key === 'F1' || (e.shiftKey && e.key === '?')) {
-            e.preventDefault();
-            const helpDialog = document.querySelector('help-dialog');
-            if (helpDialog && helpDialog.toggle) {
-                helpDialog.toggle();
-                announceToScreenReader('Help dialog opened');
-            }
-        }
-        
-        // AI Assistant - Ctrl/Cmd + /
-        if ((e.ctrlKey || e.metaKey) && e.key === '/') {
-            e.preventDefault();
-            const aiAssistant = document.querySelector('ai-assistant');
-            if (aiAssistant && aiAssistant.toggle) {
-                aiAssistant.toggle();
-                announceToScreenReader('AI Assistant toggled');
-            }
-        }
-        
-        // Escape key - close open dialogs and panels
-        if (e.key === 'Escape') {
-            const openPanels = document.querySelectorAll('.ai-assistant.open, .command-palette.active, .help-dialog.open');
-            if (openPanels.length > 0) {
-                openPanels.forEach(panel => {
-                    if (panel.classList.contains('open')) panel.classList.remove('open');
-                    if (panel.classList.contains('active')) panel.classList.remove('active');
-                });
-                announceToScreenReader('Panel closed');
-            }
-        }
-        
-        // Focus management - Tab navigation enhancement
-        if (e.key === 'Tab') {
-            // Ensure visible focus indicators
+
+        document.addEventListener('keydown', (e) => {
+            isUsingKeyboard = true;
             document.body.classList.add('keyboard-user');
-        }
-    });
-    
-    // Remove keyboard user class on mouse usage
-    document.addEventListener('mousedown', () => {
-        isUsingKeyboard = false;
-        document.body.classList.remove('keyboard-user');
-    });
-    
-    // Re-add on focus to handle tab navigation
-    document.addEventListener('focusin', () => {
-        if (isUsingKeyboard) {
-            document.body.classList.add('keyboard-user');
-        }
-    });
-    
+
+            // Command palette toggle - Ctrl/Cmd + K
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                const commandPalette = document.querySelector('command-palette');
+                if (commandPalette && commandPalette.toggle) {
+                    commandPalette.toggle();
+                    announceToScreenReader('Command palette toggled');
+                }
+            }
+
+            // Theme toggle - Ctrl/Cmd + T
+            if ((e.ctrlKey || e.metaKey) && e.key === 't') {
+                e.preventDefault();
+                const newTheme = toggleTheme();
+                announceToScreenReader(`Theme changed to ${newTheme} mode`);
+            }
+
+            // Help dialog - F1 or Shift + ?
+            if (e.key === 'F1' || (e.shiftKey && e.key === '?')) {
+                e.preventDefault();
+                const helpDialog = document.querySelector('help-dialog');
+                if (helpDialog && helpDialog.toggle) {
+                    helpDialog.toggle();
+                    announceToScreenReader('Help dialog opened');
+                }
+            }
+
+            // AI Assistant - Ctrl/Cmd + /
+            if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+                e.preventDefault();
+                const aiAssistant = document.querySelector('ai-assistant');
+                if (aiAssistant && aiAssistant.toggle) {
+                    aiAssistant.toggle();
+                    announceToScreenReader('AI Assistant toggled');
+                }
+            }
+
+            // Escape key - close open dialogs and panels
+            if (e.key === 'Escape') {
+                const openPanels = document.querySelectorAll('.ai-assistant.open, .command-palette.active, .help-dialog.open');
+                if (openPanels.length > 0) {
+                    openPanels.forEach(panel => {
+                        if (panel.classList.contains('open')) panel.classList.remove('open');
+                        if (panel.classList.contains('active')) panel.classList.remove('active');
+                    });
+                    announceToScreenReader('Panel closed');
+                }
+            }
+
+            // Focus management - Tab navigation enhancement
+            if (e.key === 'Tab') {
+                // Ensure visible focus indicators
+                document.body.classList.add('keyboard-user');
+            }
+        });
+
+        // Remove keyboard user class on mouse usage
+        document.addEventListener('mousedown', () => {
+            isUsingKeyboard = false;
+            document.body.classList.remove('keyboard-user');
+        });
+
+        // Re-add on focus to handle tab navigation
+        document.addEventListener('focusin', () => {
+            if (isUsingKeyboard) {
+                document.body.classList.add('keyboard-user');
+            }
+        });
+
     } catch (error) {
         console.error('Error initializing keyboard shortcuts:', error);
     }
@@ -511,10 +605,74 @@ function announceToScreenReader(message) {
     announcement.style.height = '1px';
     announcement.style.overflow = 'hidden';
     announcement.textContent = message;
-    
+
     document.body.appendChild(announcement);
-    
+
     setTimeout(() => {
         document.body.removeChild(announcement);
     }, 1000);
+}
+
+// Force sidebar to have white background in light mode
+function forceSidebarLightMode() {
+    console.log('🚨 Emergency sidebar background fix running...');
+
+    function applySidebarFix() {
+        const sidebar = document.querySelector('.sidebar');
+        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+
+        if (sidebar && !isDarkMode) {
+            console.log('🔧 Forcing sidebar background to white');
+
+            // Remove any existing background styles
+            sidebar.style.removeProperty('background');
+            sidebar.style.removeProperty('background-color');
+            sidebar.style.removeProperty('background-image');
+
+            // Force white background
+            sidebar.style.setProperty('background', '#ffffff', 'important');
+            sidebar.style.setProperty('background-color', '#ffffff', 'important');
+            sidebar.style.setProperty('background-image', 'none', 'important');
+
+            // Set CSS custom properties
+            sidebar.style.setProperty('--bg-elevated', '#ffffff', 'important');
+            sidebar.style.setProperty('--sidebar-bg', '#ffffff', 'important');
+        }
+    }
+
+    // Apply immediately
+    applySidebarFix();
+
+    // Apply after a short delay to catch dynamic updates
+    setTimeout(applySidebarFix, 100);
+    setTimeout(applySidebarFix, 500);
+
+    // Watch for theme changes
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                setTimeout(applySidebarFix, 50);
+            }
+        });
+    });
+
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme']
+    });
+
+    // Also watch for sidebar element changes
+    const sidebarObserver = new MutationObserver(() => {
+        setTimeout(applySidebarFix, 50);
+    });
+
+    const sidebar = document.querySelector('.sidebar');
+    if (sidebar) {
+        sidebarObserver.observe(sidebar, {
+            attributes: true,
+            attributeFilter: ['style', 'class']
+        });
+    }
+
+    console.log('✅ Sidebar background fix initialized');
 }

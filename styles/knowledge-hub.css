@@ -362,19 +362,19 @@ mark {
 
 /* Dark mode adjustments */
 [data-theme="dark"] .knowledge-hub {
-    background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    background: var(--bg-elevated);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .hub-header {
-    background: linear-gradient(135deg, var(--bg-elevated-dark) 0%, var(--bg-secondary-dark) 100%);
-    border-color: var(--border-color-dark);
+    background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-secondary) 100%);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .search-input {
-    background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
-    color: var(--text-primary-dark);
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
 }
 
 [data-theme="dark"] .search-input:focus {
@@ -383,30 +383,39 @@ mark {
 }
 
 [data-theme="dark"] .filter-chip {
-    background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
-    color: var(--text-secondary-dark);
+    background: var(--bg-elevated);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
 }
 
 [data-theme="dark"] .filter-chip:hover {
-    background: var(--bg-hover-dark);
+    background: var(--bg-hover);
     border-color: var(--primary-400);
     color: var(--primary-400);
 }
 
 [data-theme="dark"] .resource-card {
-    background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .resource-tag {
-    background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    background: var(--bg-elevated);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] mark {
     background: var(--primary-900);
     color: var(--primary-200);
+}
+
+[data-theme="dark"] .insight-content h4,
+[data-theme="dark"] .insight-content h5 {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .insight-content p {
+    color: var(--text-secondary);
 }
 
 /* Responsive adjustments */

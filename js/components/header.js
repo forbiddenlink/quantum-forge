@@ -8,12 +8,12 @@ class Header extends HTMLElement {
         this.currentColor = localStorage.getItem('userColor') || '#6366f1';
         this.notificationInterval = null;
         this.unreadCount = 0;
-        
+
         // Bind event handlers to maintain proper context
         this.handleDocumentClick = this.handleDocumentClick.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.applyColor = this.applyColor.bind(this);
-        
+
         this.notifications = [
             {
                 id: 1,
@@ -45,7 +45,7 @@ class Header extends HTMLElement {
         this.setupEventListeners();
         this.updateUnreadCount();
         this.startNotificationPolling();
-        
+
         // Initialize saved color after a brief delay to ensure DOM is ready
         setTimeout(() => {
             if (this.currentColor) {
@@ -60,11 +60,11 @@ class Header extends HTMLElement {
             clearInterval(this.notificationInterval);
             this.notificationInterval = null;
         }
-        
+
         // Remove global event listeners
         document.removeEventListener('click', this.handleDocumentClick);
         this.removeEventListener('click', this.handleClick);
-        
+
         console.log('Header cleanup complete');
     }
 
@@ -78,30 +78,30 @@ class Header extends HTMLElement {
         const colorPickerDropdown = this.querySelector('.color-picker-dropdown');
 
         // Check if click is outside user menu
-        if (this.userMenuOpen && 
-            userMenuButton && 
+        if (this.userMenuOpen &&
+            userMenuButton &&
             userDropdown &&
-            !userMenuButton.contains(event.target) && 
+            !userMenuButton.contains(event.target) &&
             !userDropdown.contains(event.target)) {
             this.userMenuOpen = false;
             this.render();
         }
 
         // Check if click is outside notifications
-        if (this.notificationsOpen && 
-            notificationsButton && 
+        if (this.notificationsOpen &&
+            notificationsButton &&
             notificationsDropdown &&
-            !notificationsButton.contains(event.target) && 
+            !notificationsButton.contains(event.target) &&
             !notificationsDropdown.contains(event.target)) {
             this.notificationsOpen = false;
             this.render();
         }
 
         // Check if click is outside color picker
-        if (this.colorPickerOpen && 
-            colorPickerButton && 
+        if (this.colorPickerOpen &&
+            colorPickerButton &&
             colorPickerDropdown &&
-            !colorPickerButton.contains(event.target) && 
+            !colorPickerButton.contains(event.target) &&
             !colorPickerDropdown.contains(event.target)) {
             this.colorPickerOpen = false;
             this.render();
@@ -204,9 +204,9 @@ class Header extends HTMLElement {
         const notificationBadge = this.unreadCount > 0 ? `
             <span class="notification-badge" style="background: #ef4444; border-color: #ef4444;">${this.unreadCount}</span>
         ` : '';
-        
+
         console.log('Rendering notification badge:', notificationBadge);
-        
+
         this.innerHTML = `
             <header class="header" role="banner">
                 <div class="header-left">
@@ -413,7 +413,7 @@ class Header extends HTMLElement {
         // Debug: Check if the badge was actually rendered
         const badge = this.querySelector('.notification-badge');
         console.log('Badge element after render:', badge);
-        
+
         // Setup dynamic listeners after render
         setTimeout(() => {
             this.setupDynamicListeners();
@@ -529,7 +529,7 @@ class Header extends HTMLElement {
         if (themeToggle) {
             // Remove any existing listeners first
             themeToggle.removeEventListener('click', this.themeToggleHandler);
-            
+
             // Create bound handler if it doesn't exist
             if (!this.themeToggleHandler) {
                 this.themeToggleHandler = (e) => {
@@ -542,7 +542,7 @@ class Header extends HTMLElement {
                     console.log('🌓 Theme switched to:', newTheme);
                 };
             }
-            
+
             themeToggle.addEventListener('click', this.themeToggleHandler);
             console.log('🌓 Theme toggle listener set up');
         } else {
@@ -596,16 +596,24 @@ class Header extends HTMLElement {
     applyColor(color) {
         console.log('🎨 Header applying color:', color);
         this.currentColor = color;
-        
+
+        // Update active state for color options
+        this.querySelectorAll('.color-option').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.color === color) {
+                btn.classList.add('active');
+            }
+        });
+
         const root = document.documentElement;
-        
+
         // Convert hex to RGB for color variations
         const rgb = this.hexToRgb(color);
         const hsl = this.rgbToHsl(rgb.r, rgb.g, rgb.b);
-        
+
         // Generate comprehensive color palette
         const palette = this.generateColorPalette(hsl);
-        
+
         // Update ALL primary color variables
         root.style.setProperty('--primary-50', palette.primary50);
         root.style.setProperty('--primary-100', palette.primary100);
@@ -617,17 +625,17 @@ class Header extends HTMLElement {
         root.style.setProperty('--primary-700', palette.primary700);
         root.style.setProperty('--primary-800', palette.primary800);
         root.style.setProperty('--primary-900', palette.primary900);
-        
+
         // Update common color variables for other components
-                    root.style.setProperty('--primary-500', color);
+        root.style.setProperty('--primary-500', color);
         root.style.setProperty('--accent-color', palette.primary400);
         root.style.setProperty('--primary-rgb', `${rgb.r}, ${rgb.g}, ${rgb.b}`);
         root.style.setProperty('--accent-rgb', this.hexToRgbString(palette.primary400));
-        
+
         // Update gradient variables (important for general components)
         root.style.setProperty('--gradient-primary', `linear-gradient(135deg, ${color}, ${palette.primary600})`);
         root.style.setProperty('--gradient-secondary', `linear-gradient(135deg, ${palette.primary400}, ${palette.primary500})`);
-        
+
         // ✨ IMPORTANT: Update welcome section specific variables
         root.style.setProperty('--welcome-bg-start', color);
         root.style.setProperty('--welcome-bg-end', palette.primary700);
@@ -635,24 +643,24 @@ class Header extends HTMLElement {
         root.style.setProperty('--welcome-accent-2', palette.primary300);
         root.style.setProperty('--welcome-accent-3', palette.primary600);
         root.style.setProperty('--welcome-accent-4', palette.primary500);
-        
+
         // Update text colors to match theme (fixes purple in upcoming events)
         root.style.setProperty('--text-muted', palette.primary300);
         root.style.setProperty('--text-tertiary', palette.primary400);
-        
+
         // Update focus and interaction colors
         root.style.setProperty('--focus-ring', color);
         root.style.setProperty('--border-primary', palette.primary200);
-        
+
         // Save to localStorage
         localStorage.setItem('userColor', color);
-        
+
         // Force repaint
         document.body.offsetHeight;
-        
+
         // Re-render to update the checkmarks
         setTimeout(() => this.render(), 50);
-        
+
         console.log('🎨 Color applied successfully including welcome section and upcoming events:', color);
     }
 
@@ -674,17 +682,17 @@ class Header extends HTMLElement {
         r /= 255;
         g /= 255;
         b /= 255;
-        
+
         const max = Math.max(r, g, b);
         const min = Math.min(r, g, b);
         let h, s, l = (max + min) / 2;
-        
+
         if (max === min) {
             h = s = 0; // achromatic
         } else {
             const d = max - min;
             s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-            
+
             switch (max) {
                 case r: h = (g - b) / d + (g < b ? 6 : 0); break;
                 case g: h = (b - r) / d + 2; break;
@@ -692,7 +700,7 @@ class Header extends HTMLElement {
             }
             h /= 6;
         }
-        
+
         return { h: h * 360, s: s * 100, l: l * 100 };
     }
 
@@ -700,39 +708,39 @@ class Header extends HTMLElement {
         h /= 360;
         s /= 100;
         l /= 100;
-        
+
         const hue2rgb = (p, q, t) => {
             if (t < 0) t += 1;
             if (t > 1) t -= 1;
-            if (t < 1/6) return p + (q - p) * 6 * t;
-            if (t < 1/2) return q;
-            if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+            if (t < 1 / 6) return p + (q - p) * 6 * t;
+            if (t < 1 / 2) return q;
+            if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
             return p;
         };
-        
+
         let r, g, b;
-        
+
         if (s === 0) {
             r = g = b = l; // achromatic
         } else {
             const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
             const p = 2 * l - q;
-            r = hue2rgb(p, q, h + 1/3);
+            r = hue2rgb(p, q, h + 1 / 3);
             g = hue2rgb(p, q, h);
-            b = hue2rgb(p, q, h - 1/3);
+            b = hue2rgb(p, q, h - 1 / 3);
         }
-        
+
         const toHex = (c) => {
             const hex = Math.round(c * 255).toString(16);
             return hex.length === 1 ? '0' + hex : hex;
         };
-        
+
         return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
     }
 
     generateColorPalette(hsl) {
         const { h, s } = hsl;
-        
+
         return {
             primary50: this.hslToHex(h, Math.max(s - 40, 10), 96),
             primary100: this.hslToHex(h, Math.max(s - 20, 20), 92),

@@ -20,7 +20,7 @@
     --focus-ring: rgba(99, 102, 241, 0.5);
 }
 
-/* Dark Mode Colors - Use main.css variables */
+/* Dark Mode Colors - Enhanced for better visibility */
 [data-theme="dark"] {
     /* Component aliases using main.css dark mode variables */
     --primary-color: var(--primary-500);
@@ -31,9 +31,20 @@
     --info: var(--primary-500);
     
     /* Enhanced interaction colors for dark mode */
-    --hover-light: rgba(129, 140, 248, 0.15);
-    --active-light: rgba(129, 140, 248, 0.25);
-    --focus-ring: rgba(129, 140, 248, 0.5);
+    --hover-light: rgba(99, 102, 241, 0.2);
+    --active-light: rgba(99, 102, 241, 0.3);
+    --focus-ring: rgba(99, 102, 241, 0.6);
+
+    /* Gradient overrides for dark mode */
+    --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    --gradient-success: linear-gradient(135deg, var(--success-500), var(--success-600));
+    --gradient-warning: linear-gradient(135deg, var(--warning-500), var(--warning-600));
+    --gradient-error: linear-gradient(135deg, var(--error-500), var(--error-600));
+    
+    /* Glass effect overrides */
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: var(--shadow-lg);
 }
 
 /* High Contrast Mode - Override main.css variables */

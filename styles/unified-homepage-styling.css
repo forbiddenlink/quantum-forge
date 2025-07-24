@@ -1,10 +1,10 @@
 /* 🌟 UNIFIED HOMEPAGE STYLING - Consistent Design Across All Sections */
 
-/* Welcome Section Variables - Apply to All Sections */
+/* Welcome Section Variables - Apply to All Sections - Updated for dynamic theming */
 :root {
     /* Welcome section gradient colors */
-    --welcome-bg-start: #6366f1;
-    --welcome-bg-end: #4338ca;
+    --welcome-bg-start: var(--primary-500, #6366f1);
+    --welcome-bg-end: var(--primary-700, #4338ca);
     --welcome-text: white;
     --welcome-text-secondary: rgba(255, 255, 255, 0.9);
     --welcome-text-muted: rgba(255, 255, 255, 0.7);
@@ -13,7 +13,7 @@
     --welcome-border: rgba(255, 255, 255, 0.2);
     --welcome-border-hover: rgba(255, 255, 255, 0.3);
     --welcome-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    
+
     /* Enhanced gradient colors */
     --welcome-accent-1: #8b5cf6;
     --welcome-accent-2: #06b6d4;
@@ -54,7 +54,7 @@ smart-insights-dashboard,
 .dashboard-item:not(.full-width) company-culture-showcase,
 .dashboard-item company-culture-showcase {
     /* ENHANCED Multi-layer animated background - same as welcome section */
-    background: 
+    background:
         /* Animated gradient waves */
         linear-gradient(45deg, var(--welcome-bg-start) 0%, transparent 50%, var(--welcome-bg-start) 100%),
         linear-gradient(-45deg, var(--welcome-bg-end) 0%, transparent 50%, var(--welcome-bg-end) 100%),
@@ -69,12 +69,12 @@ smart-insights-dashboard,
         /* Enhanced texture overlay with animation */
         repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
         repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
-    
+
     border-radius: var(--radius-2xl) !important;
     padding: var(--space-8) !important;
     position: relative !important;
     overflow: hidden !important;
-    box-shadow: 
+    box-shadow:
         var(--welcome-shadow),
         0 0 0 1px rgba(255, 255, 255, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.4),
@@ -82,16 +82,16 @@ smart-insights-dashboard,
         0 0 120px rgba(99, 102, 241, 0.2) !important;
     border: 1px solid var(--welcome-border) !important;
     color: var(--welcome-text) !important;
-    
+
     /* Smooth transitions */
     transition: all var(--duration-normal) var(--ease-in-out) !important;
-    
+
     /* Enhanced backdrop */
     backdrop-filter: blur(20px) !important;
-    
+
     /* Subtle effects only - no excessive animations */
     animation: none !important;
-    
+
     /* 3D transform for depth */
     transform-style: preserve-3d;
     perspective: 1000px;
@@ -694,7 +694,7 @@ company-culture-showcase::before {
     right: -50%;
     width: 200%;
     height: 200%;
-    background: 
+    background:
         radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 15%, rgba(255, 255, 255, 0.1) 30%, transparent 60%),
         radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.15) 20%, transparent 40%),
         radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0.1) 25%, transparent 50%);
@@ -710,6 +710,7 @@ company-culture-showcase::before {
 
 /* 🎯 RESPONSIVE DESIGN */
 @media (max-width: 768px) {
+
     .dashboard-item:not(.welcome-section *),
     analytics-dashboard,
     task-system,
@@ -729,7 +730,7 @@ company-culture-showcase::before {
         /* No animations on mobile for better performance */
         animation: none !important;
     }
-    
+
     /* Simplify background effects on mobile */
     analytics-dashboard::before,
     task-system::before,
@@ -756,6 +757,7 @@ company-culture-showcase::before {
 
 /* 🎨 PERFORMANCE OPTIMIZATIONS */
 @media (prefers-reduced-motion: reduce) {
+
     analytics-dashboard,
     task-system,
     enhanced-knowledge-hub,
@@ -790,6 +792,7 @@ company-culture-showcase::before {
 
 /* 🏆 ACCESSIBILITY ENHANCEMENTS */
 @media (forced-colors: active) {
+
     analytics-dashboard,
     task-system,
     enhanced-knowledge-hub,
@@ -807,7 +810,7 @@ company-culture-showcase::before {
         color: CanvasText !important;
         border-color: ButtonBorder !important;
     }
-    
+
     analytics-dashboard::before,
     task-system::before,
     enhanced-knowledge-hub::before,
@@ -841,7 +844,7 @@ achievement-system:focus-within,
 company-culture-showcase:focus-within {
     outline: 3px solid rgba(99, 102, 241, 0.5);
     outline-offset: 4px;
-    box-shadow: 
+    box-shadow:
         var(--welcome-shadow),
         0 0 0 1px rgba(255, 255, 255, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
@@ -900,4 +903,4 @@ company-culture-showcase.loading {
     animation: welcomeLoad 1.5s ease-out forwards;
 }
 
-/* welcomeLoad animation moved to welcome-section.css to prevent duplicates */ 
+/* welcomeLoad animation moved to welcome-section.css to prevent duplicates */

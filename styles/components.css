@@ -79,20 +79,83 @@
     z-index: 1;
 }
 
+/* Logo styles */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: var(--font-size-lg);
+    padding: var(--space-4);
+}
+
+.logo img {
+    height: 32px;
+    width: auto;
+}
+
 /* Dark mode adjustments */
 [data-theme="dark"] .action-button,
 [data-theme="dark"] .theme-toggle-btn {
     background: var(--bg-elevated);
     border-color: var(--border-color);
+    color: var(--text-primary);
 }
 
 [data-theme="dark"] .action-button:hover,
 [data-theme="dark"] .theme-toggle-btn:hover {
     background: var(--bg-hover);
     border-color: var(--border-hover);
+    color: var(--text-primary);
 }
 
 [data-theme="dark"] .notification-badge {
+    background: var(--error-500);
     border-color: var(--bg-elevated);
     box-shadow: 0 0 0 1px var(--border-color);
+}
+
+[data-theme="dark"] .stat-item {
+    background: var(--bg-elevated);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .stat-item:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-lg);
+}
+
+[data-theme="dark"] .stat-number {
+    color: var(--primary-400);
+}
+
+[data-theme="dark"] .stat-label {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .btn.primary {
+    background: var(--gradient-primary);
+    color: var(--text-on-primary);
+}
+
+[data-theme="dark"] .btn.secondary {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .btn.secondary:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-hover);
+}
+
+[data-theme="dark"] .logo {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .logo img {
+    filter: brightness(2) contrast(1.2); /* Make logo more visible in dark mode */
 } 

@@ -39,7 +39,7 @@ class DynamicColorPicker extends HTMLElement {
 
     saveTheme(theme) {
         localStorage.setItem('userTheme', JSON.stringify(theme));
-        
+
         // Add to history
         this.colorHistory.unshift(theme);
         if (this.colorHistory.length > 10) {
@@ -76,19 +76,19 @@ class DynamicColorPicker extends HTMLElement {
             align-items: center;
             justify-content: center;
         `;
-        
+
         toggleBtn.addEventListener('mouseenter', () => {
             toggleBtn.style.transform = 'scale(1.1)';
             toggleBtn.style.background = 'var(--primary-700)';
         });
-        
+
         toggleBtn.addEventListener('mouseleave', () => {
             toggleBtn.style.transform = 'scale(1)';
             toggleBtn.style.background = 'var(--primary-600)';
         });
-        
+
         toggleBtn.addEventListener('click', () => this.toggle());
-        
+
         document.body.appendChild(toggleBtn);
     }
 
@@ -218,7 +218,7 @@ class DynamicColorPicker extends HTMLElement {
     setupEventListeners() {
         // Close button
         this.querySelector('.picker-close')?.addEventListener('click', () => this.toggle());
-        
+
         // Preset themes
         this.querySelectorAll('.preset-theme').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -234,10 +234,10 @@ class DynamicColorPicker extends HTMLElement {
             slider.addEventListener('input', (e) => {
                 const property = e.target.dataset.property;
                 const value = parseInt(e.target.value);
-                
+
                 this.currentTheme[property] = value;
                 this.currentTheme.name = 'Custom';
-                
+
                 this.applyTheme(this.currentTheme);
                 this.updateSliderValue(e.target);
                 this.updatePreview();
@@ -309,14 +309,55 @@ class DynamicColorPicker extends HTMLElement {
     }
 
     applyTheme(theme) {
+        // Set user color variables
         document.documentElement.style.setProperty('--user-primary-h', theme.hue);
         document.documentElement.style.setProperty('--user-primary-s', theme.saturation + '%');
         document.documentElement.style.setProperty('--user-primary-l', theme.lightness + '%');
-        
+
+        // Calculate and set derived colors
+        const baseColor = `hsl(${theme.hue}, ${theme.saturation}%, ${theme.lightness}%)`;
+        const lighterColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 10, 95)}%)`;
+        const darkerColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.max(theme.lightness - 10, 5)}%)`;
+        const muchDarkerColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.max(theme.lightness - 20, 5)}%)`;
+        const lightestColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 20, 95)}%)`;
+        const evenLighterColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 30, 97)}%)`;
+        const paleColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 40, 98)}%)`;
+
+        // Set all primary color variations
+        document.documentElement.style.setProperty('--primary-500', baseColor);
+        document.documentElement.style.setProperty('--primary-400', lighterColor);
+        document.documentElement.style.setProperty('--primary-600', darkerColor);
+        document.documentElement.style.setProperty('--primary-700', muchDarkerColor);
+        document.documentElement.style.setProperty('--primary-300', lightestColor);
+        document.documentElement.style.setProperty('--primary-200', evenLighterColor);
+        document.documentElement.style.setProperty('--primary-100', paleColor);
+
+        // Set accent color
+        document.documentElement.style.setProperty('--accent-color', baseColor);
+
+        // Override any hardcoded purple references
+        document.documentElement.style.setProperty('--welcome-bg-start', baseColor);
+        document.documentElement.style.setProperty('--welcome-bg-end', muchDarkerColor);
+        document.documentElement.style.setProperty('--button-primary', baseColor);
+        document.documentElement.style.setProperty('--link-color', baseColor);
+
+        // Save the theme
+        this.saveTheme(theme);
+
+        // Update the color picker preview
+        this.updatePreview();
+
         // Trigger a custom event for other components to respond
-        document.dispatchEvent(new CustomEvent('themeChanged', { 
-            detail: theme 
+        document.dispatchEvent(new CustomEvent('themeChanged', {
+            detail: theme
         }));
+
+        console.log('Theme applied:', theme, 'Colors:', {
+            primary500: baseColor,
+            primary400: lighterColor,
+            primary600: darkerColor,
+            primary700: muchDarkerColor
+        });
     }
 
     generateRandomTheme() {
@@ -324,7 +365,7 @@ class DynamicColorPicker extends HTMLElement {
             'Cosmic Purple', 'Ocean Breeze', 'Forest Whisper', 'Sunset Glow',
             'Rose Dawn', 'Electric Storm', 'Mint Splash', 'Golden Hour'
         ];
-        
+
         const randomTheme = {
             name: themes[Math.floor(Math.random() * themes.length)],
             hue: Math.floor(Math.random() * 360),
@@ -339,9 +380,9 @@ class DynamicColorPicker extends HTMLElement {
     }
 
     isCurrentTheme(theme) {
-        return theme.hue === this.currentTheme.hue && 
-               theme.saturation === this.currentTheme.saturation && 
-               theme.lightness === this.currentTheme.lightness;
+        return theme.hue === this.currentTheme.hue &&
+            theme.saturation === this.currentTheme.saturation &&
+            theme.lightness === this.currentTheme.lightness;
     }
 
     toggle() {
