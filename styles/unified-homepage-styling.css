@@ -1,28 +1,5 @@
 /* 🌟 UNIFIED HOMEPAGE STYLING - Consistent Design Across All Sections */
 
-/* Welcome Section Variables - Apply to All Sections - Updated for dynamic theming */
-:root {
-    /* Welcome section gradient colors */
-    --welcome-bg-start: var(--primary-500, #6366f1);
-    --welcome-bg-end: var(--primary-700, #4338ca);
-    --welcome-text: white;
-    --welcome-text-secondary: rgba(255, 255, 255, 0.9);
-    --welcome-text-muted: rgba(255, 255, 255, 0.7);
-    --welcome-overlay: rgba(255, 255, 255, 0.1);
-    --welcome-overlay-hover: rgba(255, 255, 255, 0.15);
-    --welcome-border: rgba(255, 255, 255, 0.2);
-    --welcome-border-hover: rgba(255, 255, 255, 0.3);
-    --welcome-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-    /* Enhanced gradient colors */
-    --welcome-accent-1: #8b5cf6;
-    --welcome-accent-2: #06b6d4;
-    --welcome-accent-3: #10b981;
-    --welcome-accent-4: #f59e0b;
-}
-
-/* 🎯 UNIFIED SECTION STYLING - Apply Welcome Section Design to All Homepage Sections */
-
 /* Target all main dashboard sections - EXCLUDE welcome section but include analytics */
 .dashboard-item:not(.full-width) analytics-dashboard,
 .dashboard-item.full-width.compact analytics-dashboard,
@@ -101,92 +78,13 @@ smart-insights-dashboard,
 /* Animation keyframes moved to welcome-section.css to prevent duplicates */
 
 /* 🌟 UNIFIED TEXT STYLING - All Text White (EXCLUDE welcome section) */
-.dashboard-item:not(.full-width) analytics-dashboard *:not(input):not(select):not(textarea),
-.dashboard-item.full-width.compact analytics-dashboard *:not(input):not(select):not(textarea),
-.dashboard-item task-system *:not(input):not(select):not(textarea),
-.dashboard-item enhanced-knowledge-hub *:not(input):not(select):not(textarea),
-.dashboard-item smart-insights-dashboard *:not(input):not(select):not(textarea),
-.dashboard-item live-activity-feed *:not(input):not(select):not(textarea),
-.dashboard-item wellness-tracker *:not(input):not(select):not(textarea),
-.dashboard-item team-spotlight *:not(input):not(select):not(textarea),
-.dashboard-item company-news *:not(input):not(select):not(textarea),
-.dashboard-item collaboration-hub *:not(input):not(select):not(textarea),
-.dashboard-item office-visualizer *:not(input):not(select):not(textarea),
-.dashboard-item enhanced-interactive-poll *:not(input):not(select):not(textarea),
-.dashboard-item weather-widget *:not(input):not(select):not(textarea),
-.dashboard-item achievement-system *:not(input):not(select):not(textarea),
-.dashboard-item company-culture-showcase *:not(input):not(select):not(textarea),
-.dashboard-item:not(.full-width) h1,
-.dashboard-item.full-width.compact h1,
-.dashboard-item:not(.full-width) h2,
-.dashboard-item.full-width.compact h2,
-.dashboard-item:not(.full-width) h3,
-.dashboard-item.full-width.compact h3,
-.dashboard-item:not(.full-width) h4,
-.dashboard-item.full-width.compact h4,
-.dashboard-item:not(.full-width) h5,
-.dashboard-item.full-width.compact h5,
-.dashboard-item:not(.full-width) h6,
-.dashboard-item.full-width.compact h6,
-.dashboard-item:not(.full-width) p,
-.dashboard-item.full-width.compact p,
-.dashboard-item:not(.full-width) span,
-.dashboard-item.full-width.compact span,
-.dashboard-item:not(.full-width) div,
-.dashboard-item.full-width.compact div,
-.dashboard-item:not(.full-width) .title,
-.dashboard-item.full-width.compact .title,
-.dashboard-item:not(.full-width) .text,
-.dashboard-item.full-width.compact .text,
-.dashboard-item:not(.full-width) .label,
-.dashboard-item.full-width.compact .label,
-.dashboard-item:not(.full-width) .value,
-.dashboard-item.full-width.compact .value,
-.dashboard-item:not(.full-width) .metric,
-.dashboard-item.full-width.compact .metric,
-.dashboard-item:not(.full-width) .description,
-.dashboard-item.full-width.compact .description,
-.dashboard-item:not(.full-width) .content,
-.dashboard-item.full-width.compact .content {
+.dashboard-item:not(.full-width) *:not(input):not(select):not(textarea),
+.dashboard-item.full-width.compact *:not(input):not(select):not(textarea) {
     color: var(--welcome-text) !important;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* 🎯 UNIFIED CARD STYLING - Glassmorphism Cards (EXCLUDE welcome section) */
-.dashboard-item:not(.full-width) analytics-dashboard .card,
-.dashboard-item.full-width.compact analytics-dashboard .card,
-.dashboard-item:not(.full-width) analytics-dashboard .widget,
-.dashboard-item.full-width.compact analytics-dashboard .widget,
-.dashboard-item:not(.full-width) analytics-dashboard .kpi-card,
-.dashboard-item.full-width.compact analytics-dashboard .kpi-card,
-.dashboard-item:not(.full-width) analytics-dashboard .metric-card,
-.dashboard-item.full-width.compact analytics-dashboard .metric-card,
-.dashboard-item task-system .task-card,
-.dashboard-item task-system .column,
-.dashboard-item task-system .kanban-column,
-.dashboard-item enhanced-knowledge-hub .resource-card,
-.dashboard-item enhanced-knowledge-hub .insight-card,
-.dashboard-item enhanced-knowledge-hub .learning-card,
-.dashboard-item smart-insights-dashboard .insight-panel,
-.dashboard-item smart-insights-dashboard .trend-card,
-.dashboard-item live-activity-feed .activity-card,
-.dashboard-item live-activity-feed .notification-card,
-.dashboard-item wellness-tracker .wellness-card,
-.dashboard-item wellness-tracker .metric-card,
-.dashboard-item team-spotlight .member-card,
-.dashboard-item team-spotlight .team-card,
-.dashboard-item company-news .news-card,
-.dashboard-item company-news .article-card,
-.dashboard-item collaboration-hub .project-card,
-.dashboard-item collaboration-hub .space-card,
-.dashboard-item enhanced-interactive-poll .poll-card,
-.dashboard-item enhanced-interactive-poll .option-card,
-.dashboard-item weather-widget .weather-card,
-.dashboard-item weather-widget .forecast-card,
-.dashboard-item achievement-system .achievement-card,
-.dashboard-item achievement-system .badge-card,
-.dashboard-item company-culture-showcase .culture-card,
-.dashboard-item company-culture-showcase .value-card,
+/* 🎯 UNIFIED CARD STYLING - Glassmorphism Cards */
 .dashboard-item:not(.full-width) .card,
 .dashboard-item.full-width.compact .card,
 .dashboard-item:not(.full-width) .widget,
@@ -195,10 +93,10 @@ smart-insights-dashboard,
 .dashboard-item.full-width.compact .panel,
 .dashboard-item:not(.full-width) .section,
 .dashboard-item.full-width.compact .section {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    background: linear-gradient(135deg, var(--component-bg) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
     backdrop-filter: blur(15px) !important;
     -webkit-backdrop-filter: blur(15px) !important;
-    border: 1px solid var(--welcome-border) !important;
+    border: 1px solid var(--component-border) !important;
     border-radius: var(--radius-xl) !important;
     padding: var(--space-5) !important;
     transition: all var(--duration-normal) var(--ease-in-out) !important;
@@ -208,65 +106,22 @@ smart-insights-dashboard,
 }
 
 /* Card Hover Effects */
-analytics-dashboard .card:hover,
-analytics-dashboard .widget:hover,
-analytics-dashboard .kpi-card:hover,
-task-system .task-card:hover,
-task-system .column:hover,
-enhanced-knowledge-hub .resource-card:hover,
-enhanced-knowledge-hub .insight-card:hover,
-smart-insights-dashboard .insight-panel:hover,
-live-activity-feed .activity-card:hover,
-wellness-tracker .wellness-card:hover,
-team-spotlight .member-card:hover,
-company-news .news-card:hover,
-collaboration-hub .project-card:hover,
-enhanced-interactive-poll .poll-card:hover,
-weather-widget .weather-card:hover,
-achievement-system .achievement-card:hover,
-company-culture-showcase .culture-card:hover,
 .dashboard-item .card:hover,
 .dashboard-item .widget:hover,
 .dashboard-item .panel:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
-    border-color: var(--welcome-border-hover) !important;
+    background: linear-gradient(135deg, var(--component-hover-bg) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    border-color: var(--component-hover-border) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3) !important;
+    box-shadow: var(--component-hover-shadow) !important;
 }
 
 /* 🎨 UNIFIED BUTTON STYLING */
-analytics-dashboard button,
-analytics-dashboard .btn,
-task-system button,
-task-system .btn,
-enhanced-knowledge-hub button,
-enhanced-knowledge-hub .btn,
-smart-insights-dashboard button,
-smart-insights-dashboard .btn,
-live-activity-feed button,
-live-activity-feed .btn,
-wellness-tracker button,
-wellness-tracker .btn,
-team-spotlight button,
-team-spotlight .btn,
-company-news button,
-company-news .btn,
-collaboration-hub button,
-collaboration-hub .btn,
-enhanced-interactive-poll button,
-enhanced-interactive-poll .btn,
-weather-widget button,
-weather-widget .btn,
-achievement-system button,
-achievement-system .btn,
-company-culture-showcase button,
-company-culture-showcase .btn,
 .dashboard-item button,
 .dashboard-item .btn,
 .dashboard-item .action-btn {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    background: linear-gradient(135deg, var(--component-bg) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
     backdrop-filter: blur(10px) !important;
-    border: 1px solid var(--welcome-border) !important;
+    border: 1px solid var(--component-border) !important;
     border-radius: var(--radius-lg) !important;
     padding: var(--space-3) var(--space-5) !important;
     color: var(--welcome-text) !important;
@@ -280,67 +135,15 @@ company-culture-showcase .btn,
 }
 
 /* Button Hover Effects */
-analytics-dashboard button:hover,
-analytics-dashboard .btn:hover,
-task-system button:hover,
-task-system .btn:hover,
-enhanced-knowledge-hub button:hover,
-enhanced-knowledge-hub .btn:hover,
-smart-insights-dashboard button:hover,
-smart-insights-dashboard .btn:hover,
-live-activity-feed button:hover,
-live-activity-feed .btn:hover,
-wellness-tracker button:hover,
-wellness-tracker .btn:hover,
-team-spotlight button:hover,
-team-spotlight .btn:hover,
-company-news button:hover,
-company-news .btn:hover,
-collaboration-hub button:hover,
-collaboration-hub .btn:hover,
-enhanced-interactive-poll button:hover,
-enhanced-interactive-poll .btn:hover,
-weather-widget button:hover,
-weather-widget .btn:hover,
-achievement-system button:hover,
-achievement-system .btn:hover,
-company-culture-showcase button:hover,
-company-culture-showcase .btn:hover,
 .dashboard-item button:hover,
 .dashboard-item .btn:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
-    border-color: var(--welcome-border-hover) !important;
+    background: linear-gradient(135deg, var(--component-hover-bg) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border-color: var(--component-hover-border) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2) !important;
+    box-shadow: var(--component-hover-shadow) !important;
 }
 
 /* 🎯 UNIFIED ICON STYLING */
-analytics-dashboard svg,
-analytics-dashboard .icon,
-task-system svg,
-task-system .icon,
-enhanced-knowledge-hub svg,
-enhanced-knowledge-hub .icon,
-smart-insights-dashboard svg,
-smart-insights-dashboard .icon,
-live-activity-feed svg,
-live-activity-feed .icon,
-wellness-tracker svg,
-wellness-tracker .icon,
-team-spotlight svg,
-team-spotlight .icon,
-company-news svg,
-company-news .icon,
-collaboration-hub svg,
-collaboration-hub .icon,
-enhanced-interactive-poll svg,
-enhanced-interactive-poll .icon,
-weather-widget svg,
-weather-widget .icon,
-achievement-system svg,
-achievement-system .icon,
-company-culture-showcase svg,
-company-culture-showcase .icon,
 .dashboard-item svg,
 .dashboard-item .icon,
 .dashboard-item .btn-icon {
@@ -351,32 +154,6 @@ company-culture-showcase .icon,
 }
 
 /* Icon Hover Effects */
-analytics-dashboard svg:hover,
-analytics-dashboard .icon:hover,
-task-system svg:hover,
-task-system .icon:hover,
-enhanced-knowledge-hub svg:hover,
-enhanced-knowledge-hub .icon:hover,
-smart-insights-dashboard svg:hover,
-smart-insights-dashboard .icon:hover,
-live-activity-feed svg:hover,
-live-activity-feed .icon:hover,
-wellness-tracker svg:hover,
-wellness-tracker .icon:hover,
-team-spotlight svg:hover,
-team-spotlight .icon:hover,
-company-news svg:hover,
-company-news .icon:hover,
-collaboration-hub svg:hover,
-collaboration-hub .icon:hover,
-enhanced-interactive-poll svg:hover,
-enhanced-interactive-poll .icon:hover,
-weather-widget svg:hover,
-weather-widget .icon:hover,
-achievement-system svg:hover,
-achievement-system .icon:hover,
-company-culture-showcase svg:hover,
-company-culture-showcase .icon:hover,
 .dashboard-item svg:hover,
 .dashboard-item .icon:hover,
 .dashboard-item .btn-icon:hover {
@@ -387,59 +164,6 @@ company-culture-showcase .icon:hover,
 }
 
 /* 🎨 UNIFIED TITLE STYLING */
-analytics-dashboard h1,
-analytics-dashboard h2,
-analytics-dashboard h3,
-analytics-dashboard .title,
-analytics-dashboard .section-title,
-task-system h1,
-task-system h2,
-task-system h3,
-task-system .title,
-enhanced-knowledge-hub h1,
-enhanced-knowledge-hub h2,
-enhanced-knowledge-hub h3,
-enhanced-knowledge-hub .title,
-smart-insights-dashboard h1,
-smart-insights-dashboard h2,
-smart-insights-dashboard h3,
-smart-insights-dashboard .title,
-live-activity-feed h1,
-live-activity-feed h2,
-live-activity-feed h3,
-live-activity-feed .title,
-wellness-tracker h1,
-wellness-tracker h2,
-wellness-tracker h3,
-wellness-tracker .title,
-team-spotlight h1,
-team-spotlight h2,
-team-spotlight h3,
-team-spotlight .title,
-company-news h1,
-company-news h2,
-company-news h3,
-company-news .title,
-collaboration-hub h1,
-collaboration-hub h2,
-collaboration-hub h3,
-collaboration-hub .title,
-enhanced-interactive-poll h1,
-enhanced-interactive-poll h2,
-enhanced-interactive-poll h3,
-enhanced-interactive-poll .title,
-weather-widget h1,
-weather-widget h2,
-weather-widget h3,
-weather-widget .title,
-achievement-system h1,
-achievement-system h2,
-achievement-system h3,
-achievement-system .title,
-company-culture-showcase h1,
-company-culture-showcase h2,
-company-culture-showcase h3,
-company-culture-showcase .title,
 .dashboard-item h1,
 .dashboard-item h2,
 .dashboard-item h3,
@@ -453,19 +177,6 @@ company-culture-showcase .title,
 }
 
 /* 🌟 UNIFIED SECTION HEADERS WITH ICONS */
-analytics-dashboard .section-header,
-task-system .section-header,
-enhanced-knowledge-hub .section-header,
-smart-insights-dashboard .section-header,
-live-activity-feed .section-header,
-wellness-tracker .section-header,
-team-spotlight .section-header,
-company-news .section-header,
-collaboration-hub .section-header,
-enhanced-interactive-poll .section-header,
-weather-widget .section-header,
-achievement-system .section-header,
-company-culture-showcase .section-header,
 .dashboard-item .section-header,
 .dashboard-item .header {
     display: flex !important;
@@ -476,32 +187,6 @@ company-culture-showcase .section-header,
 }
 
 /* Section Header Icons */
-analytics-dashboard .section-header svg,
-analytics-dashboard .section-header .icon,
-task-system .section-header svg,
-task-system .section-header .icon,
-enhanced-knowledge-hub .section-header svg,
-enhanced-knowledge-hub .section-header .icon,
-smart-insights-dashboard .section-header svg,
-smart-insights-dashboard .section-header .icon,
-live-activity-feed .section-header svg,
-live-activity-feed .section-header .icon,
-wellness-tracker .section-header svg,
-wellness-tracker .section-header .icon,
-team-spotlight .section-header svg,
-team-spotlight .section-header .icon,
-company-news .section-header svg,
-company-news .section-header .icon,
-collaboration-hub .section-header svg,
-collaboration-hub .section-header .icon,
-enhanced-interactive-poll .section-header svg,
-enhanced-interactive-poll .section-header .icon,
-weather-widget .section-header svg,
-weather-widget .section-header .icon,
-achievement-system .section-header svg,
-achievement-system .section-header .icon,
-company-culture-showcase .section-header svg,
-company-culture-showcase .section-header .icon,
 .dashboard-item .section-header svg,
 .dashboard-item .section-header .icon {
     width: 32px !important;
@@ -517,32 +202,6 @@ company-culture-showcase .section-header .icon,
 }
 
 /* Section Header Icon Hover */
-analytics-dashboard .section-header svg:hover,
-analytics-dashboard .section-header .icon:hover,
-task-system .section-header svg:hover,
-task-system .section-header .icon:hover,
-enhanced-knowledge-hub .section-header svg:hover,
-enhanced-knowledge-hub .section-header .icon:hover,
-smart-insights-dashboard .section-header svg:hover,
-smart-insights-dashboard .section-header .icon:hover,
-live-activity-feed .section-header svg:hover,
-live-activity-feed .section-header .icon:hover,
-wellness-tracker .section-header svg:hover,
-wellness-tracker .section-header .icon:hover,
-team-spotlight .section-header svg:hover,
-team-spotlight .section-header .icon:hover,
-company-news .section-header svg:hover,
-company-news .section-header .icon:hover,
-collaboration-hub .section-header svg:hover,
-collaboration-hub .section-header .icon:hover,
-enhanced-interactive-poll .section-header svg:hover,
-enhanced-interactive-poll .section-header .icon:hover,
-weather-widget .section-header svg:hover,
-weather-widget .section-header .icon:hover,
-achievement-system .section-header svg:hover,
-achievement-system .section-header .icon:hover,
-company-culture-showcase .section-header svg:hover,
-company-culture-showcase .section-header .icon:hover,
 .dashboard-item .section-header svg:hover,
 .dashboard-item .section-header .icon:hover {
     background: rgba(255, 255, 255, 0.2) !important;
@@ -551,45 +210,6 @@ company-culture-showcase .section-header .icon:hover,
 }
 
 /* 🎯 UNIFIED BADGES AND TAGS */
-analytics-dashboard .badge,
-analytics-dashboard .tag,
-analytics-dashboard .status,
-task-system .badge,
-task-system .tag,
-task-system .status,
-enhanced-knowledge-hub .badge,
-enhanced-knowledge-hub .tag,
-enhanced-knowledge-hub .status,
-smart-insights-dashboard .badge,
-smart-insights-dashboard .tag,
-smart-insights-dashboard .status,
-live-activity-feed .badge,
-live-activity-feed .tag,
-live-activity-feed .status,
-wellness-tracker .badge,
-wellness-tracker .tag,
-wellness-tracker .status,
-team-spotlight .badge,
-team-spotlight .tag,
-team-spotlight .status,
-company-news .badge,
-company-news .tag,
-company-news .status,
-collaboration-hub .badge,
-collaboration-hub .tag,
-collaboration-hub .status,
-enhanced-interactive-poll .badge,
-enhanced-interactive-poll .tag,
-enhanced-interactive-poll .status,
-weather-widget .badge,
-weather-widget .tag,
-weather-widget .status,
-achievement-system .badge,
-achievement-system .tag,
-achievement-system .status,
-company-culture-showcase .badge,
-company-culture-showcase .tag,
-company-culture-showcase .status,
 .dashboard-item .badge,
 .dashboard-item .tag,
 .dashboard-item .status {
@@ -605,32 +225,6 @@ company-culture-showcase .status,
 }
 
 /* 🎨 UNIFIED PROGRESS BARS */
-analytics-dashboard .progress,
-analytics-dashboard .progress-bar,
-task-system .progress,
-task-system .progress-bar,
-enhanced-knowledge-hub .progress,
-enhanced-knowledge-hub .progress-bar,
-smart-insights-dashboard .progress,
-smart-insights-dashboard .progress-bar,
-live-activity-feed .progress,
-live-activity-feed .progress-bar,
-wellness-tracker .progress,
-wellness-tracker .progress-bar,
-team-spotlight .progress,
-team-spotlight .progress-bar,
-company-news .progress,
-company-news .progress-bar,
-collaboration-hub .progress,
-collaboration-hub .progress-bar,
-enhanced-interactive-poll .progress,
-enhanced-interactive-poll .progress-bar,
-weather-widget .progress,
-weather-widget .progress-bar,
-achievement-system .progress,
-achievement-system .progress-bar,
-company-culture-showcase .progress,
-company-culture-showcase .progress-bar,
 .dashboard-item .progress,
 .dashboard-item .progress-bar {
     background: rgba(255, 255, 255, 0.2) !important;
@@ -640,32 +234,6 @@ company-culture-showcase .progress-bar,
 }
 
 /* Progress Fill */
-analytics-dashboard .progress-fill,
-analytics-dashboard .progress-bar-fill,
-task-system .progress-fill,
-task-system .progress-bar-fill,
-enhanced-knowledge-hub .progress-fill,
-enhanced-knowledge-hub .progress-bar-fill,
-smart-insights-dashboard .progress-fill,
-smart-insights-dashboard .progress-bar-fill,
-live-activity-feed .progress-fill,
-live-activity-feed .progress-bar-fill,
-wellness-tracker .progress-fill,
-wellness-tracker .progress-bar-fill,
-team-spotlight .progress-fill,
-team-spotlight .progress-bar-fill,
-company-news .progress-fill,
-company-news .progress-bar-fill,
-collaboration-hub .progress-fill,
-collaboration-hub .progress-bar-fill,
-enhanced-interactive-poll .progress-fill,
-enhanced-interactive-poll .progress-bar-fill,
-weather-widget .progress-fill,
-weather-widget .progress-bar-fill,
-achievement-system .progress-fill,
-achievement-system .progress-bar-fill,
-company-culture-showcase .progress-fill,
-company-culture-showcase .progress-bar-fill,
 .dashboard-item .progress-fill,
 .dashboard-item .progress-bar-fill {
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6)) !important;
@@ -674,233 +242,57 @@ company-culture-showcase .progress-bar-fill,
     transition: width 0.5s ease !important;
 }
 
-/* 🌟 FLOATING PARTICLES FOR ALL SECTIONS */
-analytics-dashboard::before,
-task-system::before,
-enhanced-knowledge-hub::before,
-smart-insights-dashboard::before,
-live-activity-feed::before,
-wellness-tracker::before,
-team-spotlight::before,
-company-news::before,
-collaboration-hub::before,
-enhanced-interactive-poll::before,
-weather-widget::before,
-achievement-system::before,
-company-culture-showcase::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background:
-        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 15%, rgba(255, 255, 255, 0.1) 30%, transparent 60%),
-        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.15) 20%, transparent 40%),
-        radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0.1) 25%, transparent 50%);
-    border-radius: 50%;
-    animation: none;
-    pointer-events: none;
-    z-index: 1;
-    filter: blur(0.5px);
-    opacity: 0.6;
-}
-
-/* spectacularFloat animation moved to welcome-section.css to prevent duplicates */
-
-/* 🎯 RESPONSIVE DESIGN */
+/* 📱 MOBILE RESPONSIVENESS & PERFORMANCE OPTIMIZATIONS */
 @media (max-width: 768px) {
-
-    .dashboard-item:not(.welcome-section *),
-    analytics-dashboard,
-    task-system,
-    enhanced-knowledge-hub,
-    smart-insights-dashboard,
-    live-activity-feed,
-    wellness-tracker,
-    team-spotlight,
-    company-news,
-    collaboration-hub,
-    office-visualizer,
-    enhanced-interactive-poll,
-    weather-widget,
-    achievement-system,
-    company-culture-showcase {
+    .dashboard-item {
         padding: var(--space-4) !important;
         /* No animations on mobile for better performance */
         animation: none !important;
     }
+}
 
-    /* Simplify background effects on mobile */
-    analytics-dashboard::before,
-    task-system::before,
-    enhanced-knowledge-hub::before,
-    smart-insights-dashboard::before,
-    live-activity-feed::before,
-    wellness-tracker::before,
-    team-spotlight::before,
-    company-news::before,
-    collaboration-hub::before,
-    enhanced-interactive-poll::before,
-    weather-widget::before,
-    achievement-system::before,
-    company-culture-showcase::before {
-        width: 150%;
-        height: 150%;
-        top: -25%;
-        right: -25%;
-        animation-duration: 25s;
-        filter: blur(1px);
-        opacity: 0.4;
+@media (max-width: 480px) {
+    .dashboard-item {
+        padding: var(--space-4) !important;
+        border-radius: var(--radius-xl) !important;
     }
 }
 
-/* 🎨 PERFORMANCE OPTIMIZATIONS */
+/* Performance Optimizations */
 @media (prefers-reduced-motion: reduce) {
-
-    analytics-dashboard,
-    task-system,
-    enhanced-knowledge-hub,
-    smart-insights-dashboard,
-    live-activity-feed,
-    wellness-tracker,
-    team-spotlight,
-    company-news,
-    collaboration-hub,
-    enhanced-interactive-poll,
-    weather-widget,
-    achievement-system,
-    company-culture-showcase,
-    analytics-dashboard::before,
-    task-system::before,
-    enhanced-knowledge-hub::before,
-    smart-insights-dashboard::before,
-    live-activity-feed::before,
-    wellness-tracker::before,
-    team-spotlight::before,
-    company-news::before,
-    collaboration-hub::before,
-    enhanced-interactive-poll::before,
-    weather-widget::before,
-    achievement-system::before,
-    company-culture-showcase::before {
+    .dashboard-item,
+    .dashboard-item * {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
 }
 
-/* 🏆 ACCESSIBILITY ENHANCEMENTS */
-@media (forced-colors: active) {
-
-    analytics-dashboard,
-    task-system,
-    enhanced-knowledge-hub,
-    smart-insights-dashboard,
-    live-activity-feed,
-    wellness-tracker,
-    team-spotlight,
-    company-news,
-    collaboration-hub,
-    enhanced-interactive-poll,
-    weather-widget,
-    achievement-system,
-    company-culture-showcase {
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+    .dashboard-item {
         background: Canvas !important;
         color: CanvasText !important;
         border-color: ButtonBorder !important;
     }
 
-    analytics-dashboard::before,
-    task-system::before,
-    enhanced-knowledge-hub::before,
-    smart-insights-dashboard::before,
-    live-activity-feed::before,
-    wellness-tracker::before,
-    team-spotlight::before,
-    company-news::before,
-    collaboration-hub::before,
-    enhanced-interactive-poll::before,
-    weather-widget::before,
-    achievement-system::before,
-    company-culture-showcase::before {
-        display: none !important;
+    .dashboard-item .card,
+    .dashboard-item .button,
+    .dashboard-item .badge {
+        border-width: 2px !important;
     }
 }
 
-/* 🎯 FOCUS INDICATORS */
-analytics-dashboard:focus-within,
-task-system:focus-within,
-enhanced-knowledge-hub:focus-within,
-smart-insights-dashboard:focus-within,
-live-activity-feed:focus-within,
-wellness-tracker:focus-within,
-team-spotlight:focus-within,
-company-news:focus-within,
-collaboration-hub:focus-within,
-enhanced-interactive-poll:focus-within,
-weather-widget:focus-within,
-achievement-system:focus-within,
-company-culture-showcase:focus-within {
-    outline: 3px solid rgba(99, 102, 241, 0.5);
-    outline-offset: 4px;
-    box-shadow:
-        var(--welcome-shadow),
-        0 0 0 1px rgba(255, 255, 255, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5),
-        0 0 80px rgba(99, 102, 241, 0.6),
-        0 0 160px rgba(99, 102, 241, 0.4) !important;
+/* Dark Mode Support */
+[data-theme="dark"] .dashboard-item {
+    background: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
 }
 
-/* 🎨 GPU ACCELERATION FOR SMOOTH PERFORMANCE */
-analytics-dashboard,
-task-system,
-enhanced-knowledge-hub,
-smart-insights-dashboard,
-live-activity-feed,
-wellness-tracker,
-team-spotlight,
-company-news,
-collaboration-hub,
-enhanced-interactive-poll,
-weather-widget,
-achievement-system,
-company-culture-showcase,
-analytics-dashboard::before,
-task-system::before,
-enhanced-knowledge-hub::before,
-smart-insights-dashboard::before,
-live-activity-feed::before,
-wellness-tracker::before,
-team-spotlight::before,
-company-news::before,
-collaboration-hub::before,
-enhanced-interactive-poll::before,
-weather-widget::before,
-achievement-system::before,
-company-culture-showcase::before {
+/* GPU Acceleration for Smooth Performance */
+.dashboard-item {
     will-change: transform, opacity;
     transform: translateZ(0);
     backface-visibility: hidden;
     perspective: 1000px;
 }
-
-/* 🌟 LOADING STATES */
-analytics-dashboard.loading,
-task-system.loading,
-enhanced-knowledge-hub.loading,
-smart-insights-dashboard.loading,
-live-activity-feed.loading,
-wellness-tracker.loading,
-team-spotlight.loading,
-company-news.loading,
-collaboration-hub.loading,
-enhanced-interactive-poll.loading,
-weather-widget.loading,
-achievement-system.loading,
-company-culture-showcase.loading {
-    opacity: 0.8;
-    animation: welcomeLoad 1.5s ease-out forwards;
-}
-
-/* welcomeLoad animation moved to welcome-section.css to prevent duplicates */

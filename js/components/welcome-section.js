@@ -21,15 +21,53 @@ class SpectacularWelcomeSection extends HTMLElement {
 
     connectedCallback() {
         console.log('🎨 Contest-Winning Welcome Section Loading...');
-        this.initializeSpectacularEffects();
-        this.setupAccessibilityFeatures();
-        this.generateSmartRecommendations();
-        this.setupMouseTracking();
-        this.setupKeyboardNavigation();
-        this.startAnimationLoop();
-        this.startRealTimeUpdates();
-        this.isInitialized = true;
-        console.log('✨ Contest-Winning Welcome Section Ready!');
+        
+        // Initialize SVG icon library first and wait for it
+        const initializeLibrary = () => {
+            return new Promise((resolve) => {
+                if (!window.svgIconLibrary) {
+                    console.log('Loading SVG icon library...');
+                    // Create script element to load SVG library
+                    const script = document.createElement('script');
+                    script.src = window.location.origin + '/js/components/svg-icon-library.js';
+                    script.onload = () => {
+                        console.log('SVG icon library loaded successfully!');
+                        window.svgIconLibrary = new SVGIconLibrary();
+                        resolve();
+                    };
+                    script.onerror = (error) => {
+                        console.error('Failed to load SVG icon library:', error);
+                        resolve(); // Continue anyway
+                    };
+                    document.head.appendChild(script);
+                } else {
+                    console.log('SVG icon library already loaded');
+                    resolve();
+                }
+            });
+        };
+
+        // Initialize everything after SVG library is ready
+        initializeLibrary().then(() => {
+            // Add debug logging
+            console.log('SVG library status:', !!window.svgIconLibrary);
+            if (window.svgIconLibrary) {
+                console.log('Available icons:', Object.keys(window.svgIconLibrary.icons));
+            }
+
+            this.initializeSpectacularEffects();
+            this.setupAccessibilityFeatures();
+            this.generateSmartRecommendations();
+            this.setupMouseTracking();
+            this.setupKeyboardNavigation();
+            this.startAnimationLoop();
+            this.startRealTimeUpdates();
+            this.isInitialized = true;
+            console.log('✨ Contest-Winning Welcome Section Ready!');
+
+            // Force refresh icons after initialization
+            this.refreshIcons();
+        });
     }
 
     disconnectedCallback() {
@@ -111,8 +149,64 @@ class SpectacularWelcomeSection extends HTMLElement {
             element.setAttribute('tabindex', '0');
             element.setAttribute('role', 'button');
             
-            // Add click handlers for different types of elements
+            // Add SVG icons to buttons
             if (element.classList.contains('btn')) {
+                const buttonText = element.textContent.trim();
+                let iconName = '';
+                
+                // Map button text to icon names
+                switch (buttonText.toLowerCase()) {
+                    case 'new task':
+                        iconName = 'plus';
+                        break;
+                    case 'my tasks':
+                        iconName = 'page-tasks';
+                        break;
+                    case 'schedule':
+                        iconName = 'schedule';
+                        break;
+                    case 'documents':
+                        iconName = 'documentation';
+                        break;
+                    default:
+                        iconName = 'default';
+                }
+                
+                // Remove any existing icons
+                const existingIcon = element.querySelector('.btn-icon');
+                if (existingIcon) {
+                    existingIcon.remove();
+                }
+                
+                // Create and add the icon
+                if (window.svgIconLibrary) {
+                    const iconElement = window.svgIconLibrary.createIconElement(iconName, 'btn-icon');
+                    // Insert icon before any text
+                    element.insertBefore(iconElement, element.firstChild);
+                    
+                    // Ensure icon is visible and properly styled
+                    iconElement.style.cssText = `
+                        display: inline-flex !important;
+                        align-items: center;
+                        justify-content: center;
+                        width: 24px;
+                        height: 24px;
+                        margin-right: 8px;
+                        vertical-align: middle;
+                        color: currentColor;
+                    `;
+
+                    // Ensure the SVG inside is visible and properly sized
+                    const svg = iconElement.querySelector('svg');
+                    if (svg) {
+                        svg.style.cssText = `
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+                        `;
+                    }
+                }
+                
                 element.addEventListener('click', (e) => {
                     this.handleQuickActionClick(e, element);
                 });
@@ -480,34 +574,31 @@ class SpectacularWelcomeSection extends HTMLElement {
 
     createRecommendationCard(recommendation, index) {
         const card = document.createElement('div');
-        card.className = 'recommendation-card';
-        card.setAttribute('tabindex', '0');
+        card.className = 'card card-glass recommendation-card';
         card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', `Recommendation: ${recommendation.title}. ${recommendation.description}. ${recommendation.reason}`);
-        
-        card.innerHTML = `
-            <div style="display: flex; align-items: flex-start; gap: var(--space-3);">
-                <div style="flex: 1;">
-                    <h4 style="margin: 0 0 var(--space-1) 0; font-weight: 600; font-size: 0.875rem;">
-                        ${recommendation.title}
-                    </h4>
-                    <p style="margin: 0 0 var(--space-2) 0; font-size: 0.75rem; opacity: 0.9;">
-                        ${recommendation.description}
-                    </p>
-                    <span style="font-size: 0.625rem; opacity: 0.7; font-style: italic;">
-                        ${recommendation.reason}
-                    </span>
-                </div>
-                <div class="priority-indicator ${recommendation.priority}" style="
-                    width: 12px; 
-                    height: 12px; 
-                    border-radius: 50%; 
-                    background: ${recommendation.priority === 'high' ? '#ef4444' : recommendation.priority === 'medium' ? '#f59e0b' : '#6b7280'};
-                    flex-shrink: 0;
-                "></div>
-            </div>
-        `;
-        
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-label', `Recommendation: ${recommendation.title}`);
+
+        const icon = document.createElement('div');
+        icon.className = 'icon-base icon-lg';
+        icon.innerHTML = this.getIconSvg(recommendation.type);
+
+        const content = document.createElement('div');
+        content.className = 'card-content';
+
+        const title = document.createElement('h4');
+        title.className = 'card-title';
+        title.textContent = recommendation.title;
+
+        const description = document.createElement('p');
+        description.className = 'card-subtitle';
+        description.textContent = recommendation.description;
+
+        content.appendChild(title);
+        content.appendChild(description);
+        card.appendChild(icon);
+        card.appendChild(content);
+
         card.addEventListener('click', () => {
             this.executeRecommendation(recommendation, index);
         });
@@ -523,50 +614,55 @@ class SpectacularWelcomeSection extends HTMLElement {
     }
 
     createAIInsights(container) {
-        const insights = [
-            '🎯 Your productivity peaks at 10 AM',
-            '📈 Project Alpha is 78% complete',
-            '🏆 You\'re on track to exceed monthly goals',
-            '⚡ 4 quick wins available in your backlog'
-        ];
-        
-        const insightsContainer = document.createElement('div');
-        insightsContainer.style.marginTop = 'var(--space-4)';
-        
-        insights.forEach(insight => {
-            const insightElement = document.createElement('div');
-            insightElement.className = 'ai-insight';
-            insightElement.textContent = insight;
-            insightElement.setAttribute('role', 'status');
-            insightElement.setAttribute('aria-label', `AI insight: ${insight}`);
-            insightsContainer.appendChild(insightElement);
-        });
-        
-        container.appendChild(insightsContainer);
-        console.log('🤖 AI insights created!');
+        const insights = document.createElement('div');
+        insights.className = 'card card-glass ai-insight';
+        insights.setAttribute('role', 'region');
+        insights.setAttribute('aria-label', 'AI-powered insights');
+
+        const icon = document.createElement('div');
+        icon.className = 'icon-base icon-lg';
+        icon.innerHTML = this.getIconSvg('ai');
+
+        const content = document.createElement('div');
+        content.className = 'card-content';
+
+        const title = document.createElement('h4');
+        title.className = 'card-title';
+        title.textContent = 'AI Insights';
+
+        content.appendChild(title);
+        insights.appendChild(icon);
+        insights.appendChild(content);
+
+        container.appendChild(insights);
     }
 
     createRealTimeIndicators(container) {
-        const indicators = [
-            'Team Activity',
-            'System Status',
-            'Project Updates'
-        ];
-        
-        indicators.forEach(indicator => {
-            const element = document.createElement('div');
-            element.className = 'live-indicator';
-            element.innerHTML = `
-                <div class="live-dot"></div>
-                <span>${indicator}</span>
-            `;
-            element.setAttribute('role', 'status');
-            element.setAttribute('aria-label', `Live indicator for ${indicator}`);
-            element.style.margin = 'var(--space-2) var(--space-3)';
-            container.appendChild(element);
-        });
-        
-        console.log('📡 Real-time indicators created!');
+        const indicators = document.createElement('div');
+        indicators.className = 'card card-glass live-indicator';
+        indicators.setAttribute('role', 'status');
+        indicators.setAttribute('aria-label', 'Real-time activity indicators');
+
+        const icon = document.createElement('div');
+        icon.className = 'icon-base icon-lg';
+        icon.innerHTML = this.getIconSvg('activity');
+
+        const content = document.createElement('div');
+        content.className = 'card-content';
+
+        const title = document.createElement('h4');
+        title.className = 'card-title';
+        title.textContent = 'Live Activity';
+
+        const dot = document.createElement('div');
+        dot.className = 'live-dot';
+
+        content.appendChild(title);
+        indicators.appendChild(icon);
+        indicators.appendChild(content);
+        indicators.appendChild(dot);
+
+        container.appendChild(indicators);
     }
 
     // 🎯 ACTION HANDLERS
@@ -625,34 +721,35 @@ class SpectacularWelcomeSection extends HTMLElement {
     }
 
     createStatPopup(name, value, element) {
-        // Remove any existing popup
-        const existingPopup = document.querySelector('.stat-popup');
-        if (existingPopup) {
-            existingPopup.remove();
-        }
-        
         const popup = document.createElement('div');
-        popup.className = 'stat-popup';
-        popup.style.cssText = `
-            position: absolute;
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
-            padding: 16px 20px;
-            border-radius: 12px;
-            font-size: 0.875rem;
-            z-index: 1000;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: popupAppear 0.3s ease;
+        popup.className = 'card card-glass';
+        popup.style.position = 'absolute';
+        popup.style.zIndex = '1000';
+
+        const header = document.createElement('div');
+        header.className = 'card-header';
+
+        const title = document.createElement('h3');
+        title.className = 'card-title';
+        title.textContent = name;
+
+        const closeButton = document.createElement('button');
+        closeButton.className = 'button button-secondary';
+        closeButton.innerHTML = `<span class="icon-base">${this.getIconSvg('close')}</span>`;
+
+        header.appendChild(title);
+        header.appendChild(closeButton);
+
+        const content = document.createElement('div');
+        content.className = 'card-content';
+        content.innerHTML = `
+            <div class="stat-value">${value}</div>
+            <div class="stat-chart"></div>
         `;
-        
-        popup.innerHTML = `
-            <div style="font-weight: 600; margin-bottom: 8px;">${name}</div>
-            <div style="font-size: 1.5rem; font-weight: 900; color: #10b981; margin-bottom: 8px;">${value}</div>
-            <div style="font-size: 0.75rem; opacity: 0.8;">Click anywhere to close</div>
-        `;
-        
+
+        popup.appendChild(header);
+        popup.appendChild(content);
+
         // Position the popup
         const rect = element.getBoundingClientRect();
         popup.style.top = (rect.bottom + 10) + 'px';
@@ -738,6 +835,19 @@ class SpectacularWelcomeSection extends HTMLElement {
                 <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
                 <path d="M2 17l10 5 10-5"></path>
                 <path d="M2 12l10 5 10-5"></path>
+            </svg>`,
+            'ai': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+            </svg>`,
+            'activity': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+            </svg>`,
+            'close': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
             </svg>`
         };
         return icons[type] || icons['star'];
@@ -1076,6 +1186,98 @@ class SpectacularWelcomeSection extends HTMLElement {
         });
         
         console.log('🧹 Spectacular effects cleanup complete!');
+    }
+
+    // Add new method to refresh icons
+    refreshIcons() {
+        console.log('Refreshing icons...');
+        
+        // Check if SVG library is loaded
+        if (!window.svgIconLibrary) {
+            console.error('SVG library not loaded yet, retrying in 500ms...');
+            setTimeout(() => this.refreshIcons(), 500);
+            return;
+        }
+
+        const buttons = document.querySelectorAll('.welcome-section .btn');
+        console.log('Found buttons:', buttons.length);
+        
+        buttons.forEach(button => {
+            // Get the text content without the icon
+            const buttonText = Array.from(button.childNodes)
+                .filter(node => node.nodeType === Node.TEXT_NODE)
+                .map(node => node.textContent.trim())
+                .join('')
+                .toLowerCase();
+                
+            console.log('Processing button:', buttonText);
+            
+            let iconName = '';
+            switch (buttonText) {
+                case 'new task':
+                    iconName = 'plus';
+                    break;
+                case 'my tasks':
+                    iconName = 'page-tasks';
+                    break;
+                case 'schedule':
+                    iconName = 'schedule';
+                    break;
+                case 'documents':
+                    iconName = 'documentation';
+                    break;
+                default:
+                    console.log('Unknown button text:', buttonText);
+                    iconName = 'default';
+            }
+            
+            // Remove any existing icons
+            const existingIcon = button.querySelector('.btn-icon');
+            if (existingIcon) {
+                console.log('Removing existing icon');
+                existingIcon.remove();
+            }
+            
+            // Create and add the icon
+            console.log('Creating icon:', iconName);
+            const iconElement = window.svgIconLibrary.createIconElement(iconName, 'btn-icon');
+            
+            // Insert icon before any text
+            button.insertBefore(iconElement, button.firstChild);
+            
+            // Ensure icon is visible and properly styled
+            iconElement.style.cssText = `
+                display: inline-flex !important;
+                align-items: center;
+                justify-content: center;
+                width: 24px;
+                height: 24px;
+                margin-right: 8px;
+                vertical-align: middle;
+                color: currentColor;
+                opacity: 1 !important;
+                visibility: visible !important;
+                position: relative !important;
+                z-index: 2 !important;
+            `;
+
+            // Ensure the SVG inside is visible and properly sized
+            const svg = iconElement.querySelector('svg');
+            if (svg) {
+                svg.style.cssText = `
+                    width: 100% !important;
+                    height: 100% !important;
+                    display: block !important;
+                    stroke: currentColor !important;
+                    stroke-width: 2 !important;
+                    fill: none !important;
+                    opacity: 1 !important;
+                    visibility: visible !important;
+                `;
+            } else {
+                console.error('No SVG found in icon element');
+            }
+        });
     }
 }
 

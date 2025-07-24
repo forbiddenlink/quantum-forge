@@ -29,6 +29,7 @@
 /* ===== CONSOLIDATED DASHBOARD GRID LAYOUT ===== */
 /* Single source of truth for dashboard layout */
 .dashboard-grid {
+    /* Extend grid-base */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: var(--space-6);
@@ -39,19 +40,42 @@
 }
 
 .dashboard-item {
-    background: var(--bg-elevated);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
-    transition: all var(--duration-normal) var(--ease-in-out);
+    /* Extend card-base */
+    background: var(--component-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--component-border);
+    box-shadow: var(--component-shadow);
+    border-radius: var(--radius-xl);
+    transition: all var(--duration-normal) var(--ease-spring);
     overflow: hidden;
-    min-height: 200px;
     position: relative;
+    padding: var(--space-6);
+    min-height: 200px;
 }
 
 .dashboard-item:hover {
-    transform: var(--transform-hover);
-    box-shadow: var(--shadow-md);
+    background: var(--component-hover-bg);
+    border-color: var(--component-hover-border);
+    box-shadow: var(--component-hover-shadow);
+    transform: translateY(-4px);
+}
+
+.dashboard-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-500), var(--success-500), var(--warning-500));
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-in-out);
+}
+
+.dashboard-item:hover::before {
+    opacity: 1;
 }
 
 .dashboard-item.full-width {
@@ -77,6 +101,10 @@
         grid-template-columns: 1fr;
         gap: var(--space-4);
     }
+
+    .dashboard-item {
+        padding: var(--space-4);
+    }
 }
 
 @media (max-width: 480px) {
@@ -99,6 +127,21 @@
 
 /* CSS Custom Properties */
 :root {
+    /* Welcome Section Variables */
+    --welcome-bg-start: var(--bg-base);
+    --welcome-bg-end: var(--bg-secondary);
+    --welcome-text: var(--text-primary);
+    --welcome-text-muted: var(--text-secondary);
+    --welcome-overlay: rgba(255, 255, 255, 0.05);
+    
+    /* Component Base Styles */
+    --component-bg: rgba(255, 255, 255, 0.1);
+    --component-border: rgba(255, 255, 255, 0.1);
+    --component-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --component-hover-bg: rgba(255, 255, 255, 0.15);
+    --component-hover-border: rgba(255, 255, 255, 0.2);
+    --component-hover-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+
     /* Colors - Updated to use dynamic theming */
     --primary-50: #eef2ff;
     --primary-100: #e0e7ff;
@@ -10357,10 +10400,6 @@ office-visualizer {
 .avatar-62xl,
 .avatar-63xl,
 .avatar-64xl,
-.avatar-65xl,
-.avatar-66xl,
-.avatar-67xl,
-.avatar-68xl,
 .avatar-69xl,
 .avatar-70xl,
 .avatar-71xl,
@@ -17540,11 +17579,6 @@ app-header {
     border: 1px solid var(--border-color);
     margin-bottom: var(--space-6);
     transition: all var(--duration-normal) var(--ease-in-out);
-}
-
-.handbook-overview:hover {
-    box-shadow: var(--shadow-md);
-    border-color: var(--border-hover);
 }
 
 .handbook-sections {
