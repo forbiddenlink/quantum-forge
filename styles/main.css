@@ -417,7 +417,7 @@ body {
     background-clip: text;
 }
 
-/* Enhanced Sidebar */
+/* Essential Sidebar Definition - Required for Layout */
 .sidebar {
     width: 280px;
     flex-shrink: 0;
@@ -426,139 +426,6 @@ body {
     padding: var(--space-6);
     transition: all var(--duration-normal) var(--ease-in-out);
     box-shadow: var(--shadow-lg);
-}
-
-.nav-brand {
-    margin-bottom: var(--space-8);
-    padding-bottom: var(--space-6);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.nav-logo {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    text-decoration: none;
-    color: var(--text-primary);
-    transition: transform var(--duration-normal) var(--ease-spring);
-}
-
-.nav-logo:hover {
-    transform: scale(1.05);
-}
-
-.nav-logo-icon {
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
-    border-radius: var(--radius-lg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: white;
-    font-size: var(--font-size-lg);
-    box-shadow: var(--shadow-md);
-    transition: all var(--duration-normal) var(--ease-spring);
-}
-
-.nav-logo:hover .nav-logo-icon {
-    transform: rotate(5deg) scale(1.1);
-    box-shadow: var(--shadow-lg);
-}
-
-.nav-logo-text {
-    font-weight: 700;
-    font-size: var(--font-size-lg);
-    background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.nav-group {
-    margin-bottom: var(--space-8);
-}
-
-.nav-group:last-child {
-    margin-bottom: 0;
-}
-
-.nav-group-title {
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: var(--space-3);
-    padding-left: var(--space-2);
-}
-
-.nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-item {
-    margin-bottom: var(--space-1);
-}
-
-.nav-link {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    padding: var(--space-3) var(--space-4);
-    color: var(--text-secondary);
-    text-decoration: none;
-    border-radius: var(--radius-lg);
-    font-weight: 500;
-    transition: all var(--duration-normal) var(--ease-in-out);
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-link::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 0;
-    background: linear-gradient(90deg, var(--primary-500), var(--primary-600));
-    transition: width var(--duration-normal) var(--ease-in-out);
-    z-index: -1;
-}
-
-.nav-link:hover {
-    color: var(--primary-600);
-    background: var(--bg-hover);
-    transform: translateX(4px);
-}
-
-.nav-link:hover::before {
-    width: 4px;
-}
-
-.nav-link.active {
-    color: var(--primary-600);
-    background: var(--primary-50);
-    font-weight: 600;
-}
-
-.nav-link.active::before {
-    width: 4px;
-}
-
-.nav-icon {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    transition: transform var(--duration-normal) var(--ease-spring);
-}
-
-.nav-link:hover .nav-icon {
-    transform: scale(1.1);
 }
 
 /* Enhanced Main Content */
