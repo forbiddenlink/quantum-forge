@@ -17176,33 +17176,7 @@ app-header {
     background: var(--bg-hover);
 }
 
-.resource-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-}
-
-.resource-icon.pdf {
-    background: var(--error-500);
-}
-
-.resource-icon.doc {
-    background: var(--primary-500);
-}
-
-.resource-icon.video {
-    background: var(--warning-500);
-}
-
-.resource-icon.link {
-    background: var(--success-500);
-}
+/* Resource icon styles moved to knowledge-hub.css to eliminate duplication */
 
 .resource-info {
     flex: 1;

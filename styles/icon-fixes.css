@@ -6,8 +6,8 @@
 /* ===== KNOWLEDGE HUB - ENHANCED RESOURCE CARDS ===== */
 /* Target the actual classes: enhanced-resource-card and resource-icon spectacular */
 
-/* Fix Knowledge Hub Resource Icons - these are too misaligned */
-html body .enhanced-resource-card .resource-icon {
+/* Fix Knowledge Hub Resource Icons - simplified specificity */
+.enhanced-resource-card .resource-icon {
     width: 44px !important;
     height: 44px !important;
     display: flex !important;
@@ -15,34 +15,27 @@ html body .enhanced-resource-card .resource-icon {
     justify-content: center !important;
     flex-shrink: 0 !important;
     border-radius: var(--radius-lg, 8px) !important;
-    /* Fix alignment issues */
     margin: 0 !important;
     padding: 0 !important;
-    position: relative !important;
 }
 
-html body .enhanced-resource-card .resource-icon svg {
+.enhanced-resource-card .resource-icon svg {
     width: 22px !important;
     height: 22px !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    /* Perfect centering */
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
 }
 
-/* Fix Knowledge Hub Resource Action Buttons */
-html body .enhanced-resource-card .resource-btn {
+/* Fix Knowledge Hub Resource Action Buttons - simplified */
+.enhanced-resource-card .resource-btn {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 8px !important;
 }
 
-html body .enhanced-resource-card .resource-btn svg {
+.enhanced-resource-card .resource-btn svg {
     width: 16px !important;
     height: 16px !important;
     display: block !important;
@@ -65,11 +58,11 @@ html body .insight-icon-container {
     flex-shrink: 0 !important;
 }
 
-/* CRITICAL: Maximum specificity to override svg-icon-styles.css .insight-icon */
-html body .smart-insights-dashboard .insight-icon,
-html body .insight-icon-container .insight-icon,
-html body .main-insight .insight-icon,
-html body .insight-header .insight-icon {
+/* Smart Insights Dashboard - simplified specificity */
+.smart-insights-dashboard .insight-icon,
+.insight-icon-container .insight-icon,
+.main-insight .insight-icon,
+.insight-header .insight-icon {
     width: 40px !important;
     height: 40px !important;
     display: flex !important;
@@ -77,16 +70,15 @@ html body .insight-header .insight-icon {
     justify-content: center !important;
     flex-shrink: 0 !important;
     border-radius: var(--radius-md, 6px) !important;
-    margin-right: 0 !important; /* Override svg-icon-styles.css margin-right */
-    /* REMOVE GRAY BACKGROUND */
+    margin-right: 0 !important;
     background: transparent !important;
     background-color: transparent !important;
 }
 
-html body .smart-insights-dashboard .insight-icon svg,
-html body .insight-icon-container .insight-icon svg,
-html body .main-insight .insight-icon svg,
-html body .insight-header .insight-icon svg {
+.smart-insights-dashboard .insight-icon svg,
+.insight-icon-container .insight-icon svg,
+.main-insight .insight-icon svg,
+.insight-header .insight-icon svg {
     width: 20px !important;
     height: 20px !important;
     display: block !important;
@@ -94,21 +86,20 @@ html body .insight-header .insight-icon svg {
     opacity: 1 !important;
 }
 
-/* Fix Smart Insights Dashboard - Action Icons */
-html body .smart-insights-dashboard .action-icon,
-html body .insight-actions .action-icon {
+/* Fix Smart Insights Dashboard - Action Icons - simplified */
+.smart-insights-dashboard .action-icon,
+.insight-actions .action-icon {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     width: 18px !important;
     height: 18px !important;
-    /* Remove any backgrounds */
     background: transparent !important;
     background-color: transparent !important;
 }
 
-html body .smart-insights-dashboard .action-icon svg,
-html body .insight-actions .action-icon svg {
+.smart-insights-dashboard .action-icon svg,
+.insight-actions .action-icon svg {
     width: 16px !important;
     height: 16px !important;
     display: block !important;
@@ -191,11 +182,11 @@ html body .insight-metrics .insight-ai-score svg {
     margin-right: 4px !important;
 }
 
-/* REMOVE ALL GRAY BACKGROUNDS from Smart Insights icons */
-html body .smart-insights-dashboard .activity-icon,
-html body .smart-insights-dashboard .stat-icon,
-html body .smart-insights-dashboard .feedback-icon,
-html body .live-activity .activity-icon {
+/* Remove gray backgrounds from Smart Insights icons - simplified */
+.smart-insights-dashboard .activity-icon,
+.smart-insights-dashboard .stat-icon,
+.smart-insights-dashboard .feedback-icon,
+.live-activity .activity-icon {
     background: transparent !important;
     background-color: transparent !important;
 }
@@ -203,63 +194,38 @@ html body .live-activity .activity-icon {
 /* ===== PRESERVE WORKING ICONS ===== */
 /* Don't break the welcome section or other working components */
 
-/* Preserve Welcome Section Quick Action Buttons */
-html body .welcome-section .quick-actions .btn .btn-icon {
-    /* Don't override these - they work correctly */
-    width: 18px;
-    height: 18px;
-}
-
-html body .welcome-section .quick-actions .btn .btn-icon svg {
-    /* Don't override these - they work correctly */
-    width: 18px;
-    height: 18px;
-}
-
-/* Preserve Header Icons */
-html body .header .action-button svg {
-    /* Don't override these - they work correctly */
-    width: 18px;
-    height: 18px;
-}
-
-/* Preserve Sidebar Navigation Icons */
-html body .sidebar .nav-icon svg {
-    /* Don't override these - they work correctly */
-    width: 16px;
-    height: 16px;
-}
+/* Preserved working icon styles are now handled in their respective component files */
 
 /* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 768px) {
-    /* Slightly smaller on mobile for better spacing */
-    html body .enhanced-resource-card .resource-icon {
+    /* Mobile icon size adjustments */
+    .enhanced-resource-card .resource-icon {
         width: 40px !important;
         height: 40px !important;
     }
     
-    html body .enhanced-resource-card .resource-icon svg {
+    .enhanced-resource-card .resource-icon svg {
         width: 20px !important;
         height: 20px !important;
     }
     
-    html body .insight-icon-container {
+    .insight-icon-container {
         width: 44px !important;
         height: 44px !important;
     }
     
-    html body .smart-insights-dashboard .insight-icon,
-    html body .insight-icon-container .insight-icon,
-    html body .main-insight .insight-icon,
-    html body .insight-header .insight-icon {
+    .smart-insights-dashboard .insight-icon,
+    .insight-icon-container .insight-icon,
+    .main-insight .insight-icon,
+    .insight-header .insight-icon {
         width: 36px !important;
         height: 36px !important;
     }
     
-    html body .smart-insights-dashboard .insight-icon svg,
-    html body .insight-icon-container .insight-icon svg,
-    html body .main-insight .insight-icon svg,
-    html body .insight-header .insight-icon svg {
+    .smart-insights-dashboard .insight-icon svg,
+    .insight-icon-container .insight-icon svg,
+    .main-insight .insight-icon svg,
+    .insight-header .insight-icon svg {
         width: 18px !important;
         height: 18px !important;
     }

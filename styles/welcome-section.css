@@ -112,49 +112,10 @@
     transform: scale(1.1) !important;
 }
 
-/* Maximum specificity override for all welcome section icons */
-html body .welcome-section .quick-actions .btn .btn-icon,
-body .welcome-section .quick-actions .btn .btn-icon,
-#app .welcome-section .quick-actions .btn .btn-icon,
-.dashboard .welcome-section .quick-actions .btn .btn-icon,
-.main-content .welcome-section .quick-actions .btn .btn-icon {
-    display: inline-block !important;
-    width: 32px !important;
-    height: 32px !important;
-    stroke: currentColor !important;
-    stroke-width: 2px !important;
-    color: currentColor !important;
-    fill: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-html body .welcome-section .quick-actions .btn .btn-icon svg,
-body .welcome-section .quick-actions .btn .btn-icon svg,
-#app .welcome-section .quick-actions .btn .btn-icon svg,
-.dashboard .welcome-section .quick-actions .btn .btn-icon svg,
-.main-content .welcome-section .quick-actions .btn .btn-icon svg {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    stroke: currentColor !important;
-    stroke-width: 2px !important;
-    color: currentColor !important;
-    fill: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
-/* Force white color for welcome section button icons */
-.welcome-section .quick-actions .btn .btn-icon,
-.welcome-section .quick-actions .btn .btn-icon svg {
-    color: var(--welcome-text) !important;
-    stroke: var(--welcome-text) !important;
-    fill: none !important;
-}
-
-.welcome-section .quick-actions .btn:hover .btn-icon,
-.welcome-section .quick-actions .btn:hover .btn-icon svg {
+/* Simplified welcome section icon styles - consolidated */
+.welcome-section .quick-actions .btn .btn-icon {
+    width: 18px !important;
+    height: 18px !important;
     color: var(--welcome-text) !important;
     stroke: var(--welcome-text) !important;
     fill: none !important;
@@ -783,37 +744,18 @@ body .welcome-section .quick-actions .btn .btn-icon svg,
     fill: none !important;
 }
 
-/* Maximum specificity override to prevent gray hover */
-html body .welcome-section .btn-icon:hover,
-body .welcome-section .btn-icon:hover,
-#app .welcome-section .btn-icon:hover,
-.dashboard .welcome-section .btn-icon:hover,
-.main-content .welcome-section .btn-icon:hover {
+/* Simplified icon hover states */
+.welcome-section .btn-icon:hover {
     color: var(--welcome-text) !important;
     stroke: var(--welcome-text) !important;
     fill: none !important;
 }
 
-/* Maximum specificity override for Today's Insights icons */
-html body .quick-insights .insights-title .btn-icon:hover,
-body .quick-insights .insights-title .btn-icon:hover,
-#app .quick-insights .insights-title .btn-icon:hover,
-.dashboard .quick-insights .insights-title .btn-icon:hover,
-.main-content .quick-insights .insights-title .btn-icon:hover {
+.quick-insights .insights-title .btn-icon:hover {
     color: white !important;
     stroke: white !important;
     fill: none !important;
     transform: scale(1.05) !important;
-}
-
-html body .quick-insights .insights-title .btn-icon:hover svg,
-body .quick-insights .insights-title .btn-icon:hover svg,
-#app .quick-insights .insights-title .btn-icon:hover svg,
-.dashboard .quick-insights .insights-title .btn-icon:hover svg,
-.main-content .quick-insights .insights-title .btn-icon:hover svg {
-    color: white !important;
-    stroke: white !important;
-    fill: none !important;
 }
 
 /* Enhanced Events Section */
@@ -1784,43 +1726,14 @@ body .upcoming-events-title svg:hover,
     fill: none !important;
 }
 
-/* NUCLEAR OPTION - Override ALL possible upcoming events icon hover effects */
-.upcoming-events-title .btn-icon,
-.upcoming-events-title .btn-icon:hover,
-.upcoming-events-title .btn-icon:focus,
-.upcoming-events-title .btn-icon:active,
-.upcoming-events-title svg,
-.upcoming-events-title svg:hover,
-.upcoming-events-title svg:focus,
-.upcoming-events-title svg:active {
+/* Simplified upcoming events icon styles */
+.upcoming-events-title .btn-icon {
     color: var(--welcome-text) !important;
     stroke: var(--welcome-text) !important;
     fill: none !important;
 }
 
-/* Override any CSS variables that might be causing gray colors */
-.upcoming-events-title .btn-icon,
-.upcoming-events-title .btn-icon:hover,
-.upcoming-events-title svg,
-.upcoming-events-title svg:hover {
-    --primary-50: transparent !important;
-    --primary-300: transparent !important;
-    --primary-600: white !important;
-    --text-primary: white !important;
-    --bg-hover: transparent !important;
-}
-
-/* ULTIMATE OVERRIDE - Target the exact element with maximum specificity */
-html body .welcome-section .upcoming-events-title .btn-icon:hover,
-html body .welcome-section .upcoming-events-title svg:hover,
-body .welcome-section .upcoming-events-title .btn-icon:hover,
-body .welcome-section .upcoming-events-title svg:hover,
-#app .welcome-section .upcoming-events-title .btn-icon:hover,
-#app .welcome-section .upcoming-events-title svg:hover,
-.dashboard .welcome-section .upcoming-events-title .btn-icon:hover,
-.dashboard .welcome-section .upcoming-events-title svg:hover,
-.main-content .welcome-section .upcoming-events-title .btn-icon:hover,
-.main-content .welcome-section .upcoming-events-title svg:hover {
+.upcoming-events-title .btn-icon:hover {
     color: white !important;
     stroke: white !important;
     fill: none !important;
