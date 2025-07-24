@@ -180,14 +180,11 @@
   border: 2px solid var(--primary-200);
   border-top-color: var(--primary-500);
   border-radius: 50%;
-  animation: unified-spin 1s linear infinite;
+  /* Removed spin animation */
   display: inline-block;
 }
 
-@keyframes unified-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+/* Removed unified-spin keyframe animation */
 
 /* NEW: Enhanced Typography */
 .welcome-title {

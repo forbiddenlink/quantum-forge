@@ -21,7 +21,7 @@ class SmartInsightsDashboard extends HTMLElement {
         this.insightTypes = [
             {
                 type: 'productivity',
-                icon: '⚡',
+                icon: 'performance',
                 color: 'var(--primary-500)',
                 gradient: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
                 priority: 'high',
@@ -29,7 +29,7 @@ class SmartInsightsDashboard extends HTMLElement {
             },
             {
                 type: 'collaboration',
-                icon: '🤝',
+                icon: 'collaboration',
                 color: 'var(--success-500)',
                 gradient: 'linear-gradient(135deg, #22c55e, #10b981)',
                 priority: 'medium',
@@ -37,7 +37,7 @@ class SmartInsightsDashboard extends HTMLElement {
             },
             {
                 type: 'efficiency',
-                icon: '🎯',
+                icon: 'target',
                 color: 'var(--warning-500)',
                 gradient: 'linear-gradient(135deg, #eab308, #f59e0b)',
                 priority: 'high',
@@ -45,7 +45,7 @@ class SmartInsightsDashboard extends HTMLElement {
             },
             {
                 type: 'learning',
-                icon: '📚',
+                icon: 'development',
                 color: 'var(--info-500)',
                 gradient: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
                 priority: 'medium',
@@ -53,7 +53,7 @@ class SmartInsightsDashboard extends HTMLElement {
             },
             {
                 type: 'wellness',
-                icon: '💚',
+                icon: 'wellness',
                 color: 'var(--success-600)',
                 gradient: 'linear-gradient(135deg, #16a34a, #059669)',
                 priority: 'low',
@@ -61,7 +61,7 @@ class SmartInsightsDashboard extends HTMLElement {
             },
             {
                 type: 'innovation',
-                icon: '🚀',
+                icon: 'innovation-rocket',
                 color: 'var(--purple-500)',
                 gradient: 'linear-gradient(135deg, #8b5cf6, #a855f7)',
                 priority: 'high',
@@ -167,7 +167,7 @@ class SmartInsightsDashboard extends HTMLElement {
         this.quickActions = [
             {
                 id: 'ai-task-creator',
-                icon: '🧠',
+                icon: 'ai-brain',
                 label: 'AI Task Creator',
                 shortcut: 'Ctrl+Alt+T',
                 color: 'var(--primary-500)',
@@ -176,7 +176,7 @@ class SmartInsightsDashboard extends HTMLElement {
             },
             {
                 id: 'smart-meeting',
-                icon: '🚀',
+                icon: 'rocket',
                 label: 'Smart Meeting',
                 shortcut: 'Ctrl+Alt+M',
                 color: 'var(--success-500)',
@@ -185,7 +185,7 @@ class SmartInsightsDashboard extends HTMLElement {
             },
             {
                 id: 'focus-mode-ai',
-                icon: '🎯',
+                icon: 'target',
                 label: 'AI Focus Mode',
                 shortcut: 'Ctrl+Alt+F',
                 color: 'var(--warning-500)',
@@ -194,7 +194,7 @@ class SmartInsightsDashboard extends HTMLElement {
             },
             {
                 id: 'team-insights',
-                icon: '📊',
+                icon: 'analytics',
                 label: 'Team Insights',
                 shortcut: 'Ctrl+Alt+I',
                 color: 'var(--info-500)',
@@ -203,7 +203,7 @@ class SmartInsightsDashboard extends HTMLElement {
             },
             {
                 id: 'wellness-check',
-                icon: '💚',
+                icon: 'heart',
                 label: 'Wellness Check',
                 shortcut: 'Ctrl+Alt+W',
                 color: 'var(--success-600)',
@@ -212,7 +212,7 @@ class SmartInsightsDashboard extends HTMLElement {
             },
             {
                 id: 'innovation-hub',
-                icon: '✨',
+                icon: 'star',
                 label: 'Innovation Hub',
                 shortcut: 'Ctrl+Alt+N',
                 color: 'var(--purple-500)',
@@ -676,7 +676,7 @@ class SmartInsightsDashboard extends HTMLElement {
             <div class="insight-header" aria-labelledby="current-insight-title">
                 <div class="insight-icon-container">
                     <div class="insight-icon" style="background: ${insightType.gradient}">
-                        ${insightType.icon}
+                        ${this.getIconSvg(insightType.icon)}
                     </div>
                     <div class="insight-pulse"></div>
                 </div>
@@ -686,10 +686,10 @@ class SmartInsightsDashboard extends HTMLElement {
                     </div>
                     <div class="insight-metrics">
                         <span class="insight-confidence" aria-label="AI confidence level">
-                            🧠 ${insight.confidence}% confidence
+                            ${this.getIconSvg('ai-brain')} ${insight.confidence}% confidence
                         </span>
                         <span class="insight-ai-score" aria-label="AI performance score">
-                            ⚡ AI Score: ${insight.aiScore}/100
+                            ${this.getIconSvg('performance')} AI Score: ${insight.aiScore}/100
                         </span>
                     </div>
                 </div>
@@ -702,21 +702,21 @@ class SmartInsightsDashboard extends HTMLElement {
                 <p class="insight-description">${insight.description}</p>
                 <div class="insight-impact-grid">
                     <div class="impact-metric">
-                        <span class="impact-icon">⏱️</span>
+                        <span class="impact-icon">${this.getIconSvg('time')}</span>
                         <div class="impact-details">
                             <span class="impact-label">Time Savings</span>
                             <span class="impact-value">${insight.timesSaved}</span>
                         </div>
                     </div>
                     <div class="impact-metric">
-                        <span class="impact-icon">📈</span>
+                        <span class="impact-icon">${this.getIconSvg('analytics')}</span>
                         <div class="impact-details">
                             <span class="impact-label">Skill Impact</span>
                             <span class="impact-value">${insight.skillImpact}</span>
                         </div>
                     </div>
                     <div class="impact-metric">
-                        <span class="impact-icon">🎯</span>
+                        <span class="impact-icon">${this.getIconSvg('target')}</span>
                         <div class="impact-details">
                             <span class="impact-label">Category</span>
                             <span class="impact-value">${insight.category}</span>
@@ -729,21 +729,21 @@ class SmartInsightsDashboard extends HTMLElement {
                         data-action="${insight.actionType}" 
                         data-insight="${insight.id}"
                         aria-label="${insight.action} - ${insight.description}">
-                    <span class="action-icon">🚀</span>
+                    <span class="action-icon">${this.getIconSvg('rocket')}</span>
                     ${insight.action}
                 </button>
                 <button class="insight-action secondary" 
                         data-action="dismiss" 
                         data-insight="${insight.id}"
                         aria-label="Dismiss this insight">
-                    <span class="action-icon">✖️</span>
+                    <span class="action-icon">${this.getIconSvg('close')}</span>
                     Dismiss
                 </button>
                 <button class="insight-action tertiary" 
                         data-action="learn-more" 
                         data-insight="${insight.id}"
                         aria-label="Learn more about this insight">
-                    <span class="action-icon">📚</span>
+                    <span class="action-icon">${this.getIconSvg('development')}</span>
                     Learn More
                 </button>
             </div>
@@ -760,7 +760,7 @@ class SmartInsightsDashboard extends HTMLElement {
                             aria-label="${action.label} - ${action.description} (${action.shortcut})"
                             style="--action-gradient: ${action.gradient}">
                         <div class="action-icon-wrapper">
-                            <span class="action-icon">${action.icon}</span>
+                            <span class="action-icon">${this.getIconSvg(action.icon)}</span>
                             <div class="action-sparkle"></div>
                         </div>
                         <div class="action-content">
@@ -784,7 +784,7 @@ class SmartInsightsDashboard extends HTMLElement {
                             title="${insight.title}">
                         <span class="indicator-dot"></span>
                         <span class="indicator-type" style="color: ${this.insightTypes.find(t => t.type === insight.type)?.color}">
-                            ${this.insightTypes.find(t => t.type === insight.type)?.icon}
+                            ${this.getIconSvg(this.insightTypes.find(t => t.type === insight.type)?.icon)}
                         </span>
                     </button>
                 `).join('')}
@@ -985,7 +985,11 @@ class SmartInsightsDashboard extends HTMLElement {
         const feedback = document.createElement('div');
         feedback.className = 'action-feedback enhanced';
         feedback.innerHTML = `
-            <span class="feedback-icon">✨</span>
+            <span class="feedback-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+            </span>
             <span class="feedback-text">${actionType.replace(/[-_]/g, ' ')} initiated!</span>
         `;
         
@@ -997,18 +1001,89 @@ class SmartInsightsDashboard extends HTMLElement {
         }, 2500);
     }
 
+    getIconSvg(type) {
+        const icons = {
+            'performance': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+            </svg>`,
+            'collaboration': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"></path>
+            </svg>`,
+            'target': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+            </svg>`,
+            'development': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>`,
+            'wellness': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>`,
+            'innovation-rocket': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+            </svg>`,
+            'refresh': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+            </svg>`,
+            'settings': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>`,
+            'ai-brain': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                <circle cx="12" cy="12" r="10"></circle>
+            </svg>`,
+            'rocket': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+            </svg>`,
+            'analytics': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 20V10"></path>
+                <path d="M12 20V4"></path>
+                <path d="M6 20v-6"></path>
+            </svg>`,
+            'heart': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>`,
+            'star': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>`,
+            'time': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12,6 12,12 16,14"></polyline>
+            </svg>`,
+            'close': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>`
+        };
+        return icons[type] || icons['performance'];
+    }
+
     showNoInsights() {
         const container = this.querySelector('.main-insight');
         container.innerHTML = `
             <div class="no-insights enhanced">
                 <div class="no-insights-animation">
-                    <div class="no-insights-icon">🎉</div>
+                    <div class="no-insights-icon">${this.getIconSvg('star')}</div>
                     <div class="celebration-sparkles"></div>
                 </div>
                 <h4>All Insights Reviewed!</h4>
                 <p>Excellent work! You've explored all AI-powered insights. Your productivity optimization is complete.</p>
                 <button class="refresh-insights-btn" onclick="location.reload()">
-                    <span class="btn-icon">🔄</span>
+                    <span class="btn-icon">${this.getIconSvg('refresh')}</span>
                     Refresh Insights
                 </button>
             </div>
@@ -1046,12 +1121,12 @@ class SmartInsightsDashboard extends HTMLElement {
                     </h3>
                     <div class="dashboard-meta enhanced">
                         <span class="ai-badge enhanced">
-                            <span class="badge-icon">🧠</span>
+                            <span class="badge-icon">${this.getIconSvg('ai-brain')}</span>
                             AI-Powered
                             <div class="badge-shimmer"></div>
                         </span>
                         <span class="performance-badge" aria-label="Performance metrics">
-                            <span class="perf-icon">⚡</span>
+                            <span class="perf-icon">${this.getIconSvg('performance')}</span>
                             ${this.performanceMetrics.componentLoadTime.toFixed(0)}ms
                         </span>
                     </div>
@@ -1064,14 +1139,14 @@ class SmartInsightsDashboard extends HTMLElement {
                 <div class="insight-navigation enhanced">
                     ${this.renderInsightIndicators()}
                     <div class="navigation-hint enhanced">
-                        <span class="hint-icon">⌨️</span>
+                        <span class="hint-icon">${this.getIconSvg('settings')}</span>
                         <span>Auto-rotating insights • Use ← → or click indicators • Press I for shortcuts</span>
                     </div>
                 </div>
                 
                 <div class="quick-actions-section enhanced">
                     <h4 class="section-title enhanced">
-                        <span class="title-icon">⚡</span>
+                        <span class="title-icon">${this.getIconSvg('performance')}</span>
                         AI-Powered Quick Actions
                     </h4>
                     ${this.renderQuickActions()}

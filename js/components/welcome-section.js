@@ -7,7 +7,7 @@ class SpectacularWelcomeSection extends HTMLElement {
         this.sparkles = [];
         this.animationFrame = null;
         this.isInitialized = false;
-        this.floatingIcons = ['🚀', '⭐', '💎', '🌟', '✨', '🎯', '🎨', '🎭', '🌈', '🔮'];
+        this.floatingIcons = ['rocket', 'star', 'diamond', 'sparkle', 'magic', 'target', 'art', 'theater', 'rainbow', 'crystal'];
         this.mouseFollower = null;
         
         // Contest Enhancement Features
@@ -104,52 +104,118 @@ class SpectacularWelcomeSection extends HTMLElement {
     }
 
     enhanceInteractiveElements(container) {
-        // Make stat items interactive
-        const statItems = container.querySelectorAll('.stat-item');
-        statItems.forEach((item, index) => {
-            item.setAttribute('tabindex', '0');
-            item.setAttribute('role', 'button');
-            item.setAttribute('aria-label', `Statistic: ${item.textContent.trim()}, click to see details`);
+        // Make all interactive elements focusable and add click handlers
+        const interactiveElements = container.querySelectorAll('button, .btn, .event-card, .insight-card, .stat-item');
+        
+        interactiveElements.forEach((element, index) => {
+            element.setAttribute('tabindex', '0');
+            element.setAttribute('role', 'button');
             
-            item.addEventListener('keydown', (e) => {
+            // Add click handlers for different types of elements
+            if (element.classList.contains('btn')) {
+                element.addEventListener('click', (e) => {
+                    this.handleQuickActionClick(e, element);
+                });
+            } else if (element.classList.contains('event-card')) {
+                element.addEventListener('click', (e) => {
+                    this.handleEventCardClick(e, element);
+                });
+            } else if (element.classList.contains('insight-card')) {
+                element.addEventListener('click', (e) => {
+                    this.handleInsightCardClick(e, element);
+                });
+            } else if (element.classList.contains('stat-item')) {
+                element.addEventListener('click', (e) => {
+                    this.handleStatItemClick(e, element);
+                });
+            }
+            
+            // Add keyboard support
+            element.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    this.showStatDetails(item, index);
+                    element.click();
                 }
             });
-            
-            item.addEventListener('click', () => {
-                this.showStatDetails(item, index);
-            });
         });
+        
+        console.log('♿ Enhanced interactive elements:', interactiveElements.length);
+    }
 
-        // Enhance quick action buttons
-        const quickActions = container.querySelectorAll('.quick-actions .btn');
-        quickActions.forEach((btn, index) => {
-            btn.setAttribute('aria-label', `Quick action: ${btn.textContent.trim()}`);
-            
-            btn.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    this.executeQuickAction(btn, index);
-                }
-            });
-        });
+    // Handle quick action button clicks
+    handleQuickActionClick(event, button) {
+        const buttonText = button.textContent.trim();
+        console.log('🎯 Quick action clicked:', buttonText);
+        
+        switch (buttonText) {
+            case 'New Task':
+                window.location.href = '/pages/tasks.html';
+                break;
+            case 'My Tasks':
+                window.location.href = '/pages/tasks.html';
+                break;
+            case 'Schedule':
+                window.location.href = '/pages/calendar.html';
+                break;
+            case 'Documents':
+                window.location.href = '/pages/documents.html';
+                break;
+            default:
+                console.log('Unknown quick action:', buttonText);
+        }
+        
+        // Announce to screen reader
+        this.announceToScreenReader(`Navigating to ${buttonText}`);
+    }
 
-        // Enhance event cards
-        const eventCards = container.querySelectorAll('.event-card');
-        eventCards.forEach((card, index) => {
-            card.setAttribute('tabindex', '0');
-            card.setAttribute('role', 'button');
-            card.setAttribute('aria-label', `Event: ${card.textContent.trim()}, click to view details`);
-            
-            card.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    this.showEventDetails(card, index);
-                }
-            });
-        });
+    // Handle event card clicks
+    handleEventCardClick(event, card) {
+        const eventTitle = card.querySelector('.event-title')?.textContent;
+        console.log('📅 Event card clicked:', eventTitle);
+        
+        // Navigate to calendar page
+        window.location.href = '/pages/calendar.html';
+        
+        this.announceToScreenReader(`Opening calendar for ${eventTitle}`);
+    }
+
+    // Handle insight card clicks
+    handleInsightCardClick(event, card) {
+        const insightTitle = card.querySelector('h4')?.textContent;
+        console.log('💡 Insight card clicked:', insightTitle);
+        
+        // Navigate to analytics page for insights
+        window.location.href = '/pages/analytics.html';
+        
+        this.announceToScreenReader(`Viewing analytics for ${insightTitle}`);
+    }
+
+    // Handle stat item clicks
+    handleStatItemClick(event, statItem) {
+        const statLabel = statItem.querySelector('.stat-label')?.textContent;
+        console.log('📊 Stat item clicked:', statLabel);
+        
+        // Navigate to appropriate page based on stat type
+        switch (statLabel) {
+            case 'Active Projects':
+                window.location.href = '/pages/projects.html';
+                break;
+            case 'Team Online':
+                window.location.href = '/pages/team.html';
+                break;
+            case 'Today\'s Meetings':
+                window.location.href = '/pages/calendar.html';
+                break;
+            case 'Tasks Done':
+            case 'Due Today':
+            case 'Overdue':
+                window.location.href = '/pages/tasks.html';
+                break;
+            default:
+                console.log('Unknown stat type:', statLabel);
+        }
+        
+        this.announceToScreenReader(`Viewing details for ${statLabel}`);
     }
 
     // 🎯 KEYBOARD NAVIGATION
@@ -625,6 +691,58 @@ class SpectacularWelcomeSection extends HTMLElement {
         console.log('🎯 Enhanced particle system created!');
     }
 
+    getIconSvg(type) {
+        const icons = {
+            'rocket': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+            </svg>`,
+            'star': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>`,
+            'diamond': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>`,
+            'sparkle': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>`,
+            'magic': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                <circle cx="12" cy="12" r="10"></circle>
+            </svg>`,
+            'target': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+            </svg>`,
+            'art': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3h18v18H3z"></path>
+                <path d="M9 9h6v6H9z"></path>
+                <path d="M3 9h6v6H3z"></path>
+                <path d="M15 9h6v6h-6z"></path>
+            </svg>`,
+            'theater': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <path d="M8 8h8v8H8z"></path>
+                <path d="M12 16v2"></path>
+            </svg>`,
+            'rainbow': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"></path>
+                <path d="M12 6c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z"></path>
+                <path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+            </svg>`,
+            'crystal': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+            </svg>`
+        };
+        return icons[type] || icons['star'];
+    }
+
     createFloatingIcons(container) {
         const iconsContainer = document.createElement('div');
         iconsContainer.className = 'floating-icons';
@@ -633,7 +751,7 @@ class SpectacularWelcomeSection extends HTMLElement {
         for (let i = 0; i < 6; i++) {
             const icon = document.createElement('div');
             icon.className = 'floating-icon';
-            icon.textContent = this.floatingIcons[i % this.floatingIcons.length];
+            icon.innerHTML = this.getIconSvg(this.floatingIcons[i % this.floatingIcons.length]);
             iconsContainer.appendChild(icon);
         }
 

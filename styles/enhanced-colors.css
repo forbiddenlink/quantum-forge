@@ -636,7 +636,7 @@
     border: 2px solid var(--border-color);
     border-top: 2px solid var(--primary-500);
     border-radius: 50%;
-    animation: unified-spin 1s linear infinite;
+    /* Removed spin animation */
 }
 
 /* Unified spinner animation moved to contest-enhancements.css */
@@ -785,107 +785,62 @@
     opacity: 1 !important;
 } 
 
-/* Dynamic Quick Action Button Fixes */
-.quick-actions .btn[data-action] svg {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 18px !important;
-    height: 18px !important;
-    flex-shrink: 0 !important;
-}
-
-.quick-actions .btn[data-action] {
-    display: flex !important;
-    align-items: center !important;
-    gap: var(--space-2) !important;
-}
-
-/* Ensure all dynamically created buttons have visible icons */
-.quick-actions .btn svg {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 18px !important;
-    height: 18px !important;
-    flex-shrink: 0 !important;
-}
-
-/* Force display for any SVG in quick actions */
-.quick-actions svg {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-/* Additional specificity for button icons */
-.btn svg.btn-icon,
-.btn .btn-icon {
-    display: inline-flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 24px !important;
-    height: 24px !important;
-    flex-shrink: 0 !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-/* Ensure button layout is correct */
-.btn {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: var(--space-2) !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-/* Button Icon Fixes */
-.btn .btn-icon {
-    display: inline-flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 24px !important;
-    height: 24px !important;
-    flex-shrink: 0 !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.btn svg.btn-icon {
-    display: inline-flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 24px !important;
-    height: 24px !important;
-    flex-shrink: 0 !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-/* Ensure all button icons are visible */
-.btn svg {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 100% !important;
-    height: 100% !important;
-}
-
-/* Quick Actions Button Fixes */
-.quick-actions .btn svg {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    width: 18px !important;
-    height: 18px !important;
-    flex-shrink: 0 !important;
-}
-
+/* Comprehensive Quick Actions Icon Fixes */
 .quick-actions .btn {
     display: flex !important;
     align-items: center !important;
     gap: var(--space-2) !important;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.quick-actions .btn svg {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 18px !important;
+    height: 18px !important;
+    flex-shrink: 0 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+.quick-actions .btn .btn-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 18px !important;
+    height: 18px !important;
+    flex-shrink: 0 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Ensure proper contrast for all button types */
+.quick-actions .btn.primary svg,
+.quick-actions .btn.primary .btn-icon {
+    color: white !important;
+    stroke: white !important;
+}
+
+.quick-actions .btn.secondary svg,
+.quick-actions .btn.secondary .btn-icon {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+}
+
+/* Force visibility for any SVG in quick actions */
+.quick-actions svg {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 18px !important;
+    height: 18px !important;
+    flex-shrink: 0 !important;
 } 
 
 /* Chart Styles */
@@ -988,7 +943,7 @@
     border: 3px solid var(--gray-200);
     border-top: 3px solid var(--primary-500);
     border-radius: 50%;
-    animation: unified-spin 1s linear infinite;
+    /* Removed spin animation */
     z-index: 1;
 }
 
@@ -998,3 +953,409 @@
 }
 
 /* Unified spinner animation moved to contest-enhancements.css */ 
+
+/* Loading Screen Exclusions - Prevent interference with loading screen */
+#loading-screen,
+#loading-screen *,
+.loading-screen,
+.loading-screen * {
+    /* Exclude loading screen from icon fixes */
+    display: initial !important;
+    visibility: initial !important;
+    opacity: initial !important;
+    position: initial !important;
+    z-index: initial !important;
+    background: initial !important;
+    color: initial !important;
+    stroke: initial !important;
+    fill: initial !important;
+    width: initial !important;
+    height: initial !important;
+    border-radius: initial !important;
+    flex-shrink: initial !important;
+    margin: initial !important;
+    padding: initial !important;
+    box-shadow: initial !important;
+    transition: initial !important;
+    animation: initial !important;
+}
+
+/* Ensure loading screen spinner works properly */
+#loading-screen .loading-spinner {
+    width: 50px !important;
+    height: 50px !important;
+    border: 4px solid rgba(255,255,255,0.3) !important;
+    border-top: 4px solid #ffffff !important;
+    border-radius: 50% !important;
+    animation: spin 1s linear infinite !important;
+    margin-bottom: 20px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Ensure loading screen content is visible */
+#loading-screen .loading-content {
+    text-align: center !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#loading-screen .loading-content h2 {
+    margin: 10px 0 !important;
+    font-size: 24px !important;
+    font-weight: 600 !important;
+    color: white !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#loading-screen .loading-content p {
+    margin: 0 !important;
+    font-size: 16px !important;
+    opacity: 0.8 !important;
+    color: white !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Comprehensive Icon Positioning Fixes */
+/* Fix all icon containers and icons across the application */
+
+/* Smart Insights Dashboard Icon Fixes */
+.smart-insights-dashboard .insight-icon-container {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 64px !important;
+    height: 64px !important;
+    flex-shrink: 0 !important;
+    margin-right: var(--space-4) !important;
+}
+
+.smart-insights-dashboard .insight-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: var(--radius-xl) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: var(--font-size-xl) !important;
+    color: white !important;
+    position: relative !important;
+    z-index: 2 !important;
+    background: var(--insights-gradient) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+}
+
+.smart-insights-dashboard .insight-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: white !important;
+    stroke: white !important;
+    fill: none !important;
+}
+
+/* Collaboration Hub Icon Fixes */
+.collaboration-hub .user-avatar {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: var(--radius-full) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--primary-100) !important;
+    color: var(--primary-600) !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+}
+
+.collaboration-hub .user-avatar svg {
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+.collaboration-hub .document-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: var(--radius-lg) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--primary-100) !important;
+    color: var(--primary-600) !important;
+    flex-shrink: 0 !important;
+}
+
+.collaboration-hub .document-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+/* Analytics Dashboard Icon Fixes */
+.analytics-dashboard .kpi-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: var(--radius-lg) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--primary-100) !important;
+    color: var(--primary-600) !important;
+    flex-shrink: 0 !important;
+}
+
+.analytics-dashboard .kpi-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+/* Knowledge Hub Icon Fixes */
+.knowledge-hub .resource-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: var(--radius-lg) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+}
+
+.knowledge-hub .resource-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+/* Task System Icon Fixes */
+.task-system .task-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: var(--radius-lg) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--primary-100) !important;
+    color: var(--primary-600) !important;
+    flex-shrink: 0 !important;
+}
+
+.task-system .task-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+/* Team Spotlight Icon Fixes */
+.team-spotlight .member-avatar {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: var(--radius-full) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--primary-100) !important;
+    color: var(--primary-600) !important;
+    flex-shrink: 0 !important;
+}
+
+.team-spotlight .member-avatar svg {
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+/* Company News Icon Fixes */
+.company-news .news-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: var(--radius-lg) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--primary-100) !important;
+    color: var(--primary-600) !important;
+    flex-shrink: 0 !important;
+}
+
+.company-news .news-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+/* Weather Widget Icon Fixes */
+.weather-widget .weather-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: var(--radius-lg) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--primary-100) !important;
+    color: var(--primary-600) !important;
+    flex-shrink: 0 !important;
+}
+
+.weather-widget .weather-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+/* Interactive Poll Icon Fixes */
+.interactive-poll .poll-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: var(--radius-lg) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--primary-100) !important;
+    color: var(--primary-600) !important;
+    flex-shrink: 0 !important;
+}
+
+.interactive-poll .poll-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+/* Company Culture Showcase Icon Fixes */
+.company-culture-showcase .culture-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: var(--radius-lg) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--primary-100) !important;
+    color: var(--primary-600) !important;
+    flex-shrink: 0 !important;
+}
+
+.company-culture-showcase .culture-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+/* Office Visualizer Icon Fixes */
+.office-visualizer .office-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: var(--radius-lg) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--primary-100) !important;
+    color: var(--primary-600) !important;
+    flex-shrink: 0 !important;
+}
+
+.office-visualizer .office-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+/* General Icon Container Fixes */
+.icon-container {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.icon-container svg {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: currentColor !important;
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
+/* Ensure all SVG elements are properly displayed */
+svg {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Fix for any hidden or invisible icons */
+[style*="display: none"],
+[style*="visibility: hidden"],
+[style*="opacity: 0"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+} 

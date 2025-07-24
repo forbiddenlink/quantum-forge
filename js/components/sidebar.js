@@ -83,7 +83,7 @@ class Sidebar extends HTMLElement {
         const path = window.location.pathname;
         const filename = path.split('/').pop();
         
-        // Map filenames to page identifiers
+        // Map filenames to page identifiers - Updated to include all pages
         const pageMap = {
             'index.html': 'dashboard',
             '': 'dashboard', // Root path
@@ -97,11 +97,14 @@ class Sidebar extends HTMLElement {
             'culture.html': 'culture',
             'office.html': 'office',
             'documents.html': 'documents',
-            'resources.html': 'knowledge',
             'resources.html': 'resources',
             'training.html': 'training',
             'helpdesk.html': 'helpdesk',
-            'handbook.html': 'handbook'
+            'handbook.html': 'handbook',
+            'benefits.html': 'benefits',
+            'goals.html': 'goals',
+            'profile.html': 'profile',
+            'settings.html': 'settings'
         };
         
         this.activeItem = pageMap[filename] || 'dashboard';
@@ -112,9 +115,9 @@ class Sidebar extends HTMLElement {
         const mockPreferences = {
             favorites: ['calendar', 'team', 'projects'],
             recentlyVisited: [
-                { id: 'docs-123', title: 'API Documentation', type: 'document', path: '/documents' },
-                { id: 'proj-456', title: 'Project Alpha', type: 'project', path: '/projects' },
-                { id: 'team-789', title: 'Design Team', type: 'team', path: '/team' }
+                { id: 'docs-123', title: 'API Documentation', type: 'document', path: '/pages/documents.html' },
+                { id: 'proj-456', title: 'Project Alpha', type: 'project', path: '/pages/projects.html' },
+                { id: 'team-789', title: 'Design Team', type: 'team', path: '/pages/team.html' }
             ]
         };
 
@@ -257,6 +260,15 @@ class Sidebar extends HTMLElement {
                                     </button>
                                 </a>
                             </li>
+                            <li class="nav-item" role="none">
+                                <a href="/pages/goals.html" class="nav-link ${this.activeItem === 'goals' ? 'active' : ''}" role="menuitem" data-page="goals">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M12 6v6l4 2"></path>
+                                    </svg>
+                                    <span class="nav-text">Goals</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
 
@@ -343,26 +355,17 @@ class Sidebar extends HTMLElement {
                                 </a>
                             </li>
                             <li class="nav-item" role="none">
-                                <a href="/pages/resources.html" class="nav-link ${this.activeItem === 'knowledge' ? 'active' : ''}" role="menuitem" data-page="knowledge">
+                                <a href="/pages/resources.html" class="nav-link ${this.activeItem === 'resources' ? 'active' : ''}" role="menuitem" data-page="resources">
                                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="3"></circle>
                                         <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"></path>
                                     </svg>
                                     <span class="nav-text">Knowledge Hub</span>
-                                    <button class="favorite-btn ${this.favorites.has('knowledge') ? 'active' : ''}" data-page="knowledge">
+                                    <button class="favorite-btn ${this.favorites.has('resources') ? 'active' : ''}" data-page="resources">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                                         </svg>
                                     </button>
-                                </a>
-                            </li>
-                            <li class="nav-item" role="none">
-                                <a href="/pages/resources.html" class="nav-link ${this.activeItem === 'resources' ? 'active' : ''}" role="menuitem" data-page="resources">
-                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                    </svg>
-                                    <span class="nav-text">Resources</span>
                                 </a>
                             </li>
                             <li class="nav-item" role="none">
@@ -372,6 +375,14 @@ class Sidebar extends HTMLElement {
                                         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                                     </svg>
                                     <span class="nav-text">Learning</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" role="none">
+                                <a href="/pages/benefits.html" class="nav-link ${this.activeItem === 'benefits' ? 'active' : ''}" role="menuitem" data-page="benefits">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                    </svg>
+                                    <span class="nav-text">Benefits</span>
                                 </a>
                             </li>
                         </ul>
@@ -400,6 +411,33 @@ class Sidebar extends HTMLElement {
                                         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
                                     </svg>
                                     <span class="nav-text">Handbook</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Personal Section -->
+                    <div class="nav-section">
+                        <div class="nav-section-header">
+                            <h2 class="nav-section-title">Personal</h2>
+                        </div>
+                        <ul class="nav-list" role="menu">
+                            <li class="nav-item" role="none">
+                                <a href="/pages/profile.html" class="nav-link ${this.activeItem === 'profile' ? 'active' : ''}" role="menuitem" data-page="profile">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                    <span class="nav-text">Profile</span>
+                                </a>
+                            </li>
+                            <li class="nav-item" role="none">
+                                <a href="/pages/settings.html" class="nav-link ${this.activeItem === 'settings' ? 'active' : ''}" role="menuitem" data-page="settings">
+                                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                    </svg>
+                                    <span class="nav-text">Settings</span>
                                 </a>
                             </li>
                         </ul>
@@ -458,6 +496,17 @@ class Sidebar extends HTMLElement {
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                     <circle cx="9" cy="7" r="4"></circle>
                     <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"></path>
+                </svg>
+            `,
+            resources: `
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"></path>
+                </svg>
+            `,
+            benefits: `
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                 </svg>
             `
         };

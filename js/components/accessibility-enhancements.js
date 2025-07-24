@@ -62,19 +62,20 @@ class AccessibilityEnhancements {
     }
 
     createSkipLinks() {
-        if (!document.body) {
-            console.warn('Document body not ready for skip links');
-            return;
-        }
+        // Temporarily disabled to fix header layout issues
+        // if (!document.body) {
+        //     console.warn('Document body not ready for skip links');
+        //     return;
+        // }
         
-        const skipLinks = document.createElement('div');
-        skipLinks.className = 'skip-links';
-        skipLinks.innerHTML = `
-            <a href="#main-content">Skip to main content</a>
-            <a href="#navigation">Skip to navigation</a>
-            <a href="#search">Skip to search</a>
-        `;
-        document.body.insertBefore(skipLinks, document.body.firstChild);
+        // const skipLinks = document.createElement('div');
+        // skipLinks.className = 'skip-links';
+        // skipLinks.innerHTML = `
+        //     <a href="#main-content">Skip to main content</a>
+        //     <a href="#navigation">Skip to navigation</a>
+        //     <a href="#search">Skip to search</a>
+        // `;
+        // document.body.insertBefore(skipLinks, document.body.firstChild);
     }
 
     setupKeyboardNavigation() {

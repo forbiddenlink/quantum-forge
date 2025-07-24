@@ -1,5 +1,13 @@
-/* 📱 Mobile Performance Optimizations */
-/* Contest Enhancement: Superior Mobile Experience */
+/* 📱 CONSOLIDATED Mobile Optimizations */
+/* Combined from mobile-optimizations.css, simple-mobile.css, and mobile-performance-enhancements.css */
+
+/* Mobile Performance Variables */
+:root {
+    --mobile-animation-duration: 150ms;
+    --mobile-transition-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --mobile-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --mobile-shadow-medium: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
 
 /* Mobile-First Performance Optimizations */
 @media (max-width: 768px) {
@@ -36,14 +44,14 @@
     .stat-card,
     .btn,
     .card {
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+        box-shadow: var(--mobile-shadow-light) !important;
     }
     
     /* Simplify hover effects */
     .dashboard-item:hover,
     .stat-card:hover {
         transform: none !important;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+        box-shadow: var(--mobile-shadow-medium) !important;
     }
     
     /* Optimize image loading */
@@ -387,6 +395,7 @@
     .header {
         padding-left: max(var(--space-4), env(safe-area-inset-left));
         padding-right: max(var(--space-4), env(safe-area-inset-right));
+        margin: 0;
     }
     
     .main-content {
@@ -412,5 +421,197 @@
     .form-input,
     .enhanced-select {
         font-size: 16px !important;
+    }
+} 
+
+/* ===== CONSOLIDATED CONTENT FROM simple-mobile.css ===== */
+/* Simple Mobile Enhancements - Only applies on mobile, preserves desktop design */
+
+/* Touch-friendly mobile adjustments (max-width: 767px) */
+@media (max-width: 767px) {
+    /* Mobile Color Picker Position */
+    .simple-color-toggle {
+        top: 10px !important;
+        right: 10px !important;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 18px !important;
+    }
+
+    .simple-color-panel {
+        top: 65px !important;
+        right: 10px !important;
+        width: calc(100vw - 20px) !important;
+        max-width: 280px !important;
+    }
+
+    /* Mobile Dashboard Grid - Only on mobile */
+    .dashboard-grid {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    /* Mobile Main Content - Slight padding adjustment */
+    .main-content {
+        padding: 1rem !important;
+    }
+
+    /* Mobile Dashboard Items - Touch friendly */
+    .dashboard-item {
+        padding: 1.25rem !important;
+    }
+
+    .dashboard-item:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+
+    /* Mobile Buttons - Touch friendly */
+    .btn {
+        min-height: 44px;
+        padding: 0.75rem 1rem !important;
+        font-size: 0.9rem;
+    }
+
+    /* Mobile Typography - Slightly smaller */
+    .welcome-section h1 {
+        font-size: 1.75rem !important;
+        line-height: 1.2;
+    }
+
+    .welcome-section p {
+        font-size: 1rem !important;
+    }
+
+    /* Mobile Stats - Better spacing */
+    .stat-value {
+        font-size: 1.5rem !important;
+    }
+
+    .stat-label {
+        font-size: 0.875rem !important;
+    }
+}
+
+/* Touch devices - Remove hover effects */
+@media (hover: none) and (pointer: coarse) {
+    .dashboard-item:hover {
+        transform: none !important;
+    }
+
+    .btn:hover {
+        transform: none !important;
+    }
+}
+
+/* ===== CONSOLIDATED CONTENT FROM mobile-performance-enhancements.css ===== */
+/* Task System Performance Optimizations */
+@media (max-width: 768px) {
+    .enhanced-task-system {
+        .ai-insights-grid {
+            grid-template-columns: 1fr !important;
+            gap: var(--space-3) !important;
+        }
+        
+        .task-cards-grid {
+            grid-template-columns: 1fr !important;
+            gap: var(--space-4) !important;
+        }
+        
+        .enhanced-task-card {
+            padding: var(--space-4) !important;
+            margin-bottom: var(--space-3) !important;
+            box-shadow: var(--mobile-shadow-light) !important;
+            border-radius: var(--radius-lg) !important;
+            transition: all var(--mobile-animation-duration) var(--mobile-transition-timing) !important;
+        }
+        
+        .enhanced-task-card:active {
+            transform: scale(0.98) !important;
+            box-shadow: var(--mobile-shadow-medium) !important;
+        }
+        
+        .task-controls {
+            flex-direction: column !important;
+            gap: var(--space-3) !important;
+        }
+        
+        .search-and-filters {
+            flex-direction: column !important;
+            gap: var(--space-3) !important;
+        }
+        
+        .filter-controls {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: var(--space-2) !important;
+        }
+        
+        .task-analytics {
+            display: none !important;
+        }
+    }
+    
+    /* Analytics Dashboard Mobile */
+    .analytics-dashboard {
+        .kpi-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: var(--space-3) !important;
+        }
+        
+        .advanced-kpi-card {
+            padding: var(--space-3) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            
+            .kpi-progress {
+                height: 4px !important;
+            }
+        }
+        
+        .enhanced-charts-grid {
+            grid-template-columns: 1fr !important;
+            gap: var(--space-4) !important;
+        }
+        
+        .chart-container .chart-body {
+            height: 200px !important;
+        }
+        
+        .chart-container .chart-controls {
+            display: none !important;
+        }
+        
+        .heatmap-section {
+            display: none !important;
+        }
+        
+        .activity-section .activity-controls {
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
+    }
+    
+    /* Enhanced Knowledge Hub Mobile */
+    .enhanced-knowledge-hub {
+        .resources-grid {
+            grid-template-columns: 1fr !important;
+            gap: var(--space-3) !important;
+        }
+        
+        .resource-card {
+            padding: var(--space-3) !important;
+            margin-bottom: var(--space-2) !important;
+        }
+        
+        .search-interface {
+            flex-direction: column !important;
+            gap: var(--space-2) !important;
+        }
+        
+        .filter-tabs {
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
     }
 } 

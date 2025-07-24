@@ -171,17 +171,38 @@ window.addEventListener('beforeunload', () => {
     console.log('All services cleaned up');
 });
 
-// Simple loading screen management
-setTimeout(() => {
+// Enhanced loading screen management
+function hideLoadingScreen() {
     const loadingScreen = document.getElementById('loading-screen');
     if (loadingScreen) {
+        console.log('Hiding loading screen...');
         loadingScreen.style.opacity = '0';
+        loadingScreen.style.transition = 'opacity 0.3s ease-out';
+        
         setTimeout(() => {
             loadingScreen.style.display = 'none';
             document.body.classList.remove('loading');
+            console.log('Loading screen hidden successfully');
         }, 300);
+    } else {
+        console.log('Loading screen not found');
     }
-}, 500);
+}
+
+// Multiple fallback timers to ensure loading screen is hidden
+setTimeout(hideLoadingScreen, 500);
+setTimeout(hideLoadingScreen, 1000);
+setTimeout(hideLoadingScreen, 2000);
+
+// Also hide loading screen when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(hideLoadingScreen, 100);
+});
+
+// Hide loading screen when window is fully loaded
+window.addEventListener('load', () => {
+    setTimeout(hideLoadingScreen, 50);
+});
 
 // Enhanced Theme Management with Dynamic Workspace Themes
 function initializeTheme() {

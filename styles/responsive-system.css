@@ -12,6 +12,153 @@
     --breakpoint-2xl: 1536px; /* Desktops */
 }
 
+/* ===== ICON SIZE AND ALIGNMENT FIXES ===== */
+/* Fix sidebar navigation icons - make them smaller and properly sized */
+.nav-icon {
+    width: 16px !important;
+    height: 16px !important;
+    flex-shrink: 0 !important;
+    transition: transform var(--duration-normal) var(--ease-spring) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.nav-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
+}
+
+/* ===== ICON FIXES MOVED TO icon-fixes.css ===== */
+/* All icon sizing and alignment fixes are now consolidated in icon-fixes.css */
+/* This prevents conflicts and ensures consistent icon styling across components */
+
+/* Fix header action button icons - ensure proper alignment */
+.action-button {
+    padding: var(--space-2) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    border: none !important;
+    background: none !important;
+    border-radius: var(--radius-md) !important;
+    cursor: pointer !important;
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+}
+
+.action-button svg {
+    width: 18px !important;
+    height: 18px !important;
+    max-width: 18px !important;
+    max-height: 18px !important;
+    display: block !important;
+}
+
+/* Ensure header right section has proper alignment */
+.header-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
+    height: 100% !important;
+}
+
+/* Fix sidebar collapsed state icon alignment */
+body.sidebar-collapsed .nav-icon {
+    width: 16px !important;
+    height: 16px !important;
+    margin: 0 auto !important;
+}
+
+body.sidebar-collapsed .nav-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* Smart Insights Dashboard Icon Fixes */
+.smart-insights-dashboard .insight-icon {
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.smart-insights-dashboard .insight-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Knowledge Hub Icon Fixes - More Specific Selectors */
+.knowledge-hub .resource-icon {
+    width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.knowledge-hub .resource-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.knowledge-hub .resource-action {
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.knowledge-hub .resource-action svg {
+    width: 18px !important;
+    height: 18px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Override any conflicting styles from main.css */
+.knowledge-hub .resource-icon,
+.knowledge-hub .resource-action {
+    border-radius: var(--radius-lg) !important;
+    flex-shrink: 0 !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+}
+
+/* Ensure proper icon sizing in all contexts */
+.knowledge-hub .resource-card .resource-icon {
+    width: 44px !important;
+    height: 44px !important;
+}
+
+.knowledge-hub .resource-card .resource-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+}
+
+.knowledge-hub .resource-card .resource-action {
+    width: 36px !important;
+    height: 36px !important;
+}
+
+.knowledge-hub .resource-card .resource-action svg {
+    width: 18px !important;
+    height: 18px !important;
+}
+
 /* ===== MOBILE FIRST RESPONSIVE DESIGN ===== */
 
 /* Base Mobile Styles (320px+) */
@@ -95,7 +242,8 @@
     /* Header optimizations */
     .header {
         padding: 0 var(--space-3) !important;
-        height: 60px !important;
+        height: 72px !important;
+        margin: 0 !important;
     }
     
     .logo-text {

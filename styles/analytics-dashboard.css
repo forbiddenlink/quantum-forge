@@ -66,8 +66,117 @@
         box-shadow: 
             0 20px 40px rgba(99, 102, 241, 0.2),
             0 0 60px rgba(99, 102, 241, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.3);
-    }
+                            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* ===== CONSOLIDATED FIXES FROM analytics-blur-fix.css ===== */
+/* Remove ALL blur effects from analytics */
+.analytics-dashboard,
+.analytics-dashboard *,
+.analytics-dashboard *::before,
+.analytics-dashboard *::after,
+.analytics-section,
+.analytics-section *,
+.heatmap-section,
+.heatmap-section *,
+.heatmap-container,
+.heatmap-container *,
+.heatmap-grid,
+.heatmap-grid *,
+.heatmap-cell,
+.heatmap-cell *,
+.overview-card,
+.overview-card *,
+.kpi-card,
+.kpi-card *,
+.goal-card,
+.goal-card *,
+.chart-container,
+.chart-container *,
+.activity-feed,
+.activity-feed * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    transform-origin: initial !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Force proper text colors for analytics */
+.analytics-dashboard,
+.analytics-dashboard *,
+.analytics-section,
+.analytics-section *,
+.overview-card,
+.overview-card *,
+.kpi-card,
+.kpi-card *,
+.chart-container,
+.chart-container * {
+    color: white !important;
+    -webkit-text-fill-color: white !important;
+}
+
+/* ===== CONSOLIDATED FIXES FROM team-analytics-fix.css ===== */
+/* Remove ALL blur effects from team analytics */
+.team-analytics-panel,
+.team-analytics-panel *,
+.analytics-grid,
+.analytics-grid *,
+.analytics-card,
+.analytics-card *,
+.overview-stats,
+.overview-stats *,
+.overview-stat,
+.overview-stat *,
+.quick-stats,
+.quick-stats *,
+.stat-item,
+.stat-item *,
+.skill-category,
+.skill-category * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    transform-origin: initial !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Force proper text colors for team analytics */
+.team-analytics-panel,
+.team-analytics-panel *,
+.analytics-grid,
+.analytics-grid *,
+.overview-stats,
+.overview-stats *,
+.quick-stats,
+.quick-stats * {
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+.overview-stat .stat-number {
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+}
+
+.overview-stat .stat-number.online {
+    color: var(--success-600) !important;
+    -webkit-text-fill-color: var(--success-600) !important;
+}
+
+.overview-stat .stat-label {
+    color: var(--text-secondary) !important;
+    -webkit-text-fill-color: var(--text-secondary) !important;
+}
     25% { 
         box-shadow: 
             0 25px 50px rgba(139, 92, 246, 0.3),

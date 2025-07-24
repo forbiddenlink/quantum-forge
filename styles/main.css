@@ -228,6 +228,7 @@ body {
     background: var(--bg-base);
     color: var(--text-primary);
     transition: background-color var(--duration-normal) var(--ease-in-out);
+    overflow-x: hidden;
 }
 
 /* Improved focus styles */
@@ -261,7 +262,7 @@ body {
 /* Skip Link for Accessibility */
 .skip-link {
     position: absolute;
-    top: -40px;
+    top: -100px;
     left: 6px;
     background: var(--primary-600);
     color: white;
@@ -271,10 +272,16 @@ body {
     font-weight: 500;
     z-index: 1000;
     transition: top var(--duration-normal) var(--ease-in-out);
+    display: none !important; /* Temporarily hide skip link */
+    pointer-events: none;
+    opacity: 0;
 }
 
 .skip-link:focus {
     top: 6px;
+    display: block !important;
+    pointer-events: auto;
+    opacity: 1;
 }
 
 /* Enhanced Header */
@@ -290,6 +297,7 @@ body {
     top: 0;
     z-index: 50;
     transition: all var(--duration-normal) var(--ease-in-out);
+    margin: 0;
 }
 
 [data-theme="dark"] .header {
@@ -7242,7 +7250,7 @@ h1, h2, h3, h4, h5, h6,
 .search-loading svg,
 .search-empty svg {
     margin-bottom: var(--space-4);
-    animation: unified-spin 1s linear infinite;
+    /* Removed spin animation */
 }
 
 .search-empty svg {
@@ -14957,7 +14965,7 @@ h1, h2, h3, h4, h5, h6,
 .search-loading svg,
 .search-empty svg {
     margin-bottom: var(--space-4);
-    animation: unified-spin 1s linear infinite;
+    /* Removed spin animation */
 }
 
 .search-empty svg {

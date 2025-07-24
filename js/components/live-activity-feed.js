@@ -22,60 +22,60 @@ class LiveActivityFeed extends HTMLElement {
         this.activityTypes = [
             {
                 type: 'task_completed',
-                icon: '✅',
-                iconEmoji: '🎯',
+                icon: 'task-completed',
+                iconEmoji: 'target',
                 color: 'var(--success-500)',
                 glowColor: 'rgba(16, 185, 129, 0.4)',
                 templates: [
                     '{user} completed task "{task}" in {project} with excellence',
-                    '{user} finished "{task}" ahead of schedule ⚡',
-                    '{user} marked "{task}" as done with outstanding quality 🌟',
+                    '{user} finished "{task}" ahead of schedule',
+                    '{user} marked "{task}" as done with outstanding quality',
                     '{user} delivered "{task}" exceeding expectations'
                 ]
             },
             {
                 type: 'collaboration',
-                icon: '🤝',
-                iconEmoji: '👥',
+                icon: 'collaboration',
+                iconEmoji: 'participation',
                 color: 'var(--primary-500)',
                 glowColor: 'rgba(99, 102, 241, 0.4)',
                 templates: [
                     '{user} started an innovative collaboration with {collaborator} on {project}',
                     '{user} and {collaborator} are co-creating solutions for {task}',
-                    '{user} joined {collaborator}\'s brainstorming session 💡',
+                    '{user} joined {collaborator}\'s brainstorming session',
                     '{user} initiated a breakthrough discussion with {collaborator}'
                 ]
             },
             {
                 type: 'knowledge_share',
-                icon: '📚',
-                iconEmoji: '🧠',
+                icon: 'knowledge-share',
+                iconEmoji: 'development',
                 color: 'var(--warning-500)',
                 glowColor: 'rgba(245, 158, 11, 0.4)',
                 templates: [
                     '{user} shared groundbreaking insights in "{article}"',
-                    '{user} published an expert guide about {topic} 📖',
+                    '{user} published an expert guide about {topic}',
                     '{user} updated comprehensive documentation for {project}',
                     '{user} contributed valuable knowledge to the team hub'
                 ]
             },
             {
                 type: 'achievement',
-                icon: '🏆',
-                iconEmoji: '⭐',
+                icon: 'achievement',
+                iconEmoji: 'star',
                 color: 'var(--warning-600)',
                 glowColor: 'rgba(245, 158, 11, 0.5)',
                 templates: [
-                    '{user} unlocked the prestigious "{badge}" achievement 🎉',
+                    '{user} unlocked the prestigious "{badge}" achievement',
                     '{user} reached mastery level {level} in productivity',
-                    '{user} completed their ambitious weekly goals! 🚀',
+                    '{user} completed their ambitious weekly goals!',
                     '{user} earned recognition for exceptional performance'
                 ]
             },
             {
                 type: 'meeting',
-                icon: '📅',
-                iconEmoji: '💼',
+                icon: 'meeting',
+                iconEmoji: 'schedule',
                 color: 'var(--primary-600)',
                 glowColor: 'rgba(99, 102, 241, 0.3)',
                 templates: [
@@ -87,12 +87,12 @@ class LiveActivityFeed extends HTMLElement {
             },
             {
                 type: 'innovation',
-                icon: '💡',
-                iconEmoji: '🚀',
+                icon: 'innovation',
+                iconEmoji: 'innovation-rocket',
                 color: 'var(--secondary-500)',
                 glowColor: 'rgba(139, 92, 246, 0.4)',
                 templates: [
-                    '{user} proposed a revolutionary solution for {project} ⚡',
+                    '{user} proposed a revolutionary solution for {project}',
                     '{user} shared a visionary idea in {channel}',
                     '{user} initiated an innovation breakthrough challenge',
                     '{user} discovered an elegant approach to {task}'
@@ -472,6 +472,71 @@ class LiveActivityFeed extends HTMLElement {
         return `${days}d ago`;
     }
 
+    getIconSvg(type) {
+        const icons = {
+            'task-completed': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>`,
+            'collaboration': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"></path>
+            </svg>`,
+            'knowledge-share': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>`,
+            'achievement': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                <path d="M14 9h1.5a2.5 2.5 0 0 0 0-5H14"></path>
+                <path d="M4 22h16"></path>
+                <path d="M10 14.66V17c0 1.1.9 2 2 2s2-.9 2-2v-2.34"></path>
+            </svg>`,
+            'meeting': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>`,
+            'innovation': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>`,
+            'target': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+            </svg>`,
+            'participation': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"></path>
+            </svg>`,
+            'development': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>`,
+            'star': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>`,
+            'schedule': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>`,
+            'innovation-rocket': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+            </svg>`
+        };
+        return icons[type] || icons['task-completed'];
+    }
+
     initializeSpectacularEffects() {
         if (this.accessibilityFeatures.reducedMotion) return;
         
@@ -565,23 +630,29 @@ class LiveActivityFeed extends HTMLElement {
                 <div class="activity-icon-enhanced" 
                      style="color: ${activity.color}; box-shadow: 0 0 20px ${activity.glowColor};"
                      aria-hidden="true">
-                    <span class="icon-primary">${activity.icon}</span>
-                    <span class="icon-accent">${activity.iconEmoji}</span>
+                    <span class="icon-primary">${this.getIconSvg(activity.icon)}</span>
+                    <span class="icon-accent">${this.getIconSvg(activity.iconEmoji)}</span>
                     <div class="icon-pulse" style="background: ${activity.glowColor};"></div>
                 </div>
                 <div class="activity-content-enhanced">
-                    <p class="activity-message-enhanced" id="activity-${activity.id}-context">
+                    <p class="activity-message-enhanced" id="activity-${activity.id}-context" style="font-size: 0.875rem !important; line-height: 1.3 !important;">
                         ${activity.message}
                     </p>
                     <div class="activity-meta-enhanced">
                         <span class="activity-time-enhanced">${this.formatTimeAgo(activity.timestamp)}</span>
                         <span class="activity-engagement" aria-label="Engagement score">
-                            <span class="engagement-icon">👥</span>
+                            <span class="engagement-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </span>
                             <span class="engagement-count">${activity.engagement}</span>
                         </span>
                         <span class="activity-priority-badge priority-${activity.priority}" 
                               aria-label="Priority level ${activity.priority}">
-                            ${'⭐'.repeat(activity.priority)}
+                            ${this.getIconSvg('star').repeat(activity.priority)}
                         </span>
                     </div>
                 </div>
@@ -682,8 +753,6 @@ class LiveActivityFeed extends HTMLElement {
 
     render() {
         this.innerHTML = `
-            <a href="#activity-list" class="skip-link-enhanced">Skip to activity list</a>
-            
             <div class="live-activity-feed-enhanced" role="region" aria-label="Live Team Activity Feed">
                 <div class="feed-header-enhanced">
                     <h3 class="feed-title-enhanced">

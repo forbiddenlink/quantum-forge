@@ -168,8 +168,8 @@
 }
 
 .resource-icon {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
@@ -198,8 +198,11 @@
 }
 
 .resource-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
+    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .resource-content {
@@ -251,8 +254,8 @@
 }
 
 .resource-action {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     background: var(--bg-elevated);
@@ -273,8 +276,11 @@
 }
 
 .resource-action svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
+    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .resource-insights {
@@ -455,4 +461,54 @@ mark {
         width: 100%;
         justify-content: space-between;
     }
+} 
+
+/* ===== ICON SIZE OVERRIDES - Ensure these take precedence ===== */
+.knowledge-hub .resource-icon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: var(--radius-lg) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+}
+
+.knowledge-hub .resource-icon svg {
+    width: 22px !important;
+    height: 22px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.knowledge-hub .resource-action {
+    width: 36px !important;
+    height: 36px !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-lg) !important;
+    background: var(--bg-elevated) !important;
+    color: var(--text-secondary) !important;
+    cursor: pointer !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.knowledge-hub .resource-action svg {
+    width: 18px !important;
+    height: 18px !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.knowledge-hub .resource-action:hover {
+    background: var(--primary-500) !important;
+    border-color: var(--primary-600) !important;
+    color: white !important;
+    transform: translateY(-1px) scale(1.1) !important;
 } 

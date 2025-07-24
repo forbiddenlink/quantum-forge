@@ -81,7 +81,7 @@ class SpectacularTaskSystem extends HTMLElement {
             },
             {
                 type: 'prediction',
-                icon: '📈',
+                icon: 'analytics',
                 title: 'Smart Productivity Forecast',
                 description: 'Machine learning analysis of your work patterns predicts 4-5 additional task completions this week, with 92% accuracy. Peak productivity window: 9-11 AM.',
                 confidence: 92,
@@ -93,7 +93,7 @@ class SpectacularTaskSystem extends HTMLElement {
             },
             {
                 type: 'optimization',
-                icon: '⚡',
+                icon: 'performance',
                 title: 'Workflow Efficiency Boost',
                 description: 'Neural network analysis reveals that scheduling testing tasks for Monday mornings increases completion rate by 23% and reduces context switching by 45%',
                 confidence: 96,
@@ -105,7 +105,7 @@ class SpectacularTaskSystem extends HTMLElement {
             },
             {
                 type: 'insight',
-                icon: '🧠',
+                icon: 'ai-brain',
                 title: 'Cognitive Load Optimization',
                 description: 'Your brain processes similar tasks 67% faster when grouped together. AI recommends batching design reviews on Wednesdays for maximum efficiency.',
                 confidence: 88,
@@ -117,7 +117,7 @@ class SpectacularTaskSystem extends HTMLElement {
             },
             {
                 type: 'collaboration',
-                icon: '👥',
+                icon: 'collaboration',
                 title: 'Team Synergy Amplifier',
                 description: 'Real-time analysis shows Sarah and Mike have 89% task compatibility. Pairing them on complex projects could accelerate delivery by 31%.',
                 confidence: 91,
@@ -129,7 +129,7 @@ class SpectacularTaskSystem extends HTMLElement {
             },
             {
                 type: 'wellness',
-                icon: '🌱',
+                icon: 'wellness',
                 title: 'Burnout Prevention System',
                 description: 'Biometric analysis suggests taking a 15-minute break now will boost afternoon productivity by 19% and maintain your 95% quality score.',
                 confidence: 85,
@@ -619,22 +619,67 @@ class SpectacularTaskSystem extends HTMLElement {
     // 🏆 HELPER RENDER METHODS
     renderTaskStats() {
         const stats = [
-            { label: 'Total Tasks', value: this.tasks.length, icon: '📋' },
-            { label: 'Completed', value: this.tasks.filter(t => t.status === 'completed').length, icon: '✅' },
-            { label: 'In Progress', value: this.tasks.filter(t => t.status === 'in-progress').length, icon: '🔄' },
-            { label: 'High Priority', value: this.tasks.filter(t => t.priority === 'high').length, icon: '🔥' },
-            { label: 'Productivity', value: `${this.performanceMetrics.productivityScore}%`, icon: '📈' }
+            { label: 'Total Tasks', value: this.tasks.length, icon: 'task-list' },
+            { label: 'Completed', value: this.tasks.filter(t => t.status === 'completed').length, icon: 'check' },
+            { label: 'In Progress', value: this.tasks.filter(t => t.status === 'in-progress').length, icon: 'refresh' },
+            { label: 'High Priority', value: this.tasks.filter(t => t.priority === 'high').length, icon: 'priority-high' },
+            { label: 'Productivity', value: `${this.performanceMetrics.productivityScore}%`, icon: 'analytics' }
         ];
 
         return stats.map(stat => `
             <div class="stat-card">
-                <div class="stat-icon">${stat.icon}</div>
+                <div class="stat-icon">${this.getIconSvg(stat.icon)}</div>
                 <div class="stat-info">
                     <div class="stat-number">${stat.value}</div>
                     <div class="stat-label">${stat.label}</div>
                 </div>
             </div>
         `).join('');
+    }
+
+    getIconSvg(type) {
+        const icons = {
+            'analytics': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 20V10"></path>
+                <path d="M12 20V4"></path>
+                <path d="M6 20v-6"></path>
+            </svg>`,
+            'performance': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+            </svg>`,
+            'ai-brain': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                <circle cx="12" cy="12" r="10"></circle>
+            </svg>`,
+            'collaboration': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"></path>
+            </svg>`,
+            'wellness': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>`,
+            'task-list': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14,2 14,8 20,8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10,9 9,9 8,9"></polyline>
+            </svg>`,
+            'check': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20,6 9,17 4,12"></polyline>
+            </svg>`,
+            'refresh': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+            </svg>`,
+            'priority-high': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>`
+        };
+        return icons[type] || icons['analytics'];
     }
 
     renderAIInsights() {
@@ -652,7 +697,7 @@ class SpectacularTaskSystem extends HTMLElement {
             return `
             <div class="ai-insight-card" style="animation-delay: ${index * 0.1}s">
                 <div class="insight-header">
-                    <div class="insight-icon">${insight.icon}</div>
+                    <div class="insight-icon">${this.getIconSvg(insight.icon)}</div>
                     <div class="insight-meta">
                         <h4 class="insight-title">${insight.title}</h4>
                         <div class="impact-badge ${insight.impact}">

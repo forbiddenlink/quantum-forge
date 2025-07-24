@@ -9,11 +9,11 @@ class WellnessTracker extends HTMLElement {
         this.isVisible = false;
         this.hasSubmittedToday = false;
         
-        // Mood types with contest-appealing emojis and colors
+        // Mood types with contest-appealing SVG icons and colors
         this.moodTypes = [
             {
                 id: 'excellent',
-                emoji: '🚀',
+                icon: 'rocket',
                 label: 'Excellent',
                 color: 'var(--success-500)',
                 bgColor: 'rgba(34, 197, 94, 0.1)',
@@ -21,7 +21,7 @@ class WellnessTracker extends HTMLElement {
             },
             {
                 id: 'good',
-                emoji: '😊',
+                icon: 'smile',
                 label: 'Good',
                 color: 'var(--success-400)',
                 bgColor: 'rgba(34, 197, 94, 0.08)',
@@ -29,7 +29,7 @@ class WellnessTracker extends HTMLElement {
             },
             {
                 id: 'neutral',
-                emoji: '😐',
+                icon: 'neutral',
                 label: 'Neutral',
                 color: 'var(--warning-500)',
                 bgColor: 'rgba(245, 158, 11, 0.1)',
@@ -37,7 +37,7 @@ class WellnessTracker extends HTMLElement {
             },
             {
                 id: 'stressed',
-                emoji: '😰',
+                icon: 'stressed',
                 label: 'Stressed',
                 color: 'var(--warning-600)',
                 bgColor: 'rgba(245, 158, 11, 0.15)',
@@ -45,7 +45,7 @@ class WellnessTracker extends HTMLElement {
             },
             {
                 id: 'tired',
-                emoji: '😴',
+                icon: 'sleep',
                 label: 'Tired',
                 color: 'var(--error-500)',
                 bgColor: 'rgba(239, 68, 68, 0.1)',
@@ -292,6 +292,61 @@ class WellnessTracker extends HTMLElement {
         }
     }
 
+    getIconSvg(type) {
+        const icons = {
+            'rocket': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+            </svg>`,
+            'smile': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+            </svg>`,
+            'neutral': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+            </svg>`,
+            'stressed': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 15s1.5 2 4 2 4-2 4-2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                <path d="M9 12h.01"></path>
+                <path d="M15 12h.01"></path>
+            </svg>`,
+            'sleep': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="M4.93 4.93l1.41 1.41"></path>
+                <path d="M17.66 17.66l1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="M6.34 6.34l-1.41 1.41"></path>
+                <path d="M19.07 19.07l-1.41 1.41"></path>
+            </svg>`,
+            'trend-up': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"></path>
+            </svg>`,
+            'trend-down': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"></path>
+            </svg>`,
+            'trend-stable': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 12h12"></path>
+            </svg>`
+        };
+        return icons[type] || icons['smile'];
+    }
+
     renderMoodSelector() {
         if (this.hasSubmittedToday) {
             return ''; // Will be replaced by thank you state
@@ -306,7 +361,7 @@ class WellnessTracker extends HTMLElement {
                                 data-mood="${mood.id}"
                                 title="${mood.description}"
                                 aria-label="Select mood: ${mood.label}">
-                            <span class="mood-emoji">${mood.emoji}</span>
+                            <span class="mood-emoji">${this.getIconSvg(mood.icon)}</span>
                             <span class="mood-label">${mood.label}</span>
                         </button>
                     `).join('')}
@@ -317,8 +372,8 @@ class WellnessTracker extends HTMLElement {
     }
 
     renderTeamStats() {
-        const trendIcon = this.teamWellness.trendDirection === 'up' ? '📈' : 
-                         this.teamWellness.trendDirection === 'down' ? '📉' : '➡️';
+        const trendIcon = this.teamWellness.trendDirection === 'up' ? this.getIconSvg('trend-up') : 
+                         this.teamWellness.trendDirection === 'down' ? this.getIconSvg('trend-down') : this.getIconSvg('trend-stable');
         
         return `
             <div class="team-stats">
