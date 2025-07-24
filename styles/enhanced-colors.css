@@ -1,100 +1,61 @@
 /* Enhanced Color Scheme for Quantum Forge Intranet */
+/* Consolidated with main.css - removed duplicate variables */
 
 :root {
-    /* Primary Colors */
-    --primary-color: #6366f1;
+    /* Additional color utilities (not duplicating main.css) */
     --primary-rgb: 99, 102, 241;
-    --accent-color: #818cf8;
     --accent-rgb: 129, 140, 248;
     
-    /* Background Colors */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f9fafb;
-    --bg-tertiary: #f3f4f6;
+    /* Component-specific aliases using main.css variables */
+    --primary-color: var(--primary-500);
+    --accent-color: var(--primary-400);
+    --success: var(--success-500);
+    --warning: var(--warning-500);
+    --error: var(--error-500);
+    --info: var(--primary-500);
     
-    /* Text Colors - Improved for better readability */
-    --text-primary: #111827; /* Darker for better contrast */
-    --text-secondary: #374151; /* Darker than before for better readability */
-    --text-tertiary: #4b5563; /* Darker than before */
-    
-    /* Border Colors */
-    --border-light: #e5e7eb;
-    --border-medium: #d1d5db;
-    --border-dark: #9ca3af;
-    
-    /* Status Colors */
-    --success: #10b981;
-    --warning: #f59e0b;
-    --error: #ef4444;
-    --info: #3b82f6;
-    
-    /* Interaction Colors */
+    /* Enhanced interaction colors using main variables */
     --hover-light: rgba(99, 102, 241, 0.1);
     --active-light: rgba(99, 102, 241, 0.2);
     --focus-ring: rgba(99, 102, 241, 0.5);
 }
 
-/* Dark Mode Colors */
+/* Dark Mode Colors - Use main.css variables */
 [data-theme="dark"] {
-    /* Primary Colors - Slightly desaturated for dark mode */
-    --primary-color: #818cf8;
-    --primary-rgb: 129, 140, 248;
-    --accent-color: #6366f1;
-    --accent-rgb: 99, 102, 241;
+    /* Component aliases using main.css dark mode variables */
+    --primary-color: var(--primary-500);
+    --accent-color: var(--primary-400);
+    --success: var(--success-500);
+    --warning: var(--warning-500);
+    --error: var(--error-500);
+    --info: var(--primary-500);
     
-    /* Background Colors */
-    --bg-primary: #111827;
-    --bg-secondary: #1f2937;
-    --bg-tertiary: #374151;
-    
-    /* Text Colors - Improved for better readability in dark mode */
-    --text-primary: #f9fafb; /* Keep bright for dark mode */
-    --text-secondary: #f3f4f6; /* Brighter than before for better readability */
-    --text-tertiary: #e5e7eb; /* Brighter than before */
-    
-    /* Border Colors */
-    --border-light: #374151;
-    --border-medium: #4b5563;
-    --border-dark: #6b7280;
-    
-    /* Status Colors - Slightly desaturated for dark mode */
-    --success: #34d399;
-    --warning: #fbbf24;
-    --error: #f87171;
-    --info: #60a5fa;
-    
-    /* Interaction Colors */
+    /* Enhanced interaction colors for dark mode */
     --hover-light: rgba(129, 140, 248, 0.15);
     --active-light: rgba(129, 140, 248, 0.25);
     --focus-ring: rgba(129, 140, 248, 0.5);
 }
 
-/* High Contrast Mode */
+/* High Contrast Mode - Override main.css variables */
 @media (prefers-contrast: high) {
     :root {
-        --primary-color: #0000ff;
-        --accent-color: #000080;
+        --primary-500: #0000ff;
+        --primary-400: #000080;
+        --success-500: #006400;
+        --warning-500: #b35900;
+        --error-500: #cc0000;
         --text-primary: #000000;
         --text-secondary: #202020;
-        --border-light: #404040;
-        --border-medium: #606060;
-        --success: #006400;
-        --warning: #b35900;
-        --error: #cc0000;
-        --info: #0066cc;
     }
     
     [data-theme="dark"] {
-        --primary-color: #80a0ff;
-        --accent-color: #a0c0ff;
+        --primary-500: #80a0ff;
+        --primary-400: #a0c0ff;
+        --success-500: #00cc00;
+        --warning-500: #ffaa00;
+        --error-500: #ff4040;
         --text-primary: #ffffff;
         --text-secondary: #e0e0e0;
-        --border-light: #808080;
-        --border-medium: #a0a0a0;
-        --success: #00cc00;
-        --warning: #ffaa00;
-        --error: #ff4040;
-        --info: #40a0ff;
     }
 }
 

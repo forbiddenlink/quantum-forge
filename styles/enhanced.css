@@ -70,14 +70,7 @@ app-sidebar {
     overflow: visible;
 }
 
-/* Dashboard Layout Fixes */
-.dashboard-grid {
-    display: block;
-    width: 100%;
-    padding: 1rem 0;
-    position: relative;
-    z-index: 10;
-}
+/* Dashboard grid definition moved to main.css - duplicate removed */
 
 .dashboard-item {
     display: block;
@@ -121,11 +114,8 @@ app-sidebar {
     overflow: visible;
 }
 
-/* Mobile responsive layout for dashboard rows */
+/* Mobile responsive layout moved to main.css - duplicate removed */
 @media (max-width: 768px) {
-    .dashboard-grid {
-        flex-direction: column;
-    }
     
     .dashboard-item {
         flex: 0 0 100%;
@@ -2040,10 +2030,7 @@ enhanced-task-system,
 
 @media (max-width: 768px) {
     /* Welcome section mobile styles moved to welcome-section.css */
-    
-    .dashboard-grid {
-        margin-top: 4rem;
-    }
+    /* Dashboard grid mobile styles moved to main.css - duplicate removed */
 
     .welcome-stats {
         grid-template-columns: repeat(2, 1fr);

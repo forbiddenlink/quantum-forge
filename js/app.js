@@ -218,7 +218,7 @@ function initializeTheme() {
         document.documentElement.style.setProperty('--primary-600', darkenColor(savedColor, 0.1));
         document.documentElement.style.setProperty('--primary-700', darkenColor(savedColor, 0.2));
         // Also set these commonly used variables
-        document.documentElement.style.setProperty('--primary-color', savedColor);
+        document.documentElement.style.setProperty('--primary-500', savedColor);
         document.documentElement.style.setProperty('--accent-color', savedColor);
     }
 }

@@ -286,7 +286,7 @@ class SimpleColorPicker extends HTMLElement {
         root.style.setProperty('--primary-900', palette.primary900);
         
         // Update common color variables
-        root.style.setProperty('--primary-color', color);
+                    root.style.setProperty('--primary-500', color);
         root.style.setProperty('--accent-color', palette.primary400);
         root.style.setProperty('--primary-rgb', `${rgb.r}, ${rgb.g}, ${rgb.b}`);
         root.style.setProperty('--accent-rgb', this.hexToRgbString(palette.primary400));
