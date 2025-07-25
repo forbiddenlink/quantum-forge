@@ -26,9 +26,6 @@
     }
 }
 
-/* Dashboard grid layout moved to critical-fixes.css to avoid duplication */
-/* Dashboard item styles moved to components.css to avoid duplication */
-
 /* Mobile responsive behavior */
 @media (max-width: 768px) {
     .dashboard-grid {
@@ -65,10 +62,6 @@
     display: none !important;
 }
 
-/* CSS variables moved to critical-fixes.css to avoid duplication */
-
-/* Dark mode variables moved to critical-fixes.css to avoid duplication */
-
 /* Base styles */
 html {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -102,8 +95,6 @@ body {
 
 /* Dark mode specific component styles */
 [data-theme="dark"] {
-
-    /* Navigation and header styles moved to dark-theme.css */
 
     .dashboard-item:hover {
         border-color: var(--border-hover);
@@ -177,8 +168,6 @@ body {
         background: var(--bg-overlay);
         backdrop-filter: blur(8px);
     }
-
-    /* Tooltip styles consolidated in components.css */
 
     /* Glass effect components */
     .glass-card {
@@ -262,8 +251,6 @@ body {
     opacity: 1;
 }
 
-/* Header styles moved to header.css - duplicate removed */
-
 .header-left {
     display: flex;
     align-items: center;
@@ -319,8 +306,6 @@ body {
     background-clip: text;
 }
 
-/* Sidebar definition moved to sidebar.css - duplicate removed */
-
 /* Enhanced Main Content */
 .main-content {
     flex: 1;
@@ -331,10 +316,6 @@ body {
     overflow-y: hidden;
 }
 
-/* Welcome section styles handled by welcome-section.css */
-
-/* Welcome section styles moved to welcome-section.css */
-
 /* Enhanced Quick Actions */
 .quick-actions {
     display: flex;
@@ -343,8 +324,6 @@ body {
     position: relative;
     z-index: 2;
 }
-
-/* Button components consolidated in components.css */
 
 /* Pulse Animation */
 .pulse-animation {
@@ -884,8 +863,6 @@ body {
 
 /* ===== UNIFIED RESPONSIVE DESIGN SYSTEM ===== */
 
-/* Standardized Breakpoints - Consolidated into critical-fixes.css */
-
 /* Global Mobile Optimizations */
 @media (max-width: 480px) {
 
@@ -1406,8 +1383,6 @@ office-visualizer {
     box-shadow: none !important;
 }
 
-/* Welcome section styles moved to welcome-section.css */
-
 /* Enhanced Widgets */
 .widget {
     background: var(--bg-elevated);
@@ -1700,8 +1675,6 @@ office-visualizer {
     .main-content {
         padding: var(--space-4);
     }
-
-    /* Welcome section mobile styles moved to welcome-section.css */
 
     .welcome-title {
         font-size: var(--font-size-xl);
@@ -4001,8 +3974,6 @@ body .welcome-section .event-title,
     /* Removed shimmer animation to prevent distraction */
 }
 
-/* Shimmer keyframes removed to prevent distraction */
-
 /* Task Card Meta */
 .task-card-meta {
     display: flex;
@@ -5035,8 +5006,6 @@ body .welcome-section .event-title,
     /* Ensure grid has minimum height */
 }
 
-
-
 .confidence-text {
     font-size: var(--font-size-xs);
     font-weight: 500;
@@ -5561,9 +5530,12 @@ body .welcome-section .event-title,
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
@@ -6190,8 +6162,6 @@ h6,
     margin: 0;
     font-size: var(--font-size-sm);
 }
-
-/* Unified spinner animation moved to contest-enhancements.css */
 
 @media (max-width: 768px) {
     .search-filters {
@@ -7485,8 +7455,6 @@ app-header {
     top: 6px;
 }
 
-/* Header styles moved to header.css - duplicate removed */
-
 .header-left {
     display: flex;
     align-items: center;
@@ -7541,8 +7509,6 @@ app-header {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
-
-/* Sidebar definition moved to sidebar.css - duplicate removed */
 
 .nav-brand {
     margin-bottom: var(--space-8);
@@ -7616,8 +7582,6 @@ app-header {
     margin: 0;
 }
 
-/* Nav item styles moved to sidebar.css - duplicate removed */
-
 .nav-link {
     display: flex;
     align-items: center;
@@ -7684,8 +7648,6 @@ app-header {
     width: 100%;
     overflow-y: hidden;
 }
-
-/* Welcome section styles handled by welcome-section.css */
 
 /* COOL DUAL CIRCLE BACKGROUND - ELEGANT & VISIBLE */
 .welcome-section::before {
@@ -7787,8 +7749,6 @@ app-header {
     }
 }
 
-/* Shimmer keyframes removed to prevent distraction */
-
 .welcome-header {
     display: flex;
     justify-content: space-between;
@@ -7828,8 +7788,6 @@ app-header {
     font-weight: 900;
     position: relative;
 }
-
-/* Welcome section button styles moved to welcome-section.css */
 
 .user-name::after {
     content: '';
@@ -7902,9 +7860,6 @@ app-header {
     overflow: hidden;
 }
 
-/* Welcome section styles moved to welcome-section.css */
-/* Welcome section styles moved to welcome-section.css */
-
 .stat-item::before {
     content: '';
     position: absolute;
@@ -7956,8 +7911,6 @@ app-header {
     opacity: 0.9;
     color: var(--text-secondary) !important;
 }
-
-/* Quick actions duplicate removed - see line 623 */
 
 .btn {
     display: inline-flex;
@@ -8063,27 +8016,6 @@ app-header {
 /* Enhanced Dashboard Grid - REMOVED: conflicted with critical-fixes.css definition */
 
 /* Dashboard items that work with the grid system defined in critical-fixes.css */
-
-.dashboard-item {
-    flex: 0 0 calc(50% - 0.5rem);
-    /* Adjusted for new gap */
-    background: var(--bg-elevated);
-    margin: 0 !important;
-    padding: 0 !important;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
-    overflow: visible;
-    position: relative;
-    min-height: fit-content;
-}
-
-.dashboard-item.full-width {
-    flex: 1 1 100%;
-    margin: 0;
-    margin-bottom: var(--space-4);
-    /* Reduced from var(--space-6) */
-}
 
 .dashboard-item>* {
     margin: 0 !important;
@@ -9198,8 +9130,6 @@ office-visualizer {
     box-shadow: none !important;
 }
 
-/* Welcome section styles moved to welcome-section.css */
-
 /* Enhanced Widgets */
 .widget {
     background: var(--bg-elevated);
@@ -9492,8 +9422,6 @@ office-visualizer {
     .main-content {
         padding: var(--space-4);
     }
-
-    /* Welcome section mobile styles moved to welcome-section.css */
 
     .welcome-title {
         font-size: var(--font-size-xl);
@@ -11168,8 +11096,6 @@ office-visualizer {
     background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
     /* Removed shimmer animation to prevent distraction */
 }
-
-/* Shimmer keyframes removed to prevent distraction */
 
 /* Task Card Meta */
 .task-card-meta {
@@ -12995,9 +12921,12 @@ office-visualizer {
 }
 
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
@@ -13624,8 +13553,6 @@ h6,
     margin: 0;
     font-size: var(--font-size-sm);
 }
-
-/* Unified spinner animation moved to contest-enhancements.css */
 
 @media (max-width: 768px) {
     .search-filters {
@@ -15121,8 +15048,6 @@ app-header {
     margin-top: var(--space-4);
 }
 
-/* Animation keyframes consolidated in animations.css */
-
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -16158,8 +16083,6 @@ app-header {
 .resource-item:hover {
     background: var(--bg-hover);
 }
-
-/* Resource icon styles moved to knowledge-hub.css to eliminate duplication */
 
 .resource-info {
     flex: 1;

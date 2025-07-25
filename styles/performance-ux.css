@@ -1,10 +1,6 @@
 /* 🚀 PERFORMANCE & UX OPTIMIZATIONS */
 
-/* 1. LOADING PERFORMANCE */
-.dashboard-item {
-    content-visibility: auto;
-    contain-intrinsic-size: 300px;
-}
+/* Performance optimizations for .dashboard-item moved to components.css for consolidation */
 
 /* 2. SMOOTH SCROLLING */
 html {

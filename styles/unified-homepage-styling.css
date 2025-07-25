@@ -247,6 +247,7 @@ smart-insights-dashboard,
 
 /* Performance Optimizations */
 @media (prefers-reduced-motion: reduce) {
+
     .dashboard-item,
     .dashboard-item * {
         animation-duration: 0.01ms !important;
@@ -272,10 +273,4 @@ smart-insights-dashboard,
 
 /* Dark Mode Support - handled in dark-theme.css and components.css */
 
-/* GPU Acceleration for Smooth Performance */
-.dashboard-item {
-    will-change: transform, opacity;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
-}
+/* GPU acceleration properties moved to components.css for consolidation */

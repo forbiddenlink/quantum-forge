@@ -9,9 +9,7 @@ Found 478 duplicate rule(s).
 - analytics-dashboard.css:1354 (0%)
 - analytics-dashboard.css:2480 (0%)
 - animations.css:7 (0%)
-- animations.css:12 (0%)
-- animations.css:17 (0%)
-- animations.css:167 (0%)
+- animations.css:268 (0%)
 - enhanced-colors.css:349 (0%)
 - team.css:653 (0%)
 
@@ -26,10 +24,8 @@ Found 478 duplicate rule(s).
 - analytics-dashboard.css:901 (100%)
 - analytics-dashboard.css:1358 (100%)
 - analytics-dashboard.css:2484 (100%)
-- animations.css:8 (100%)
-- animations.css:13 (100%)
-- animations.css:18 (100%)
-- animations.css:168 (100%)
+- animations.css:11 (100%)
+- animations.css:272 (100%)
 - enhanced-colors.css:353 (100%)
 - team.css:657 (100%)
 
@@ -45,12 +41,14 @@ Found 478 duplicate rule(s).
     100%)
 - analytics-dashboard.css:1706 (0%,
     100%)
-- animations.css:23 (0%, 100%)
-- animations.css:28 (0%, 100%)
-- animations.css:33 (0%, 100%)
-- animations.css:57 (0%, 100%)
-- animations.css:135 (0%, 100%)
-- animations.css:161 (0%, 100%)
+- animations.css:19 (0%,
+    100%)
+- animations.css:62 (0%,
+    100%)
+- animations.css:194 (0%,
+    100%)
+- animations.css:254 (0%,
+    100%)
 - contest-enhancements.css:1294 (0%, 100%)
 - enhanced-knowledge-hub.css:744 (0%,
     100%)
@@ -78,9 +76,9 @@ Found 478 duplicate rule(s).
 ### Locations:
 - analytics-dashboard.css:2221 (0%)
 - analytics-dashboard.css:2403 (0%)
-- animations.css:50 (0%)
-- animations.css:128 (0%)
-- animations.css:155 (0%)
+- animations.css:46 (0%)
+- animations.css:178 (0%)
+- animations.css:242 (0%)
 
 ### Rule Content:
 ```css
@@ -92,8 +90,8 @@ Found 478 duplicate rule(s).
 ### Locations:
 - analytics-dashboard.css:2225 (50%)
 - analytics-dashboard.css:2407 (50%)
-- animations.css:51 (50%)
-- animations.css:129 (50%)
+- animations.css:50 (50%)
+- animations.css:182 (50%)
 
 ### Rule Content:
 ```css
@@ -105,8 +103,8 @@ Found 478 duplicate rule(s).
 ### Locations:
 - analytics-dashboard.css:2229 (100%)
 - analytics-dashboard.css:2411 (100%)
-- animations.css:52 (100%)
-- animations.css:130 (100%)
+- animations.css:54 (100%)
+- animations.css:186 (100%)
 
 ### Rule Content:
 ```css
@@ -117,10 +115,8 @@ Found 478 duplicate rule(s).
 
 ### Locations:
 - analytics-dashboard.css:1467 (50%)
-- animations.css:24 (50%)
-- animations.css:29 (50%)
-- animations.css:34 (50%)
-- animations.css:162 (50%)
+- animations.css:25 (50%)
+- animations.css:260 (50%)
 - enhanced-knowledge-hub.css:750 (50%)
 
 ### Rule Content:
@@ -133,8 +129,8 @@ Found 478 duplicate rule(s).
 ### Locations:
 - analytics-dashboard.css:2318 (0%,
     100%)
-- animations.css:39 (0%, 100%)
-- animations.css:44 (0%, 100%)
+- animations.css:34 (0%,
+    100%)
 - contest-enhancements.css:1151 (0%, 100%)
 
 ### Rule Content:
@@ -146,8 +142,7 @@ Found 478 duplicate rule(s).
 
 ### Locations:
 - analytics-dashboard.css:2323 (50%)
-- animations.css:40 (50%)
-- animations.css:45 (50%)
+- animations.css:39 (50%)
 - contest-enhancements.css:6 (50%)
 
 ### Rule Content:
@@ -158,8 +153,8 @@ Found 478 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:62 (from)
-- animations.css:73 (from)
+- animations.css:71 (from)
+- animations.css:96 (from)
 - enhanced-colors.css:288 (from)
 - sidebar.css:653 (from)
 
@@ -171,9 +166,9 @@ from { opacity: 0; transform: translateY(20px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:63 (to)
-- animations.css:74 (to)
-- animations.css:87 (to)
+- animations.css:76 (to)
+- animations.css:101 (to)
+- animations.css:123 (to)
 - enhanced-colors.css:293 (to)
 - sidebar.css:658 (to)
 - team-chat-widget.css:336 (to)
@@ -186,8 +181,8 @@ to { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:68 (to)
-- animations.css:103 (to)
+- animations.css:88 (to)
+- animations.css:145 (to)
 
 ### Rule Content:
 ```css
@@ -345,7 +340,7 @@ to { opacity: 1; transform: translateX(0); }
 
 ### Locations:
 - accessibility-enhancements.css:374 (.form-group)
-- components.css:217 (.form-group)
+- components.css:227 (.form-group)
 
 ### Rule Content:
 ```css
@@ -355,7 +350,8 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:141 (0%, 100%)
+- animations.css:209 (0%,
+    100%)
 - contest-enhancements.css:15 (0%, 100%)
 
 ### Rule Content:
@@ -366,7 +362,7 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:142 (50%)
+- animations.css:215 (50%)
 - contest-enhancements.css:16 (50%)
 
 ### Rule Content:
@@ -693,7 +689,7 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:283 (.badge.primary)
+- components.css:293 (.badge.primary)
 - enhanced-colors.css:266 (.badge.primary)
 
 ### Rule Content:
@@ -704,7 +700,7 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:288 (.badge.success)
+- components.css:298 (.badge.success)
 - enhanced-colors.css:271 (.badge.success)
 
 ### Rule Content:
@@ -715,7 +711,7 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:293 (.badge.warning)
+- components.css:303 (.badge.warning)
 - enhanced-colors.css:276 (.badge.warning)
 
 ### Rule Content:
@@ -726,7 +722,7 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:298 (.badge.error)
+- components.css:308 (.badge.error)
 - enhanced-colors.css:281 (.badge.error)
 
 ### Rule Content:
@@ -1603,7 +1599,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:478 (.dropdown-item:hover)
+- components.css:488 (.dropdown-item:hover)
 - enhanced.css:506 (.dropdown-item:hover)
 
 ### Rule Content:
@@ -1694,7 +1690,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - mobile-nav.css:40 (.sidebar-overlay)
-- performance-ux.css:51 (.sidebar-overlay)
+- performance-ux.css:47 (.sidebar-overlay)
 
 ### Rule Content:
 ```css
@@ -1705,7 +1701,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - mobile-nav.css:53 (.sidebar-overlay.active)
-- performance-ux.css:64 (.sidebar-overlay.active)
+- performance-ux.css:60 (.sidebar-overlay.active)
 
 ### Rule Content:
 ```css
@@ -1826,7 +1822,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:83 (from)
+- animations.css:118 (from)
 - team-chat-widget.css:332 (from)
 
 ### Rule Content:
@@ -7073,7 +7069,7 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:79 (to)
+- animations.css:112 (to)
 - wellness-tracker.css:371 (to)
 
 ### Rule Content:

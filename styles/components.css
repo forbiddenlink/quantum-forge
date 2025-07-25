@@ -7,76 +7,86 @@
 
 /* Base Dashboard Item - Consolidated definition from multiple files */
 .dashboard-item {
-    /* Modern glass-morphism card design */
-    background: var(--component-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--component-border);
-    box-shadow: var(--component-shadow);
-    border-radius: var(--radius-xl);
-    transition: all var(--duration-normal) var(--ease-spring);
-    overflow: hidden;
-    position: relative;
-    padding: var(--space-6);
-    min-height: 200px;
+  /* Modern glass-morphism card design */
+  background: var(--component-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--component-border);
+  box-shadow: var(--component-shadow);
+  border-radius: var(--radius-xl);
+  transition: all var(--duration-normal) var(--ease-spring);
+  overflow: hidden;
+  position: relative;
+  padding: var(--space-6);
+  min-height: 200px;
+
+  /* Performance optimizations */
+  content-visibility: auto;
+  contain-intrinsic-size: 300px;
+
+  /* GPU acceleration for smooth performance */
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .dashboard-item:hover {
-    background: var(--component-hover-bg);
-    border-color: var(--component-hover-border);
-    box-shadow: var(--component-hover-shadow);
-    transform: translateY(-4px);
+  background: var(--component-hover-bg);
+  border-color: var(--component-hover-border);
+  box-shadow: var(--component-hover-shadow);
+  transform: translateY(-4px);
 }
 
 /* Animated top border indicator */
 .dashboard-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-500), var(--success-500), var(--warning-500));
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-    opacity: 0;
-    transition: opacity var(--duration-normal) var(--ease-in-out);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-500), var(--success-500), var(--warning-500));
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-in-out);
 }
 
 .dashboard-item:hover::before {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* Dashboard Item Variants */
 .dashboard-item.full-width {
-    grid-column: 1 / -1;
+  grid-column: 1 / -1;
 }
 
 /* Dashboard Row Layout */
 .dashboard-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-6);
-    grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  grid-column: 1 / -1;
 }
 
 /* Mobile responsive behavior */
 @media (max-width: 768px) {
-    .dashboard-row {
-        grid-template-columns: 1fr;
-        gap: var(--space-4);
-    }
+  .dashboard-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
 
-    .dashboard-item {
-        padding: var(--space-4);
-        min-height: 150px;
-    }
+  .dashboard-item {
+    padding: var(--space-4);
+    min-height: 150px;
+  }
 }
 
 @media (max-width: 480px) {
-    .dashboard-item {
-        padding: var(--space-3);
-        min-height: 120px;
-    }
+  .dashboard-item {
+    padding: var(--space-3);
+    min-height: 120px;
+  }
 }
 
 /* Buttons
@@ -667,4 +677,4 @@
 
 [data-theme="dark"] .loading-overlay {
   background: rgba(0, 0, 0, 0.8);
-} 
+}
