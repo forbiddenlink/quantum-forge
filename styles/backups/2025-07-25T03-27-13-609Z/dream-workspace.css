@@ -1164,8 +1164,7 @@
     }
 }
 
-/* Particle opacity animation */
-@keyframes particleOpacity {
+@keyframes pulse {
     0%, 100% {
         opacity: 1 !important;
     }

@@ -1,0 +1,17 @@
+{
+  "name": "css-cleanup-tools",
+  "version": "1.0.0",
+  "description": "Tools for cleaning up and managing CSS duplication",
+  "main": "find-duplicates.js",
+  "scripts": {
+    "find-duplicates": "node find-duplicates.js",
+    "remove-duplicates": "node remove-duplicates.js",
+    "backup": "node backup-css.js backup",
+    "restore": "node backup-css.js restore",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "postcss": "^8.4.31",
+    "postcss-scss": "^4.0.9"
+  }
+} 
