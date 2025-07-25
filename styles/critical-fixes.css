@@ -364,12 +364,12 @@
 @media (prefers-contrast: high) {
     .dashboard-item {
         background: #ffffff !important;
-        color: #000000 !important;
-        border: 2px solid #000000 !important;
+        color: #ffffff !important;
+        border: 2px solid #ffffff !important;
     }
 
     .dashboard-item * {
-        color: #000000 !important;
+        color: #ffffff !important;
         text-shadow: none !important;
     }
 }

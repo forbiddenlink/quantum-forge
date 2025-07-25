@@ -17,7 +17,10 @@ class CompanyCultureShowcase extends HTMLElement {
                 department: "Engineering",
                 story: "I joined Quantum Forge 3 years ago and have grown from a junior developer to leading our AI initiatives. The culture of continuous learning and mentorship has been transformative. I've had the opportunity to work on cutting-edge projects while maintaining a healthy work-life balance.",
                 achievement: "Led 5 major AI projects",
-                avatar: "👩‍💻",
+                avatar: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>`,
                 color: "#6366f1",
                 impact: "Mentored 12 junior developers",
                 hobbies: "Rock climbing, Open source contributor",
@@ -37,7 +40,10 @@ class CompanyCultureShowcase extends HTMLElement {
                 department: "Product",
                 story: "The collaborative environment here is unmatched. Every team member's voice is heard, and we've built products that truly make a difference in people's lives. Our flexible work policy allows me to be there for my family while delivering impactful solutions.",
                 achievement: "Launched 3 successful products",
-                avatar: "👨‍💼",
+                avatar: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>`,
                 color: "#10b981",
                 impact: "40% increase in user satisfaction",
                 hobbies: "Marathon runner, Community volunteer",
@@ -57,7 +63,10 @@ class CompanyCultureShowcase extends HTMLElement {
                 department: "Design",
                 story: "Quantum Forge's commitment to user-centered design and accessibility has allowed me to create experiences that everyone can enjoy. The cross-functional collaboration and emphasis on continuous learning have helped me grow both professionally and personally.",
                 achievement: "Improved user satisfaction by 40%",
-                avatar: "👩‍🎨",
+                avatar: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>`,
                 color: "#f59e0b",
                 impact: "Led accessibility initiative",
                 hobbies: "Digital art, Teaching design",
@@ -77,7 +86,10 @@ class CompanyCultureShowcase extends HTMLElement {
                 department: "Analytics",
                 story: "The data-driven culture here has enabled me to work on cutting-edge ML projects while maintaining ethical AI practices. The support for innovation and experimentation is phenomenal, and we're encouraged to share our findings with the wider tech community.",
                 achievement: "Developed 8 ML models",
-                avatar: "👨‍🔬",
+                avatar: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>`,
                 color: "#8b5cf6",
                 impact: "Reduced processing time by 60%",
                 hobbies: "Chess player, Tech blogger",
@@ -97,7 +109,10 @@ class CompanyCultureShowcase extends HTMLElement {
                 department: "Platform",
                 story: "What sets Quantum Forge apart is our commitment to both technical excellence and human development. We've created an environment where engineers can innovate while growing as leaders. Our mentorship program has become a model for other companies.",
                 achievement: "Built high-performing team of 20",
-                avatar: "👩‍💼",
+                avatar: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>`,
                 color: "#ec4899",
                 impact: "95% team retention rate",
                 hobbies: "Salsa dancing, Mentoring",
@@ -117,7 +132,9 @@ class CompanyCultureShowcase extends HTMLElement {
             {
                 title: "Innovation First",
                 description: "We embrace new ideas and technologies to solve complex challenges",
-                icon: "🚀",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                </svg>`,
                 color: "#6366f1",
                 examples: ["AI Ethics Committee", "Innovation Lab", "Hackathons"],
                 impact: "95% of employees participate in innovation initiatives",
@@ -126,7 +143,12 @@ class CompanyCultureShowcase extends HTMLElement {
             {
                 title: "Collaboration",
                 description: "Great things happen when we work together and share knowledge",
-                icon: "🤝",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>`,
                 color: "#10b981",
                 examples: ["Cross-team Projects", "Knowledge Sharing", "Mentorship Program"],
                 impact: "87% of projects involve cross-functional collaboration",
@@ -135,7 +157,10 @@ class CompanyCultureShowcase extends HTMLElement {
             {
                 title: "User-Centric",
                 description: "Every decision we make starts with our users' needs",
-                icon: "🎯",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                </svg>`,
                 color: "#f59e0b",
                 examples: ["User Research", "Accessibility First", "Customer Feedback Loop"],
                 impact: "98% user satisfaction score across all products",
@@ -144,7 +169,13 @@ class CompanyCultureShowcase extends HTMLElement {
             {
                 title: "Continuous Learning",
                 description: "We grow together through knowledge sharing and skill development",
-                icon: "📚",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14,2 14,8 20,8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10,9 9,9 8,9"></polyline>
+                </svg>`,
                 color: "#8b5cf6",
                 examples: ["Learning Budget", "Tech Talks", "Conference Speaking"],
                 impact: "Average of 40 hours of learning per employee annually",
@@ -153,7 +184,12 @@ class CompanyCultureShowcase extends HTMLElement {
             {
                 title: "Diversity & Inclusion",
                 description: "Different perspectives make us stronger and more innovative",
-                icon: "🌈",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>`,
                 color: "#ec4899",
                 examples: ["ERGs", "Inclusive Hiring", "Cultural Celebrations"],
                 impact: "Representation across 15+ countries and 8+ languages",
@@ -162,7 +198,9 @@ class CompanyCultureShowcase extends HTMLElement {
             {
                 title: "Sustainability",
                 description: "We build for the future while caring for our planet",
-                icon: "🌱",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>`,
                 color: "#059669",
                 examples: ["Green Office", "Carbon Neutral", "Sustainable Tech"],
                 impact: "100% carbon neutral operations since 2021",
@@ -198,7 +236,13 @@ class CompanyCultureShowcase extends HTMLElement {
                 achievement: "Innovation Champion",
                 description: "Led breakthrough AI integration project",
                 date: "2 days ago",
-                icon: "🏆",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                    <path d="M4 22h16l-1-7H5l-1 7z"></path>
+                    <path d="M8 9h8"></path>
+                    <path d="M12 2v7"></path>
+                </svg>`,
                 color: "#f59e0b",
                 impact: "high",
                 category: "innovation"
@@ -208,7 +252,12 @@ class CompanyCultureShowcase extends HTMLElement {
                 achievement: "Collaboration Award", 
                 description: "Mentored 5 junior developers this quarter",
                 date: "1 week ago",
-                icon: "🤝",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>`,
                 color: "#10b981",
                 impact: "high",
                 category: "collaboration"
@@ -218,7 +267,10 @@ class CompanyCultureShowcase extends HTMLElement {
                 achievement: "User Impact Award",
                 description: "Improved user satisfaction by 40%",
                 date: "2 weeks ago",
-                icon: "🎯",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                </svg>`,
                 color: "#6366f1",
                 impact: "high",
                 category: "user-impact"
@@ -230,7 +282,11 @@ class CompanyCultureShowcase extends HTMLElement {
                 year: "2024",
                 title: "Global Expansion",
                 description: "Opened offices in 5 new countries",
-                icon: "🌍",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20"></path>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>`,
                 active: true,
                 impact: "high",
                 details: "Expanded to Singapore, Berlin, Toronto, Sydney, and São Paulo"
@@ -239,7 +295,11 @@ class CompanyCultureShowcase extends HTMLElement {
                 year: "2023", 
                 title: "1M Users Milestone",
                 description: "Reached 1 million active users worldwide",
-                icon: "🎉",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M21 12c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2z"></path>
+                    <path d="M3 12c1 0 2-1 2-2s-1-2-2-2-2 1-2 2 1 2 2 2z"></path>
+                </svg>`,
                 active: false,
                 impact: "high",
                 details: "Achieved through user-centric design and global partnerships"
@@ -248,7 +308,13 @@ class CompanyCultureShowcase extends HTMLElement {
                 year: "2022",
                 title: "Best Workplace Award",
                 description: "Recognized as top 10 workplace in tech",
-                icon: "🏆",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                    <path d="M4 22h16l-1-7H5l-1 7z"></path>
+                    <path d="M8 9h8"></path>
+                    <path d="M12 2v7"></path>
+                </svg>`,
                 active: false,
                 impact: "medium",
                 details: "Awarded by Great Place to Work for culture excellence"
@@ -257,7 +323,9 @@ class CompanyCultureShowcase extends HTMLElement {
                 year: "2021",
                 title: "Carbon Neutral",
                 description: "Achieved carbon neutrality across all operations",
-                icon: "🌱",
+                icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>`,
                 active: false,
                 impact: "high",
                 details: "Implemented comprehensive sustainability program"
@@ -551,7 +619,12 @@ class CompanyCultureShowcase extends HTMLElement {
 
                 <div class="culture-header">
                     <h2 class="culture-title">
-                        <span class="culture-icon">🏢</span>
+                        <span class="culture-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                            </svg>
+                        </span>
                         Our Culture & Values
                         <span class="culture-badge">Live</span>
                     </h2>
@@ -762,11 +835,23 @@ class CompanyCultureShowcase extends HTMLElement {
                                     <p class="story-text">${this.stories[0].story}</p>
                                     <div class="story-achievements">
                                         <div class="achievement-item">
-                                            <span class="achievement-badge">🏆</span>
+                                            <span class="achievement-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                                    <path d="M4 22h16l-1-7H5l-1 7z"></path>
+                                    <path d="M8 9h8"></path>
+                                    <path d="M12 2v7"></path>
+                                </svg>
+                            </span>
                                             <span>${this.stories[0].achievement}</span>
                                         </div>
                                         <div class="achievement-item">
-                                            <span class="achievement-badge">💫</span>
+                                            <span class="achievement-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                </svg>
+                            </span>
                                             <span>${this.stories[0].impact}</span>
                                         </div>
                                     </div>
@@ -1011,11 +1096,23 @@ class CompanyCultureShowcase extends HTMLElement {
                 <p class="story-text">${story.story}</p>
                 <div class="story-achievements">
                     <div class="achievement-item">
-                        <span class="achievement-badge">🏆</span>
+                                                    <span class="achievement-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                                    <path d="M4 22h16l-1-7H5l-1 7z"></path>
+                                    <path d="M8 9h8"></path>
+                                    <path d="M12 2v7"></path>
+                                </svg>
+                            </span>
                         <span>${story.achievement}</span>
                     </div>
                     <div class="achievement-item">
-                        <span class="achievement-badge">💫</span>
+                                                    <span class="achievement-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                </svg>
+                            </span>
                         <span>${story.impact}</span>
                     </div>
                 </div>

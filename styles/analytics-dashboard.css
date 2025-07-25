@@ -2579,7 +2579,7 @@
 }
 
 .analytics-dashboard .heatmap-cell .cell-value {
-    color: #000000 !important;
+    color: #ffffff !important;
 }
 
 [data-theme="dark"] .analytics-dashboard .heatmap-cell .cell-value {

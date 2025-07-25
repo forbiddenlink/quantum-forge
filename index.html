@@ -429,8 +429,7 @@
         office-visualizer,
         enhanced-interactive-poll,
         weather-widget,
-        achievement-system,
-        company-culture-showcase {
+        achievement-system {
             display: block !important;
             visibility: visible !important;
             opacity: 1 !important;
@@ -463,6 +462,24 @@
                 inset 0 1px 0 rgba(255, 255, 255, 0.4),
                 0 0 60px rgba(99, 102, 241, 0.4),
                 0 0 120px rgba(99, 102, 241, 0.2) !important;
+            margin: 20px 0 !important;
+        }
+
+        /* EXCLUDE company-culture-showcase from nuclear override to allow custom styling */
+        company-culture-showcase {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            width: 100% !important;
+            height: auto !important;
+            min-height: 200px !important;
+            position: relative !important;
+            z-index: 1 !important;
+            /* Allow custom styling from contest-enhancements.css */
+            background: transparent !important;
+            color: inherit !important;
+            backdrop-filter: none !important;
+            box-shadow: none !important;
             margin: 20px 0 !important;
         }
 
@@ -516,13 +533,13 @@
             height: auto !important;
             min-height: 100vh !important;
             padding: 20px !important;
-            background: white !important;
+            background: transparent !important;
         }
 
         /* FORCE BODY VISIBILITY */
         body {
-            background: white !important;
-            color: #333 !important;
+            background: transparent !important;
+            color: inherit !important;
             font-family: 'Inter', sans-serif !important;
         }
 

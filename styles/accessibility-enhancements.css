@@ -73,26 +73,26 @@ select:focus {
 /* ===== HIGH CONTRAST MODE SUPPORT ===== */
 @media (prefers-contrast: high) {
     :root {
-        --border-color: #000000;
-        --text-primary: #000000;
-        --text-secondary: #000000;
+        --border-color: #ffffff;
+        --text-primary: #ffffff;
+        --text-secondary: #ffffff;
         --bg-elevated: #ffffff;
         --focus-ring: #ff0000;
     }
     
     .btn {
-        border: 2px solid #000000 !important;
+        border: 2px solid #ffffff !important;
         background: #ffffff !important;
-        color: #000000 !important;
+        color: #ffffff !important;
     }
     
     .btn:hover {
-        background: #000000 !important;
+        background: #ffffff !important;
         color: #ffffff !important;
     }
     
     .dashboard-item {
-        border: 2px solid #000000 !important;
+        border: 2px solid #ffffff !important;
     }
     
     /* Remove gradients and subtle effects */

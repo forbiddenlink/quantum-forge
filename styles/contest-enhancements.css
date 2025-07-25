@@ -1145,6 +1145,18 @@
 .culture-icon {
     font-size: var(--font-size-4xl);
     animation: gentle-float 4s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.culture-icon svg {
+    width: 48px;
+    height: 48px;
+    stroke: white;
+    stroke-width: 2px;
+    fill: none;
+    color: white;
 }
 
 @keyframes gentle-float {
@@ -1217,22 +1229,29 @@
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    color: var(--text-primary);
+    color: white !important;
     position: relative;
+}
+
+/* FIXED: Ensure section titles are always white regardless of theme */
+.company-culture-showcase .section-title,
+[data-theme="dark"] .company-culture-showcase .section-title,
+[data-theme="light"] .company-culture-showcase .section-title {
+    color: white !important;
 }
 
 .company-culture-showcase .section-title .btn-icon {
     width: 24px;
     height: 24px;
-    color: var(--primary-600);
+    color: white !important;
 }
 
 .section-icon-svg {
     width: 24px;
     height: 24px;
-    stroke: var(--primary-600);
+    stroke: white !important;
     stroke-width: 2px;
-    color: var(--primary-600);
+    color: white !important;
     fill: none;
 }
 
@@ -1330,12 +1349,14 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
-    border: 8px solid rgba(99, 102, 241, 0.1) !important;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(67, 56, 202, 0.1) 100%) !important;
+    border: 8px solid rgba(255, 255, 255, 0.2) !important;
     cursor: pointer !important;
     transition: all 0.3s ease !important;
     overflow: visible !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
 }
 
 .score-circle::before,
@@ -1382,20 +1403,20 @@
 .company-culture-showcase .score-circle:hover {
     transform: scale(1.05) !important;
     box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2) !important;
-    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%) !important;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(67, 56, 202, 0.15) 100%) !important;
 }
 
 .score-circle:hover .score-number,
 .culture-pulse-section .score-circle:hover .score-number,
 .company-culture-showcase .score-circle:hover .score-number {
     transform: scale(0.95) !important;
-    color: var(--primary-700) !important;
+    color: #ffffff !important;
 }
 
 .score-circle:hover .score-label,
 .culture-pulse-section .score-circle:hover .score-label,
 .company-culture-showcase .score-circle:hover .score-label {
-    color: var(--text-primary) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .score-circle:hover::before,
@@ -1434,7 +1455,7 @@
 .score-number {
     font-size: var(--font-size-3xl);
     font-weight: 700;
-    color: var(--primary-600);
+    color: #ffffff;
     text-align: center;
     animation: scoreNumberPulse 2s ease-in-out infinite;
     transform-origin: center;
@@ -1454,7 +1475,7 @@
 
 .score-label {
     font-size: var(--font-size-sm);
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.9);
     font-weight: 500;
     white-space: nowrap;
     text-align: center;
@@ -1708,7 +1729,7 @@
 .timeline-title {
     font-size: var(--font-size-lg);
     font-weight: 600;
-    color: var(--text-primary);
+    color: white !important;
     margin-bottom: var(--space-2);
 }
 
@@ -1862,10 +1883,19 @@
     position: relative;
 }
 
+.value-emoji svg {
+    width: 48px;
+    height: 48px;
+    stroke: currentColor;
+    stroke-width: 2px;
+    fill: none;
+    color: currentColor;
+}
+
 .value-content h4 {
     font-size: var(--font-size-xl);
     font-weight: 600;
-    color: var(--text-primary);
+    color: white !important;
     margin-bottom: var(--space-2);
 }
 
@@ -2074,7 +2104,7 @@
 .story-name {
     font-size: var(--font-size-xl);
     font-weight: 600;
-    color: var(--text-primary);
+    color: white !important;
     margin-bottom: var(--space-1);
 }
 
@@ -2147,12 +2177,24 @@
     background: rgba(99, 102, 241, 0.1);
     border-radius: var(--radius-lg);
     font-size: var(--font-size-sm);
-    color: var(--primary-600);
+    color: #ffffff;
     font-weight: 500;
 }
 
 .achievement-badge {
     font-size: var(--font-size-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.achievement-badge svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2px;
+    fill: none;
+    color: currentColor;
 }
 
 .story-skills {
@@ -2179,12 +2221,12 @@
 }
 
 .hobbies-label {
-    color: var(--text-tertiary);
+    color: rgba(255, 255, 255, 0.6);
     font-weight: 500;
 }
 
 .hobbies-text {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* Enhanced Culture Stats */
@@ -2477,7 +2519,7 @@
 .diversity-chart h4 {
     font-size: var(--font-size-lg);
     font-weight: 600;
-    color: var(--text-primary);
+    color: white !important;
     margin-bottom: var(--space-4);
     text-align: center;
 }
@@ -2573,7 +2615,7 @@
 .department-diversity h4 {
     font-size: var(--font-size-lg);
     font-weight: 600;
-    color: var(--text-primary);
+    color: white !important;
     margin-bottom: var(--space-4);
     text-align: center;
 }
@@ -2677,14 +2719,16 @@
 }
 
 .recognition-card {
-    background: var(--bg-widget);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(67, 56, 202, 0.05) 100%);
     border-radius: var(--radius-lg);
     padding: var(--space-4);
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all var(--duration-normal) var(--ease-in-out);
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 }
 
 .recognition-card::before {
@@ -2704,8 +2748,8 @@
 }
 
 .recognition-card:hover {
-    background: var(--bg-elevated);
-    border-color: var(--border-hover);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(67, 56, 202, 0.1) 100%);
+    border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
 }
@@ -2729,27 +2773,27 @@
 .recognition-content h4 {
     font-size: var(--font-size-lg);
     font-weight: 600;
-    color: var(--text-primary);
+    color: white !important;
     margin-bottom: var(--space-1);
 }
 
 .recognition-achievement {
     font-size: var(--font-size-base);
     font-weight: 500;
-    color: var(--primary-600);
+    color: #ffffff;
     margin-bottom: var(--space-2);
 }
 
 .recognition-description {
     font-size: var(--font-size-sm);
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: var(--space-2);
     line-height: 1.5;
 }
 
 .recognition-date {
     font-size: var(--font-size-xs);
-    color: var(--text-tertiary);
+    color: rgba(255, 255, 255, 0.6);
     font-weight: 500;
 }
 
@@ -3136,14 +3180,14 @@ html body .company-culture-showcase * {
   --backdrop-filter: none !important;
 }
 
-/* CRITICAL FIX: Ensure proper text colors and contrast - MUCH DARKER */
+/* CRITICAL FIX: Ensure proper text colors and contrast - WHITE TEXT */
 html body .company-culture-showcase .stat-item .stat-number,
 html body .company-culture-showcase .stat-item .stat-label,
 html body .company-culture-showcase .culture-stats .stat-number,
 html body .company-culture-showcase .culture-stats .stat-label,
 html body .company-culture-showcase .stat-preview .stat-number,
 html body .company-culture-showcase .stat-preview .stat-label {
-  color: #000000 !important; /* Pure black for maximum contrast */
+  color: white !important; /* White text for proper contrast */
   font-weight: 700 !important;
   text-shadow: none !important;
   backdrop-filter: none !important;
@@ -3163,3 +3207,168 @@ html body .company-culture-showcase .stat-preview .stat-label {
 }
 
 /* Forc CSS r e load */
+
+.company-culture-showcase .section-title,
+.company-culture-showcase .culture-title,
+.company-culture-showcase .timeline-title,
+.company-culture-showcase .value-title,
+.company-culture-showcase .recognition-name,
+.company-culture-showcase .story-name,
+.company-culture-showcase .diversity-chart h4,
+.company-culture-showcase .department-diversity h4 {
+  color: #fff !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.18);
+}
+
+.diversity-section h2,
+.diversity-section h3,
+.diversity-section h4,
+.diversity-chart h4,
+.department-diversity h4 {
+  color: #fff !important;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.18);
+}
+
+/* FIXED: Specifically ensure values section titles are white */
+.company-culture-showcase .values-section .section-title,
+[data-theme="dark"] .company-culture-showcase .values-section .section-title,
+[data-theme="light"] .company-culture-showcase .values-section .section-title {
+    color: white !important;
+}
+
+/* FIXED: Ensure ALL section titles in company culture showcase are white */
+.company-culture-showcase .culture-pulse-section .section-title,
+.company-culture-showcase .timeline-section .section-title,
+.company-culture-showcase .recognition-section .section-title,
+.company-culture-showcase .diversity-section .section-title,
+.company-culture-showcase .stories-section .section-title,
+.company-culture-showcase .values-section .section-title,
+[data-theme="dark"] .company-culture-showcase .culture-pulse-section .section-title,
+[data-theme="dark"] .company-culture-showcase .timeline-section .section-title,
+[data-theme="dark"] .company-culture-showcase .recognition-section .section-title,
+[data-theme="dark"] .company-culture-showcase .diversity-section .section-title,
+[data-theme="dark"] .company-culture-showcase .stories-section .section-title,
+[data-theme="dark"] .company-culture-showcase .values-section .section-title {
+    color: white !important;
+}
+
+/* ULTIMATE FIX: Maximum specificity override for all section titles in company culture showcase */
+html body .company-culture-showcase .section-title,
+html body [data-theme="dark"] .company-culture-showcase .section-title,
+html body [data-theme="light"] .company-culture-showcase .section-title,
+html[data-theme="dark"] body .company-culture-showcase .section-title,
+html[data-theme="light"] body .company-culture-showcase .section-title {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Additional specificity for any remaining conflicts */
+.company-culture-showcase .section-title,
+.company-culture-showcase .section-title *,
+.company-culture-showcase .section-title h1,
+.company-culture-showcase .section-title h2,
+.company-culture-showcase .section-title h3,
+.company-culture-showcase .section-title h4,
+.company-culture-showcase .section-title h5,
+.company-culture-showcase .section-title h6 {
+    color: white !important;
+}
+
+/* ===== ULTRA-HIGH SPECIFICITY OVERRIDES TO FIX NUCLEAR CONFLICTS ===== */
+/* These rules override the nuclear CSS overrides in index.html and culture-blur-fix.css */
+
+/* Override the main content white background from nuclear override */
+html body .main-content {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+/* Override company-culture-showcase nuclear overrides */
+html body .company-culture-showcase,
+html body .company-culture-showcase * {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+/* Force the score circle to use our theme */
+html body .company-culture-showcase .score-circle,
+html body .company-culture-showcase .score-circle *,
+html body .dashboard .company-culture-showcase .score-circle,
+html body .dashboard .company-culture-showcase .score-circle *,
+html body .main-content .company-culture-showcase .score-circle,
+html body .main-content .company-culture-showcase .score-circle * {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(67, 56, 202, 0.1) 100%) !important;
+    border: 8px solid rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    color: #ffffff !important;
+}
+
+/* Force score circle text colors */
+html body .company-culture-showcase .score-circle .score-number,
+html body .company-culture-showcase .score-circle .score-label,
+html body .dashboard .company-culture-showcase .score-circle .score-number,
+html body .dashboard .company-culture-showcase .score-circle .score-label,
+html body .main-content .company-culture-showcase .score-circle .score-number,
+html body .main-content .company-culture-showcase .score-circle .score-label {
+    color: #ffffff !important;
+}
+
+/* Force recognition cards to use our theme */
+html body .company-culture-showcase .recognition-card,
+html body .company-culture-showcase .recognition-card *,
+html body .dashboard .company-culture-showcase .recognition-card,
+html body .dashboard .company-culture-showcase .recognition-card *,
+html body .main-content .company-culture-showcase .recognition-card,
+html body .main-content .company-culture-showcase .recognition-card * {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(67, 56, 202, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    color: #ffffff !important;
+}
+
+/* Force recognition card text colors */
+html body .company-culture-showcase .recognition-card .recognition-achievement,
+html body .company-culture-showcase .recognition-card .recognition-description,
+html body .company-culture-showcase .recognition-card .recognition-date,
+html body .dashboard .company-culture-showcase .recognition-card .recognition-achievement,
+html body .dashboard .company-culture-showcase .recognition-card .recognition-description,
+html body .dashboard .company-culture-showcase .recognition-card .recognition-date,
+html body .main-content .company-culture-showcase .recognition-card .recognition-achievement,
+html body .main-content .company-culture-showcase .recognition-card .recognition-description,
+html body .main-content .company-culture-showcase .recognition-card .recognition-date {
+    color: #ffffff !important;
+}
+
+/* Force achievement items to use our theme */
+html body .company-culture-showcase .achievement-item,
+html body .company-culture-showcase .achievement-item *,
+html body .dashboard .company-culture-showcase .achievement-item,
+html body .dashboard .company-culture-showcase .achievement-item *,
+html body .main-content .company-culture-showcase .achievement-item,
+html body .main-content .company-culture-showcase .achievement-item * {
+    color: #ffffff !important;
+}
+
+/* Override any remaining white backgrounds in the culture showcase */
+html body .company-culture-showcase [style*="background: white"],
+html body .company-culture-showcase [style*="background-color: white"],
+html body .company-culture-showcase [style*="background: #fff"],
+html body .company-culture-showcase [style*="background-color: #fff"],
+html body .company-culture-showcase [style*="background: #ffffff"],
+html body .company-culture-showcase [style*="background-color: #ffffff"] {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(67, 56, 202, 0.05) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+}
+
+/* Override any remaining dark text in the culture showcase */
+html body .company-culture-showcase [style*="color: black"],
+html body .company-culture-showcase [style*="color: #000"],
+html body .company-culture-showcase [style*="color: #000000"],
+html body .company-culture-showcase [style*="color: rgb(0, 0, 0)"],
+html body .company-culture-showcase [style*="color: #333"],
+html body .company-culture-showcase [style*="color: #666"] {
+    color: #ffffff !important;
+}
