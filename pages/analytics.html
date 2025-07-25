@@ -10,41 +10,22 @@
     <link rel="stylesheet" href="../styles/contest-enhancements.css">
     <link rel="stylesheet" href="../styles/page-specific.css">
     <link rel="stylesheet" href="../styles/analytics-dashboard.css">
+    <link rel="stylesheet" href="../styles/analytics-fixes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- LOAD THIS LAST TO OVERRIDE ALL CONFLICTING STYLES -->
-    <link rel="stylesheet" href="../styles/analytics-blur-fix.css">
     <style>
-        /* AGGRESSIVE ANALYTICS FIXES - Applied immediately */
-        .analytics-dashboard,
-        .analytics-dashboard *,
-        .analytics-section,
-        .analytics-section *,
-        .analytics-overview,
-        .analytics-overview *,
-        .heatmap-section,
-        .heatmap-section *,
-        .heatmap-cell,
-        .heatmap-cell * {
-            backdrop-filter: none !important;
-            -webkit-backdrop-filter: none !important;
-            filter: none !important;
-            transform: none !important;
+        /* Targeted analytics fixes - applied with proper specificity */
+        .analytics-dashboard .heatmap-cell .cell-value {
             color: var(--text-primary) !important;
             -webkit-text-fill-color: var(--text-primary) !important;
-        }
-        
-        .heatmap-cell .cell-value {
-            color: #000000 !important;
-            -webkit-text-fill-color: #000000 !important;
             font-weight: 600 !important;
             text-shadow: none !important;
         }
         
-        [data-theme="dark"] .heatmap-cell .cell-value {
-            color: #ffffff !important;
-            -webkit-text-fill-color: #ffffff !important;
+        [data-theme="dark"] .analytics-dashboard .heatmap-cell .cell-value {
+            color: var(--text-primary) !important;
+            -webkit-text-fill-color: var(--text-primary) !important;
         }
         
         /* Loading Screen Styles */
@@ -282,8 +263,13 @@
                     <div class="page-header-content">
                         <div class="page-title-section">
                             <h1 class="page-title">
-                                <span class="page-icon">📊</span>
                                 Analytics Dashboard
+                                <span class="page-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 3v18h18"></path>
+                                        <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+                                    </svg>
+                                </span>
                             </h1>
                             <p class="page-description">
                                 Real-time insights and performance metrics for data-driven decisions
@@ -315,7 +301,12 @@
                 <div class="analytics-overview">
                     <div class="overview-cards">
                         <div class="overview-card performance">
-                            <div class="card-icon">📈</div>
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 3v18h18"></path>
+                                    <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+                                </svg>
+                            </div>
                             <div class="card-content">
                                 <h3>Performance Score</h3>
                                 <div class="card-metric">
@@ -332,7 +323,13 @@
                         </div>
 
                         <div class="overview-card active-users">
-                            <div class="card-icon">👥</div>
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                            </div>
                             <div class="card-content">
                                 <h3>Active Users</h3>
                                 <div class="card-metric">
@@ -349,7 +346,11 @@
                         </div>
 
                         <div class="overview-card data-processed">
-                            <div class="card-icon">💾</div>
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                                </svg>
+                            </div>
                             <div class="card-content">
                                 <h3>Data Processed</h3>
                                 <div class="card-metric">
@@ -366,7 +367,11 @@
                         </div>
 
                         <div class="overview-card response-time">
-                            <div class="card-icon">⚡</div>
+                            <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                    </svg>
+                </div>
                             <div class="card-content">
                                 <h3>Avg Response Time</h3>
                                 <div class="card-metric">

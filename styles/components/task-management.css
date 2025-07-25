@@ -386,12 +386,7 @@
 }
 
 /* Task Card Header */
-.task-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-4);
-}
+/* Removed duplicate .task-card-header rule; now defined in components/task-system.css for consistency. */
 
 .task-priority {
     display: flex;
@@ -423,9 +418,7 @@
     border: 1px solid var(--success-200);
 }
 
-.priority-icon {
-    font-size: var(--font-size-sm);
-}
+/* Removed duplicate .priority-icon rule; now defined in components/task-system.css for consistency. */
 
 .action-btn {
     width: 32px;
@@ -495,46 +488,7 @@
     border: 1px solid var(--primary-200);
 }
 
-/* Task Progress */
-.task-card-progress {
-    margin-bottom: var(--space-4);
-}
-
-.progress-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-2);
-}
-
-.progress-label {
-    font-size: var(--font-size-xs);
-    font-weight: 600;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.progress-percentage {
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    color: var(--primary-600);
-}
-
-.enhanced-progress-bar {
-    height: 8px;
-    background: var(--gray-200);
-    border-radius: var(--radius-full);
-    overflow: hidden;
-    position: relative;
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--primary-500), var(--primary-600));
-    border-radius: var(--radius-full);
-    transition: width var(--duration-slow) var(--ease-in-out);
-}
+/* Removed duplicate .task-card-progress rule; now defined in components/task-system.css for consistency. */
 
 /* Task Card Meta */
 .task-card-meta {

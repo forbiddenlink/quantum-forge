@@ -108,47 +108,8 @@
     margin-bottom: var(--space-6);
 }
 
-.chart-container {
-    background: var(--component-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--component-border);
-    box-shadow: var(--component-shadow);
-    border-radius: var(--radius-xl);
-    padding: var(--space-6);
-    transition: all var(--duration-normal) var(--ease-spring);
-    position: relative;
-    overflow: hidden;
-}
-
-.chart-container:hover {
-    background: var(--component-hover-bg);
-    border-color: var(--component-hover-border);
-    box-shadow: var(--component-hover-shadow);
-    transform: translateY(-4px);
-}
-
-.chart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--space-4);
-    padding-bottom: var(--space-3);
-    border-bottom: 1px solid var(--component-border);
-}
-
-.chart-title {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    color: var(--welcome-text);
-    margin: 0;
-}
-
-.chart-subtitle {
-    font-size: var(--font-size-sm);
-    color: var(--welcome-text-muted);
-    margin: 0;
-}
+/* Chart container styles moved to enhanced-charts-grid section to avoid duplication */
+/* Chart header, title, and subtitle styles moved to enhanced-charts-grid section */
 
 /* Activity List */
 .activity-list {
@@ -1345,10 +1306,6 @@
     color: var(--primary-200);
 }
 
-.insight-meta {
-    flex: 1;
-}
-
 .insight-title {
     font-size: var(--font-size-lg);
     font-weight: 600;
@@ -1820,12 +1777,7 @@
 }
 
 .activity-icon.insight {
-    background: rgba(139, 92, 246, 0.2);
     color: var(--analytics-accent-1);
-}
-
-.activity-content {
-    flex: 1;
 }
 
 .activity-main {
