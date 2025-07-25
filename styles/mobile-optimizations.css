@@ -4,6 +4,7 @@
 
 /* Mobile-First Performance Optimizations */
 @media (max-width: 768px) {
+
     /* Disable expensive animations on mobile */
     .welcome-section::before,
     .welcome-section::after,
@@ -14,7 +15,7 @@
         animation: none !important;
         display: none !important;
     }
-    
+
     /* Simplify backgrounds for better performance */
     .welcome-section,
     .enhanced-task-system,
@@ -24,14 +25,14 @@
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
     }
-    
+
     /* Optimize font rendering */
     body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeSpeed;
     }
-    
+
     /* Reduce box shadows for performance */
     .dashboard-item,
     .stat-card,
@@ -39,20 +40,20 @@
     .card {
         box-shadow: var(--mobile-shadow-light) !important;
     }
-    
+
     /* Simplify hover effects */
     .dashboard-item:hover,
     .stat-card:hover {
         transform: none !important;
         box-shadow: var(--mobile-shadow-medium) !important;
     }
-    
+
     /* Optimize image loading */
     img {
         image-rendering: optimizeSpeed;
         image-rendering: -webkit-optimize-contrast;
     }
-    
+
     /* Better touch targets */
     .btn,
     .nav-link,
@@ -61,12 +62,12 @@
         min-width: 44px;
         padding: var(--space-3) var(--space-4);
     }
-    
+
     /* Simplified transitions */
     * {
         transition: all 0.2s ease !important;
     }
-    
+
     /* Hide unnecessary elements on small screens */
     .particle-system,
     .sparkle-container,
@@ -79,54 +80,55 @@
 
 /* Very Small Screens (480px and below) */
 @media (max-width: 480px) {
+
     /* Ultra-compact layout */
     .main-content {
         padding: var(--space-2) !important;
     }
-    
+
     .welcome-section {
         padding: var(--space-3) !important;
         margin-bottom: var(--space-3) !important;
     }
-    
+
     .welcome-title {
         font-size: var(--font-size-xl) !important;
         text-align: center !important;
     }
-    
+
     .welcome-subtitle {
         font-size: var(--font-size-sm) !important;
         text-align: center !important;
     }
-    
+
     .welcome-stats {
         grid-template-columns: 1fr 1fr !important;
         gap: var(--space-2) !important;
     }
-    
+
     .stat-number {
         font-size: var(--font-size-lg) !important;
     }
-    
+
     .stat-label {
         font-size: var(--font-size-xs) !important;
     }
-    
+
     /* Dashboard grid mobile styles moved to main.css to eliminate duplication */
-    
+
     /* Compact forms */
     .form-input,
     .enhanced-select {
         padding: var(--space-2) !important;
         font-size: var(--font-size-sm) !important;
     }
-    
+
     /* Stack quick actions */
     .quick-actions {
         flex-direction: column !important;
         gap: var(--space-2) !important;
     }
-    
+
     .btn {
         width: 100%;
         justify-content: center;
@@ -138,16 +140,17 @@
     .welcome-section {
         padding: var(--space-4) var(--space-6) !important;
     }
-    
+
     .welcome-stats {
         grid-template-columns: repeat(4, 1fr) !important;
     }
-    
+
     /* Dashboard grid landscape styles moved to main.css */
 }
 
 /* Touch Device Optimizations */
 @media (pointer: coarse) {
+
     /* Larger touch targets */
     .btn,
     .nav-link,
@@ -158,16 +161,16 @@
         padding: var(--space-3) var(--space-4) !important;
         border-radius: var(--radius-lg) !important;
     }
-    
+
     /* Better spacing for thumbs */
     .quick-actions {
         gap: var(--space-4) !important;
     }
-    
+
     .nav-item {
         margin-bottom: var(--space-2) !important;
     }
-    
+
     /* Prevent text selection on UI elements */
     .btn,
     .nav-link,
@@ -178,14 +181,14 @@
         user-select: none;
         -webkit-touch-callout: none;
     }
-    
+
     /* Optimize tap highlights */
     .btn,
     .nav-link {
         -webkit-tap-highlight-color: rgba(99, 102, 241, 0.2);
         tap-highlight-color: rgba(99, 102, 241, 0.2);
     }
-    
+
     /* Better hover states for touch */
     .btn:active,
     .stat-card:active {
@@ -196,6 +199,7 @@
 
 /* Reduce Motion Preferences */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -204,7 +208,7 @@
         transition-duration: 0.2s !important;
         scroll-behavior: auto !important;
     }
-    
+
     .particle,
     .sparkle,
     .aurora-effect {
@@ -214,6 +218,7 @@
 
 /* Battery Optimization */
 @media (prefers-reduced-data: reduce) {
+
     /* Disable background images */
     .welcome-section,
     .enhanced-task-system,
@@ -221,14 +226,14 @@
         background-image: none !important;
         background: var(--primary-600) !important;
     }
-    
+
     /* Hide decorative elements */
     .particle-system,
     .sparkle-container,
     .decorative-element {
         display: none !important;
     }
-    
+
     /* Simplify borders */
     .dashboard-item,
     .card {
@@ -238,21 +243,23 @@
 }
 
 /* High DPI Display Optimizations */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
     /* Sharper text rendering */
     body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-rendering: optimizeLegibility;
     }
-    
+
     /* Optimize borders for high DPI */
     .dashboard-item,
     .card,
     .btn {
         border-width: 0.5px;
     }
-    
+
     /* Better icon rendering */
     .icon,
     svg {
@@ -262,13 +269,14 @@
 
 /* Dark Mode Mobile Optimizations */
 @media (max-width: 768px) and (prefers-color-scheme: dark) {
+
     .welcome-section,
     .enhanced-task-system,
     .analytics-dashboard {
         background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
         border-color: rgba(255, 255, 255, 0.1) !important;
     }
-    
+
     .stat-card,
     .dashboard-item {
         background: rgba(30, 41, 59, 0.8) !important;
@@ -314,11 +322,11 @@
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
     }
-    
+
     .nav-open app-sidebar {
         left: 0 !important;
     }
-    
+
     /* Mobile overlay */
     .nav-open::before {
         content: '' !important;
@@ -332,7 +340,7 @@
         opacity: 1 !important;
         transition: opacity 0.3s ease !important;
     }
-    
+
     /* Prevent body scroll when menu is open */
     .nav-open {
         overflow: hidden !important;
@@ -379,7 +387,7 @@
         padding-right: max(var(--space-4), env(safe-area-inset-right));
         margin: 0;
     }
-    
+
     .main-content {
         padding-left: max(var(--space-4), env(safe-area-inset-left));
         padding-right: max(var(--space-4), env(safe-area-inset-right));
@@ -393,24 +401,25 @@
         backdrop-filter: saturate(180%) blur(20px);
         -webkit-backdrop-filter: saturate(180%) blur(20px);
     }
-    
+
     /* Fix iOS viewport height issues */
     .main-container {
         min-height: -webkit-fill-available;
     }
-    
+
     /* Prevent zoom on input focus */
     .form-input,
     .enhanced-select {
         font-size: 16px !important;
     }
-} 
+}
 
 /* ===== CONSOLIDATED CONTENT FROM simple-mobile.css ===== */
 /* Simple Mobile Enhancements - Only applies on mobile, preserves desktop design */
 
 /* Touch-friendly mobile adjustments (max-width: 767px) */
 @media (max-width: 767px) {
+
     /* Mobile Color Picker Position */
     .simple-color-toggle {
         top: 10px !important;
@@ -490,12 +499,12 @@
             grid-template-columns: 1fr !important;
             gap: var(--space-3) !important;
         }
-        
+
         .task-cards-grid {
             grid-template-columns: 1fr !important;
             gap: var(--space-4) !important;
         }
-        
+
         .enhanced-task-card {
             padding: var(--space-4) !important;
             margin-bottom: var(--space-3) !important;
@@ -503,93 +512,93 @@
             border-radius: var(--radius-lg) !important;
             transition: all var(--mobile-animation-duration) var(--mobile-transition-timing) !important;
         }
-        
+
         .enhanced-task-card:active {
             transform: scale(0.98) !important;
             box-shadow: var(--mobile-shadow-medium) !important;
         }
-        
+
         .task-controls {
             flex-direction: column !important;
             gap: var(--space-3) !important;
         }
-        
+
         .search-and-filters {
             flex-direction: column !important;
             gap: var(--space-3) !important;
         }
-        
+
         .filter-controls {
             display: grid !important;
             grid-template-columns: 1fr 1fr !important;
             gap: var(--space-2) !important;
         }
-        
+
         .task-analytics {
             display: none !important;
         }
     }
-    
+
     /* Analytics Dashboard Mobile */
     .analytics-dashboard {
         .kpi-grid {
             grid-template-columns: repeat(2, 1fr) !important;
             gap: var(--space-3) !important;
         }
-        
+
         .advanced-kpi-card {
             padding: var(--space-3) !important;
             backdrop-filter: none !important;
             -webkit-backdrop-filter: none !important;
-            
+
             .kpi-progress {
                 height: 4px !important;
             }
         }
-        
+
         .enhanced-charts-grid {
             grid-template-columns: 1fr !important;
             gap: var(--space-4) !important;
         }
-        
+
         .chart-container .chart-body {
             height: 200px !important;
         }
-        
+
         .chart-container .chart-controls {
             display: none !important;
         }
-        
+
         .heatmap-section {
             display: none !important;
         }
-        
+
         .activity-section .activity-controls {
             overflow-x: auto !important;
             -webkit-overflow-scrolling: touch !important;
         }
     }
-    
+
     /* Enhanced Knowledge Hub Mobile */
     .enhanced-knowledge-hub {
         .resources-grid {
             grid-template-columns: 1fr !important;
             gap: var(--space-3) !important;
         }
-        
+
         .resource-card {
             padding: var(--space-3) !important;
             margin-bottom: var(--space-2) !important;
         }
-        
+
         .search-interface {
             flex-direction: column !important;
             gap: var(--space-2) !important;
         }
-        
+
         .filter-tabs {
             overflow-x: auto !important;
             -webkit-overflow-scrolling: touch !important;
         }
     }
-} 
+}

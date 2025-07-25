@@ -65,68 +65,6 @@ body.sidebar-collapsed .sidebar-header {
     overflow: visible;
 }
 
-body.sidebar-collapsed .collapse-btn {
-    margin: 0 auto;
-    background: var(--primary-100);
-    border: 2px solid var(--primary-300);
-    border-radius: var(--radius-lg);
-    padding: 0;
-    color: var(--primary-700);
-    width: 44px !important;
-    /* Slightly smaller to fit better */
-    height: 44px !important;
-    min-width: 44px !important;
-    min-height: 44px !important;
-    max-width: 44px !important;
-    max-height: 44px !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-md);
-    transition: all 0.2s ease;
-    position: relative;
-    z-index: 50;
-    flex-shrink: 0;
-    left: 0;
-    right: 0;
-}
-
-body.sidebar-collapsed .collapse-btn svg {
-    color: var(--primary-700) !important;
-    stroke: var(--primary-700) !important;
-    width: 20px;
-    height: 20px;
-    display: none !important;
-    /* Hide SVG, use text arrow instead */
-    visibility: hidden !important;
-    opacity: 0 !important;
-}
-
-body.sidebar-collapsed .collapse-btn svg path,
-body.sidebar-collapsed .collapse-btn svg polyline {
-    stroke: var(--primary-700) !important;
-    stroke-width: 2.5 !important;
-    fill: none !important;
-    display: none !important;
-    /* Hide SVG paths too */
-}
-
-body.sidebar-collapsed .collapse-btn:hover {
-    background: var(--primary-200);
-    border-color: var(--primary-500);
-    transform: scale(1.05);
-    box-shadow: var(--shadow-lg);
-}
-
-body.sidebar-collapsed .collapse-btn:hover::after {
-    color: var(--primary-800);
-}
-
-body.sidebar-collapsed .collapse-btn:hover svg {
-    color: var(--primary-800) !important;
-    stroke: var(--primary-800) !important;
-}
-
 /* Hide all sidebar content except header when collapsed */
 body.sidebar-collapsed .nav-sections,
 body.sidebar-collapsed .sidebar-footer,
@@ -208,11 +146,26 @@ body.sidebar-collapsed .sidebar-header {
     box-shadow: var(--shadow-md);
 }
 
+/* Collapse button arrow - single consolidated definition */
 .collapse-btn::after {
     content: '‹';
-    font-size: 18px;
+    position: absolute;
+    font-size: 16px;
     font-weight: 900;
-    color: currentColor;
+    color: var(--text-secondary);
+    pointer-events: none;
+    display: block !important;
+    line-height: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    z-index: 999;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+    transition: color 0.2s ease;
 }
 
 body.sidebar-collapsed .collapse-btn::after {
@@ -224,6 +177,9 @@ body.sidebar-collapsed .collapse-btn {
     background: var(--primary-100);
     border: 2px solid var(--primary-300);
     color: var(--primary-700);
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 body.sidebar-collapsed .collapse-btn:hover {
@@ -233,49 +189,9 @@ body.sidebar-collapsed .collapse-btn:hover {
     box-shadow: var(--shadow-lg);
 }
 
-/* Fallback for arrow visibility */
-.collapse-btn svg polyline {
-    stroke: var(--primary-600) !important;
-    stroke-width: 2.5 !important;
-}
-
-/* Better arrow fallback - always show text arrow */
-.collapse-btn::after {
-    content: '‹';
-    position: absolute;
-    font-size: 18px;
-    font-weight: 900;
-    color: #333;
-    pointer-events: none;
-    display: block !important;
-    line-height: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 999;
-    font-family: Arial, sans-serif;
-    width: auto;
-    height: auto;
-    text-shadow: 0 0 1px white;
-    /* Add text shadow for better visibility */
-}
-
-body.sidebar-collapsed .collapse-btn svg {
-    transform: rotate(180deg);
-}
-
-body.sidebar-collapsed .collapse-btn::after {
-    content: '›';
-    color: #333;
-    text-shadow: 0 0 1px white;
-    /* Add text shadow for better visibility */
-}
-
-body.sidebar-collapsed .collapse-btn {
-    margin-top: -2px;
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+/* Hide SVG arrows since we're using text arrows */
+.collapse-btn svg {
+    display: none !important;
 }
 
 /* Navigation Sections */

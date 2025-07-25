@@ -40,7 +40,7 @@
     --welcome-animation-duration: 6s;
     --welcome-animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
     --welcome-shadow-glow: 0 0 20px rgba(99, 102, 241, 0.3);
-    
+
     /* Enhanced gradient colors */
     --welcome-accent-1: #8b5cf6;
     --welcome-accent-2: #06b6d4;

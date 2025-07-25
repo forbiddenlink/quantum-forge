@@ -1,4 +1,5 @@
-image.png/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
+image.png
+/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
 
 /* Button and Icon Base Styles */
 .welcome-section .btn-icon {
@@ -78,7 +79,7 @@ image.png/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
     --welcome-border: rgba(255, 255, 255, 0.2);
     --welcome-border-hover: rgba(255, 255, 255, 0.3);
     --welcome-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    
+
     /* Enhanced gradient colors */
     --welcome-accent-1: #8b5cf6;
     --welcome-accent-2: #06b6d4;
@@ -91,7 +92,7 @@ image.png/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
     margin-bottom: var(--space-6) !important;
     margin-top: 0 !important;
     /* ENHANCED Multi-layer animated background */
-    background: 
+    background:
         /* Animated gradient waves */
         linear-gradient(45deg, var(--welcome-bg-start) 0%, transparent 50%, var(--welcome-bg-start) 100%),
         linear-gradient(-45deg, var(--welcome-bg-end) 0%, transparent 50%, var(--welcome-bg-end) 100%),
@@ -106,12 +107,12 @@ image.png/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
         /* Enhanced texture overlay with animation */
         repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
         repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
-    
+
     border-radius: var(--radius-2xl) !important;
     padding: var(--space-8) !important;
     position: relative !important;
     overflow: hidden !important;
-    box-shadow: 
+    box-shadow:
         var(--welcome-shadow),
         0 0 0 1px rgba(255, 255, 255, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.4),
@@ -119,18 +120,18 @@ image.png/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
         0 0 120px rgba(99, 102, 241, 0.2) !important;
     border: 1px solid var(--welcome-border) !important;
     color: var(--welcome-text) !important;
-    
+
     /* Smooth transitions */
     transition: all var(--duration-normal) var(--ease-in-out) !important;
-    
+
     /* Enhanced backdrop */
     backdrop-filter: blur(20px) !important;
-    
+
     /* Ensure no scrollbar */
     max-height: fit-content !important;
-    
+
     /* Using unified animations */
-    animation: 
+    animation:
         glow 6s ease-in-out infinite,
         shimmer 20s linear infinite !important;
 }
@@ -162,7 +163,7 @@ image.png/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
 /* Animation Base */
 .welcome-section {
     animation: glow var(--welcome-animation-duration) var(--welcome-animation-timing) infinite,
-              shimmer 20s linear infinite;
+        shimmer 20s linear infinite;
 }
 
 /* Geometric Shape Overlays */
@@ -173,7 +174,7 @@ image.png/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
     right: -100%;
     width: 300%;
     height: 300%;
-    background: 
+    background:
         radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.1) 45%, transparent 60%),
         radial-gradient(circle at 30% 30%, var(--welcome-accent-1) 0%, rgba(139, 92, 246, 0.3) 20%, transparent 40%),
         radial-gradient(circle at 70% 70%, var(--welcome-accent-2) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 50%),
@@ -195,7 +196,7 @@ image.png/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
     left: -60%;
     width: 220%;
     height: 220%;
-    background: 
+    background:
         radial-gradient(circle at 70% 30%, var(--welcome-accent-2) 0%, rgba(6, 182, 212, 0.4) 20%, rgba(6, 182, 212, 0.2) 40%, transparent 60%),
         radial-gradient(circle at 20% 70%, var(--welcome-accent-3) 0%, rgba(16, 185, 129, 0.3) 25%, rgba(16, 185, 129, 0.15) 50%, transparent 70%),
         radial-gradient(circle at 80% 80%, var(--welcome-accent-4) 0%, rgba(245, 158, 11, 0.2) 20%, rgba(245, 158, 11, 0.1) 40%, transparent 60%),
@@ -210,18 +211,23 @@ image.png/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
 
 /* Unified Float Animation */
 @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(0, 0) scale(1) rotate(0deg);
         opacity: 0.8;
     }
+
     25% {
         transform: translate(20px, -30px) scale(1.05) rotate(2deg);
         opacity: 1;
     }
+
     50% {
         transform: translate(-15px, -15px) scale(0.95) rotate(-1deg);
         opacity: 0.9;
     }
+
     75% {
         transform: translate(-25px, 20px) scale(1.03) rotate(1.5deg);
         opacity: 0.95;
@@ -252,7 +258,7 @@ image.png/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
     top: 5%;
     right: 8%;
     animation: float 30s var(--welcome-animation-timing) infinite reverse;
-    background: 
+    background:
         radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.35) 20%, rgba(255, 255, 255, 0.2) 40%, rgba(255, 255, 255, 0.1) 60%, transparent 100%),
         radial-gradient(circle at 40% 40%, var(--welcome-accent-1) 0%, rgba(139, 92, 246, 0.2) 30%, transparent 60%);
     box-shadow: var(--welcome-shadow-glow);
@@ -264,7 +270,7 @@ image.png/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
     bottom: 12%;
     left: 5%;
     animation: float 35s var(--welcome-animation-timing) infinite;
-    background: 
+    background:
         radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.15) 50%, transparent 100%),
         radial-gradient(circle at 60% 60%, var(--welcome-accent-2) 0%, rgba(6, 182, 212, 0.15) 40%, transparent 60%);
     box-shadow: var(--welcome-shadow-glow);
@@ -276,7 +282,7 @@ image.png/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
     top: 50%;
     right: 20%;
     animation: float 40s var(--welcome-animation-timing) infinite reverse;
-    background: 
+    background:
         radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.25) 30%, rgba(255, 255, 255, 0.12) 60%, transparent 100%),
         radial-gradient(circle at 30% 70%, var(--welcome-accent-3) 0%, rgba(16, 185, 129, 0.1) 50%, transparent 70%);
     box-shadow: var(--welcome-shadow-glow);
@@ -1238,7 +1244,7 @@ body .quick-insights .insights-title .btn-icon:hover svg,
 
 .quick-insights .insight-card.warning {
     border-left: 4px solid #F59E0B !important;
-} 
+}
 
 /* MOST AGGRESSIVE OVERRIDE - Force white text in Today's Insights */
 .quick-insights,
@@ -1327,17 +1333,17 @@ html body .quick-insights *,
 }
 
 /* Force white text on all direct children */
-.quick-insights > * {
+.quick-insights>* {
     color: white !important;
 }
 
-.quick-insights > * > * {
+.quick-insights>*>* {
     color: white !important;
 }
 
-.quick-insights > * > * > * {
+.quick-insights>*>*>* {
     color: white !important;
-} 
+}
 
 /* Force the "Today's Insights" title to be white */
 .quick-insights .insights-title,
@@ -1377,7 +1383,7 @@ html body .quick-insights .insights-title,
 .quick-insights .insights-title::text,
 .quick-insights h3::text {
     color: white !important;
-} 
+}
 
 /* NUCLEAR OPTION - Force "Today's Insights" title to be white */
 .quick-insights h3.insights-title {
@@ -1423,7 +1429,7 @@ html body .quick-insights h3.insights-title,
 /* Target any remaining text elements */
 .quick-insights h3.insights-title * {
     color: white !important;
-} 
+}
 
 /* ULTIMATE NUCLEAR OVERRIDE - Target the specific insight-content elements */
 .quick-insights .insight-content h4,
@@ -1497,7 +1503,7 @@ html body .quick-insights .insight-content p,
 .quick-insights [class*="insight"] [class*="content"] div {
     color: white !important;
     color: var(--welcome-text) !important;
-} 
+}
 
 /* ULTIMATE OVERRIDE - Override readability-fixes.css and any other CSS */
 html body .quick-insights .insight-content h4,
@@ -1928,15 +1934,15 @@ html body .company-culture-showcase .stat-item,
 html body .company-culture-showcase .stat-item *,
 html body .culture-stats .stat-item,
 html body .culture-stats .stat-item * {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  filter: none !important;
-  transform: none !important;
-  -webkit-transform: none !important;
-  text-rendering: optimizeLegibility !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  font-smooth: never !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-smooth: never !important;
 }
 
 /* COMPREHENSIVE FIX - Make ALL upcoming events icons white */
@@ -2052,17 +2058,17 @@ body .welcome-section .events-list [class*="icon"],
 .main-content .welcome-section .events-list .btn-icon,
 .main-content .welcome-section .events-list .icon,
 .main-content .welcome-section .events-list [class*="icon"] {
-  stroke: white !important;
-  color: white !important;
-  fill: none !important;
-  background: transparent !important;
-  background-color: transparent !important;
-  border-color: transparent !important;
-  /* Override any CSS variables */
-  --primary-50: transparent !important;
-  --primary-600: white !important;
-  --surface-hover: transparent !important;
-  --text-secondary: white !important;
+    stroke: white !important;
+    color: white !important;
+    fill: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    /* Override any CSS variables */
+    --primary-50: transparent !important;
+    --primary-600: white !important;
+    --surface-hover: transparent !important;
+    --text-secondary: white !important;
 }
 
 /* HOVER STATES - Override gray hover for upcoming events icons */
@@ -2114,18 +2120,18 @@ html body .welcome-section .events-list svg:hover,
 html body .welcome-section .events-list .btn-icon:hover,
 html body .welcome-section .events-list .icon:hover,
 html body .welcome-section .events-list [class*="icon"]:hover {
-  stroke: white !important;
-  color: white !important;
-  fill: none !important;
-  background: transparent !important;
-  background-color: transparent !important;
-  border-color: transparent !important;
-  transform: scale(1.05) !important;
-  /* Override any CSS variables */
-  --primary-50: transparent !important;
-  --primary-600: white !important;
-  --surface-hover: transparent !important;
-  --text-secondary: white !important;
+    stroke: white !important;
+    color: white !important;
+    fill: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    transform: scale(1.05) !important;
+    /* Override any CSS variables */
+    --primary-50: transparent !important;
+    --primary-600: white !important;
+    --surface-hover: transparent !important;
+    --text-secondary: white !important;
 }
 
 /* 🌟 FLOATING EMOJI PARTICLES - Contest Enhancement */
@@ -2193,18 +2199,23 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes iconFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
         opacity: 0.6;
     }
+
     25% {
         transform: translateX(30px) translateY(-40px) rotate(90deg) scale(1.2);
         opacity: 0.9;
     }
+
     50% {
         transform: translateX(-20px) translateY(-20px) rotate(180deg) scale(0.8);
         opacity: 0.7;
     }
+
     75% {
         transform: translateX(-35px) translateY(30px) rotate(270deg) scale(1.1);
         opacity: 0.8;
@@ -2220,7 +2231,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     bottom: 0;
     pointer-events: none;
     z-index: 1;
-    background: 
+    background:
         linear-gradient(45deg, transparent 0%, rgba(139, 92, 246, 0.1) 25%, transparent 50%, rgba(6, 182, 212, 0.1) 75%, transparent 100%),
         linear-gradient(-45deg, transparent 0%, rgba(16, 185, 129, 0.08) 30%, transparent 60%, rgba(245, 158, 11, 0.08) 90%, transparent 100%);
     background-size: 400% 400%, 300% 300%;
@@ -2230,18 +2241,23 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes auroraShift {
-    0%, 100% {
+
+    0%,
+    100% {
         background-position: 0% 50%, 100% 50%;
         opacity: 0.7;
     }
+
     25% {
         background-position: 100% 0%, 0% 100%;
         opacity: 0.9;
     }
+
     50% {
         background-position: 100% 100%, 0% 0%;
         opacity: 0.6;
     }
+
     75% {
         background-position: 0% 100%, 100% 0%;
         opacity: 0.8;
@@ -2301,10 +2317,13 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes constellationPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.2;
         transform: scale(1) rotate(var(--rotation, 0deg));
     }
+
     50% {
         opacity: 0.6;
         transform: scale(1.1) rotate(var(--rotation, 0deg));
@@ -2341,10 +2360,13 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes sparkleAnimation {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0;
         transform: scale(0) rotate(0deg);
     }
+
     50% {
         opacity: 1;
         transform: scale(1.5) rotate(180deg);
@@ -2360,7 +2382,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     bottom: 0;
     pointer-events: none;
     z-index: 1;
-    background: 
+    background:
         radial-gradient(ellipse 200px 100px at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
         radial-gradient(ellipse 150px 75px at 80% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
         radial-gradient(ellipse 180px 90px at 50% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
@@ -2370,18 +2392,23 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes waveDistort {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0%) scaleX(1) scaleY(1);
         background-position: 0% 50%, 100% 30%, 50% 80%;
     }
+
     25% {
         transform: translateX(5%) scaleX(1.1) scaleY(0.9);
         background-position: 25% 60%, 75% 40%, 60% 70%;
     }
+
     50% {
         transform: translateX(-3%) scaleX(0.9) scaleY(1.1);
         background-position: 50% 70%, 50% 50%, 70% 60%;
     }
+
     75% {
         transform: translateX(2%) scaleX(1.05) scaleY(0.95);
         background-position: 75% 40%, 25% 60%, 40% 90%;
@@ -2419,13 +2446,12 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     bottom: 0;
     pointer-events: none;
     z-index: 5;
-    background: linear-gradient(45deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.03) 25%, 
-        transparent 50%, 
-        rgba(255, 255, 255, 0.03) 75%, 
-        transparent 100%
-    );
+    background: linear-gradient(45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.03) 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.03) 75%,
+            transparent 100%);
     background-size: 60px 60px;
     animation: holographicShimmer 8s linear infinite;
     opacity: 0.6;
@@ -2436,6 +2462,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     0% {
         background-position: -60px -60px;
     }
+
     100% {
         background-position: 60px 60px;
     }
@@ -2483,11 +2510,14 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes energyPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0;
         transform: scale(0.5);
         border-color: rgba(255, 255, 255, 0.1);
     }
+
     50% {
         opacity: 0.4;
         transform: scale(1);
@@ -2501,7 +2531,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         padding: var(--spacing-card);
         animation: glow 8s var(--welcome-animation-timing) infinite;
     }
-    
+
     /* Simplified background effects */
     .welcome-section::before {
         width: 200%;
@@ -2511,7 +2541,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         animation-duration: 30s;
         filter: blur(2px);
     }
-    
+
     .welcome-section::after {
         width: 150%;
         height: 150%;
@@ -2520,22 +2550,22 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         animation-duration: 35s;
         filter: blur(1.5px);
     }
-    
+
     /* Optimized particles */
     .welcome-section .particle {
         animation-duration: 35s;
     }
-    
+
     .welcome-section .particle:nth-child(1) {
         width: 150px;
         height: 150px;
     }
-    
+
     .welcome-section .particle:nth-child(2) {
         width: 120px;
         height: 120px;
     }
-    
+
     .welcome-section .particle:nth-child(3) {
         width: 100px;
         height: 100px;
@@ -2548,12 +2578,12 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         border-radius: var(--radius-xl);
         animation: glow 10s var(--welcome-animation-timing) infinite;
     }
-    
+
     /* Minimal particles */
     .welcome-section .particle:nth-child(n+2) {
         display: none;
     }
-    
+
     .welcome-section .particle:nth-child(1) {
         width: 100px;
         height: 100px;
@@ -2563,6 +2593,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 
 /* Performance Optimizations */
 @media (prefers-reduced-motion: reduce) {
+
     .welcome-section,
     .welcome-section::before,
     .welcome-section::after,
@@ -2577,7 +2608,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     .welcome-section {
         animation-duration: 8s;
     }
-    
+
     .welcome-section::before,
     .welcome-section::after {
         animation-duration: 30s;
@@ -2591,7 +2622,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         color: CanvasText !important;
         border-color: ButtonBorder !important;
     }
-    
+
     .welcome-section::before,
     .welcome-section::after,
     .welcome-section .aurora-effect,
@@ -2599,7 +2630,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     .welcome-section .holographic-overlay {
         display: none !important;
     }
-    
+
     .welcome-section .particle,
     .welcome-section .floating-icon,
     .welcome-section .sparkle,
@@ -2647,7 +2678,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 .welcome-section:focus-within {
     outline: 3px solid rgba(99, 102, 241, 0.5);
     outline-offset: 4px;
-    box-shadow: 
+    box-shadow:
         var(--welcome-shadow),
         0 0 0 1px rgba(255, 255, 255, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
@@ -2667,10 +2698,12 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         opacity: 0;
         transform: scale(0.95) translateY(20px);
     }
+
     60% {
         opacity: 0.8;
         transform: scale(1.02) translateY(-5px);
     }
+
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -2693,10 +2726,13 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes winnerBadge {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1) rotate(0deg);
         text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
     }
+
     50% {
         transform: scale(1.1) rotate(5deg);
         text-shadow: 0 0 30px rgba(255, 215, 0, 1);
@@ -2734,7 +2770,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     --welcome-border: rgba(255, 255, 255, 0.1);
     --welcome-border-hover: rgba(255, 255, 255, 0.2);
     --welcome-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-    
+
     /* Enhanced gradient colors for dark mode */
     --welcome-accent-1: #818cf8;
     --welcome-accent-2: #a78bfa;
@@ -2742,7 +2778,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     --welcome-accent-4: #34d399;
 
     /* Update background for dark mode */
-    background: 
+    background:
         /* Animated gradient waves */
         linear-gradient(45deg, var(--welcome-bg-start) 0%, transparent 50%, var(--welcome-bg-start) 100%),
         linear-gradient(-45deg, var(--welcome-bg-end) 0%, transparent 50%, var(--welcome-bg-end) 100%),
@@ -2859,7 +2895,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         border: 2px solid #ffffff !important;
         color: #ffffff !important;
     }
-    
+
     .welcome-section .particle,
     .welcome-section .floating-icon,
     .welcome-section .sparkle,
@@ -2868,7 +2904,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     .welcome-section .holographic-overlay {
         display: none !important;
     }
-    
+
     .welcome-section .stat-item,
     .welcome-section .quick-actions .btn,
     .welcome-section .event-card {
@@ -2882,7 +2918,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 .welcome-section *:focus-visible {
     outline: 3px solid #ffff00 !important;
     outline-offset: 2px !important;
-    box-shadow: 
+    box-shadow:
         0 0 0 6px rgba(255, 255, 0, 0.3),
         0 0 20px rgba(255, 255, 0, 0.5) !important;
     border-radius: 4px !important;
@@ -3049,8 +3085,16 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes aiPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); filter: brightness(1.3); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+        filter: brightness(1.3);
+    }
 }
 
 /* Real-time Activity Indicators */
@@ -3073,12 +3117,15 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes livePulse {
-    0%, 100% { 
-        opacity: 1; 
+
+    0%,
+    100% {
+        opacity: 1;
         box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
     }
-    50% { 
-        opacity: 0.7; 
+
+    50% {
+        opacity: 0.7;
         box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
     }
 }
@@ -4118,7 +4165,7 @@ body .quick-insights .insights-title .btn-icon:hover svg,
 
 .quick-insights .insight-card.warning {
     border-left: 4px solid #F59E0B !important;
-} 
+}
 
 /* MOST AGGRESSIVE OVERRIDE - Force white text in Today's Insights */
 .quick-insights,
@@ -4207,17 +4254,17 @@ html body .quick-insights *,
 }
 
 /* Force white text on all direct children */
-.quick-insights > * {
+.quick-insights>* {
     color: white !important;
 }
 
-.quick-insights > * > * {
+.quick-insights>*>* {
     color: white !important;
 }
 
-.quick-insights > * > * > * {
+.quick-insights>*>*>* {
     color: white !important;
-} 
+}
 
 /* Force the "Today's Insights" title to be white */
 .quick-insights .insights-title,
@@ -4257,7 +4304,7 @@ html body .quick-insights .insights-title,
 .quick-insights .insights-title::text,
 .quick-insights h3::text {
     color: white !important;
-} 
+}
 
 /* NUCLEAR OPTION - Force "Today's Insights" title to be white */
 .quick-insights h3.insights-title {
@@ -4303,7 +4350,7 @@ html body .quick-insights h3.insights-title,
 /* Target any remaining text elements */
 .quick-insights h3.insights-title * {
     color: white !important;
-} 
+}
 
 /* ULTIMATE NUCLEAR OVERRIDE - Target the specific insight-content elements */
 .quick-insights .insight-content h4,
@@ -4376,7 +4423,7 @@ html body .quick-insights .insight-content p,
 .quick-insights [class*="insight"] [class*="content"] div {
     color: white !important;
     color: var(--welcome-text) !important;
-} 
+}
 
 /* ULTIMATE OVERRIDE - Override readability-fixes.css and any other CSS */
 html body .quick-insights .insight-content h4,
@@ -4807,15 +4854,15 @@ html body .company-culture-showcase .stat-item,
 html body .company-culture-showcase .stat-item *,
 html body .culture-stats .stat-item,
 html body .culture-stats .stat-item * {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  filter: none !important;
-  transform: none !important;
-  -webkit-transform: none !important;
-  text-rendering: optimizeLegibility !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  font-smooth: never !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-smooth: never !important;
 }
 
 /* COMPREHENSIVE FIX - Make ALL upcoming events icons white */
@@ -4931,17 +4978,17 @@ body .welcome-section .events-list [class*="icon"],
 .main-content .welcome-section .events-list .btn-icon,
 .main-content .welcome-section .events-list .icon,
 .main-content .welcome-section .events-list [class*="icon"] {
-  stroke: white !important;
-  color: white !important;
-  fill: none !important;
-  background: transparent !important;
-  background-color: transparent !important;
-  border-color: transparent !important;
-  /* Override any CSS variables */
-  --primary-50: transparent !important;
-  --primary-600: white !important;
-  --surface-hover: transparent !important;
-  --text-secondary: white !important;
+    stroke: white !important;
+    color: white !important;
+    fill: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    /* Override any CSS variables */
+    --primary-50: transparent !important;
+    --primary-600: white !important;
+    --surface-hover: transparent !important;
+    --text-secondary: white !important;
 }
 
 /* HOVER STATES - Override gray hover for upcoming events icons */
@@ -4993,18 +5040,18 @@ html body .welcome-section .events-list svg:hover,
 html body .welcome-section .events-list .btn-icon:hover,
 html body .welcome-section .events-list .icon:hover,
 html body .welcome-section .events-list [class*="icon"]:hover {
-  stroke: white !important;
-  color: white !important;
-  fill: none !important;
-  background: transparent !important;
-  background-color: transparent !important;
-  border-color: transparent !important;
-  transform: scale(1.05) !important;
-  /* Override any CSS variables */
-  --primary-50: transparent !important;
-  --primary-600: white !important;
-  --surface-hover: transparent !important;
-  --text-secondary: white !important;
+    stroke: white !important;
+    color: white !important;
+    fill: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    transform: scale(1.05) !important;
+    /* Override any CSS variables */
+    --primary-50: transparent !important;
+    --primary-600: white !important;
+    --surface-hover: transparent !important;
+    --text-secondary: white !important;
 }
 
 /* 🌟 FLOATING EMOJI PARTICLES - Contest Enhancement */
@@ -5072,18 +5119,23 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes iconFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
         opacity: 0.6;
     }
+
     25% {
         transform: translateX(30px) translateY(-40px) rotate(90deg) scale(1.2);
         opacity: 0.9;
     }
+
     50% {
         transform: translateX(-20px) translateY(-20px) rotate(180deg) scale(0.8);
         opacity: 0.7;
     }
+
     75% {
         transform: translateX(-35px) translateY(30px) rotate(270deg) scale(1.1);
         opacity: 0.8;
@@ -5099,7 +5151,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     bottom: 0;
     pointer-events: none;
     z-index: 1;
-    background: 
+    background:
         linear-gradient(45deg, transparent 0%, rgba(139, 92, 246, 0.1) 25%, transparent 50%, rgba(6, 182, 212, 0.1) 75%, transparent 100%),
         linear-gradient(-45deg, transparent 0%, rgba(16, 185, 129, 0.08) 30%, transparent 60%, rgba(245, 158, 11, 0.08) 90%, transparent 100%);
     background-size: 400% 400%, 300% 300%;
@@ -5109,18 +5161,23 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes auroraShift {
-    0%, 100% {
+
+    0%,
+    100% {
         background-position: 0% 50%, 100% 50%;
         opacity: 0.7;
     }
+
     25% {
         background-position: 100% 0%, 0% 100%;
         opacity: 0.9;
     }
+
     50% {
         background-position: 100% 100%, 0% 0%;
         opacity: 0.6;
     }
+
     75% {
         background-position: 0% 100%, 100% 0%;
         opacity: 0.8;
@@ -5180,10 +5237,13 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes constellationPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.2;
         transform: scale(1) rotate(var(--rotation, 0deg));
     }
+
     50% {
         opacity: 0.6;
         transform: scale(1.1) rotate(var(--rotation, 0deg));
@@ -5216,10 +5276,13 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes sparkleAnimation {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0;
         transform: scale(0) rotate(0deg);
     }
+
     50% {
         opacity: 1;
         transform: scale(1.5) rotate(180deg);
@@ -5235,7 +5298,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     bottom: 0;
     pointer-events: none;
     z-index: 1;
-    background: 
+    background:
         radial-gradient(ellipse 200px 100px at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
         radial-gradient(ellipse 150px 75px at 80% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
         radial-gradient(ellipse 180px 90px at 50% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
@@ -5245,18 +5308,23 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes waveDistort {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0%) scaleX(1) scaleY(1);
         background-position: 0% 50%, 100% 30%, 50% 80%;
     }
+
     25% {
         transform: translateX(5%) scaleX(1.1) scaleY(0.9);
         background-position: 25% 60%, 75% 40%, 60% 70%;
     }
+
     50% {
         transform: translateX(-3%) scaleX(0.9) scaleY(1.1);
         background-position: 50% 70%, 50% 50%, 70% 60%;
     }
+
     75% {
         transform: translateX(2%) scaleX(1.05) scaleY(0.95);
         background-position: 75% 40%, 25% 60%, 40% 90%;
@@ -5294,13 +5362,12 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     bottom: 0;
     pointer-events: none;
     z-index: 5;
-    background: linear-gradient(45deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.03) 25%, 
-        transparent 50%, 
-        rgba(255, 255, 255, 0.03) 75%, 
-        transparent 100%
-    );
+    background: linear-gradient(45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.03) 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.03) 75%,
+            transparent 100%);
     background-size: 60px 60px;
     animation: holographicShimmer 8s linear infinite;
     opacity: 0.6;
@@ -5311,6 +5378,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     0% {
         background-position: -60px -60px;
     }
+
     100% {
         background-position: 60px 60px;
     }
@@ -5361,11 +5429,14 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes energyPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0;
         transform: scale(0.5);
         border-color: rgba(255, 255, 255, 0.1);
     }
+
     50% {
         opacity: 0.4;
         transform: scale(1);
@@ -5380,7 +5451,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         /* Reduce animation complexity on mobile for better performance */
         animation: glow 8s ease-in-out infinite !important;
     }
-    
+
     /* Simplify background effects on mobile */
     .welcome-section::before {
         width: 200%;
@@ -5390,7 +5461,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         animation-duration: 30s;
         filter: blur(2px);
     }
-    
+
     .welcome-section::after {
         width: 150%;
         height: 150%;
@@ -5399,63 +5470,63 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         animation-duration: 35s;
         filter: blur(1.5px);
     }
-    
+
     /* Optimize particles for mobile */
     .welcome-section .particle:nth-child(1) {
         width: 150px;
         height: 150px;
         animation-duration: 35s;
     }
-    
+
     .welcome-section .particle:nth-child(2) {
         width: 120px;
         height: 120px;
         animation-duration: 40s;
     }
-    
+
     .welcome-section .particle:nth-child(3) {
         width: 100px;
         height: 100px;
         animation-duration: 45s;
     }
-    
+
     /* Reduce floating icons on mobile */
     .welcome-section .floating-icon:nth-child(n+4) {
         display: none;
     }
-    
+
     .welcome-section .floating-icon {
         font-size: 1.5rem;
         animation-duration: 30s;
     }
-    
+
     /* Reduce sparkles on mobile */
     .welcome-section .sparkle:nth-child(n+11) {
         display: none;
     }
-    
+
     /* Simplify constellation on mobile */
     .welcome-section .constellation-line:nth-child(n+3) {
         display: none;
     }
-    
+
     /* Reduce energy rings on mobile */
     .welcome-section .energy-ring:nth-child(3) {
         display: none;
     }
-    
+
     /* Optimize aurora effect */
     .welcome-section .aurora-effect {
         animation-duration: 20s;
         filter: blur(3px);
         opacity: 0.5;
     }
-    
+
     /* Disable mouse follower on mobile */
     .welcome-section .mouse-follower {
         display: none;
     }
-    
+
     /* Optimize holographic overlay */
     .welcome-section .holographic-overlay {
         animation-duration: 12s;
@@ -5467,37 +5538,37 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     .welcome-section {
         padding: var(--spacing-card) !important;
         border-radius: var(--radius-xl) !important;
-        
+
         /* Further reduce animations on small screens */
         animation: glow 10s ease-in-out infinite !important;
     }
-    
+
     /* Minimal particles on very small screens */
     .welcome-section .particle:nth-child(n+2) {
         display: none;
     }
-    
+
     .welcome-section .particle:nth-child(1) {
         width: 100px;
         height: 100px;
         animation-duration: 40s;
     }
-    
+
     /* Reduce floating icons further */
     .welcome-section .floating-icon:nth-child(n+3) {
         display: none;
     }
-    
+
     /* Minimal sparkles */
     .welcome-section .sparkle:nth-child(n+6) {
         display: none;
     }
-    
+
     /* Hide constellation on very small screens */
     .welcome-section .constellation {
         display: none;
     }
-    
+
     /* Hide wave distortion on very small screens */
     .welcome-section .wave-distortion {
         display: none;
@@ -5506,6 +5577,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 
 /* Performance Optimizations */
 @media (prefers-reduced-motion: reduce) {
+
     .welcome-section,
     .welcome-section::before,
     .welcome-section::after,
@@ -5525,11 +5597,12 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 
 /* High Performance Mode */
 @media (max-width: 1024px) and (max-height: 768px) {
+
     /* Optimize for tablets and smaller laptops */
     .welcome-section {
         animation-duration: 8s !important;
     }
-    
+
     .welcome-section::before,
     .welcome-section::after {
         animation-duration: 30s;
@@ -5543,7 +5616,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         color: CanvasText !important;
         border-color: ButtonBorder !important;
     }
-    
+
     .welcome-section::before,
     .welcome-section::after,
     .welcome-section .aurora-effect,
@@ -5551,7 +5624,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     .welcome-section .holographic-overlay {
         display: none !important;
     }
-    
+
     .welcome-section .particle,
     .welcome-section .floating-icon,
     .welcome-section .sparkle,
@@ -5599,7 +5672,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 .welcome-section:focus-within {
     outline: 3px solid rgba(99, 102, 241, 0.5);
     outline-offset: 4px;
-    box-shadow: 
+    box-shadow:
         var(--welcome-shadow),
         0 0 0 1px rgba(255, 255, 255, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),
@@ -5619,10 +5692,12 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         opacity: 0;
         transform: scale(0.95) translateY(20px);
     }
+
     60% {
         opacity: 0.8;
         transform: scale(1.02) translateY(-5px);
     }
+
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -5645,10 +5720,13 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes winnerBadge {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1) rotate(0deg);
         text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
     }
+
     50% {
         transform: scale(1.1) rotate(5deg);
         text-shadow: 0 0 30px rgba(255, 215, 0, 1);
@@ -5686,7 +5764,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     --welcome-border: rgba(255, 255, 255, 0.1);
     --welcome-border-hover: rgba(255, 255, 255, 0.2);
     --welcome-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-    
+
     /* Enhanced gradient colors for dark mode */
     --welcome-accent-1: #818cf8;
     --welcome-accent-2: #a78bfa;
@@ -5694,7 +5772,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     --welcome-accent-4: #34d399;
 
     /* Update background for dark mode */
-    background: 
+    background:
         /* Animated gradient waves */
         linear-gradient(45deg, var(--welcome-bg-start) 0%, transparent 50%, var(--welcome-bg-start) 100%),
         linear-gradient(-45deg, var(--welcome-bg-end) 0%, transparent 50%, var(--welcome-bg-end) 100%),
@@ -5811,7 +5889,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         border: 2px solid #ffffff !important;
         color: #ffffff !important;
     }
-    
+
     .welcome-section .particle,
     .welcome-section .floating-icon,
     .welcome-section .sparkle,
@@ -5820,7 +5898,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     .welcome-section .holographic-overlay {
         display: none !important;
     }
-    
+
     .welcome-section .stat-item,
     .welcome-section .quick-actions .btn,
     .welcome-section .event-card {
@@ -5834,7 +5912,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 .welcome-section *:focus-visible {
     outline: 3px solid #ffff00 !important;
     outline-offset: 2px !important;
-    box-shadow: 
+    box-shadow:
         0 0 0 6px rgba(255, 255, 0, 0.3),
         0 0 20px rgba(255, 255, 0, 0.5) !important;
     border-radius: 4px !important;
@@ -6001,8 +6079,16 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes aiPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); filter: brightness(1.3); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+        filter: brightness(1.3);
+    }
 }
 
 /* Real-time Activity Indicators */
@@ -6025,12 +6111,15 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes livePulse {
-    0%, 100% { 
-        opacity: 1; 
+
+    0%,
+    100% {
+        opacity: 1;
         box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
     }
-    50% { 
-        opacity: 0.7; 
+
+    50% {
+        opacity: 0.7;
         box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
     }
 }
@@ -7074,7 +7163,7 @@ body .quick-insights .insights-title .btn-icon:hover svg,
 
 .quick-insights .insight-card.warning {
     border-left: 4px solid #F59E0B !important;
-} 
+}
 
 /* MOST AGGRESSIVE OVERRIDE - Force white text in Today's Insights */
 .quick-insights,
@@ -7163,11 +7252,11 @@ html body .quick-insights *,
 }
 
 /* Force white text on all direct children */
-.quick-insights > * {
+.quick-insights>* {
     color: white !important;
 }
 
-.quick-insights > * > * {
+.quick-insights>*>* {
     color: white !important;
 }
 
@@ -7209,7 +7298,7 @@ html body .quick-insights .insights-title,
 .quick-insights .insights-title::text,
 .quick-insights h3::text {
     color: white !important;
-} 
+}
 
 /* NUCLEAR OPTION - Force "Today's Insights" title to be white */
 .quick-insights h3.insights-title {
@@ -7255,7 +7344,7 @@ html body .quick-insights h3.insights-title,
 /* Target any remaining text elements */
 .quick-insights h3.insights-title * {
     color: white !important;
-} 
+}
 
 /* ULTIMATE NUCLEAR OVERRIDE - Target the specific insight-content elements */
 .quick-insights .insight-content h4,
@@ -7328,7 +7417,7 @@ html body .quick-insights .insight-content p,
 .quick-insights [class*="insight"] [class*="content"] div {
     color: white !important;
     color: var(--welcome-text) !important;
-} 
+}
 
 /* ULTIMATE OVERRIDE - Override readability-fixes.css and any other CSS */
 html body .quick-insights .insight-content h4,
@@ -7759,15 +7848,15 @@ html body .company-culture-showcase .stat-item,
 html body .company-culture-showcase .stat-item *,
 html body .culture-stats .stat-item,
 html body .culture-stats .stat-item * {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  filter: none !important;
-  transform: none !important;
-  -webkit-transform: none !important;
-  text-rendering: optimizeLegibility !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  font-smooth: never !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-smooth: never !important;
 }
 
 /* COMPREHENSIVE FIX - Make ALL upcoming events icons white */
@@ -7883,17 +7972,17 @@ body .welcome-section .events-list [class*="icon"],
 .main-content .welcome-section .events-list .btn-icon,
 .main-content .welcome-section .events-list .icon,
 .main-content .welcome-section .events-list [class*="icon"] {
-  stroke: white !important;
-  color: white !important;
-  fill: none !important;
-  background: transparent !important;
-  background-color: transparent !important;
-  border-color: transparent !important;
-  /* Override any CSS variables */
-  --primary-50: transparent !important;
-  --primary-600: white !important;
-  --surface-hover: transparent !important;
-  --text-secondary: white !important;
+    stroke: white !important;
+    color: white !important;
+    fill: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    /* Override any CSS variables */
+    --primary-50: transparent !important;
+    --primary-600: white !important;
+    --surface-hover: transparent !important;
+    --text-secondary: white !important;
 }
 
 /* HOVER STATES - Override gray hover for upcoming events icons */
@@ -7945,18 +8034,18 @@ html body .welcome-section .events-list svg:hover,
 html body .welcome-section .events-list .btn-icon:hover,
 html body .welcome-section .events-list .icon:hover,
 html body .welcome-section .events-list [class*="icon"]:hover {
-  stroke: white !important;
-  color: white !important;
-  fill: none !important;
-  background: transparent !important;
-  background-color: transparent !important;
-  border-color: transparent !important;
-  transform: scale(1.05) !important;
-  /* Override any CSS variables */
-  --primary-50: transparent !important;
-  --primary-600: white !important;
-  --surface-hover: transparent !important;
-  --text-secondary: white !important;
+    stroke: white !important;
+    color: white !important;
+    fill: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    transform: scale(1.05) !important;
+    /* Override any CSS variables */
+    --primary-50: transparent !important;
+    --primary-600: white !important;
+    --surface-hover: transparent !important;
+    --text-secondary: white !important;
 }
 
 /* 🌟 FLOATING EMOJI PARTICLES - Contest Enhancement */
@@ -8024,18 +8113,23 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes iconFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0px) translateY(0px) rotate(0deg) scale(1);
         opacity: 0.6;
     }
+
     25% {
         transform: translateX(30px) translateY(-40px) rotate(90deg) scale(1.2);
         opacity: 0.9;
     }
+
     50% {
         transform: translateX(-20px) translateY(-20px) rotate(180deg) scale(0.8);
         opacity: 0.7;
     }
+
     75% {
         transform: translateX(-35px) translateY(30px) rotate(270deg) scale(1.1);
         opacity: 0.8;
@@ -8051,7 +8145,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     bottom: 0;
     pointer-events: none;
     z-index: 1;
-    background: 
+    background:
         linear-gradient(45deg, transparent 0%, rgba(139, 92, 246, 0.1) 25%, transparent 50%, rgba(6, 182, 212, 0.1) 75%, transparent 100%),
         linear-gradient(-45deg, transparent 0%, rgba(16, 185, 129, 0.08) 30%, transparent 60%, rgba(245, 158, 11, 0.08) 90%, transparent 100%);
     background-size: 400% 400%, 300% 300%;
@@ -8061,18 +8155,23 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes auroraShift {
-    0%, 100% {
+
+    0%,
+    100% {
         background-position: 0% 50%, 100% 50%;
         opacity: 0.7;
     }
+
     25% {
         background-position: 100% 0%, 0% 100%;
         opacity: 0.9;
     }
+
     50% {
         background-position: 100% 100%, 0% 0%;
         opacity: 0.6;
     }
+
     75% {
         background-position: 0% 100%, 100% 0%;
         opacity: 0.8;
@@ -8132,10 +8231,13 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes constellationPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.2;
         transform: scale(1) rotate(var(--rotation, 0deg));
     }
+
     50% {
         opacity: 0.6;
         transform: scale(1.1) rotate(var(--rotation, 0deg));
@@ -8168,10 +8270,13 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes sparkleAnimation {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0;
         transform: scale(0) rotate(0deg);
     }
+
     50% {
         opacity: 1;
         transform: scale(1.5) rotate(180deg);
@@ -8187,7 +8292,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     bottom: 0;
     pointer-events: none;
     z-index: 1;
-    background: 
+    background:
         radial-gradient(ellipse 200px 100px at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
         radial-gradient(ellipse 150px 75px at 80% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
         radial-gradient(ellipse 180px 90px at 50% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
@@ -8197,18 +8302,23 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes waveDistort {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0%) scaleX(1) scaleY(1);
         background-position: 0% 50%, 100% 30%, 50% 80%;
     }
+
     25% {
         transform: translateX(5%) scaleX(1.1) scaleY(0.9);
         background-position: 25% 60%, 75% 40%, 60% 70%;
     }
+
     50% {
         transform: translateX(-3%) scaleX(0.9) scaleY(1.1);
         background-position: 50% 70%, 50% 50%, 70% 60%;
     }
+
     75% {
         transform: translateX(2%) scaleX(1.05) scaleY(0.95);
         background-position: 75% 40%, 25% 60%, 40% 90%;
@@ -8246,13 +8356,12 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     bottom: 0;
     pointer-events: none;
     z-index: 5;
-    background: linear-gradient(45deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.03) 25%, 
-        transparent 50%, 
-        rgba(255, 255, 255, 0.03) 75%, 
-        transparent 100%
-    );
+    background: linear-gradient(45deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.03) 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.03) 75%,
+            transparent 100%);
     background-size: 60px 60px;
     animation: holographicShimmer 8s linear infinite;
     opacity: 0.6;
@@ -8263,6 +8372,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     0% {
         background-position: -60px -60px;
     }
+
     100% {
         background-position: 60px 60px;
     }
@@ -8310,11 +8420,14 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 @keyframes energyPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0;
         transform: scale(0.5);
         border-color: rgba(255, 255, 255, 0.1);
     }
+
     50% {
         opacity: 0.4;
         transform: scale(1);
@@ -8329,7 +8442,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         /* Reduce animation complexity on mobile for better performance */
         animation: glow 8s ease-in-out infinite !important;
     }
-    
+
     /* Simplify background effects on mobile */
     .welcome-section::before {
         width: 200%;
@@ -8339,7 +8452,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         animation-duration: 30s;
         filter: blur(2px);
     }
-    
+
     .welcome-section::after {
         width: 150%;
         height: 150%;
@@ -8348,63 +8461,63 @@ html body .welcome-section .events-list [class*="icon"]:hover {
         animation-duration: 35s;
         filter: blur(1.5px);
     }
-    
+
     /* Optimize particles for mobile */
     .welcome-section .particle:nth-child(1) {
         width: 150px;
         height: 150px;
         animation-duration: 35s;
     }
-    
+
     .welcome-section .particle:nth-child(2) {
         width: 120px;
         height: 120px;
         animation-duration: 40s;
     }
-    
+
     .welcome-section .particle:nth-child(3) {
         width: 100px;
         height: 100px;
         animation-duration: 45s;
     }
-    
+
     /* Reduce floating icons on mobile */
     .welcome-section .floating-icon:nth-child(n+4) {
         display: none;
     }
-    
+
     .welcome-section .floating-icon {
         font-size: 1.5rem;
         animation-duration: 30s;
     }
-    
+
     /* Reduce sparkles on mobile */
     .welcome-section .sparkle:nth-child(n+11) {
         display: none;
     }
-    
+
     /* Simplify constellation on mobile */
     .welcome-section .constellation-line:nth-child(n+3) {
         display: none;
     }
-    
+
     /* Reduce energy rings on mobile */
     .welcome-section .energy-ring:nth-child(3) {
         display: none;
     }
-    
+
     /* Optimize aurora effect */
     .welcome-section .aurora-effect {
         animation-duration: 20s;
         filter: blur(3px);
         opacity: 0.5;
     }
-    
+
     /* Disable mouse follower on mobile */
     .welcome-section .mouse-follower {
         display: none;
     }
-    
+
     /* Optimize holographic overlay */
     .welcome-section .holographic-overlay {
         animation-duration: 12s;
@@ -8416,37 +8529,37 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     .welcome-section {
         padding: var(--spacing-card) !important;
         border-radius: var(--radius-xl) !important;
-        
+
         /* Further reduce animations on small screens */
         animation: glow 10s ease-in-out infinite !important;
     }
-    
+
     /* Minimal particles on very small screens */
     .welcome-section .particle:nth-child(n+2) {
         display: none;
     }
-    
+
     .welcome-section .particle:nth-child(1) {
         width: 100px;
         height: 100px;
         animation-duration: 40s;
     }
-    
+
     /* Reduce floating icons further */
     .welcome-section .floating-icon:nth-child(n+3) {
         display: none;
     }
-    
+
     /* Minimal sparkles */
     .welcome-section .sparkle:nth-child(n+6) {
         display: none;
     }
-    
+
     /* Hide constellation on very small screens */
     .welcome-section .constellation {
         display: none;
     }
-    
+
     /* Hide wave distortion on very small screens */
     .welcome-section .wave-distortion {
         display: none;
@@ -8455,6 +8568,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 
 /* Performance Optimizations */
 @media (prefers-reduced-motion: reduce) {
+
     .welcome-section,
     .welcome-section::before,
     .welcome-section::after,
@@ -8474,11 +8588,12 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 
 /* High Performance Mode */
 @media (max-width: 1024px) and (max-height: 768px) {
+
     /* Optimize for tablets and smaller laptops */
     .welcome-section {
         animation-duration: 8s !important;
     }
-    
+
     .welcome-section::before,
     .welcome-section::after {
         animation-duration: 30s;

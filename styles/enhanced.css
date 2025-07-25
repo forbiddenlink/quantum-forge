@@ -19,15 +19,7 @@
     overflow: visible;
 }
 
-app-sidebar {
-    width: 280px;
-    flex-shrink: 0;
-    background: var(--bg-elevated);
-    border-right: 1px solid var(--border-color);
-    height: calc(100vh - 72px); /* Subtract header height */
-    position: sticky;
-    top: 72px; /* Header height */
-}
+/* Sidebar styles handled in sidebar.css - duplicate removed */
 
 .main-content {
     flex: 1;
