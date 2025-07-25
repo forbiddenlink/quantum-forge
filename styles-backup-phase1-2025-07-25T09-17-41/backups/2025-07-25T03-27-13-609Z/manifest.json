@@ -1,0 +1,157 @@
+{
+  "timestamp": "2025-07-25T03:27:13.691Z",
+  "files": [
+    {
+      "original": "..\\styles\\accessibility-enhancements.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\accessibility-enhancements.css"
+    },
+    {
+      "original": "..\\styles\\analytics-dashboard.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\analytics-dashboard.css"
+    },
+    {
+      "original": "..\\styles\\analytics-icons.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\analytics-icons.css"
+    },
+    {
+      "original": "..\\styles\\company-news.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\company-news.css"
+    },
+    {
+      "original": "..\\styles\\component-enhancements.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\component-enhancements.css"
+    },
+    {
+      "original": "..\\styles\\components\\quick-insights.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\quick-insights.css"
+    },
+    {
+      "original": "..\\styles\\components.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\components.css"
+    },
+    {
+      "original": "..\\styles\\contest-enhancements.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\contest-enhancements.css"
+    },
+    {
+      "original": "..\\styles\\creative-enhancements.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\creative-enhancements.css"
+    },
+    {
+      "original": "..\\styles\\critical-fixes.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\critical-fixes.css"
+    },
+    {
+      "original": "..\\styles\\critical.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\critical.css"
+    },
+    {
+      "original": "..\\styles\\culture-blur-fix.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\culture-blur-fix.css"
+    },
+    {
+      "original": "..\\styles\\dream-workspace.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\dream-workspace.css"
+    },
+    {
+      "original": "..\\styles\\dynamic-color-picker.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\dynamic-color-picker.css"
+    },
+    {
+      "original": "..\\styles\\enhanced-colors.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\enhanced-colors.css"
+    },
+    {
+      "original": "..\\styles\\enhanced-knowledge-hub.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\enhanced-knowledge-hub.css"
+    },
+    {
+      "original": "..\\styles\\enhanced-task-system.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\enhanced-task-system.css"
+    },
+    {
+      "original": "..\\styles\\enhanced-theme-fixes.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\enhanced-theme-fixes.css"
+    },
+    {
+      "original": "..\\styles\\enhanced.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\enhanced.css"
+    },
+    {
+      "original": "..\\styles\\header-spacing-fix.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\header-spacing-fix.css"
+    },
+    {
+      "original": "..\\styles\\icon-fixes.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\icon-fixes.css"
+    },
+    {
+      "original": "..\\styles\\interactive-poll.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\interactive-poll.css"
+    },
+    {
+      "original": "..\\styles\\live-activity-feed.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\live-activity-feed.css"
+    },
+    {
+      "original": "..\\styles\\main.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\main.css"
+    },
+    {
+      "original": "..\\styles\\mobile-nav.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\mobile-nav.css"
+    },
+    {
+      "original": "..\\styles\\mobile-optimizations.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\mobile-optimizations.css"
+    },
+    {
+      "original": "..\\styles\\office-visualizer.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\office-visualizer.css"
+    },
+    {
+      "original": "..\\styles\\performance-ux.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\performance-ux.css"
+    },
+    {
+      "original": "..\\styles\\real-time-stats.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\real-time-stats.css"
+    },
+    {
+      "original": "..\\styles\\sidebar.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\sidebar.css"
+    },
+    {
+      "original": "..\\styles\\smart-insights-dashboard.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\smart-insights-dashboard.css"
+    },
+    {
+      "original": "..\\styles\\smart-search-overlay.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\smart-search-overlay.css"
+    },
+    {
+      "original": "..\\styles\\svg-icon-styles.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\svg-icon-styles.css"
+    },
+    {
+      "original": "..\\styles\\team-chat-widget.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\team-chat-widget.css"
+    },
+    {
+      "original": "..\\styles\\team.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\team.css"
+    },
+    {
+      "original": "..\\styles\\unified-homepage-styling.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\unified-homepage-styling.css"
+    },
+    {
+      "original": "..\\styles\\welcome-section.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\welcome-section.css"
+    },
+    {
+      "original": "..\\styles\\wellness-tracker.css",
+      "backup": "backups\\2025-07-25T03-27-13-609Z\\wellness-tracker.css"
+    }
+  ]
+}

@@ -338,17 +338,7 @@
     animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-
-    0%,
-    100% {
-        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-    }
-
-    50% {
-        box-shadow: 0 4px 25px rgba(99, 102, 241, 0.5);
-    }
-}
+/* Pulse animation consolidated in animations.css */
 
 /* Color Notification */
 .color-notification {

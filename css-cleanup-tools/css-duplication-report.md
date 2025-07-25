@@ -1,25 +1,18 @@
 # CSS Duplication Report
 
-Found 481 duplicate rule(s).
+Found 478 duplicate rule(s).
 
 ## Duplicate Rule Found
 
 ### Locations:
 - analytics-dashboard.css:897 (0%)
-- analytics-dashboard.css:1358 (0%)
-- analytics-dashboard.css:2488 (0%)
+- analytics-dashboard.css:1354 (0%)
+- analytics-dashboard.css:2480 (0%)
 - animations.css:7 (0%)
 - animations.css:12 (0%)
 - animations.css:17 (0%)
-- animations.css:134 (0%)
-- enhanced-colors.css:380 (0%)
-- enhanced-knowledge-hub.css:1267 (0%)
-- enhanced-knowledge-hub.css:1818 (0%)
-- enhanced-knowledge-hub.css:1930 (0%)
-- enhanced-knowledge-hub.css:2828 (0%)
-- enhanced-task-system.css:1271 (0%)
-- enhanced-task-system.css:1789 (0%)
-- live-activity-feed.css:1119 (0%)
+- animations.css:167 (0%)
+- enhanced-colors.css:349 (0%)
 - team.css:653 (0%)
 
 ### Rule Content:
@@ -31,20 +24,13 @@ Found 481 duplicate rule(s).
 
 ### Locations:
 - analytics-dashboard.css:901 (100%)
-- analytics-dashboard.css:1362 (100%)
-- analytics-dashboard.css:2492 (100%)
+- analytics-dashboard.css:1358 (100%)
+- analytics-dashboard.css:2484 (100%)
 - animations.css:8 (100%)
 - animations.css:13 (100%)
 - animations.css:18 (100%)
-- animations.css:135 (100%)
-- enhanced-colors.css:384 (100%)
-- enhanced-knowledge-hub.css:1271 (100%)
-- enhanced-knowledge-hub.css:1822 (100%)
-- enhanced-knowledge-hub.css:1934 (100%)
-- enhanced-knowledge-hub.css:2832 (100%)
-- enhanced-task-system.css:1275 (100%)
-- enhanced-task-system.css:1793 (100%)
-- live-activity-feed.css:1123 (100%)
+- animations.css:168 (100%)
+- enhanced-colors.css:353 (100%)
 - team.css:657 (100%)
 
 ### Rule Content:
@@ -55,18 +41,18 @@ Found 481 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1465 (0%,
+- analytics-dashboard.css:1461 (0%,
     100%)
-- analytics-dashboard.css:1710 (0%,
+- analytics-dashboard.css:1706 (0%,
     100%)
 - animations.css:23 (0%, 100%)
 - animations.css:28 (0%, 100%)
 - animations.css:33 (0%, 100%)
 - animations.css:57 (0%, 100%)
-- animations.css:102 (0%, 100%)
-- animations.css:128 (0%, 100%)
-- contest-enhancements.css:1326 (0%, 100%)
-- enhanced-knowledge-hub.css:773 (0%,
+- animations.css:135 (0%, 100%)
+- animations.css:161 (0%, 100%)
+- contest-enhancements.css:1294 (0%, 100%)
+- enhanced-knowledge-hub.css:744 (0%,
     100%)
 - team.css:345 (0%,
     100%)
@@ -79,20 +65,8 @@ Found 481 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:174 (.activity-content)
-- analytics-dashboard.css:1787 (.activity-content)
-- team.css:972 (.activity-content)
-
-### Rule Content:
-```css
-.activity-content { flex: 1; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- analytics-dashboard.css:2377 (100%)
-- analytics-dashboard.css:2403 (100%)
+- analytics-dashboard.css:2369 (100%)
+- analytics-dashboard.css:2395 (100%)
 
 ### Rule Content:
 ```css
@@ -102,11 +76,11 @@ Found 481 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2229 (0%)
-- analytics-dashboard.css:2411 (0%)
+- analytics-dashboard.css:2221 (0%)
+- analytics-dashboard.css:2403 (0%)
 - animations.css:50 (0%)
-- animations.css:95 (0%)
-- animations.css:122 (0%)
+- animations.css:128 (0%)
+- animations.css:155 (0%)
 
 ### Rule Content:
 ```css
@@ -116,10 +90,10 @@ Found 481 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2233 (50%)
-- analytics-dashboard.css:2415 (50%)
+- analytics-dashboard.css:2225 (50%)
+- analytics-dashboard.css:2407 (50%)
 - animations.css:51 (50%)
-- animations.css:96 (50%)
+- animations.css:129 (50%)
 
 ### Rule Content:
 ```css
@@ -129,10 +103,10 @@ Found 481 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2237 (100%)
-- analytics-dashboard.css:2419 (100%)
+- analytics-dashboard.css:2229 (100%)
+- analytics-dashboard.css:2411 (100%)
 - animations.css:52 (100%)
-- animations.css:97 (100%)
+- animations.css:130 (100%)
 
 ### Rule Content:
 ```css
@@ -142,12 +116,12 @@ Found 481 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1471 (50%)
+- analytics-dashboard.css:1467 (50%)
 - animations.css:24 (50%)
 - animations.css:29 (50%)
 - animations.css:34 (50%)
-- animations.css:129 (50%)
-- enhanced-knowledge-hub.css:779 (50%)
+- animations.css:162 (50%)
+- enhanced-knowledge-hub.css:750 (50%)
 
 ### Rule Content:
 ```css
@@ -157,11 +131,11 @@ Found 481 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2326 (0%,
+- analytics-dashboard.css:2318 (0%,
     100%)
 - animations.css:39 (0%, 100%)
 - animations.css:44 (0%, 100%)
-- contest-enhancements.css:1183 (0%, 100%)
+- contest-enhancements.css:1151 (0%, 100%)
 
 ### Rule Content:
 ```css
@@ -171,7 +145,7 @@ Found 481 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2331 (50%)
+- analytics-dashboard.css:2323 (50%)
 - animations.css:40 (50%)
 - animations.css:45 (50%)
 - contest-enhancements.css:6 (50%)
@@ -186,7 +160,7 @@ Found 481 duplicate rule(s).
 ### Locations:
 - animations.css:62 (from)
 - animations.css:73 (from)
-- enhanced-colors.css:307 (from)
+- enhanced-colors.css:288 (from)
 - sidebar.css:653 (from)
 
 ### Rule Content:
@@ -199,10 +173,8 @@ from { opacity: 0; transform: translateY(20px); }
 ### Locations:
 - animations.css:63 (to)
 - animations.css:74 (to)
-- contest-enhancements.css:24 (to)
-- dream-workspace.css:286 (to)
-- enhanced-colors.css:312 (to)
-- enhanced.css:1965 (to)
+- animations.css:87 (to)
+- enhanced-colors.css:293 (to)
 - sidebar.css:658 (to)
 - team-chat-widget.css:336 (to)
 
@@ -214,15 +186,26 @@ to { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
+- animations.css:68 (to)
+- animations.css:103 (to)
+
+### Rule Content:
+```css
+to { opacity: 1; transform: translateX(0); }
+```
+
+## Duplicate Rule Found
+
+### Locations:
 - analytics-dashboard.css:367 (0%,
     100%)
-- company-news.css:196 (0%,
+- company-news.css:177 (0%,
     100%)
-- enhanced-knowledge-hub.css:485 (0%,
+- enhanced-knowledge-hub.css:456 (0%,
     100%)
-- enhanced-task-system.css:171 (0%,
+- enhanced-task-system.css:152 (0%,
     100%)
-- live-activity-feed.css:197 (0%,
+- live-activity-feed.css:163 (0%,
     100%)
 
 ### Rule Content:
@@ -235,9 +218,9 @@ to { opacity: 1; transform: translateY(0); }
 ### Locations:
 - analytics-dashboard.css:415 (0%,
     100%)
-- company-news.css:208 (0%,
+- company-news.css:189 (0%,
     100%)
-- enhanced-knowledge-hub.css:567 (0%,
+- enhanced-knowledge-hub.css:538 (0%,
     100%)
 
 ### Rule Content:
@@ -249,7 +232,7 @@ to { opacity: 1; transform: translateY(0); }
 
 ### Locations:
 - analytics-dashboard.css:421 (25%)
-- company-news.css:214 (25%)
+- company-news.css:195 (25%)
 
 ### Rule Content:
 ```css
@@ -260,7 +243,7 @@ to { opacity: 1; transform: translateY(0); }
 
 ### Locations:
 - analytics-dashboard.css:426 (50%)
-- company-news.css:219 (50%)
+- company-news.css:200 (50%)
 
 ### Rule Content:
 ```css
@@ -270,8 +253,8 @@ to { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:1148 (.company-news .trending-metrics)
-- company-news.css:1523 (.company-news .trending-metrics)
+- company-news.css:1129 (.company-news .trending-metrics)
+- company-news.css:1504 (.company-news .trending-metrics)
 
 ### Rule Content:
 ```css
@@ -282,9 +265,9 @@ to { opacity: 1; transform: translateY(0); }
 
 ### Locations:
 - components\task-management.css:502 (.task-assignee)
-- components\task-system.css:160 (.task-assignee)
-- enhanced-task-system.css:1805 (.task-assignee)
-- enhanced-task-system.css:4574 (.task-assignee)
+- components\task-system.css:136 (.task-assignee)
+- enhanced-task-system.css:1766 (.task-assignee)
+- enhanced-task-system.css:4521 (.task-assignee)
 
 ### Rule Content:
 ```css
@@ -295,7 +278,7 @@ to { opacity: 1; transform: translateY(0); }
 
 ### Locations:
 - components\task-management.css:650 (.task-actions)
-- components\task-system.css:172 (.task-actions)
+- components\task-system.css:148 (.task-actions)
 
 ### Rule Content:
 ```css
@@ -306,7 +289,7 @@ to { opacity: 1; transform: translateY(0); }
 
 ### Locations:
 - components\task-management.css:71 (.stat-card::before)
-- components\task-system.css:257 (.stat-card::before)
+- components\task-system.css:233 (.stat-card::before)
 
 ### Rule Content:
 ```css
@@ -317,8 +300,8 @@ to { opacity: 1; transform: translateY(0); }
 
 ### Locations:
 - components\task-management.css:89 (.stat-card:hover::before)
-- components\task-system.css:269 (.stat-card:hover::before)
-- enhanced-task-system.css:1049 (.stat-card:hover::before)
+- components\task-system.css:245 (.stat-card:hover::before)
+- enhanced-task-system.css:1030 (.stat-card:hover::before)
 
 ### Rule Content:
 ```css
@@ -329,7 +312,7 @@ to { opacity: 1; transform: translateY(0); }
 
 ### Locations:
 - components\task-management.css:114 (.stat-card.completed .stat-number)
-- components\task-system.css:291 (.stat-card.completed .stat-number)
+- components\task-system.css:267 (.stat-card.completed .stat-number)
 
 ### Rule Content:
 ```css
@@ -340,7 +323,7 @@ to { opacity: 1; transform: translateY(0); }
 
 ### Locations:
 - components\task-management.css:118 (.stat-card.in-progress .stat-number)
-- components\task-system.css:295 (.stat-card.in-progress .stat-number)
+- components\task-system.css:271 (.stat-card.in-progress .stat-number)
 
 ### Rule Content:
 ```css
@@ -351,7 +334,7 @@ to { opacity: 1; transform: translateY(0); }
 
 ### Locations:
 - components\task-management.css:122 (.stat-card.overdue .stat-number)
-- components\task-system.css:299 (.stat-card.overdue .stat-number)
+- components\task-system.css:275 (.stat-card.overdue .stat-number)
 
 ### Rule Content:
 ```css
@@ -362,7 +345,7 @@ to { opacity: 1; transform: translateY(0); }
 
 ### Locations:
 - accessibility-enhancements.css:374 (.form-group)
-- components.css:140 (.form-group)
+- components.css:217 (.form-group)
 
 ### Rule Content:
 ```css
@@ -372,7 +355,7 @@ to { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:108 (0%, 100%)
+- animations.css:141 (0%, 100%)
 - contest-enhancements.css:15 (0%, 100%)
 
 ### Rule Content:
@@ -383,7 +366,7 @@ to { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:109 (50%)
+- animations.css:142 (50%)
 - contest-enhancements.css:16 (50%)
 
 ### Rule Content:
@@ -394,8 +377,8 @@ to { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:246 (.dashboard-item)
-- contest-enhancements.css:457 (.dashboard-item)
+- contest-enhancements.css:235 (.dashboard-item)
+- contest-enhancements.css:446 (.dashboard-item)
 
 ### Rule Content:
 ```css
@@ -405,32 +388,8 @@ to { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:67 (from)
-- contest-enhancements.css:681 (from)
-- enhanced-colors.css:319 (from)
-
-### Rule Content:
-```css
-from { opacity: 0; transform: translateX(20px); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- animations.css:68 (to)
-- contest-enhancements.css:685 (to)
-- enhanced-colors.css:324 (to)
-
-### Rule Content:
-```css
-to { opacity: 1; transform: translateX(0); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- analytics-dashboard.css:1716 (50%)
-- contest-enhancements.css:1327 (50%)
+- analytics-dashboard.css:1712 (50%)
+- contest-enhancements.css:1295 (50%)
 
 ### Rule Content:
 ```css
@@ -440,12 +399,12 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:1168 (0%, 100%)
-- contest-enhancements.css:1479 (0%, 100%)
+- contest-enhancements.css:1136 (0%, 100%)
+- contest-enhancements.css:1447 (0%, 100%)
 - team-chat-widget.css:94 (0%, 100%)
-- welcome-section.css:2971 (0%,
+- welcome-section.css:2982 (0%,
     100%)
-- welcome-section.css:5933 (0%,
+- welcome-section.css:5936 (0%,
     100%)
 - wellness-tracker.css:45 (0%, 100%)
 
@@ -457,8 +416,8 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:1169 (50%)
-- contest-enhancements.css:1482 (50%)
+- contest-enhancements.css:1137 (50%)
+- contest-enhancements.css:1450 (50%)
 
 ### Rule Content:
 ```css
@@ -468,8 +427,8 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2373 (50%)
-- contest-enhancements.css:1614 (50%)
+- analytics-dashboard.css:2365 (50%)
+- contest-enhancements.css:1582 (50%)
 
 ### Rule Content:
 ```css
@@ -479,8 +438,8 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2576 (.notification-close svg)
-- contest-enhancements.css:2413 (.notification-close svg)
+- analytics-dashboard.css:2568 (.notification-close svg)
+- contest-enhancements.css:2381 (.notification-close svg)
 
 ### Rule Content:
 ```css
@@ -490,9 +449,9 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2264 (100%)
-- contest-enhancements.css:2447 (100%)
-- enhanced-task-system.css:2403 (100%)
+- analytics-dashboard.css:2256 (100%)
+- contest-enhancements.css:2415 (100%)
+- enhanced-task-system.css:2364 (100%)
 
 ### Rule Content:
 ```css
@@ -503,7 +462,7 @@ to { opacity: 1; transform: translateX(0); }
 
 ### Locations:
 - accessibility-enhancements.css:243 (.chart-container)
-- contest-enhancements.css:2515 (.chart-container)
+- contest-enhancements.css:2483 (.chart-container)
 
 ### Rule Content:
 ```css
@@ -513,9 +472,9 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:2906 (.live-dot,
+- contest-enhancements.css:2874 (.live-dot,
     .culture-badge::before)
-- contest-enhancements.css:2933 (.live-dot,
+- contest-enhancements.css:2901 (.live-dot,
     .culture-badge::before)
 
 ### Rule Content:
@@ -526,8 +485,8 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:2883 (.story-controls)
-- contest-enhancements.css:3016 (.story-controls)
+- contest-enhancements.css:2851 (.story-controls)
+- contest-enhancements.css:2984 (.story-controls)
 
 ### Rule Content:
 ```css
@@ -537,8 +496,8 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:2888 (.story-indicators)
-- contest-enhancements.css:3021 (.story-indicators)
+- contest-enhancements.css:2856 (.story-indicators)
+- contest-enhancements.css:2989 (.story-indicators)
 
 ### Rule Content:
 ```css
@@ -548,10 +507,10 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:2970 (.stories-section,
+- contest-enhancements.css:2938 (.stories-section,
     .values-section,
     .timeline-section)
-- contest-enhancements.css:3025 (.stories-section,
+- contest-enhancements.css:2993 (.stories-section,
     .values-section,
     .timeline-section)
 
@@ -563,33 +522,10 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:78 (from)
-- creative-enhancements.css:187 (from)
-
-### Rule Content:
-```css
-from { opacity: 0; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- animations.css:79 (to)
-- creative-enhancements.css:191 (to)
-- wellness-tracker.css:371 (to)
-
-### Rule Content:
-```css
-to { opacity: 1; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- critical-fixes.css:1026 (a:hover,
+- critical-fixes.css:1168 (a:hover,
 .link:hover,
 .text-link:hover)
-- critical-fixes.css:1352 (a:hover,
+- critical-fixes.css:1494 (a:hover,
 .link:hover,
 .text-link:hover)
 
@@ -601,10 +537,10 @@ a:hover, .link:hover, .text-link:hover { color: var(--primary-600) !important; }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1032 ([data-theme="dark"] a,
+- critical-fixes.css:1174 ([data-theme="dark"] a,
 [data-theme="dark"] .link,
 [data-theme="dark"] .text-link)
-- critical-fixes.css:1358 ([data-theme="dark"] a,
+- critical-fixes.css:1500 ([data-theme="dark"] a,
 [data-theme="dark"] .link,
 [data-theme="dark"] .text-link)
 
@@ -616,10 +552,10 @@ a:hover, .link:hover, .text-link:hover { color: var(--primary-600) !important; }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1038 ([data-theme="dark"] a:hover,
+- critical-fixes.css:1180 ([data-theme="dark"] a:hover,
 [data-theme="dark"] .link:hover,
 [data-theme="dark"] .text-link:hover)
-- critical-fixes.css:1364 ([data-theme="dark"] a:hover,
+- critical-fixes.css:1506 ([data-theme="dark"] a:hover,
 [data-theme="dark"] .link:hover,
 [data-theme="dark"] .text-link:hover)
 
@@ -634,7 +570,7 @@ a:hover, .link:hover, .text-link:hover { color: var(--primary-600) !important; }
 - component-enhancements.css:459 (*,
     *::before,
     *::after)
-- critical.css:261 (*,
+- critical.css:223 (*,
     *::before,
     *::after)
 
@@ -646,7 +582,7 @@ a:hover, .link:hover, .text-link:hover { color: var(--primary-600) !important; }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:3163 (html body .company-culture-showcase,
+- contest-enhancements.css:3131 (html body .company-culture-showcase,
 html body .company-culture-showcase *)
 - culture-blur-fix.css:36 (html body .company-culture-showcase,
 html body .company-culture-showcase *)
@@ -659,7 +595,7 @@ html body .company-culture-showcase, html body .company-culture-showcase * { --g
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:3170 (html body .company-culture-showcase .stat-item .stat-number,
+- contest-enhancements.css:3138 (html body .company-culture-showcase .stat-item .stat-number,
 html body .company-culture-showcase .stat-item .stat-label,
 html body .company-culture-showcase .culture-stats .stat-number,
 html body .company-culture-showcase .culture-stats .stat-label,
@@ -680,8 +616,8 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- dream-workspace.css:174 (.workspace-content)
-- dream-workspace.css:396 (.workspace-content)
+- dream-workspace.css:155 (.workspace-content)
+- dream-workspace.css:367 (.workspace-content)
 
 ### Rule Content:
 ```css
@@ -691,8 +627,8 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- dream-workspace.css:155 (.section-header)
-- dream-workspace.css:406 (.section-header)
+- dream-workspace.css:136 (.section-header)
+- dream-workspace.css:377 (.section-header)
 
 ### Rule Content:
 ```css
@@ -702,8 +638,8 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- dream-workspace.css:782 (.event-time)
-- dream-workspace.css:971 (.event-time)
+- dream-workspace.css:753 (.event-time)
+- dream-workspace.css:942 (.event-time)
 
 ### Rule Content:
 ```css
@@ -713,8 +649,8 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- dream-workspace.css:822 (.join-btn)
-- dream-workspace.css:1005 (.join-btn)
+- dream-workspace.css:793 (.join-btn)
+- dream-workspace.css:976 (.join-btn)
 
 ### Rule Content:
 ```css
@@ -724,8 +660,8 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- dream-workspace.css:835 (.join-btn:hover)
-- dream-workspace.css:1018 (.join-btn:hover)
+- dream-workspace.css:806 (.join-btn:hover)
+- dream-workspace.css:989 (.join-btn:hover)
 
 ### Rule Content:
 ```css
@@ -736,7 +672,7 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 
 ### Locations:
 - dream-workspace.css:4 (.dream-workspace *)
-- dream-workspace.css:1231 (.dream-workspace *)
+- dream-workspace.css:1202 (.dream-workspace *)
 
 ### Rule Content:
 ```css
@@ -746,8 +682,8 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- dream-workspace.css:209 (.workspace-stats)
-- dream-workspace.css:1336 (.workspace-stats)
+- dream-workspace.css:190 (.workspace-stats)
+- dream-workspace.css:1307 (.workspace-stats)
 
 ### Rule Content:
 ```css
@@ -757,8 +693,8 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:206 (.badge.primary)
-- enhanced-colors.css:285 (.badge.primary)
+- components.css:283 (.badge.primary)
+- enhanced-colors.css:266 (.badge.primary)
 
 ### Rule Content:
 ```css
@@ -768,8 +704,8 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:211 (.badge.success)
-- enhanced-colors.css:290 (.badge.success)
+- components.css:288 (.badge.success)
+- enhanced-colors.css:271 (.badge.success)
 
 ### Rule Content:
 ```css
@@ -779,8 +715,8 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:216 (.badge.warning)
-- enhanced-colors.css:295 (.badge.warning)
+- components.css:293 (.badge.warning)
+- enhanced-colors.css:276 (.badge.warning)
 
 ### Rule Content:
 ```css
@@ -790,8 +726,8 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:221 (.badge.error)
-- enhanced-colors.css:300 (.badge.error)
+- components.css:298 (.badge.error)
+- enhanced-colors.css:281 (.badge.error)
 
 ### Rule Content:
 ```css
@@ -801,8 +737,8 @@ html body .company-culture-showcase .stat-item .stat-number, html body .company-
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:31 (from)
-- enhanced-colors.css:331 (from)
+- contest-enhancements.css:20 (from)
+- enhanced-colors.css:300 (from)
 
 ### Rule Content:
 ```css
@@ -812,8 +748,8 @@ from { opacity: 0; transform: scale(0.9); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:35 (to)
-- enhanced-colors.css:336 (to)
+- contest-enhancements.css:24 (to)
+- enhanced-colors.css:305 (to)
 
 ### Rule Content:
 ```css
@@ -823,49 +759,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2272 (0%)
-- enhanced-colors.css:515 (0%)
-- enhanced-task-system.css:2411 (0%)
-- interactive-poll.css:284 (0%)
-
-### Rule Content:
-```css
-0% { transform: scale(1); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- analytics-dashboard.css:2276 (50%)
-- enhanced-colors.css:518 (50%)
-- team-chat-widget.css:95 (50%)
-- wellness-tracker.css:46 (50%)
-
-### Rule Content:
-```css
-50% { transform: scale(1.1); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- analytics-dashboard.css:2280 (100%)
-- enhanced-colors.css:521 (100%)
-- enhanced-task-system.css:2419 (100%)
-- interactive-poll.css:290 (100%)
-- live-activity-feed.css:660 (100%)
-- live-activity-feed.css:1099 (100%)
-
-### Rule Content:
-```css
-100% { transform: scale(1); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- enhanced-colors.css:492 (.notification-badge)
-- enhanced-colors.css:714 (.notification-badge)
+- enhanced-colors.css:461 (.notification-badge)
+- enhanced-colors.css:672 (.notification-badge)
 
 ### Rule Content:
 ```css
@@ -876,7 +771,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - analytics-dashboard.css:202 (.charts-grid)
-- enhanced-colors.css:913 (.charts-grid)
+- enhanced-colors.css:871 (.charts-grid)
 
 ### Rule Content:
 ```css
@@ -886,13 +781,13 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:130 (0%,
+- company-news.css:111 (0%,
     100%)
-- enhanced-knowledge-hub.css:419 (0%,
+- enhanced-knowledge-hub.css:390 (0%,
     100%)
-- enhanced-task-system.css:105 (0%,
+- enhanced-task-system.css:86 (0%,
     100%)
-- live-activity-feed.css:131 (0%,
+- live-activity-feed.css:97 (0%,
     100%)
 
 ### Rule Content:
@@ -903,9 +798,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:141 (25%)
-- enhanced-knowledge-hub.css:430 (25%)
-- enhanced-task-system.css:116 (25%)
+- company-news.css:122 (25%)
+- enhanced-knowledge-hub.css:401 (25%)
+- enhanced-task-system.css:97 (25%)
 
 ### Rule Content:
 ```css
@@ -915,9 +810,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:151 (50%)
-- enhanced-knowledge-hub.css:440 (50%)
-- enhanced-task-system.css:126 (50%)
+- company-news.css:132 (50%)
+- enhanced-knowledge-hub.css:411 (50%)
+- enhanced-task-system.css:107 (50%)
 
 ### Rule Content:
 ```css
@@ -927,9 +822,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:161 (75%)
-- enhanced-knowledge-hub.css:450 (75%)
-- enhanced-task-system.css:136 (75%)
+- company-news.css:142 (75%)
+- enhanced-knowledge-hub.css:421 (75%)
+- enhanced-task-system.css:117 (75%)
 
 ### Rule Content:
 ```css
@@ -939,10 +834,10 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:173 (0%)
-- enhanced-knowledge-hub.css:462 (0%)
-- enhanced-task-system.css:148 (0%)
-- live-activity-feed.css:174 (0%)
+- company-news.css:154 (0%)
+- enhanced-knowledge-hub.css:433 (0%)
+- enhanced-task-system.css:129 (0%)
+- live-activity-feed.css:140 (0%)
 
 ### Rule Content:
 ```css
@@ -952,10 +847,10 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:177 (25%)
-- enhanced-knowledge-hub.css:466 (25%)
-- enhanced-task-system.css:152 (25%)
-- live-activity-feed.css:178 (25%)
+- company-news.css:158 (25%)
+- enhanced-knowledge-hub.css:437 (25%)
+- enhanced-task-system.css:133 (25%)
+- live-activity-feed.css:144 (25%)
 
 ### Rule Content:
 ```css
@@ -965,10 +860,10 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:181 (50%)
-- enhanced-knowledge-hub.css:470 (50%)
-- enhanced-task-system.css:156 (50%)
-- live-activity-feed.css:182 (50%)
+- company-news.css:162 (50%)
+- enhanced-knowledge-hub.css:441 (50%)
+- enhanced-task-system.css:137 (50%)
+- live-activity-feed.css:148 (50%)
 
 ### Rule Content:
 ```css
@@ -978,10 +873,10 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:185 (75%)
-- enhanced-knowledge-hub.css:474 (75%)
-- enhanced-task-system.css:160 (75%)
-- live-activity-feed.css:186 (75%)
+- company-news.css:166 (75%)
+- enhanced-knowledge-hub.css:445 (75%)
+- enhanced-task-system.css:141 (75%)
+- live-activity-feed.css:152 (75%)
 
 ### Rule Content:
 ```css
@@ -991,10 +886,10 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:189 (100%)
-- enhanced-knowledge-hub.css:478 (100%)
-- enhanced-task-system.css:164 (100%)
-- live-activity-feed.css:190 (100%)
+- company-news.css:170 (100%)
+- enhanced-knowledge-hub.css:449 (100%)
+- enhanced-task-system.css:145 (100%)
+- live-activity-feed.css:156 (100%)
 
 ### Rule Content:
 ```css
@@ -1004,10 +899,10 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:201 (50%)
-- enhanced-knowledge-hub.css:490 (50%)
-- enhanced-task-system.css:176 (50%)
-- live-activity-feed.css:202 (50%)
+- company-news.css:182 (50%)
+- enhanced-knowledge-hub.css:461 (50%)
+- enhanced-task-system.css:157 (50%)
+- live-activity-feed.css:168 (50%)
 
 ### Rule Content:
 ```css
@@ -1017,8 +912,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1852 (0%)
-- enhanced-knowledge-hub.css:496 (0%)
+- analytics-dashboard.css:1844 (0%)
+- enhanced-knowledge-hub.css:467 (0%)
 
 ### Rule Content:
 ```css
@@ -1028,8 +923,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1858 (50%)
-- enhanced-knowledge-hub.css:502 (50%)
+- analytics-dashboard.css:1850 (50%)
+- enhanced-knowledge-hub.css:473 (50%)
 
 ### Rule Content:
 ```css
@@ -1039,9 +934,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1864 (100%)
-- enhanced-knowledge-hub.css:508 (100%)
-- enhanced-task-system.css:2011 (100%)
+- analytics-dashboard.css:1856 (100%)
+- enhanced-knowledge-hub.css:479 (100%)
+- enhanced-task-system.css:1972 (100%)
 
 ### Rule Content:
 ```css
@@ -1053,7 +948,7 @@ to { opacity: 1; transform: scale(1); }
 ### Locations:
 - analytics-dashboard.css:459 (0%,
     100%)
-- enhanced-knowledge-hub.css:615 (0%,
+- enhanced-knowledge-hub.css:586 (0%,
     100%)
 
 ### Rule Content:
@@ -1066,15 +961,15 @@ to { opacity: 1; transform: scale(1); }
 ### Locations:
 - analytics-dashboard.css:505 (0%,
     100%)
-- enhanced-knowledge-hub.css:670 (0%,
+- enhanced-knowledge-hub.css:641 (0%,
     100%)
-- enhanced-task-system.css:810 (0%,
+- enhanced-task-system.css:791 (0%,
     100%)
-- welcome-section.css:2246 (0%,
+- welcome-section.css:2257 (0%,
     100%)
-- welcome-section.css:5162 (0%,
+- welcome-section.css:5173 (0%,
     100%)
-- welcome-section.css:8124 (0%,
+- welcome-section.css:8127 (0%,
     100%)
 
 ### Rule Content:
@@ -1086,8 +981,8 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - analytics-dashboard.css:511 (50%)
-- enhanced-knowledge-hub.css:676 (50%)
-- enhanced-task-system.css:2058 (50%)
+- enhanced-knowledge-hub.css:647 (50%)
+- enhanced-task-system.css:2019 (50%)
 
 ### Rule Content:
 ```css
@@ -1099,7 +994,7 @@ to { opacity: 1; transform: scale(1); }
 ### Locations:
 - analytics-dashboard.css:596 (0%,
     100%)
-- enhanced-knowledge-hub.css:696 (0%,
+- enhanced-knowledge-hub.css:667 (0%,
     100%)
 
 ### Rule Content:
@@ -1111,7 +1006,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - analytics-dashboard.css:603 (50%)
-- enhanced-knowledge-hub.css:703 (50%)
+- enhanced-knowledge-hub.css:674 (50%)
 
 ### Rule Content:
 ```css
@@ -1121,8 +1016,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:2090 (0%, 100%)
-- enhanced-knowledge-hub.css:1075 (0%,
+- contest-enhancements.css:2058 (0%, 100%)
+- enhanced-knowledge-hub.css:1046 (0%,
     100%)
 - team-chat-widget.css:177 (0%, 100%)
 
@@ -1134,8 +1029,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:357 (.hub-title.spectacular)
-- enhanced-knowledge-hub.css:2527 (.hub-title.spectacular)
+- enhanced-knowledge-hub.css:328 (.hub-title.spectacular)
+- enhanced-knowledge-hub.css:2474 (.hub-title.spectacular)
 
 ### Rule Content:
 ```css
@@ -1146,7 +1041,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - analytics-dashboard.css:551 (50%)
-- enhanced-knowledge-hub.css:2750 (50%)
+- enhanced-knowledge-hub.css:2697 (50%)
 
 ### Rule Content:
 ```css
@@ -1156,8 +1051,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:1545 (.gap-info)
-- enhanced-knowledge-hub.css:2906 (.gap-info)
+- enhanced-knowledge-hub.css:1508 (.gap-info)
+- enhanced-knowledge-hub.css:2845 (.gap-info)
 
 ### Rule Content:
 ```css
@@ -1167,8 +1062,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:1656 (.trending-info)
-- enhanced-knowledge-hub.css:3052 (.trending-info)
+- enhanced-knowledge-hub.css:1619 (.trending-info)
+- enhanced-knowledge-hub.css:2981 (.trending-info)
 
 ### Rule Content:
 ```css
@@ -1178,8 +1073,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4060 (.enhanced-knowledge-hub.spectacular-mode)
-- enhanced-knowledge-hub.css:4100 (.enhanced-knowledge-hub.spectacular-mode)
+- enhanced-knowledge-hub.css:3979 (.enhanced-knowledge-hub.spectacular-mode)
+- enhanced-knowledge-hub.css:4019 (.enhanced-knowledge-hub.spectacular-mode)
 
 ### Rule Content:
 ```css
@@ -1189,8 +1084,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:3408 (.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular)
-- enhanced-knowledge-hub.css:4134 (.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular)
+- enhanced-knowledge-hub.css:3327 (.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular)
+- enhanced-knowledge-hub.css:4053 (.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular)
 
 ### Rule Content:
 ```css
@@ -1200,11 +1095,11 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1911 (50%)
-- enhanced-task-system.css:816 (50%)
-- welcome-section.css:2252 (50%)
-- welcome-section.css:5168 (50%)
-- welcome-section.css:8130 (50%)
+- analytics-dashboard.css:1903 (50%)
+- enhanced-task-system.css:797 (50%)
+- welcome-section.css:2263 (50%)
+- welcome-section.css:5179 (50%)
+- welcome-section.css:8133 (50%)
 
 ### Rule Content:
 ```css
@@ -1216,13 +1111,13 @@ to { opacity: 1; transform: scale(1); }
 ### Locations:
 - analytics-dashboard.css:560 (0%,
     100%)
-- enhanced-task-system.css:865 (0%,
+- enhanced-task-system.css:846 (0%,
     100%)
-- welcome-section.css:2278 (0%,
+- welcome-section.css:2289 (0%,
     100%)
-- welcome-section.css:5194 (0%,
+- welcome-section.css:5205 (0%,
     100%)
-- welcome-section.css:8156 (0%,
+- welcome-section.css:8159 (0%,
     100%)
 
 ### Rule Content:
@@ -1234,7 +1129,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - analytics-dashboard.css:1250 (.ai-insight-card:hover::before)
-- enhanced-task-system.css:1193 (.ai-insight-card:hover::before)
+- enhanced-task-system.css:1174 (.ai-insight-card:hover::before)
 
 ### Rule Content:
 ```css
@@ -1244,19 +1139,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1309 (.insight-meta)
-- enhanced-task-system.css:1216 (.insight-meta)
-
-### Rule Content:
-```css
-.insight-meta { flex: 1; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- analytics-dashboard.css:1374 (.impact-badge)
-- enhanced-task-system.css:1286 (.impact-badge)
+- analytics-dashboard.css:1370 (.impact-badge)
+- enhanced-task-system.css:1257 (.impact-badge)
 
 ### Rule Content:
 ```css
@@ -1266,8 +1150,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1386 (.impact-badge.high)
-- enhanced-task-system.css:1298 (.impact-badge.high)
+- analytics-dashboard.css:1382 (.impact-badge.high)
+- enhanced-task-system.css:1269 (.impact-badge.high)
 
 ### Rule Content:
 ```css
@@ -1277,8 +1161,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1391 (.impact-badge.medium)
-- enhanced-task-system.css:1303 (.impact-badge.medium)
+- analytics-dashboard.css:1387 (.impact-badge.medium)
+- enhanced-task-system.css:1274 (.impact-badge.medium)
 
 ### Rule Content:
 ```css
@@ -1288,8 +1172,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1396 (.impact-badge.low)
-- enhanced-task-system.css:1308 (.impact-badge.low)
+- analytics-dashboard.css:1392 (.impact-badge.low)
+- enhanced-task-system.css:1279 (.impact-badge.low)
 
 ### Rule Content:
 ```css
@@ -1299,8 +1183,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1420 (.insight-action-btn.primary)
-- enhanced-task-system.css:1333 (.insight-action-btn.primary)
+- analytics-dashboard.css:1416 (.insight-action-btn.primary)
+- enhanced-task-system.css:1304 (.insight-action-btn.primary)
 
 ### Rule Content:
 ```css
@@ -1310,8 +1194,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1431 (.insight-action-btn.secondary)
-- enhanced-task-system.css:1345 (.insight-action-btn.secondary)
+- analytics-dashboard.css:1427 (.insight-action-btn.secondary)
+- enhanced-task-system.css:1316 (.insight-action-btn.secondary)
 
 ### Rule Content:
 ```css
@@ -1322,7 +1206,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-management.css:186 (.filter-controls)
-- enhanced-task-system.css:1423 (.filter-controls)
+- enhanced-task-system.css:1394 (.filter-controls)
 
 ### Rule Content:
 ```css
@@ -1332,8 +1216,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components\task-system.css:78 (.task-card-header)
-- enhanced-task-system.css:1657 (.task-card-header)
+- components\task-system.css:54 (.task-card-header)
+- enhanced-task-system.css:1628 (.task-card-header)
 
 ### Rule Content:
 ```css
@@ -1343,8 +1227,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components\task-system.css:92 (.priority-icon)
-- enhanced-task-system.css:1691 (.priority-icon)
+- components\task-system.css:68 (.priority-icon)
+- enhanced-task-system.css:1662 (.priority-icon)
 
 ### Rule Content:
 ```css
@@ -1355,7 +1239,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-management.css:451 (.task-card-content)
-- enhanced-task-system.css:1695 (.task-card-content)
+- enhanced-task-system.css:1666 (.task-card-content)
 
 ### Rule Content:
 ```css
@@ -1365,8 +1249,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components\task-system.css:104 (.task-card-progress)
-- enhanced-task-system.css:1736 (.task-card-progress)
+- components\task-system.css:80 (.task-card-progress)
+- enhanced-task-system.css:1707 (.task-card-progress)
 
 ### Rule Content:
 ```css
@@ -1376,8 +1260,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components\task-system.css:108 (.progress-header)
-- enhanced-task-system.css:1740 (.progress-header)
+- components\task-system.css:84 (.progress-header)
+- enhanced-task-system.css:1711 (.progress-header)
 
 ### Rule Content:
 ```css
@@ -1387,8 +1271,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components\task-system.css:154 (.task-meta-items)
-- enhanced-task-system.css:1828 (.task-meta-items)
+- components\task-system.css:130 (.task-meta-items)
+- enhanced-task-system.css:1789 (.task-meta-items)
 
 ### Rule Content:
 ```css
@@ -1398,8 +1282,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1873 (0%)
-- enhanced-task-system.css:2020 (0%)
+- analytics-dashboard.css:1865 (0%)
+- enhanced-task-system.css:1981 (0%)
 
 ### Rule Content:
 ```css
@@ -1409,8 +1293,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1878 (20%)
-- enhanced-task-system.css:2025 (20%)
+- analytics-dashboard.css:1870 (20%)
+- enhanced-task-system.css:1986 (20%)
 
 ### Rule Content:
 ```css
@@ -1420,8 +1304,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1906 (0%)
-- enhanced-task-system.css:2053 (0%)
+- analytics-dashboard.css:1898 (0%)
+- enhanced-task-system.css:2014 (0%)
 
 ### Rule Content:
 ```css
@@ -1431,8 +1315,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1990 (.shortcuts-content)
-- enhanced-task-system.css:2137 (.shortcuts-content)
+- analytics-dashboard.css:1982 (.shortcuts-content)
+- enhanced-task-system.css:2098 (.shortcuts-content)
 
 ### Rule Content:
 ```css
@@ -1442,8 +1326,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1999 (.shortcuts-content h3)
-- enhanced-task-system.css:2146 (.shortcuts-content h3)
+- analytics-dashboard.css:1991 (.shortcuts-content h3)
+- enhanced-task-system.css:2107 (.shortcuts-content h3)
 
 ### Rule Content:
 ```css
@@ -1453,8 +1337,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2005 (.shortcuts-content pre)
-- enhanced-task-system.css:2152 (.shortcuts-content pre)
+- analytics-dashboard.css:1997 (.shortcuts-content pre)
+- enhanced-task-system.css:2113 (.shortcuts-content pre)
 
 ### Rule Content:
 ```css
@@ -1464,8 +1348,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2014 (.close-shortcuts)
-- enhanced-task-system.css:2161 (.close-shortcuts)
+- analytics-dashboard.css:2006 (.close-shortcuts)
+- enhanced-task-system.css:2122 (.close-shortcuts)
 
 ### Rule Content:
 ```css
@@ -1475,9 +1359,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components\task-system.css:218 (.task-cards-grid)
-- enhanced-task-system.css:2212 (.task-cards-grid)
-- enhanced-task-system.css:2862 (.task-cards-grid)
+- components\task-system.css:194 (.task-cards-grid)
+- enhanced-task-system.css:2173 (.task-cards-grid)
+- enhanced-task-system.css:2823 (.task-cards-grid)
 
 ### Rule Content:
 ```css
@@ -1487,9 +1371,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components\task-system.css:230 (.analytics-grid)
-- enhanced-task-system.css:2216 (.analytics-grid)
-- enhanced-task-system.css:2812 (.analytics-grid)
+- components\task-system.css:206 (.analytics-grid)
+- enhanced-task-system.css:2177 (.analytics-grid)
+- enhanced-task-system.css:2773 (.analytics-grid)
 
 ### Rule Content:
 ```css
@@ -1499,9 +1383,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2215 (0%,
+- analytics-dashboard.css:2207 (0%,
     100%)
-- enhanced-task-system.css:2369 (0%,
+- enhanced-task-system.css:2330 (0%,
     100%)
 
 ### Rule Content:
@@ -1512,9 +1396,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2245 (0%,
+- analytics-dashboard.css:2237 (0%,
     100%)
-- enhanced-task-system.css:2384 (0%,
+- enhanced-task-system.css:2345 (0%,
     100%)
 - smart-search-overlay.css:125 (0%, 100%)
 
@@ -1526,8 +1410,32 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
+- analytics-dashboard.css:2264 (0%)
+- enhanced-task-system.css:2372 (0%)
+
+### Rule Content:
+```css
+0% { transform: scale(1); }
+```
+
+## Duplicate Rule Found
+
+### Locations:
+- analytics-dashboard.css:2272 (100%)
+- enhanced-task-system.css:2380 (100%)
+- live-activity-feed.css:626 (100%)
+- live-activity-feed.css:1065 (100%)
+
+### Rule Content:
+```css
+100% { transform: scale(1); }
+```
+
+## Duplicate Rule Found
+
+### Locations:
 - components\task-management.css:722 (.task-cards-grid)
-- enhanced-task-system.css:2772 (.task-cards-grid)
+- enhanced-task-system.css:2733 (.task-cards-grid)
 
 ### Rule Content:
 ```css
@@ -1537,8 +1445,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2296 (.task-sparkle:nth-child(n+4))
-- enhanced-task-system.css:2787 (.task-sparkle:nth-child(n+4))
+- enhanced-task-system.css:2257 (.task-sparkle:nth-child(n+4))
+- enhanced-task-system.css:2748 (.task-sparkle:nth-child(n+4))
 
 ### Rule Content:
 ```css
@@ -1548,8 +1456,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2280 (.task-system-title)
-- enhanced-task-system.css:2798 (.task-system-title)
+- enhanced-task-system.css:2241 (.task-system-title)
+- enhanced-task-system.css:2759 (.task-system-title)
 
 ### Rule Content:
 ```css
@@ -1559,9 +1467,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components\task-system.css:236 (.analytics-grid)
-- enhanced-task-system.css:2866 (.analytics-grid)
-- enhanced-task-system.css:2904 (.analytics-grid)
+- components\task-system.css:212 (.analytics-grid)
+- enhanced-task-system.css:2827 (.analytics-grid)
+- enhanced-task-system.css:2865 (.analytics-grid)
 
 ### Rule Content:
 ```css
@@ -1571,9 +1479,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components\task-system.css:242 (.analytics-grid)
-- enhanced-task-system.css:2940 (.analytics-grid)
-- enhanced-task-system.css:2972 (.analytics-grid)
+- components\task-system.css:218 (.analytics-grid)
+- enhanced-task-system.css:2901 (.analytics-grid)
+- enhanced-task-system.css:2933 (.analytics-grid)
 
 ### Rule Content:
 ```css
@@ -1583,9 +1491,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2964 (.ai-insights-grid)
-- enhanced-task-system.css:2993 (.ai-insights-grid)
-- enhanced-task-system.css:3322 (.ai-insights-grid)
+- enhanced-task-system.css:2925 (.ai-insights-grid)
+- enhanced-task-system.css:2954 (.ai-insights-grid)
+- enhanced-task-system.css:3283 (.ai-insights-grid)
 
 ### Rule Content:
 ```css
@@ -1595,8 +1503,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2254 (.task-cards-grid)
-- enhanced-task-system.css:3302 (.task-cards-grid)
+- enhanced-task-system.css:2215 (.task-cards-grid)
+- enhanced-task-system.css:3263 (.task-cards-grid)
 
 ### Rule Content:
 ```css
@@ -1606,8 +1514,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2258 (.analytics-grid)
-- enhanced-task-system.css:3306 (.analytics-grid)
+- enhanced-task-system.css:2219 (.analytics-grid)
+- enhanced-task-system.css:3267 (.analytics-grid)
 - team.css:1458 (.analytics-grid)
 
 ### Rule Content:
@@ -1618,8 +1526,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2932 (.ai-insights-grid)
-- enhanced-task-system.css:3312 (.ai-insights-grid)
+- enhanced-task-system.css:2893 (.ai-insights-grid)
+- enhanced-task-system.css:3273 (.ai-insights-grid)
 
 ### Rule Content:
 ```css
@@ -1629,8 +1537,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4634 (.filter-group)
-- enhanced-task-system.css:4636 (.filter-group)
+- enhanced-knowledge-hub.css:4553 (.filter-group)
+- enhanced-task-system.css:4583 (.filter-group)
 
 ### Rule Content:
 ```css
@@ -1640,8 +1548,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4639 (.filter-btn)
-- enhanced-task-system.css:4641 (.filter-btn)
+- enhanced-knowledge-hub.css:4558 (.filter-btn)
+- enhanced-task-system.css:4588 (.filter-btn)
 
 ### Rule Content:
 ```css
@@ -1651,8 +1559,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4652 (.filter-btn:hover)
-- enhanced-task-system.css:4654 (.filter-btn:hover)
+- enhanced-knowledge-hub.css:4571 (.filter-btn:hover)
+- enhanced-task-system.css:4601 (.filter-btn:hover)
 
 ### Rule Content:
 ```css
@@ -1662,8 +1570,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4658 (.filter-btn.active)
-- enhanced-task-system.css:4660 (.filter-btn.active)
+- enhanced-knowledge-hub.css:4577 (.filter-btn.active)
+- enhanced-task-system.css:4607 (.filter-btn.active)
 
 ### Rule Content:
 ```css
@@ -1673,8 +1581,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4679 (.filter-group)
-- enhanced-task-system.css:4705 (.filter-group)
+- enhanced-knowledge-hub.css:4598 (.filter-group)
+- enhanced-task-system.css:4652 (.filter-group)
 
 ### Rule Content:
 ```css
@@ -1684,7 +1592,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:248 (*:focus-visible)
+- critical-fixes.css:390 (*:focus-visible)
 - enhanced-theme-fixes.css:121 (*:focus-visible)
 
 ### Rule Content:
@@ -1695,8 +1603,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:401 (.dropdown-item:hover)
-- enhanced.css:528 (.dropdown-item:hover)
+- components.css:478 (.dropdown-item:hover)
+- enhanced.css:506 (.dropdown-item:hover)
 
 ### Rule Content:
 ```css
@@ -1707,7 +1615,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-management.css:445 (.action-btn svg)
-- enhanced.css:1590 (.action-btn svg)
+- enhanced.css:1568 (.action-btn svg)
 
 ### Rule Content:
 ```css
@@ -1717,21 +1625,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- dream-workspace.css:282 (from)
-- enhanced.css:1960 (from)
-- team-chat-widget.css:332 (from)
-
-### Rule Content:
-```css
-from { opacity: 0; transform: translateY(10px); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- company-news.css:524 (0%,
+- company-news.css:505 (0%,
     100%)
-- live-activity-feed.css:731 (0%,
+- live-activity-feed.css:697 (0%,
     100%)
 
 ### Rule Content:
@@ -1742,8 +1638,8 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- live-activity-feed.css:651 (0%)
-- live-activity-feed.css:1090 (0%)
+- live-activity-feed.css:617 (0%)
+- live-activity-feed.css:1056 (0%)
 
 ### Rule Content:
 ```css
@@ -1753,8 +1649,8 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- live-activity-feed.css:655 (50%)
-- live-activity-feed.css:1094 (50%)
+- live-activity-feed.css:621 (50%)
+- live-activity-feed.css:1060 (50%)
 
 ### Rule Content:
 ```css
@@ -1764,8 +1660,8 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- live-activity-feed.css:381 (50%)
-- live-activity-feed.css:1112 (50%)
+- live-activity-feed.css:347 (50%)
+- live-activity-feed.css:1078 (50%)
 
 ### Rule Content:
 ```css
@@ -1786,7 +1682,7 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical.css:210 (.btn)
+- critical.css:172 (.btn)
 - mobile-optimizations.css:132 (.btn)
 
 ### Rule Content:
@@ -1907,7 +1803,19 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:2091 (50%)
+- analytics-dashboard.css:2268 (50%)
+- team-chat-widget.css:95 (50%)
+- wellness-tracker.css:46 (50%)
+
+### Rule Content:
+```css
+50% { transform: scale(1.1); }
+```
+
+## Duplicate Rule Found
+
+### Locations:
+- contest-enhancements.css:2059 (50%)
 - team-chat-widget.css:178 (50%)
 
 ### Rule Content:
@@ -1918,7 +1826,18 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced.css:1541 (.status-indicator.online)
+- animations.css:83 (from)
+- team-chat-widget.css:332 (from)
+
+### Rule Content:
+```css
+from { opacity: 0; transform: translateY(10px); }
+```
+
+## Duplicate Rule Found
+
+### Locations:
+- enhanced.css:1519 (.status-indicator.online)
 - team.css:323 (.status-indicator.online)
 
 ### Rule Content:
@@ -1929,7 +1848,7 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced.css:1545 (.status-indicator.away)
+- enhanced.css:1523 (.status-indicator.away)
 - team.css:327 (.status-indicator.away)
 
 ### Rule Content:
@@ -1940,7 +1859,7 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced.css:1549 (.status-indicator.offline)
+- enhanced.css:1527 (.status-indicator.offline)
 - team.css:331 (.status-indicator.offline)
 
 ### Rule Content:
@@ -1951,7 +1870,7 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced.css:1184 (.achievement-content)
+- enhanced.css:1162 (.achievement-content)
 - team.css:861 (.achievement-content)
 
 ### Rule Content:
@@ -1962,7 +1881,7 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced.css:1202 (.achievement-date)
+- enhanced.css:1180 (.achievement-date)
 - team.css:885 (.achievement-date)
 
 ### Rule Content:
@@ -1979,6 +1898,17 @@ from { opacity: 0; transform: translateY(10px); }
 ### Rule Content:
 ```css
 .activity-icon svg { width: 16px; height: 16px; }
+```
+
+## Duplicate Rule Found
+
+### Locations:
+- analytics-dashboard.css:174 (.activity-content)
+- team.css:972 (.activity-content)
+
+### Rule Content:
+```css
+.activity-content { flex: 1; }
 ```
 
 ## Duplicate Rule Found
@@ -2030,8 +1960,8 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - accessibility-enhancements.css:133 (.sr-only)
 - utilities.css:6 (.sr-only)
-- welcome-section.css:2842 (.sr-only)
-- welcome-section.css:5804 (.sr-only)
+- welcome-section.css:2853 (.sr-only)
+- welcome-section.css:5807 (.sr-only)
 
 ### Rule Content:
 ```css
@@ -2064,9 +1994,9 @@ from { opacity: 0; transform: translateY(10px); }
 
 ### Locations:
 - team.css:1705 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:1103 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:4024 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:6990 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:1114 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:4035 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:6993 (.quick-insights .insights-title .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -2078,11 +2008,11 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - team.css:1713 (.quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:hover path)
-- welcome-section.css:1111 (.quick-insights .insights-title .btn-icon:hover svg,
+- welcome-section.css:1122 (.quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:hover path)
-- welcome-section.css:4032 (.quick-insights .insights-title .btn-icon:hover svg,
+- welcome-section.css:4043 (.quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:hover path)
-- welcome-section.css:6998 (.quick-insights .insights-title .btn-icon:hover svg,
+- welcome-section.css:7001 (.quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:hover path)
 
 ### Rule Content:
@@ -2093,13 +2023,13 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1355 (.quick-insights .insight-content,
+- welcome-section.css:1366 (.quick-insights .insight-content,
 .quick-insights .insight-content *)
-- welcome-section.css:1404 (.quick-insights .insight-content,
+- welcome-section.css:1415 (.quick-insights .insight-content,
 .quick-insights .insight-content *)
-- welcome-section.css:4324 (.quick-insights .insight-content,
+- welcome-section.css:4335 (.quick-insights .insight-content,
 .quick-insights .insight-content *)
-- welcome-section.css:7286 (.quick-insights .insight-content,
+- welcome-section.css:7289 (.quick-insights .insight-content,
 .quick-insights .insight-content *)
 
 ### Rule Content:
@@ -2110,27 +2040,27 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1374 (.quick-insights .insight-content h4[style*="color"],
+- welcome-section.css:1385 (.quick-insights .insight-content h4[style*="color"],
 .quick-insights .insight-content p[style*="color"],
 .quick-insights .insight-content span[style*="color"],
 .quick-insights .insight-content div[style*="color"])
-- welcome-section.css:1423 (.quick-insights .insight-content h4[style*="color"],
+- welcome-section.css:1434 (.quick-insights .insight-content h4[style*="color"],
 .quick-insights .insight-content p[style*="color"],
 .quick-insights .insight-content span[style*="color"],
 .quick-insights .insight-content div[style*="color"])
-- welcome-section.css:4294 (.quick-insights .insight-content h4[style*="color"],
+- welcome-section.css:4305 (.quick-insights .insight-content h4[style*="color"],
 .quick-insights .insight-content p[style*="color"],
 .quick-insights .insight-content span[style*="color"],
 .quick-insights .insight-content div[style*="color"])
-- welcome-section.css:4343 (.quick-insights .insight-content h4[style*="color"],
+- welcome-section.css:4354 (.quick-insights .insight-content h4[style*="color"],
 .quick-insights .insight-content p[style*="color"],
 .quick-insights .insight-content span[style*="color"],
 .quick-insights .insight-content div[style*="color"])
-- welcome-section.css:7256 (.quick-insights .insight-content h4[style*="color"],
+- welcome-section.css:7259 (.quick-insights .insight-content h4[style*="color"],
 .quick-insights .insight-content p[style*="color"],
 .quick-insights .insight-content span[style*="color"],
 .quick-insights .insight-content div[style*="color"])
-- welcome-section.css:7305 (.quick-insights .insight-content h4[style*="color"],
+- welcome-section.css:7308 (.quick-insights .insight-content h4[style*="color"],
 .quick-insights .insight-content p[style*="color"],
 .quick-insights .insight-content span[style*="color"],
 .quick-insights .insight-content div[style*="color"])
@@ -2143,11 +2073,11 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2493 (0%,
+- enhanced-task-system.css:2454 (0%,
     100%)
-- welcome-section.css:2612 (0%,
+- welcome-section.css:2623 (0%,
     100%)
-- welcome-section.css:5606 (0%,
+- welcome-section.css:5609 (0%,
     100%)
 
 ### Rule Content:
@@ -2158,9 +2088,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2499 (50%)
-- welcome-section.css:2618 (50%)
-- welcome-section.css:5612 (50%)
+- enhanced-task-system.css:2460 (50%)
+- welcome-section.css:2629 (50%)
+- welcome-section.css:5615 (50%)
 
 ### Rule Content:
 ```css
@@ -2170,9 +2100,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:604 (.welcome-section .quick-actions .btn:hover::before)
-- welcome-section.css:3096 (.welcome-section .quick-actions .btn:hover::before)
-- welcome-section.css:6051 (.welcome-section .quick-actions .btn:hover::before)
+- welcome-section.css:615 (.welcome-section .quick-actions .btn:hover::before)
+- welcome-section.css:3107 (.welcome-section .quick-actions .btn:hover::before)
+- welcome-section.css:6054 (.welcome-section .quick-actions .btn:hover::before)
 
 ### Rule Content:
 ```css
@@ -2182,9 +2112,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:271 (.welcome-header)
-- welcome-section.css:3121 (.welcome-header)
-- welcome-section.css:6076 (.welcome-header)
+- welcome-section.css:282 (.welcome-header)
+- welcome-section.css:3132 (.welcome-header)
+- welcome-section.css:6079 (.welcome-header)
 
 ### Rule Content:
 ```css
@@ -2194,9 +2124,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:277 (.welcome-title)
-- welcome-section.css:3127 (.welcome-title)
-- welcome-section.css:6082 (.welcome-title)
+- welcome-section.css:288 (.welcome-title)
+- welcome-section.css:3138 (.welcome-title)
+- welcome-section.css:6085 (.welcome-title)
 
 ### Rule Content:
 ```css
@@ -2206,9 +2136,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:290 (.greeting)
-- welcome-section.css:3140 (.greeting)
-- welcome-section.css:6095 (.greeting)
+- welcome-section.css:301 (.greeting)
+- welcome-section.css:3151 (.greeting)
+- welcome-section.css:6098 (.greeting)
 
 ### Rule Content:
 ```css
@@ -2218,9 +2148,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:303 (.welcome-title .user-name)
-- welcome-section.css:3153 (.welcome-title .user-name)
-- welcome-section.css:6108 (.welcome-title .user-name)
+- welcome-section.css:314 (.welcome-title .user-name)
+- welcome-section.css:3164 (.welcome-title .user-name)
+- welcome-section.css:6111 (.welcome-title .user-name)
 
 ### Rule Content:
 ```css
@@ -2230,9 +2160,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:316 (.welcome-title .user-name::after)
-- welcome-section.css:3166 (.welcome-title .user-name::after)
-- welcome-section.css:6121 (.welcome-title .user-name::after)
+- welcome-section.css:327 (.welcome-title .user-name::after)
+- welcome-section.css:3177 (.welcome-title .user-name::after)
+- welcome-section.css:6124 (.welcome-title .user-name::after)
 
 ### Rule Content:
 ```css
@@ -2242,9 +2172,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:327 (.welcome-subtitle)
-- welcome-section.css:3177 (.welcome-subtitle)
-- welcome-section.css:6132 (.welcome-subtitle)
+- welcome-section.css:338 (.welcome-subtitle)
+- welcome-section.css:3188 (.welcome-subtitle)
+- welcome-section.css:6135 (.welcome-subtitle)
 
 ### Rule Content:
 ```css
@@ -2254,9 +2184,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:335 (.welcome-status)
-- welcome-section.css:3185 (.welcome-status)
-- welcome-section.css:6140 (.welcome-status)
+- welcome-section.css:346 (.welcome-status)
+- welcome-section.css:3196 (.welcome-status)
+- welcome-section.css:6143 (.welcome-status)
 
 ### Rule Content:
 ```css
@@ -2266,9 +2196,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:342 (.status-indicator)
-- welcome-section.css:3192 (.status-indicator)
-- welcome-section.css:6147 (.status-indicator)
+- welcome-section.css:353 (.status-indicator)
+- welcome-section.css:3203 (.status-indicator)
+- welcome-section.css:6150 (.status-indicator)
 
 ### Rule Content:
 ```css
@@ -2278,9 +2208,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:351 (.status-indicator.online)
-- welcome-section.css:3201 (.status-indicator.online)
-- welcome-section.css:6156 (.status-indicator.online)
+- welcome-section.css:362 (.status-indicator.online)
+- welcome-section.css:3212 (.status-indicator.online)
+- welcome-section.css:6159 (.status-indicator.online)
 
 ### Rule Content:
 ```css
@@ -2290,9 +2220,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:356 (.status-indicator.warning)
-- welcome-section.css:3206 (.status-indicator.warning)
-- welcome-section.css:6161 (.status-indicator.warning)
+- welcome-section.css:367 (.status-indicator.warning)
+- welcome-section.css:3217 (.status-indicator.warning)
+- welcome-section.css:6164 (.status-indicator.warning)
 
 ### Rule Content:
 ```css
@@ -2302,9 +2232,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:361 (.status-indicator.error)
-- welcome-section.css:3211 (.status-indicator.error)
-- welcome-section.css:6166 (.status-indicator.error)
+- welcome-section.css:372 (.status-indicator.error)
+- welcome-section.css:3222 (.status-indicator.error)
+- welcome-section.css:6169 (.status-indicator.error)
 
 ### Rule Content:
 ```css
@@ -2314,9 +2244,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:367 (.status-text)
-- welcome-section.css:3217 (.status-text)
-- welcome-section.css:6172 (.status-text)
+- welcome-section.css:378 (.status-text)
+- welcome-section.css:3228 (.status-text)
+- welcome-section.css:6175 (.status-text)
 
 ### Rule Content:
 ```css
@@ -2326,9 +2256,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:385 (.welcome-stats)
-- welcome-section.css:3235 (.welcome-stats)
-- welcome-section.css:6190 (.welcome-stats)
+- welcome-section.css:396 (.welcome-stats)
+- welcome-section.css:3246 (.welcome-stats)
+- welcome-section.css:6193 (.welcome-stats)
 
 ### Rule Content:
 ```css
@@ -2338,9 +2268,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:395 (.stat-item)
-- welcome-section.css:3245 (.stat-item)
-- welcome-section.css:6200 (.stat-item)
+- welcome-section.css:406 (.stat-item)
+- welcome-section.css:3256 (.stat-item)
+- welcome-section.css:6203 (.stat-item)
 
 ### Rule Content:
 ```css
@@ -2350,9 +2280,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:409 (.stat-item::before)
-- welcome-section.css:3259 (.stat-item::before)
-- welcome-section.css:6214 (.stat-item::before)
+- welcome-section.css:420 (.stat-item::before)
+- welcome-section.css:3270 (.stat-item::before)
+- welcome-section.css:6217 (.stat-item::before)
 
 ### Rule Content:
 ```css
@@ -2362,9 +2292,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:421 (.stat-item:hover)
-- welcome-section.css:3271 (.stat-item:hover)
-- welcome-section.css:6226 (.stat-item:hover)
+- welcome-section.css:432 (.stat-item:hover)
+- welcome-section.css:3282 (.stat-item:hover)
+- welcome-section.css:6229 (.stat-item:hover)
 
 ### Rule Content:
 ```css
@@ -2374,9 +2304,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:427 (.stat-item:hover::before)
-- welcome-section.css:3277 (.stat-item:hover::before)
-- welcome-section.css:6232 (.stat-item:hover::before)
+- welcome-section.css:438 (.stat-item:hover::before)
+- welcome-section.css:3288 (.stat-item:hover::before)
+- welcome-section.css:6235 (.stat-item:hover::before)
 
 ### Rule Content:
 ```css
@@ -2386,9 +2316,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:481 (.stat-label)
-- welcome-section.css:3295 (.stat-label)
-- welcome-section.css:6286 (.stat-label)
+- welcome-section.css:492 (.stat-label)
+- welcome-section.css:3306 (.stat-label)
+- welcome-section.css:6289 (.stat-label)
 
 ### Rule Content:
 ```css
@@ -2398,9 +2328,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:493 (.quick-actions)
-- welcome-section.css:3321 (.quick-actions)
-- welcome-section.css:6298 (.quick-actions)
+- welcome-section.css:504 (.quick-actions)
+- welcome-section.css:3332 (.quick-actions)
+- welcome-section.css:6301 (.quick-actions)
 
 ### Rule Content:
 ```css
@@ -2410,9 +2340,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:503 (.quick-actions .btn)
-- welcome-section.css:3331 (.quick-actions .btn)
-- welcome-section.css:6308 (.quick-actions .btn)
+- welcome-section.css:514 (.quick-actions .btn)
+- welcome-section.css:3342 (.quick-actions .btn)
+- welcome-section.css:6311 (.quick-actions .btn)
 
 ### Rule Content:
 ```css
@@ -2422,9 +2352,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:524 (.quick-actions .btn .btn-icon:hover)
-- welcome-section.css:3352 (.quick-actions .btn .btn-icon:hover)
-- welcome-section.css:6329 (.quick-actions .btn .btn-icon:hover)
+- welcome-section.css:535 (.quick-actions .btn .btn-icon:hover)
+- welcome-section.css:3363 (.quick-actions .btn .btn-icon:hover)
+- welcome-section.css:6332 (.quick-actions .btn .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -2434,9 +2364,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:530 (.quick-actions .btn:hover .btn-icon)
-- welcome-section.css:3358 (.quick-actions .btn:hover .btn-icon)
-- welcome-section.css:6335 (.quick-actions .btn:hover .btn-icon)
+- welcome-section.css:541 (.quick-actions .btn:hover .btn-icon)
+- welcome-section.css:3369 (.quick-actions .btn:hover .btn-icon)
+- welcome-section.css:6338 (.quick-actions .btn:hover .btn-icon)
 
 ### Rule Content:
 ```css
@@ -2446,9 +2376,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:536 (.quick-actions .btn::before)
-- welcome-section.css:3364 (.quick-actions .btn::before)
-- welcome-section.css:6341 (.quick-actions .btn::before)
+- welcome-section.css:547 (.quick-actions .btn::before)
+- welcome-section.css:3375 (.quick-actions .btn::before)
+- welcome-section.css:6344 (.quick-actions .btn::before)
 
 ### Rule Content:
 ```css
@@ -2458,9 +2388,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:547 (.quick-actions .btn:hover::before)
-- welcome-section.css:3375 (.quick-actions .btn:hover::before)
-- welcome-section.css:6352 (.quick-actions .btn:hover::before)
+- welcome-section.css:558 (.quick-actions .btn:hover::before)
+- welcome-section.css:3386 (.quick-actions .btn:hover::before)
+- welcome-section.css:6355 (.quick-actions .btn:hover::before)
 
 ### Rule Content:
 ```css
@@ -2470,9 +2400,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:551 (.quick-actions .btn .btn-icon)
-- welcome-section.css:3379 (.quick-actions .btn .btn-icon)
-- welcome-section.css:6356 (.quick-actions .btn .btn-icon)
+- welcome-section.css:562 (.quick-actions .btn .btn-icon)
+- welcome-section.css:3390 (.quick-actions .btn .btn-icon)
+- welcome-section.css:6359 (.quick-actions .btn .btn-icon)
 
 ### Rule Content:
 ```css
@@ -2482,9 +2412,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:561 (.quick-actions .btn.primary)
-- welcome-section.css:3389 (.quick-actions .btn.primary)
-- welcome-section.css:6366 (.quick-actions .btn.primary)
+- welcome-section.css:572 (.quick-actions .btn.primary)
+- welcome-section.css:3400 (.quick-actions .btn.primary)
+- welcome-section.css:6369 (.quick-actions .btn.primary)
 
 ### Rule Content:
 ```css
@@ -2494,9 +2424,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:568 (.quick-actions .btn.primary:hover)
-- welcome-section.css:3396 (.quick-actions .btn.primary:hover)
-- welcome-section.css:6373 (.quick-actions .btn.primary:hover)
+- welcome-section.css:579 (.quick-actions .btn.primary:hover)
+- welcome-section.css:3407 (.quick-actions .btn.primary:hover)
+- welcome-section.css:6376 (.quick-actions .btn.primary:hover)
 
 ### Rule Content:
 ```css
@@ -2506,9 +2436,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:574 (.quick-actions .btn.secondary)
-- welcome-section.css:3402 (.quick-actions .btn.secondary)
-- welcome-section.css:6379 (.quick-actions .btn.secondary)
+- welcome-section.css:585 (.quick-actions .btn.secondary)
+- welcome-section.css:3413 (.quick-actions .btn.secondary)
+- welcome-section.css:6382 (.quick-actions .btn.secondary)
 
 ### Rule Content:
 ```css
@@ -2518,9 +2448,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:579 (.quick-actions .btn.secondary:hover)
-- welcome-section.css:3407 (.quick-actions .btn.secondary:hover)
-- welcome-section.css:6384 (.quick-actions .btn.secondary:hover)
+- welcome-section.css:590 (.quick-actions .btn.secondary:hover)
+- welcome-section.css:3418 (.quick-actions .btn.secondary:hover)
+- welcome-section.css:6387 (.quick-actions .btn.secondary:hover)
 
 ### Rule Content:
 ```css
@@ -2530,9 +2460,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:641 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:3443 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:6420 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:652 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:3454 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:6423 (.quick-insights .insights-title .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -2542,9 +2472,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:649 (.upcoming-events)
-- welcome-section.css:3451 (.upcoming-events)
-- welcome-section.css:6428 (.upcoming-events)
+- welcome-section.css:660 (.upcoming-events)
+- welcome-section.css:3462 (.upcoming-events)
+- welcome-section.css:6431 (.upcoming-events)
 
 ### Rule Content:
 ```css
@@ -2554,15 +2484,15 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:663 (.upcoming-events-title svg,
+- welcome-section.css:674 (.upcoming-events-title svg,
 .upcoming-events-title .icon,
 .welcome-section .insights-title svg,
 .welcome-section .insights-title .icon)
-- welcome-section.css:3465 (.upcoming-events-title svg,
+- welcome-section.css:3476 (.upcoming-events-title svg,
 .upcoming-events-title .icon,
 .welcome-section .insights-title svg,
 .welcome-section .insights-title .icon)
-- welcome-section.css:6442 (.upcoming-events-title svg,
+- welcome-section.css:6445 (.upcoming-events-title svg,
 .upcoming-events-title .icon,
 .welcome-section .insights-title svg,
 .welcome-section .insights-title .icon)
@@ -2575,17 +2505,17 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:677 (.upcoming-events-title *,
+- welcome-section.css:688 (.upcoming-events-title *,
 .upcoming-events-title svg,
 .upcoming-events-title .btn-icon,
 .upcoming-events-title .icon,
 .upcoming-events-title [class*="icon"])
-- welcome-section.css:3479 (.upcoming-events-title *,
+- welcome-section.css:3490 (.upcoming-events-title *,
 .upcoming-events-title svg,
 .upcoming-events-title .btn-icon,
 .upcoming-events-title .icon,
 .upcoming-events-title [class*="icon"])
-- welcome-section.css:6456 (.upcoming-events-title *,
+- welcome-section.css:6459 (.upcoming-events-title *,
 .upcoming-events-title svg,
 .upcoming-events-title .btn-icon,
 .upcoming-events-title .icon,
@@ -2599,7 +2529,7 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:692 (.upcoming-events-title svg,
+- welcome-section.css:703 (.upcoming-events-title svg,
 .upcoming-events-title .btn-icon,
 .upcoming-events-title .icon,
 .upcoming-events-title [class*="icon"],
@@ -2607,7 +2537,7 @@ from { opacity: 0; transform: translateY(10px); }
 .welcome-section .insights-title .btn-icon,
 .welcome-section .insights-title .icon,
 .welcome-section .insights-title [class*="icon"])
-- welcome-section.css:3494 (.upcoming-events-title svg,
+- welcome-section.css:3505 (.upcoming-events-title svg,
 .upcoming-events-title .btn-icon,
 .upcoming-events-title .icon,
 .upcoming-events-title [class*="icon"],
@@ -2615,7 +2545,7 @@ from { opacity: 0; transform: translateY(10px); }
 .welcome-section .insights-title .btn-icon,
 .welcome-section .insights-title .icon,
 .welcome-section .insights-title [class*="icon"])
-- welcome-section.css:6471 (.upcoming-events-title svg,
+- welcome-section.css:6474 (.upcoming-events-title svg,
 .upcoming-events-title .btn-icon,
 .upcoming-events-title .icon,
 .upcoming-events-title [class*="icon"],
@@ -2632,8 +2562,8 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:710 (.upcoming-events-title .custom-insights-icon)
-- welcome-section.css:3512 (.upcoming-events-title .custom-insights-icon)
+- welcome-section.css:721 (.upcoming-events-title .custom-insights-icon)
+- welcome-section.css:3523 (.upcoming-events-title .custom-insights-icon)
 
 ### Rule Content:
 ```css
@@ -2643,9 +2573,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:724 (.upcoming-events-title)
-- welcome-section.css:3522 (.upcoming-events-title)
-- welcome-section.css:6488 (.upcoming-events-title)
+- welcome-section.css:735 (.upcoming-events-title)
+- welcome-section.css:3533 (.upcoming-events-title)
+- welcome-section.css:6491 (.upcoming-events-title)
 
 ### Rule Content:
 ```css
@@ -2655,9 +2585,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:735 (.events-list)
-- welcome-section.css:3533 (.events-list)
-- welcome-section.css:6499 (.events-list)
+- welcome-section.css:746 (.events-list)
+- welcome-section.css:3544 (.events-list)
+- welcome-section.css:6502 (.events-list)
 
 ### Rule Content:
 ```css
@@ -2667,9 +2597,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:744 (.events-list::-webkit-scrollbar)
-- welcome-section.css:3542 (.events-list::-webkit-scrollbar)
-- welcome-section.css:6508 (.events-list::-webkit-scrollbar)
+- welcome-section.css:755 (.events-list::-webkit-scrollbar)
+- welcome-section.css:3553 (.events-list::-webkit-scrollbar)
+- welcome-section.css:6511 (.events-list::-webkit-scrollbar)
 
 ### Rule Content:
 ```css
@@ -2679,9 +2609,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:748 (.events-list::-webkit-scrollbar-thumb)
-- welcome-section.css:3546 (.events-list::-webkit-scrollbar-thumb)
-- welcome-section.css:6512 (.events-list::-webkit-scrollbar-thumb)
+- welcome-section.css:759 (.events-list::-webkit-scrollbar-thumb)
+- welcome-section.css:3557 (.events-list::-webkit-scrollbar-thumb)
+- welcome-section.css:6515 (.events-list::-webkit-scrollbar-thumb)
 
 ### Rule Content:
 ```css
@@ -2691,9 +2621,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:805 (.welcome-section .insights-section)
-- welcome-section.css:3637 (.welcome-section .insights-section)
-- welcome-section.css:6603 (.welcome-section .insights-section)
+- welcome-section.css:816 (.welcome-section .insights-section)
+- welcome-section.css:3648 (.welcome-section .insights-section)
+- welcome-section.css:6606 (.welcome-section .insights-section)
 
 ### Rule Content:
 ```css
@@ -2703,9 +2633,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:817 (.welcome-section .insights-title)
-- welcome-section.css:3649 (.welcome-section .insights-title)
-- welcome-section.css:6615 (.welcome-section .insights-title)
+- welcome-section.css:828 (.welcome-section .insights-title)
+- welcome-section.css:3660 (.welcome-section .insights-title)
+- welcome-section.css:6618 (.welcome-section .insights-title)
 
 ### Rule Content:
 ```css
@@ -2715,9 +2645,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:828 (.welcome-section .insights-grid)
-- welcome-section.css:3660 (.welcome-section .insights-grid)
-- welcome-section.css:6626 (.welcome-section .insights-grid)
+- welcome-section.css:839 (.welcome-section .insights-grid)
+- welcome-section.css:3671 (.welcome-section .insights-grid)
+- welcome-section.css:6629 (.welcome-section .insights-grid)
 
 ### Rule Content:
 ```css
@@ -2727,9 +2657,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:834 (.welcome-section .insight-card)
-- welcome-section.css:3666 (.welcome-section .insight-card)
-- welcome-section.css:6632 (.welcome-section .insight-card)
+- welcome-section.css:845 (.welcome-section .insight-card)
+- welcome-section.css:3677 (.welcome-section .insight-card)
+- welcome-section.css:6635 (.welcome-section .insight-card)
 
 ### Rule Content:
 ```css
@@ -2739,9 +2669,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:845 (.welcome-section .insight-card::before)
-- welcome-section.css:3677 (.welcome-section .insight-card::before)
-- welcome-section.css:6643 (.welcome-section .insight-card::before)
+- welcome-section.css:856 (.welcome-section .insight-card::before)
+- welcome-section.css:3688 (.welcome-section .insight-card::before)
+- welcome-section.css:6646 (.welcome-section .insight-card::before)
 
 ### Rule Content:
 ```css
@@ -2751,9 +2681,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:857 (.welcome-section .insight-card:hover)
-- welcome-section.css:3689 (.welcome-section .insight-card:hover)
-- welcome-section.css:6655 (.welcome-section .insight-card:hover)
+- welcome-section.css:868 (.welcome-section .insight-card:hover)
+- welcome-section.css:3700 (.welcome-section .insight-card:hover)
+- welcome-section.css:6658 (.welcome-section .insight-card:hover)
 
 ### Rule Content:
 ```css
@@ -2763,9 +2693,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:863 (.welcome-section .insight-card:hover::before)
-- welcome-section.css:3695 (.welcome-section .insight-card:hover::before)
-- welcome-section.css:6661 (.welcome-section .insight-card:hover::before)
+- welcome-section.css:874 (.welcome-section .insight-card:hover::before)
+- welcome-section.css:3706 (.welcome-section .insight-card:hover::before)
+- welcome-section.css:6664 (.welcome-section .insight-card:hover::before)
 
 ### Rule Content:
 ```css
@@ -2775,9 +2705,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:867 (.welcome-section .insight-card h4)
-- welcome-section.css:3699 (.welcome-section .insight-card h4)
-- welcome-section.css:6665 (.welcome-section .insight-card h4)
+- welcome-section.css:878 (.welcome-section .insight-card h4)
+- welcome-section.css:3710 (.welcome-section .insight-card h4)
+- welcome-section.css:6668 (.welcome-section .insight-card h4)
 
 ### Rule Content:
 ```css
@@ -2787,9 +2717,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:875 (.welcome-section .insight-card p)
-- welcome-section.css:3707 (.welcome-section .insight-card p)
-- welcome-section.css:6673 (.welcome-section .insight-card p)
+- welcome-section.css:886 (.welcome-section .insight-card p)
+- welcome-section.css:3718 (.welcome-section .insight-card p)
+- welcome-section.css:6676 (.welcome-section .insight-card p)
 
 ### Rule Content:
 ```css
@@ -2799,9 +2729,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:883 (.welcome-section .insight-card .insight-icon)
-- welcome-section.css:3715 (.welcome-section .insight-card .insight-icon)
-- welcome-section.css:6681 (.welcome-section .insight-card .insight-icon)
+- welcome-section.css:894 (.welcome-section .insight-card .insight-icon)
+- welcome-section.css:3726 (.welcome-section .insight-card .insight-icon)
+- welcome-section.css:6684 (.welcome-section .insight-card .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2811,9 +2741,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:895 (.welcome-section .insight-card .insight-icon svg)
-- welcome-section.css:3727 (.welcome-section .insight-card .insight-icon svg)
-- welcome-section.css:6693 (.welcome-section .insight-card .insight-icon svg)
+- welcome-section.css:906 (.welcome-section .insight-card .insight-icon svg)
+- welcome-section.css:3738 (.welcome-section .insight-card .insight-icon svg)
+- welcome-section.css:6696 (.welcome-section .insight-card .insight-icon svg)
 
 ### Rule Content:
 ```css
@@ -2823,9 +2753,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:903 (.welcome-section .insight-card.positive .insight-icon)
-- welcome-section.css:3735 (.welcome-section .insight-card.positive .insight-icon)
-- welcome-section.css:6701 (.welcome-section .insight-card.positive .insight-icon)
+- welcome-section.css:914 (.welcome-section .insight-card.positive .insight-icon)
+- welcome-section.css:3746 (.welcome-section .insight-card.positive .insight-icon)
+- welcome-section.css:6704 (.welcome-section .insight-card.positive .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2835,9 +2765,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:908 (.welcome-section .insight-card.info .insight-icon)
-- welcome-section.css:3740 (.welcome-section .insight-card.info .insight-icon)
-- welcome-section.css:6706 (.welcome-section .insight-card.info .insight-icon)
+- welcome-section.css:919 (.welcome-section .insight-card.info .insight-icon)
+- welcome-section.css:3751 (.welcome-section .insight-card.info .insight-icon)
+- welcome-section.css:6709 (.welcome-section .insight-card.info .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2847,9 +2777,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:913 (.welcome-section .insight-card.warning .insight-icon)
-- welcome-section.css:3745 (.welcome-section .insight-card.warning .insight-icon)
-- welcome-section.css:6711 (.welcome-section .insight-card.warning .insight-icon)
+- welcome-section.css:924 (.welcome-section .insight-card.warning .insight-icon)
+- welcome-section.css:3756 (.welcome-section .insight-card.warning .insight-icon)
+- welcome-section.css:6714 (.welcome-section .insight-card.warning .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2859,9 +2789,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:925 (.quick-insights .insight-card:hover::before)
-- welcome-section.css:3846 (.quick-insights .insight-card:hover::before)
-- welcome-section.css:6812 (.quick-insights .insight-card:hover::before)
+- welcome-section.css:936 (.quick-insights .insight-card:hover::before)
+- welcome-section.css:3857 (.quick-insights .insight-card:hover::before)
+- welcome-section.css:6815 (.quick-insights .insight-card:hover::before)
 
 ### Rule Content:
 ```css
@@ -2871,9 +2801,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:929 (.quick-insights .insight-card h4)
-- welcome-section.css:3850 (.quick-insights .insight-card h4)
-- welcome-section.css:6816 (.quick-insights .insight-card h4)
+- welcome-section.css:940 (.quick-insights .insight-card h4)
+- welcome-section.css:3861 (.quick-insights .insight-card h4)
+- welcome-section.css:6819 (.quick-insights .insight-card h4)
 
 ### Rule Content:
 ```css
@@ -2883,9 +2813,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:937 (.quick-insights .insight-card p)
-- welcome-section.css:3858 (.quick-insights .insight-card p)
-- welcome-section.css:6824 (.quick-insights .insight-card p)
+- welcome-section.css:948 (.quick-insights .insight-card p)
+- welcome-section.css:3869 (.quick-insights .insight-card p)
+- welcome-section.css:6827 (.quick-insights .insight-card p)
 
 ### Rule Content:
 ```css
@@ -2895,9 +2825,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:945 (.quick-insights .insight-card .insight-icon)
-- welcome-section.css:3866 (.quick-insights .insight-card .insight-icon)
-- welcome-section.css:6832 (.quick-insights .insight-card .insight-icon)
+- welcome-section.css:956 (.quick-insights .insight-card .insight-icon)
+- welcome-section.css:3877 (.quick-insights .insight-card .insight-icon)
+- welcome-section.css:6835 (.quick-insights .insight-card .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2907,9 +2837,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:957 (.quick-insights .insight-card .insight-icon svg)
-- welcome-section.css:3878 (.quick-insights .insight-card .insight-icon svg)
-- welcome-section.css:6844 (.quick-insights .insight-card .insight-icon svg)
+- welcome-section.css:968 (.quick-insights .insight-card .insight-icon svg)
+- welcome-section.css:3889 (.quick-insights .insight-card .insight-icon svg)
+- welcome-section.css:6847 (.quick-insights .insight-card .insight-icon svg)
 
 ### Rule Content:
 ```css
@@ -2919,9 +2849,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:965 (.quick-insights .insight-card.positive .insight-icon)
-- welcome-section.css:3886 (.quick-insights .insight-card.positive .insight-icon)
-- welcome-section.css:6852 (.quick-insights .insight-card.positive .insight-icon)
+- welcome-section.css:976 (.quick-insights .insight-card.positive .insight-icon)
+- welcome-section.css:3897 (.quick-insights .insight-card.positive .insight-icon)
+- welcome-section.css:6855 (.quick-insights .insight-card.positive .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2931,9 +2861,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:970 (.quick-insights .insight-card.info .insight-icon)
-- welcome-section.css:3891 (.quick-insights .insight-card.info .insight-icon)
-- welcome-section.css:6857 (.quick-insights .insight-card.info .insight-icon)
+- welcome-section.css:981 (.quick-insights .insight-card.info .insight-icon)
+- welcome-section.css:3902 (.quick-insights .insight-card.info .insight-icon)
+- welcome-section.css:6860 (.quick-insights .insight-card.info .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2943,9 +2873,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:975 (.quick-insights .insight-card.warning .insight-icon)
-- welcome-section.css:3896 (.quick-insights .insight-card.warning .insight-icon)
-- welcome-section.css:6862 (.quick-insights .insight-card.warning .insight-icon)
+- welcome-section.css:986 (.quick-insights .insight-card.warning .insight-icon)
+- welcome-section.css:3907 (.quick-insights .insight-card.warning .insight-icon)
+- welcome-section.css:6865 (.quick-insights .insight-card.warning .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2955,9 +2885,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:981 (.quick-insights .insight-card:hover .insight-icon)
-- welcome-section.css:3902 (.quick-insights .insight-card:hover .insight-icon)
-- welcome-section.css:6868 (.quick-insights .insight-card:hover .insight-icon)
+- welcome-section.css:992 (.quick-insights .insight-card:hover .insight-icon)
+- welcome-section.css:3913 (.quick-insights .insight-card:hover .insight-icon)
+- welcome-section.css:6871 (.quick-insights .insight-card:hover .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2967,9 +2897,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:986 (.quick-insights .insight-card.positive:hover .insight-icon)
-- welcome-section.css:3907 (.quick-insights .insight-card.positive:hover .insight-icon)
-- welcome-section.css:6873 (.quick-insights .insight-card.positive:hover .insight-icon)
+- welcome-section.css:997 (.quick-insights .insight-card.positive:hover .insight-icon)
+- welcome-section.css:3918 (.quick-insights .insight-card.positive:hover .insight-icon)
+- welcome-section.css:6876 (.quick-insights .insight-card.positive:hover .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2979,9 +2909,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:991 (.quick-insights .insight-card.info:hover .insight-icon)
-- welcome-section.css:3912 (.quick-insights .insight-card.info:hover .insight-icon)
-- welcome-section.css:6878 (.quick-insights .insight-card.info:hover .insight-icon)
+- welcome-section.css:1002 (.quick-insights .insight-card.info:hover .insight-icon)
+- welcome-section.css:3923 (.quick-insights .insight-card.info:hover .insight-icon)
+- welcome-section.css:6881 (.quick-insights .insight-card.info:hover .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2991,9 +2921,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:996 (.quick-insights .insight-card.warning:hover .insight-icon)
-- welcome-section.css:3917 (.quick-insights .insight-card.warning:hover .insight-icon)
-- welcome-section.css:6883 (.quick-insights .insight-card.warning:hover .insight-icon)
+- welcome-section.css:1007 (.quick-insights .insight-card.warning:hover .insight-icon)
+- welcome-section.css:3928 (.quick-insights .insight-card.warning:hover .insight-icon)
+- welcome-section.css:6886 (.quick-insights .insight-card.warning:hover .insight-icon)
 
 ### Rule Content:
 ```css
@@ -3003,9 +2933,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1001 (.quick-insights .insight-card:hover .insight-icon svg)
-- welcome-section.css:3922 (.quick-insights .insight-card:hover .insight-icon svg)
-- welcome-section.css:6888 (.quick-insights .insight-card:hover .insight-icon svg)
+- welcome-section.css:1012 (.quick-insights .insight-card:hover .insight-icon svg)
+- welcome-section.css:3933 (.quick-insights .insight-card:hover .insight-icon svg)
+- welcome-section.css:6891 (.quick-insights .insight-card:hover .insight-icon svg)
 
 ### Rule Content:
 ```css
@@ -3015,9 +2945,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1007 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:3928 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:6894 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:1018 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:3939 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:6897 (.quick-insights .insights-title .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -3027,9 +2957,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1015 (.quick-insights .insights-title .btn-icon:hover svg)
-- welcome-section.css:3936 (.quick-insights .insights-title .btn-icon:hover svg)
-- welcome-section.css:6902 (.quick-insights .insights-title .btn-icon:hover svg)
+- welcome-section.css:1026 (.quick-insights .insights-title .btn-icon:hover svg)
+- welcome-section.css:3947 (.quick-insights .insights-title .btn-icon:hover svg)
+- welcome-section.css:6905 (.quick-insights .insights-title .btn-icon:hover svg)
 
 ### Rule Content:
 ```css
@@ -3039,15 +2969,15 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1021 (.quick-insights .insights-title .btn-icon,
+- welcome-section.css:1032 (.quick-insights .insights-title .btn-icon,
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
-- welcome-section.css:3942 (.quick-insights .insights-title .btn-icon,
+- welcome-section.css:3953 (.quick-insights .insights-title .btn-icon,
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
-- welcome-section.css:6908 (.quick-insights .insights-title .btn-icon,
+- welcome-section.css:6911 (.quick-insights .insights-title .btn-icon,
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
@@ -3060,15 +2990,15 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1030 (.quick-insights .insights-title .btn-icon svg,
+- welcome-section.css:1041 (.quick-insights .insights-title .btn-icon svg,
 .quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:focus svg,
 .quick-insights .insights-title .btn-icon:active svg)
-- welcome-section.css:3951 (.quick-insights .insights-title .btn-icon svg,
+- welcome-section.css:3962 (.quick-insights .insights-title .btn-icon svg,
 .quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:focus svg,
 .quick-insights .insights-title .btn-icon:active svg)
-- welcome-section.css:6917 (.quick-insights .insights-title .btn-icon svg,
+- welcome-section.css:6920 (.quick-insights .insights-title .btn-icon svg,
 .quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:focus svg,
 .quick-insights .insights-title .btn-icon:active svg)
@@ -3081,9 +3011,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1040 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:3961 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:6927 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:1051 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:3972 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:6930 (.quick-insights .insights-title .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -3093,9 +3023,9 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1050 (.quick-insights .insights-title .btn-icon:hover svg)
-- welcome-section.css:3971 (.quick-insights .insights-title .btn-icon:hover svg)
-- welcome-section.css:6937 (.quick-insights .insights-title .btn-icon:hover svg)
+- welcome-section.css:1061 (.quick-insights .insights-title .btn-icon:hover svg)
+- welcome-section.css:3982 (.quick-insights .insights-title .btn-icon:hover svg)
+- welcome-section.css:6940 (.quick-insights .insights-title .btn-icon:hover svg)
 
 ### Rule Content:
 ```css
@@ -3105,15 +3035,15 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1057 (.quick-insights .insights-title .btn-icon,
+- welcome-section.css:1068 (.quick-insights .insights-title .btn-icon,
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
-- welcome-section.css:3978 (.quick-insights .insights-title .btn-icon,
+- welcome-section.css:3989 (.quick-insights .insights-title .btn-icon,
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
-- welcome-section.css:6944 (.quick-insights .insights-title .btn-icon,
+- welcome-section.css:6947 (.quick-insights .insights-title .btn-icon,
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
@@ -3126,17 +3056,17 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1069 (html body .quick-insights .insights-title .btn-icon:hover,
+- welcome-section.css:1080 (html body .quick-insights .insights-title .btn-icon:hover,
 body .quick-insights .insights-title .btn-icon:hover,
 #app .quick-insights .insights-title .btn-icon:hover,
 .dashboard .quick-insights .insights-title .btn-icon:hover,
 .main-content .quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:3990 (html body .quick-insights .insights-title .btn-icon:hover,
+- welcome-section.css:4001 (html body .quick-insights .insights-title .btn-icon:hover,
 body .quick-insights .insights-title .btn-icon:hover,
 #app .quick-insights .insights-title .btn-icon:hover,
 .dashboard .quick-insights .insights-title .btn-icon:hover,
 .main-content .quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:6956 (html body .quick-insights .insights-title .btn-icon:hover,
+- welcome-section.css:6959 (html body .quick-insights .insights-title .btn-icon:hover,
 body .quick-insights .insights-title .btn-icon:hover,
 #app .quick-insights .insights-title .btn-icon:hover,
 .dashboard .quick-insights .insights-title .btn-icon:hover,
@@ -3150,17 +3080,17 @@ html body .quick-insights .insights-title .btn-icon:hover, body .quick-insights 
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1081 (html body .quick-insights .insights-title .btn-icon:hover svg,
+- welcome-section.css:1092 (html body .quick-insights .insights-title .btn-icon:hover svg,
 body .quick-insights .insights-title .btn-icon:hover svg,
 #app .quick-insights .insights-title .btn-icon:hover svg,
 .dashboard .quick-insights .insights-title .btn-icon:hover svg,
 .main-content .quick-insights .insights-title .btn-icon:hover svg)
-- welcome-section.css:4002 (html body .quick-insights .insights-title .btn-icon:hover svg,
+- welcome-section.css:4013 (html body .quick-insights .insights-title .btn-icon:hover svg,
 body .quick-insights .insights-title .btn-icon:hover svg,
 #app .quick-insights .insights-title .btn-icon:hover svg,
 .dashboard .quick-insights .insights-title .btn-icon:hover svg,
 .main-content .quick-insights .insights-title .btn-icon:hover svg)
-- welcome-section.css:6968 (html body .quick-insights .insights-title .btn-icon:hover svg,
+- welcome-section.css:6971 (html body .quick-insights .insights-title .btn-icon:hover svg,
 body .quick-insights .insights-title .btn-icon:hover svg,
 #app .quick-insights .insights-title .btn-icon:hover svg,
 .dashboard .quick-insights .insights-title .btn-icon:hover svg,
@@ -3174,13 +3104,13 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1092 (.quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover,
+- welcome-section.css:1103 (.quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover,
 .quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover *,
 .quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover path)
-- welcome-section.css:4013 (.quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover,
+- welcome-section.css:4024 (.quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover,
 .quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover *,
 .quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover path)
-- welcome-section.css:6979 (.quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover,
+- welcome-section.css:6982 (.quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover,
 .quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover *,
 .quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover path)
 
@@ -3192,9 +3122,9 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1119 (.quick-insights .insight-card.positive)
-- welcome-section.css:4040 (.quick-insights .insight-card.positive)
-- welcome-section.css:7006 (.quick-insights .insight-card.positive)
+- welcome-section.css:1130 (.quick-insights .insight-card.positive)
+- welcome-section.css:4051 (.quick-insights .insight-card.positive)
+- welcome-section.css:7009 (.quick-insights .insight-card.positive)
 
 ### Rule Content:
 ```css
@@ -3204,9 +3134,9 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1123 (.quick-insights .insight-card.info)
-- welcome-section.css:4044 (.quick-insights .insight-card.info)
-- welcome-section.css:7010 (.quick-insights .insight-card.info)
+- welcome-section.css:1134 (.quick-insights .insight-card.info)
+- welcome-section.css:4055 (.quick-insights .insight-card.info)
+- welcome-section.css:7013 (.quick-insights .insight-card.info)
 
 ### Rule Content:
 ```css
@@ -3216,9 +3146,9 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1127 (.quick-insights .insight-card.warning)
-- welcome-section.css:4048 (.quick-insights .insight-card.warning)
-- welcome-section.css:7014 (.quick-insights .insight-card.warning)
+- welcome-section.css:1138 (.quick-insights .insight-card.warning)
+- welcome-section.css:4059 (.quick-insights .insight-card.warning)
+- welcome-section.css:7017 (.quick-insights .insight-card.warning)
 
 ### Rule Content:
 ```css
@@ -3228,15 +3158,15 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1132 (.quick-insights,
+- welcome-section.css:1143 (.quick-insights,
 .quick-insights *,
 .quick-insights *::before,
 .quick-insights *::after)
-- welcome-section.css:4053 (.quick-insights,
+- welcome-section.css:4064 (.quick-insights,
 .quick-insights *,
 .quick-insights *::before,
 .quick-insights *::after)
-- welcome-section.css:7019 (.quick-insights,
+- welcome-section.css:7022 (.quick-insights,
 .quick-insights *,
 .quick-insights *::before,
 .quick-insights *::after)
@@ -3249,7 +3179,7 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1141 (.quick-insights h1,
+- welcome-section.css:1152 (.quick-insights h1,
 .quick-insights h2,
 .quick-insights h3,
 .quick-insights h4,
@@ -3262,7 +3192,7 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 .quick-insights em,
 .quick-insights b,
 .quick-insights i)
-- welcome-section.css:4062 (.quick-insights h1,
+- welcome-section.css:4073 (.quick-insights h1,
 .quick-insights h2,
 .quick-insights h3,
 .quick-insights h4,
@@ -3275,7 +3205,7 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 .quick-insights em,
 .quick-insights b,
 .quick-insights i)
-- welcome-section.css:7028 (.quick-insights h1,
+- welcome-section.css:7031 (.quick-insights h1,
 .quick-insights h2,
 .quick-insights h3,
 .quick-insights h4,
@@ -3297,19 +3227,19 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1159 (.quick-insights .insight-content,
+- welcome-section.css:1170 (.quick-insights .insight-content,
 .quick-insights .insight-content *,
 .quick-insights .insight-content h4,
 .quick-insights .insight-content p,
 .quick-insights .insight-content span,
 .quick-insights .insight-content div)
-- welcome-section.css:4080 (.quick-insights .insight-content,
+- welcome-section.css:4091 (.quick-insights .insight-content,
 .quick-insights .insight-content *,
 .quick-insights .insight-content h4,
 .quick-insights .insight-content p,
 .quick-insights .insight-content span,
 .quick-insights .insight-content div)
-- welcome-section.css:7046 (.quick-insights .insight-content,
+- welcome-section.css:7049 (.quick-insights .insight-content,
 .quick-insights .insight-content *,
 .quick-insights .insight-content h4,
 .quick-insights .insight-content p,
@@ -3324,11 +3254,11 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1170 (.quick-insights,
+- welcome-section.css:1181 (.quick-insights,
 .quick-insights *)
-- welcome-section.css:4091 (.quick-insights,
+- welcome-section.css:4102 (.quick-insights,
 .quick-insights *)
-- welcome-section.css:7057 (.quick-insights,
+- welcome-section.css:7060 (.quick-insights,
 .quick-insights *)
 
 ### Rule Content:
@@ -3339,17 +3269,17 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1179 (body .quick-insights,
+- welcome-section.css:1190 (body .quick-insights,
 html body .quick-insights,
 #app .quick-insights,
 .dashboard .quick-insights,
 .main-content .quick-insights)
-- welcome-section.css:4100 (body .quick-insights,
+- welcome-section.css:4111 (body .quick-insights,
 html body .quick-insights,
 #app .quick-insights,
 .dashboard .quick-insights,
 .main-content .quick-insights)
-- welcome-section.css:7066 (body .quick-insights,
+- welcome-section.css:7069 (body .quick-insights,
 html body .quick-insights,
 #app .quick-insights,
 .dashboard .quick-insights,
@@ -3363,17 +3293,17 @@ body .quick-insights, html body .quick-insights, #app .quick-insights, .dashboar
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1187 (body .quick-insights *,
+- welcome-section.css:1198 (body .quick-insights *,
 html body .quick-insights *,
 #app .quick-insights *,
 .dashboard .quick-insights *,
 .main-content .quick-insights *)
-- welcome-section.css:4108 (body .quick-insights *,
+- welcome-section.css:4119 (body .quick-insights *,
 html body .quick-insights *,
 #app .quick-insights *,
 .dashboard .quick-insights *,
 .main-content .quick-insights *)
-- welcome-section.css:7074 (body .quick-insights *,
+- welcome-section.css:7077 (body .quick-insights *,
 html body .quick-insights *,
 #app .quick-insights *,
 .dashboard .quick-insights *,
@@ -3387,7 +3317,7 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1196 (.quick-insights .insight-card h4,
+- welcome-section.css:1207 (.quick-insights .insight-card h4,
 .quick-insights .insight-card p,
 .quick-insights .insight-card span,
 .quick-insights .insight-card div,
@@ -3395,7 +3325,7 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 .quick-insights .insight-content p,
 .quick-insights .insight-content span,
 .quick-insights .insight-content div)
-- welcome-section.css:4117 (.quick-insights .insight-card h4,
+- welcome-section.css:4128 (.quick-insights .insight-card h4,
 .quick-insights .insight-card p,
 .quick-insights .insight-card span,
 .quick-insights .insight-card div,
@@ -3403,7 +3333,7 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 .quick-insights .insight-content p,
 .quick-insights .insight-content span,
 .quick-insights .insight-content div)
-- welcome-section.css:7083 (.quick-insights .insight-card h4,
+- welcome-section.css:7086 (.quick-insights .insight-card h4,
 .quick-insights .insight-card p,
 .quick-insights .insight-card span,
 .quick-insights .insight-card div,
@@ -3420,9 +3350,9 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1209 (.quick-insights [class*="insight"])
-- welcome-section.css:4130 (.quick-insights [class*="insight"])
-- welcome-section.css:7096 (.quick-insights [class*="insight"])
+- welcome-section.css:1220 (.quick-insights [class*="insight"])
+- welcome-section.css:4141 (.quick-insights [class*="insight"])
+- welcome-section.css:7099 (.quick-insights [class*="insight"])
 
 ### Rule Content:
 ```css
@@ -3432,9 +3362,9 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1213 (.quick-insights [class*="content"])
-- welcome-section.css:4134 (.quick-insights [class*="content"])
-- welcome-section.css:7100 (.quick-insights [class*="content"])
+- welcome-section.css:1224 (.quick-insights [class*="content"])
+- welcome-section.css:4145 (.quick-insights [class*="content"])
+- welcome-section.css:7103 (.quick-insights [class*="content"])
 
 ### Rule Content:
 ```css
@@ -3444,9 +3374,9 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1218 (.quick-insights>*)
-- welcome-section.css:4139 (.quick-insights>*)
-- welcome-section.css:7105 (.quick-insights>*)
+- welcome-section.css:1229 (.quick-insights>*)
+- welcome-section.css:4150 (.quick-insights>*)
+- welcome-section.css:7108 (.quick-insights>*)
 
 ### Rule Content:
 ```css
@@ -3456,9 +3386,9 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1222 (.quick-insights>*>*)
-- welcome-section.css:4143 (.quick-insights>*>*)
-- welcome-section.css:7109 (.quick-insights>*>*)
+- welcome-section.css:1233 (.quick-insights>*>*)
+- welcome-section.css:4154 (.quick-insights>*>*)
+- welcome-section.css:7112 (.quick-insights>*>*)
 
 ### Rule Content:
 ```css
@@ -3468,8 +3398,8 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1226 (.quick-insights>*>*>*)
-- welcome-section.css:4147 (.quick-insights>*>*>*)
+- welcome-section.css:1237 (.quick-insights>*>*>*)
+- welcome-section.css:4158 (.quick-insights>*>*>*)
 
 ### Rule Content:
 ```css
@@ -3479,13 +3409,13 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1231 (.quick-insights .insights-title,
+- welcome-section.css:1242 (.quick-insights .insights-title,
 .quick-insights h3,
 .quick-insights h3.insights-title)
-- welcome-section.css:4152 (.quick-insights .insights-title,
+- welcome-section.css:4163 (.quick-insights .insights-title,
 .quick-insights h3,
 .quick-insights h3.insights-title)
-- welcome-section.css:7114 (.quick-insights .insights-title,
+- welcome-section.css:7117 (.quick-insights .insights-title,
 .quick-insights h3,
 .quick-insights h3.insights-title)
 
@@ -3497,15 +3427,15 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1241 (.quick-insights .insights-title:not(svg),
+- welcome-section.css:1252 (.quick-insights .insights-title:not(svg),
 .quick-insights h3:not(svg),
 .quick-insights .insights-title span,
 .quick-insights h3 span)
-- welcome-section.css:4162 (.quick-insights .insights-title:not(svg),
+- welcome-section.css:4173 (.quick-insights .insights-title:not(svg),
 .quick-insights h3:not(svg),
 .quick-insights .insights-title span,
 .quick-insights h3 span)
-- welcome-section.css:7124 (.quick-insights .insights-title:not(svg),
+- welcome-section.css:7127 (.quick-insights .insights-title:not(svg),
 .quick-insights h3:not(svg),
 .quick-insights .insights-title span,
 .quick-insights h3 span)
@@ -3518,11 +3448,11 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1250 (.quick-insights .insights-title[style*="color"],
+- welcome-section.css:1261 (.quick-insights .insights-title[style*="color"],
 .quick-insights h3[style*="color"])
-- welcome-section.css:4171 (.quick-insights .insights-title[style*="color"],
+- welcome-section.css:4182 (.quick-insights .insights-title[style*="color"],
 .quick-insights h3[style*="color"])
-- welcome-section.css:7133 (.quick-insights .insights-title[style*="color"],
+- welcome-section.css:7136 (.quick-insights .insights-title[style*="color"],
 .quick-insights h3[style*="color"])
 
 ### Rule Content:
@@ -3533,17 +3463,17 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1256 (body .quick-insights .insights-title,
+- welcome-section.css:1267 (body .quick-insights .insights-title,
 html body .quick-insights .insights-title,
 #app .quick-insights .insights-title,
 .dashboard .quick-insights .insights-title,
 .main-content .quick-insights .insights-title)
-- welcome-section.css:4177 (body .quick-insights .insights-title,
+- welcome-section.css:4188 (body .quick-insights .insights-title,
 html body .quick-insights .insights-title,
 #app .quick-insights .insights-title,
 .dashboard .quick-insights .insights-title,
 .main-content .quick-insights .insights-title)
-- welcome-section.css:7139 (body .quick-insights .insights-title,
+- welcome-section.css:7142 (body .quick-insights .insights-title,
 html body .quick-insights .insights-title,
 #app .quick-insights .insights-title,
 .dashboard .quick-insights .insights-title,
@@ -3557,11 +3487,11 @@ body .quick-insights .insights-title, html body .quick-insights .insights-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1265 (.quick-insights .insights-title::text,
+- welcome-section.css:1276 (.quick-insights .insights-title::text,
 .quick-insights h3::text)
-- welcome-section.css:4186 (.quick-insights .insights-title::text,
+- welcome-section.css:4197 (.quick-insights .insights-title::text,
 .quick-insights h3::text)
-- welcome-section.css:7148 (.quick-insights .insights-title::text,
+- welcome-section.css:7151 (.quick-insights .insights-title::text,
 .quick-insights h3::text)
 
 ### Rule Content:
@@ -3572,9 +3502,9 @@ body .quick-insights .insights-title, html body .quick-insights .insights-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1271 (.quick-insights h3.insights-title)
-- welcome-section.css:4192 (.quick-insights h3.insights-title)
-- welcome-section.css:7154 (.quick-insights h3.insights-title)
+- welcome-section.css:1282 (.quick-insights h3.insights-title)
+- welcome-section.css:4203 (.quick-insights h3.insights-title)
+- welcome-section.css:7157 (.quick-insights h3.insights-title)
 
 ### Rule Content:
 ```css
@@ -3584,9 +3514,9 @@ body .quick-insights .insights-title, html body .quick-insights .insights-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1279 (.quick-insights h3.insights-title:not(svg))
-- welcome-section.css:4200 (.quick-insights h3.insights-title:not(svg))
-- welcome-section.css:7162 (.quick-insights h3.insights-title:not(svg))
+- welcome-section.css:1290 (.quick-insights h3.insights-title:not(svg))
+- welcome-section.css:4211 (.quick-insights h3.insights-title:not(svg))
+- welcome-section.css:7165 (.quick-insights h3.insights-title:not(svg))
 
 ### Rule Content:
 ```css
@@ -3596,9 +3526,9 @@ body .quick-insights .insights-title, html body .quick-insights .insights-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1284 (.quick-insights h3.insights-title[style*="color"])
-- welcome-section.css:4205 (.quick-insights h3.insights-title[style*="color"])
-- welcome-section.css:7167 (.quick-insights h3.insights-title[style*="color"])
+- welcome-section.css:1295 (.quick-insights h3.insights-title[style*="color"])
+- welcome-section.css:4216 (.quick-insights h3.insights-title[style*="color"])
+- welcome-section.css:7170 (.quick-insights h3.insights-title[style*="color"])
 
 ### Rule Content:
 ```css
@@ -3608,17 +3538,17 @@ body .quick-insights .insights-title, html body .quick-insights .insights-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1289 (body .quick-insights h3.insights-title,
+- welcome-section.css:1300 (body .quick-insights h3.insights-title,
 html body .quick-insights h3.insights-title,
 #app .quick-insights h3.insights-title,
 .dashboard .quick-insights h3.insights-title,
 .main-content .quick-insights h3.insights-title)
-- welcome-section.css:4210 (body .quick-insights h3.insights-title,
+- welcome-section.css:4221 (body .quick-insights h3.insights-title,
 html body .quick-insights h3.insights-title,
 #app .quick-insights h3.insights-title,
 .dashboard .quick-insights h3.insights-title,
 .main-content .quick-insights h3.insights-title)
-- welcome-section.css:7172 (body .quick-insights h3.insights-title,
+- welcome-section.css:7175 (body .quick-insights h3.insights-title,
 html body .quick-insights h3.insights-title,
 #app .quick-insights h3.insights-title,
 .dashboard .quick-insights h3.insights-title,
@@ -3632,9 +3562,9 @@ body .quick-insights h3.insights-title, html body .quick-insights h3.insights-ti
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1298 (.quick-insights h3)
-- welcome-section.css:4219 (.quick-insights h3)
-- welcome-section.css:7181 (.quick-insights h3)
+- welcome-section.css:1309 (.quick-insights h3)
+- welcome-section.css:4230 (.quick-insights h3)
+- welcome-section.css:7184 (.quick-insights h3)
 
 ### Rule Content:
 ```css
@@ -3644,9 +3574,9 @@ body .quick-insights h3.insights-title, html body .quick-insights h3.insights-ti
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1304 (.quick-insights h3.insights-title)
-- welcome-section.css:4225 (.quick-insights h3.insights-title)
-- welcome-section.css:7187 (.quick-insights h3.insights-title)
+- welcome-section.css:1315 (.quick-insights h3.insights-title)
+- welcome-section.css:4236 (.quick-insights h3.insights-title)
+- welcome-section.css:7190 (.quick-insights h3.insights-title)
 
 ### Rule Content:
 ```css
@@ -3656,9 +3586,9 @@ body .quick-insights h3.insights-title, html body .quick-insights h3.insights-ti
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1312 (.quick-insights h3.insights-title *)
-- welcome-section.css:4233 (.quick-insights h3.insights-title *)
-- welcome-section.css:7195 (.quick-insights h3.insights-title *)
+- welcome-section.css:1323 (.quick-insights h3.insights-title *)
+- welcome-section.css:4244 (.quick-insights h3.insights-title *)
+- welcome-section.css:7198 (.quick-insights h3.insights-title *)
 
 ### Rule Content:
 ```css
@@ -3668,7 +3598,7 @@ body .quick-insights h3.insights-title, html body .quick-insights h3.insights-ti
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1317 (.quick-insights .insight-content h4,
+- welcome-section.css:1328 (.quick-insights .insight-content h4,
 .quick-insights .insight-content p,
 .quick-insights .insight-content span,
 .quick-insights .insight-content div,
@@ -3676,7 +3606,7 @@ body .quick-insights h3.insights-title, html body .quick-insights h3.insights-ti
 .quick-insights .insight-content em,
 .quick-insights .insight-content b,
 .quick-insights .insight-content i)
-- welcome-section.css:4238 (.quick-insights .insight-content h4,
+- welcome-section.css:4249 (.quick-insights .insight-content h4,
 .quick-insights .insight-content p,
 .quick-insights .insight-content span,
 .quick-insights .insight-content div,
@@ -3684,7 +3614,7 @@ body .quick-insights h3.insights-title, html body .quick-insights h3.insights-ti
 .quick-insights .insight-content em,
 .quick-insights .insight-content b,
 .quick-insights .insight-content i)
-- welcome-section.css:7200 (.quick-insights .insight-content h4,
+- welcome-section.css:7203 (.quick-insights .insight-content h4,
 .quick-insights .insight-content p,
 .quick-insights .insight-content span,
 .quick-insights .insight-content div,
@@ -3701,17 +3631,17 @@ body .quick-insights h3.insights-title, html body .quick-insights h3.insights-ti
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1330 (body .quick-insights .insight-content h4,
+- welcome-section.css:1341 (body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content h4,
 #app .quick-insights .insight-content h4,
 .dashboard .quick-insights .insight-content h4,
 .main-content .quick-insights .insight-content h4)
-- welcome-section.css:4251 (body .quick-insights .insight-content h4,
+- welcome-section.css:4262 (body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content h4,
 #app .quick-insights .insight-content h4,
 .dashboard .quick-insights .insight-content h4,
 .main-content .quick-insights .insight-content h4)
-- welcome-section.css:7213 (body .quick-insights .insight-content h4,
+- welcome-section.css:7216 (body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content h4,
 #app .quick-insights .insight-content h4,
 .dashboard .quick-insights .insight-content h4,
@@ -3725,17 +3655,17 @@ body .quick-insights .insight-content h4, html body .quick-insights .insight-con
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1342 (body .quick-insights .insight-content p,
+- welcome-section.css:1353 (body .quick-insights .insight-content p,
 html body .quick-insights .insight-content p,
 #app .quick-insights .insight-content p,
 .dashboard .quick-insights .insight-content p,
 .main-content .quick-insights .insight-content p)
-- welcome-section.css:4263 (body .quick-insights .insight-content p,
+- welcome-section.css:4274 (body .quick-insights .insight-content p,
 html body .quick-insights .insight-content p,
 #app .quick-insights .insight-content p,
 .dashboard .quick-insights .insight-content p,
 .main-content .quick-insights .insight-content p)
-- welcome-section.css:7225 (body .quick-insights .insight-content p,
+- welcome-section.css:7228 (body .quick-insights .insight-content p,
 html body .quick-insights .insight-content p,
 #app .quick-insights .insight-content p,
 .dashboard .quick-insights .insight-content p,
@@ -3749,15 +3679,15 @@ body .quick-insights .insight-content p, html body .quick-insights .insight-cont
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1365 (.quick-insights .insight-content,
+- welcome-section.css:1376 (.quick-insights .insight-content,
 .quick-insights .insight-content *,
 .quick-insights .insight-content *::before,
 .quick-insights .insight-content *::after)
-- welcome-section.css:4285 (.quick-insights .insight-content,
+- welcome-section.css:4296 (.quick-insights .insight-content,
 .quick-insights .insight-content *,
 .quick-insights .insight-content *::before,
 .quick-insights .insight-content *::after)
-- welcome-section.css:7247 (.quick-insights .insight-content,
+- welcome-section.css:7250 (.quick-insights .insight-content,
 .quick-insights .insight-content *,
 .quick-insights .insight-content *::before,
 .quick-insights .insight-content *::after)
@@ -3770,15 +3700,15 @@ body .quick-insights .insight-content p, html body .quick-insights .insight-cont
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1382 (.quick-insights [class*="insight"] [class*="content"] h4,
+- welcome-section.css:1393 (.quick-insights [class*="insight"] [class*="content"] h4,
 .quick-insights [class*="insight"] [class*="content"] p,
 .quick-insights [class*="insight"] [class*="content"] span,
 .quick-insights [class*="insight"] [class*="content"] div)
-- welcome-section.css:4302 (.quick-insights [class*="insight"] [class*="content"] h4,
+- welcome-section.css:4313 (.quick-insights [class*="insight"] [class*="content"] h4,
 .quick-insights [class*="insight"] [class*="content"] p,
 .quick-insights [class*="insight"] [class*="content"] span,
 .quick-insights [class*="insight"] [class*="content"] div)
-- welcome-section.css:7264 (.quick-insights [class*="insight"] [class*="content"] h4,
+- welcome-section.css:7267 (.quick-insights [class*="insight"] [class*="content"] h4,
 .quick-insights [class*="insight"] [class*="content"] p,
 .quick-insights [class*="insight"] [class*="content"] span,
 .quick-insights [class*="insight"] [class*="content"] div)
@@ -3791,7 +3721,7 @@ body .quick-insights .insight-content p, html body .quick-insights .insight-cont
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1391 (html body .quick-insights .insight-content h4,
+- welcome-section.css:1402 (html body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content p,
 html body .quick-insights .insight-content span,
 html body .quick-insights .insight-content div,
@@ -3799,7 +3729,7 @@ html body .quick-insights .insight-content strong,
 html body .quick-insights .insight-content em,
 html body .quick-insights .insight-content b,
 html body .quick-insights .insight-content i)
-- welcome-section.css:4311 (html body .quick-insights .insight-content h4,
+- welcome-section.css:4322 (html body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content p,
 html body .quick-insights .insight-content span,
 html body .quick-insights .insight-content div,
@@ -3807,7 +3737,7 @@ html body .quick-insights .insight-content strong,
 html body .quick-insights .insight-content em,
 html body .quick-insights .insight-content b,
 html body .quick-insights .insight-content i)
-- welcome-section.css:7273 (html body .quick-insights .insight-content h4,
+- welcome-section.css:7276 (html body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content p,
 html body .quick-insights .insight-content span,
 html body .quick-insights .insight-content div,
@@ -3824,15 +3754,15 @@ html body .quick-insights .insight-content h4, html body .quick-insights .insigh
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1414 (html body .quick-insights .insight-content h4,
+- welcome-section.css:1425 (html body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content p,
 html body .quick-insights .insight-content span,
 html body .quick-insights .insight-content div)
-- welcome-section.css:4334 (html body .quick-insights .insight-content h4,
+- welcome-section.css:4345 (html body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content p,
 html body .quick-insights .insight-content span,
 html body .quick-insights .insight-content div)
-- welcome-section.css:7296 (html body .quick-insights .insight-content h4,
+- welcome-section.css:7299 (html body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content p,
 html body .quick-insights .insight-content span,
 html body .quick-insights .insight-content div)
@@ -3845,9 +3775,9 @@ html body .quick-insights .insight-content h4, html body .quick-insights .insigh
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1431 (.quick-insights .insight-content *)
-- welcome-section.css:4351 (.quick-insights .insight-content *)
-- welcome-section.css:7313 (.quick-insights .insight-content *)
+- welcome-section.css:1442 (.quick-insights .insight-content *)
+- welcome-section.css:4362 (.quick-insights .insight-content *)
+- welcome-section.css:7316 (.quick-insights .insight-content *)
 
 ### Rule Content:
 ```css
@@ -3857,11 +3787,11 @@ html body .quick-insights .insight-content h4, html body .quick-insights .insigh
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1437 (.quick-insights .insight-card .insight-icon svg,
+- welcome-section.css:1448 (.quick-insights .insight-card .insight-icon svg,
 .quick-insights .insight-card:hover .insight-icon svg)
-- welcome-section.css:4357 (.quick-insights .insight-card .insight-icon svg,
+- welcome-section.css:4368 (.quick-insights .insight-card .insight-icon svg,
 .quick-insights .insight-card:hover .insight-icon svg)
-- welcome-section.css:7319 (.quick-insights .insight-card .insight-icon svg,
+- welcome-section.css:7322 (.quick-insights .insight-card .insight-icon svg,
 .quick-insights .insight-card:hover .insight-icon svg)
 
 ### Rule Content:
@@ -3872,17 +3802,17 @@ html body .quick-insights .insight-content h4, html body .quick-insights .insigh
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1445 (html body .quick-insights .insight-card .insight-icon svg,
+- welcome-section.css:1456 (html body .quick-insights .insight-card .insight-icon svg,
 body .quick-insights .insight-card .insight-icon svg,
 #app .quick-insights .insight-card .insight-icon svg,
 .dashboard .quick-insights .insight-card .insight-icon svg,
 .main-content .quick-insights .insight-card .insight-icon svg)
-- welcome-section.css:4365 (html body .quick-insights .insight-card .insight-icon svg,
+- welcome-section.css:4376 (html body .quick-insights .insight-card .insight-icon svg,
 body .quick-insights .insight-card .insight-icon svg,
 #app .quick-insights .insight-card .insight-icon svg,
 .dashboard .quick-insights .insight-card .insight-icon svg,
 .main-content .quick-insights .insight-card .insight-icon svg)
-- welcome-section.css:7327 (html body .quick-insights .insight-card .insight-icon svg,
+- welcome-section.css:7330 (html body .quick-insights .insight-card .insight-icon svg,
 body .quick-insights .insight-card .insight-icon svg,
 #app .quick-insights .insight-card .insight-icon svg,
 .dashboard .quick-insights .insight-card .insight-icon svg,
@@ -3896,17 +3826,17 @@ html body .quick-insights .insight-card .insight-icon svg, body .quick-insights 
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1455 (html body .quick-insights .insight-card:hover .insight-icon svg,
+- welcome-section.css:1466 (html body .quick-insights .insight-card:hover .insight-icon svg,
 body .quick-insights .insight-card:hover .insight-icon svg,
 #app .quick-insights .insight-card:hover .insight-icon svg,
 .dashboard .quick-insights .insight-card:hover .insight-icon svg,
 .main-content .quick-insights .insight-card:hover .insight-icon svg)
-- welcome-section.css:4375 (html body .quick-insights .insight-card:hover .insight-icon svg,
+- welcome-section.css:4386 (html body .quick-insights .insight-card:hover .insight-icon svg,
 body .quick-insights .insight-card:hover .insight-icon svg,
 #app .quick-insights .insight-card:hover .insight-icon svg,
 .dashboard .quick-insights .insight-card:hover .insight-icon svg,
 .main-content .quick-insights .insight-card:hover .insight-icon svg)
-- welcome-section.css:7337 (html body .quick-insights .insight-card:hover .insight-icon svg,
+- welcome-section.css:7340 (html body .quick-insights .insight-card:hover .insight-icon svg,
 body .quick-insights .insight-card:hover .insight-icon svg,
 #app .quick-insights .insight-card:hover .insight-icon svg,
 .dashboard .quick-insights .insight-card:hover .insight-icon svg,
@@ -3920,11 +3850,11 @@ html body .quick-insights .insight-card:hover .insight-icon svg, body .quick-ins
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1466 (.upcoming-events-title .btn-icon:hover,
+- welcome-section.css:1477 (.upcoming-events-title .btn-icon:hover,
 .upcoming-events-title svg:hover)
-- welcome-section.css:4386 (.upcoming-events-title .btn-icon:hover,
+- welcome-section.css:4397 (.upcoming-events-title .btn-icon:hover,
 .upcoming-events-title svg:hover)
-- welcome-section.css:7348 (.upcoming-events-title .btn-icon:hover,
+- welcome-section.css:7351 (.upcoming-events-title .btn-icon:hover,
 .upcoming-events-title svg:hover)
 
 ### Rule Content:
@@ -3935,17 +3865,17 @@ html body .quick-insights .insight-card:hover .insight-icon svg, body .quick-ins
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1474 (html body .upcoming-events-title .btn-icon:hover,
+- welcome-section.css:1485 (html body .upcoming-events-title .btn-icon:hover,
 body .upcoming-events-title .btn-icon:hover,
 #app .upcoming-events-title .btn-icon:hover,
 .dashboard .upcoming-events-title .btn-icon:hover,
 .main-content .upcoming-events-title .btn-icon:hover)
-- welcome-section.css:4394 (html body .upcoming-events-title .btn-icon:hover,
+- welcome-section.css:4405 (html body .upcoming-events-title .btn-icon:hover,
 body .upcoming-events-title .btn-icon:hover,
 #app .upcoming-events-title .btn-icon:hover,
 .dashboard .upcoming-events-title .btn-icon:hover,
 .main-content .upcoming-events-title .btn-icon:hover)
-- welcome-section.css:7356 (html body .upcoming-events-title .btn-icon:hover,
+- welcome-section.css:7359 (html body .upcoming-events-title .btn-icon:hover,
 body .upcoming-events-title .btn-icon:hover,
 #app .upcoming-events-title .btn-icon:hover,
 .dashboard .upcoming-events-title .btn-icon:hover,
@@ -3959,17 +3889,17 @@ html body .upcoming-events-title .btn-icon:hover, body .upcoming-events-title .b
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1484 (html body .upcoming-events-title svg:hover,
+- welcome-section.css:1495 (html body .upcoming-events-title svg:hover,
 body .upcoming-events-title svg:hover,
 #app .upcoming-events-title svg:hover,
 .dashboard .upcoming-events-title svg:hover,
 .main-content .upcoming-events-title svg:hover)
-- welcome-section.css:4404 (html body .upcoming-events-title svg:hover,
+- welcome-section.css:4415 (html body .upcoming-events-title svg:hover,
 body .upcoming-events-title svg:hover,
 #app .upcoming-events-title svg:hover,
 .dashboard .upcoming-events-title svg:hover,
 .main-content .upcoming-events-title svg:hover)
-- welcome-section.css:7366 (html body .upcoming-events-title svg:hover,
+- welcome-section.css:7369 (html body .upcoming-events-title svg:hover,
 body .upcoming-events-title svg:hover,
 #app .upcoming-events-title svg:hover,
 .dashboard .upcoming-events-title svg:hover,
@@ -3983,9 +3913,9 @@ html body .upcoming-events-title svg:hover, body .upcoming-events-title svg:hove
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1495 (.upcoming-events-title .btn-icon)
-- welcome-section.css:4415 (.upcoming-events-title .btn-icon)
-- welcome-section.css:7377 (.upcoming-events-title .btn-icon)
+- welcome-section.css:1506 (.upcoming-events-title .btn-icon)
+- welcome-section.css:4426 (.upcoming-events-title .btn-icon)
+- welcome-section.css:7380 (.upcoming-events-title .btn-icon)
 
 ### Rule Content:
 ```css
@@ -3995,9 +3925,9 @@ html body .upcoming-events-title svg:hover, body .upcoming-events-title svg:hove
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1501 (.upcoming-events-title .btn-icon:hover)
-- welcome-section.css:4421 (.upcoming-events-title .btn-icon:hover)
-- welcome-section.css:7383 (.upcoming-events-title .btn-icon:hover)
+- welcome-section.css:1512 (.upcoming-events-title .btn-icon:hover)
+- welcome-section.css:4432 (.upcoming-events-title .btn-icon:hover)
+- welcome-section.css:7386 (.upcoming-events-title .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -4007,7 +3937,7 @@ html body .upcoming-events-title svg:hover, body .upcoming-events-title svg:hove
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1510 (.welcome-section .btn-icon,
+- welcome-section.css:1521 (.welcome-section .btn-icon,
 .welcome-section .btn-icon:hover,
 .welcome-section .btn-icon:focus,
 .welcome-section .btn-icon:active,
@@ -4031,7 +3961,7 @@ body .welcome-section .btn-icon:active,
 .main-content .welcome-section .btn-icon:hover,
 .main-content .welcome-section .btn-icon:focus,
 .main-content .welcome-section .btn-icon:active)
-- welcome-section.css:4430 (.welcome-section .btn-icon,
+- welcome-section.css:4441 (.welcome-section .btn-icon,
 .welcome-section .btn-icon:hover,
 .welcome-section .btn-icon:focus,
 .welcome-section .btn-icon:active,
@@ -4055,7 +3985,7 @@ body .welcome-section .btn-icon:active,
 .main-content .welcome-section .btn-icon:hover,
 .main-content .welcome-section .btn-icon:focus,
 .main-content .welcome-section .btn-icon:active)
-- welcome-section.css:7392 (.welcome-section .btn-icon,
+- welcome-section.css:7395 (.welcome-section .btn-icon,
 .welcome-section .btn-icon:hover,
 .welcome-section .btn-icon:focus,
 .welcome-section .btn-icon:active,
@@ -4088,7 +4018,7 @@ body .welcome-section .btn-icon:active,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1548 (.welcome-section .btn-icon svg,
+- welcome-section.css:1559 (.welcome-section .btn-icon svg,
 .welcome-section .btn-icon:hover svg,
 .welcome-section .btn-icon:focus svg,
 .welcome-section .btn-icon:active svg,
@@ -4112,7 +4042,7 @@ body .welcome-section .btn-icon:active svg,
 .main-content .welcome-section .btn-icon:hover svg,
 .main-content .welcome-section .btn-icon:focus svg,
 .main-content .welcome-section .btn-icon:active svg)
-- welcome-section.css:4468 (.welcome-section .btn-icon svg,
+- welcome-section.css:4479 (.welcome-section .btn-icon svg,
 .welcome-section .btn-icon:hover svg,
 .welcome-section .btn-icon:focus svg,
 .welcome-section .btn-icon:active svg,
@@ -4136,7 +4066,7 @@ body .welcome-section .btn-icon:active svg,
 .main-content .welcome-section .btn-icon:hover svg,
 .main-content .welcome-section .btn-icon:focus svg,
 .main-content .welcome-section .btn-icon:active svg)
-- welcome-section.css:7430 (.welcome-section .btn-icon svg,
+- welcome-section.css:7433 (.welcome-section .btn-icon svg,
 .welcome-section .btn-icon:hover svg,
 .welcome-section .btn-icon:focus svg,
 .welcome-section .btn-icon:active svg,
@@ -4169,7 +4099,7 @@ body .welcome-section .btn-icon:active svg,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1578 (.welcome-section .quick-actions .btn-icon,
+- welcome-section.css:1589 (.welcome-section .quick-actions .btn-icon,
 .welcome-section .quick-actions .btn-icon:hover,
 .welcome-section .quick-actions .btn-icon:focus,
 .welcome-section .quick-actions .btn-icon:active,
@@ -4177,7 +4107,7 @@ html body .welcome-section .quick-actions .btn-icon,
 html body .welcome-section .quick-actions .btn-icon:hover,
 html body .welcome-section .quick-actions .btn-icon:focus,
 html body .welcome-section .quick-actions .btn-icon:active)
-- welcome-section.css:4498 (.welcome-section .quick-actions .btn-icon,
+- welcome-section.css:4509 (.welcome-section .quick-actions .btn-icon,
 .welcome-section .quick-actions .btn-icon:hover,
 .welcome-section .quick-actions .btn-icon:focus,
 .welcome-section .quick-actions .btn-icon:active,
@@ -4185,7 +4115,7 @@ html body .welcome-section .quick-actions .btn-icon,
 html body .welcome-section .quick-actions .btn-icon:hover,
 html body .welcome-section .quick-actions .btn-icon:focus,
 html body .welcome-section .quick-actions .btn-icon:active)
-- welcome-section.css:7460 (.welcome-section .quick-actions .btn-icon,
+- welcome-section.css:7463 (.welcome-section .quick-actions .btn-icon,
 .welcome-section .quick-actions .btn-icon:hover,
 .welcome-section .quick-actions .btn-icon:focus,
 .welcome-section .quick-actions .btn-icon:active,
@@ -4202,7 +4132,7 @@ html body .welcome-section .quick-actions .btn-icon:active)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1600 (.welcome-section .status-text,
+- welcome-section.css:1611 (.welcome-section .status-text,
 .welcome-section .welcome-status .status-text,
 html body .welcome-section .status-text,
 html body .welcome-section .welcome-status .status-text,
@@ -4214,7 +4144,7 @@ body .welcome-section .welcome-status .status-text,
 .dashboard .welcome-section .welcome-status .status-text,
 .main-content .welcome-section .status-text,
 .main-content .welcome-section .welcome-status .status-text)
-- welcome-section.css:4520 (.welcome-section .status-text,
+- welcome-section.css:4531 (.welcome-section .status-text,
 .welcome-section .welcome-status .status-text,
 html body .welcome-section .status-text,
 html body .welcome-section .welcome-status .status-text,
@@ -4226,7 +4156,7 @@ body .welcome-section .welcome-status .status-text,
 .dashboard .welcome-section .welcome-status .status-text,
 .main-content .welcome-section .status-text,
 .main-content .welcome-section .welcome-status .status-text)
-- welcome-section.css:7482 (.welcome-section .status-text,
+- welcome-section.css:7485 (.welcome-section .status-text,
 .welcome-section .welcome-status .status-text,
 html body .welcome-section .status-text,
 html body .welcome-section .welcome-status .status-text,
@@ -4247,7 +4177,7 @@ body .welcome-section .welcome-status .status-text,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1624 (.welcome-section .stat-number,
+- welcome-section.css:1635 (.welcome-section .stat-number,
 .welcome-section .stat-label,
 .welcome-section .welcome-stats .stat-number,
 .welcome-section .welcome-stats .stat-label,
@@ -4283,7 +4213,7 @@ body .welcome-section .stat-item .stat-label,
 .main-content .welcome-section .welcome-stats .stat-label,
 .main-content .welcome-section .stat-item .stat-number,
 .main-content .welcome-section .stat-item .stat-label)
-- welcome-section.css:4544 (.welcome-section .stat-number,
+- welcome-section.css:4555 (.welcome-section .stat-number,
 .welcome-section .stat-label,
 .welcome-section .welcome-stats .stat-number,
 .welcome-section .welcome-stats .stat-label,
@@ -4319,7 +4249,7 @@ body .welcome-section .stat-item .stat-label,
 .main-content .welcome-section .welcome-stats .stat-label,
 .main-content .welcome-section .stat-item .stat-number,
 .main-content .welcome-section .stat-item .stat-label)
-- welcome-section.css:7506 (.welcome-section .stat-number,
+- welcome-section.css:7509 (.welcome-section .stat-number,
 .welcome-section .stat-label,
 .welcome-section .welcome-stats .stat-number,
 .welcome-section .welcome-stats .stat-label,
@@ -4364,7 +4294,7 @@ body .welcome-section .stat-item .stat-label,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1671 (.welcome-section .greeting,
+- welcome-section.css:1682 (.welcome-section .greeting,
 .welcome-section .user-name,
 .welcome-section .welcome-title .greeting,
 .welcome-section .welcome-title .user-name,
@@ -4388,7 +4318,7 @@ body .welcome-section .welcome-title .user-name,
 .main-content .welcome-section .user-name,
 .main-content .welcome-section .welcome-title .greeting,
 .main-content .welcome-section .welcome-title .user-name)
-- welcome-section.css:4591 (.welcome-section .greeting,
+- welcome-section.css:4602 (.welcome-section .greeting,
 .welcome-section .user-name,
 .welcome-section .welcome-title .greeting,
 .welcome-section .welcome-title .user-name,
@@ -4412,7 +4342,7 @@ body .welcome-section .welcome-title .user-name,
 .main-content .welcome-section .user-name,
 .main-content .welcome-section .welcome-title .greeting,
 .main-content .welcome-section .welcome-title .user-name)
-- welcome-section.css:7553 (.welcome-section .greeting,
+- welcome-section.css:7556 (.welcome-section .greeting,
 .welcome-section .user-name,
 .welcome-section .welcome-title .greeting,
 .welcome-section .welcome-title .user-name,
@@ -4445,9 +4375,9 @@ body .welcome-section .welcome-title .user-name,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1711 (.welcome-section .upcoming-events-title .custom-events-icon)
-- welcome-section.css:4631 (.welcome-section .upcoming-events-title .custom-events-icon)
-- welcome-section.css:7593 (.welcome-section .upcoming-events-title .custom-events-icon)
+- welcome-section.css:1722 (.welcome-section .upcoming-events-title .custom-events-icon)
+- welcome-section.css:4642 (.welcome-section .upcoming-events-title .custom-events-icon)
+- welcome-section.css:7596 (.welcome-section .upcoming-events-title .custom-events-icon)
 
 ### Rule Content:
 ```css
@@ -4457,9 +4387,9 @@ body .welcome-section .welcome-title .user-name,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1725 (.calendar-icon-fixed)
-- welcome-section.css:4645 (.calendar-icon-fixed)
-- welcome-section.css:7607 (.calendar-icon-fixed)
+- welcome-section.css:1736 (.calendar-icon-fixed)
+- welcome-section.css:4656 (.calendar-icon-fixed)
+- welcome-section.css:7610 (.calendar-icon-fixed)
 
 ### Rule Content:
 ```css
@@ -4469,9 +4399,9 @@ body .welcome-section .welcome-title .user-name,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1740 (.calendar-icon-fixed:hover)
-- welcome-section.css:4660 (.calendar-icon-fixed:hover)
-- welcome-section.css:7622 (.calendar-icon-fixed:hover)
+- welcome-section.css:1751 (.calendar-icon-fixed:hover)
+- welcome-section.css:4671 (.calendar-icon-fixed:hover)
+- welcome-section.css:7625 (.calendar-icon-fixed:hover)
 
 ### Rule Content:
 ```css
@@ -4481,7 +4411,7 @@ body .welcome-section .welcome-title .user-name,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1747 (html body .calendar-icon-fixed,
+- welcome-section.css:1758 (html body .calendar-icon-fixed,
 body .calendar-icon-fixed,
 #app .calendar-icon-fixed,
 .dashboard .calendar-icon-fixed,
@@ -4491,7 +4421,7 @@ body .welcome-section .upcoming-events-title .calendar-icon-fixed,
 #app .welcome-section .upcoming-events-title .calendar-icon-fixed,
 .dashboard .welcome-section .upcoming-events-title .calendar-icon-fixed,
 .main-content .welcome-section .upcoming-events-title .calendar-icon-fixed)
-- welcome-section.css:4667 (html body .calendar-icon-fixed,
+- welcome-section.css:4678 (html body .calendar-icon-fixed,
 body .calendar-icon-fixed,
 #app .calendar-icon-fixed,
 .dashboard .calendar-icon-fixed,
@@ -4501,7 +4431,7 @@ body .welcome-section .upcoming-events-title .calendar-icon-fixed,
 #app .welcome-section .upcoming-events-title .calendar-icon-fixed,
 .dashboard .welcome-section .upcoming-events-title .calendar-icon-fixed,
 .main-content .welcome-section .upcoming-events-title .calendar-icon-fixed)
-- welcome-section.css:7629 (html body .calendar-icon-fixed,
+- welcome-section.css:7632 (html body .calendar-icon-fixed,
 body .calendar-icon-fixed,
 #app .calendar-icon-fixed,
 .dashboard .calendar-icon-fixed,
@@ -4520,9 +4450,9 @@ html body .calendar-icon-fixed, body .calendar-icon-fixed, #app .calendar-icon-f
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1770 (.calendar-icon-fixed)
-- welcome-section.css:4690 (.calendar-icon-fixed)
-- welcome-section.css:7652 (.calendar-icon-fixed)
+- welcome-section.css:1781 (.calendar-icon-fixed)
+- welcome-section.css:4701 (.calendar-icon-fixed)
+- welcome-section.css:7655 (.calendar-icon-fixed)
 
 ### Rule Content:
 ```css
@@ -4532,9 +4462,9 @@ html body .calendar-icon-fixed, body .calendar-icon-fixed, #app .calendar-icon-f
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1785 (.calendar-icon-container)
-- welcome-section.css:4705 (.calendar-icon-container)
-- welcome-section.css:7667 (.calendar-icon-container)
+- welcome-section.css:1796 (.calendar-icon-container)
+- welcome-section.css:4716 (.calendar-icon-container)
+- welcome-section.css:7670 (.calendar-icon-container)
 
 ### Rule Content:
 ```css
@@ -4544,9 +4474,9 @@ html body .calendar-icon-fixed, body .calendar-icon-fixed, #app .calendar-icon-f
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1797 (.calendar-icon-container svg)
-- welcome-section.css:4717 (.calendar-icon-container svg)
-- welcome-section.css:7679 (.calendar-icon-container svg)
+- welcome-section.css:1808 (.calendar-icon-container svg)
+- welcome-section.css:4728 (.calendar-icon-container svg)
+- welcome-section.css:7682 (.calendar-icon-container svg)
 
 ### Rule Content:
 ```css
@@ -4556,9 +4486,9 @@ html body .calendar-icon-fixed, body .calendar-icon-fixed, #app .calendar-icon-f
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1806 (.calendar-icon-container:hover)
-- welcome-section.css:4726 (.calendar-icon-container:hover)
-- welcome-section.css:7688 (.calendar-icon-container:hover)
+- welcome-section.css:1817 (.calendar-icon-container:hover)
+- welcome-section.css:4737 (.calendar-icon-container:hover)
+- welcome-section.css:7691 (.calendar-icon-container:hover)
 
 ### Rule Content:
 ```css
@@ -4568,19 +4498,19 @@ html body .calendar-icon-fixed, body .calendar-icon-fixed, #app .calendar-icon-f
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1813 (html body .stat-item,
+- welcome-section.css:1824 (html body .stat-item,
 html body .stat-item *,
 html body .company-culture-showcase .stat-item,
 html body .company-culture-showcase .stat-item *,
 html body .culture-stats .stat-item,
 html body .culture-stats .stat-item *)
-- welcome-section.css:4733 (html body .stat-item,
+- welcome-section.css:4744 (html body .stat-item,
 html body .stat-item *,
 html body .company-culture-showcase .stat-item,
 html body .company-culture-showcase .stat-item *,
 html body .culture-stats .stat-item,
 html body .culture-stats .stat-item *)
-- welcome-section.css:7695 (html body .stat-item,
+- welcome-section.css:7698 (html body .stat-item,
 html body .stat-item *,
 html body .company-culture-showcase .stat-item,
 html body .company-culture-showcase .stat-item *,
@@ -4595,7 +4525,7 @@ html body .stat-item, html body .stat-item *, html body .company-culture-showcas
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1831 (.upcoming-events svg,
+- welcome-section.css:1842 (.upcoming-events svg,
 .upcoming-events .btn-icon,
 .upcoming-events .icon,
 .upcoming-events [class*="icon"],
@@ -4707,7 +4637,7 @@ body .welcome-section .events-list [class*="icon"],
 .main-content .welcome-section .events-list .btn-icon,
 .main-content .welcome-section .events-list .icon,
 .main-content .welcome-section .events-list [class*="icon"])
-- welcome-section.css:4751 (.upcoming-events svg,
+- welcome-section.css:4762 (.upcoming-events svg,
 .upcoming-events .btn-icon,
 .upcoming-events .icon,
 .upcoming-events [class*="icon"],
@@ -4819,7 +4749,7 @@ body .welcome-section .events-list [class*="icon"],
 .main-content .welcome-section .events-list .btn-icon,
 .main-content .welcome-section .events-list .icon,
 .main-content .welcome-section .events-list [class*="icon"])
-- welcome-section.css:7713 (.upcoming-events svg,
+- welcome-section.css:7716 (.upcoming-events svg,
 .upcoming-events .btn-icon,
 .upcoming-events .icon,
 .upcoming-events [class*="icon"],
@@ -4940,7 +4870,7 @@ body .welcome-section .events-list [class*="icon"],
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1957 (.upcoming-events svg:hover,
+- welcome-section.css:1968 (.upcoming-events svg:hover,
 .upcoming-events .btn-icon:hover,
 .upcoming-events .icon:hover,
 .upcoming-events [class*="icon"]:hover,
@@ -4988,7 +4918,7 @@ html body .welcome-section .events-list svg:hover,
 html body .welcome-section .events-list .btn-icon:hover,
 html body .welcome-section .events-list .icon:hover,
 html body .welcome-section .events-list [class*="icon"]:hover)
-- welcome-section.css:4877 (.upcoming-events svg:hover,
+- welcome-section.css:4888 (.upcoming-events svg:hover,
 .upcoming-events .btn-icon:hover,
 .upcoming-events .icon:hover,
 .upcoming-events [class*="icon"]:hover,
@@ -5036,7 +4966,7 @@ html body .welcome-section .events-list svg:hover,
 html body .welcome-section .events-list .btn-icon:hover,
 html body .welcome-section .events-list .icon:hover,
 html body .welcome-section .events-list [class*="icon"]:hover)
-- welcome-section.css:7839 (.upcoming-events svg:hover,
+- welcome-section.css:7842 (.upcoming-events svg:hover,
 .upcoming-events .btn-icon:hover,
 .upcoming-events .icon:hover,
 .upcoming-events [class*="icon"]:hover,
@@ -5093,9 +5023,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2020 (.welcome-section .floating-icons)
-- welcome-section.css:4940 (.welcome-section .floating-icons)
-- welcome-section.css:7902 (.welcome-section .floating-icons)
+- welcome-section.css:2031 (.welcome-section .floating-icons)
+- welcome-section.css:4951 (.welcome-section .floating-icons)
+- welcome-section.css:7905 (.welcome-section .floating-icons)
 
 ### Rule Content:
 ```css
@@ -5105,9 +5035,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2031 (.welcome-section .floating-icon)
-- welcome-section.css:4951 (.welcome-section .floating-icon)
-- welcome-section.css:7913 (.welcome-section .floating-icon)
+- welcome-section.css:2042 (.welcome-section .floating-icon)
+- welcome-section.css:4962 (.welcome-section .floating-icon)
+- welcome-section.css:7916 (.welcome-section .floating-icon)
 
 ### Rule Content:
 ```css
@@ -5117,9 +5047,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2041 (.welcome-section .floating-icon:nth-child(1))
-- welcome-section.css:4961 (.welcome-section .floating-icon:nth-child(1))
-- welcome-section.css:7923 (.welcome-section .floating-icon:nth-child(1))
+- welcome-section.css:2052 (.welcome-section .floating-icon:nth-child(1))
+- welcome-section.css:4972 (.welcome-section .floating-icon:nth-child(1))
+- welcome-section.css:7926 (.welcome-section .floating-icon:nth-child(1))
 
 ### Rule Content:
 ```css
@@ -5129,9 +5059,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2048 (.welcome-section .floating-icon:nth-child(2))
-- welcome-section.css:4968 (.welcome-section .floating-icon:nth-child(2))
-- welcome-section.css:7930 (.welcome-section .floating-icon:nth-child(2))
+- welcome-section.css:2059 (.welcome-section .floating-icon:nth-child(2))
+- welcome-section.css:4979 (.welcome-section .floating-icon:nth-child(2))
+- welcome-section.css:7933 (.welcome-section .floating-icon:nth-child(2))
 
 ### Rule Content:
 ```css
@@ -5141,9 +5071,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2055 (.welcome-section .floating-icon:nth-child(3))
-- welcome-section.css:4975 (.welcome-section .floating-icon:nth-child(3))
-- welcome-section.css:7937 (.welcome-section .floating-icon:nth-child(3))
+- welcome-section.css:2066 (.welcome-section .floating-icon:nth-child(3))
+- welcome-section.css:4986 (.welcome-section .floating-icon:nth-child(3))
+- welcome-section.css:7940 (.welcome-section .floating-icon:nth-child(3))
 
 ### Rule Content:
 ```css
@@ -5153,9 +5083,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2062 (.welcome-section .floating-icon:nth-child(4))
-- welcome-section.css:4982 (.welcome-section .floating-icon:nth-child(4))
-- welcome-section.css:7944 (.welcome-section .floating-icon:nth-child(4))
+- welcome-section.css:2073 (.welcome-section .floating-icon:nth-child(4))
+- welcome-section.css:4993 (.welcome-section .floating-icon:nth-child(4))
+- welcome-section.css:7947 (.welcome-section .floating-icon:nth-child(4))
 
 ### Rule Content:
 ```css
@@ -5165,9 +5095,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2069 (.welcome-section .floating-icon:nth-child(5))
-- welcome-section.css:4989 (.welcome-section .floating-icon:nth-child(5))
-- welcome-section.css:7951 (.welcome-section .floating-icon:nth-child(5))
+- welcome-section.css:2080 (.welcome-section .floating-icon:nth-child(5))
+- welcome-section.css:5000 (.welcome-section .floating-icon:nth-child(5))
+- welcome-section.css:7954 (.welcome-section .floating-icon:nth-child(5))
 
 ### Rule Content:
 ```css
@@ -5177,9 +5107,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2076 (.welcome-section .floating-icon:nth-child(6))
-- welcome-section.css:4996 (.welcome-section .floating-icon:nth-child(6))
-- welcome-section.css:7958 (.welcome-section .floating-icon:nth-child(6))
+- welcome-section.css:2087 (.welcome-section .floating-icon:nth-child(6))
+- welcome-section.css:5007 (.welcome-section .floating-icon:nth-child(6))
+- welcome-section.css:7961 (.welcome-section .floating-icon:nth-child(6))
 
 ### Rule Content:
 ```css
@@ -5189,11 +5119,11 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2085 (0%,
+- welcome-section.css:2096 (0%,
     100%)
-- welcome-section.css:5005 (0%,
+- welcome-section.css:5016 (0%,
     100%)
-- welcome-section.css:7967 (0%,
+- welcome-section.css:7970 (0%,
     100%)
 
 ### Rule Content:
@@ -5204,9 +5134,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2091 (25%)
-- welcome-section.css:5011 (25%)
-- welcome-section.css:7973 (25%)
+- welcome-section.css:2102 (25%)
+- welcome-section.css:5022 (25%)
+- welcome-section.css:7976 (25%)
 
 ### Rule Content:
 ```css
@@ -5216,9 +5146,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2096 (50%)
-- welcome-section.css:5016 (50%)
-- welcome-section.css:7978 (50%)
+- welcome-section.css:2107 (50%)
+- welcome-section.css:5027 (50%)
+- welcome-section.css:7981 (50%)
 
 ### Rule Content:
 ```css
@@ -5228,9 +5158,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2101 (75%)
-- welcome-section.css:5021 (75%)
-- welcome-section.css:7983 (75%)
+- welcome-section.css:2112 (75%)
+- welcome-section.css:5032 (75%)
+- welcome-section.css:7986 (75%)
 
 ### Rule Content:
 ```css
@@ -5240,9 +5170,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2108 (.welcome-section .aurora-effect)
-- welcome-section.css:5028 (.welcome-section .aurora-effect)
-- welcome-section.css:7990 (.welcome-section .aurora-effect)
+- welcome-section.css:2119 (.welcome-section .aurora-effect)
+- welcome-section.css:5039 (.welcome-section .aurora-effect)
+- welcome-section.css:7993 (.welcome-section .aurora-effect)
 
 ### Rule Content:
 ```css
@@ -5252,11 +5182,11 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2127 (0%,
+- welcome-section.css:2138 (0%,
     100%)
-- welcome-section.css:5047 (0%,
+- welcome-section.css:5058 (0%,
     100%)
-- welcome-section.css:8009 (0%,
+- welcome-section.css:8012 (0%,
     100%)
 
 ### Rule Content:
@@ -5267,9 +5197,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2133 (25%)
-- welcome-section.css:5053 (25%)
-- welcome-section.css:8015 (25%)
+- welcome-section.css:2144 (25%)
+- welcome-section.css:5064 (25%)
+- welcome-section.css:8018 (25%)
 
 ### Rule Content:
 ```css
@@ -5279,9 +5209,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2138 (50%)
-- welcome-section.css:5058 (50%)
-- welcome-section.css:8020 (50%)
+- welcome-section.css:2149 (50%)
+- welcome-section.css:5069 (50%)
+- welcome-section.css:8023 (50%)
 
 ### Rule Content:
 ```css
@@ -5291,9 +5221,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2143 (75%)
-- welcome-section.css:5063 (75%)
-- welcome-section.css:8025 (75%)
+- welcome-section.css:2154 (75%)
+- welcome-section.css:5074 (75%)
+- welcome-section.css:8028 (75%)
 
 ### Rule Content:
 ```css
@@ -5303,9 +5233,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2150 (.welcome-section .constellation)
-- welcome-section.css:5070 (.welcome-section .constellation)
-- welcome-section.css:8032 (.welcome-section .constellation)
+- welcome-section.css:2161 (.welcome-section .constellation)
+- welcome-section.css:5081 (.welcome-section .constellation)
+- welcome-section.css:8035 (.welcome-section .constellation)
 
 ### Rule Content:
 ```css
@@ -5315,9 +5245,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2161 (.welcome-section .constellation-line)
-- welcome-section.css:5081 (.welcome-section .constellation-line)
-- welcome-section.css:8043 (.welcome-section .constellation-line)
+- welcome-section.css:2172 (.welcome-section .constellation-line)
+- welcome-section.css:5092 (.welcome-section .constellation-line)
+- welcome-section.css:8046 (.welcome-section .constellation-line)
 
 ### Rule Content:
 ```css
@@ -5327,9 +5257,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2169 (.welcome-section .constellation-line:nth-child(1))
-- welcome-section.css:5089 (.welcome-section .constellation-line:nth-child(1))
-- welcome-section.css:8051 (.welcome-section .constellation-line:nth-child(1))
+- welcome-section.css:2180 (.welcome-section .constellation-line:nth-child(1))
+- welcome-section.css:5100 (.welcome-section .constellation-line:nth-child(1))
+- welcome-section.css:8054 (.welcome-section .constellation-line:nth-child(1))
 
 ### Rule Content:
 ```css
@@ -5339,9 +5269,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2177 (.welcome-section .constellation-line:nth-child(2))
-- welcome-section.css:5097 (.welcome-section .constellation-line:nth-child(2))
-- welcome-section.css:8059 (.welcome-section .constellation-line:nth-child(2))
+- welcome-section.css:2188 (.welcome-section .constellation-line:nth-child(2))
+- welcome-section.css:5108 (.welcome-section .constellation-line:nth-child(2))
+- welcome-section.css:8062 (.welcome-section .constellation-line:nth-child(2))
 
 ### Rule Content:
 ```css
@@ -5351,9 +5281,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2185 (.welcome-section .constellation-line:nth-child(3))
-- welcome-section.css:5105 (.welcome-section .constellation-line:nth-child(3))
-- welcome-section.css:8067 (.welcome-section .constellation-line:nth-child(3))
+- welcome-section.css:2196 (.welcome-section .constellation-line:nth-child(3))
+- welcome-section.css:5116 (.welcome-section .constellation-line:nth-child(3))
+- welcome-section.css:8070 (.welcome-section .constellation-line:nth-child(3))
 
 ### Rule Content:
 ```css
@@ -5363,9 +5293,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2193 (.welcome-section .constellation-line:nth-child(4))
-- welcome-section.css:5113 (.welcome-section .constellation-line:nth-child(4))
-- welcome-section.css:8075 (.welcome-section .constellation-line:nth-child(4))
+- welcome-section.css:2204 (.welcome-section .constellation-line:nth-child(4))
+- welcome-section.css:5124 (.welcome-section .constellation-line:nth-child(4))
+- welcome-section.css:8078 (.welcome-section .constellation-line:nth-child(4))
 
 ### Rule Content:
 ```css
@@ -5375,11 +5305,11 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2203 (0%,
+- welcome-section.css:2214 (0%,
     100%)
-- welcome-section.css:5123 (0%,
+- welcome-section.css:5134 (0%,
     100%)
-- welcome-section.css:8085 (0%,
+- welcome-section.css:8088 (0%,
     100%)
 
 ### Rule Content:
@@ -5390,9 +5320,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2209 (50%)
-- welcome-section.css:5129 (50%)
-- welcome-section.css:8091 (50%)
+- welcome-section.css:2220 (50%)
+- welcome-section.css:5140 (50%)
+- welcome-section.css:8094 (50%)
 
 ### Rule Content:
 ```css
@@ -5402,9 +5332,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2216 (.welcome-section .sparkles)
-- welcome-section.css:5136 (.welcome-section .sparkles)
-- welcome-section.css:8098 (.welcome-section .sparkles)
+- welcome-section.css:2227 (.welcome-section .sparkles)
+- welcome-section.css:5147 (.welcome-section .sparkles)
+- welcome-section.css:8101 (.welcome-section .sparkles)
 
 ### Rule Content:
 ```css
@@ -5414,9 +5344,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2226 (.welcome-section .sparkle)
-- welcome-section.css:5146 (.welcome-section .sparkle)
-- welcome-section.css:8108 (.welcome-section .sparkle)
+- welcome-section.css:2237 (.welcome-section .sparkle)
+- welcome-section.css:5157 (.welcome-section .sparkle)
+- welcome-section.css:8111 (.welcome-section .sparkle)
 
 ### Rule Content:
 ```css
@@ -5426,9 +5356,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2235 (.welcome-section .sparkle:nth-child(even))
-- welcome-section.css:5155 (.welcome-section .sparkle:nth-child(even))
-- welcome-section.css:8117 (.welcome-section .sparkle:nth-child(even))
+- welcome-section.css:2246 (.welcome-section .sparkle:nth-child(even))
+- welcome-section.css:5166 (.welcome-section .sparkle:nth-child(even))
+- welcome-section.css:8120 (.welcome-section .sparkle:nth-child(even))
 
 ### Rule Content:
 ```css
@@ -5438,9 +5368,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2259 (.welcome-section .wave-distortion)
-- welcome-section.css:5175 (.welcome-section .wave-distortion)
-- welcome-section.css:8137 (.welcome-section .wave-distortion)
+- welcome-section.css:2270 (.welcome-section .wave-distortion)
+- welcome-section.css:5186 (.welcome-section .wave-distortion)
+- welcome-section.css:8140 (.welcome-section .wave-distortion)
 
 ### Rule Content:
 ```css
@@ -5450,9 +5380,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2284 (25%)
-- welcome-section.css:5200 (25%)
-- welcome-section.css:8162 (25%)
+- welcome-section.css:2295 (25%)
+- welcome-section.css:5211 (25%)
+- welcome-section.css:8165 (25%)
 
 ### Rule Content:
 ```css
@@ -5462,9 +5392,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2289 (50%)
-- welcome-section.css:5205 (50%)
-- welcome-section.css:8167 (50%)
+- welcome-section.css:2300 (50%)
+- welcome-section.css:5216 (50%)
+- welcome-section.css:8170 (50%)
 
 ### Rule Content:
 ```css
@@ -5474,9 +5404,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2294 (75%)
-- welcome-section.css:5210 (75%)
-- welcome-section.css:8172 (75%)
+- welcome-section.css:2305 (75%)
+- welcome-section.css:5221 (75%)
+- welcome-section.css:8175 (75%)
 
 ### Rule Content:
 ```css
@@ -5486,9 +5416,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2301 (.welcome-section:hover)
-- welcome-section.css:5217 (.welcome-section:hover)
-- welcome-section.css:8179 (.welcome-section:hover)
+- welcome-section.css:2312 (.welcome-section:hover)
+- welcome-section.css:5228 (.welcome-section:hover)
+- welcome-section.css:8182 (.welcome-section:hover)
 
 ### Rule Content:
 ```css
@@ -5498,9 +5428,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2305 (.welcome-section .mouse-follower)
-- welcome-section.css:5221 (.welcome-section .mouse-follower)
-- welcome-section.css:8183 (.welcome-section .mouse-follower)
+- welcome-section.css:2316 (.welcome-section .mouse-follower)
+- welcome-section.css:5232 (.welcome-section .mouse-follower)
+- welcome-section.css:8186 (.welcome-section .mouse-follower)
 
 ### Rule Content:
 ```css
@@ -5510,9 +5440,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2318 (.welcome-section:hover .mouse-follower)
-- welcome-section.css:5234 (.welcome-section:hover .mouse-follower)
-- welcome-section.css:8196 (.welcome-section:hover .mouse-follower)
+- welcome-section.css:2329 (.welcome-section:hover .mouse-follower)
+- welcome-section.css:5245 (.welcome-section:hover .mouse-follower)
+- welcome-section.css:8199 (.welcome-section:hover .mouse-follower)
 
 ### Rule Content:
 ```css
@@ -5522,9 +5452,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2323 (.welcome-section .holographic-overlay)
-- welcome-section.css:5239 (.welcome-section .holographic-overlay)
-- welcome-section.css:8201 (.welcome-section .holographic-overlay)
+- welcome-section.css:2334 (.welcome-section .holographic-overlay)
+- welcome-section.css:5250 (.welcome-section .holographic-overlay)
+- welcome-section.css:8204 (.welcome-section .holographic-overlay)
 
 ### Rule Content:
 ```css
@@ -5534,33 +5464,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2344 (0%)
-- welcome-section.css:5260 (0%)
-- welcome-section.css:8222 (0%)
-
-### Rule Content:
-```css
-0% { background-position: -60px -60px; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2348 (100%)
-- welcome-section.css:5264 (100%)
-- welcome-section.css:8226 (100%)
-
-### Rule Content:
-```css
-100% { background-position: 60px 60px; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2354 (.welcome-section .energy-rings)
-- welcome-section.css:5273 (.welcome-section .energy-rings)
-- welcome-section.css:8232 (.welcome-section .energy-rings)
+- welcome-section.css:2365 (.welcome-section .energy-rings)
+- welcome-section.css:5276 (.welcome-section .energy-rings)
+- welcome-section.css:8235 (.welcome-section .energy-rings)
 
 ### Rule Content:
 ```css
@@ -5570,9 +5476,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2363 (.welcome-section .energy-ring)
-- welcome-section.css:5282 (.welcome-section .energy-ring)
-- welcome-section.css:8241 (.welcome-section .energy-ring)
+- welcome-section.css:2374 (.welcome-section .energy-ring)
+- welcome-section.css:5285 (.welcome-section .energy-ring)
+- welcome-section.css:8244 (.welcome-section .energy-ring)
 
 ### Rule Content:
 ```css
@@ -5582,9 +5488,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2370 (.welcome-section .energy-ring:nth-child(1))
-- welcome-section.css:5289 (.welcome-section .energy-ring:nth-child(1))
-- welcome-section.css:8248 (.welcome-section .energy-ring:nth-child(1))
+- welcome-section.css:2381 (.welcome-section .energy-ring:nth-child(1))
+- welcome-section.css:5292 (.welcome-section .energy-ring:nth-child(1))
+- welcome-section.css:8251 (.welcome-section .energy-ring:nth-child(1))
 
 ### Rule Content:
 ```css
@@ -5594,9 +5500,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2378 (.welcome-section .energy-ring:nth-child(2))
-- welcome-section.css:5297 (.welcome-section .energy-ring:nth-child(2))
-- welcome-section.css:8256 (.welcome-section .energy-ring:nth-child(2))
+- welcome-section.css:2389 (.welcome-section .energy-ring:nth-child(2))
+- welcome-section.css:5300 (.welcome-section .energy-ring:nth-child(2))
+- welcome-section.css:8259 (.welcome-section .energy-ring:nth-child(2))
 
 ### Rule Content:
 ```css
@@ -5606,9 +5512,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2386 (.welcome-section .energy-ring:nth-child(3))
-- welcome-section.css:5305 (.welcome-section .energy-ring:nth-child(3))
-- welcome-section.css:8264 (.welcome-section .energy-ring:nth-child(3))
+- welcome-section.css:2397 (.welcome-section .energy-ring:nth-child(3))
+- welcome-section.css:5308 (.welcome-section .energy-ring:nth-child(3))
+- welcome-section.css:8267 (.welcome-section .energy-ring:nth-child(3))
 
 ### Rule Content:
 ```css
@@ -5618,11 +5524,11 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2396 (0%,
+- welcome-section.css:2407 (0%,
     100%)
-- welcome-section.css:5315 (0%,
+- welcome-section.css:5318 (0%,
     100%)
-- welcome-section.css:8274 (0%,
+- welcome-section.css:8277 (0%,
     100%)
 
 ### Rule Content:
@@ -5633,9 +5539,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2403 (50%)
-- welcome-section.css:5322 (50%)
-- welcome-section.css:8281 (50%)
+- welcome-section.css:2414 (50%)
+- welcome-section.css:5325 (50%)
+- welcome-section.css:8284 (50%)
 
 ### Rule Content:
 ```css
@@ -5645,9 +5551,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2418 (.welcome-section::before)
-- welcome-section.css:5338 (.welcome-section::before)
-- welcome-section.css:8297 (.welcome-section::before)
+- welcome-section.css:2429 (.welcome-section::before)
+- welcome-section.css:5341 (.welcome-section::before)
+- welcome-section.css:8300 (.welcome-section::before)
 
 ### Rule Content:
 ```css
@@ -5657,9 +5563,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2427 (.welcome-section::after)
-- welcome-section.css:5347 (.welcome-section::after)
-- welcome-section.css:8306 (.welcome-section::after)
+- welcome-section.css:2438 (.welcome-section::after)
+- welcome-section.css:5350 (.welcome-section::after)
+- welcome-section.css:8309 (.welcome-section::after)
 
 ### Rule Content:
 ```css
@@ -5669,9 +5575,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2465 (.welcome-section .particle:nth-child(n+2))
-- welcome-section.css:5429 (.welcome-section .particle:nth-child(n+2))
-- welcome-section.css:8388 (.welcome-section .particle:nth-child(n+2))
+- welcome-section.css:2476 (.welcome-section .particle:nth-child(n+2))
+- welcome-section.css:5432 (.welcome-section .particle:nth-child(n+2))
+- welcome-section.css:8391 (.welcome-section .particle:nth-child(n+2))
 
 ### Rule Content:
 ```css
@@ -5681,9 +5587,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2469 (.welcome-section .particle:nth-child(1))
-- welcome-section.css:5433 (.welcome-section .particle:nth-child(1))
-- welcome-section.css:8392 (.welcome-section .particle:nth-child(1))
+- welcome-section.css:2480 (.welcome-section .particle:nth-child(1))
+- welcome-section.css:5436 (.welcome-section .particle:nth-child(1))
+- welcome-section.css:8395 (.welcome-section .particle:nth-child(1))
 
 ### Rule Content:
 ```css
@@ -5693,11 +5599,11 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2494 (.welcome-section::before,
+- welcome-section.css:2505 (.welcome-section::before,
     .welcome-section::after)
-- welcome-section.css:5488 (.welcome-section::before,
+- welcome-section.css:5491 (.welcome-section::before,
     .welcome-section::after)
-- welcome-section.css:8447 (.welcome-section::before,
+- welcome-section.css:8450 (.welcome-section::before,
     .welcome-section::after)
 
 ### Rule Content:
@@ -5708,8 +5614,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2502 (.welcome-section)
-- welcome-section.css:5496 (.welcome-section)
+- welcome-section.css:2513 (.welcome-section)
+- welcome-section.css:5499 (.welcome-section)
 
 ### Rule Content:
 ```css
@@ -5719,12 +5625,12 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2508 (.welcome-section::before,
+- welcome-section.css:2519 (.welcome-section::before,
     .welcome-section::after,
     .welcome-section .aurora-effect,
     .welcome-section .wave-distortion,
     .welcome-section .holographic-overlay)
-- welcome-section.css:5502 (.welcome-section::before,
+- welcome-section.css:5505 (.welcome-section::before,
     .welcome-section::after,
     .welcome-section .aurora-effect,
     .welcome-section .wave-distortion,
@@ -5738,12 +5644,12 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2516 (.welcome-section .particle,
+- welcome-section.css:2527 (.welcome-section .particle,
     .welcome-section .floating-icon,
     .welcome-section .sparkle,
     .welcome-section .constellation-line,
     .welcome-section .energy-ring)
-- welcome-section.css:5510 (.welcome-section .particle,
+- welcome-section.css:5513 (.welcome-section .particle,
     .welcome-section .floating-icon,
     .welcome-section .sparkle,
     .welcome-section .constellation-line,
@@ -5757,8 +5663,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2526 (.welcome-section:hover .particle)
-- welcome-section.css:5520 (.welcome-section:hover .particle)
+- welcome-section.css:2537 (.welcome-section:hover .particle)
+- welcome-section.css:5523 (.welcome-section:hover .particle)
 
 ### Rule Content:
 ```css
@@ -5768,8 +5674,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2532 (.welcome-section:hover .floating-icon)
-- welcome-section.css:5526 (.welcome-section:hover .floating-icon)
+- welcome-section.css:2543 (.welcome-section:hover .floating-icon)
+- welcome-section.css:5529 (.welcome-section:hover .floating-icon)
 
 ### Rule Content:
 ```css
@@ -5779,8 +5685,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2538 (.welcome-section:hover .sparkle)
-- welcome-section.css:5532 (.welcome-section:hover .sparkle)
+- welcome-section.css:2549 (.welcome-section:hover .sparkle)
+- welcome-section.css:5535 (.welcome-section:hover .sparkle)
 
 ### Rule Content:
 ```css
@@ -5790,8 +5696,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2543 (.welcome-section:hover .aurora-effect)
-- welcome-section.css:5537 (.welcome-section:hover .aurora-effect)
+- welcome-section.css:2554 (.welcome-section:hover .aurora-effect)
+- welcome-section.css:5540 (.welcome-section:hover .aurora-effect)
 
 ### Rule Content:
 ```css
@@ -5801,8 +5707,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2548 (.welcome-section:hover .constellation-line)
-- welcome-section.css:5542 (.welcome-section:hover .constellation-line)
+- welcome-section.css:2559 (.welcome-section:hover .constellation-line)
+- welcome-section.css:5545 (.welcome-section:hover .constellation-line)
 
 ### Rule Content:
 ```css
@@ -5812,8 +5718,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2553 (.welcome-section:hover .energy-ring)
-- welcome-section.css:5547 (.welcome-section:hover .energy-ring)
+- welcome-section.css:2564 (.welcome-section:hover .energy-ring)
+- welcome-section.css:5550 (.welcome-section:hover .energy-ring)
 
 ### Rule Content:
 ```css
@@ -5823,8 +5729,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2560 (.welcome-section:focus-within)
-- welcome-section.css:5554 (.welcome-section:focus-within)
+- welcome-section.css:2571 (.welcome-section:focus-within)
+- welcome-section.css:5557 (.welcome-section:focus-within)
 
 ### Rule Content:
 ```css
@@ -5834,8 +5740,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2572 (.welcome-section.loading)
-- welcome-section.css:5566 (.welcome-section.loading)
+- welcome-section.css:2583 (.welcome-section.loading)
+- welcome-section.css:5569 (.welcome-section.loading)
 
 ### Rule Content:
 ```css
@@ -5845,8 +5751,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2579 (0%)
-- welcome-section.css:5573 (0%)
+- welcome-section.css:2590 (0%)
+- welcome-section.css:5576 (0%)
 
 ### Rule Content:
 ```css
@@ -5856,8 +5762,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2584 (60%)
-- welcome-section.css:5578 (60%)
+- welcome-section.css:2595 (60%)
+- welcome-section.css:5581 (60%)
 
 ### Rule Content:
 ```css
@@ -5867,8 +5773,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2589 (100%)
-- welcome-section.css:5583 (100%)
+- welcome-section.css:2600 (100%)
+- welcome-section.css:5586 (100%)
 
 ### Rule Content:
 ```css
@@ -5878,8 +5784,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2596 (.welcome-section.contest-winner)
-- welcome-section.css:5590 (.welcome-section.contest-winner)
+- welcome-section.css:2607 (.welcome-section.contest-winner)
+- welcome-section.css:5593 (.welcome-section.contest-winner)
 
 ### Rule Content:
 ```css
@@ -5889,18 +5795,18 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2600 (.welcome-section.contest-winner::before)
-- welcome-section.css:5594 (.welcome-section.contest-winner::before)
+- welcome-section.css:2611 (.welcome-section.contest-winner::before)
+- welcome-section.css:5597 (.welcome-section.contest-winner::before)
 
 ### Rule Content:
 ```css
-.welcome-section.contest-winner::before { content: '🏆'; position: absolute; top: 10px; right: 10px; font-size: 2rem; z-index: 10; animation: winnerBadge 2s ease-in-out infinite; }
+.welcome-section.contest-winner::before { content: ''; position: absolute; top: 10px; right: 10px; font-size: 2rem; z-index: 10; animation: winnerBadge 2s ease-in-out infinite; }
 ```
 
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2625 (.welcome-section,
+- welcome-section.css:2636 (.welcome-section,
 .welcome-section::before,
 .welcome-section::after,
 .welcome-section .particle,
@@ -5912,7 +5818,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 .welcome-section .mouse-follower,
 .welcome-section .holographic-overlay,
 .welcome-section .energy-ring)
-- welcome-section.css:5619 (.welcome-section,
+- welcome-section.css:5622 (.welcome-section,
 .welcome-section::before,
 .welcome-section::after,
 .welcome-section .particle,
@@ -5933,8 +5839,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2676 (.welcome-section[data-theme="dark"] .stat-item)
-- welcome-section.css:5638 (.welcome-section[data-theme="dark"] .stat-item)
+- welcome-section.css:2687 (.welcome-section[data-theme="dark"] .stat-item)
+- welcome-section.css:5641 (.welcome-section[data-theme="dark"] .stat-item)
 
 ### Rule Content:
 ```css
@@ -5944,8 +5850,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2681 (.welcome-section[data-theme="dark"] .stat-item:hover)
-- welcome-section.css:5643 (.welcome-section[data-theme="dark"] .stat-item:hover)
+- welcome-section.css:2692 (.welcome-section[data-theme="dark"] .stat-item:hover)
+- welcome-section.css:5646 (.welcome-section[data-theme="dark"] .stat-item:hover)
 
 ### Rule Content:
 ```css
@@ -5955,8 +5861,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2686 (.welcome-section[data-theme="dark"] .quick-actions .btn)
-- welcome-section.css:5648 (.welcome-section[data-theme="dark"] .quick-actions .btn)
+- welcome-section.css:2697 (.welcome-section[data-theme="dark"] .quick-actions .btn)
+- welcome-section.css:5651 (.welcome-section[data-theme="dark"] .quick-actions .btn)
 
 ### Rule Content:
 ```css
@@ -5966,8 +5872,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2692 (.welcome-section[data-theme="dark"] .quick-actions .btn:hover)
-- welcome-section.css:5654 (.welcome-section[data-theme="dark"] .quick-actions .btn:hover)
+- welcome-section.css:2703 (.welcome-section[data-theme="dark"] .quick-actions .btn:hover)
+- welcome-section.css:5657 (.welcome-section[data-theme="dark"] .quick-actions .btn:hover)
 
 ### Rule Content:
 ```css
@@ -5977,8 +5883,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2697 (.welcome-section[data-theme="dark"] .event-card)
-- welcome-section.css:5659 (.welcome-section[data-theme="dark"] .event-card)
+- welcome-section.css:2708 (.welcome-section[data-theme="dark"] .event-card)
+- welcome-section.css:5662 (.welcome-section[data-theme="dark"] .event-card)
 
 ### Rule Content:
 ```css
@@ -5988,8 +5894,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2702 (.welcome-section[data-theme="dark"] .event-card:hover)
-- welcome-section.css:5664 (.welcome-section[data-theme="dark"] .event-card:hover)
+- welcome-section.css:2713 (.welcome-section[data-theme="dark"] .event-card:hover)
+- welcome-section.css:5667 (.welcome-section[data-theme="dark"] .event-card:hover)
 
 ### Rule Content:
 ```css
@@ -5999,8 +5905,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2707 (.welcome-section[data-theme="dark"] .insight-card)
-- welcome-section.css:5669 (.welcome-section[data-theme="dark"] .insight-card)
+- welcome-section.css:2718 (.welcome-section[data-theme="dark"] .insight-card)
+- welcome-section.css:5672 (.welcome-section[data-theme="dark"] .insight-card)
 
 ### Rule Content:
 ```css
@@ -6010,8 +5916,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2712 (.welcome-section[data-theme="dark"] .insight-card:hover)
-- welcome-section.css:5674 (.welcome-section[data-theme="dark"] .insight-card:hover)
+- welcome-section.css:2723 (.welcome-section[data-theme="dark"] .insight-card:hover)
+- welcome-section.css:5677 (.welcome-section[data-theme="dark"] .insight-card:hover)
 
 ### Rule Content:
 ```css
@@ -6021,8 +5927,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2717 (.welcome-section[data-theme="dark"] .btn-icon)
-- welcome-section.css:5679 (.welcome-section[data-theme="dark"] .btn-icon)
+- welcome-section.css:2728 (.welcome-section[data-theme="dark"] .btn-icon)
+- welcome-section.css:5682 (.welcome-section[data-theme="dark"] .btn-icon)
 
 ### Rule Content:
 ```css
@@ -6032,8 +5938,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2721 (.welcome-section[data-theme="dark"] .btn-icon:hover)
-- welcome-section.css:5683 (.welcome-section[data-theme="dark"] .btn-icon:hover)
+- welcome-section.css:2732 (.welcome-section[data-theme="dark"] .btn-icon:hover)
+- welcome-section.css:5686 (.welcome-section[data-theme="dark"] .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -6043,8 +5949,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2725 (.welcome-section[data-theme="dark"] .status-text)
-- welcome-section.css:5687 (.welcome-section[data-theme="dark"] .status-text)
+- welcome-section.css:2736 (.welcome-section[data-theme="dark"] .status-text)
+- welcome-section.css:5690 (.welcome-section[data-theme="dark"] .status-text)
 
 ### Rule Content:
 ```css
@@ -6054,8 +5960,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2729 (.welcome-section[data-theme="dark"] .stat-number)
-- welcome-section.css:5691 (.welcome-section[data-theme="dark"] .stat-number)
+- welcome-section.css:2740 (.welcome-section[data-theme="dark"] .stat-number)
+- welcome-section.css:5694 (.welcome-section[data-theme="dark"] .stat-number)
 
 ### Rule Content:
 ```css
@@ -6065,8 +5971,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2733 (.welcome-section[data-theme="dark"] .stat-label)
-- welcome-section.css:5695 (.welcome-section[data-theme="dark"] .stat-label)
+- welcome-section.css:2744 (.welcome-section[data-theme="dark"] .stat-label)
+- welcome-section.css:5698 (.welcome-section[data-theme="dark"] .stat-label)
 
 ### Rule Content:
 ```css
@@ -6076,8 +5982,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2737 (.welcome-section[data-theme="dark"] .greeting)
-- welcome-section.css:5699 (.welcome-section[data-theme="dark"] .greeting)
+- welcome-section.css:2748 (.welcome-section[data-theme="dark"] .greeting)
+- welcome-section.css:5702 (.welcome-section[data-theme="dark"] .greeting)
 
 ### Rule Content:
 ```css
@@ -6087,8 +5993,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2742 (.welcome-section[data-theme="dark"] .aurora-effect)
-- welcome-section.css:5704 (.welcome-section[data-theme="dark"] .aurora-effect)
+- welcome-section.css:2753 (.welcome-section[data-theme="dark"] .aurora-effect)
+- welcome-section.css:5707 (.welcome-section[data-theme="dark"] .aurora-effect)
 
 ### Rule Content:
 ```css
@@ -6098,8 +6004,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2746 (.welcome-section[data-theme="dark"] .constellation-line)
-- welcome-section.css:5708 (.welcome-section[data-theme="dark"] .constellation-line)
+- welcome-section.css:2757 (.welcome-section[data-theme="dark"] .constellation-line)
+- welcome-section.css:5711 (.welcome-section[data-theme="dark"] .constellation-line)
 
 ### Rule Content:
 ```css
@@ -6109,8 +6015,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2750 (.welcome-section[data-theme="dark"] .sparkle)
-- welcome-section.css:5712 (.welcome-section[data-theme="dark"] .sparkle)
+- welcome-section.css:2761 (.welcome-section[data-theme="dark"] .sparkle)
+- welcome-section.css:5715 (.welcome-section[data-theme="dark"] .sparkle)
 
 ### Rule Content:
 ```css
@@ -6120,8 +6026,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2754 (.welcome-section[data-theme="dark"] .wave-distortion)
-- welcome-section.css:5716 (.welcome-section[data-theme="dark"] .wave-distortion)
+- welcome-section.css:2765 (.welcome-section[data-theme="dark"] .wave-distortion)
+- welcome-section.css:5719 (.welcome-section[data-theme="dark"] .wave-distortion)
 
 ### Rule Content:
 ```css
@@ -6131,8 +6037,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2758 (.welcome-section[data-theme="dark"] .holographic-overlay)
-- welcome-section.css:5720 (.welcome-section[data-theme="dark"] .holographic-overlay)
+- welcome-section.css:2769 (.welcome-section[data-theme="dark"] .holographic-overlay)
+- welcome-section.css:5723 (.welcome-section[data-theme="dark"] .holographic-overlay)
 
 ### Rule Content:
 ```css
@@ -6142,8 +6048,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2763 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb)
-- welcome-section.css:5725 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb)
+- welcome-section.css:2774 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb)
+- welcome-section.css:5728 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb)
 
 ### Rule Content:
 ```css
@@ -6153,8 +6059,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2767 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb:hover)
-- welcome-section.css:5729 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb:hover)
+- welcome-section.css:2778 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb:hover)
+- welcome-section.css:5732 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb:hover)
 
 ### Rule Content:
 ```css
@@ -6164,8 +6070,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2775 (.welcome-section)
-- welcome-section.css:5737 (.welcome-section)
+- welcome-section.css:2786 (.welcome-section)
+- welcome-section.css:5740 (.welcome-section)
 
 ### Rule Content:
 ```css
@@ -6175,13 +6081,13 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2781 (.welcome-section .particle,
+- welcome-section.css:2792 (.welcome-section .particle,
     .welcome-section .floating-icon,
     .welcome-section .sparkle,
     .welcome-section .aurora-effect,
     .welcome-section .wave-distortion,
     .welcome-section .holographic-overlay)
-- welcome-section.css:5743 (.welcome-section .particle,
+- welcome-section.css:5746 (.welcome-section .particle,
     .welcome-section .floating-icon,
     .welcome-section .sparkle,
     .welcome-section .aurora-effect,
@@ -6196,10 +6102,10 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2790 (.welcome-section .stat-item,
+- welcome-section.css:2801 (.welcome-section .stat-item,
     .welcome-section .quick-actions .btn,
     .welcome-section .event-card)
-- welcome-section.css:5752 (.welcome-section .stat-item,
+- welcome-section.css:5755 (.welcome-section .stat-item,
     .welcome-section .quick-actions .btn,
     .welcome-section .event-card)
 
@@ -6211,8 +6117,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2800 (.welcome-section *:focus-visible)
-- welcome-section.css:5762 (.welcome-section *:focus-visible)
+- welcome-section.css:2811 (.welcome-section *:focus-visible)
+- welcome-section.css:5765 (.welcome-section *:focus-visible)
 
 ### Rule Content:
 ```css
@@ -6222,10 +6128,10 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2812 (.welcome-section .btn:focus-visible,
+- welcome-section.css:2823 (.welcome-section .btn:focus-visible,
 .welcome-section .stat-item:focus-visible,
 .welcome-section .event-card:focus-visible)
-- welcome-section.css:5774 (.welcome-section .btn:focus-visible,
+- welcome-section.css:5777 (.welcome-section .btn:focus-visible,
 .welcome-section .stat-item:focus-visible,
 .welcome-section .event-card:focus-visible)
 
@@ -6237,8 +6143,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2822 (.welcome-section .keyboard-nav-helper)
-- welcome-section.css:5784 (.welcome-section .keyboard-nav-helper)
+- welcome-section.css:2833 (.welcome-section .keyboard-nav-helper)
+- welcome-section.css:5787 (.welcome-section .keyboard-nav-helper)
 
 ### Rule Content:
 ```css
@@ -6248,8 +6154,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2837 (.welcome-section:focus-within .keyboard-nav-helper)
-- welcome-section.css:5799 (.welcome-section:focus-within .keyboard-nav-helper)
+- welcome-section.css:2848 (.welcome-section:focus-within .keyboard-nav-helper)
+- welcome-section.css:5802 (.welcome-section:focus-within .keyboard-nav-helper)
 
 ### Rule Content:
 ```css
@@ -6259,8 +6165,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2855 (.skip-link)
-- welcome-section.css:5817 (.skip-link)
+- welcome-section.css:2866 (.skip-link)
+- welcome-section.css:5820 (.skip-link)
 
 ### Rule Content:
 ```css
@@ -6270,8 +6176,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2869 (.skip-link:focus)
-- welcome-section.css:5831 (.skip-link:focus)
+- welcome-section.css:2880 (.skip-link:focus)
+- welcome-section.css:5834 (.skip-link:focus)
 
 ### Rule Content:
 ```css
@@ -6281,8 +6187,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2876 (.welcome-section .data-viz-container)
-- welcome-section.css:5838 (.welcome-section .data-viz-container)
+- welcome-section.css:2887 (.welcome-section .data-viz-container)
+- welcome-section.css:5841 (.welcome-section .data-viz-container)
 
 ### Rule Content:
 ```css
@@ -6292,8 +6198,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2887 (.welcome-section .progress-ring)
-- welcome-section.css:5849 (.welcome-section .progress-ring)
+- welcome-section.css:2898 (.welcome-section .progress-ring)
+- welcome-section.css:5852 (.welcome-section .progress-ring)
 
 ### Rule Content:
 ```css
@@ -6303,8 +6209,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2893 (.welcome-section .progress-ring-circle)
-- welcome-section.css:5855 (.welcome-section .progress-ring-circle)
+- welcome-section.css:2904 (.welcome-section .progress-ring-circle)
+- welcome-section.css:5858 (.welcome-section .progress-ring-circle)
 
 ### Rule Content:
 ```css
@@ -6314,8 +6220,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2901 (.welcome-section .progress-ring-progress)
-- welcome-section.css:5863 (.welcome-section .progress-ring-progress)
+- welcome-section.css:2912 (.welcome-section .progress-ring-progress)
+- welcome-section.css:5866 (.welcome-section .progress-ring-progress)
 
 ### Rule Content:
 ```css
@@ -6325,8 +6231,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2912 (.welcome-section .smart-recommendations)
-- welcome-section.css:5874 (.welcome-section .smart-recommendations)
+- welcome-section.css:2923 (.welcome-section .smart-recommendations)
+- welcome-section.css:5877 (.welcome-section .smart-recommendations)
 
 ### Rule Content:
 ```css
@@ -6336,8 +6242,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2919 (.welcome-section .recommendation-card)
-- welcome-section.css:5881 (.welcome-section .recommendation-card)
+- welcome-section.css:2930 (.welcome-section .recommendation-card)
+- welcome-section.css:5884 (.welcome-section .recommendation-card)
 
 ### Rule Content:
 ```css
@@ -6347,8 +6253,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2930 (.welcome-section .recommendation-card::before)
-- welcome-section.css:5892 (.welcome-section .recommendation-card::before)
+- welcome-section.css:2941 (.welcome-section .recommendation-card::before)
+- welcome-section.css:5895 (.welcome-section .recommendation-card::before)
 
 ### Rule Content:
 ```css
@@ -6358,8 +6264,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2941 (.welcome-section .recommendation-card:hover::before)
-- welcome-section.css:5903 (.welcome-section .recommendation-card:hover::before)
+- welcome-section.css:2952 (.welcome-section .recommendation-card:hover::before)
+- welcome-section.css:5906 (.welcome-section .recommendation-card:hover::before)
 
 ### Rule Content:
 ```css
@@ -6369,8 +6275,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2945 (.welcome-section .recommendation-card:hover)
-- welcome-section.css:5907 (.welcome-section .recommendation-card:hover)
+- welcome-section.css:2956 (.welcome-section .recommendation-card:hover)
+- welcome-section.css:5910 (.welcome-section .recommendation-card:hover)
 
 ### Rule Content:
 ```css
@@ -6380,8 +6286,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2952 (.welcome-section .ai-insight)
-- welcome-section.css:5914 (.welcome-section .ai-insight)
+- welcome-section.css:2963 (.welcome-section .ai-insight)
+- welcome-section.css:5917 (.welcome-section .ai-insight)
 
 ### Rule Content:
 ```css
@@ -6391,8 +6297,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2964 (.welcome-section .ai-insight::before)
-- welcome-section.css:5926 (.welcome-section .ai-insight::before)
+- welcome-section.css:2975 (.welcome-section .ai-insight::before)
+- welcome-section.css:5929 (.welcome-section .ai-insight::before)
 
 ### Rule Content:
 ```css
@@ -6402,8 +6308,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2976 (50%)
-- welcome-section.css:5938 (50%)
+- welcome-section.css:2987 (50%)
+- welcome-section.css:5941 (50%)
 
 ### Rule Content:
 ```css
@@ -6413,8 +6319,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2983 (.welcome-section .live-indicator)
-- welcome-section.css:5945 (.welcome-section .live-indicator)
+- welcome-section.css:2994 (.welcome-section .live-indicator)
+- welcome-section.css:5948 (.welcome-section .live-indicator)
 
 ### Rule Content:
 ```css
@@ -6424,8 +6330,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2993 (.welcome-section .live-dot)
-- welcome-section.css:5955 (.welcome-section .live-dot)
+- welcome-section.css:3004 (.welcome-section .live-dot)
+- welcome-section.css:5958 (.welcome-section .live-dot)
 
 ### Rule Content:
 ```css
@@ -6435,9 +6341,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3003 (0%,
+- welcome-section.css:3014 (0%,
     100%)
-- welcome-section.css:5965 (0%,
+- welcome-section.css:5968 (0%,
     100%)
 
 ### Rule Content:
@@ -6448,8 +6354,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3009 (50%)
-- welcome-section.css:5971 (50%)
+- welcome-section.css:3020 (50%)
+- welcome-section.css:5974 (50%)
 
 ### Rule Content:
 ```css
@@ -6459,8 +6365,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3016 (.welcome-section .stat-item)
-- welcome-section.css:5978 (.welcome-section .stat-item)
+- welcome-section.css:3027 (.welcome-section .stat-item)
+- welcome-section.css:5981 (.welcome-section .stat-item)
 
 ### Rule Content:
 ```css
@@ -6470,8 +6376,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3025 (.welcome-section .stat-item::after)
-- welcome-section.css:5987 (.welcome-section .stat-item::after)
+- welcome-section.css:3036 (.welcome-section .stat-item::after)
+- welcome-section.css:5990 (.welcome-section .stat-item::after)
 
 ### Rule Content:
 ```css
@@ -6481,8 +6387,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3038 (.welcome-section .stat-item:hover::after)
-- welcome-section.css:6000 (.welcome-section .stat-item:hover::after)
+- welcome-section.css:3049 (.welcome-section .stat-item:hover::after)
+- welcome-section.css:6003 (.welcome-section .stat-item:hover::after)
 
 ### Rule Content:
 ```css
@@ -6492,8 +6398,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3043 (.welcome-section .stat-item:hover)
-- welcome-section.css:6005 (.welcome-section .stat-item:hover)
+- welcome-section.css:3054 (.welcome-section .stat-item:hover)
+- welcome-section.css:6008 (.welcome-section .stat-item:hover)
 
 ### Rule Content:
 ```css
@@ -6503,8 +6409,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3065 (.welcome-section .stat-label)
-- welcome-section.css:6020 (.welcome-section .stat-label)
+- welcome-section.css:3076 (.welcome-section .stat-label)
+- welcome-section.css:6023 (.welcome-section .stat-label)
 
 ### Rule Content:
 ```css
@@ -6514,8 +6420,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3076 (.welcome-section .quick-actions .btn)
-- welcome-section.css:6031 (.welcome-section .quick-actions .btn)
+- welcome-section.css:3087 (.welcome-section .quick-actions .btn)
+- welcome-section.css:6034 (.welcome-section .quick-actions .btn)
 
 ### Rule Content:
 ```css
@@ -6525,8 +6431,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3085 (.welcome-section .quick-actions .btn::before)
-- welcome-section.css:6040 (.welcome-section .quick-actions .btn::before)
+- welcome-section.css:3096 (.welcome-section .quick-actions .btn::before)
+- welcome-section.css:6043 (.welcome-section .quick-actions .btn::before)
 
 ### Rule Content:
 ```css
@@ -6536,8 +6442,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3100 (.welcome-section .quick-actions .btn:hover)
-- welcome-section.css:6055 (.welcome-section .quick-actions .btn:hover)
+- welcome-section.css:3111 (.welcome-section .quick-actions .btn:hover)
+- welcome-section.css:6058 (.welcome-section .quick-actions .btn:hover)
 
 ### Rule Content:
 ```css
@@ -6547,8 +6453,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3107 (.welcome-section .event-card)
-- welcome-section.css:6062 (.welcome-section .event-card)
+- welcome-section.css:3118 (.welcome-section .event-card)
+- welcome-section.css:6065 (.welcome-section .event-card)
 
 ### Rule Content:
 ```css
@@ -6558,8 +6464,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3114 (.welcome-section .event-card:hover)
-- welcome-section.css:6069 (.welcome-section .event-card:hover)
+- welcome-section.css:3125 (.welcome-section .event-card:hover)
+- welcome-section.css:6072 (.welcome-section .event-card:hover)
 
 ### Rule Content:
 ```css
@@ -6569,11 +6475,11 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:432 (html body .welcome-section .stat-item .stat-number,
+- welcome-section.css:443 (html body .welcome-section .stat-item .stat-number,
 html body .welcome-section .stat-number,
 .welcome-section .stat-item .stat-number,
 .welcome-section .stat-number)
-- welcome-section.css:6237 (html body .welcome-section .stat-item .stat-number,
+- welcome-section.css:6240 (html body .welcome-section .stat-item .stat-number,
 html body .welcome-section .stat-number,
 .welcome-section .stat-item .stat-number,
 .welcome-section .stat-number)
@@ -6586,9 +6492,9 @@ html body .welcome-section .stat-item .stat-number, html body .welcome-section .
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:452 (html body .welcome-section .stat-item.warning .stat-number,
+- welcome-section.css:463 (html body .welcome-section .stat-item.warning .stat-number,
 .welcome-section .stat-item.warning .stat-number)
-- welcome-section.css:6257 (html body .welcome-section .stat-item.warning .stat-number,
+- welcome-section.css:6260 (html body .welcome-section .stat-item.warning .stat-number,
 .welcome-section .stat-item.warning .stat-number)
 
 ### Rule Content:
@@ -6599,9 +6505,9 @@ html body .welcome-section .stat-item.warning .stat-number, .welcome-section .st
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:463 (html body .welcome-section .stat-item.error .stat-number,
+- welcome-section.css:474 (html body .welcome-section .stat-item.error .stat-number,
 .welcome-section .stat-item.error .stat-number)
-- welcome-section.css:6268 (html body .welcome-section .stat-item.error .stat-number,
+- welcome-section.css:6271 (html body .welcome-section .stat-item.error .stat-number,
 .welcome-section .stat-item.error .stat-number)
 
 ### Rule Content:
@@ -6612,10 +6518,10 @@ html body .welcome-section .stat-item.error .stat-number, .welcome-section .stat
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:474 (html body .welcome-section [style*="color: black"],
+- welcome-section.css:485 (html body .welcome-section [style*="color: black"],
 html body .welcome-section [style*="color: #000"],
 html body .welcome-section [style*="color: #000000"])
-- welcome-section.css:6279 (html body .welcome-section [style*="color: black"],
+- welcome-section.css:6282 (html body .welcome-section [style*="color: black"],
 html body .welcome-section [style*="color: #000"],
 html body .welcome-section [style*="color: #000000"])
 
@@ -6627,11 +6533,11 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3414 (.welcome-section .btn-icon:hover,
+- welcome-section.css:3425 (.welcome-section .btn-icon:hover,
 .welcome-section .btn:hover .btn-icon,
 .welcome-section .quick-actions .btn .btn-icon:hover,
 .welcome-section .quick-actions .btn:hover .btn-icon)
-- welcome-section.css:6391 (.welcome-section .btn-icon:hover,
+- welcome-section.css:6394 (.welcome-section .btn-icon:hover,
 .welcome-section .btn:hover .btn-icon,
 .welcome-section .quick-actions .btn .btn-icon:hover,
 .welcome-section .quick-actions .btn:hover .btn-icon)
@@ -6644,8 +6550,8 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3424 (.welcome-section .btn-icon)
-- welcome-section.css:6401 (.welcome-section .btn-icon)
+- welcome-section.css:3435 (.welcome-section .btn-icon)
+- welcome-section.css:6404 (.welcome-section .btn-icon)
 
 ### Rule Content:
 ```css
@@ -6655,8 +6561,8 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3430 (.welcome-section .btn:hover .btn-icon)
-- welcome-section.css:6407 (.welcome-section .btn:hover .btn-icon)
+- welcome-section.css:3441 (.welcome-section .btn:hover .btn-icon)
+- welcome-section.css:6410 (.welcome-section .btn:hover .btn-icon)
 
 ### Rule Content:
 ```css
@@ -6666,8 +6572,8 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3437 (.welcome-section .btn-icon:hover)
-- welcome-section.css:6414 (.welcome-section .btn-icon:hover)
+- welcome-section.css:3448 (.welcome-section .btn-icon:hover)
+- welcome-section.css:6417 (.welcome-section .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -6677,8 +6583,8 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3551 (.event-card)
-- welcome-section.css:6517 (.event-card)
+- welcome-section.css:3562 (.event-card)
+- welcome-section.css:6520 (.event-card)
 
 ### Rule Content:
 ```css
@@ -6688,8 +6594,8 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3563 (.event-card::before)
-- welcome-section.css:6529 (.event-card::before)
+- welcome-section.css:3574 (.event-card::before)
+- welcome-section.css:6532 (.event-card::before)
 
 ### Rule Content:
 ```css
@@ -6699,8 +6605,8 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3575 (.event-card:hover)
-- welcome-section.css:6541 (.event-card:hover)
+- welcome-section.css:3586 (.event-card:hover)
+- welcome-section.css:6544 (.event-card:hover)
 
 ### Rule Content:
 ```css
@@ -6710,8 +6616,8 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3581 (.event-card:hover::before)
-- welcome-section.css:6547 (.event-card:hover::before)
+- welcome-section.css:3592 (.event-card:hover::before)
+- welcome-section.css:6550 (.event-card:hover::before)
 
 ### Rule Content:
 ```css
@@ -6721,8 +6627,8 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3585 (.event-time)
-- welcome-section.css:6551 (.event-time)
+- welcome-section.css:3596 (.event-time)
+- welcome-section.css:6554 (.event-time)
 
 ### Rule Content:
 ```css
@@ -6732,7 +6638,7 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3595 (.event-title,
+- welcome-section.css:3606 (.event-title,
 .upcoming-events .event-title,
 .events-list .event-title,
 .welcome-section .event-title,
@@ -6741,7 +6647,7 @@ body .welcome-section .event-title,
 #app .welcome-section .event-title,
 .dashboard .welcome-section .event-title,
 .main-content .welcome-section .event-title)
-- welcome-section.css:6561 (.event-title,
+- welcome-section.css:6564 (.event-title,
 .upcoming-events .event-title,
 .events-list .event-title,
 .welcome-section .event-title,
@@ -6759,8 +6665,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3614 (.event-participants)
-- welcome-section.css:6580 (.event-participants)
+- welcome-section.css:3625 (.event-participants)
+- welcome-section.css:6583 (.event-participants)
 
 ### Rule Content:
 ```css
@@ -6770,8 +6676,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3626 (.event-participants svg)
-- welcome-section.css:6592 (.event-participants svg)
+- welcome-section.css:3637 (.event-participants svg)
+- welcome-section.css:6595 (.event-participants svg)
 
 ### Rule Content:
 ```css
@@ -6781,8 +6687,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3751 (.quick-insights)
-- welcome-section.css:6717 (.quick-insights)
+- welcome-section.css:3762 (.quick-insights)
+- welcome-section.css:6720 (.quick-insights)
 
 ### Rule Content:
 ```css
@@ -6792,8 +6698,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3763 (.quick-insights .insights-title)
-- welcome-section.css:6729 (.quick-insights .insights-title)
+- welcome-section.css:3774 (.quick-insights .insights-title)
+- welcome-section.css:6732 (.quick-insights .insights-title)
 
 ### Rule Content:
 ```css
@@ -6803,9 +6709,9 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3774 (.quick-insights .insights-title svg,
+- welcome-section.css:3785 (.quick-insights .insights-title svg,
 .quick-insights .insights-title .icon)
-- welcome-section.css:6740 (.quick-insights .insights-title svg,
+- welcome-section.css:6743 (.quick-insights .insights-title svg,
 .quick-insights .insights-title .icon)
 
 ### Rule Content:
@@ -6816,8 +6722,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3786 (.quick-insights .insights-title .btn-icon)
-- welcome-section.css:6752 (.quick-insights .insights-title .btn-icon)
+- welcome-section.css:3797 (.quick-insights .insights-title .btn-icon)
+- welcome-section.css:6755 (.quick-insights .insights-title .btn-icon)
 
 ### Rule Content:
 ```css
@@ -6827,11 +6733,11 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3793 (.quick-insights .insights-title .btn-icon,
+- welcome-section.css:3804 (.quick-insights .insights-title .btn-icon,
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
-- welcome-section.css:6759 (.quick-insights .insights-title .btn-icon,
+- welcome-section.css:6762 (.quick-insights .insights-title .btn-icon,
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
@@ -6844,10 +6750,10 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3802 (.quick-insights .insights-title .btn-icon:hover,
+- welcome-section.css:3813 (.quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
-- welcome-section.css:6768 (.quick-insights .insights-title .btn-icon:hover,
+- welcome-section.css:6771 (.quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
 
@@ -6859,8 +6765,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3811 (.quick-insights .insights-grid)
-- welcome-section.css:6777 (.quick-insights .insights-grid)
+- welcome-section.css:3822 (.quick-insights .insights-grid)
+- welcome-section.css:6780 (.quick-insights .insights-grid)
 
 ### Rule Content:
 ```css
@@ -6870,8 +6776,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3817 (.quick-insights .insight-card)
-- welcome-section.css:6783 (.quick-insights .insight-card)
+- welcome-section.css:3828 (.quick-insights .insight-card)
+- welcome-section.css:6786 (.quick-insights .insight-card)
 
 ### Rule Content:
 ```css
@@ -6881,8 +6787,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3828 (.quick-insights .insight-card::before)
-- welcome-section.css:6794 (.quick-insights .insight-card::before)
+- welcome-section.css:3839 (.quick-insights .insight-card::before)
+- welcome-section.css:6797 (.quick-insights .insight-card::before)
 
 ### Rule Content:
 ```css
@@ -6892,8 +6798,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:3840 (.quick-insights .insight-card:hover)
-- welcome-section.css:6806 (.quick-insights .insight-card:hover)
+- welcome-section.css:3851 (.quick-insights .insight-card:hover)
+- welcome-section.css:6809 (.quick-insights .insight-card:hover)
 
 ### Rule Content:
 ```css
@@ -6903,9 +6809,9 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:4276 (.quick-insights .insight-content,
+- welcome-section.css:4287 (.quick-insights .insight-content,
 .quick-insights .insight-content *)
-- welcome-section.css:7238 (.quick-insights .insight-content,
+- welcome-section.css:7241 (.quick-insights .insight-content,
 .quick-insights .insight-content *)
 
 ### Rule Content:
@@ -6916,8 +6822,30 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5331 (.welcome-section)
-- welcome-section.css:8290 (.welcome-section)
+- welcome-section.css:2355 (0%)
+- welcome-section.css:8225 (0%)
+
+### Rule Content:
+```css
+0% { background-position: -60px -60px; }
+```
+
+## Duplicate Rule Found
+
+### Locations:
+- welcome-section.css:2359 (100%)
+- welcome-section.css:8229 (100%)
+
+### Rule Content:
+```css
+100% { background-position: 60px 60px; }
+```
+
+## Duplicate Rule Found
+
+### Locations:
+- welcome-section.css:5334 (.welcome-section)
+- welcome-section.css:8293 (.welcome-section)
 
 ### Rule Content:
 ```css
@@ -6927,8 +6855,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5357 (.welcome-section .particle:nth-child(1))
-- welcome-section.css:8316 (.welcome-section .particle:nth-child(1))
+- welcome-section.css:5360 (.welcome-section .particle:nth-child(1))
+- welcome-section.css:8319 (.welcome-section .particle:nth-child(1))
 
 ### Rule Content:
 ```css
@@ -6938,8 +6866,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5363 (.welcome-section .particle:nth-child(2))
-- welcome-section.css:8322 (.welcome-section .particle:nth-child(2))
+- welcome-section.css:5366 (.welcome-section .particle:nth-child(2))
+- welcome-section.css:8325 (.welcome-section .particle:nth-child(2))
 
 ### Rule Content:
 ```css
@@ -6949,8 +6877,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5369 (.welcome-section .particle:nth-child(3))
-- welcome-section.css:8328 (.welcome-section .particle:nth-child(3))
+- welcome-section.css:5372 (.welcome-section .particle:nth-child(3))
+- welcome-section.css:8331 (.welcome-section .particle:nth-child(3))
 
 ### Rule Content:
 ```css
@@ -6960,8 +6888,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5376 (.welcome-section .floating-icon:nth-child(n+4))
-- welcome-section.css:8335 (.welcome-section .floating-icon:nth-child(n+4))
+- welcome-section.css:5379 (.welcome-section .floating-icon:nth-child(n+4))
+- welcome-section.css:8338 (.welcome-section .floating-icon:nth-child(n+4))
 
 ### Rule Content:
 ```css
@@ -6971,8 +6899,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5380 (.welcome-section .floating-icon)
-- welcome-section.css:8339 (.welcome-section .floating-icon)
+- welcome-section.css:5383 (.welcome-section .floating-icon)
+- welcome-section.css:8342 (.welcome-section .floating-icon)
 
 ### Rule Content:
 ```css
@@ -6982,8 +6910,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5386 (.welcome-section .sparkle:nth-child(n+11))
-- welcome-section.css:8345 (.welcome-section .sparkle:nth-child(n+11))
+- welcome-section.css:5389 (.welcome-section .sparkle:nth-child(n+11))
+- welcome-section.css:8348 (.welcome-section .sparkle:nth-child(n+11))
 
 ### Rule Content:
 ```css
@@ -6993,8 +6921,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5391 (.welcome-section .constellation-line:nth-child(n+3))
-- welcome-section.css:8350 (.welcome-section .constellation-line:nth-child(n+3))
+- welcome-section.css:5394 (.welcome-section .constellation-line:nth-child(n+3))
+- welcome-section.css:8353 (.welcome-section .constellation-line:nth-child(n+3))
 
 ### Rule Content:
 ```css
@@ -7004,8 +6932,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5396 (.welcome-section .energy-ring:nth-child(3))
-- welcome-section.css:8355 (.welcome-section .energy-ring:nth-child(3))
+- welcome-section.css:5399 (.welcome-section .energy-ring:nth-child(3))
+- welcome-section.css:8358 (.welcome-section .energy-ring:nth-child(3))
 
 ### Rule Content:
 ```css
@@ -7015,8 +6943,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5401 (.welcome-section .aurora-effect)
-- welcome-section.css:8360 (.welcome-section .aurora-effect)
+- welcome-section.css:5404 (.welcome-section .aurora-effect)
+- welcome-section.css:8363 (.welcome-section .aurora-effect)
 
 ### Rule Content:
 ```css
@@ -7026,8 +6954,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5408 (.welcome-section .mouse-follower)
-- welcome-section.css:8367 (.welcome-section .mouse-follower)
+- welcome-section.css:5411 (.welcome-section .mouse-follower)
+- welcome-section.css:8370 (.welcome-section .mouse-follower)
 
 ### Rule Content:
 ```css
@@ -7037,8 +6965,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5413 (.welcome-section .holographic-overlay)
-- welcome-section.css:8372 (.welcome-section .holographic-overlay)
+- welcome-section.css:5416 (.welcome-section .holographic-overlay)
+- welcome-section.css:8375 (.welcome-section .holographic-overlay)
 
 ### Rule Content:
 ```css
@@ -7048,8 +6976,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5420 (.welcome-section)
-- welcome-section.css:8379 (.welcome-section)
+- welcome-section.css:5423 (.welcome-section)
+- welcome-section.css:8382 (.welcome-section)
 
 ### Rule Content:
 ```css
@@ -7059,8 +6987,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5440 (.welcome-section .floating-icon:nth-child(n+3))
-- welcome-section.css:8399 (.welcome-section .floating-icon:nth-child(n+3))
+- welcome-section.css:5443 (.welcome-section .floating-icon:nth-child(n+3))
+- welcome-section.css:8402 (.welcome-section .floating-icon:nth-child(n+3))
 
 ### Rule Content:
 ```css
@@ -7070,8 +6998,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5445 (.welcome-section .sparkle:nth-child(n+6))
-- welcome-section.css:8404 (.welcome-section .sparkle:nth-child(n+6))
+- welcome-section.css:5448 (.welcome-section .sparkle:nth-child(n+6))
+- welcome-section.css:8407 (.welcome-section .sparkle:nth-child(n+6))
 
 ### Rule Content:
 ```css
@@ -7081,8 +7009,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5450 (.welcome-section .constellation)
-- welcome-section.css:8409 (.welcome-section .constellation)
+- welcome-section.css:5453 (.welcome-section .constellation)
+- welcome-section.css:8412 (.welcome-section .constellation)
 
 ### Rule Content:
 ```css
@@ -7092,8 +7020,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5455 (.welcome-section .wave-distortion)
-- welcome-section.css:8414 (.welcome-section .wave-distortion)
+- welcome-section.css:5458 (.welcome-section .wave-distortion)
+- welcome-section.css:8417 (.welcome-section .wave-distortion)
 
 ### Rule Content:
 ```css
@@ -7103,7 +7031,7 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5463 (.welcome-section,
+- welcome-section.css:5466 (.welcome-section,
     .welcome-section::before,
     .welcome-section::after,
     .welcome-section .particle,
@@ -7114,7 +7042,7 @@ body .welcome-section .event-title,
     .welcome-section .wave-distortion,
     .welcome-section .holographic-overlay,
     .welcome-section .energy-ring)
-- welcome-section.css:8422 (.welcome-section,
+- welcome-section.css:8425 (.welcome-section,
     .welcome-section::before,
     .welcome-section::after,
     .welcome-section .particle,
@@ -7134,11 +7062,22 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5484 (.welcome-section)
-- welcome-section.css:8443 (.welcome-section)
+- welcome-section.css:5487 (.welcome-section)
+- welcome-section.css:8446 (.welcome-section)
 
 ### Rule Content:
 ```css
 .welcome-section { animation-duration: 8s !important; }
+```
+
+## Duplicate Rule Found
+
+### Locations:
+- animations.css:79 (to)
+- wellness-tracker.css:371 (to)
+
+### Rule Content:
+```css
+to { opacity: 1; }
 ```
 

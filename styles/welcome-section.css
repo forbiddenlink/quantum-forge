@@ -64,6 +64,13 @@
 .welcome-section {
     margin-bottom: var(--space-6) !important;
     margin-top: 0 !important;
+    
+    /* CRITICAL: Prevent unwanted movement */
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    
     /* ENHANCED Multi-layer animated background */
     background:
         /* Animated gradient waves */
@@ -85,6 +92,11 @@
     padding: var(--space-8) !important;
     position: relative !important;
     overflow: hidden !important;
+    
+    /* Ensure stable container */
+    width: 100% !important;
+    max-width: 100% !important;
+    
     box-shadow:
         var(--welcome-shadow),
         0 0 0 1px rgba(255, 255, 255, 0.2),
@@ -103,10 +115,9 @@
     /* Ensure no scrollbar */
     max-height: fit-content !important;
 
-    /* Using unified animations */
+    /* Using unified animations - DISABLED shimmer to prevent horizontal movement */
     animation:
-        glow 6s ease-in-out infinite,
-        shimmer 20s linear infinite !important;
+        glow 6s ease-in-out infinite !important;
 }
 
 /* 🎯 CRITICAL FIX: Ensure button icons are always visible */
@@ -5256,15 +5267,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     mix-blend-mode: overlay;
 }
 
-@keyframes holographicShimmer {
-    0% {
-        background-position: -60px -60px;
-    }
-
-    100% {
-        background-position: 60px 60px;
-    }
-}
+/* Holographic shimmer defined above - duplicate removed */
 
 /* 🎯 BUTTON ICONS */
 /* Button styles moved to unified theme */

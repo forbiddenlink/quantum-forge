@@ -12,26 +12,7 @@
 .dream-workspace {
     display: block !important;
 }
-
-:root {
-    /* Dream workspace specific variables */
-    --workspace-bg-start: #f8fafc;
-    --workspace-bg-end: #e2e8f0;
-    --workspace-text: #1e293b;
-    --workspace-text-secondary: #475569;
-    --workspace-text-muted: #64748b;
-    --workspace-overlay: rgba(255, 255, 255, 0.1);
-    --workspace-overlay-hover: rgba(255, 255, 255, 0.15);
-    --workspace-border: rgba(99, 102, 241, 0.2);
-    --workspace-border-hover: rgba(99, 102, 241, 0.3);
-    --workspace-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    
-    /* Enhanced gradient colors */
-    --workspace-accent-1: #6366f1;
-    --workspace-accent-2: #8b5cf6;
-    --workspace-accent-3: #06b6d4;
-    --workspace-accent-4: #10b981;
-}
+/* Dream workspace variables now consolidated in critical-fixes.css */
 
 /* Modern Dream Workspace */
 .dream-workspace {
@@ -277,21 +258,11 @@
     }
 }
 
-/* Modern Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* Modern Animations - consolidated in animations.css */
 
 .dream-workspace [class*="-card"],
 .dream-workspace [class*="-item"] {
-    animation: fadeIn 0.3s ease-out forwards !important;
+    animation: fadeInUp 0.3s ease-out forwards !important;
 }
 
 /* ENHANCED animated particles */

@@ -1,40 +1,6 @@
 /* ===== ENHANCED LIVE ACTIVITY FEED STYLES ===== */
 /* 🏆 Contest-Winning Real-Time Component Design with Spectacular Effects */
-
-:root {
-    /* Live Activity Feed specific colors matching other enhanced sections */
-    --activity-primary: var(--primary-500);
-    --activity-success: var(--success-500);
-    --activity-warning: var(--warning-500);
-    --activity-error: var(--error-500);
-
-    /* Spectacular gradients matching enhanced sections */
-    --activity-gradient: var(--gradient-primary);
-    --activity-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
-    --activity-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
-    --activity-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
-
-    /* Contest-winning effect colors matching other sections */
-    --activity-glow: rgba(99, 102, 241, 0.4);
-    --activity-accent-1: #8b5cf6;
-    --activity-accent-2: #06b6d4;
-    --activity-accent-3: #10b981;
-    --activity-accent-4: #f59e0b;
-
-    /* Text colors for enhanced sections */
-    --activity-text: white;
-    --activity-text-secondary: rgba(255, 255, 255, 0.9);
-    --activity-text-muted: rgba(255, 255, 255, 0.7);
-    --activity-overlay: rgba(255, 255, 255, 0.1);
-    --activity-overlay-hover: rgba(255, 255, 255, 0.15);
-    --activity-border: rgba(255, 255, 255, 0.2);
-    --activity-border-hover: rgba(255, 255, 255, 0.3);
-
-    /* Spacing for consistent layout */
-    --activity-section-gap: var(--space-6);
-    --activity-card-gap: var(--space-4);
-    --activity-container-padding: var(--space-6);
-}
+/* Activity feed variables now consolidated in critical-fixes.css */
 
 /* 🚀 ENHANCED LIVE ACTIVITY FEED CONTAINER - EXACT MATCH to other enhanced sections */
 .live-activity-feed-enhanced {
@@ -1115,15 +1081,7 @@
     }
 }
 
-@keyframes btnShimmer {
-    0% {
-        left: -100%;
-    }
-
-    100% {
-        left: 100%;
-    }
-}
+/* Shimmer animation consolidated in animations.css */
 
 /* ===== ENHANCED FEEDBACK SYSTEM ===== */
 .action-feedback-enhanced {

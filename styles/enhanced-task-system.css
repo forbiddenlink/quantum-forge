@@ -1,24 +1,5 @@
 /* 🏆 CONTEST-WINNING TASK MANAGEMENT SYSTEM - Spectacular Visual Design */
-:root {
-    /* Enhanced Task System specific colors */
-    --task-primary: var(--primary-500);
-    --task-success: var(--success-500);
-    --task-warning: var(--warning-500);
-    --task-error: var(--error-500);
-
-    /* Spectacular gradients for task management */
-    --task-gradient: var(--gradient-primary);
-    --task-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
-    --task-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
-    --task-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
-
-    /* Contest-winning effect colors - using consistent accent colors from critical-fixes.css */
-    --task-glow: rgba(99, 102, 241, 0.3);
-    --task-accent-1: var(--welcome-accent-1);
-    --task-accent-2: var(--welcome-accent-2);
-    --task-accent-3: var(--welcome-accent-3);
-    --task-accent-4: var(--welcome-accent-4);
-}
+/* Task system variables now consolidated in critical-fixes.css */
 
 /* 🚀 SPECTACULAR TASK MANAGEMENT CONTAINER - MATCHING WELCOME & ANALYTICS SECTIONS */
 .enhanced-task-system,
@@ -4485,20 +4466,6 @@ enhanced-task-system .section-icon-svg {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-4);
     margin-bottom: var(--space-6);
-}
-
-.task-card {
-    background: var(--component-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--component-border);
-    box-shadow: var(--component-shadow);
-    border-radius: var(--radius-xl);
-    padding: var(--space-4);
-    transition: all var(--duration-normal) var(--ease-spring);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
 }
 
 .task-card:hover {

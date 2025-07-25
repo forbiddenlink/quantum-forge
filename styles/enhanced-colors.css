@@ -1,26 +1,7 @@
 /* Enhanced Color Scheme for Quantum Forge Intranet */
-/* Consolidated with main.css - removed duplicate variables */
+/* Component-specific aliases now consolidated in critical-fixes.css */
 
-:root {
-    /* Additional color utilities (not duplicating main.css) */
-    --primary-rgb: 99, 102, 241;
-    --accent-rgb: 129, 140, 248;
-
-    /* Component-specific aliases using main.css variables */
-    --primary-color: var(--primary-500);
-    --accent-color: var(--primary-400);
-    --success: var(--success-500);
-    --warning: var(--warning-500);
-    --error: var(--error-500);
-    --info: var(--primary-500);
-
-    /* Enhanced interaction colors using main variables */
-    --hover-light: rgba(99, 102, 241, 0.1);
-    --active-light: rgba(99, 102, 241, 0.2);
-    --focus-ring: rgba(99, 102, 241, 0.5);
-}
-
-/* Dark Mode Colors - Enhanced for better visibility */
+/* Dark Mode Color Overrides - Enhanced for better visibility */
 [data-theme="dark"] {
     /* Component aliases using main.css dark mode variables */
     --primary-color: var(--primary-500);
@@ -315,18 +296,6 @@
     }
 }
 
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 @keyframes scaleIn {
     from {
         opacity: 0;
@@ -510,18 +479,7 @@
     border: 2px solid var(--bg-elevated);
 }
 
-/* Pulse Animation for Notification Badge */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
+/* Pulse animation consolidated in animations.css */
 
 /* Enhanced Header Styling */
 .header {

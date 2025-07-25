@@ -165,6 +165,148 @@
     /* Consolidated Patterns */
     --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-600));
     --transform-hover: translateY(-2px);
+
+    /* ===== COMPONENT-SPECIFIC ALIASES (Consolidated from multiple files) ===== */
+    
+    /* Enhanced Color System Aliases */
+    --primary-rgb: 99, 102, 241;
+    --accent-rgb: 129, 140, 248;
+    --primary-color: var(--primary-500);
+    --accent-color: var(--primary-400);
+    --success: var(--success-500);
+    --warning: var(--warning-500);
+    --error: var(--error-500);
+    --info: var(--primary-500);
+    --hover-light: rgba(99, 102, 241, 0.1);
+    --active-light: rgba(99, 102, 241, 0.2);
+    --focus-ring: rgba(99, 102, 241, 0.5);
+
+    /* Task System Aliases */
+    --task-primary: var(--primary-500);
+    --task-success: var(--success-500);
+    --task-warning: var(--warning-500);
+    --task-error: var(--error-500);
+    --task-gradient: var(--gradient-primary);
+    --task-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
+    --task-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
+    --task-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
+    --task-glow: rgba(99, 102, 241, 0.3);
+    --task-accent-1: var(--welcome-accent-1);
+    --task-accent-2: var(--welcome-accent-2);
+    --task-accent-3: var(--welcome-accent-3);
+    --task-accent-4: var(--welcome-accent-4);
+
+    /* Knowledge Hub Aliases */
+    --knowledge-primary: var(--primary-500);
+    --knowledge-success: var(--success-500);
+    --knowledge-warning: var(--warning-500);
+    --knowledge-error: var(--error-500);
+    --knowledge-gradient: var(--gradient-primary);
+    --knowledge-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
+    --knowledge-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
+    --knowledge-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
+    --knowledge-glow: rgba(99, 102, 241, 0.4);
+    --knowledge-accent-1: var(--welcome-accent-1);
+    --knowledge-accent-2: var(--welcome-accent-2);
+    --knowledge-accent-3: var(--welcome-accent-3);
+    --knowledge-accent-4: var(--welcome-accent-4);
+    --knowledge-hub-primary: var(--primary-500);
+    --knowledge-hub-primary-light: var(--primary-400);
+    --knowledge-hub-primary-dark: var(--primary-600);
+    --knowledge-section-gap: var(--space-6);
+    --knowledge-card-gap: var(--space-4);
+    --knowledge-container-padding: var(--space-6);
+
+    /* Company News Aliases */
+    --news-primary: var(--primary-500);
+    --news-success: var(--success-500);
+    --news-warning: var(--warning-500);
+    --news-error: var(--error-500);
+    --news-gradient: var(--gradient-primary);
+    --news-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
+    --news-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
+    --news-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
+    --news-glow: rgba(99, 102, 241, 0.4);
+    --news-accent-1: var(--welcome-accent-1);
+    --news-accent-2: var(--welcome-accent-2);
+    --news-accent-3: var(--welcome-accent-3);
+    --news-accent-4: var(--welcome-accent-4);
+
+    /* Live Activity Feed Aliases */
+    --activity-primary: var(--primary-500);
+    --activity-success: var(--success-500);
+    --activity-warning: var(--warning-500);
+    --activity-error: var(--error-500);
+    --activity-gradient: var(--gradient-primary);
+    --activity-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
+    --activity-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
+    --activity-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
+    --activity-glow: rgba(99, 102, 241, 0.4);
+    --activity-accent-1: #8b5cf6;
+    --activity-accent-2: #06b6d4;
+    --activity-accent-3: #10b981;
+    --activity-accent-4: #f59e0b;
+    --activity-text: white;
+    --activity-text-secondary: rgba(255, 255, 255, 0.9);
+    --activity-text-muted: rgba(255, 255, 255, 0.7);
+    --activity-overlay: rgba(255, 255, 255, 0.1);
+    --activity-overlay-hover: rgba(255, 255, 255, 0.15);
+    --activity-border: rgba(255, 255, 255, 0.2);
+    --activity-border-hover: rgba(255, 255, 255, 0.3);
+    --activity-section-gap: var(--space-6);
+    --activity-card-gap: var(--space-4);
+    --activity-container-padding: var(--space-6);
+
+    /* Smart Insights Aliases */
+    --insights-primary: var(--primary-500);
+    --insights-success: var(--success-500);
+    --insights-warning: var(--warning-500);
+    --insights-error: var(--error-500);
+    --insights-text: var(--text-primary);
+    --insights-text-secondary: var(--text-secondary);
+    --insights-text-muted: var(--text-muted);
+    --insights-border: var(--border-color);
+    --insights-border-hover: var(--border-hover);
+
+    /* Dream Workspace Aliases */
+    --workspace-bg-start: #f8fafc;
+    --workspace-bg-end: #e2e8f0;
+    --workspace-text: #1e293b;
+    --workspace-text-secondary: #475569;
+    --workspace-text-muted: #64748b;
+    --workspace-overlay: rgba(255, 255, 255, 0.1);
+    --workspace-overlay-hover: rgba(255, 255, 255, 0.15);
+    --workspace-border: rgba(99, 102, 241, 0.2);
+    --workspace-border-hover: rgba(99, 102, 241, 0.3);
+    --workspace-shadow: var(--shadow-xl);
+    --workspace-accent-1: #6366f1;
+
+    /* Task System Component Variables */
+    --task-card-bg: var(--bg-elevated);
+    --task-card-border: var(--border-color);
+    --task-card-hover-border: var(--border-hover);
+    --task-card-shadow: var(--shadow-lg);
+    --task-card-accent-width: 4px;
+    --task-priority-high: var(--error-500);
+    --task-priority-medium: var(--warning-500);
+    --task-priority-low: var(--primary-500);
+    --task-status-completed: var(--success-500);
+    --task-status-in-progress: var(--warning-500);
+    --task-status-pending: var(--gray-500);
+    --task-status-overdue: var(--error-500);
+    --task-progress-bg: var(--bg-secondary);
+    --task-progress-fill: var(--primary-500);
+    --task-progress-height: 8px;
+
+    /* Quick Insights Component Variables */
+    --quick-insights-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    --quick-insights-hover-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+    --quick-insights-border: var(--welcome-border);
+    --quick-insights-border-hover: var(--welcome-border-hover);
+    --quick-insights-text: var(--welcome-text);
+    --quick-insights-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --quick-insights-blur: blur(15px);
+    --quick-insights-card-blur: blur(10px);
 }
 
 /* 2. IMPROVED MOBILE GRID SYSTEM */

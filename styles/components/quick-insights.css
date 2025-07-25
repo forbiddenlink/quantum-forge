@@ -1,16 +1,5 @@
 /* Quick Insights Component Styles */
-
-/* CSS Variables */
-:root {
-    --quick-insights-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
-    --quick-insights-hover-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
-    --quick-insights-border: var(--welcome-border);
-    --quick-insights-border-hover: var(--welcome-border-hover);
-    --quick-insights-text: var(--welcome-text);
-    --quick-insights-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    --quick-insights-blur: blur(15px);
-    --quick-insights-card-blur: blur(10px);
-}
+/* Quick insights variables now consolidated in critical-fixes.css */
 
 /* Base styles */
 .quick-insights {

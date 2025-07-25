@@ -243,20 +243,7 @@ smart-insights-dashboard,
 }
 
 /* 📱 MOBILE RESPONSIVENESS & PERFORMANCE OPTIMIZATIONS */
-@media (max-width: 768px) {
-    .dashboard-item {
-        padding: var(--space-4) !important;
-        /* No animations on mobile for better performance */
-        animation: none !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .dashboard-item {
-        padding: var(--space-4) !important;
-        border-radius: var(--radius-xl) !important;
-    }
-}
+/* Dashboard item mobile styles now consolidated in components.css */
 
 /* Performance Optimizations */
 @media (prefers-reduced-motion: reduce) {
@@ -283,11 +270,7 @@ smart-insights-dashboard,
     }
 }
 
-/* Dark Mode Support */
-[data-theme="dark"] .dashboard-item {
-    background: var(--bg-elevated) !important;
-    border-color: var(--border-color) !important;
-}
+/* Dark Mode Support - handled in dark-theme.css and components.css */
 
 /* GPU Acceleration for Smooth Performance */
 .dashboard-item {

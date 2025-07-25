@@ -1,32 +1,8 @@
 /* Task System Component Styles
  * This file contains all styles related to the task system, consolidated from various files
  * to eliminate duplication and improve maintainability.
+ * Task system variables now consolidated in critical-fixes.css
  */
-
-:root {
-  /* Task System specific variables */
-  --task-card-bg: var(--bg-elevated);
-  --task-card-border: var(--border-color);
-  --task-card-hover-border: var(--border-hover);
-  --task-card-shadow: var(--shadow-lg);
-  --task-card-accent-width: 4px;
-  
-  /* Priority colors */
-  --task-priority-high: var(--error-500);
-  --task-priority-medium: var(--warning-500);
-  --task-priority-low: var(--primary-500);
-  
-  /* Status colors */
-  --task-status-completed: var(--success-500);
-  --task-status-in-progress: var(--warning-500);
-  --task-status-pending: var(--gray-500);
-  --task-status-overdue: var(--error-500);
-  
-  /* Progress bar */
-  --task-progress-bg: var(--bg-secondary);
-  --task-progress-fill: var(--primary-500);
-  --task-progress-height: 8px;
-}
 
 /* Task Card */
 .task-card {

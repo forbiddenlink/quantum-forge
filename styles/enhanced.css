@@ -32,37 +32,15 @@
 }
 
 /* Dashboard grid definition moved to main.css - duplicate removed */
+/* Dashboard item styles now consolidated in components.css */
 
-/* Dashboard item layout handled by main.css - conflicts removed */
-
-.dashboard-item {
-    /* Enhanced specific styles only */
-    overflow: visible;
-    z-index: 1;
-    padding: var(--space-6);
-}
-
-.dashboard-item:hover {
-    border-color: var(--border-hover);
-}
-
-/* Dashboard row layout handled by main.css - using grid system */
-
-/* Mobile responsive layout moved to main.css - duplicate removed */
+/* Mobile responsive layout for enhanced components */
 @media (max-width: 768px) {
 
-    .dashboard-item {
-        flex: 0 0 100%;
-    }
-
+    /* Dashboard row flexbox fallback for older browsers */
     .dashboard-row {
         flex-direction: column;
         flex: none;
-    }
-
-    .dashboard-row .dashboard-item {
-        flex: none;
-        width: 100%;
     }
 }
 
@@ -1775,6 +1753,7 @@ enhanced-task-system,
 /* Welcome section styles moved to welcome-section.css to eliminate duplication */
 
 /* Enhanced Component Styles - Using Unified Theme */
+/* Dashboard item styles now consolidated in components.css */
 
 /* Main Layout */
 .dashboard {
@@ -1783,43 +1762,7 @@ enhanced-task-system,
     color: var(--welcome-text);
 }
 
-/* Dashboard Items */
-.dashboard-item {
-    background: var(--component-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--component-border);
-    box-shadow: var(--component-shadow);
-    border-radius: var(--radius-xl);
-    transition: all var(--duration-normal) var(--ease-spring);
-    overflow: hidden;
-    position: relative;
-    padding: var(--space-6);
-}
-
-.dashboard-item:hover {
-    background: var(--component-hover-bg);
-    border-color: var(--component-hover-border);
-    box-shadow: var(--component-hover-shadow);
-    transform: translateY(-4px);
-}
-
-.dashboard-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-500), var(--success-500), var(--warning-500));
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-    opacity: 0;
-    transition: opacity var(--duration-normal) var(--ease-in-out);
-}
-
-.dashboard-item:hover::before {
-    opacity: 1;
-}
+/* Component spacing and layout overrides */
 
 /* Cards */
 .card {
@@ -1955,21 +1898,10 @@ enhanced-task-system,
     color: var(--welcome-text-muted);
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* Animations consolidated in animations.css */
 
 .animate-in {
-    animation: fadeIn 0.3s var(--ease-spring) forwards;
+    animation: fadeInUp 0.3s var(--ease-spring) forwards;
 }
 
 /* Responsive Design */
@@ -1980,9 +1912,7 @@ enhanced-task-system,
         padding: var(--space-4);
     }
 
-    .dashboard-item {
-        padding: var(--space-4);
-    }
+    /* Dashboard item mobile styles handled in components.css */
 
     .stat-card {
         padding: var(--space-3);

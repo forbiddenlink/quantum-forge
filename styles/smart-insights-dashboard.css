@@ -1,20 +1,5 @@
 /* Smart Insights Dashboard Styles */
-
-/* Base Variables */
-:root {
-    /* Smart Insights specific colors */
-    --insights-primary: var(--primary-500);
-    --insights-success: var(--success-500);
-    --insights-warning: var(--warning-500);
-    --insights-error: var(--error-500);
-
-    /* Text colors */
-    --insights-text: var(--text-primary);
-    --insights-text-secondary: var(--text-secondary);
-    --insights-text-muted: var(--text-muted);
-    --insights-border: var(--border-color);
-    --insights-border-hover: var(--border-hover);
-}
+/* Smart insights variables now consolidated in critical-fixes.css */
 
 /* Base Container */
 .smart-insights-dashboard {

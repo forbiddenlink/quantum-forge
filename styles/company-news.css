@@ -1,24 +1,5 @@
 /* 🏆 CONTEST-WINNING ENHANCED COMPANY NEWS - Spectacular Visual Design */
-:root {
-    /* Company News specific colors matching other enhanced sections */
-    --news-primary: var(--primary-500);
-    --news-success: var(--success-500);
-    --news-warning: var(--warning-500);
-    --news-error: var(--error-500);
-
-    /* Spectacular gradients for company news */
-    --news-gradient: var(--gradient-primary);
-    --news-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
-    --news-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
-    --news-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
-
-    /* Contest-winning effect colors - using consistent accent colors */
-    --news-glow: rgba(99, 102, 241, 0.4);
-    --news-accent-1: var(--welcome-accent-1);
-    --news-accent-2: var(--welcome-accent-2);
-    --news-accent-3: var(--welcome-accent-3);
-    --news-accent-4: var(--welcome-accent-4);
-}
+/* Company news variables now consolidated in critical-fixes.css */
 
 /* 🚀 SPECTACULAR COMPANY NEWS CONTAINER - MATCHING OTHER ENHANCED SECTIONS */
 .company-news {
