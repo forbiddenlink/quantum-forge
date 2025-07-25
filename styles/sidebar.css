@@ -556,15 +556,22 @@ body.sidebar-collapsed .nav-text {
     color: var(--primary-300) !important;
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments - consolidated mobile behavior */
 @media (max-width: 1024px) {
     .sidebar {
         position: fixed;
-        transform: translateX(-100%);
+        left: -280px;
+        top: 72px;
+        height: calc(100vh - 72px);
+        width: 280px;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        transform: none; /* Override any transform conflicts */
     }
 
-    .sidebar.active {
-        transform: translateX(0);
+    .sidebar.active,
+    .nav-open .sidebar {
+        left: 0;
     }
 
     .main-content {

@@ -307,25 +307,9 @@
     display: none !important;
 }
 
-/* Mobile Sidebar Optimizations */
+/* Mobile Sidebar Optimizations - handled in sidebar.css to avoid conflicts */
 @media (max-width: 1024px) {
-    app-sidebar {
-        position: fixed !important;
-        left: -300px !important;
-        top: 72px !important;
-        height: calc(100vh - 72px) !important;
-        width: 280px !important;
-        z-index: 1000 !important;
-        transition: left 0.3s ease !important;
-        background: var(--bg-elevated) !important;
-        border-right: 1px solid var(--border-color) !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-    }
-
-    .nav-open app-sidebar {
-        left: 0 !important;
-    }
+    /* Sidebar mobile behavior consolidated in sidebar.css */
 
     /* Mobile overlay */
     .nav-open::before {

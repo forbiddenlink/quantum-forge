@@ -167,28 +167,8 @@ body {
     box-shadow: var(--shadow-md);
 }
 
-/* Sidebar - Critical Mobile */
+/* Sidebar - Critical Mobile behavior consolidated in sidebar.css to avoid conflicts */
 @media (max-width: 1024px) {
-    app-sidebar {
-        position: fixed;
-        left: -300px;
-        top: 72px;
-        height: calc(100vh - 72px);
-        width: 280px;
-        z-index: 1000;
-        transition: left var(--duration-normal) var(--ease-in-out);
-        background: var(--bg-elevated);
-        border-right: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    
-    [data-theme="dark"] app-sidebar {
-        border-right-color: rgba(255, 255, 255, 0.1);
-    }
-    
-    .nav-open app-sidebar {
-        left: 0;
-    }
-    
     .main-content {
         width: 100%;
         padding: var(--space-3);
