@@ -48,7 +48,7 @@
     animation:
         newsGlow 6s ease-in-out infinite,
         newsBackgroundShift 20s linear infinite,
-        subtlePulse 4s ease-in-out infinite !important;
+        newsSubtlePulse 4s ease-in-out infinite !important;
 
     /* 3D transform for depth */
     transform-style: preserve-3d !important;
@@ -172,7 +172,17 @@
     }
 }
 
-/* News animations using central definitions */
+@keyframes newsSubtlePulse {
+
+    0%,
+    100% {
+        transform: scale(1) translateZ(0);
+    }
+
+    50% {
+        transform: scale(1.003) translateZ(3px);
+    }
+}
 
 @keyframes newsFloat {
 

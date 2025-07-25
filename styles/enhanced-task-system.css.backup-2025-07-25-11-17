@@ -51,7 +51,7 @@ enhanced-task-system {
     animation:
         taskGlow 6s ease-in-out infinite,
         taskBackgroundShift 20s linear infinite,
-        subtlePulse 4s ease-in-out infinite !important;
+        taskSubtlePulse 4s ease-in-out infinite !important;
 
     /* 3D transform for depth */
     transform-style: preserve-3d !important;
@@ -147,7 +147,17 @@ enhanced-task-system {
     }
 }
 
-/* Task system animations using central definitions */
+@keyframes taskSubtlePulse {
+
+    0%,
+    100% {
+        transform: scale(1) translateZ(0);
+    }
+
+    50% {
+        transform: scale(1.003) translateZ(3px);
+    }
+}
 
 /* 📱 MOBILE PERFORMANCE OPTIMIZATIONS - Crisp Text & Reduced Motion */
 @media (max-width: 768px) {
@@ -984,7 +994,42 @@ task-system .task-system-title,
     z-index: 2;
 }
 
-/* Base stat-card handled by master definition in components.css */
+.stat-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--space-4);
+    text-align: center;
+    transition: all var(--duration-normal) var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    color: white;
+    min-width: 100px;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--task-accent-1), var(--task-accent-2));
+    transform: scaleX(0);
+    transition: transform var(--duration-normal) var(--ease-spring);
+}
+
+.stat-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.stat-card:hover::before {
+    transform: scaleX(1);
+}
 
 .stat-icon {
     font-size: var(--font-size-xl);
@@ -992,7 +1037,24 @@ task-system .task-system-title,
     display: block;
 }
 
-/* .stat-info, .stat-number, .stat-label handled by master definition in components.css */
+.stat-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.stat-number {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+}
 
 /* AI-Powered Insights Section - Spectacular enhancement */
 .ai-insights-section {
@@ -2034,7 +2096,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 }
 
 .shortcuts-content {
-    background: var(--bg-elevated);
+    background: white;
     padding: 2rem;
     border-radius: 12px;
     max-width: 500px;
@@ -2122,7 +2184,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         padding: var(--space-4);
         margin-bottom: var(--space-4);
         /* Simplify animations on mobile */
-        animation: subtlePulse 5s ease-in-out infinite;
+        animation: taskSubtlePulse 5s ease-in-out infinite;
     }
 
     .task-system-header {
@@ -2238,7 +2300,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     animation:
         taskGlow 5s ease-in-out infinite,
         taskBackgroundShift 18s linear infinite,
-        subtlePulse 3.5s ease-in-out infinite,
+        taskSubtlePulse 3.5s ease-in-out infinite,
         taskSpectacularEntrance 1.2s ease-out;
 }
 
@@ -2478,7 +2540,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         margin-bottom: var(--space-3);
         border-radius: var(--radius-lg);
         /* Minimal animations for performance */
-        animation: subtlePulse 6s ease-in-out infinite;
+        animation: taskSubtlePulse 6s ease-in-out infinite;
     }
 
     .task-system-title {
@@ -2821,7 +2883,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         animation:
             taskGlow 5s ease-in-out infinite,
             taskBackgroundShift 18s linear infinite,
-            subtlePulse 4s ease-in-out infinite;
+            taskSubtlePulse 4s ease-in-out infinite;
     }
 
     .task-stats {
@@ -2886,7 +2948,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         animation:
             taskGlow 5s ease-in-out infinite,
             taskBackgroundShift 18s linear infinite,
-            subtlePulse 3.5s ease-in-out infinite;
+            taskSubtlePulse 3.5s ease-in-out infinite;
     }
 
     .ai-insights-grid {

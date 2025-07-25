@@ -1,4 +1,23 @@
-# 🎯 CSS Cleanup Master Guide - Quantum Forge
+# 🎯 CSS Cleanup Master Guide ### **Latest Achievement: Homepage Design Consistency Fix (COMPLETED)**
+- ✅ **Unified Styling Activation**: Enabled `unified-homepage-styling.css` import in `imports.css`
+- ✅ **CSS Loading Order Fix**: Moved unified styling to load AFTER all component files to ensure proper override
+- ✅ **Icon Size Standardization**: Added consistent icon sizing controls (24px standard, 32px for decorative)
+  - Fixed oversized icons in analytics-dashboard, knowledge-hub, team-spotlight, etc.
+  - Added specific size controls for component icons (kpi-icon, resource-icon, member-avatar, etc.)
+- ✅ **Homepage Design Fix**: All dashboard sections now match welcome section's sophisticated design
+  - Fixed white backgrounds with white text issues
+  - Fixed icon alignment and sizing inconsistencies  
+  - Applied welcome section's glassmorphism background to all dashboard items
+  - Unified button, card, and typography styling across all sections
+- ✅ **Specific Card Background Fixes**:
+  - Fixed `var(--bg-card)` → `var(--bg-elevated)` in `enhanced-colors.css` (3 instances)
+  - Fixed `var(--surface-card)` → `var(--bg-elevated)` in `team.css` (3 instances) 
+  - Updated master `components.css` to use `var(--bg-elevated)` for consistent theming
+  - Fixed `.shortcuts-content` white backgrounds in task-system and analytics files
+- ✅ **Cross-Theme Compatibility**: All cards and sections now display correctly in both light and dark modes
+- ✅ **Design Consistency**: Homepage now has cohesive visual design matching welcome section quality
+
+**Critical Fix**: Ensured unified styling loads LAST to override component-specific backgrounds and icon sizesm Forge
 *Last Updated: July 25, 2025*
 
 ## 📊 **CURRENT PROJECT STATE**
@@ -18,7 +37,39 @@ Architecture:           SOLID     ✅ Master components established
 - ✅ **Dead Code Removal**: 37 migration comments cleaned from `main.css`
 - ✅ **Backup System**: Tested and working perfectly
 
-### **Total Progress: 488 → 478 duplicates (-10), ~7.5KB saved**
+### **Total Progress: 488 → 476 duplicates (-12), ~7.5KB saved + Animation Consolidation ✅ + Card Background Consistency Fix ✅ + White Background Theme Fixes ✅**
+
+### **Latest Achievement: White Background Theme Fixes (COMPLETED)**
+- ✅ **Modal Content Backgrounds**: Fixed `.shortcuts-content` white backgrounds in 2 files
+  - `enhanced-task-system.css`: Changed `background: white` → `var(--bg-elevated)`
+  - `analytics-dashboard.css`: Fixed duplicate + changed to `var(--bg-elevated)`
+- ✅ **Duplicate Elimination**: Removed duplicate `.shortcuts-content` definitions (consolidation + theme fix)
+- ✅ **Theme Compatibility**: Modal popups now respect dark mode properly
+- ✅ **Cross-File Consistency**: All interactive overlays use standard theme variables
+
+### **Previous Achievement: Card Background Consistency Fix (COMPLETED)**
+- ✅ **Background Variable Standardization**: Fixed mismatched card backgrounds across all color modes
+  - Fixed `var(--bg-card)` → `var(--bg-elevated)` in `enhanced-colors.css` (3 instances)
+  - Fixed `var(--surface-card)` → `var(--bg-elevated)` in `team.css` (3 instances) 
+  - Updated master `components.css` to use `var(--bg-elevated)` for consistent theming
+- ✅ **Cross-Theme Compatibility**: All cards now display correctly in both light and dark modes
+- ✅ **Variables Fixed**: Removed undefined CSS variables (`--bg-card`, `--surface-card`)
+- ✅ **Master Standards**: Components now use proven variables from `critical-fixes.css` definitions
+- ✅ **SubtlePulse Animations**: 5 duplicate keyframes consolidated
+  - `analyticsSubtlePulse` → `subtlePulse` (analytics-dashboard.css)
+  - `knowledgeSubtlePulse` → `subtlePulse` (enhanced-knowledge-hub.css) 
+  - `newsSubtlePulse` → `subtlePulse` (company-news.css)
+  - `taskSubtlePulse` → `subtlePulse` (enhanced-task-system.css)
+  - `activitySubtlePulse` → `subtlePulse` (live-activity-feed.css)
+- ✅ **Master Definition**: Created `subtlePulse` in `animations.css` for GPU acceleration
+- ✅ **Total Progress**: 478 → 476 duplicates (-2 net reduction)
+
+### **Previous Iteration: Animation Keyframe Consolidation (COMPLETED)**
+- ✅ **Shimmer Animations**: 4 duplicate keyframes consolidated (`progressShimmer`, `confidenceShimmer`, `loading`, `shine` → `shimmer`)
+- ✅ **Pulse Animations**: 2 duplicate keyframes consolidated (`aiPulse`, `knowledgeAiPulse` → `pulse`)
+- ✅ **Total Keyframes Removed**: 6 duplicate animation definitions
+- ✅ **Files Cleaned**: `analytics-dashboard.css`, `enhanced-colors.css`, `team.css`, `enhanced-knowledge-hub.css`
+- ✅ **Central Definitions**: All animations now reference master definitions in `animations.css`
 
 ---
 

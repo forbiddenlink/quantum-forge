@@ -220,7 +220,66 @@
   }
 }
 
-/* Task Stats - Using master definitions from components.css */
+/* Task Stats */
+.stat-card {
+  background: var(--task-card-bg);
+  border: 1px solid var(--task-card-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  position: relative;
+  transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-500);
+  transform: scaleX(0);
+  transition: transform var(--duration-normal) var(--ease-in-out);
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-card.completed::before {
+  background: var(--task-status-completed);
+}
+
+.stat-card.in-progress::before {
+  background: var(--task-status-in-progress);
+}
+
+.stat-card.overdue::before {
+  background: var(--task-status-overdue);
+}
+
+.stat-number {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.stat-card.completed .stat-number {
+  color: var(--success-600);
+}
+
+.stat-card.in-progress .stat-number {
+  color: var(--warning-600);
+}
+
+.stat-card.overdue .stat-number {
+  color: var(--error-600);
+}
+
+.stat-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
 
 /* Dark Theme Overrides */
 [data-theme="dark"] .task-card {
@@ -229,4 +288,4 @@
 
 [data-theme="dark"] .progress-fill::after {
   background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
-}
+} 

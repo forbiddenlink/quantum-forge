@@ -55,7 +55,81 @@
     flex-wrap: wrap;
 }
 
-/* Stat card definitions moved to components.css for centralization */
+.stat-card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    border: 1px solid var(--border-color);
+    min-width: 100px;
+    text-align: center;
+    transition: all var(--duration-normal) var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-500);
+    transform: scaleX(0);
+    transition: transform var(--duration-normal) var(--ease-in-out);
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-200);
+}
+
+.stat-card:hover::before {
+    transform: scaleX(1);
+}
+
+.stat-card.completed::before {
+    background: var(--success-500);
+}
+
+.stat-card.in-progress::before {
+    background: var(--warning-500);
+}
+
+.stat-card.overdue::before {
+    background: var(--error-500);
+}
+
+.stat-number {
+    display: block;
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--primary-600);
+    margin-bottom: var(--space-1);
+    line-height: 1;
+}
+
+.stat-card.completed .stat-number {
+    color: var(--success-600);
+}
+
+.stat-card.in-progress .stat-number {
+    color: var(--warning-600);
+}
+
+.stat-card.overdue .stat-number {
+    color: var(--error-600);
+}
+
+.stat-label {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
 
 /* Task Controls */
 .task-controls {
@@ -649,24 +723,24 @@
         grid-template-columns: 1fr;
         gap: var(--space-4);
     }
-
+    
     .task-controls {
         flex-direction: column;
         align-items: stretch;
     }
-
+    
     .search-and-filters {
         flex-direction: column;
     }
-
+    
     .task-stats {
         justify-content: center;
     }
-
+    
     .task-system-header {
         padding: var(--space-4);
     }
-
+    
     .task-content {
         padding: var(--space-4);
     }
@@ -690,4 +764,4 @@
 
 .task-card-exit {
     animation: slideOutDown 0.3s var(--ease-in);
-}
+} 

@@ -362,7 +362,17 @@
     }
 }
 
-/* Analytics animations using central definitions */
+@keyframes analyticsSubtlePulse {
+
+    0%,
+    100% {
+        transform: scale(1) translateZ(0);
+    }
+
+    50% {
+        transform: scale(1.005) translateZ(5px);
+    }
+}
 
 /* ✨ FLOATING GEOMETRIC SHAPES FOR ANALYTICS */
 .analytics-dashboard::before {
@@ -880,7 +890,17 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    animation: shimmer 2s infinite;
+    animation: progressShimmer 2s infinite;
+}
+
+@keyframes progressShimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
 }
 
 .progress-fill.excellent {
@@ -1327,7 +1347,17 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-    animation: shimmer 2s infinite;
+    animation: confidenceShimmer 2s infinite;
+}
+
+@keyframes confidenceShimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
 }
 
 .confidence-label {
@@ -1421,9 +1451,23 @@
     font-size: var(--font-size-xs);
     font-weight: 600;
     margin-left: var(--space-2);
-    animation: pulse 2s ease-in-out infinite;
+    animation: aiPulse 2s ease-in-out infinite;
     box-shadow: 0 2px 8px rgba(139, 92, 246, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes aiPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
 }
 
 /* Enhanced Charts Section */
@@ -1936,7 +1980,7 @@
 }
 
 .shortcuts-content {
-    background: var(--bg-elevated);
+    background: white;
     padding: 2rem;
     border-radius: 12px;
     max-width: 500px;
@@ -2024,7 +2068,7 @@
         padding: var(--space-4);
         margin-bottom: var(--space-4);
         /* Simplify animations on mobile */
-        animation: subtlePulse 6s ease-in-out infinite;
+        animation: analyticsSubtlePulse 6s ease-in-out infinite;
     }
 
     .dashboard-header {
@@ -2133,7 +2177,7 @@
     animation:
         analyticsGlow 6s ease-in-out infinite,
         analyticsBackgroundShift 20s linear infinite,
-        subtlePulse 4s ease-in-out infinite,
+        analyticsSubtlePulse 4s ease-in-out infinite,
         analyticsSpectacularEntrance 1.5s ease-out;
 }
 

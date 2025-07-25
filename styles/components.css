@@ -8,11 +8,11 @@
 /* Base Dashboard Item - Consolidated definition from multiple files */
 .dashboard-item {
   /* Modern glass-morphism card design */
-  background: var(--component-bg);
+  background: var(--bg-elevated);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--component-border);
-  box-shadow: var(--component-shadow);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
   border-radius: var(--radius-xl);
   transition: all var(--duration-normal) var(--ease-spring);
   overflow: hidden;
@@ -32,9 +32,9 @@
 }
 
 .dashboard-item:hover {
-  background: var(--component-hover-bg);
-  border-color: var(--component-hover-border);
-  box-shadow: var(--component-hover-shadow);
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-xl);
   transform: translateY(-4px);
 }
 
@@ -677,4 +677,84 @@
 
 [data-theme="dark"] .loading-overlay {
   background: rgba(0, 0, 0, 0.8);
+}
+
+/* -------------------------------------------------- */
+/* Stat Cards - Master definition consolidated from multiple files */
+/* -------------------------------------------------- */
+
+.stat-card {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  border: 1px solid var(--border-color);
+  min-width: 100px;
+  text-align: center;
+  transition: all var(--duration-normal) var(--ease-spring);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary-500);
+  transform: scaleX(0);
+  transition: transform var(--duration-normal) var(--ease-in-out);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-200);
+}
+
+.stat-card:hover::before {
+  transform: scaleX(1);
+}
+
+.stat-card.completed::before {
+  background: var(--success-500);
+}
+
+.stat-card.in-progress::before {
+  background: var(--warning-500);
+}
+
+.stat-card.overdue::before {
+  background: var(--error-500);
+}
+
+.stat-number {
+  display: block;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--primary-600);
+  margin-bottom: var(--space-1);
+  line-height: 1;
+}
+
+.stat-card.completed .stat-number {
+  color: var(--success-600);
+}
+
+.stat-card.in-progress .stat-number {
+  color: var(--warning-600);
+}
+
+.stat-card.overdue .stat-number {
+  color: var(--error-600);
+}
+
+.stat-label {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }

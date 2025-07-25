@@ -1,70 +1,12 @@
 # CSS Duplication Report
 
-Found 478 duplicate rule(s).
+Found 476 duplicate rule(s).
 
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:897 (0%)
-- analytics-dashboard.css:1354 (0%)
-- analytics-dashboard.css:2480 (0%)
-- animations.css:7 (0%)
-- animations.css:268 (0%)
-- enhanced-colors.css:349 (0%)
-- team.css:653 (0%)
-
-### Rule Content:
-```css
-0% { left: -100%; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- analytics-dashboard.css:901 (100%)
-- analytics-dashboard.css:1358 (100%)
-- analytics-dashboard.css:2484 (100%)
-- animations.css:11 (100%)
-- animations.css:272 (100%)
-- enhanced-colors.css:353 (100%)
-- team.css:657 (100%)
-
-### Rule Content:
-```css
-100% { left: 100%; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- analytics-dashboard.css:1461 (0%,
-    100%)
-- analytics-dashboard.css:1706 (0%,
-    100%)
-- animations.css:19 (0%,
-    100%)
-- animations.css:62 (0%,
-    100%)
-- animations.css:194 (0%,
-    100%)
-- animations.css:254 (0%,
-    100%)
-- contest-enhancements.css:1294 (0%, 100%)
-- enhanced-knowledge-hub.css:744 (0%,
-    100%)
-- team.css:345 (0%,
-    100%)
-
-### Rule Content:
-```css
-0%, 100% { opacity: 1; transform: scale(1); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- analytics-dashboard.css:2369 (100%)
-- analytics-dashboard.css:2395 (100%)
+- analytics-dashboard.css:2325 (100%)
+- analytics-dashboard.css:2351 (100%)
 
 ### Rule Content:
 ```css
@@ -74,8 +16,8 @@ Found 478 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2221 (0%)
-- analytics-dashboard.css:2403 (0%)
+- analytics-dashboard.css:2177 (0%)
+- analytics-dashboard.css:2359 (0%)
 - animations.css:46 (0%)
 - animations.css:178 (0%)
 - animations.css:242 (0%)
@@ -88,8 +30,8 @@ Found 478 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2225 (50%)
-- analytics-dashboard.css:2407 (50%)
+- analytics-dashboard.css:2181 (50%)
+- analytics-dashboard.css:2363 (50%)
 - animations.css:50 (50%)
 - animations.css:182 (50%)
 
@@ -101,8 +43,8 @@ Found 478 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2229 (100%)
-- analytics-dashboard.css:2411 (100%)
+- analytics-dashboard.css:2185 (100%)
+- analytics-dashboard.css:2367 (100%)
 - animations.css:54 (100%)
 - animations.css:186 (100%)
 
@@ -114,20 +56,53 @@ Found 478 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1467 (50%)
-- animations.css:25 (50%)
-- animations.css:260 (50%)
-- enhanced-knowledge-hub.css:750 (50%)
+- analytics-dashboard.css:2436 (0%)
+- animations.css:7 (0%)
+- animations.css:268 (0%)
 
 ### Rule Content:
 ```css
-50% { opacity: 0.8; transform: scale(1.05); }
+0% { left: -100%; }
 ```
 
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2318 (0%,
+- analytics-dashboard.css:2440 (100%)
+- animations.css:11 (100%)
+- animations.css:272 (100%)
+
+### Rule Content:
+```css
+100% { left: 100%; }
+```
+
+## Duplicate Rule Found
+
+### Locations:
+- analytics-dashboard.css:1662 (0%,
+    100%)
+- animations.css:19 (0%,
+    100%)
+- animations.css:62 (0%,
+    100%)
+- animations.css:194 (0%,
+    100%)
+- animations.css:254 (0%,
+    100%)
+- contest-enhancements.css:1294 (0%, 100%)
+- team.css:345 (0%,
+    100%)
+
+### Rule Content:
+```css
+0%, 100% { opacity: 1; transform: scale(1); }
+```
+
+## Duplicate Rule Found
+
+### Locations:
+- analytics-dashboard.css:2274 (0%,
     100%)
 - animations.css:34 (0%,
     100%)
@@ -141,7 +116,7 @@ Found 478 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2323 (50%)
+- analytics-dashboard.css:2279 (50%)
 - animations.css:39 (50%)
 - contest-enhancements.css:6 (50%)
 
@@ -192,30 +167,22 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:367 (0%,
-    100%)
-- company-news.css:177 (0%,
-    100%)
-- enhanced-knowledge-hub.css:456 (0%,
-    100%)
-- enhanced-task-system.css:152 (0%,
-    100%)
-- live-activity-feed.css:163 (0%,
-    100%)
+- animations.css:25 (50%)
+- animations.css:260 (50%)
 
 ### Rule Content:
 ```css
-0%, 100% { transform: scale(1) translateZ(0); }
+50% { opacity: 0.8; transform: scale(1.05); }
 ```
 
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:415 (0%,
+- analytics-dashboard.css:405 (0%,
     100%)
-- company-news.css:189 (0%,
+- company-news.css:179 (0%,
     100%)
-- enhanced-knowledge-hub.css:538 (0%,
+- enhanced-knowledge-hub.css:528 (0%,
     100%)
 
 ### Rule Content:
@@ -226,8 +193,8 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:421 (25%)
-- company-news.css:195 (25%)
+- analytics-dashboard.css:411 (25%)
+- company-news.css:185 (25%)
 
 ### Rule Content:
 ```css
@@ -237,8 +204,8 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:426 (50%)
-- company-news.css:200 (50%)
+- analytics-dashboard.css:416 (50%)
+- company-news.css:190 (50%)
 
 ### Rule Content:
 ```css
@@ -248,8 +215,8 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:1129 (.company-news .trending-metrics)
-- company-news.css:1504 (.company-news .trending-metrics)
+- company-news.css:1119 (.company-news .trending-metrics)
+- company-news.css:1494 (.company-news .trending-metrics)
 
 ### Rule Content:
 ```css
@@ -261,8 +228,8 @@ to { opacity: 1; transform: translateX(0); }
 ### Locations:
 - components\task-management.css:502 (.task-assignee)
 - components\task-system.css:136 (.task-assignee)
-- enhanced-task-system.css:1766 (.task-assignee)
-- enhanced-task-system.css:4521 (.task-assignee)
+- enhanced-task-system.css:1756 (.task-assignee)
+- enhanced-task-system.css:4511 (.task-assignee)
 
 ### Rule Content:
 ```css
@@ -296,7 +263,7 @@ to { opacity: 1; transform: translateX(0); }
 ### Locations:
 - components\task-management.css:89 (.stat-card:hover::before)
 - components\task-system.css:245 (.stat-card:hover::before)
-- enhanced-task-system.css:1030 (.stat-card:hover::before)
+- enhanced-task-system.css:1020 (.stat-card:hover::before)
 
 ### Rule Content:
 ```css
@@ -384,7 +351,7 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1712 (50%)
+- analytics-dashboard.css:1668 (50%)
 - contest-enhancements.css:1295 (50%)
 
 ### Rule Content:
@@ -423,7 +390,7 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2365 (50%)
+- analytics-dashboard.css:2321 (50%)
 - contest-enhancements.css:1582 (50%)
 
 ### Rule Content:
@@ -434,7 +401,7 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2568 (.notification-close svg)
+- analytics-dashboard.css:2524 (.notification-close svg)
 - contest-enhancements.css:2381 (.notification-close svg)
 
 ### Rule Content:
@@ -445,9 +412,9 @@ to { opacity: 1; transform: translateX(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2256 (100%)
+- analytics-dashboard.css:2212 (100%)
 - contest-enhancements.css:2415 (100%)
-- enhanced-task-system.css:2364 (100%)
+- enhanced-task-system.css:2354 (100%)
 
 ### Rule Content:
 ```css
@@ -755,8 +722,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-colors.css:461 (.notification-badge)
-- enhanced-colors.css:672 (.notification-badge)
+- enhanced-colors.css:451 (.notification-badge)
+- enhanced-colors.css:662 (.notification-badge)
 
 ### Rule Content:
 ```css
@@ -767,7 +734,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - analytics-dashboard.css:202 (.charts-grid)
-- enhanced-colors.css:871 (.charts-grid)
+- enhanced-colors.css:861 (.charts-grid)
 
 ### Rule Content:
 ```css
@@ -895,21 +862,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:182 (50%)
-- enhanced-knowledge-hub.css:461 (50%)
-- enhanced-task-system.css:157 (50%)
-- live-activity-feed.css:168 (50%)
-
-### Rule Content:
-```css
-50% { transform: scale(1.003) translateZ(3px); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- analytics-dashboard.css:1844 (0%)
-- enhanced-knowledge-hub.css:467 (0%)
+- analytics-dashboard.css:1800 (0%)
+- enhanced-knowledge-hub.css:457 (0%)
 
 ### Rule Content:
 ```css
@@ -919,8 +873,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1850 (50%)
-- enhanced-knowledge-hub.css:473 (50%)
+- analytics-dashboard.css:1806 (50%)
+- enhanced-knowledge-hub.css:463 (50%)
 
 ### Rule Content:
 ```css
@@ -930,9 +884,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1856 (100%)
-- enhanced-knowledge-hub.css:479 (100%)
-- enhanced-task-system.css:1972 (100%)
+- analytics-dashboard.css:1812 (100%)
+- enhanced-knowledge-hub.css:469 (100%)
+- enhanced-task-system.css:1962 (100%)
 
 ### Rule Content:
 ```css
@@ -942,9 +896,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:459 (0%,
+- analytics-dashboard.css:449 (0%,
     100%)
-- enhanced-knowledge-hub.css:586 (0%,
+- enhanced-knowledge-hub.css:576 (0%,
     100%)
 
 ### Rule Content:
@@ -955,11 +909,11 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:505 (0%,
+- analytics-dashboard.css:495 (0%,
     100%)
-- enhanced-knowledge-hub.css:641 (0%,
+- enhanced-knowledge-hub.css:631 (0%,
     100%)
-- enhanced-task-system.css:791 (0%,
+- enhanced-task-system.css:781 (0%,
     100%)
 - welcome-section.css:2257 (0%,
     100%)
@@ -976,9 +930,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:511 (50%)
-- enhanced-knowledge-hub.css:647 (50%)
-- enhanced-task-system.css:2019 (50%)
+- analytics-dashboard.css:501 (50%)
+- enhanced-knowledge-hub.css:637 (50%)
+- enhanced-task-system.css:2009 (50%)
 
 ### Rule Content:
 ```css
@@ -988,9 +942,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:596 (0%,
+- analytics-dashboard.css:586 (0%,
     100%)
-- enhanced-knowledge-hub.css:667 (0%,
+- enhanced-knowledge-hub.css:657 (0%,
     100%)
 
 ### Rule Content:
@@ -1001,8 +955,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:603 (50%)
-- enhanced-knowledge-hub.css:674 (50%)
+- analytics-dashboard.css:593 (50%)
+- enhanced-knowledge-hub.css:664 (50%)
 
 ### Rule Content:
 ```css
@@ -1013,7 +967,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - contest-enhancements.css:2058 (0%, 100%)
-- enhanced-knowledge-hub.css:1046 (0%,
+- enhanced-knowledge-hub.css:1022 (0%,
     100%)
 - team-chat-widget.css:177 (0%, 100%)
 
@@ -1026,7 +980,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - enhanced-knowledge-hub.css:328 (.hub-title.spectacular)
-- enhanced-knowledge-hub.css:2474 (.hub-title.spectacular)
+- enhanced-knowledge-hub.css:2450 (.hub-title.spectacular)
 
 ### Rule Content:
 ```css
@@ -1036,8 +990,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:551 (50%)
-- enhanced-knowledge-hub.css:2697 (50%)
+- analytics-dashboard.css:541 (50%)
+- enhanced-knowledge-hub.css:2673 (50%)
 
 ### Rule Content:
 ```css
@@ -1047,8 +1001,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:1508 (.gap-info)
-- enhanced-knowledge-hub.css:2845 (.gap-info)
+- enhanced-knowledge-hub.css:1484 (.gap-info)
+- enhanced-knowledge-hub.css:2821 (.gap-info)
 
 ### Rule Content:
 ```css
@@ -1058,8 +1012,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:1619 (.trending-info)
-- enhanced-knowledge-hub.css:2981 (.trending-info)
+- enhanced-knowledge-hub.css:1595 (.trending-info)
+- enhanced-knowledge-hub.css:2957 (.trending-info)
 
 ### Rule Content:
 ```css
@@ -1069,8 +1023,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:3979 (.enhanced-knowledge-hub.spectacular-mode)
-- enhanced-knowledge-hub.css:4019 (.enhanced-knowledge-hub.spectacular-mode)
+- enhanced-knowledge-hub.css:3955 (.enhanced-knowledge-hub.spectacular-mode)
+- enhanced-knowledge-hub.css:3995 (.enhanced-knowledge-hub.spectacular-mode)
 
 ### Rule Content:
 ```css
@@ -1080,8 +1034,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:3327 (.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular)
-- enhanced-knowledge-hub.css:4053 (.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular)
+- enhanced-knowledge-hub.css:3303 (.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular)
+- enhanced-knowledge-hub.css:4029 (.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular)
 
 ### Rule Content:
 ```css
@@ -1091,8 +1045,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1903 (50%)
-- enhanced-task-system.css:797 (50%)
+- analytics-dashboard.css:1859 (50%)
+- enhanced-task-system.css:787 (50%)
 - welcome-section.css:2263 (50%)
 - welcome-section.css:5179 (50%)
 - welcome-section.css:8133 (50%)
@@ -1105,9 +1059,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:560 (0%,
+- analytics-dashboard.css:550 (0%,
     100%)
-- enhanced-task-system.css:846 (0%,
+- enhanced-task-system.css:836 (0%,
     100%)
 - welcome-section.css:2289 (0%,
     100%)
@@ -1124,8 +1078,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1250 (.ai-insight-card:hover::before)
-- enhanced-task-system.css:1174 (.ai-insight-card:hover::before)
+- analytics-dashboard.css:1230 (.ai-insight-card:hover::before)
+- enhanced-task-system.css:1164 (.ai-insight-card:hover::before)
 
 ### Rule Content:
 ```css
@@ -1135,8 +1089,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1370 (.impact-badge)
-- enhanced-task-system.css:1257 (.impact-badge)
+- analytics-dashboard.css:1340 (.impact-badge)
+- enhanced-task-system.css:1247 (.impact-badge)
 
 ### Rule Content:
 ```css
@@ -1146,8 +1100,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1382 (.impact-badge.high)
-- enhanced-task-system.css:1269 (.impact-badge.high)
+- analytics-dashboard.css:1352 (.impact-badge.high)
+- enhanced-task-system.css:1259 (.impact-badge.high)
 
 ### Rule Content:
 ```css
@@ -1157,8 +1111,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1387 (.impact-badge.medium)
-- enhanced-task-system.css:1274 (.impact-badge.medium)
+- analytics-dashboard.css:1357 (.impact-badge.medium)
+- enhanced-task-system.css:1264 (.impact-badge.medium)
 
 ### Rule Content:
 ```css
@@ -1168,8 +1122,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1392 (.impact-badge.low)
-- enhanced-task-system.css:1279 (.impact-badge.low)
+- analytics-dashboard.css:1362 (.impact-badge.low)
+- enhanced-task-system.css:1269 (.impact-badge.low)
 
 ### Rule Content:
 ```css
@@ -1179,8 +1133,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1416 (.insight-action-btn.primary)
-- enhanced-task-system.css:1304 (.insight-action-btn.primary)
+- analytics-dashboard.css:1386 (.insight-action-btn.primary)
+- enhanced-task-system.css:1294 (.insight-action-btn.primary)
 
 ### Rule Content:
 ```css
@@ -1190,8 +1144,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1427 (.insight-action-btn.secondary)
-- enhanced-task-system.css:1316 (.insight-action-btn.secondary)
+- analytics-dashboard.css:1397 (.insight-action-btn.secondary)
+- enhanced-task-system.css:1306 (.insight-action-btn.secondary)
 
 ### Rule Content:
 ```css
@@ -1202,7 +1156,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-management.css:186 (.filter-controls)
-- enhanced-task-system.css:1394 (.filter-controls)
+- enhanced-task-system.css:1384 (.filter-controls)
 
 ### Rule Content:
 ```css
@@ -1213,7 +1167,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-system.css:54 (.task-card-header)
-- enhanced-task-system.css:1628 (.task-card-header)
+- enhanced-task-system.css:1618 (.task-card-header)
 
 ### Rule Content:
 ```css
@@ -1224,7 +1178,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-system.css:68 (.priority-icon)
-- enhanced-task-system.css:1662 (.priority-icon)
+- enhanced-task-system.css:1652 (.priority-icon)
 
 ### Rule Content:
 ```css
@@ -1235,7 +1189,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-management.css:451 (.task-card-content)
-- enhanced-task-system.css:1666 (.task-card-content)
+- enhanced-task-system.css:1656 (.task-card-content)
 
 ### Rule Content:
 ```css
@@ -1246,7 +1200,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-system.css:80 (.task-card-progress)
-- enhanced-task-system.css:1707 (.task-card-progress)
+- enhanced-task-system.css:1697 (.task-card-progress)
 
 ### Rule Content:
 ```css
@@ -1257,7 +1211,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-system.css:84 (.progress-header)
-- enhanced-task-system.css:1711 (.progress-header)
+- enhanced-task-system.css:1701 (.progress-header)
 
 ### Rule Content:
 ```css
@@ -1268,7 +1222,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-system.css:130 (.task-meta-items)
-- enhanced-task-system.css:1789 (.task-meta-items)
+- enhanced-task-system.css:1779 (.task-meta-items)
 
 ### Rule Content:
 ```css
@@ -1278,8 +1232,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1865 (0%)
-- enhanced-task-system.css:1981 (0%)
+- analytics-dashboard.css:1821 (0%)
+- enhanced-task-system.css:1971 (0%)
 
 ### Rule Content:
 ```css
@@ -1289,8 +1243,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1870 (20%)
-- enhanced-task-system.css:1986 (20%)
+- analytics-dashboard.css:1826 (20%)
+- enhanced-task-system.css:1976 (20%)
 
 ### Rule Content:
 ```css
@@ -1300,8 +1254,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1898 (0%)
-- enhanced-task-system.css:2014 (0%)
+- analytics-dashboard.css:1854 (0%)
+- enhanced-task-system.css:2004 (0%)
 
 ### Rule Content:
 ```css
@@ -1311,8 +1265,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1982 (.shortcuts-content)
-- enhanced-task-system.css:2098 (.shortcuts-content)
+- analytics-dashboard.css:1938 (.shortcuts-content)
+- enhanced-task-system.css:2088 (.shortcuts-content)
 
 ### Rule Content:
 ```css
@@ -1322,8 +1276,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1991 (.shortcuts-content h3)
-- enhanced-task-system.css:2107 (.shortcuts-content h3)
+- analytics-dashboard.css:1947 (.shortcuts-content h3)
+- enhanced-task-system.css:2097 (.shortcuts-content h3)
 
 ### Rule Content:
 ```css
@@ -1333,8 +1287,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:1997 (.shortcuts-content pre)
-- enhanced-task-system.css:2113 (.shortcuts-content pre)
+- analytics-dashboard.css:1953 (.shortcuts-content pre)
+- enhanced-task-system.css:2103 (.shortcuts-content pre)
 
 ### Rule Content:
 ```css
@@ -1344,8 +1298,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2006 (.close-shortcuts)
-- enhanced-task-system.css:2122 (.close-shortcuts)
+- analytics-dashboard.css:1962 (.close-shortcuts)
+- enhanced-task-system.css:2112 (.close-shortcuts)
 
 ### Rule Content:
 ```css
@@ -1356,8 +1310,8 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-system.css:194 (.task-cards-grid)
-- enhanced-task-system.css:2173 (.task-cards-grid)
-- enhanced-task-system.css:2823 (.task-cards-grid)
+- enhanced-task-system.css:2163 (.task-cards-grid)
+- enhanced-task-system.css:2813 (.task-cards-grid)
 
 ### Rule Content:
 ```css
@@ -1368,8 +1322,8 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-system.css:206 (.analytics-grid)
-- enhanced-task-system.css:2177 (.analytics-grid)
-- enhanced-task-system.css:2773 (.analytics-grid)
+- enhanced-task-system.css:2167 (.analytics-grid)
+- enhanced-task-system.css:2763 (.analytics-grid)
 
 ### Rule Content:
 ```css
@@ -1379,9 +1333,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2207 (0%,
+- analytics-dashboard.css:2163 (0%,
     100%)
-- enhanced-task-system.css:2330 (0%,
+- enhanced-task-system.css:2320 (0%,
     100%)
 
 ### Rule Content:
@@ -1392,9 +1346,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2237 (0%,
+- analytics-dashboard.css:2193 (0%,
     100%)
-- enhanced-task-system.css:2345 (0%,
+- enhanced-task-system.css:2335 (0%,
     100%)
 - smart-search-overlay.css:125 (0%, 100%)
 
@@ -1406,8 +1360,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2264 (0%)
-- enhanced-task-system.css:2372 (0%)
+- analytics-dashboard.css:2220 (0%)
+- enhanced-task-system.css:2362 (0%)
 
 ### Rule Content:
 ```css
@@ -1417,10 +1371,10 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2272 (100%)
-- enhanced-task-system.css:2380 (100%)
-- live-activity-feed.css:626 (100%)
-- live-activity-feed.css:1065 (100%)
+- analytics-dashboard.css:2228 (100%)
+- enhanced-task-system.css:2370 (100%)
+- live-activity-feed.css:616 (100%)
+- live-activity-feed.css:1055 (100%)
 
 ### Rule Content:
 ```css
@@ -1431,7 +1385,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-management.css:722 (.task-cards-grid)
-- enhanced-task-system.css:2733 (.task-cards-grid)
+- enhanced-task-system.css:2723 (.task-cards-grid)
 
 ### Rule Content:
 ```css
@@ -1441,8 +1395,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2257 (.task-sparkle:nth-child(n+4))
-- enhanced-task-system.css:2748 (.task-sparkle:nth-child(n+4))
+- enhanced-task-system.css:2247 (.task-sparkle:nth-child(n+4))
+- enhanced-task-system.css:2738 (.task-sparkle:nth-child(n+4))
 
 ### Rule Content:
 ```css
@@ -1452,8 +1406,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2241 (.task-system-title)
-- enhanced-task-system.css:2759 (.task-system-title)
+- enhanced-task-system.css:2231 (.task-system-title)
+- enhanced-task-system.css:2749 (.task-system-title)
 
 ### Rule Content:
 ```css
@@ -1464,8 +1418,8 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-system.css:212 (.analytics-grid)
-- enhanced-task-system.css:2827 (.analytics-grid)
-- enhanced-task-system.css:2865 (.analytics-grid)
+- enhanced-task-system.css:2817 (.analytics-grid)
+- enhanced-task-system.css:2855 (.analytics-grid)
 
 ### Rule Content:
 ```css
@@ -1476,8 +1430,8 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - components\task-system.css:218 (.analytics-grid)
-- enhanced-task-system.css:2901 (.analytics-grid)
-- enhanced-task-system.css:2933 (.analytics-grid)
+- enhanced-task-system.css:2891 (.analytics-grid)
+- enhanced-task-system.css:2923 (.analytics-grid)
 
 ### Rule Content:
 ```css
@@ -1487,9 +1441,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2925 (.ai-insights-grid)
-- enhanced-task-system.css:2954 (.ai-insights-grid)
-- enhanced-task-system.css:3283 (.ai-insights-grid)
+- enhanced-task-system.css:2915 (.ai-insights-grid)
+- enhanced-task-system.css:2944 (.ai-insights-grid)
+- enhanced-task-system.css:3273 (.ai-insights-grid)
 
 ### Rule Content:
 ```css
@@ -1499,8 +1453,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2215 (.task-cards-grid)
-- enhanced-task-system.css:3263 (.task-cards-grid)
+- enhanced-task-system.css:2205 (.task-cards-grid)
+- enhanced-task-system.css:3253 (.task-cards-grid)
 
 ### Rule Content:
 ```css
@@ -1510,9 +1464,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2219 (.analytics-grid)
-- enhanced-task-system.css:3267 (.analytics-grid)
-- team.css:1458 (.analytics-grid)
+- enhanced-task-system.css:2209 (.analytics-grid)
+- enhanced-task-system.css:3257 (.analytics-grid)
+- team.css:1448 (.analytics-grid)
 
 ### Rule Content:
 ```css
@@ -1522,8 +1476,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2893 (.ai-insights-grid)
-- enhanced-task-system.css:3273 (.ai-insights-grid)
+- enhanced-task-system.css:2883 (.ai-insights-grid)
+- enhanced-task-system.css:3263 (.ai-insights-grid)
 
 ### Rule Content:
 ```css
@@ -1533,8 +1487,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4553 (.filter-group)
-- enhanced-task-system.css:4583 (.filter-group)
+- enhanced-knowledge-hub.css:4529 (.filter-group)
+- enhanced-task-system.css:4573 (.filter-group)
 
 ### Rule Content:
 ```css
@@ -1544,8 +1498,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4558 (.filter-btn)
-- enhanced-task-system.css:4588 (.filter-btn)
+- enhanced-knowledge-hub.css:4534 (.filter-btn)
+- enhanced-task-system.css:4578 (.filter-btn)
 
 ### Rule Content:
 ```css
@@ -1555,8 +1509,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4571 (.filter-btn:hover)
-- enhanced-task-system.css:4601 (.filter-btn:hover)
+- enhanced-knowledge-hub.css:4547 (.filter-btn:hover)
+- enhanced-task-system.css:4591 (.filter-btn:hover)
 
 ### Rule Content:
 ```css
@@ -1566,8 +1520,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4577 (.filter-btn.active)
-- enhanced-task-system.css:4607 (.filter-btn.active)
+- enhanced-knowledge-hub.css:4553 (.filter-btn.active)
+- enhanced-task-system.css:4597 (.filter-btn.active)
 
 ### Rule Content:
 ```css
@@ -1577,8 +1531,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4598 (.filter-group)
-- enhanced-task-system.css:4652 (.filter-group)
+- enhanced-knowledge-hub.css:4574 (.filter-group)
+- enhanced-task-system.css:4642 (.filter-group)
 
 ### Rule Content:
 ```css
@@ -1621,9 +1575,9 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- company-news.css:505 (0%,
+- company-news.css:495 (0%,
     100%)
-- live-activity-feed.css:697 (0%,
+- live-activity-feed.css:687 (0%,
     100%)
 
 ### Rule Content:
@@ -1634,8 +1588,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- live-activity-feed.css:617 (0%)
-- live-activity-feed.css:1056 (0%)
+- live-activity-feed.css:607 (0%)
+- live-activity-feed.css:1046 (0%)
 
 ### Rule Content:
 ```css
@@ -1645,8 +1599,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- live-activity-feed.css:621 (50%)
-- live-activity-feed.css:1060 (50%)
+- live-activity-feed.css:611 (50%)
+- live-activity-feed.css:1050 (50%)
 
 ### Rule Content:
 ```css
@@ -1656,8 +1610,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- live-activity-feed.css:347 (50%)
-- live-activity-feed.css:1078 (50%)
+- live-activity-feed.css:337 (50%)
+- live-activity-feed.css:1068 (50%)
 
 ### Rule Content:
 ```css
@@ -1799,7 +1753,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2268 (50%)
+- analytics-dashboard.css:2224 (50%)
 - team-chat-widget.css:95 (50%)
 - wellness-tracker.css:46 (50%)
 
@@ -1867,7 +1821,7 @@ from { opacity: 0; transform: translateY(10px); }
 
 ### Locations:
 - enhanced.css:1162 (.achievement-content)
-- team.css:861 (.achievement-content)
+- team.css:851 (.achievement-content)
 
 ### Rule Content:
 ```css
@@ -1878,7 +1832,7 @@ from { opacity: 0; transform: translateY(10px); }
 
 ### Locations:
 - enhanced.css:1180 (.achievement-date)
-- team.css:885 (.achievement-date)
+- team.css:875 (.achievement-date)
 
 ### Rule Content:
 ```css
@@ -1889,7 +1843,7 @@ from { opacity: 0; transform: translateY(10px); }
 
 ### Locations:
 - svg-icon-styles.css:192 (.activity-icon svg)
-- team.css:967 (.activity-icon svg)
+- team.css:957 (.activity-icon svg)
 
 ### Rule Content:
 ```css
@@ -1900,7 +1854,7 @@ from { opacity: 0; transform: translateY(10px); }
 
 ### Locations:
 - analytics-dashboard.css:174 (.activity-content)
-- team.css:972 (.activity-content)
+- team.css:962 (.activity-content)
 
 ### Rule Content:
 ```css
@@ -1911,7 +1865,7 @@ from { opacity: 0; transform: translateY(10px); }
 
 ### Locations:
 - team.css:514 (.stat-label)
-- team.css:1099 (.stat-label)
+- team.css:1089 (.stat-label)
 
 ### Rule Content:
 ```css
@@ -1922,7 +1876,7 @@ from { opacity: 0; transform: translateY(10px); }
 
 ### Locations:
 - team.css:18 (.member-header)
-- team.css:1438 (.member-header)
+- team.css:1428 (.member-header)
 
 ### Rule Content:
 ```css
@@ -1933,7 +1887,7 @@ from { opacity: 0; transform: translateY(10px); }
 
 ### Locations:
 - team.css:5 (.enhanced-team-spotlight)
-- team.css:1464 (.enhanced-team-spotlight)
+- team.css:1454 (.enhanced-team-spotlight)
 
 ### Rule Content:
 ```css
@@ -1944,7 +1898,7 @@ from { opacity: 0; transform: translateY(10px); }
 
 ### Locations:
 - team.css:399 (.member-info)
-- team.css:1627 (.member-info)
+- team.css:1617 (.member-info)
 
 ### Rule Content:
 ```css
@@ -1989,7 +1943,7 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- team.css:1705 (.quick-insights .insights-title .btn-icon:hover)
+- team.css:1695 (.quick-insights .insights-title .btn-icon:hover)
 - welcome-section.css:1114 (.quick-insights .insights-title .btn-icon:hover)
 - welcome-section.css:4035 (.quick-insights .insights-title .btn-icon:hover)
 - welcome-section.css:6993 (.quick-insights .insights-title .btn-icon:hover)
@@ -2002,7 +1956,7 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- team.css:1713 (.quick-insights .insights-title .btn-icon:hover svg,
+- team.css:1703 (.quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:hover path)
 - welcome-section.css:1122 (.quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:hover path)
@@ -2069,7 +2023,7 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2454 (0%,
+- enhanced-task-system.css:2444 (0%,
     100%)
 - welcome-section.css:2623 (0%,
     100%)
@@ -2084,7 +2038,7 @@ from { opacity: 0; transform: translateY(10px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2460 (50%)
+- enhanced-task-system.css:2450 (50%)
 - welcome-section.css:2629 (50%)
 - welcome-section.css:5615 (50%)
 

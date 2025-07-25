@@ -362,7 +362,17 @@
     }
 }
 
-/* Analytics animations using central definitions */
+@keyframes analyticsSubtlePulse {
+
+    0%,
+    100% {
+        transform: scale(1) translateZ(0);
+    }
+
+    50% {
+        transform: scale(1.005) translateZ(5px);
+    }
+}
 
 /* ✨ FLOATING GEOMETRIC SHAPES FOR ANALYTICS */
 .analytics-dashboard::before {
@@ -1936,7 +1946,7 @@
 }
 
 .shortcuts-content {
-    background: var(--bg-elevated);
+    background: white;
     padding: 2rem;
     border-radius: 12px;
     max-width: 500px;
@@ -2024,7 +2034,7 @@
         padding: var(--space-4);
         margin-bottom: var(--space-4);
         /* Simplify animations on mobile */
-        animation: subtlePulse 6s ease-in-out infinite;
+        animation: analyticsSubtlePulse 6s ease-in-out infinite;
     }
 
     .dashboard-header {
@@ -2133,7 +2143,7 @@
     animation:
         analyticsGlow 6s ease-in-out infinite,
         analyticsBackgroundShift 20s linear infinite,
-        subtlePulse 4s ease-in-out infinite,
+        analyticsSubtlePulse 4s ease-in-out infinite,
         analyticsSpectacularEntrance 1.5s ease-out;
 }
 

@@ -25,9 +25,9 @@ async function processFile(filePath) {
     console.log(`Processing file: ${filePath}`);
     try {
         const css = fs.readFileSync(filePath, 'utf8');
-        const result = await postcss().process(css, { 
+        const result = await postcss().process(css, {
             from: filePath,
-            syntax: syntax 
+            syntax: syntax
         });
 
         result.root.walkRules(rule => {
@@ -62,18 +62,20 @@ async function walkDir(dir) {
     try {
         const files = fs.readdirSync(dir);
         const promises = [];
-        
+
         for (const file of files) {
             const filePath = path.join(dir, file);
             const stat = fs.statSync(filePath);
-            
-                                    if (stat.isDirectory() && !config.excludeDirs.includes(file)) {
-                            promises.push(walkDir(filePath));
-                        } else if (config.fileExtensions.includes(path.extname(file)) && !config.excludeFiles.includes(file)) {
-                            promises.push(processFile(filePath));
-                        }
+
+            if (stat.isDirectory() && !config.excludeDirs.includes(file)) {
+                promises.push(walkDir(filePath));
+            } else if (config.fileExtensions.includes(path.extname(file)) &&
+                !config.excludeFiles.includes(file) &&
+                !file.includes('.backup')) {
+                promises.push(processFile(filePath));
+            }
         }
-        
+
         await Promise.all(promises);
     } catch (error) {
         console.error(`Error walking directory ${dir}:`, error);
@@ -83,14 +85,14 @@ async function walkDir(dir) {
 // Generate report
 function generateReport() {
     let report = '# CSS Duplication Report\n\n';
-    
+
     if (duplicateRules.size === 0) {
         report += 'No duplicate rules found.\n';
         return report;
     }
-    
+
     report += `Found ${duplicateRules.size} duplicate rule(s).\n\n`;
-    
+
     duplicateRules.forEach((occurrences, rule) => {
         report += '## Duplicate Rule Found\n\n';
         report += '### Locations:\n';
@@ -99,7 +101,7 @@ function generateReport() {
         });
         report += '\n### Rule Content:\n```css\n' + rule + '\n```\n\n';
     });
-    
+
     return report;
 }
 
@@ -108,13 +110,13 @@ async function main() {
     try {
         console.log('Starting CSS duplication analysis...');
         console.log(`Root directory: ${config.rootDir}`);
-        
+
         await walkDir(config.rootDir);
-        
+
         const report = generateReport();
         const reportPath = path.join(__dirname, 'css-duplication-report.md');
         fs.writeFileSync(reportPath, report);
-        
+
         console.log(`Report generated successfully at: ${reportPath}`);
         console.log(`Found ${duplicateRules.size} duplicate rules.`);
     } catch (error) {
