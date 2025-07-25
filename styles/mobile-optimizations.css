@@ -3,7 +3,7 @@
 /* Duplicate :root variables moved to critical-fixes.css to avoid conflicts */
 
 /* Mobile-First Performance Optimizations */
-@media (max-width: 768px) {
+@media (max-width: var(--breakpoint-md)) {
 
     /* Disable expensive animations on mobile */
     .welcome-section::before,
@@ -79,7 +79,7 @@
 }
 
 /* Very Small Screens (480px and below) */
-@media (max-width: 480px) {
+@media (max-width: var(--breakpoint-sm)) {
 
     /* Ultra-compact layout */
     .main-content {
@@ -136,7 +136,7 @@
 }
 
 /* Landscape Mobile Optimization */
-@media (max-width: 768px) and (orientation: landscape) {
+@media (max-width: var(--breakpoint-md)) and (orientation: landscape) {
     .welcome-section {
         padding: var(--space-4) var(--space-6) !important;
     }
@@ -268,7 +268,7 @@
 }
 
 /* Dark Mode Mobile Optimizations */
-@media (max-width: 768px) and (prefers-color-scheme: dark) {
+@media (max-width: var(--breakpoint-md)) and (prefers-color-scheme: dark) {
 
     .welcome-section,
     .enhanced-task-system,
@@ -308,7 +308,7 @@
 }
 
 /* Mobile Sidebar Optimizations - handled in sidebar.css to avoid conflicts */
-@media (max-width: 1024px) {
+@media (max-width: var(--breakpoint-lg)) {
     /* Sidebar mobile behavior consolidated in sidebar.css */
 
     /* Mobile overlay */
@@ -477,7 +477,7 @@
 
 /* ===== CONSOLIDATED CONTENT FROM mobile-performance-enhancements.css ===== */
 /* Task System Performance Optimizations */
-@media (max-width: 768px) {
+@media (max-width: var(--breakpoint-md)) {
     .enhanced-task-system {
         .ai-insights-grid {
             grid-template-columns: 1fr !important;

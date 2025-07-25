@@ -2973,15 +2973,7 @@ body .welcome-section .event-title,
     }
 }
 
-/* 🌈 THEME SYNCHRONIZATION */
-.welcome-section[data-theme="dark"] {
-    --welcome-bg-start: #1e293b;
-    --welcome-bg-end: #0f172a;
-    --welcome-text: #f8fafc;
-    --welcome-overlay: rgba(255, 255, 255, 0.05);
-}
-
-/* 🏆 CONTEST-WINNING MICRO-INTERACTIONS */
+/*  CONTEST-WINNING MICRO-INTERACTIONS */
 
 /* Enhanced Stat Card Animations */
 .welcome-stats .stat-item {
@@ -8091,7 +8083,6 @@ app-header {
     --primary-200: #c7d2fe;
     --primary-300: #a5b4fc;
     --primary-400: #818cf8;
-    --primary-500: #6366f1;
     --primary-600: #4f46e5;
     --primary-700: #4338ca;
 
@@ -8199,7 +8190,6 @@ app-header {
     --primary-200: #4338ca;
     --primary-300: #4f46e5;
     --primary-400: #6366f1;
-    --primary-500: #818cf8;
     --primary-600: #93c5fd;
     --primary-700: #bfdbfe;
 

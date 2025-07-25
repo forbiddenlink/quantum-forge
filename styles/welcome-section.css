@@ -31,12 +31,6 @@ image.png
     visibility: visible;
 }
 
-/* Remove any display: none styles */
-.welcome-section .btn-icon[style*="display: none"],
-.welcome-section .btn-icon svg[style*="display: none"] {
-    display: inline-flex !important;
-}
-
 /* Ensure proper z-index stacking */
 .welcome-section .quick-actions {
     position: relative;
@@ -135,25 +129,12 @@ image.png
     stroke: var(--welcome-text);
 }
 
-.welcome-section svg {
-    /* Ensure icons are visible */
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-.welcome-section .btn-icon svg {
-    /* Ensure button icons are visible */
-    display: inline-block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-/* Override any potential display:none rules */
+/* Consolidated icon visibility rules */
+.welcome-section svg,
+.welcome-section .btn-icon svg,
 .welcome-section *[style*="display: none"],
 .welcome-section .btn-icon[style*="display: none"],
 .welcome-section .btn-icon svg[style*="display: none"] {
-    /* Force visibility */
     display: inline-block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -5749,38 +5730,6 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     transform: translateZ(0);
     backface-visibility: hidden;
     perspective: 1000px;
-}
-
-/* 🌈 THEME SYNCHRONIZATION */
-.welcome-section[data-theme="dark"] {
-    --welcome-bg-start: #1e293b;
-    --welcome-bg-end: #0f172a;
-    --welcome-text: #f8fafc;
-    --welcome-text-secondary: rgba(255, 255, 255, 0.9);
-    --welcome-text-muted: rgba(255, 255, 255, 0.7);
-    --welcome-overlay: rgba(255, 255, 255, 0.05);
-    --welcome-overlay-hover: rgba(255, 255, 255, 0.1);
-    --welcome-border: rgba(255, 255, 255, 0.1);
-    --welcome-border-hover: rgba(255, 255, 255, 0.2);
-    --welcome-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-
-    /* Enhanced gradient colors for dark mode */
-    --welcome-accent-1: #818cf8;
-    --welcome-accent-2: #a78bfa;
-    --welcome-accent-3: #22d3ee;
-    --welcome-accent-4: #34d399;
-
-    /* Update background for dark mode */
-    background:
-        /* Animated gradient waves */
-        linear-gradient(45deg, var(--welcome-bg-start) 0%, transparent 50%, var(--welcome-bg-start) 100%),
-        linear-gradient(-45deg, var(--welcome-bg-end) 0%, transparent 50%, var(--welcome-bg-end) 100%),
-        linear-gradient(90deg, transparent 0%, rgba(129, 140, 248, 0.1) 25%, transparent 50%, rgba(34, 211, 238, 0.1) 75%, transparent 100%),
-        /* Primary gradient base */
-        linear-gradient(135deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%) !important;
-
-    /* Update text colors */
-    color: var(--welcome-text) !important;
 }
 
 /* Dark mode specific overrides */
