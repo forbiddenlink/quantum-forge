@@ -1052,22 +1052,7 @@ body {
 
 /* ===== UNIFIED RESPONSIVE DESIGN SYSTEM ===== */
 
-/* Standardized Breakpoints - Mobile First Approach */
-:root {
-    /* Consistent breakpoints across all components */
-    --breakpoint-xs: 480px;
-    /* Small phones */
-    --breakpoint-sm: 640px;
-    /* Large phones */
-    --breakpoint-md: 768px;
-    /* Tablets */
-    --breakpoint-lg: 1024px;
-    /* Small laptops */
-    --breakpoint-xl: 1280px;
-    /* Large laptops */
-    --breakpoint-2xl: 1536px;
-    /* Desktops */
-}
+/* Standardized Breakpoints - Consolidated into critical-fixes.css */
 
 /* Global Mobile Optimizations */
 @media (max-width: 480px) {
@@ -8097,6 +8082,8 @@ app-header {
 }
 
 /* CSS Custom Properties */
+/* WARNING: These color values are overridden by critical-fixes.css for dynamic theming */
+/* The dynamic theming system in critical-fixes.css takes precedence for user customization */
 :root {
     /* Colors */
     --primary-50: #eef2ff;

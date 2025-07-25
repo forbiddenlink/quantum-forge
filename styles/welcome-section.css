@@ -67,26 +67,6 @@ image.png
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-:root {
-    /* Welcome section specific variables */
-    --welcome-bg-start: #6366f1;
-    --welcome-bg-end: #4338ca;
-    --welcome-text: white;
-    --welcome-text-secondary: rgba(255, 255, 255, 0.9);
-    --welcome-text-muted: rgba(255, 255, 255, 0.7);
-    --welcome-overlay: rgba(255, 255, 255, 0.1);
-    --welcome-overlay-hover: rgba(255, 255, 255, 0.15);
-    --welcome-border: rgba(255, 255, 255, 0.2);
-    --welcome-border-hover: rgba(255, 255, 255, 0.3);
-    --welcome-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-
-    /* Enhanced gradient colors */
-    --welcome-accent-1: #8b5cf6;
-    --welcome-accent-2: #06b6d4;
-    --welcome-accent-3: #10b981;
-    --welcome-accent-4: #f59e0b;
-}
-
 /* 🚀 CONTEST-WINNING WELCOME SECTION - SPECTACULAR DESIGN */
 .welcome-section {
     margin-bottom: var(--space-6) !important;
@@ -139,25 +119,44 @@ image.png
 /* 🎯 CRITICAL FIX: Ensure button icons are always visible */
 /* Using unified icon styles */
 .welcome-section .quick-actions .btn .btn-icon {
-    @extend .icon-base;
-    @extend .icon-lg;
+    /* Icon base styles */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    stroke: currentColor;
+    stroke-width: 2px;
+    /* Large icon size */
+    width: 32px;
+    height: 32px;
     color: var(--welcome-text);
     stroke: var(--welcome-text);
 }
 
 .welcome-section svg {
-    @extend .icon-visible;
+    /* Ensure icons are visible */
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .welcome-section .btn-icon svg {
-    @extend .icon-visible;
+    /* Ensure button icons are visible */
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Override any potential display:none rules */
 .welcome-section *[style*="display: none"],
 .welcome-section .btn-icon[style*="display: none"],
 .welcome-section .btn-icon svg[style*="display: none"] {
-    @extend .icon-visible;
+    /* Force visibility */
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 /* Animation Base */

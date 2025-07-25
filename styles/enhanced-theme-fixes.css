@@ -33,15 +33,7 @@ body {
 }
 
 /* 2. ENHANCED WELCOME SECTION GRADIENT FIXES */
-/* Make sure welcome section uses dynamic colors properly */
-.welcome-section {
-    background: linear-gradient(135deg,
-            var(--primary-500) 0%,
-            var(--primary-600) 50%,
-            var(--primary-700) 100%) !important;
-    color: white !important;
-    position: relative !important;
-}
+/* Dynamic gradient override consolidated into critical-fixes.css */
 
 .welcome-section * {
     color: white !important;

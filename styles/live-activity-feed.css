@@ -7,20 +7,20 @@
     --activity-success: var(--success-500);
     --activity-warning: var(--warning-500);
     --activity-error: var(--error-500);
-    
+
     /* Spectacular gradients matching enhanced sections */
     --activity-gradient: var(--gradient-primary);
     --activity-success-gradient: linear-gradient(135deg, var(--success-500), var(--success-600));
     --activity-warning-gradient: linear-gradient(135deg, var(--warning-500), var(--warning-600));
     --activity-error-gradient: linear-gradient(135deg, var(--error-500), var(--error-600));
-    
+
     /* Contest-winning effect colors matching other sections */
     --activity-glow: rgba(99, 102, 241, 0.4);
     --activity-accent-1: #8b5cf6;
     --activity-accent-2: #06b6d4;
     --activity-accent-3: #10b981;
     --activity-accent-4: #f59e0b;
-    
+
     /* Text colors for enhanced sections */
     --activity-text: white;
     --activity-text-secondary: rgba(255, 255, 255, 0.9);
@@ -29,7 +29,7 @@
     --activity-overlay-hover: rgba(255, 255, 255, 0.15);
     --activity-border: rgba(255, 255, 255, 0.2);
     --activity-border-hover: rgba(255, 255, 255, 0.3);
-    
+
     /* Spacing for consistent layout */
     --activity-section-gap: var(--space-6);
     --activity-card-gap: var(--space-4);
@@ -39,7 +39,7 @@
 /* 🚀 ENHANCED LIVE ACTIVITY FEED CONTAINER - EXACT MATCH to other enhanced sections */
 .live-activity-feed-enhanced {
     /* ENHANCED Multi-layer animated background - EXACT MATCH to other enhanced sections */
-    background: 
+    background:
         /* Animated gradient waves */
         linear-gradient(45deg, var(--primary-500) 0%, transparent 50%, var(--primary-500) 100%),
         linear-gradient(-45deg, var(--primary-600) 0%, transparent 50%, var(--primary-600) 100%),
@@ -54,7 +54,7 @@
         /* Enhanced texture overlay with animation */
         repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
         repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
-    
+
     border-radius: var(--radius-2xl) !important;
     padding: var(--activity-container-padding) !important;
     position: relative !important;
@@ -62,33 +62,33 @@
     margin: 0 !important;
     color: var(--activity-text) !important;
     border: 1px solid var(--activity-border) !important;
-    
+
     /* Spectacular glow and animation effects matching other enhanced sections */
-    box-shadow: 
-        0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+    box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
         0 10px 10px -5px rgba(0, 0, 0, 0.04),
         0 0 0 1px rgba(255, 255, 255, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.4),
         0 0 60px rgba(99, 102, 241, 0.4),
         0 0 120px rgba(99, 102, 241, 0.2) !important;
-        
+
     /* Smooth transitions */
     transition: all var(--duration-normal) var(--ease-in-out) !important;
-    
+
     /* Enhanced backdrop */
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
-    
+
     /* SPECTACULAR glow and animation effects */
-    animation: 
+    animation:
         activityGlow 6s ease-in-out infinite,
         activityBackgroundShift 20s linear infinite,
         activitySubtlePulse 4s ease-in-out infinite !important;
-    
+
     /* 3D transform for depth */
     transform-style: preserve-3d !important;
     perspective: 1000px !important;
-    
+
     /* Layout and dimensions */
     min-height: auto;
     height: 100%;
@@ -97,7 +97,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--activity-section-gap);
-    
+
     /* Strict containment */
     contain: layout style;
     isolation: isolate;
@@ -105,7 +105,7 @@
 
 [data-theme="dark"] .live-activity-feed-enhanced {
     /* Enhanced dark mode background with same spectacular effects */
-    background: 
+    background:
         /* Animated gradient waves for dark mode */
         linear-gradient(45deg, var(--primary-600) 0%, transparent 50%, var(--primary-600) 100%),
         linear-gradient(-45deg, var(--primary-700) 0%, transparent 50%, var(--primary-700) 100%),
@@ -120,43 +120,48 @@
         /* Dark mode texture overlay */
         repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.06) 2px, rgba(255, 255, 255, 0.06) 4px),
         repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.03) 4px, rgba(255, 255, 255, 0.03) 8px) !important;
-    
+
     border-color: rgba(255, 255, 255, 0.1);
     color: #f8fafc;
 }
 
 /* 🎨 SPECTACULAR KEYFRAME ANIMATIONS - EXACT MATCH to other enhanced sections */
 @keyframes activityGlow {
-    0%, 100% { 
-        box-shadow: 
-            0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+
+    0%,
+    100% {
+        box-shadow:
+            0 20px 25px -5px rgba(0, 0, 0, 0.1),
             0 10px 10px -5px rgba(0, 0, 0, 0.04),
             0 0 0 1px rgba(255, 255, 255, 0.2),
             inset 0 1px 0 rgba(255, 255, 255, 0.4),
             0 0 60px rgba(99, 102, 241, 0.4),
             0 0 120px rgba(99, 102, 241, 0.2);
     }
-    25% { 
-        box-shadow: 
-            0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+
+    25% {
+        box-shadow:
+            0 20px 25px -5px rgba(0, 0, 0, 0.1),
             0 10px 10px -5px rgba(0, 0, 0, 0.04),
             0 0 0 1px rgba(255, 255, 255, 0.3),
             inset 0 1px 0 rgba(255, 255, 255, 0.5),
             0 0 80px rgba(139, 92, 246, 0.5),
             0 0 140px rgba(139, 92, 246, 0.3);
     }
-    50% { 
-        box-shadow: 
-            0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+
+    50% {
+        box-shadow:
+            0 20px 25px -5px rgba(0, 0, 0, 0.1),
             0 10px 10px -5px rgba(0, 0, 0, 0.04),
             0 0 0 1px rgba(255, 255, 255, 0.25),
             inset 0 1px 0 rgba(255, 255, 255, 0.45),
             0 0 70px rgba(6, 182, 212, 0.45),
             0 0 130px rgba(6, 182, 212, 0.25);
     }
-    75% { 
-        box-shadow: 
-            0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+
+    75% {
+        box-shadow:
+            0 20px 25px -5px rgba(0, 0, 0, 0.1),
             0 10px 10px -5px rgba(0, 0, 0, 0.04),
             0 0 0 1px rgba(255, 255, 255, 0.28),
             inset 0 1px 0 rgba(255, 255, 255, 0.48),
@@ -166,16 +171,37 @@
 }
 
 @keyframes activityBackgroundShift {
-    0% { background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%; }
-    25% { background-position: 100% 0%, 0% 100%, 25% 50%, 0% 0%, 25% 25%, 75% 75%, 45% 55%, 15% 75%, 25% 25%, 25% 25%; }
-    50% { background-position: 100% 100%, 0% 0%, 50% 50%, 0% 0%, 30% 30%, 70% 70%, 40% 60%, 20% 70%, 50% 50%, 50% 50%; }
-    75% { background-position: 0% 100%, 100% 0%, 75% 50%, 0% 0%, 35% 35%, 65% 65%, 35% 65%, 25% 65%, 75% 75%, 75% 75%; }
-    100% { background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%; }
+    0% {
+        background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%;
+    }
+
+    25% {
+        background-position: 100% 0%, 0% 100%, 25% 50%, 0% 0%, 25% 25%, 75% 75%, 45% 55%, 15% 75%, 25% 25%, 25% 25%;
+    }
+
+    50% {
+        background-position: 100% 100%, 0% 0%, 50% 50%, 0% 0%, 30% 30%, 70% 70%, 40% 60%, 20% 70%, 50% 50%, 50% 50%;
+    }
+
+    75% {
+        background-position: 0% 100%, 100% 0%, 75% 50%, 0% 0%, 35% 35%, 65% 65%, 35% 65%, 25% 65%, 75% 75%, 75% 75%;
+    }
+
+    100% {
+        background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%;
+    }
 }
 
 @keyframes activitySubtlePulse {
-    0%, 100% { transform: scale(1) translateZ(0); }
-    50% { transform: scale(1.003) translateZ(3px); }
+
+    0%,
+    100% {
+        transform: scale(1) translateZ(0);
+    }
+
+    50% {
+        transform: scale(1.003) translateZ(3px);
+    }
 }
 
 /* ✨ SPECTACULAR PARTICLE SYSTEM */
@@ -205,12 +231,15 @@
         transform: translateY(100vh) translateX(0px) rotate(0deg);
         opacity: 0;
     }
+
     10% {
         opacity: 0.6;
     }
+
     90% {
         opacity: 0.6;
     }
+
     100% {
         transform: translateY(-100px) translateX(50px) rotate(360deg);
         opacity: 0;
@@ -230,18 +259,23 @@
 }
 
 @keyframes feed-aurora-shift {
-    0%, 100% {
+
+    0%,
+    100% {
         background-position: 0% 50%;
         opacity: 0.7;
     }
+
     25% {
         background-position: 100% 0%;
         opacity: 0.9;
     }
+
     50% {
         background-position: 100% 100%;
         opacity: 0.6;
     }
+
     75% {
         background-position: 0% 100%;
         opacity: 0.8;
@@ -318,25 +352,32 @@
 }
 
 @keyframes feedIconPulseEnhanced {
-    0%, 100% { 
-        transform: scale(1) rotate(0deg); 
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
         filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
     }
-    33% { 
-        transform: scale(1.05) rotate(5deg); 
+
+    33% {
+        transform: scale(1.05) rotate(5deg);
         filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
     }
-    66% { 
-        transform: scale(0.98) rotate(-3deg); 
+
+    66% {
+        transform: scale(0.98) rotate(-3deg);
         filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
     }
 }
 
 @keyframes iconPulseWaveEnhanced {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.8);
     }
+
     50% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1.2);
@@ -362,11 +403,14 @@
 }
 
 @keyframes aiEnhancementPulse {
-    0%, 100% { 
+
+    0%,
+    100% {
         box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
         transform: translateZ(0);
     }
-    50% { 
+
+    50% {
         box-shadow: 0 4px 16px rgba(255, 255, 255, 0.3);
         transform: translateZ(2px);
     }
@@ -406,22 +450,26 @@
 }
 
 @keyframes liveStatusPulse {
-    0%, 100% { 
+
+    0%,
+    100% {
         box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
     }
-    50% { 
+
+    50% {
         box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.1);
     }
 }
 
 @keyframes statusPulseWave {
-    0% { 
-        opacity: 1; 
-        transform: scale(0.8); 
+    0% {
+        opacity: 1;
+        transform: scale(0.8);
     }
-    100% { 
-        opacity: 0; 
-        transform: scale(2); 
+
+    100% {
+        opacity: 0;
+        transform: scale(2);
     }
 }
 
@@ -562,11 +610,13 @@
         transform: translateY(20px) scale(0.95);
         filter: blur(4px);
     }
+
     60% {
         opacity: 0.8;
         transform: translateY(-2px) scale(1.02);
         filter: blur(1px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -581,12 +631,14 @@
         filter: blur(8px);
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
+
     50% {
         opacity: 0.8;
         transform: translateY(5px) scale(1.05) rotateX(-2deg);
         filter: blur(2px);
         box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0) scale(1) rotateX(0deg);
@@ -596,9 +648,18 @@
 }
 
 @keyframes activityClickFeedback {
-    0% { transform: scale(0.98); }
-    50% { transform: scale(1.02); box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(0.98);
+    }
+
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* ===== ENHANCED ACTIVITY ICON ===== */
@@ -666,22 +727,46 @@
 }
 
 @keyframes iconPrimaryFloat {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-2px) rotate(2deg); }
-    66% { transform: translateY(1px) rotate(-1deg); }
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-2px) rotate(2deg);
+    }
+
+    66% {
+        transform: translateY(1px) rotate(-1deg);
+    }
 }
 
 @keyframes iconAccentSpin {
-    0% { transform: rotate(0deg) scale(0.8); opacity: 0.6; }
-    50% { transform: rotate(180deg) scale(1.2); opacity: 1; }
-    100% { transform: rotate(360deg) scale(0.8); opacity: 0.6; }
+    0% {
+        transform: rotate(0deg) scale(0.8);
+        opacity: 0.6;
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(360deg) scale(0.8);
+        opacity: 0.6;
+    }
 }
 
 @keyframes iconPulseGlow {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.3;
         transform: translate(-50%, -50%) scale(0.8);
     }
+
     50% {
         opacity: 0.8;
         transform: translate(-50%, -50%) scale(1.2);
@@ -706,6 +791,7 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -776,17 +862,27 @@
 }
 
 @keyframes priorityGlow {
-    0%, 100% { box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
-    50% { box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); }
+
+    0%,
+    100% {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    }
 }
 
 @keyframes priorityPulseHigh {
-    0%, 100% { 
-        box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3); 
+
+    0%,
+    100% {
+        box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
         transform: scale(1);
     }
-    50% { 
-        box-shadow: 0 4px 16px rgba(245, 158, 11, 0.5); 
+
+    50% {
+        box-shadow: 0 4px 16px rgba(245, 158, 11, 0.5);
         transform: scale(1.05);
     }
 }
@@ -826,10 +922,13 @@
 }
 
 @keyframes activityGlowPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.4;
         transform: translate(-50%, -50%) scale(0.8);
     }
+
     50% {
         opacity: 0.8;
         transform: translate(-50%, -50%) scale(1.5);
@@ -852,10 +951,12 @@
         opacity: 0;
         transform: translateY(0) scale(0);
     }
+
     50% {
         opacity: 1;
         transform: translateY(-20px) scale(1.2);
     }
+
     100% {
         opacity: 0;
         transform: translateY(-40px) scale(0);
@@ -867,10 +968,12 @@
         opacity: 0;
         transform: translateY(0) scale(0) rotate(0deg);
     }
+
     50% {
         opacity: 1;
         transform: translateY(-15px) scale(1) rotate(180deg);
     }
+
     100% {
         opacity: 0;
         transform: translateY(-30px) scale(0) rotate(360deg);
@@ -984,19 +1087,42 @@
 }
 
 @keyframes btnClickFeedback {
-    0% { transform: scale(0.98); }
-    50% { transform: scale(1.02); box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(0.98);
+    }
+
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes btnGlowPulse {
-    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
 }
 
 @keyframes btnShimmer {
-    0% { left: -100%; }
-    100% { left: 100%; }
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
 }
 
 /* ===== ENHANCED FEEDBACK SYSTEM ===== */
@@ -1031,11 +1157,13 @@
         transform: translateX(100%) scale(0.8) rotate(5deg);
         filter: blur(4px);
     }
+
     60% {
         opacity: 1;
         transform: translateX(-10px) scale(1.05) rotate(-2deg);
         filter: blur(1px);
     }
+
     100% {
         opacity: 1;
         transform: translateX(0) scale(1) rotate(0deg);
@@ -1048,6 +1176,7 @@
         opacity: 1;
         transform: translateX(0) scale(1);
     }
+
     100% {
         opacity: 0;
         transform: translateX(100%) scale(0.8);
@@ -1147,18 +1276,22 @@
 }
 
 @keyframes refreshPulse {
-    0%, 100% { 
-        transform: scale(1); 
+
+    0%,
+    100% {
+        transform: scale(1);
         filter: brightness(1);
     }
-    50% { 
-        transform: scale(1.02); 
+
+    50% {
+        transform: scale(1.02);
         filter: brightness(1.1);
     }
 }
 
 /* ===== REDUCED MOTION SUPPORT ===== */
 @media (prefers-reduced-motion: reduce) {
+
     .live-activity-feed-enhanced,
     .live-activity-feed-enhanced.reduced-motion,
     .feed-icon-enhanced,
@@ -1178,12 +1311,12 @@
         animation: none !important;
         transition: none !important;
     }
-    
+
     .activity-item-enhanced {
         opacity: 1;
         transform: none;
     }
-    
+
     .activity-item-enhanced:hover {
         transform: none;
     }
@@ -1195,43 +1328,43 @@
         padding: var(--space-4);
         gap: var(--space-4);
     }
-    
+
     .feed-header-enhanced {
         flex-direction: column;
         gap: var(--space-3);
         align-items: stretch;
     }
-    
+
     .feed-status-enhanced {
         justify-content: center;
     }
-    
+
     .activity-item-enhanced {
         padding: var(--space-3);
         gap: var(--space-3);
     }
-    
+
     .activity-icon-enhanced {
         width: 40px;
         height: 40px;
     }
-    
+
     .icon-primary {
         font-size: var(--font-size-base);
     }
-    
+
     .activity-message-enhanced {
         font-size: var(--font-size-xs);
     }
-    
+
     .activity-meta-enhanced {
         gap: var(--space-2);
     }
-    
+
     .view-all-btn-enhanced {
         padding: var(--space-3) var(--space-4);
     }
-    
+
     .action-feedback-enhanced {
         top: var(--space-4);
         right: var(--space-4);
@@ -1249,37 +1382,37 @@
         backdrop-filter: blur(8px) !important;
         -webkit-backdrop-filter: blur(8px) !important;
     }
-    
+
     .activity-item-enhanced {
         padding: var(--space-2);
         gap: var(--space-2);
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
     }
-    
+
     .activity-icon-enhanced {
         width: 32px;
         height: 32px;
     }
-    
+
     .icon-primary {
         font-size: var(--font-size-sm);
     }
-    
+
     .feed-title-enhanced {
         font-size: var(--font-size-lg);
     }
-    
+
     .activity-list-enhanced {
         max-height: 300px;
         gap: var(--space-2);
     }
-    
+
     .title-icon-wrapper {
         width: 32px;
         height: 32px;
     }
-    
+
     .feed-icon-enhanced {
         width: 20px;
         height: 20px;
@@ -1293,19 +1426,19 @@
         border: 3px solid #ffffff !important;
         color: #ffffff !important;
     }
-    
+
     .activity-item-enhanced {
         background: #ffffff !important;
         color: #000000 !important;
         border: 2px solid #000000 !important;
     }
-    
+
     .view-all-btn-enhanced {
         background: #ffffff !important;
         color: #000000 !important;
         border: 2px solid #000000 !important;
     }
-    
+
     .activity-icon-enhanced {
         border: 2px solid #000000 !important;
     }
@@ -1318,19 +1451,19 @@
         color: CanvasText !important;
         border-color: ButtonBorder !important;
     }
-    
+
     .activity-item-enhanced {
         background: ButtonFace !important;
         color: ButtonText !important;
         border-color: ButtonBorder !important;
     }
-    
+
     .view-all-btn-enhanced {
         background: ButtonFace !important;
         color: ButtonText !important;
         border-color: ButtonBorder !important;
     }
-} 
+}
 
 /* Additional icon positioning fixes */
 .activity-item-enhanced {
@@ -1375,4 +1508,4 @@
     flex-shrink: 0 !important;
     margin-right: var(--space-4) !important;
     margin-top: 2px !important;
-} 
+}

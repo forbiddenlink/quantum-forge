@@ -24,9 +24,9 @@
     /* ACCENT COLOR FOR CONSISTENT THEMING */
     --accent-color: var(--primary-500);
 
-    /* Welcome Section Variables */
-    --welcome-bg-start: #6366f1;
-    --welcome-bg-end: #4338ca;
+    /* Welcome Section Variables - Using dynamic theming */
+    --welcome-bg-start: var(--primary-500);
+    --welcome-bg-end: var(--primary-700);
     --welcome-text: white;
     --welcome-text-secondary: rgba(255, 255, 255, 0.9);
     --welcome-text-muted: rgba(255, 255, 255, 0.7);
@@ -996,15 +996,6 @@ html[data-theme="dark"] body .dashboard .welcome-section {
 /* Override welcome section gradient that uses hardcoded purple */
 .welcome-section {
     background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 50%, var(--primary-700) 100%) !important;
-}
-
-/* Override any CSS custom properties that might be hardcoded */
-:root {
-    --welcome-bg-start: var(--primary-500) !important;
-    --welcome-bg-end: var(--primary-700) !important;
-    --accent-color: var(--primary-500) !important;
-    --button-primary: var(--primary-500) !important;
-    --link-color: var(--primary-500) !important;
 }
 
 /* Override button colors to use dynamic theming */
