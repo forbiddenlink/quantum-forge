@@ -1,13 +1,6 @@
 /* 📱 CONSOLIDATED Mobile Optimizations */
 /* Combined from mobile-optimizations.css, simple-mobile.css, and mobile-performance-enhancements.css */
-
-/* Mobile Performance Variables */
-:root {
-    --mobile-animation-duration: 150ms;
-    --mobile-transition-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --mobile-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --mobile-shadow-medium: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
+/* Duplicate :root variables moved to critical-fixes.css to avoid conflicts */
 
 /* Mobile-First Performance Optimizations */
 @media (max-width: 768px) {
@@ -434,11 +427,7 @@
         max-width: 280px !important;
     }
 
-    /* Mobile Dashboard Grid - Only on mobile */
-    .dashboard-grid {
-        grid-template-columns: 1fr !important;
-        gap: var(--space-4) !important;
-    }
+    /* Dashboard grid styles moved to critical-fixes.css to avoid duplication */
 
     /* Mobile Main Content - Slight padding adjustment */
     .main-content {
