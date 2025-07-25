@@ -566,7 +566,8 @@ body.sidebar-collapsed .nav-text {
         width: 280px;
         z-index: 1000;
         transition: left 0.3s ease;
-        transform: none; /* Override any transform conflicts */
+        transform: none;
+        /* Override any transform conflicts */
     }
 
     .sidebar.active,

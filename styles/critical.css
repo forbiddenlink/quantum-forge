@@ -192,26 +192,26 @@ body {
     .welcome-section {
         padding: var(--space-5);
     }
-    
+
     .welcome-title {
         font-size: var(--font-size-2xl);
         flex-direction: column;
         text-align: center;
     }
-    
+
     .welcome-stats {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .quick-actions {
         flex-direction: column;
     }
-    
+
     .btn {
         width: 100%;
         justify-content: center;
     }
-    
+
     .header {
         padding: 0 var(--space-4);
     }
@@ -221,27 +221,27 @@ body {
     .main-content {
         padding: var(--space-2);
     }
-    
+
     .dashboard-grid {
         gap: var(--space-3);
     }
-    
+
     .welcome-section {
         padding: var(--space-4);
     }
-    
+
     .welcome-stats {
         grid-template-columns: 1fr 1fr;
         gap: var(--space-2);
     }
-    
+
     .stat-item {
         padding: var(--space-3);
     }
 }
 
 /* Prevent Flash of Unstyled Content */
-.dashboard-item > * {
+.dashboard-item>* {
     opacity: 0;
     animation: fadeIn 0.3s ease-out 0.1s forwards;
 }
@@ -257,6 +257,7 @@ body {
 
 /* Reduce Motion for Accessibility */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -264,4 +265,4 @@ body {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
-} 
+}

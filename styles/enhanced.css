@@ -50,16 +50,16 @@
 
 /* Mobile responsive layout moved to main.css - duplicate removed */
 @media (max-width: 768px) {
-    
+
     .dashboard-item {
         flex: 0 0 100%;
     }
-    
+
     .dashboard-row {
         flex-direction: column;
         flex: none;
     }
-    
+
     .dashboard-row .dashboard-item {
         flex: none;
         width: 100%;
@@ -67,7 +67,7 @@
 }
 
 /* Ensure components fill their containers */
-.dashboard-item > *:not(task-system):not(analytics-dashboard):not(team-spotlight):not(company-news):not(knowledge-hub):not(weather-widget):not(enhanced-interactive-poll):not(company-culture-showcase):not(collaboration-hub):not(office-visualizer) {
+.dashboard-item>*:not(task-system):not(analytics-dashboard):not(team-spotlight):not(company-news):not(knowledge-hub):not(weather-widget):not(enhanced-interactive-poll):not(company-culture-showcase):not(collaboration-hub):not(office-visualizer) {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -78,23 +78,23 @@
 }
 
 /* Custom components should fill container but maintain their own internal structure */
-.dashboard-item > task-system,
-.dashboard-item > analytics-dashboard,
-.dashboard-item > team-spotlight,
-.dashboard-item > company-news,
-.dashboard-item > knowledge-hub,
-.dashboard-item > enhanced-knowledge-hub,
-.dashboard-item > weather-widget,
-.dashboard-item > enhanced-interactive-poll,
-.dashboard-item > company-culture-showcase,
-.dashboard-item > collaboration-hub,
-.dashboard-item > office-visualizer {
+.dashboard-item>task-system,
+.dashboard-item>analytics-dashboard,
+.dashboard-item>team-spotlight,
+.dashboard-item>company-news,
+.dashboard-item>knowledge-hub,
+.dashboard-item>enhanced-knowledge-hub,
+.dashboard-item>weather-widget,
+.dashboard-item>enhanced-interactive-poll,
+.dashboard-item>company-culture-showcase,
+.dashboard-item>collaboration-hub,
+.dashboard-item>office-visualizer {
     width: 100%;
     display: block;
 }
 
 /* Ensure enhanced knowledge hub fills its container without affecting layout */
-.dashboard-item > enhanced-knowledge-hub {
+.dashboard-item>enhanced-knowledge-hub {
     width: 100%;
     height: auto;
     display: block;
@@ -165,9 +165,9 @@ enhanced-task-system,
     max-height: none !important;
 }
 
-.knowledge-hub > *:last-child,
-.enhanced-task-system > *:last-child,
-.task-system > *:last-child {
+.knowledge-hub>*:last-child,
+.enhanced-task-system>*:last-child,
+.task-system>*:last-child {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
 }
@@ -474,8 +474,8 @@ enhanced-task-system,
 }
 
 .user-avatar-large {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     margin: 0 auto 1rem;
     background: var(--primary-color);
@@ -565,7 +565,7 @@ enhanced-task-system,
 [data-theme="dark"] .user-dropdown {
     background: var(--bg-elevated);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 
+    box-shadow:
         0 0 0 1px rgba(255, 255, 255, 0.05),
         0 4px 6px -1px rgba(0, 0, 0, 0.2),
         0 2px 4px -1px rgba(0, 0, 0, 0.1),
@@ -596,9 +596,7 @@ enhanced-task-system,
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-    .header {
-        padding: 1rem;
-    }
+    /* Header mobile styles handled in header.css */
 
     .notifications-dropdown,
     .user-dropdown {
@@ -612,7 +610,7 @@ enhanced-task-system,
         max-height: 80vh;
         transform: translateY(0);
         border-bottom: none;
-        box-shadow: 
+        box-shadow:
             0 -4px 6px -1px rgba(0, 0, 0, 0.1),
             0 -2px 4px -1px rgba(0, 0, 0, 0.06);
     }
@@ -642,7 +640,8 @@ enhanced-task-system,
     flex: 1;
     padding: var(--space-6);
     width: 100%;
-    max-width: none; /* Allow full width */
+    max-width: none;
+    /* Allow full width */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -731,7 +730,8 @@ enhanced-task-system,
     flex-direction: column;
     gap: 1rem;
     position: relative;
-    z-index: 25; /* Higher than welcome section */
+    z-index: 25;
+    /* Higher than welcome section */
 }
 
 .event-card {
@@ -740,7 +740,8 @@ enhanced-task-system,
     border-radius: var(--radius-lg);
     transition: all 0.2s ease;
     position: relative;
-    z-index: 30; /* Even higher to ensure visibility */
+    z-index: 30;
+    /* Even higher to ensure visibility */
 }
 
 .event-card:last-child {
@@ -771,7 +772,7 @@ enhanced-task-system,
     .upcoming-events {
         padding: 1rem;
     }
-    
+
     .event-card {
         padding: 1rem;
     }
@@ -811,8 +812,8 @@ enhanced-task-system,
     color: white;
     border: none;
     border-radius: 50%;
-    width: 56px;
-    height: 56px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1087,7 +1088,8 @@ enhanced-task-system,
     gap: var(--space-4);
 }
 
-.level-badge, .points-display {
+.level-badge,
+.points-display {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1097,13 +1099,15 @@ enhanced-task-system,
     min-width: 60px;
 }
 
-.level-number, .points-number {
+.level-number,
+.points-number {
     font-size: var(--font-size-2xl);
     font-weight: 700;
     color: var(--primary-600);
 }
 
-.level-label, .points-label {
+.level-label,
+.points-label {
     font-size: var(--font-size-xs);
     color: var(--text-muted);
     text-transform: uppercase;
@@ -1136,7 +1140,8 @@ enhanced-task-system,
     color: var(--text-muted);
 }
 
-.achievements-grid h3, .next-achievements h3 {
+.achievements-grid h3,
+.next-achievements h3 {
     margin-bottom: var(--space-4);
     font-size: var(--font-size-lg);
     font-weight: 600;
@@ -1280,7 +1285,8 @@ enhanced-task-system,
 }
 
 /* Achievement Notifications */
-.achievement-notification, .level-up-notification {
+.achievement-notification,
+.level-up-notification {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -1295,17 +1301,20 @@ enhanced-task-system,
     transition: all var(--duration-normal) var(--ease-spring);
 }
 
-.achievement-notification.show, .level-up-notification.show {
+.achievement-notification.show,
+.level-up-notification.show {
     transform: translateX(0);
 }
 
-.notification-content, .level-up-content {
+.notification-content,
+.level-up-content {
     display: flex;
     align-items: center;
     gap: var(--space-3);
 }
 
-.notification-icon, .level-up-icon {
+.notification-icon,
+.level-up-icon {
     font-size: var(--font-size-2xl);
     width: 48px;
     height: 48px;
@@ -1320,18 +1329,21 @@ enhanced-task-system,
     background: var(--primary-100);
 }
 
-.notification-text, .level-up-text {
+.notification-text,
+.level-up-text {
     flex: 1;
 }
 
-.notification-text h4, .level-up-text h4 {
+.notification-text h4,
+.level-up-text h4 {
     margin: 0 0 var(--space-1) 0;
     font-size: var(--font-size-sm);
     font-weight: 600;
     color: var(--text-primary);
 }
 
-.notification-text p, .level-up-text p {
+.notification-text p,
+.level-up-text p {
     margin: 0;
     font-size: var(--font-size-xs);
     color: var(--text-muted);
@@ -1371,18 +1383,18 @@ enhanced-task-system,
         width: calc(100vw - 40px);
         right: -10px;
     }
-    
+
     .achievement-header {
         flex-direction: column;
         gap: var(--space-4);
         align-items: flex-start;
     }
-    
+
     .user-stats {
         width: 100%;
         justify-content: space-between;
     }
-    
+
     .streak-display {
         width: 100%;
         justify-content: space-between;
@@ -1394,15 +1406,15 @@ enhanced-task-system,
         bottom: 10px;
         right: 10px;
     }
-    
+
     .ai-toggle {
         padding: var(--space-2) var(--space-3);
     }
-    
+
     .ai-label {
         display: none;
     }
-} 
+}
 
 /* Collaboration Hub Styles */
 .collaboration-hub {
@@ -1737,30 +1749,30 @@ enhanced-task-system,
         gap: var(--space-3);
         align-items: flex-start;
     }
-    
+
     .hub-actions {
         flex-direction: column;
     }
-    
+
     .user-card,
     .document-card {
         flex-direction: column;
         text-align: center;
         gap: var(--space-2);
     }
-    
+
     .user-actions,
     .document-actions {
         justify-content: center;
     }
-    
+
     .space-meta {
         flex-direction: column;
         gap: var(--space-1);
     }
-} 
+}
 
-/* Welcome section styles moved to welcome-section.css to eliminate duplication */ 
+/* Welcome section styles moved to welcome-section.css to eliminate duplication */
 
 /* Enhanced Component Styles - Using Unified Theme */
 
@@ -1949,6 +1961,7 @@ enhanced-task-system,
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1974,4 +1987,4 @@ enhanced-task-system,
     .stat-card {
         padding: var(--space-3);
     }
-} 
+}

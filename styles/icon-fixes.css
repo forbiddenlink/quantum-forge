@@ -50,8 +50,8 @@
 
 /* Fix Smart Insights Dashboard - Main insight icons (these are too big) */
 html body .insight-icon-container {
-    width: 48px !important;
-    height: 48px !important;
+    width: 36px !important;
+    height: 36px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -63,8 +63,8 @@ html body .insight-icon-container {
 .insight-icon-container .insight-icon,
 .main-insight .insight-icon,
 .insight-header .insight-icon {
-    width: 40px !important;
-    height: 40px !important;
+    width: 32px !important;
+    height: 32px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -79,8 +79,8 @@ html body .insight-icon-container {
 .insight-icon-container .insight-icon svg,
 .main-insight .insight-icon svg,
 .insight-header .insight-icon svg {
-    width: 20px !important;
-    height: 20px !important;
+    width: 16px !important;
+    height: 16px !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -198,22 +198,23 @@ html body .insight-metrics .insight-ai-score svg {
 
 /* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 768px) {
+
     /* Mobile icon size adjustments */
     .enhanced-resource-card .resource-icon {
         width: 40px !important;
         height: 40px !important;
     }
-    
+
     .enhanced-resource-card .resource-icon svg {
         width: 20px !important;
         height: 20px !important;
     }
-    
+
     .insight-icon-container {
         width: 44px !important;
         height: 44px !important;
     }
-    
+
     .smart-insights-dashboard .insight-icon,
     .insight-icon-container .insight-icon,
     .main-insight .insight-icon,
@@ -221,7 +222,7 @@ html body .insight-metrics .insight-ai-score svg {
         width: 36px !important;
         height: 36px !important;
     }
-    
+
     .smart-insights-dashboard .insight-icon svg,
     .insight-icon-container .insight-icon svg,
     .main-insight .insight-icon svg,
@@ -229,4 +230,4 @@ html body .insight-metrics .insight-ai-score svg {
         width: 18px !important;
         height: 18px !important;
     }
-} 
+}

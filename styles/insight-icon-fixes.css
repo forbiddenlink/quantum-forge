@@ -1,0 +1,57 @@
+/* 
+ * INSIGHT ICON CONFLICT RESOLUTION
+ * 
+ * This file contains the corrected insight icon definitions to replace
+ * the duplicated/conflicting definitions in main.css
+ * 
+ * PROBLEM: main.css contains multiple duplicate .insight-icon definitions:
+ * - Line ~670: font-size: var(--font-size-2xl) 
+ * - Line ~9344: font-size: var(--font-size-2xl)
+ * - Other locations with conflicting sizes
+ * 
+ * SOLUTION: Use only ONE definition from svg-icon-styles.css:
+ */
+
+/* CORRECT DEFINITION - Keep this one */
+.insight-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: var(--primary-500);
+    margin-right: var(--space-3);
+}
+
+/* 
+ * MANUAL CLEANUP REQUIRED:
+ * 
+ * 1. Remove from main.css line ~670:
+ *    .insight-icon {
+ *        font-size: var(--font-size-2xl);
+ *        margin-right: var(--space-3);
+ *    }
+ * 
+ * 2. Remove from main.css line ~9344:
+ *    .insight-icon {
+ *        font-size: var(--font-size-2xl);
+ *        margin-right: var(--space-3);
+ *    }
+ * 
+ * 3. Remove from main.css line ~2362 (if exists):
+ *    .insight-icon {
+ *        width: 48px;
+ *        height: 48px;
+ *        margin-right: var(--space-3);
+ *    }
+ * 
+ * 4. Remove from main.css line ~10980 (if exists):
+ *    .insight-icon {
+ *        width: 40px;
+ *        height: 40px;
+ *        color: var(--primary-500);
+ *        margin-right: var(--space-3);
+ *    }
+ * 
+ * 5. Keep only the definition in svg-icon-styles.css at width: 24px, height: 24px
+ * 
+ * After cleanup, Smart Insights icons should be consistently 24px.
+ */

@@ -1,0 +1,326 @@
+/* 🎯 ICON SIZE FIXES - Correct Oversized Icons */
+/* This file fixes icons that are too large and disrupting the UI */
+
+/* ===== EMPTY STATE ICONS - TOO BIG (80px → 48px) ===== */
+.empty-state-icon {
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 auto var(--space-3) !important;
+}
+
+.empty-state-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+/* ===== WEATHER ICONS - TOO BIG (80px → 64px for weather widgets) ===== */
+.weather-icon {
+    width: 64px !important;
+    height: 64px !important;
+}
+
+/* For inline weather icons, make them smaller */
+.weather-widget .weather-icon,
+.weather-card .weather-icon {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+/* ===== USER AVATARS - REASONABLE SIZE (64px → 48px for large, 32px for normal) ===== */
+.user-avatar-large {
+    width: 48px !important;
+    height: 48px !important;
+}
+
+/* Standard user avatars should be smaller */
+.user-avatar {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+/* ===== AI TOGGLE BUTTON - TOO BIG (56px → 44px) ===== */
+.ai-toggle {
+    width: 44px !important;
+    height: 44px !important;
+}
+
+/* ===== TEAM MEMBER AVATARS - TOO BIG (80px → 56px) ===== */
+.team-member-avatar,
+.member-avatar {
+    width: 56px !important;
+    height: 56px !important;
+}
+
+/* ===== SPOTLIGHT AVATARS - TOO BIG (64px → 48px) ===== */
+.spotlight-avatar,
+.team-spotlight .avatar {
+    width: 48px !important;
+    height: 48px !important;
+}
+
+/* ===== WELCOME SECTION PARTICLES - TOO BIG (80px → 40px) ===== */
+.welcome-section .particle {
+    width: 40px !important;
+    height: 40px !important;
+}
+
+/* ===== INSIGHT CARDS - STANDARDIZE TO 28px ===== */
+.insight-icon {
+    width: 28px !important;
+    height: 28px !important;
+}
+
+.insight-icon svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* ===== SMART INSIGHTS DASHBOARD - SPECIFIC FIXES ===== */
+.smart-insights-dashboard .insight-icon,
+.insight-icon-container .insight-icon,
+.main-insight .insight-icon {
+    width: 28px !important;
+    height: 28px !important;
+}
+
+.smart-insights-dashboard .insight-icon svg,
+.insight-icon-container .insight-icon svg,
+.main-insight .insight-icon svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.insight-icon-container {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+/* ===== ACTIVITY ICONS - STANDARDIZE TO 28px ===== */
+.activity-icon {
+    width: 28px !important;
+    height: 28px !important;
+}
+
+.activity-icon svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* ===== BUTTON ICONS - STANDARDIZE TO 20px ===== */
+.btn-icon {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.btn-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* Small button icons */
+.btn-icon.small {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.btn-icon.small svg {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* ===== NAVIGATION ICONS - STANDARDIZE TO 18px ===== */
+.nav-icon {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.nav-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* ===== SEARCH ICONS - STANDARDIZE TO 16px ===== */
+.search-icon {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.search-icon svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* ===== LOGO ICONS - REASONABLE SIZE (40px → 32px) ===== */
+.logo-icon {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.logo-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+/* ===== QUICK ACCESS ICONS - TOO BIG (48px → 32px) ===== */
+.quick-access-icon {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.quick-access-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* ===== NOTIFICATION ICONS - STANDARDIZE TO 24px ===== */
+.notification-icon {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.notification-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* ===== ACHIEVEMENT ICONS - TOO BIG (various → 32px) ===== */
+.achievement-icon,
+.milestone-icon,
+.streak-icon {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.achievement-icon svg,
+.milestone-icon svg,
+.streak-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* ===== DOCUMENT ICONS - STANDARDIZE TO 28px ===== */
+.document-icon {
+    width: 28px !important;
+    height: 28px !important;
+}
+
+.document-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* ===== WELLNESS TRACKER ICONS - TOO BIG (60px → 32px) ===== */
+.tracker-icon,
+.wellness-icon {
+    width: 32px !important;
+    height: 32px !important;
+}
+
+.tracker-icon svg,
+.wellness-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* ===== TRAINING/COURSE ICONS - TOO BIG (80px → 48px) ===== */
+.course-icon,
+.training-icon {
+    width: 48px !important;
+    height: 48px !important;
+}
+
+.course-icon svg,
+.training-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+/* ===== ANALYTICS ICONS - STANDARDIZE TO 20px ===== */
+.analytics-icon,
+.metric-icon,
+.kpi-icon {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.analytics-icon svg,
+.metric-icon svg,
+.kpi-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+
+    /* Further reduce icon sizes on mobile */
+    .empty-state-icon {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .weather-icon {
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+    .user-avatar-large {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .team-member-avatar,
+    .member-avatar {
+        width: 44px !important;
+        height: 44px !important;
+    }
+}
+
+/* ===== PREVENT ICON BLOAT IN WELCOME SECTION ===== */
+.welcome-section .btn-icon {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.welcome-section .btn-icon svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* ===== FIX OVERSIZED SECTION TITLE ICONS ===== */
+.section-title .icon,
+.page-title .icon,
+.card-title .icon {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.section-title .icon svg,
+.page-title .icon svg,
+.card-title .icon svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* ===== PRIORITY SYSTEM FOR ICON SIZES ===== */
+/* Ensure these critical fixes override any other definitions */
+html body .main-content .empty-state-icon {
+    width: 48px !important;
+    height: 48px !important;
+}
+
+html body .main-content .weather-icon {
+    width: 64px !important;
+    height: 64px !important;
+}
+
+html body .welcome-section .particle {
+    width: 40px !important;
+    height: 40px !important;
+}
+
+html body .team-member-avatar,
+html body .member-avatar {
+    width: 56px !important;
+    height: 56px !important;
+}

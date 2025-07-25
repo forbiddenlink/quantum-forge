@@ -82,8 +82,8 @@
 }
 
 .member-avatar {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     border-radius: var(--radius-full);
     object-fit: cover;
 }
@@ -224,6 +224,7 @@
 
 /* Dark Mode Support */
 [data-theme="dark"] {
+
     .team-spotlight,
     .team-member {
         background: var(--bg-elevated);
@@ -238,6 +239,7 @@
 
 /* High Contrast Support */
 @media (prefers-contrast: high) {
+
     .team-spotlight,
     .team-member {
         border-width: 2px;
@@ -250,8 +252,9 @@
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
+
     .team-spotlight,
     .team-member {
         transition-duration: 0.01ms !important;
     }
-} 
+}

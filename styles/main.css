@@ -667,10 +667,7 @@ body {
     margin-bottom: var(--space-3);
 }
 
-.insight-icon {
-    font-size: var(--font-size-2xl);
-    margin-right: var(--space-3);
-}
+
 
 .insight-meta {
     flex: 1;
@@ -1223,6 +1220,7 @@ body {
     .welcome-section {
         padding: var(--space-4) var(--space-6) !important;
     }
+
     /* Sidebar landscape styles handled in sidebar.css */
 }
 
@@ -2359,8 +2357,6 @@ office-visualizer {
 }
 
 .insight-icon {
-    width: 48px;
-    height: 48px;
     border-radius: var(--radius-xl);
     display: flex;
     align-items: center;
@@ -5646,19 +5642,6 @@ body .welcome-section .event-title,
     align-items: flex-start;
     gap: var(--space-3);
     margin-bottom: var(--space-4);
-}
-
-.insight-icon {
-    font-size: var(--font-size-2xl);
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-xl);
-    background: var(--primary-50);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    box-shadow: var(--shadow-sm);
 }
 
 .insight-meta {
@@ -9353,10 +9336,6 @@ body {
     margin-bottom: var(--space-3);
 }
 
-.insight-icon {
-    font-size: var(--font-size-2xl);
-    margin-right: var(--space-3);
-}
 
 .insight-meta {
     flex: 1;
@@ -10990,8 +10969,7 @@ office-visualizer {
 }
 
 .insight-icon {
-    width: 48px;
-    height: 48px;
+
     border-radius: var(--radius-xl);
     display: flex;
     align-items: center;
