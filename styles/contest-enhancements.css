@@ -2196,15 +2196,17 @@
 }
 
 .culture-stats .stat-item {
-    background: #ffffff !important; /* Solid white background */
+    background: rgba(255, 255, 255, 0.1) !important; /* Glassmorphism background */
     border-radius: var(--radius-xl);
     padding: var(--space-6);
-    border: 1px solid #e5e7eb !important; /* Light gray border */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Semi-transparent border */
     text-align: center;
     transition: all var(--duration-normal) var(--ease-in-out);
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
 }
 
 .culture-stats .stat-item::before {
@@ -2224,8 +2226,8 @@
 }
 
 .culture-stats .stat-item:hover {
-    background: #f9fafb !important; /* Light gray background on hover */
-    border-color: #d1d5db !important; /* Slightly darker border on hover */
+    background: rgba(255, 255, 255, 0.15) !important; /* Slightly more opaque on hover */
+    border-color: rgba(255, 255, 255, 0.3) !important; /* Slightly more opaque border on hover */
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
 }
@@ -2233,7 +2235,7 @@
 .culture-stats .stat-number {
     font-size: var(--font-size-4xl);
     font-weight: 700;
-    color: #000000 !important; /* Pure black for maximum contrast */
+    color: #ffffff !important; /* Pure white for maximum contrast */
     margin-bottom: var(--space-2);
     display: block;
     /* Remove all shimmer/glow effects */
@@ -2246,7 +2248,7 @@
 /* FIXED: Improved contrast for culture stats labels */
 .culture-stats .stat-label {
     font-size: var(--font-size-sm);
-    color: #1f2937 !important; /* Very dark gray for good contrast */
+    color: rgba(255, 255, 255, 0.8) !important; /* Semi-transparent white for good contrast */
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;

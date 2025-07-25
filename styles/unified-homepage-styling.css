@@ -329,7 +329,7 @@ html body .dashboard:not(.welcome-section) .company-culture-showcase .card {
 /* Force all dashboard components to use unified glassmorphism background */
 
 /* Override ALL component-specific backgrounds with maximum specificity */
-html body .dashboard .smart-insights-dashboard,
+/* EXCLUDE smart-insights-dashboard from this override since it has its own unified styling */
 html body .dashboard .analytics-dashboard,
 html body .dashboard .wellness-tracker,
 html body .dashboard .team-spotlight,
@@ -377,7 +377,7 @@ html body .office-visualizer {
 }
 
 /* Override ALL inner card backgrounds */
-html body .dashboard .smart-insights-dashboard *,
+/* EXCLUDE smart-insights-dashboard from this override since it has its own unified styling */
 html body .dashboard .analytics-dashboard *,
 html body .dashboard .wellness-tracker *,
 html body .dashboard .team-spotlight *,
@@ -424,9 +424,7 @@ html body .dashboard .office-visualizer .panel {
 }
 
 /* Specifically target inner cards and components that might have white backgrounds */
-html body .dashboard .smart-insights-dashboard .card,
-html body .dashboard .smart-insights-dashboard .widget,
-html body .dashboard .smart-insights-dashboard .panel,
+/* EXCLUDE smart-insights-dashboard from this override since it has its own unified styling */
 html body .dashboard .analytics-dashboard .card,
 html body .dashboard .analytics-dashboard .widget,
 html body .dashboard .analytics-dashboard .kpi-card,
@@ -491,7 +489,7 @@ html body .dashboard *[class*="violet"] {
 
 /* ===== UNIFIED DESIGN SYSTEM ENFORCEMENT ===== */
 /* Force ALL dashboard components to use consistent styling */
-html body .dashboard .smart-insights-dashboard,
+/* EXCLUDE smart-insights-dashboard from this override since it has its own unified styling */
 html body .dashboard .analytics-dashboard,
 html body .dashboard .wellness-tracker,
 html body .dashboard .team-spotlight,
