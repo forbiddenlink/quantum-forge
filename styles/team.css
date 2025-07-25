@@ -335,7 +335,7 @@
 .status-pulse {
     width: 8px;
     height: 8px;
-    background: white;
+    background: var(--welcome-text);
     border-radius: 50%;
     animation: pulse-status 2s infinite;
 }

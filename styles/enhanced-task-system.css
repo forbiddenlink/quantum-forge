@@ -3101,24 +3101,24 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 /* 🏆 HIGH CONTRAST MODE SUPPORT */
 @media (prefers-contrast: high) {
     .enhanced-task-system {
-        background: white;
-        color: black;
-        border: 3px solid black;
+        background: var(--bg-elevated);
+        color: var(--text-primary);
+        border: 3px solid var(--border-color);
     }
 
     .task-system-title,
     .insights-title,
     .analytics-title {
-        color: black;
+        color: var(--text-primary);
         text-shadow: none;
     }
 
     .stat-card,
     .ai-insight-card,
     .enhanced-task-card {
-        background: white;
-        border: 2px solid black;
-        color: black;
+        background: var(--bg-elevated);
+        border: 2px solid var(--border-color);
+        color: var(--text-primary);
     }
 
     .enhanced-btn.primary {
@@ -3128,9 +3128,9 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 
     .enhanced-btn.secondary {
-        background: white;
-        color: black;
-        border: 2px solid black;
+        background: var(--bg-elevated);
+        color: var(--text-primary);
+        border: 2px solid var(--border-color);
     }
 
     /* Hide decorative elements */
