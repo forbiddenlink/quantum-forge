@@ -342,93 +342,39 @@
     <script src="js/components/accessibility-enhancements.js"></script>
 
     <!-- 🔥 CRITICAL CSS - Fastest First Paint -->
-    <link rel="stylesheet" href="styles/critical.css">
 
-    <!-- RESTORED: Your original working CSS -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/enhanced.css">
-    <!-- SPECTACULAR TASK MANAGEMENT SYSTEM STYLES -->
-    <link rel="stylesheet" href="styles/enhanced-task-system.css">
-    <link rel="stylesheet" href="styles/welcome-section.css">
-    <link rel="stylesheet" href="styles/components.css">
+
+    <!-- 🎯 CENTRALIZED CSS IMPORTS - Proper Loading Order -->
+    <!-- This replaces all individual CSS links with a single, organized import file -->
+    <link rel="stylesheet" href="styles/imports.css">
+
+    <!-- 🚀 CRITICAL CSS - Load Inline for Performance -->
+    <!-- critical-fixes.css is loaded inline to ensure CSS variables are available immediately -->
+    <style>
+        /* Critical CSS variables and fixes loaded inline for performance */
+        @import url('./styles/critical-fixes.css');
+    </style>
 
 
     <!-- ✨ CONTEST-WINNING OPTIMIZED LAYOUT ✨ -->
     <!-- Removed non-existent optimized-layout.css file -->
 
     <!-- 📱 MOBILE PERFORMANCE OPTIMIZATIONS -->
-    <link rel="stylesheet" href="styles/critical-fixes.css">
-    <link rel="stylesheet" href="styles/enhanced-theme-fixes.css">
-    <link rel="stylesheet" href="styles/dynamic-color-picker.css">
-    <link rel="stylesheet" href="styles/performance-ux.css">
-    <link rel="stylesheet" href="styles/mobile-optimizations.css">
+
 
     <!-- 🏆 CONTEST OPTIMIZATIONS -->
-    <link rel="stylesheet" href="styles/creative-enhancements.css">
-    <link rel="stylesheet" href="styles/mobile-nav.css">
+
 
     <!-- 🏆 NEW CONTEST COMPONENTS 🏆 -->
-    <link rel="stylesheet" href="styles/live-activity-feed.css">
-    <link rel="stylesheet" href="styles/smart-insights-dashboard.css">
-    <link rel="stylesheet" href="styles/wellness-tracker.css">
 
-    <!-- � HEADER SPACING FIX - Must Load Before Unified Styling -->
-    <link rel="stylesheet" href="styles/header-spacing-fix.css">
 
-    <!-- �🌟 UNIFIED HOMEPAGE STYLING - Load After All Components 🌟 -->
-    <link rel="stylesheet" href="styles/unified-homepage-styling.css">
+    <!-- HEADER SPACING FIX - Must Load Before Unified Styling -->
 
-    <!-- Additional CSS - Load Asynchronously for Better Performance -->
-    <link rel="preload" href="styles/enhanced-colors.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/company-news.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/interactive-poll.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/real-time-stats.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/office-visualizer.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/dream-workspace.css?v=7" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/enhanced-knowledge-hub.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/sidebar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/contest-enhancements.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/culture-blur-fix.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/team.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/analytics-dashboard.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/analytics-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/team-chat-widget.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/component-enhancements.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/smart-search-overlay.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/accessibility-enhancements.css" as="style"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="styles/icon-fixes.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
-    <!-- Fallback for browsers that don't support preload -->
-    <noscript>
-        <link rel="stylesheet" href="styles/enhanced-colors.css">
-        <link rel="stylesheet" href="styles/company-news.css">
-        <link rel="stylesheet" href="styles/interactive-poll.css">
-        <link rel="stylesheet" href="styles/real-time-stats.css">
-        <link rel="stylesheet" href="styles/office-visualizer.css">
-        <link rel="stylesheet" href="styles/dream-workspace.css?v=7">
-        <link rel="stylesheet" href="styles/sidebar.css">
-        <link rel="stylesheet" href="styles/contest-enhancements.css">
-        <link rel="stylesheet" href="styles/culture-blur-fix.css">
-        <link rel="stylesheet" href="styles/team.css">
-        <link rel="stylesheet" href="styles/analytics-dashboard.css">
-        <link rel="stylesheet" href="styles/analytics-icons.css">
-        <link rel="stylesheet" href="styles/team-chat-widget.css">
-        <link rel="stylesheet" href="styles/component-enhancements.css">
-        <link rel="stylesheet" href="styles/smart-search-overlay.css">
-        <link rel="stylesheet" href="styles/accessibility-enhancements.css">
-        <link rel="stylesheet" href="styles/svg-icon-styles.css">
-        <!-- CRITICAL: Load icon fixes LAST to override ALL conflicting styles including svg-icon-styles.css -->
-        <link rel="stylesheet" href="styles/icon-fixes.css">
-        <!-- SVG Icon Replacements - Replace emoji content with SVG icons -->
-        <link rel="stylesheet" href="styles/svg-icon-replacements.css">
-    </noscript>
+    <!-- 🌟 UNIFIED HOMEPAGE STYLING - Load After All Components 🌟 -->
+
+
+
 
     <!-- 🏆 CONTEST ENHANCEMENTS - PRODUCTION READY -->
     <script type="module" src="js/contest-enhancements.js"></script>
