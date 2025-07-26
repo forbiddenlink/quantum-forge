@@ -1,4 +1,4 @@
-﻿/* Analytics Dashboard - Using Unified Theme */
+/* Analytics Dashboard - Using Unified Theme */
 
 .analytics-dashboard {
     background: var(--component-bg);
@@ -212,6 +212,25 @@
     }
 }
 
+/* 🎨 SPECTACULAR KEYFRAME ANIMATIONS */
+@keyframes analyticsGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 20px 40px rgba(99, 102, 241, 0.2),
+            0 0 60px rgba(99, 102, 241, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 25px 50px rgba(99, 102, 241, 0.3),
+            0 0 80px rgba(99, 102, 241, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+}
+
 /* ===== CONSOLIDATED FIXES FROM analytics-blur-fix.css ===== */
 /* Remove ALL blur effects from analytics */
 .analytics-dashboard,
@@ -321,11 +340,31 @@
     -webkit-text-fill-color: var(--text-secondary) !important;
 }
 
+@keyframes analyticsBackgroundShift {
+    0% {
+        background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 0% 0%;
+    }
 
+    25% {
+        background-position: 100% 0%, 0% 100%, 25% 50%, 0% 0%, 25% 25%, 75% 75%, 45% 55%, 25% 25%;
+    }
+
+    50% {
+        background-position: 100% 100%, 0% 0%, 50% 50%, 0% 0%, 30% 30%, 70% 70%, 40% 60%, 50% 50%;
+    }
+
+    75% {
+        background-position: 0% 100%, 100% 0%, 75% 50%, 0% 0%, 35% 35%, 65% 65%, 35% 65%, 75% 75%;
+    }
+
+    100% {
+        background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 0% 0%;
+    }
+}
 
 /* Analytics animations using central definitions */
 
-/* âœ¨ FLOATING GEOMETRIC SHAPES FOR ANALYTICS */
+/* ✨ FLOATING GEOMETRIC SHAPES FOR ANALYTICS */
 .analytics-dashboard::before {
     content: '';
     position: absolute;
@@ -338,7 +377,7 @@
         radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.15) 25%, transparent 40%),
         radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0.1) 30%, transparent 50%);
     border-radius: 50%;
-    animation: float 20s ease-in-out infinite reverse;
+    animation: analyticsFloat 20s ease-in-out infinite reverse;
     pointer-events: none;
     z-index: 1;
     filter: blur(1px);
@@ -355,13 +394,37 @@
         radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.4) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 50%),
         radial-gradient(circle at 20% 70%, rgba(16, 185, 129, 0.3) 0%, rgba(16, 185, 129, 0.15) 30%, transparent 60%),
         radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.1) 35%, transparent 60%);
-    animation: float 25s ease-in-out infinite;
+    animation: analyticsFloat 25s ease-in-out infinite;
     pointer-events: none;
     z-index: 1;
     filter: blur(0.8px);
 }
 
-/* ðŸŒŸ SPECTACULAR PARTICLE SYSTEM */
+@keyframes analyticsFloat {
+
+    0%,
+    100% {
+        transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+        opacity: 0.6;
+    }
+
+    25% {
+        transform: translateX(20px) translateY(-25px) scale(1.05) rotate(2deg);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateX(-15px) translateY(-15px) scale(0.95) rotate(-1deg);
+        opacity: 0.7;
+    }
+
+    75% {
+        transform: translateX(-20px) translateY(20px) scale(1.02) rotate(1deg);
+        opacity: 0.9;
+    }
+}
+
+/* 🌟 SPECTACULAR PARTICLE SYSTEM */
 .analytics-particles-system {
     position: absolute;
     top: 0;
@@ -381,11 +444,37 @@
     box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
 }
 
+@keyframes analyticsParticleFloat {
+
+    0%,
+    100% {
+        transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
+        opacity: 0.4;
+        filter: blur(0.5px) hue-rotate(0deg);
+    }
+
+    25% {
+        transform: translateX(30px) translateY(-40px) scale(1.2) rotate(90deg);
+        opacity: 0.8;
+        filter: blur(0.3px) hue-rotate(90deg);
+    }
+
+    50% {
+        transform: translateX(-25px) translateY(-25px) scale(0.8) rotate(180deg);
+        opacity: 0.6;
+        filter: blur(0.7px) hue-rotate(180deg);
+    }
+
+    75% {
+        transform: translateX(-35px) translateY(35px) scale(1.1) rotate(270deg);
+        opacity: 0.7;
+        filter: blur(0.4px) hue-rotate(270deg);
+    }
+}
 
 
 
-
-/* âœ¨ SPARKLE EFFECTS */
+/* ✨ SPARKLE EFFECTS */
 .analytics-sparkles {
     position: absolute;
     top: 0;
@@ -398,24 +487,134 @@
 
 .analytics-sparkle {
     position: absolute;
-    animation: sparkleAnimation 2.5s ease-in-out infinite;
+    animation: analyticsSparkle 2.5s ease-in-out infinite;
 }
 
+@keyframes analyticsSparkle {
 
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
 
-/* ðŸŒŠ WAVE DISTORTION */
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(180deg);
+    }
+}
 
+/* 🌈 AURORA EFFECT */
+@keyframes analyticsAuroraShift {
 
-/* ðŸ”® HOLOGRAPHIC SHIMMER */
+    0%,
+    100% {
+        background-position: 0% 50%, 100% 50%;
+        opacity: 0.5;
+    }
 
+    25% {
+        background-position: 100% 0%, 0% 100%;
+        opacity: 0.7;
+    }
 
-/* ðŸŽ¯ ENERGY RINGS */
+    50% {
+        background-position: 100% 100%, 0% 0%;
+        opacity: 0.4;
+    }
 
+    75% {
+        background-position: 0% 100%, 100% 0%;
+        opacity: 0.6;
+    }
+}
 
-/* ðŸ“Š DATA VISUALIZATION EFFECTS */
+/* ⭐ CONSTELLATION PATTERN */
+@keyframes analyticsConstellationPulse {
 
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: scale(1);
+    }
 
-/* ðŸŽ­ MOUSE FOLLOWER */
+    50% {
+        opacity: 0.6;
+        transform: scale(1.05);
+    }
+}
+
+/* 🌊 WAVE DISTORTION */
+@keyframes analyticsWaveDistort {
+
+    0%,
+    100% {
+        transform: translateX(0%) scaleX(1) scaleY(1);
+        background-position: 0% 50%, 100% 30%, 50% 80%;
+    }
+
+    25% {
+        transform: translateX(3%) scaleX(1.05) scaleY(0.95);
+        background-position: 25% 60%, 75% 40%, 60% 70%;
+    }
+
+    50% {
+        transform: translateX(-2%) scaleX(0.95) scaleY(1.05);
+        background-position: 50% 70%, 50% 50%, 70% 60%;
+    }
+
+    75% {
+        transform: translateX(1%) scaleX(1.02) scaleY(0.98);
+        background-position: 75% 40%, 25% 60%, 40% 90%;
+    }
+}
+
+/* 🔮 HOLOGRAPHIC SHIMMER */
+@keyframes analyticsHolographicShimmer {
+    0% {
+        background-position: -40px -40px;
+    }
+
+    100% {
+        background-position: 40px 40px;
+    }
+}
+
+/* 🎯 ENERGY RINGS */
+@keyframes analyticsEnergyPulse {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.3);
+        border-color: rgba(99, 102, 241, 0.1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(1);
+        border-color: rgba(99, 102, 241, 0.4);
+    }
+}
+
+/* 📊 DATA VISUALIZATION EFFECTS */
+@keyframes analyticsDataPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.3);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.8);
+    }
+}
+
+/* 🎭 MOUSE FOLLOWER */
 .analytics-mouse-follower:hover {
     opacity: 1 !important;
 }
@@ -1002,7 +1201,7 @@
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ðŸŽ¬ CRITICAL FIX: Ensure all AI insight cards are always visible */
+/* 🎬 CRITICAL FIX: Ensure all AI insight cards are always visible */
 .ai-insight-card {
     opacity: 1 !important;
     transform: translateY(0) !important;
@@ -1061,7 +1260,7 @@
     color: var(--error-200);
 }
 
-/* ðŸŽ¬ CRITICAL FIX: Ensure alert-type insight cards are always visible */
+/* 🎬 CRITICAL FIX: Ensure alert-type insight cards are always visible */
 .ai-insight-card.alert {
     opacity: 1 !important;
     transform: translateY(0) !important;
@@ -1368,7 +1567,7 @@
 
 .chart-fallback svg {
     opacity: 0.5;
-    animation: floatUpDown 2s ease-in-out infinite;
+    animation: analyticsFloatUpDown 2s ease-in-out infinite;
 }
 
 .chart-fallback .fallback-title {
@@ -1456,6 +1655,20 @@
 
 .activity-status.live .status-dot {
     animation: livePulse 2s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
 }
 
 .activity-feed {
@@ -1580,10 +1793,10 @@
     height: 16px;
 }
 
-/* ðŸ† CONTEST-WINNING ANIMATION ENHANCEMENTS */
+/* 🏆 CONTEST-WINNING ANIMATION ENHANCEMENTS */
 
 /* Spectacular entrance animations */
-@keyframes spectacularEntrance {
+@keyframes analyticsSpectacularEntrance {
     0% {
         opacity: 0;
         transform: translateY(30px) scale(0.9) rotateX(10deg);
@@ -1604,7 +1817,7 @@
 }
 
 /* Burst particle animation */
-@keyframes burstParticle {
+@keyframes analyticsBurstParticle {
     0% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(0);
@@ -1622,7 +1835,7 @@
 }
 
 /* Glow pulse animation */
-@keyframes glowPulse {
+@keyframes analyticsGlowPulse {
 
     0%,
     100% {
@@ -1637,7 +1850,7 @@
 }
 
 /* Card sparkle animation */
-@keyframes cardSparkle {
+@keyframes analyticsCardSparkle {
     0% {
         opacity: 1;
         transform: scale(0) rotate(0deg);
@@ -1654,7 +1867,7 @@
     }
 }
 
-/* â™¿ ACCESSIBILITY ENHANCEMENTS */
+/* ♿ ACCESSIBILITY ENHANCEMENTS */
 
 /* Skip links for analytics */
 .analytics-skip {
@@ -1789,12 +2002,12 @@
     }
 }
 
-/* ðŸ“± RESPONSIVE DESIGN & PERFORMANCE */
+/* 📱 RESPONSIVE DESIGN & PERFORMANCE */
 @media (max-width: 1024px) {
     .analytics-dashboard {
         padding: var(--space-6);
         /* Reduce animation complexity for better performance */
-        animation: glow 8s ease-in-out infinite;
+        animation: analyticsGlow 8s ease-in-out infinite;
     }
 
     .kpi-grid {
@@ -1918,10 +2131,10 @@
 /* Loading state */
 .analytics-dashboard.dashboard-loaded {
     animation:
-        glow 6s ease-in-out infinite,
-        gradientShift 20s linear infinite,
+        analyticsGlow 6s ease-in-out infinite,
+        analyticsBackgroundShift 20s linear infinite,
         subtlePulse 4s ease-in-out infinite,
-        spectacularEntrance 1.5s ease-out;
+        analyticsSpectacularEntrance 1.5s ease-out;
 }
 
 /* GPU acceleration for smooth performance */
@@ -1942,23 +2155,106 @@
     perspective: 1000px;
 }
 
-/* ðŸŽ† ADDITIONAL SPECTACULAR ANIMATION KEYFRAMES */
+/* 🎆 ADDITIONAL SPECTACULAR ANIMATION KEYFRAMES */
 
 /* Pulse effect for highlighted elements */
-/* Breathing effect for containers */
+@keyframes analyticsPulse {
 
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(99, 102, 241, 0.7);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    }
+}
+
+/* Rotating gradient effect */
+@keyframes analyticsRotateGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Breathing effect for containers */
+@keyframes analyticsBreathing {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.02);
+        opacity: 0.95;
+    }
+}
 
 /* Slide up with fade */
+@keyframes analyticsSlideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
 
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* Scale bounce effect */
+@keyframes analyticsScaleBounce {
+    0% {
+        transform: scale(1);
+    }
 
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
 
 /* Color cycle for dynamic elements */
+@keyframes analyticsColorCycle {
+    0% {
+        filter: hue-rotate(0deg);
+    }
 
+    25% {
+        filter: hue-rotate(90deg);
+    }
+
+    50% {
+        filter: hue-rotate(180deg);
+    }
+
+    75% {
+        filter: hue-rotate(270deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
 
 /* Glowing border effect */
-@keyframes glowingBorder {
+@keyframes analyticsGlowingBorder {
 
     0%,
     100% {
@@ -1972,65 +2268,151 @@
     }
 }
 
-/* Ripple effect */
+/* Floating up and down */
+@keyframes analyticsFloatUpDown {
 
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Ripple effect */
+@keyframes analyticsRipple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
 
 /* Swing effect */
+@keyframes analyticsSwing {
 
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(3deg);
+    }
+
+    75% {
+        transform: rotate(-3deg);
+    }
+}
 
 /* Zoom in effect */
+@keyframes analyticsZoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
 
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
 /* Slide in from right */
+@keyframes analyticsSlideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
 
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
 /* Fade in scale effect */
+@keyframes analyticsFadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
 
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Rainbow gradient effect */
+@keyframes analyticsRainbowGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
 /* Utility classes for dynamic animations */
 .analytics-pulse {
-    animation: pulse 1.5s ease-in-out infinite;
+    animation: analyticsPulse 1.5s ease-in-out infinite;
 }
 
 .analytics-glow {
-    animation: glowingBorder 2s ease-in-out infinite;
+    animation: analyticsGlowingBorder 2s ease-in-out infinite;
 }
 
 .analytics-float {
-    animation: floatUpDown 3s ease-in-out infinite;
+    animation: analyticsFloatUpDown 3s ease-in-out infinite;
 }
 
 .analytics-breathing {
-    animation: breathe 4s ease-in-out infinite;
+    animation: analyticsBreathing 4s ease-in-out infinite;
 }
 
 .analytics-color-cycle {
-    animation: colorCycle 8s linear infinite;
+    animation: analyticsColorCycle 8s linear infinite;
 }
 
 .analytics-swing {
-    animation: swing 2s ease-in-out infinite;
+    animation: analyticsSwing 2s ease-in-out infinite;
 }
 
 /* Interactive states */
 .advanced-kpi-card.pulse {
-    animation: pulse 1s ease-in-out;
+    animation: analyticsPulse 1s ease-in-out;
 }
 
 .goal-card.highlighted {
-    animation: glowingBorder 2s ease-in-out infinite;
+    animation: analyticsGlowingBorder 2s ease-in-out infinite;
 }
 
 .ai-insight-card.active {
-    animation: breathe 3s ease-in-out infinite;
+    animation: analyticsBreathing 3s ease-in-out infinite;
 }
 
 .chart-container.animated {
-    animation: slideUp 0.8s ease-out;
+    animation: analyticsSlideUpFade 0.8s ease-out;
 }
 
 .activity-item.new {
-    animation: slideInRight 0.6s ease-out;
+    animation: analyticsSlideInRight 0.6s ease-out;
 }
 
 /* Loading states */
@@ -2047,18 +2429,28 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    animation: shimmer 1.5s infinite;
+    animation: analyticsLoadingShimmer 1.5s infinite;
+}
+
+@keyframes analyticsLoadingShimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
 }
 
 /* Success/error states */
 .analytics-success {
-    animation: scaleBounce 0.6s ease-out;
+    animation: analyticsScaleBounce 0.6s ease-out;
     border-color: var(--success-500);
     box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
 }
 
 .analytics-error {
-    animation: swing 0.8s ease-out;
+    animation: analyticsSwing 0.8s ease-out;
     border-color: var(--error-500);
     box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
 }
@@ -2136,23 +2528,23 @@
 
 /* Advanced hover effects */
 .analytics-dashboard .advanced-kpi-card:hover {
-    animation: floatUpDown 2s ease-in-out infinite;
+    animation: analyticsFloatUpDown 2s ease-in-out infinite;
 }
 
 .analytics-dashboard .goal-card:hover {
-    animation: breathe 3s ease-in-out infinite;
+    animation: analyticsBreathing 3s ease-in-out infinite;
 }
 
 .analytics-dashboard .ai-insight-card:hover {
-    animation: glow 2s ease-in-out infinite;
+    animation: analyticsGlow 2s ease-in-out infinite;
 }
 
 .analytics-dashboard .chart-container:hover {
-    animation: pulse 1.5s ease-in-out infinite;
+    animation: analyticsPulse 1.5s ease-in-out infinite;
 }
 
 .analytics-dashboard .activity-item:hover {
-    animation: floatUpDown 1s ease-in-out;
+    animation: analyticsFloatUpDown 1s ease-in-out;
 }
 
 /* Ensure proper text visibility without blanket override */
@@ -2265,7 +2657,7 @@
     color: white !important;
 }
 
-/* ðŸŽ­ EXPANDED INSIGHT CARDS - Contest-Winning Feature */
+/* 🎭 EXPANDED INSIGHT CARDS - Contest-Winning Feature */
 .ai-insight-card.expanded {
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 25px 50px rgba(99, 102, 241, 0.4);
@@ -2276,7 +2668,7 @@
 .insight-expanded {
     opacity: 0;
     transform: translateY(10px);
-    animation: slideUp 0.5s ease-out forwards;
+    animation: analyticsSlideUpFade 0.5s ease-out forwards;
 }
 
 .insight-expanded .insight-action-btn {
@@ -2290,9 +2682,9 @@
     color: white !important;
 }
 
-/* ðŸ† HIGHLIGHTED STATES - Contest-Winning Animations */
+/* 🏆 HIGHLIGHTED STATES - Contest-Winning Animations */
 .advanced-kpi-card.highlighted {
-    animation: glowingBorder 2s ease-in-out infinite, floatUpDown 3s ease-in-out infinite;
+    animation: analyticsGlowingBorder 2s ease-in-out infinite, analyticsFloatUpDown 3s ease-in-out infinite;
     transform: translateY(-4px) scale(1.02);
     box-shadow: 0 15px 30px rgba(99, 102, 241, 0.35);
     border-color: rgba(99, 102, 241, 0.4);
@@ -2300,14 +2692,14 @@
 }
 
 .goal-card.highlighted {
-    animation: breathe 3s ease-in-out infinite, glowingBorder 2s ease-in-out infinite;
+    animation: analyticsBreathing 3s ease-in-out infinite, analyticsGlowingBorder 2s ease-in-out infinite;
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 25px 50px rgba(99, 102, 241, 0.4);
     border-color: rgba(99, 102, 241, 0.6);
     z-index: 10;
 }
 
-/* ðŸŽ¯ INTERACTION FEEDBACK ENHANCEMENTS */
+/* 🎯 INTERACTION FEEDBACK ENHANCEMENTS */
 .analytics-dashboard .advanced-kpi-card:active {
     transform: translateY(-4px) scale(1.01);
     transition: transform 0.1s ease;
@@ -2333,7 +2725,7 @@
     transition: transform 0.1s ease;
 }
 
-/* ðŸŽ† LOADING STATES FOR BETTER UX */
+/* 🎆 LOADING STATES FOR BETTER UX */
 .analytics-dashboard.loading .advanced-kpi-card,
 .analytics-dashboard.loading .goal-card,
 .analytics-dashboard.loading .ai-insight-card,
@@ -2341,7 +2733,7 @@
     animation: analyticsLoadingShimmer 1.5s infinite;
 }
 
-/* ðŸŒŸ FOCUS ENHANCEMENTS FOR ACCESSIBILITY */
+/* 🌟 FOCUS ENHANCEMENTS FOR ACCESSIBILITY */
 .analytics-dashboard .advanced-kpi-card:focus-visible {
     outline: 3px solid rgba(99, 102, 241, 0.8);
     outline-offset: 4px;
@@ -2387,7 +2779,7 @@
     transform: translateX(8px) translateY(-2px);
 }
 
-/* ðŸŽ¨ FINAL POLISH - Contest-Winning Details */
+/* 🎨 FINAL POLISH - Contest-Winning Details */
 .analytics-dashboard .trend-icon {
     transition: all var(--duration-normal) var(--ease-spring);
 }
@@ -2416,21 +2808,21 @@
     filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.6));
 }
 
-/* ðŸ† CONTEST-WINNING SPARKLE TRAILS */
+/* 🏆 CONTEST-WINNING SPARKLE TRAILS */
 .analytics-dashboard .advanced-kpi-card:hover::after,
 .analytics-dashboard .goal-card:hover::after,
 .analytics-dashboard .ai-insight-card:hover::after {
-    content: 'âœ¨';
+    content: '✨';
     position: absolute;
     top: -10px;
     right: -10px;
     font-size: 1.2rem;
-    animation: sparkleAnimation 1s ease-in-out infinite;
+    animation: analyticsSparkle 1s ease-in-out infinite;
     pointer-events: none;
     z-index: 10;
 }
 
-/* ðŸŽ­ PERFORMANCE OPTIMIZATIONS */
+/* 🎭 PERFORMANCE OPTIMIZATIONS */
 .analytics-dashboard .advanced-kpi-card,
 .analytics-dashboard .goal-card,
 .analytics-dashboard .ai-insight-card,
@@ -2440,26 +2832,3 @@
     backface-visibility: hidden;
     transform: translateZ(0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

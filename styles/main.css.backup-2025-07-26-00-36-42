@@ -1,4 +1,4 @@
-﻿/* Modern CSS Reset */
+/* Modern CSS Reset */
 *,
 *::before,
 *::after {
@@ -4740,7 +4740,11 @@ body .welcome-section .event-title,
     }
 }
 
-
+@keyframes slideOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
     to {
         opacity: 0;
@@ -8199,6 +8203,53 @@ app-header {
 }
 
 .ai-insight-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    transition: all var(--duration-normal) var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    transform: translateY(20px);
+    display: block !important;
+    /* Ensure cards are always visible */
+}
+
+[data-theme="dark"] .ai-insight-card {
+    background: rgba(30, 41, 59, 0.8);
+}
+
+.ai-insight-card.animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ai-insight-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-500);
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-in-out);
+}
+
+.ai-insight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.ai-insight-card:hover::before {
+    opacity: 1;
+}
+
 .ai-insight-card.recommendation::before {
     background: var(--primary-500);
 }
@@ -9250,6 +9301,89 @@ office-visualizer {
 }
 
 .update-card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    border: 1px solid var(--border-color);
+    transition: all var(--duration-normal) var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+}
+
+.update-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-500), var(--primary-600));
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-in-out);
+}
+
+.update-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.update-card:hover::before {
+    opacity: 1;
+}
+
+.update-card.featured {
+    border-color: var(--primary-200);
+    background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--primary-50) 100%);
+}
+
+.update-card.featured::before {
+    opacity: 1;
+    background: linear-gradient(90deg, var(--primary-500), var(--success-500));
+}
+
+.update-badge {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: var(--primary-500);
+    color: white;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.update-content {
+    margin-top: var(--space-2);
+}
+
+.update-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-3) 0;
+    line-height: 1.4;
+}
+
+.update-excerpt {
+    color: var(--text-secondary);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.6;
+}
+
+.update-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
+
+.update-author {
+    font-weight: 500;
+    color: var(--primary-600);
 }
 
 /* Responsive Design */
@@ -14888,7 +15022,11 @@ app-header {
     margin-top: var(--space-4);
 }
 
-
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
     to {
         opacity: 1;
@@ -14896,7 +15034,11 @@ app-header {
     }
 }
 
-
+@keyframes slideDown {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
     to {
         opacity: 0;
@@ -17763,6 +17905,51 @@ body {
 }
 
 .ai-insight-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    transition: all var(--duration-normal) var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    transform: translateY(20px);
+    display: block !important;
+    /* Ensure cards are always visible */
+}
+
+[data-theme="dark"] .ai-insight-card {
+    background: rgba(30, 41, 59, 0.8);
+}
+
+.ai-insight-card.animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ai-insight-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-500);
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-in-out);
+}
+
+.ai-insight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.ai-insight-card:hover::before {
+    opacity: 1;
 }
 
 .ai-insight-card.recommendation::before {
@@ -18854,6 +19041,89 @@ office-visualizer {
 }
 
 .update-card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    border: 1px solid var(--border-color);
+    transition: all var(--duration-normal) var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+}
+
+.update-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-500), var(--primary-600));
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-in-out);
+}
+
+.update-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.update-card:hover::before {
+    opacity: 1;
+}
+
+.update-card.featured {
+    border-color: var(--primary-200);
+    background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--primary-50) 100%);
+}
+
+.update-card.featured::before {
+    opacity: 1;
+    background: linear-gradient(90deg, var(--primary-500), var(--success-500));
+}
+
+.update-badge {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: var(--primary-500);
+    color: white;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.update-content {
+    margin-top: var(--space-2);
+}
+
+.update-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-3) 0;
+    line-height: 1.4;
+}
+
+.update-excerpt {
+    color: var(--text-secondary);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.6;
+}
+
+.update-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
+
+.update-author {
+    font-weight: 500;
+    color: var(--primary-600);
 }
 
 /* Responsive Design */
@@ -25236,6 +25506,51 @@ app-header {
 }
 
 .ai-insight-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    transition: all var(--duration-normal) var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    transform: translateY(20px);
+    display: block !important;
+    /* Ensure cards are always visible */
+}
+
+[data-theme="dark"] .ai-insight-card {
+    background: rgba(30, 41, 59, 0.8);
+}
+
+.ai-insight-card.animate-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ai-insight-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-500);
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-in-out);
+}
+
+.ai-insight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(99, 102, 241, 0.3);
+}
+
+.ai-insight-card:hover::before {
+    opacity: 1;
 }
 
 .ai-insight-card.recommendation::before {
@@ -26289,6 +26604,89 @@ office-visualizer {
 }
 
 .update-card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    border: 1px solid var(--border-color);
+    transition: all var(--duration-normal) var(--ease-spring);
+    position: relative;
+    overflow: hidden;
+}
+
+.update-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-500), var(--primary-600));
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-in-out);
+}
+
+.update-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+.update-card:hover::before {
+    opacity: 1;
+}
+
+.update-card.featured {
+    border-color: var(--primary-200);
+    background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--primary-50) 100%);
+}
+
+.update-card.featured::before {
+    opacity: 1;
+    background: linear-gradient(90deg, var(--primary-500), var(--success-500));
+}
+
+.update-badge {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: var(--primary-500);
+    color: white;
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.update-content {
+    margin-top: var(--space-2);
+}
+
+.update-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-3) 0;
+    line-height: 1.4;
+}
+
+.update-excerpt {
+    color: var(--text-secondary);
+    margin: 0 0 var(--space-4) 0;
+    line-height: 1.6;
+}
+
+.update-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
+
+.update-author {
+    font-weight: 500;
+    color: var(--primary-600);
 }
 
 /* Responsive Design */
@@ -32745,6 +33143,54 @@ app-header {
 }
 
 .action-card {
+    background: var(--bg-widget);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    border: 1px solid var(--border-color);
+    transition: all var(--duration-normal) var(--ease-in-out);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.action-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-500) 0%, var(--primary-400) 50%, var(--primary-300) 100%);
+    transform: scaleX(0);
+    transition: transform var(--duration-normal) var(--ease-in-out);
+}
+
+.action-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-200);
+}
+
+.action-card:hover::before {
+    transform: scaleX(1);
+}
+
+.action-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--primary-50);
+    border-radius: var(--radius-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-4);
+    color: var(--primary-600);
+    transition: all var(--duration-normal) var(--ease-in-out);
+}
+
+.action-card:hover .action-icon {
+    background: var(--primary-100);
+    transform: scale(1.05);
 }
 
 .action-icon svg {
@@ -35051,7 +35497,7 @@ app-header {
 }
 
 .policy-list li::before {
-    content: '•';
+    content: '�';
     position: absolute;
     left: 0;
     color: var(--primary-500);
@@ -37603,5 +38049,4 @@ input:checked+.slider:before {
     background: rgba(239, 68, 68, 0.2);
     color: var(--error-400);
 }
-
 
