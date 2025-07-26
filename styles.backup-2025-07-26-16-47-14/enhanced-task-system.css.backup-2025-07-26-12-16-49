@@ -1,7 +1,7 @@
-﻿/* ðŸ† CONTEST-WINNING TASK MANAGEMENT SYSTEM - Spectacular Visual Design */
+/* 🏆 CONTEST-WINNING TASK MANAGEMENT SYSTEM - Spectacular Visual Design */
 /* Task system variables now consolidated in critical-fixes.css */
 
-/* ðŸš€ SPECTACULAR TASK MANAGEMENT CONTAINER - MATCHING WELCOME & ANALYTICS SECTIONS */
+/* 🚀 SPECTACULAR TASK MANAGEMENT CONTAINER - MATCHING WELCOME & ANALYTICS SECTIONS */
 .enhanced-task-system,
 task-system.enhanced-task-system,
 task-system,
@@ -58,7 +58,7 @@ enhanced-task-system {
     perspective: 1000px !important;
 }
 
-/* ðŸŒ™ DARK MODE SUPPORT - MATCHING OTHER SECTIONS */
+/* 🌙 DARK MODE SUPPORT - MATCHING OTHER SECTIONS */
 [data-theme="dark"] .enhanced-task-system,
 [data-theme="dark"] task-system.enhanced-task-system,
 [data-theme="dark"] task-system {
@@ -84,7 +84,7 @@ enhanced-task-system {
 
 /* Task system animations using central definitions */
 
-/* ðŸ“± MOBILE PERFORMANCE OPTIMIZATIONS - Crisp Text & Reduced Motion */
+/* 📱 MOBILE PERFORMANCE OPTIMIZATIONS - Crisp Text & Reduced Motion */
 @media (max-width: 768px) {
 
     .enhanced-task-system,
@@ -138,7 +138,7 @@ enhanced-task-system {
     }
 }
 
-/* ðŸ”§ ACCESSIBILITY & PERFORMANCE IMPROVEMENTS */
+/* 🔧 ACCESSIBILITY & PERFORMANCE IMPROVEMENTS */
 @media (max-width: 480px) {
     .enhanced-task-system {
         /* Further reduce animations on very small screens */
@@ -153,7 +153,7 @@ enhanced-task-system {
     }
 }
 
-/* ðŸŽ¨ COLOR PICKER INTEGRATION - Dynamic Theming Support */
+/* 🎨 COLOR PICKER INTEGRATION - Dynamic Theming Support */
 .enhanced-task-system[data-accent-color],
 task-system[data-accent-color] {
     /* Override primary colors with accent color */
@@ -173,7 +173,7 @@ body[data-accent-color] task-system {
     --primary-700: var(--accent-color, #4338ca);
 }
 
-/* ðŸ† ENHANCED TEXT STYLING - MATCHING WELCOME/ANALYTICS SECTIONS */
+/* 🏆 ENHANCED TEXT STYLING - MATCHING WELCOME/ANALYTICS SECTIONS */
 .enhanced-task-system .task-system-subtitle,
 task-system .task-system-subtitle {
     color: rgba(255, 255, 255, 0.9) !important;
@@ -181,7 +181,7 @@ task-system .task-system-subtitle {
     font-weight: 500 !important;
 }
 
-/* ðŸ“Š STAT CARDS - MATCHING WELCOME SECTION STYLING - HIGH SPECIFICITY */
+/* 📊 STAT CARDS - MATCHING WELCOME SECTION STYLING - HIGH SPECIFICITY */
 .enhanced-task-system.enhanced-task-system .stat-card,
 task-system.enhanced-task-system .stat-card,
 task-system task-system .stat-card,
@@ -226,7 +226,7 @@ task-system task-system .stat-card .stat-icon,
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3)) !important;
 }
 
-/* ðŸ” SEARCH AND CONTROLS - EXACT MATCH TO WELCOME/ANALYTICS SECTIONS */
+/* 🔍 SEARCH AND CONTROLS - EXACT MATCH TO WELCOME/ANALYTICS SECTIONS */
 .enhanced-task-system.spectacular-mode .search-container,
 .enhanced-task-system.spectacular-mode .task-controls,
 task-system.spectacular-mode .search-container,
@@ -278,7 +278,7 @@ task-system input:focus {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2) !important;
 }
 
-/* ðŸŽ¯ AI INSIGHT CARDS - MATCHING STYLE */
+/* 🎯 AI INSIGHT CARDS - MATCHING STYLE */
 .enhanced-task-system .ai-insight-card,
 task-system .ai-insight-card {
     background: rgba(255, 255, 255, 0.15) !important;
@@ -302,7 +302,7 @@ task-system .ai-insight-card .insight-description {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* ðŸ”˜ BUTTONS AND CONTROLS */
+/* 🔘 BUTTONS AND CONTROLS */
 .enhanced-task-system .enhanced-btn,
 task-system .enhanced-btn {
     background: rgba(255, 255, 255, 0.2) !important;
@@ -319,7 +319,7 @@ task-system .enhanced-btn:hover {
     transform: translateY(-1px) !important;
 }
 
-/* ðŸ“‹ TASK CARDS - MATCHING STYLE */
+/* 📋 TASK CARDS - MATCHING STYLE */
 .enhanced-task-system .task-card,
 task-system .task-card,
 .enhanced-task-system .enhanced-task-card,
@@ -357,7 +357,7 @@ task-system .enhanced-task-card p {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* ðŸŽ¨ VIEW CONTROLS - MATCHING STYLE */
+/* 🎨 VIEW CONTROLS - MATCHING STYLE */
 .enhanced-task-system .view-toggle,
 task-system .view-toggle {
     background: rgba(255, 255, 255, 0.15) !important;
@@ -386,7 +386,7 @@ task-system .view-btn:hover {
     color: white !important;
 }
 
-/* ðŸ“Š ANALYTICS SECTION - MATCHING STYLE */
+/* 📊 ANALYTICS SECTION - MATCHING STYLE */
 .enhanced-task-system .task-analytics,
 task-system .task-analytics {
     background: rgba(255, 255, 255, 0.15) !important;
@@ -405,7 +405,7 @@ task-system .analytics-title {
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* ðŸ”§ TEXT SHADOW FOR BETTER READABILITY */
+/* 🔧 TEXT SHADOW FOR BETTER READABILITY */
 .enhanced-task-system h1,
 .enhanced-task-system h2,
 .enhanced-task-system h3,
@@ -432,7 +432,7 @@ task-system div {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* ðŸ·ï¸ PRIORITY BADGES - GLASSMORPHISM STYLING */
+/* 🏷️ PRIORITY BADGES - GLASSMORPHISM STYLING */
 .enhanced-task-system .task-priority,
 task-system .task-priority,
 .enhanced-task-system .priority-badge,
@@ -469,7 +469,7 @@ task-system .task-priority.low {
     color: white !important;
 }
 
-/* ðŸ”½ FILTER DROPDOWNS - GLASSMORPHISM STYLING */
+/* 🔽 FILTER DROPDOWNS - GLASSMORPHISM STYLING */
 .enhanced-task-system select,
 task-system select,
 .enhanced-task-system .enhanced-select,
@@ -504,7 +504,7 @@ task-system .enhanced-select option {
     color: white !important;
 }
 
-/* ðŸ·ï¸ STATUS BADGES - GLASSMORPHISM STYLING */
+/* 🏷️ STATUS BADGES - GLASSMORPHISM STYLING */
 .enhanced-task-system .status-badge,
 task-system .status-badge,
 .enhanced-task-system .task-status,
@@ -521,7 +521,7 @@ task-system .task-status {
     font-size: var(--font-size-xs) !important;
 }
 
-/* ðŸ·ï¸ TASK TAGS - GLASSMORPHISM STYLING */
+/* 🏷️ TASK TAGS - GLASSMORPHISM STYLING */
 .enhanced-task-system .task-tag,
 task-system .task-tag,
 .enhanced-task-system .tag,
@@ -538,7 +538,7 @@ task-system .tag {
     font-size: 10px !important;
 }
 
-/* ðŸŽ¯ FILTER CONTROLS CONTAINER */
+/* 🎯 FILTER CONTROLS CONTAINER */
 .enhanced-task-system .filter-controls,
 task-system .filter-controls {
     background: rgba(255, 255, 255, 0.15) !important;
@@ -552,7 +552,7 @@ task-system .filter-controls {
     align-items: center !important;
 }
 
-/* ðŸ“‹ TASK LIST HEADERS */
+/* 📋 TASK LIST HEADERS */
 .enhanced-task-system .task-list-header,
 task-system .task-list-header {
     background: rgba(255, 255, 255, 0.15) !important;
@@ -577,12 +577,12 @@ task-system .task-system-title,
     display: flex !important;
     align-items: center !important;
     gap: var(--space-3) !important;
-
+    
     /* Typography optimization */
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
     text-rendering: optimizeLegibility !important;
-
+    
     /* Transitions */
     transition: all var(--duration-fast) var(--ease-bounce) !important;
     position: relative !important;
@@ -617,7 +617,7 @@ task-system .analytics-title {
     text-rendering: optimizeLegibility !important;
 }
 
-/* âœ¨ FLOATING GEOMETRIC SHAPES FOR TASK SYSTEM */
+/* ✨ FLOATING GEOMETRIC SHAPES FOR TASK SYSTEM */
 .enhanced-task-system::before {
     content: '';
     position: absolute;
@@ -677,7 +677,7 @@ task-system .analytics-title {
     }
 }
 
-/* ðŸŒŸ SPECTACULAR PARTICLE SYSTEM */
+/* 🌟 SPECTACULAR PARTICLE SYSTEM */
 .task-particles-system {
     position: absolute;
     top: 0;
@@ -697,7 +697,7 @@ task-system .analytics-title {
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
 }
 
-/* âœ¨ SPARKLE EFFECTS */
+/* ✨ SPARKLE EFFECTS */
 .task-sparkles {
     position: absolute;
     top: 0;
@@ -715,7 +715,7 @@ task-system .analytics-title {
 
 /* Animation consolidated with sparkleAnimation in welcome-section.css */
 
-/* ðŸŽ­ MOUSE FOLLOWER */
+/* 🎭 MOUSE FOLLOWER */
 .task-mouse-follower:hover {
     opacity: 1 !important;
 }
@@ -1330,6 +1330,13 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     transform: scaleY(1);
 }
 
+.task-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+}
+
 .task-priority {
     display: flex;
     align-items: center;
@@ -1359,6 +1366,10 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 
 .priority-icon {
     font-size: var(--font-size-sm);
+}
+
+.task-card-content {
+    margin-bottom: var(--space-4);
 }
 
 .task-title {
@@ -1396,6 +1407,10 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     font-size: var(--font-size-xs);
     font-weight: 500;
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.task-card-progress {
+    margin-bottom: var(--space-4);
 }
 
 /* .progress-header moved to components/task-system.css to avoid duplication */
@@ -1630,7 +1645,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     color: var(--error-300);
 }
 
-/* ðŸ† CONTEST-WINNING ANIMATION ENHANCEMENTS */
+/* 🏆 CONTEST-WINNING ANIMATION ENHANCEMENTS */
 
 /* Spectacular entrance animations */
 @keyframes taskSpectacularEntrance {
@@ -1653,7 +1668,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* â™¿ ACCESSIBILITY ENHANCEMENTS */
+/* ♿ ACCESSIBILITY ENHANCEMENTS */
 
 /* Skip links for task management */
 .task-skip {
@@ -1756,7 +1771,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ“± RESPONSIVE DESIGN & PERFORMANCE */
+/* 📱 RESPONSIVE DESIGN & PERFORMANCE */
 @media (max-width: 1024px) {
     .enhanced-task-system {
         padding: var(--space-6);
@@ -1806,7 +1821,11 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         grid-template-columns: 1fr;
     }
 
-/* Reduce particle count on mobile */
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reduce particle count on mobile */
     .task-particle:nth-child(n+9) {
         display: none;
     }
@@ -1908,7 +1927,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     perspective: 1000px;
 }
 
-/* ðŸŽ† ADDITIONAL SPECTACULAR ANIMATION KEYFRAMES */
+/* 🎆 ADDITIONAL SPECTACULAR ANIMATION KEYFRAMES */
 
 /* Pulse effect for highlighted elements */
 /* ANIMATION REFERENCE: Using centralized dataPulse from animations.css */
@@ -1945,7 +1964,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     animation: scaleBounce 0.6s ease-out;
 }
 
-/* ðŸŒŸ CONTEST-WINNING HOVER EFFECTS */
+/* 🌟 CONTEST-WINNING HOVER EFFECTS */
 .enhanced-task-system:hover .task-particle {
     animation-play-state: paused;
     transform: scale(1.08);
@@ -1973,7 +1992,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
 }
 
-/* ðŸ’« SPECTACULAR FOCUS EFFECTS */
+/* 💫 SPECTACULAR FOCUS EFFECTS */
 .enhanced-task-system:focus-within {
     outline: 3px solid rgba(99, 102, 241, 0.5);
     outline-offset: 4px;
@@ -1984,7 +2003,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         0 0 0 6px rgba(99, 102, 241, 0.2);
 }
 
-/* ðŸ† CONTEST WINNER BADGE EFFECT */
+/* 🏆 CONTEST WINNER BADGE EFFECT */
 .enhanced-task-system.contest-winner {
     position: relative;
 }
@@ -2081,9 +2100,9 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     line-height: 1.6;
 }
 
-/* ðŸ“± CONTEST-WINNING RESPONSIVE DESIGN & MOBILE-FIRST OPTIMIZATIONS */
+/* 📱 CONTEST-WINNING RESPONSIVE DESIGN & MOBILE-FIRST OPTIMIZATIONS */
 
-/* ðŸ† ULTRA-SMALL MOBILE DEVICES (320px - 374px) */
+/* 🏆 ULTRA-SMALL MOBILE DEVICES (320px - 374px) */
 @media (max-width: 374px) {
     .enhanced-task-system {
         padding: var(--space-2);
@@ -2259,7 +2278,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† SMALL MOBILE DEVICES (375px - 413px) */
+/* 🏆 SMALL MOBILE DEVICES (375px - 413px) */
 @media (min-width: 375px) and (max-width: 413px) {
     .enhanced-task-system {
         padding: var(--space-3);
@@ -2298,7 +2317,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     /* Duplicate rule removed - already defined above */
 }
 
-/* ðŸ† LARGE MOBILE DEVICES (414px - 479px) */
+/* 🏆 LARGE MOBILE DEVICES (414px - 479px) */
 @media (min-width: 414px) and (max-width: 479px) {
     .enhanced-task-system {
         padding: var(--space-4);
@@ -2328,7 +2347,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† MOBILE LANDSCAPE & SMALL TABLETS (480px - 639px) */
+/* 🏆 MOBILE LANDSCAPE & SMALL TABLETS (480px - 639px) */
 @media (min-width: 480px) and (max-width: 639px) {
     .enhanced-task-system {
         padding: var(--space-5);
@@ -2364,7 +2383,11 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         align-items: center;
     }
 
-/* Restore some effects */
+    .analytics-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Restore some effects */
     .task-constellation {
         display: block;
     }
@@ -2374,7 +2397,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† TABLETS PORTRAIT (640px - 767px) */
+/* 🏆 TABLETS PORTRAIT (640px - 767px) */
 @media (min-width: 640px) and (max-width: 767px) {
     .enhanced-task-system {
         padding: var(--space-6);
@@ -2398,7 +2421,11 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         gap: var(--space-4);
     }
 
-/* More visual effects */
+    .analytics-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* More visual effects */
     .task-wave-distortion {
         display: block;
     }
@@ -2408,7 +2435,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† TABLETS LANDSCAPE (768px - 1023px) */
+/* 🏆 TABLETS LANDSCAPE (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
     .enhanced-task-system {
         padding: var(--space-6);
@@ -2430,7 +2457,11 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
-/* Restore most effects */
+    .analytics-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Restore most effects */
     .task-energy-rings {
         display: block;
     }
@@ -2440,7 +2471,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† SMALL LAPTOPS (1024px - 1279px) */
+/* 🏆 SMALL LAPTOPS (1024px - 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
     .enhanced-task-system {
         padding: var(--space-7);
@@ -2458,13 +2489,17 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
 
-/* Restore holographic effects */
+    .analytics-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Restore holographic effects */
     .task-holographic-overlay {
         display: block;
     }
 }
 
-/* ðŸ† LARGE SCREENS (1280px+) */
+/* 🏆 LARGE SCREENS (1280px+) */
 @media (min-width: 1280px) {
     .enhanced-task-system {
         padding: var(--space-8);
@@ -2498,7 +2533,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† ULTRA-WIDE DISPLAYS (1920px+) */
+/* 🏆 ULTRA-WIDE DISPLAYS (1920px+) */
 @media (min-width: 1920px) {
     .enhanced-task-system {
         max-width: 1800px;
@@ -2518,7 +2553,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† TOUCH DEVICE OPTIMIZATIONS */
+/* 🏆 TOUCH DEVICE OPTIMIZATIONS */
 @media (pointer: coarse) {
 
     /* Larger touch targets */
@@ -2572,7 +2607,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† HIGH-DPI DISPLAY OPTIMIZATIONS */
+/* 🏆 HIGH-DPI DISPLAY OPTIMIZATIONS */
 @media (-webkit-min-device-pixel-ratio: 2),
 (min-resolution: 192dpi) {
     .enhanced-task-system {
@@ -2597,7 +2632,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† LANDSCAPE ORIENTATION OPTIMIZATIONS */
+/* 🏆 LANDSCAPE ORIENTATION OPTIMIZATIONS */
 @media (orientation: landscape) and (max-height: 600px) {
     .enhanced-task-system {
         padding: var(--space-4) var(--space-6);
@@ -2629,7 +2664,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† DARK MODE RESPONSIVE ADJUSTMENTS */
+/* 🏆 DARK MODE RESPONSIVE ADJUSTMENTS */
 @media (prefers-color-scheme: dark) {
     .enhanced-task-system {
         background:
@@ -2653,7 +2688,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† REDUCED MOTION PREFERENCES */
+/* 🏆 REDUCED MOTION PREFERENCES */
 @media (prefers-reduced-motion: reduce) {
 
     .enhanced-task-system,
@@ -2684,7 +2719,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† HIGH CONTRAST MODE SUPPORT */
+/* 🏆 HIGH CONTRAST MODE SUPPORT */
 @media (prefers-contrast: high) {
     .enhanced-task-system {
         background: var(--bg-elevated);
@@ -2731,7 +2766,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† PRINT MEDIA OPTIMIZATIONS */
+/* 🏆 PRINT MEDIA OPTIMIZATIONS */
 @media print {
     .enhanced-task-system {
         background: white !important;
@@ -2778,7 +2813,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ† CONTAINER QUERY SUPPORT (Future-proofing) */
+/* 🏆 CONTAINER QUERY SUPPORT (Future-proofing) */
 @container (max-width: 400px) {
     .ai-insights-grid {
         grid-template-columns: 1fr;
@@ -2788,6 +2823,9 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         grid-template-columns: 1fr;
     }
 
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @container (min-width: 800px) {
@@ -2810,7 +2848,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ’¥ NUCLEAR OPTION - OVERRIDE ALL CONFLICTING STYLES FROM MAIN.CSS */
+/* 💥 NUCLEAR OPTION - OVERRIDE ALL CONFLICTING STYLES FROM MAIN.CSS */
 body .enhanced-task-system .stat-card,
 body task-system .stat-card,
 html .enhanced-task-system .stat-card,
@@ -3055,7 +3093,7 @@ body .dashboard-item task-system svg {
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3)) !important;
 }
 
-/* ðŸš¨ CRITICAL FIX: Override ALL main.css conflicts for spectacular mode */
+/* 🚨 CRITICAL FIX: Override ALL main.css conflicts for spectacular mode */
 html body .enhanced-task-system.spectacular-mode,
 body .enhanced-task-system.spectacular-mode,
 .enhanced-task-system.spectacular-mode,
@@ -3273,7 +3311,7 @@ html body .dashboard-item task-system .percentage {
     font-weight: 700 !important;
 }
 
-/* ðŸ”¥ FINAL NUCLEAR OVERRIDE - ENSURE PERFECT CONSISTENCY WITH WELCOME/ANALYTICS SECTIONS */
+/* 🔥 FINAL NUCLEAR OVERRIDE - ENSURE PERFECT CONSISTENCY WITH WELCOME/ANALYTICS SECTIONS */
 
 /* Task Cards Matching Welcome Section */
 .dashboard-item .enhanced-task-system .enhanced-task-card,
@@ -3380,7 +3418,7 @@ body .dashboard-item task-system .section-icon-svg {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)) !important;
 }
 
-/* ðŸ”¥ COMPREHENSIVE OVERRIDE - CATCH ALL REMAINING TEXT CONFLICTS */
+/* 🔥 COMPREHENSIVE OVERRIDE - CATCH ALL REMAINING TEXT CONFLICTS */
 
 /* Catch ALL possible text elements with maximum specificity */
 .dashboard-item .enhanced-task-system *,
@@ -3425,7 +3463,7 @@ body .dashboard-item task-system .subtitle {
     background-clip: unset !important;
 }
 
-/* ðŸ”§ COMPREHENSIVE FILTER BOX AND INPUT FIXES */
+/* 🔧 COMPREHENSIVE FILTER BOX AND INPUT FIXES */
 
 /* Fix ALL search containers, inputs, and form elements */
 .dashboard-item .enhanced-task-system input,
@@ -3517,7 +3555,7 @@ body .dashboard-item task-system option {
     color: white !important;
 }
 
-/* ðŸŽ¯ FINAL CATCH-ALL FOR PERFECT CONSISTENCY */
+/* 🎯 FINAL CATCH-ALL FOR PERFECT CONSISTENCY */
 
 /* Ensure ANY element that might still be dark gets fixed */
 .dashboard-item .enhanced-task-system .metric,
@@ -3548,7 +3586,7 @@ body .dashboard-item task-system .chip-text {
     background-clip: unset !important;
 }
 
-/* ðŸ”§ SEARCH BOX ALIGNMENT AND ANIMATION FIXES */
+/* 🔧 SEARCH BOX ALIGNMENT AND ANIMATION FIXES */
 
 /* Fix search container positioning and alignment */
 .dashboard-item .enhanced-task-system .search-and-filters,
@@ -3744,7 +3782,7 @@ body .dashboard-item task-system .action-controls {
     transform: none !important;
 }
 
-/* ðŸŽ¯ COMPREHENSIVE ANIMATION DISABLE FOR SEARCH AREA */
+/* 🎯 COMPREHENSIVE ANIMATION DISABLE FOR SEARCH AREA */
 
 /* Disable all animations in search area to prevent flickering */
 .dashboard-item .enhanced-task-system .search-and-filters *,
@@ -3766,7 +3804,7 @@ body .dashboard-item task-system .task-controls * {
     will-change: auto !important;
 }
 
-/* ðŸ”’ FINAL STABILITY FIXES */
+/* 🔒 FINAL STABILITY FIXES */
 
 /* Ensure stable positioning */
 .dashboard-item .enhanced-task-system .search-container,
@@ -4098,6 +4136,31 @@ enhanced-task-system .section-icon-svg {
 .filter-group {
     display: flex;
     gap: var(--space-2);
+}
+
+.filter-btn {
+    background: var(--component-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--component-border);
+    color: var(--welcome-text);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.filter-btn:hover {
+    background: var(--component-hover-bg);
+    border-color: var(--component-hover-border);
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    border: none;
+    color: white;
 }
 
 /* Task Search */

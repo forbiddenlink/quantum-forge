@@ -1,0 +1,109 @@
+/* 🎯 HEADER SPACING FIX - Eliminates unwanted space above header */
+
+/* Ensure body has no margin/padding and proper reset */
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+
+/* Ensure all pre-dashboard elements are properly positioned */
+.skip-link {
+    position: absolute !important;
+    top: -100px !important;
+    left: 6px !important;
+    z-index: 1000 !important;
+    /* Ensure it doesn't affect document flow */
+    margin: 0 !important;
+    padding: 8px 16px !important;
+}
+
+.live-region {
+    position: absolute !important;
+    left: -10000px !important;
+    top: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Mobile navigation elements - ensure they don't affect layout */
+.mobile-nav-toggle {
+    position: fixed !important;
+    top: 1rem !important;
+    left: 1rem !important;
+    z-index: 1001 !important;
+    margin: 0 !important;
+}
+
+.sidebar-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure dashboard starts at the very top with no margin */
+.dashboard {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+}
+
+/* Fix app-header positioning */
+app-header {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
+}
+
+/* Reset any conflicting margins from loading states */
+body.loading {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure loading screen doesn't interfere when hidden */
+#loading-screen[style*="display: none"] {
+    position: absolute !important;
+    top: -10000px !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: -1 !important;
+}
+
+/* Universal reset for any elements that might be causing spacing */
+body>*:not(.dashboard):not(#loading-screen) {
+    position: absolute !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Specific fix for elements that should be out of flow */
+body>.skip-link,
+body>.live-region,
+body>.mobile-nav-toggle,
+body>.sidebar-overlay,
+body>script {
+    position: absolute !important;
+    z-index: 1000 !important;
+}
+
+/* Ensure no unexpected margins from any custom scrollbar classes */
+.custom-scrollbar {
+    margin: 0 !important;
+    padding: 0 !important;
+}

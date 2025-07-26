@@ -399,7 +399,12 @@ class EnhancedOfficeVisualizer extends HTMLElement {
         modal.className = 'office-modal';
         modal.innerHTML = `
             <div class="modal-content">
-                <button class="modal-close">&times;</button>
+                <button class="modal-close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
                 ${content}
             </div>
         `;

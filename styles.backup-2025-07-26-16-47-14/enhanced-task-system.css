@@ -1330,6 +1330,13 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     transform: scaleY(1);
 }
 
+.task-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+}
+
 .task-priority {
     display: flex;
     align-items: center;
@@ -1359,6 +1366,10 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 
 .priority-icon {
     font-size: var(--font-size-sm);
+}
+
+.task-card-content {
+    margin-bottom: var(--space-4);
 }
 
 .task-title {
@@ -1396,6 +1407,10 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     font-size: var(--font-size-xs);
     font-weight: 500;
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.task-card-progress {
+    margin-bottom: var(--space-4);
 }
 
 /* .progress-header moved to components/task-system.css to avoid duplication */

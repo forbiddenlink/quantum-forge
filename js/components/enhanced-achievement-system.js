@@ -391,7 +391,12 @@ class EnhancedAchievementSystem extends HTMLElement {
             <div class="modal-content">
                 <div class="modal-header">
                     <h2>All Achievements</h2>
-                    <button class="close-btn">&times;</button>
+                    <button class="close-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="achievements-grid">

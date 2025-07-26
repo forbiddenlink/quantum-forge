@@ -1,0 +1,264 @@
+/* 🎨 ENHANCED THEME & LAYOUT FIXES */
+/* Additional fixes for better theme handling and layout stability */
+
+/* 1. FORCE LAYOUT STABILITY */
+/* Prevent any content jumping or shifting */
+html {
+    scroll-behavior: smooth !important;
+    scroll-padding-top: 72px !important;
+    /* Account for sticky header */
+}
+
+body {
+    overflow-anchor: none !important;
+    scroll-behavior: smooth !important;
+}
+
+/* Fix any elements that might cause horizontal scroll */
+*,
+*::before,
+*::after {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+}
+
+/* Ensure container stability */
+.container,
+.main-container,
+.dashboard {
+    overflow-x: hidden !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+}
+
+/* 2. ENHANCED WELCOME SECTION GRADIENT FIXES */
+/* Dynamic gradient override consolidated into critical-fixes.css */
+
+.welcome-section * {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.welcome-section h1,
+.welcome-section h2,
+.welcome-section h3 {
+    color: rgba(255, 255, 255, 0.98) !important;
+    font-weight: 600 !important;
+}
+
+/* Dark mode welcome section overlay for better readability */
+[data-theme="dark"] .welcome-section {
+    background: linear-gradient(135deg,
+            var(--primary-600) 0%,
+            var(--primary-700) 50%,
+            rgba(17, 24, 39, 0.8) 100%) !important;
+}
+
+/* 3. THEME TOGGLE ENHANCED STYLING */
+/* Better visual feedback for theme toggle */
+.theme-toggle-btn {
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.theme-toggle-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: var(--primary-500) !important;
+    border-radius: 50% !important;
+    transition: all 0.4s ease !important;
+    transform: translate(-50%, -50%) !important;
+    opacity: 0 !important;
+    z-index: -1 !important;
+}
+
+.theme-toggle-btn:hover::before {
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0.1 !important;
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95) !important;
+}
+
+/* 4. DYNAMIC BUTTON THEMING */
+/* All buttons use the dynamic color system */
+.btn,
+.button,
+button:not(.theme-toggle-btn) {
+    transition: all 0.2s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.btn-primary,
+.button-primary,
+.primary-btn,
+button[class*="primary"]:not(.theme-toggle-btn) {
+    background: var(--primary-500) !important;
+    border-color: var(--primary-500) !important;
+    color: white !important;
+}
+
+.btn-primary:hover,
+.button-primary:hover,
+.primary-btn:hover,
+button[class*="primary"]:not(.theme-toggle-btn):hover {
+    background: var(--primary-600) !important;
+    border-color: var(--primary-600) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px hsla(var(--user-primary-h), var(--user-primary-s), var(--user-primary-l), 0.3) !important;
+}
+
+/* 5. ENHANCED FOCUS STYLES WITH DYNAMIC COLORS - moved to critical-fixes.css to avoid duplication */
+
+/* 6. PROGRESSIVE ENHANCEMENT FOR ANIMATIONS */
+/* Smooth transitions for theme changes */
+.theme-transition * {
+    transition: background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease !important;
+}
+
+/* 7. ACCESSIBILITY IMPROVEMENTS */
+/* Better contrast ratios */
+@media (prefers-contrast: high) {
+    :root {
+        --user-primary-l: 40% !important;
+        /* Darker for better contrast */
+    }
+
+    .welcome-section {
+        background: var(--primary-700) !important;
+    }
+
+    .logo-text {
+        color: var(--text-primary) !important;
+        text-shadow: none !important;
+        background: none !important;
+        -webkit-text-fill-color: unset !important;
+    }
+}
+
+/* 8. MOBILE OPTIMIZATIONS */
+@media (max-width: 768px) {
+
+    /* Ensure no horizontal scrolling on mobile */
+    body {
+        overflow-x: hidden !important;
+    }
+
+    /* Stack layout properly */
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+        padding: 0.75rem !important;
+        gap: 0.75rem !important;
+    }
+
+    /* Mobile-friendly touch targets */
+    .theme-toggle-btn {
+        min-width: 48px !important;
+        min-height: 48px !important;
+    }
+
+    /* Welcome section mobile adjustments */
+    .welcome-section {
+        padding: 1rem !important;
+        margin: 0.5rem !important;
+        border-radius: 8px !important;
+    }
+}
+
+/* 9. LOADING STATE IMPROVEMENTS */
+/* Smooth loading transitions */
+.loading-state {
+    opacity: 0.7 !important;
+    pointer-events: none !important;
+    transition: opacity 0.2s ease !important;
+}
+
+/* 10. FINAL LAYOUT STABILITY INSURANCE */
+/* Last resort fixes for layout shifting */
+.main-content {
+    contain: layout style !important;
+    will-change: auto !important;
+}
+
+.dashboard-grid {
+    contain: layout !important;
+}
+
+/* Prevent any rogue transforms */
+.no-transform {
+    transform: none !important;
+}
+
+/* 11. BETTER SCROLLBAR STYLING */
+/* Custom scrollbars that match the theme */
+::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary) !important;
+    border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-400) !important;
+    border-radius: 4px !important;
+    transition: background 0.2s ease !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-500) !important;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--gray-800) !important;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--primary-600) !important;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-500) !important;
+}
+
+/* 12. ENHANCED CARD STYLING */
+/* Make sure all cards use consistent theming */
+.card,
+.dashboard-item,
+.widget,
+.panel {
+    border-color: var(--border-color) !important;
+    transition: all 0.3s ease !important;
+}
+
+.card:hover,
+.dashboard-item:hover,
+.widget:hover,
+.panel:hover {
+    border-color: var(--primary-400) !important;
+    box-shadow: 0 4px 12px hsla(var(--user-primary-h), var(--user-primary-s), var(--user-primary-l), 0.1) !important;
+}
+
+/* 13. TEXT SELECTION THEMING */
+::selection {
+    background: var(--primary-200) !important;
+    color: var(--primary-800) !important;
+}
+
+[data-theme="dark"] ::selection {
+    background: var(--primary-600) !important;
+    color: white !important;
+}
