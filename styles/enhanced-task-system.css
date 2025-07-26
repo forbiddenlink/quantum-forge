@@ -50,7 +50,7 @@ enhanced-task-system {
     /* SPECTACULAR glow and animation effects */
     animation:
         taskGlow 6s ease-in-out infinite,
-        taskBackgroundShift 20s linear infinite,
+        spectralBackgroundShift 20s linear infinite,
         subtlePulse 4s ease-in-out infinite !important;
 
     /* 3D transform for depth */
@@ -125,27 +125,7 @@ enhanced-task-system {
     }
 }
 
-@keyframes taskBackgroundShift {
-    0% {
-        background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%;
-    }
-
-    25% {
-        background-position: 100% 0%, 0% 100%, 25% 50%, 0% 0%, 25% 25%, 75% 75%, 45% 55%, 15% 75%, 25% 25%, 25% 25%;
-    }
-
-    50% {
-        background-position: 100% 100%, 0% 0%, 50% 50%, 0% 0%, 30% 30%, 70% 70%, 40% 60%, 20% 70%, 50% 50%, 50% 50%;
-    }
-
-    75% {
-        background-position: 0% 100%, 100% 0%, 75% 50%, 0% 0%, 35% 35%, 65% 65%, 35% 65%, 25% 65%, 75% 75%, 75% 75%;
-    }
-
-    100% {
-        background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%;
-    }
-}
+/* taskBackgroundShift animation removed - using spectralBackgroundShift from animations.css to avoid duplication */
 
 /* Task system animations using central definitions */
 
@@ -158,7 +138,7 @@ enhanced-task-system {
         backdrop-filter: blur(5px) !important;
         -webkit-backdrop-filter: blur(5px) !important;
         /* Slower animations for better performance */
-        animation: taskBackgroundShift 40s linear infinite;
+        animation: spectralBackgroundShift 40s linear infinite;
     }
 
     .enhanced-task-system .stat-card,
@@ -1563,11 +1543,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     margin-bottom: var(--space-3);
 }
 
-.task-assignee {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-}
+/* .task-assignee moved to components.css to avoid duplication */
 
 .assignee-avatar {
     width: 32px;
@@ -2048,7 +2024,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 .enhanced-task-system.task-system-loaded {
     animation:
         taskGlow 5s ease-in-out infinite,
-        taskBackgroundShift 18s linear infinite,
+        spectralBackgroundShift 18s linear infinite,
         subtlePulse 3.5s ease-in-out infinite,
         taskSpectacularEntrance 1.2s ease-out;
 }
@@ -2580,7 +2556,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         padding: var(--space-6);
         animation:
             taskGlow 5s ease-in-out infinite,
-            taskBackgroundShift 20s linear infinite;
+            spectralBackgroundShift 20s linear infinite;
     }
 
     .task-stats {
@@ -2618,7 +2594,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         padding: var(--space-6);
         animation:
             taskGlow 5s ease-in-out infinite,
-            taskBackgroundShift 18s linear infinite,
+            spectralBackgroundShift 18s linear infinite,
             subtlePulse 4s ease-in-out infinite;
     }
 
@@ -2683,7 +2659,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         /* Full spectacular effects */
         animation:
             taskGlow 5s ease-in-out infinite,
-            taskBackgroundShift 18s linear infinite,
+            spectralBackgroundShift 18s linear infinite,
             subtlePulse 3.5s ease-in-out infinite;
     }
 

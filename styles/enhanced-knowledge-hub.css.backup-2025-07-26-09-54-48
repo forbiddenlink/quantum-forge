@@ -47,7 +47,7 @@
 
     /* SPECTACULAR glow and animation effects */
     animation:
-        knowledgeGlow 6s ease-in-out infinite,
+        spectralGlow 6s ease-in-out infinite,
         knowledgeBackgroundShift 20s linear infinite,
         subtlePulse 4s ease-in-out infinite !important;
 
@@ -203,7 +203,7 @@
     box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
     position: relative;
     overflow: hidden;
-    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: spectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
     margin: 0 !important;
     /* Remove any margins from cards */
 }
@@ -384,50 +384,7 @@
     /* Consistent spacing before actions */
 }
 
-/* 🎨 SPECTACULAR KEYFRAME ANIMATIONS - MATCHING TASK SYSTEM */
-@keyframes knowledgeGlow {
-
-    0%,
-    100% {
-        box-shadow:
-            0 20px 25px -5px rgba(0, 0, 0, 0.1),
-            0 10px 10px -5px rgba(0, 0, 0, 0.04),
-            0 0 0 1px rgba(255, 255, 255, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.4),
-            0 0 60px rgba(99, 102, 241, 0.4),
-            0 0 120px rgba(99, 102, 241, 0.2);
-    }
-
-    25% {
-        box-shadow:
-            0 25px 30px -5px rgba(0, 0, 0, 0.12),
-            0 12px 12px -5px rgba(0, 0, 0, 0.06),
-            0 0 0 1px rgba(255, 255, 255, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.5),
-            0 0 80px rgba(139, 92, 246, 0.5),
-            0 0 140px rgba(139, 92, 246, 0.3);
-    }
-
-    50% {
-        box-shadow:
-            0 22px 27px -5px rgba(0, 0, 0, 0.11),
-            0 11px 11px -5px rgba(0, 0, 0, 0.05),
-            0 0 0 1px rgba(255, 255, 255, 0.25),
-            inset 0 1px 0 rgba(255, 255, 255, 0.45),
-            0 0 70px rgba(6, 182, 212, 0.45),
-            0 0 130px rgba(6, 182, 212, 0.25);
-    }
-
-    75% {
-        box-shadow:
-            0 24px 29px -5px rgba(0, 0, 0, 0.13),
-            0 13px 13px -5px rgba(0, 0, 0, 0.07),
-            0 0 0 1px rgba(255, 255, 255, 0.28),
-            inset 0 1px 0 rgba(255, 255, 255, 0.48),
-            0 0 75px rgba(16, 185, 129, 0.48),
-            0 0 135px rgba(16, 185, 129, 0.28);
-    }
-}
+/* knowledgeGlow animation removed - using spectralGlow from animations.css to avoid duplication */
 
 @keyframes knowledgeBackgroundShift {
     0% {
@@ -453,37 +410,7 @@
 
 /* Knowledge hub animations using central definitions */
 
-@keyframes knowledgeSpectacularEntrance {
-    0% {
-        opacity: 0;
-        transform: translateY(30px) scale(0.9) rotateX(10deg);
-        filter: blur(10px);
-    }
-
-    50% {
-        opacity: 0.7;
-        transform: translateY(-5px) scale(1.02) rotateX(-2deg);
-        filter: blur(2px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1) rotateX(0deg);
-        filter: blur(0);
-    }
-}
-
-@keyframes knowledgeSparkleFloat {
-    0% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-30px) scale(0.5);
-    }
-}
+/* spectacularEntrance animation removed - using spectacularEntrance from animations.css to avoid duplication */
 
 /* ✨ FLOATING GEOMETRIC SHAPES - CONSTRAINED */
 .enhanced-knowledge-hub::before {
@@ -1048,7 +975,7 @@ html body .knowledge-hub.spectacular-mode .search-icon {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: spectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .ai-insight-card.spectacular::before {
@@ -1345,7 +1272,7 @@ html body .knowledge-hub.spectacular-mode .search-icon {
     box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
     position: relative;
     overflow: hidden;
-    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: spectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .analytics-card.spectacular::before {
@@ -1570,7 +1497,7 @@ html body .knowledge-hub.spectacular-mode .search-icon {
     border-radius: var(--radius-lg);
     transition: all var(--duration-normal) var(--ease-in-out);
     cursor: pointer;
-    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: spectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .trending-item.spectacular:hover {
@@ -1670,7 +1597,7 @@ html body .knowledge-hub.spectacular-mode .search-icon {
     box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
     position: relative;
     overflow: hidden;
-    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: spectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .learning-path-card.spectacular::before {
@@ -1930,7 +1857,7 @@ html body .knowledge-hub.spectacular-mode .search-icon {
     box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
     position: relative;
     overflow: hidden;
-    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: spectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .enhanced-resource-card.spectacular::before {
@@ -2354,7 +2281,7 @@ html body .knowledge-hub.spectacular-mode .search-icon {
 @media (max-width: 1024px) {
     .enhanced-knowledge-hub.spectacular-mode {
         padding: var(--space-6);
-        animation: knowledgeGlow 8s ease-in-out infinite;
+        animation: spectralGlow 8s ease-in-out infinite;
     }
 
     .ai-insights-grid.spectacular {
@@ -2891,7 +2818,7 @@ html body .enhanced-knowledge-hub.spectacular-mode .ai-insight-card,
     border-radius: var(--radius-xl);
     transition: all var(--duration-normal) var(--ease-spring);
     cursor: pointer;
-    animation: knowledgeSpectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+    animation: spectacularEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.1);

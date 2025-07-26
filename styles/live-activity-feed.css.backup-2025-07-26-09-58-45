@@ -49,7 +49,7 @@
     animation:
         activityGlow 6s ease-in-out infinite,
         activityBackgroundShift 20s linear infinite,
-        activitySubtlePulse 4s ease-in-out infinite !important;
+        subtlePulse 4s ease-in-out infinite !important;
 
     /* 3D transform for depth */
     transform-style: preserve-3d !important;
@@ -158,17 +158,7 @@
     }
 }
 
-@keyframes activitySubtlePulse {
-
-    0%,
-    100% {
-        transform: scale(1) translateZ(0);
-    }
-
-    50% {
-        transform: scale(1.003) translateZ(3px);
-    }
-}
+/* Activity feed animations using central definitions */
 
 /* ✨ SPECTACULAR PARTICLE SYSTEM */
 .feed-particles-system {
@@ -1387,14 +1377,14 @@
 
     .activity-item-enhanced {
         background: #ffffff !important;
-        color: #000000 !important;
-        border: 2px solid #000000 !important;
+        color: #ffffff !important;
+        border: 2px solid #ffffff !important;
     }
 
     .view-all-btn-enhanced {
         background: #ffffff !important;
-        color: #000000 !important;
-        border: 2px solid #000000 !important;
+        color: #ffffff !important;
+        border: 2px solid #ffffff !important;
     }
 
     .activity-icon-enhanced {

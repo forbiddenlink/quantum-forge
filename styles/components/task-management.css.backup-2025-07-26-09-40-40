@@ -422,7 +422,11 @@
     border-top: 1px solid var(--border-color);
 }
 
-/* .task-assignee moved to components.css to avoid duplication */
+.task-assignee {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
 
 .assignee-avatar {
     width: 24px;
@@ -565,7 +569,11 @@
     border: 1px solid var(--primary-200);
 }
 
-/* .task-actions moved to components.css to avoid duplication */
+/* Task Actions */
+.task-actions {
+    display: flex;
+    gap: var(--space-2);
+}
 
 .task-count {
     font-size: var(--font-size-sm);

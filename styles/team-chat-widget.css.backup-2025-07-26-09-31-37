@@ -87,10 +87,13 @@
     font-size: var(--font-size-xs);
     font-weight: 700;
     border: 2px solid white;
-    animation: simplePulse 2s infinite;
+    animation: pulse-notification 2s infinite;
 }
 
-/* pulse-notification animation removed - using simplePulse from animations.css to avoid duplication */
+@keyframes pulse-notification {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
 
 /* Chat Panel */
 .chat-panel {

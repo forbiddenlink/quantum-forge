@@ -38,10 +38,13 @@
     width: 20px;
     height: 20px;
     color: var(--success-500);
-    animation: simplePulse 2s ease-in-out infinite;
+    animation: heartbeat 2s ease-in-out infinite;
 }
 
-/* heartbeat animation removed - using simplePulse from animations.css to avoid duplication */
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
 
 .tracker-date {
     font-size: var(--font-size-sm);

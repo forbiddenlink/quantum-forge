@@ -171,9 +171,7 @@
     color: var(--warning-500);
 }
 
-.activity-content {
-    flex: 1;
-}
+/* .activity-content moved to components.css master definition to avoid duplication */
 
 .activity-text {
     color: var(--welcome-text);
@@ -1582,77 +1580,13 @@
 
 /* ðŸ† CONTEST-WINNING ANIMATION ENHANCEMENTS */
 
-/* Spectacular entrance animations */
-@keyframes spectacularEntrance {
-    0% {
-        opacity: 0;
-        transform: translateY(30px) scale(0.9) rotateX(10deg);
-        filter: blur(10px);
-    }
+/* spectacularEntrance animation removed - using master definition from animations.css to avoid duplication */
 
-    50% {
-        opacity: 0.7;
-        transform: translateY(-5px) scale(1.02) rotateX(-2deg);
-        filter: blur(2px);
-    }
+/* burstParticle animation removed - using master definition from animations.css to avoid duplication */
 
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1) rotateX(0deg);
-        filter: blur(0);
-    }
-}
+/* glowPulse animation removed - using master definition from animations.css to avoid duplication */
 
-/* Burst particle animation */
-@keyframes burstParticle {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(0);
-    }
-
-    20% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0) translateX(100px) translateY(-100px);
-    }
-}
-
-/* Glow pulse animation */
-@keyframes glowPulse {
-
-    0%,
-    100% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.1);
-    }
-}
-
-/* Card sparkle animation */
-@keyframes cardSparkle {
-    0% {
-        opacity: 1;
-        transform: scale(0) rotate(0deg);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.5) rotate(180deg);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(0) rotate(360deg) translateY(-50px);
-    }
-}
+/* cardSparkle animation removed - using master definition from animations.css to avoid duplication */
 
 /* â™¿ ACCESSIBILITY ENHANCEMENTS */
 
@@ -1953,24 +1887,9 @@
 
 /* Scale bounce effect */
 
-
 /* Color cycle for dynamic elements */
 
-
-/* Glowing border effect */
-@keyframes glowingBorder {
-
-    0%,
-    100% {
-        border-color: rgba(99, 102, 241, 0.3);
-        box-shadow: 0 0 5px rgba(99, 102, 241, 0.2);
-    }
-
-    50% {
-        border-color: rgba(99, 102, 241, 0.8);
-        box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
-    }
-}
+/* glowingBorder animation removed - using master definition from animations.css to avoid duplication */
 
 /* Ripple effect */
 

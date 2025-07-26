@@ -46,9 +46,9 @@
 
     /* SPECTACULAR glow and animation effects */
     animation:
-        newsGlow 6s ease-in-out infinite,
+        spectralGlow 6s ease-in-out infinite,
         newsBackgroundShift 20s linear infinite,
-        newsSubtlePulse 4s ease-in-out infinite !important;
+        subtlePulse 4s ease-in-out infinite !important;
 
     /* 3D transform for depth */
     transform-style: preserve-3d !important;
@@ -82,7 +82,7 @@
         radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.15) 25%, transparent 40%),
         radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0.1) 30%, transparent 50%);
     border-radius: 50%;
-    animation: newsFloat 20s ease-in-out infinite reverse;
+    animation: float 20s ease-in-out infinite reverse;
     pointer-events: none;
     z-index: 1;
     filter: blur(1px);
@@ -99,56 +99,13 @@
         radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.4) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 50%),
         radial-gradient(circle at 20% 70%, rgba(16, 185, 129, 0.3) 0%, rgba(16, 185, 129, 0.15) 30%, transparent 60%),
         radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.1) 35%, transparent 60%);
-    animation: newsFloat 25s ease-in-out infinite;
+    animation: float 25s ease-in-out infinite;
     pointer-events: none;
     z-index: 1;
     filter: blur(0.8px);
 }
 
-/* 🎨 SPECTACULAR KEYFRAME ANIMATIONS - MATCHING OTHER SECTIONS */
-@keyframes newsGlow {
-
-    0%,
-    100% {
-        box-shadow:
-            0 20px 25px -5px rgba(0, 0, 0, 0.1),
-            0 10px 10px -5px rgba(0, 0, 0, 0.04),
-            0 0 0 1px rgba(255, 255, 255, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.4),
-            0 0 60px rgba(99, 102, 241, 0.4),
-            0 0 120px rgba(99, 102, 241, 0.2);
-    }
-
-    25% {
-        box-shadow:
-            0 25px 30px -5px rgba(0, 0, 0, 0.12),
-            0 12px 12px -5px rgba(0, 0, 0, 0.06),
-            0 0 0 1px rgba(255, 255, 255, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.5),
-            0 0 80px rgba(139, 92, 246, 0.5),
-            0 0 140px rgba(139, 92, 246, 0.3);
-    }
-
-    50% {
-        box-shadow:
-            0 22px 27px -5px rgba(0, 0, 0, 0.11),
-            0 11px 11px -5px rgba(0, 0, 0, 0.05),
-            0 0 0 1px rgba(255, 255, 255, 0.25),
-            inset 0 1px 0 rgba(255, 255, 255, 0.45),
-            0 0 70px rgba(6, 182, 212, 0.45),
-            0 0 130px rgba(6, 182, 212, 0.25);
-    }
-
-    75% {
-        box-shadow:
-            0 24px 29px -5px rgba(0, 0, 0, 0.13),
-            0 13px 13px -5px rgba(0, 0, 0, 0.07),
-            0 0 0 1px rgba(255, 255, 255, 0.28),
-            inset 0 1px 0 rgba(255, 255, 255, 0.48),
-            0 0 75px rgba(16, 185, 129, 0.48),
-            0 0 135px rgba(16, 185, 129, 0.28);
-    }
-}
+/* newsGlow animation removed - using spectralGlow from animations.css to avoid duplication */
 
 @keyframes newsBackgroundShift {
     0% {
@@ -172,41 +129,9 @@
     }
 }
 
-@keyframes newsSubtlePulse {
+/* News animations using central definitions */
 
-    0%,
-    100% {
-        transform: scale(1) translateZ(0);
-    }
-
-    50% {
-        transform: scale(1.003) translateZ(3px);
-    }
-}
-
-@keyframes newsFloat {
-
-    0%,
-    100% {
-        transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
-        opacity: 0.6;
-    }
-
-    25% {
-        transform: translateX(20px) translateY(-25px) scale(1.05) rotate(2deg);
-        opacity: 0.8;
-    }
-
-    50% {
-        transform: translateX(-15px) translateY(-15px) scale(0.95) rotate(-1deg);
-        opacity: 0.7;
-    }
-
-    75% {
-        transform: translateX(10px) translateY(-20px) scale(1.02) rotate(1deg);
-        opacity: 0.75;
-    }
-}
+/* newsFloat animation removed - using master float definition from animations.css to avoid duplication */
 
 /* 🌟 ENHANCED TEXT STYLING - ALL WHITE ON GRADIENT BACKGROUND */
 .company-news *:not(input):not(select):not(textarea):not(.search-input) {
@@ -1500,12 +1425,7 @@ company-news .news-title::before {
         align-self: flex-start !important;
     }
 
-    /* Mobile trending metrics alignment */
-    .company-news .trending-metrics {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: var(--space-2) !important;
-    }
+    /* Mobile trending metrics alignment - duplicate removed, already defined above */
 
     .company-news .trending-metrics .metric {
         font-size: var(--font-size-xs) !important;

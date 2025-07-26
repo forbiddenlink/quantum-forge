@@ -133,14 +133,22 @@
   align-items: center;
 }
 
-/* .task-assignee moved to components.css to avoid duplication */
+.task-assignee {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
 
 .task-due-date {
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
 }
 
-/* .task-actions moved to components.css to avoid duplication */
+/* Task Actions */
+.task-actions {
+  display: flex;
+  gap: var(--space-2);
+}
 
 .task-action-btn {
   display: flex;

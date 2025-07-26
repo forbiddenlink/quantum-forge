@@ -28,6 +28,12 @@
     }
 }
 
+/* Simple Pulse Animation - Basic scale transform (replaces pulse-notification, heartbeat) */
+@keyframes simplePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
 /* Float Animations - Master definition (replaces iconFloat) */
 @keyframes float {
 
@@ -118,18 +124,7 @@
     }
 }
 
-/* Fade Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* fadeInUp animation removed - identical to slideInUp above, use slideInUp instead */
 
 @keyframes fadeIn {
     from {
@@ -509,18 +504,7 @@
     }
 }
 
-/* Gentle Float Animation */
-@keyframes gentleFloat {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-5px);
-    }
-}
+/* gentleFloat animation removed - identical keyframe definition exists in main.css */
 
 /* Wave Animation */
 @keyframes wave {

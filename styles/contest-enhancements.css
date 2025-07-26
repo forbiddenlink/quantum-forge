@@ -1,17 +1,6 @@
 /* Contest-Winning Visual Enhancements */
 
-/* Advanced Animations */
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
+/* float animation removed - using floatUpDown from animations.css to avoid duplication */
 
 @keyframes pulse-glow {
 
@@ -39,17 +28,7 @@
     }
 }
 
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+/* fadeInScale animation removed - using scaleIn from enhanced-colors.css to avoid duplication (identical keyframes) */
 
 /* Removed conflicting welcome-section background styles */
 
@@ -148,7 +127,7 @@
 
 /* NEW: Floating Action Buttons */
 .quick-actions .btn {
-    animation: float 3s ease-in-out infinite;
+    animation: floatUpDown 3s ease-in-out infinite;
 }
 
 .quick-actions .btn:nth-child(2) {
@@ -1522,24 +1501,14 @@
     font-weight: 700;
     color: #ffffff;
     text-align: center;
-    animation: scoreNumberPulse 2s ease-in-out infinite;
+    animation: cultureBadgePulse 2s ease-in-out infinite;
     transform-origin: center;
     transition: all 0.3s ease;
     line-height: 1;
     margin: 0;
 }
 
-@keyframes scoreNumberPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
-    }
-}
+/* scoreNumberPulse animation removed - using cultureBadgePulse to avoid duplication (identical keyframes) */
 
 .score-label {
     font-size: var(--font-size-sm);
@@ -3111,11 +3080,7 @@
 
     /* Duplicate .story-controls and .story-indicators rules removed - already defined above */
 
-    .stories-section,
-    .values-section,
-    .timeline-section {
-        padding: var(--space-3);
-    }
+    /* Duplicate .stories-section, .values-section, .timeline-section rule removed - already defined above */
 }
 
 /* FORCE OVERRIDE: Ensure score circle works correctly */

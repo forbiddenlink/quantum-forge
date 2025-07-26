@@ -1,42 +1,55 @@
 /* Contest-Winning Visual Enhancements */
 
-/* Advanced Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
+/* float animation removed - using floatUpDown from animations.css to avoid duplication */
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(99, 102, 241, 0.6);
+    }
 }
 
 @keyframes sparkle {
-  0%, 100% { opacity: 0; transform: scale(0); }
-  50% { opacity: 1; transform: scale(1); }
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 @keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Removed conflicting welcome-section background styles */
 
 /* NEW: Enhanced Gradient Backgrounds */
 .dashboard-item {
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.9) 0%, 
-    rgba(255, 255, 255, 0.7) 50%, 
-    rgba(99, 102, 241, 0.05) 100%);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(99, 102, 241, 0.1);
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.7) 50%,
+            rgba(99, 102, 241, 0.05) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(99, 102, 241, 0.1);
 }
 
 /* FIXED: Remove blur effect for culture showcase to prevent blurry text */
@@ -45,116 +58,116 @@
 .company-culture-showcase .widget,
 .company-culture-showcase .dashboard-item,
 .company-culture-showcase .notification {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
 }
 
 [data-theme="dark"] .dashboard-item {
-  background: linear-gradient(135deg, 
-    rgba(30, 41, 59, 0.9) 0%, 
-    rgba(30, 41, 59, 0.7) 50%, 
-    rgba(99, 102, 241, 0.1) 100%);
+    background: linear-gradient(135deg,
+            rgba(30, 41, 59, 0.9) 0%,
+            rgba(30, 41, 59, 0.7) 50%,
+            rgba(99, 102, 241, 0.1) 100%);
 }
 
 /* NEW: Interactive Hover Effects */
 .dashboard-item:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 
-    0 20px 40px rgba(99, 102, 241, 0.15),
-    0 0 0 1px rgba(99, 102, 241, 0.2);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0 20px 40px rgba(99, 102, 241, 0.15),
+        0 0 0 1px rgba(99, 102, 241, 0.2);
 }
 
 /* NEW: Animated Stats */
 .stat-item {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .stat-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
-  transition: left 0.5s ease;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+    transition: left 0.5s ease;
 }
 
 .stat-item:hover::before {
-  left: 100%;
+    left: 100%;
 }
 
 /* NEW: Enhanced Button Animations */
 .btn {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
 }
 
 .btn:hover::before {
-  width: 300px;
-  height: 300px;
-  opacity: 1;
+    width: 300px;
+    height: 300px;
+    opacity: 1;
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, var(--primary-600), var(--primary-500));
-  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+    background: linear-gradient(135deg, var(--primary-600), var(--primary-500));
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
 }
 
 .btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
 }
 
 /* NEW: Floating Action Buttons */
 .quick-actions .btn {
-  animation: float 3s ease-in-out infinite;
+    animation: floatUpDown 3s ease-in-out infinite;
 }
 
 .quick-actions .btn:nth-child(2) {
-  animation-delay: 0.5s;
+    animation-delay: 0.5s;
 }
 
 .quick-actions .btn:nth-child(3) {
-  animation-delay: 1s;
+    animation-delay: 1s;
 }
 
 .quick-actions .btn:nth-child(4) {
-  animation-delay: 1.5s;
+    animation-delay: 1.5s;
 }
 
 /* NEW: Enhanced Widget Styling */
 .widget {
-  background: linear-gradient(135deg, var(--bg-widget), var(--bg-elevated));
-  border: 1px solid var(--border-color);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, var(--bg-widget), var(--bg-elevated));
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .widget:hover {
-  border-color: var(--primary-300);
-  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+    border-color: var(--primary-300);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
 }
 
 /* NEW: Loading States */
 .loading-shimmer {
-  background: var(--gray-100);
+    background: var(--gray-100);
 }
 
 /* Shimmer keyframes removed to prevent distraction */
@@ -164,90 +177,87 @@
 .search-loading svg,
 .office-visualizer .loading-spinner,
 .enhanced-office-visualizer .loading-spinner {
-  width: 24px;
-  height: 24px;
-  border: 2px solid var(--primary-200);
-  border-top-color: var(--primary-500);
-  border-radius: 50%;
-  /* Removed spin animation */
-  display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--primary-200);
+    border-top-color: var(--primary-500);
+    border-radius: 50%;
+    /* Removed spin animation */
+    display: inline-block;
 }
 
 /* Removed unified-spin keyframe animation */
 
 /* NEW: Enhanced Typography */
 .welcome-title {
-  color: white !important;
-  font-weight: 800;
-  letter-spacing: -0.025em;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white !important;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* NEW: Micro-interactions */
 .stat-item {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .stat-item:hover {
-  transform: scale(1.05);
-  background: linear-gradient(135deg, var(--primary-50), var(--primary-100));
+    transform: scale(1.05);
+    background: linear-gradient(135deg, var(--primary-50), var(--primary-100));
 }
 
 /* NEW: Enhanced Icons */
 .btn-icon {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover .btn-icon {
-  transform: scale(1.1) rotate(5deg);
+    transform: scale(1.1) rotate(5deg);
 }
 
 /* NEW: Progress Animations */
 .progress-fill {
-  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-  background: linear-gradient(90deg, var(--primary-500), var(--primary-400));
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(90deg, var(--primary-500), var(--primary-400));
 }
 
 /* NEW: Notification Enhancements */
 .notification {
-  animation: slideInUp 0.5s ease-out;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideInUp 0.5s ease-out;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* NEW: Dark Mode Enhancements */
 [data-theme="dark"] .widget {
-  background: linear-gradient(135deg, var(--gray-800), var(--gray-900));
-  border-color: var(--gray-700);
+    background: linear-gradient(135deg, var(--gray-800), var(--gray-900));
+    border-color: var(--gray-700);
 }
 
 [data-theme="dark"] .widget:hover {
-  border-color: var(--primary-400);
-  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+    border-color: var(--primary-400);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
 }
 
 /* NEW: Responsive Enhancements */
 @media (max-width: 768px) {
-  .widget {
-    animation: none;
-  }
-  
-  .dashboard-item {
-    animation: none;
-  }
+    .widget {
+        animation: none;
+    }
 }
 
 /* NEW: Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .widget,
-  .dashboard-item,
-  .btn,
-  .stat-item,
-  .loading-spinner,
-  .search-loading svg {
-    animation: none;
-    transition: none;
-  }
+
+    .widget,
+    .dashboard-item,
+    .btn,
+    .stat-item,
+    .loading-spinner,
+    .search-loading svg {
+        animation: none;
+        transition: none;
+    }
 }
 
 /* NEW: Purple Glow for All Main Cards - Non-pulsing */
@@ -341,12 +351,12 @@
 .insight-content,
 .recommendation-content,
 .frequently-used-content {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Hover effect for cards - removed purple glow */
 .dashboard-item:hover {
-  transform: translateY(-2px);
+    transform: translateY(-2px);
 }
 
 /* Remove purple glow from all inner content */
@@ -438,39 +448,39 @@
 .insight-content:hover,
 .recommendation-content:hover,
 .frequently-used-content:hover {
-  box-shadow: none;
-  transform: none;
+    box-shadow: none;
+    transform: none;
 }
 
 /* Remove the pulsing animation from dashboard items */
 .dashboard-item {
-  animation: none;
+    animation: none;
 }
 
 .dashboard-item:nth-child(even) {
-  animation: none;
+    animation: none;
 }
 
 .dashboard-item:nth-child(3n) {
-  animation: none;
+    animation: none;
 }
 
 /* Achievement System Enhancements */
 .achievement-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, transparent, rgba(99, 102, 241, 0.1), transparent);
-  animation: sparkle 3s ease-in-out infinite;
-  pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+    animation: sparkle 3s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .achievement-card:hover::before {
-  animation: sparkle 1s ease-in-out infinite;
-} 
+    animation: sparkle 1s ease-in-out infinite;
+}
 
 /* NEW: Quick Insights Section */
 .quick-insights {
@@ -943,18 +953,18 @@
     .insights-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .achievement-stats {
         grid-template-columns: 1fr;
         gap: 0.5rem;
     }
-    
+
     .activity-stream {
         max-height: none !important;
         height: auto !important;
         overflow: visible !important;
     }
-    
+
     .chart-container {
         margin-bottom: 1rem;
     }
@@ -965,7 +975,7 @@
     .live-indicator {
         animation: none;
     }
-    
+
     .insight-card:hover,
     .activity-item:hover,
     .achievement-item:hover,
@@ -974,7 +984,7 @@
     .streak-counter:hover {
         transform: none;
     }
-} 
+}
 
 /* Enhanced Company Culture Showcase Styles - Dream Intranet Homepage */
 .company-culture-showcase {
@@ -1006,7 +1016,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(ellipse 1200px 900px at 20% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
         radial-gradient(ellipse 900px 1200px at 80% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
         radial-gradient(ellipse 700px 700px at 50% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 70%);
@@ -1019,19 +1029,31 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
+    background-image:
         repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(99, 102, 241, 0.03) 2px, rgba(99, 102, 241, 0.03) 4px);
     animation: culturePattern 30s linear infinite;
 }
 
 @keyframes cultureGradient {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.1) rotate(180deg); }
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(180deg);
+    }
 }
 
 @keyframes culturePattern {
-    0% { transform: translateX(0) translateY(0); }
-    100% { transform: translateX(20px) translateY(20px); }
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+
+    100% {
+        transform: translateX(20px) translateY(20px);
+    }
 }
 
 /* Floating Particles */
@@ -1060,12 +1082,12 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, 
-        var(--primary-500) 0%, 
-        var(--success-500) 25%,
-        var(--warning-500) 50%,
-        var(--purple-500) 75%,
-        var(--primary-600) 100%);
+    background: linear-gradient(90deg,
+            var(--primary-500) 0%,
+            var(--success-500) 25%,
+            var(--warning-500) 50%,
+            var(--purple-500) 75%,
+            var(--primary-600) 100%);
     border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
     /* Culture border glow animation removed to prevent shimmer effect */
 }
@@ -1133,18 +1155,34 @@
 }
 
 @keyframes cultureBadgePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 @keyframes cultureBadgeDot {
-    0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.2); }
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
 }
 
 .culture-icon {
     font-size: var(--font-size-4xl);
-    animation: gentle-float 4s ease-in-out infinite;
+    animation: floatUpDown 4s ease-in-out infinite;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1159,10 +1197,7 @@
     color: white;
 }
 
-@keyframes gentle-float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-4px); }
-}
+/* gentle-float animation removed - using floatUpDown from animations.css to avoid duplication */
 
 .culture-subtitle {
     font-size: var(--font-size-lg);
@@ -1310,8 +1345,17 @@
 }
 
 @keyframes livePulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.2); }
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
 }
 
 .pulse-indicator.positive {
@@ -1388,10 +1432,12 @@
         transform: scale(0.8) rotate(-90deg) !important;
         opacity: 0;
     }
+
     50% {
         transform: scale(1.1) rotate(calc(-90deg + (3.6deg * var(--score-value, 92)) * 0.5)) !important;
         opacity: 0.8;
     }
+
     100% {
         transform: scale(1) rotate(calc(-90deg + (3.6deg * var(--score-value, 92)))) !important;
         opacity: 1;
@@ -1429,17 +1475,25 @@
 }
 
 @keyframes progressGlow {
-    0%, 100% {
+
+    0%,
+    100% {
         filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.3));
     }
+
     50% {
         filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.5));
     }
 }
 
 @keyframes scoreRotate {
-    from { transform: rotate(-90deg); }
-    to { transform: rotate(0deg); }
+    from {
+        transform: rotate(-90deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
 }
 
 .score-content {
@@ -1465,9 +1519,12 @@
 }
 
 @keyframes scoreNumberPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.05);
     }
@@ -1599,8 +1656,15 @@
 }
 
 @keyframes targetPulse {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 .category-score {
@@ -2085,8 +2149,15 @@
 }
 
 @keyframes statusPulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
 }
 
 .avatar-emoji {
@@ -2238,10 +2309,12 @@
 }
 
 .culture-stats .stat-item {
-    background: rgba(255, 255, 255, 0.1) !important; /* Glassmorphism background */
+    background: rgba(255, 255, 255, 0.1) !important;
+    /* Glassmorphism background */
     border-radius: var(--radius-xl);
     padding: var(--space-6);
-    border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Semi-transparent border */
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    /* Semi-transparent border */
     text-align: center;
     transition: all var(--duration-normal) var(--ease-in-out);
     position: relative;
@@ -2268,8 +2341,10 @@
 }
 
 .culture-stats .stat-item:hover {
-    background: rgba(255, 255, 255, 0.15) !important; /* Slightly more opaque on hover */
-    border-color: rgba(255, 255, 255, 0.3) !important; /* Slightly more opaque border on hover */
+    background: rgba(255, 255, 255, 0.15) !important;
+    /* Slightly more opaque on hover */
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    /* Slightly more opaque border on hover */
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
 }
@@ -2277,7 +2352,8 @@
 .culture-stats .stat-number {
     font-size: var(--font-size-4xl);
     font-weight: 700;
-    color: #ffffff !important; /* Pure white for maximum contrast */
+    color: #ffffff !important;
+    /* Pure white for maximum contrast */
     margin-bottom: var(--space-2);
     display: block;
     /* Remove all shimmer/glow effects */
@@ -2290,7 +2366,8 @@
 /* FIXED: Improved contrast for culture stats labels */
 .culture-stats .stat-label {
     font-size: var(--font-size-sm);
-    color: rgba(255, 255, 255, 0.8) !important; /* Semi-transparent white for good contrast */
+    color: rgba(255, 255, 255, 0.8) !important;
+    /* Semi-transparent white for good contrast */
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -2453,6 +2530,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -2521,9 +2599,7 @@
     text-align: center;
 }
 
-.chart-container {
-    position: relative;
-}
+/* .chart-container rule moved to accessibility-enhancements.css to avoid duplication */
 
 .gender-bars {
     display: flex;
@@ -2864,44 +2940,46 @@
         grid-template-columns: 1fr;
         gap: var(--space-4);
     }
-    
+
     .recognition-wall {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
 
 @media (max-width: 768px) {
+
     .diversity-section,
     .recognition-section {
         padding: var(--space-4);
     }
-    
+
     .gender-bar,
     .dept-item {
         padding: var(--space-3);
     }
-    
+
     .gender-bar label,
     .dept-name {
         min-width: 60px;
         font-size: var(--font-size-xs);
     }
-    
+
     .recognition-wall {
         grid-template-columns: 1fr;
     }
-    
+
     .story-controls {
         flex-direction: column;
         gap: var(--space-3);
     }
-    
+
     .story-indicators {
         order: -1;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .company-culture-showcase,
     .culture-particle,
     .culture-badge,
@@ -2913,7 +2991,7 @@
         animation: none;
         transition: none;
     }
-    
+
     .live-dot,
     .culture-badge::before {
         animation: none;
@@ -2921,6 +2999,7 @@
 }
 
 @media (prefers-contrast: high) {
+
     .company-culture-showcase,
     .value-card,
     .story-card,
@@ -2928,7 +3007,7 @@
     .pulse-category {
         border-width: 2px;
     }
-    
+
     .live-dot,
     .culture-badge::before {
         border: 1px solid currentColor;
@@ -2940,11 +3019,6 @@
         box-shadow: none;
         border: 1px solid #ccc;
     }
-    
-    .live-dot,
-    .culture-badge::before {
-        animation: none;
-    }
 }
 
 /* Responsive Design */
@@ -2953,11 +3027,11 @@
         grid-template-columns: 1fr;
         gap: var(--space-4);
     }
-    
+
     .values-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-    
+
     .culture-stats {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
@@ -2967,41 +3041,41 @@
     .company-culture-showcase {
         padding: var(--space-6);
     }
-    
+
     .culture-title {
         font-size: var(--font-size-3xl);
         flex-direction: column;
         gap: var(--space-2);
     }
-    
+
     .culture-content {
         gap: var(--space-6);
     }
-    
+
     .stories-section,
     .values-section,
     .timeline-section {
         padding: var(--space-3);
     }
-    
+
     .story-card {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .values-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .culture-stats {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-4);
     }
-    
+
     .culture-stats .stat-number {
         font-size: var(--font-size-3xl);
     }
-    
+
     .value-notification,
     .milestone-notification,
     .detailed-notification {
@@ -3015,29 +3089,18 @@
     .company-culture-showcase {
         padding: var(--space-4);
     }
-    
+
     .culture-title {
         font-size: var(--font-size-2xl);
     }
-    
+
     .culture-stats {
         grid-template-columns: 1fr;
     }
-    
-    .story-controls {
-        flex-direction: column;
-        gap: var(--space-3);
-    }
-    
-    .story-indicators {
-        order: -1;
-    }
-    
-    .stories-section,
-    .values-section,
-    .timeline-section {
-        padding: var(--space-3);
-    }
+
+    /* Duplicate .story-controls and .story-indicators rules removed - already defined above */
+
+    /* Duplicate .stories-section, .values-section, .timeline-section rule removed - already defined above */
 }
 
 /* FORCE OVERRIDE: Ensure score circle works correctly */
@@ -3081,11 +3144,11 @@
 }
 
 /* UNIVERSAL FIX: Remove all blur effects from culture showcase and its descendants */
-.company-culture-showcase, 
+.company-culture-showcase,
 .company-culture-showcase * {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
 }
 
 /* COMPREHENSIVE FIX: Override all blur effects and problematic transforms in culture section */
@@ -3096,21 +3159,21 @@
 .company-culture-showcase .stat-label,
 .company-culture-showcase .culture-stats,
 .company-culture-showcase .culture-stats * {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  filter: none !important;
-  transform: none !important;
-  -webkit-transform: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
 }
 
 /* Ensure text rendering is crisp */
 .company-culture-showcase .stat-number,
 .company-culture-showcase .stat-label,
 .company-culture-showcase .culture-stats * {
-  text-rendering: optimizeLegibility !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  font-smooth: never !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-smooth: never !important;
 }
 
 /* ULTIMATE FIX: Force remove all blur effects from culture section with maximum specificity */
@@ -3123,15 +3186,15 @@ html body .company-culture-showcase .culture-stats,
 html body .company-culture-showcase .culture-stats *,
 html body .company-culture-showcase .stat-preview,
 html body .company-culture-showcase .stat-preview * {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  filter: none !important;
-  transform: none !important;
-  -webkit-transform: none !important;
-  text-rendering: optimizeLegibility !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  font-smooth: never !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-smooth: never !important;
 }
 
 /* Additional override for any remaining blur effects */
@@ -3141,11 +3204,11 @@ html body .company-culture-showcase .stat-preview * {
 .company-culture-showcase .stat-preview,
 .company-culture-showcase .stat-preview .stat-number,
 .company-culture-showcase .stat-preview .stat-label {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  filter: none !important;
-  transform: none !important;
-  -webkit-transform: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
 }
 
 /* NUCLEAR OPTION: Override ALL possible backdrop-filter sources */
@@ -3155,26 +3218,26 @@ html body .company-culture-showcase .culture-stats .stat-item,
 html body .company-culture-showcase .culture-stats .stat-item *,
 html body .company-culture-showcase .stat-preview,
 html body .company-culture-showcase .stat-preview * {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  filter: none !important;
-  -webkit-filter: none !important;
-  transform: none !important;
-  -webkit-transform: none !important;
-  text-rendering: optimizeLegibility !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  font-smooth: never !important;
-  /* Override any CSS variables that might cause blur */
-  --glass-blur: none !important;
-  --backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-smooth: never !important;
+    /* Override any CSS variables that might cause blur */
+    --glass-blur: none !important;
+    --backdrop-filter: none !important;
 }
 
 /* Force CSS variable overrides */
 html body .company-culture-showcase,
 html body .company-culture-showcase * {
-  --glass-blur: none !important;
-  --backdrop-filter: none !important;
+    --glass-blur: none !important;
+    --backdrop-filter: none !important;
 }
 
 /* CRITICAL FIX: Ensure proper text colors and contrast - WHITE TEXT */
@@ -3184,23 +3247,24 @@ html body .company-culture-showcase .culture-stats .stat-number,
 html body .company-culture-showcase .culture-stats .stat-label,
 html body .company-culture-showcase .stat-preview .stat-number,
 html body .company-culture-showcase .stat-preview .stat-label {
-  color: white !important; /* White text for proper contrast */
-  font-weight: 700 !important;
-  text-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  filter: none !important;
-  -webkit-filter: none !important;
-  transform: none !important;
-  -webkit-transform: none !important;
-  text-rendering: optimizeLegibility !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-  font-smooth: never !important;
-  /* Remove all shimmer/glow effects */
-  box-shadow: none !important;
-  animation: none !important;
-  transition: none !important;
+    color: white !important;
+    /* White text for proper contrast */
+    font-weight: 700 !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-smooth: never !important;
+    /* Remove all shimmer/glow effects */
+    box-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
 }
 
 /* Forc CSS r e load */
@@ -3213,8 +3277,8 @@ html body .company-culture-showcase .stat-preview .stat-label {
 .company-culture-showcase .story-name,
 .company-culture-showcase .diversity-chart h4,
 .company-culture-showcase .department-diversity h4 {
-  color: #fff !important;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.18);
+    color: #fff !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
 }
 
 .diversity-section h2,
@@ -3222,8 +3286,8 @@ html body .company-culture-showcase .stat-preview .stat-label {
 .diversity-section h4,
 .diversity-chart h4,
 .department-diversity h4 {
-  color: #fff !important;
-  text-shadow: 0 1px 8px rgba(0,0,0,0.18);
+    color: #fff !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
 }
 
 /* FIXED: Specifically ensure values section titles are white */
@@ -3369,4 +3433,3 @@ html body .company-culture-showcase [style*="color: #333"],
 html body .company-culture-showcase [style*="color: #666"] {
     color: #ffffff !important;
 }
-

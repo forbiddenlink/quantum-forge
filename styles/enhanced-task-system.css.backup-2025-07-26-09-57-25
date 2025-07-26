@@ -732,34 +732,6 @@ task-system .analytics-title {
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
 }
 
-@keyframes taskParticleFloat {
-
-    0%,
-    100% {
-        transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
-        opacity: 0.3;
-        filter: blur(0.4px) hue-rotate(0deg);
-    }
-
-    25% {
-        transform: translateX(25px) translateY(-35px) scale(1.15) rotate(90deg);
-        opacity: 0.7;
-        filter: blur(0.2px) hue-rotate(90deg);
-    }
-
-    50% {
-        transform: translateX(-20px) translateY(-20px) scale(0.85) rotate(180deg);
-        opacity: 0.5;
-        filter: blur(0.6px) hue-rotate(180deg);
-    }
-
-    75% {
-        transform: translateX(-30px) translateY(30px) scale(1.05) rotate(270deg);
-        opacity: 0.6;
-        filter: blur(0.3px) hue-rotate(270deg);
-    }
-}
-
 /* ✨ SPARKLE EFFECTS */
 .task-sparkles {
     position: absolute;
@@ -787,116 +759,6 @@ task-system .analytics-title {
     50% {
         opacity: 1;
         transform: scale(1.5) rotate(180deg);
-    }
-}
-
-/* 🌈 AURORA EFFECT */
-@keyframes taskAuroraShift {
-
-    0%,
-    100% {
-        background-position: 0% 50%, 100% 50%;
-        opacity: 0.4;
-    }
-
-    25% {
-        background-position: 100% 0%, 0% 100%;
-        opacity: 0.6;
-    }
-
-    50% {
-        background-position: 100% 100%, 0% 0%;
-        opacity: 0.3;
-    }
-
-    75% {
-        background-position: 0% 100%, 100% 0%;
-        opacity: 0.5;
-    }
-}
-
-/* ⭐ CONSTELLATION PATTERN */
-@keyframes taskConstellationPulse {
-
-    0%,
-    100% {
-        opacity: 0.15;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.5;
-        transform: scale(1.03);
-    }
-}
-
-/* 🌊 WAVE DISTORTION */
-@keyframes taskWaveDistort {
-
-    0%,
-    100% {
-        transform: translateX(0%) scaleX(1) scaleY(1);
-        background-position: 0% 50%, 100% 30%, 50% 80%;
-    }
-
-    25% {
-        transform: translateX(2%) scaleX(1.03) scaleY(0.97);
-        background-position: 25% 60%, 75% 40%, 60% 70%;
-    }
-
-    50% {
-        transform: translateX(-1.5%) scaleX(0.97) scaleY(1.03);
-        background-position: 50% 70%, 50% 50%, 70% 60%;
-    }
-
-    75% {
-        transform: translateX(1%) scaleX(1.01) scaleY(0.99);
-        background-position: 75% 40%, 25% 60%, 40% 90%;
-    }
-}
-
-/* 🔮 HOLOGRAPHIC SHIMMER */
-@keyframes taskHolographicShimmer {
-    0% {
-        background-position: -35px -35px;
-    }
-
-    100% {
-        background-position: 35px 35px;
-    }
-}
-
-/* 🎯 ENERGY RINGS */
-@keyframes taskEnergyPulse {
-
-    0%,
-    100% {
-        opacity: 0;
-        transform: scale(0.2);
-        border-color: rgba(99, 102, 241, 0.08);
-    }
-
-    50% {
-        opacity: 0.3;
-        transform: scale(1);
-        border-color: rgba(99, 102, 241, 0.3);
-    }
-}
-
-/* 📊 DATA VISUALIZATION EFFECTS */
-@keyframes taskDataPulse {
-
-    0%,
-    100% {
-        opacity: 0.2;
-        transform: scale(1);
-        box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
-    }
-
-    50% {
-        opacity: 0.7;
-        transform: scale(1.2);
-        box-shadow: 0 0 15px rgba(99, 102, 241, 0.7);
     }
 }
 
@@ -984,42 +846,7 @@ task-system .task-system-title,
     z-index: 2;
 }
 
-.stat-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-xl);
-    padding: var(--space-4);
-    text-align: center;
-    transition: all var(--duration-normal) var(--ease-spring);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    color: white;
-    min-width: 100px;
-}
-
-.stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--task-accent-1), var(--task-accent-2));
-    transform: scaleX(0);
-    transition: transform var(--duration-normal) var(--ease-spring);
-}
-
-.stat-card:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-}
-
-.stat-card:hover::before {
-    transform: scaleX(1);
-}
+/* Base stat-card handled by master definition in components.css */
 
 .stat-icon {
     font-size: var(--font-size-xl);
@@ -1027,24 +854,7 @@ task-system .task-system-title,
     display: block;
 }
 
-.stat-info {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-1);
-}
-
-.stat-number {
-    font-size: var(--font-size-2xl);
-    font-weight: 700;
-    color: white !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.stat-label {
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.8);
-}
+/* .stat-info, .stat-number, .stat-label handled by master definition in components.css */
 
 /* AI-Powered Insights Section - Spectacular enhancement */
 .ai-insights-section {
@@ -1753,11 +1563,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     margin-bottom: var(--space-3);
 }
 
-.task-assignee {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-}
+/* .task-assignee moved to components.css to avoid duplication */
 
 .assignee-avatar {
     width: 32px;
@@ -1966,57 +1772,6 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* Burst particle animation */
-@keyframes taskBurstParticle {
-    0% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(0);
-    }
-
-    20% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0) translateX(80px) translateY(-80px);
-    }
-}
-
-/* Glow pulse animation */
-@keyframes taskGlowPulse {
-
-    0%,
-    100% {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.05);
-    }
-}
-
-/* Card sparkle animation */
-@keyframes taskCardSparkle {
-    0% {
-        opacity: 1;
-        transform: scale(0) rotate(0deg);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.2) rotate(180deg);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(0) rotate(360deg) translateY(-40px);
-    }
-}
-
 /* ♿ ACCESSIBILITY ENHANCEMENTS */
 
 /* Skip links for task management */
@@ -2086,7 +1841,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 }
 
 .shortcuts-content {
-    background: white;
+    background: var(--bg-elevated);
     padding: 2rem;
     border-radius: 12px;
     max-width: 500px;
@@ -2341,19 +2096,6 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     50% {
         transform: scale(1.01);
         opacity: 0.97;
-    }
-}
-
-/* Slide up with fade */
-@keyframes taskSlideUpFade {
-    0% {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
 
@@ -3153,24 +2895,24 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 /* 🏆 HIGH CONTRAST MODE SUPPORT */
 @media (prefers-contrast: high) {
     .enhanced-task-system {
-        background: white;
-        color: black;
-        border: 3px solid black;
+        background: var(--bg-elevated);
+        color: var(--text-primary);
+        border: 3px solid var(--border-color);
     }
 
     .task-system-title,
     .insights-title,
     .analytics-title {
-        color: black;
+        color: var(--text-primary);
         text-shadow: none;
     }
 
     .stat-card,
     .ai-insight-card,
     .enhanced-task-card {
-        background: white;
-        border: 2px solid black;
-        color: black;
+        background: var(--bg-elevated);
+        border: 2px solid var(--border-color);
+        color: var(--text-primary);
     }
 
     .enhanced-btn.primary {
@@ -3180,9 +2922,9 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 
     .enhanced-btn.secondary {
-        background: white;
-        color: black;
-        border: 2px solid black;
+        background: var(--bg-elevated);
+        color: var(--text-primary);
+        border: 2px solid var(--border-color);
     }
 
     /* Hide decorative elements */
@@ -4503,12 +4245,6 @@ enhanced-task-system .section-icon-svg {
 }
 
 .task-due-date {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-}
-
-.task-assignee {
     display: flex;
     align-items: center;
     gap: var(--space-2);

@@ -48,7 +48,7 @@
     /* SPECTACULAR glow and animation effects */
     animation:
         activityGlow 6s ease-in-out infinite,
-        activityBackgroundShift 20s linear infinite,
+        spectralBackgroundShift 20s linear infinite,
         subtlePulse 4s ease-in-out infinite !important;
 
     /* 3D transform for depth */
@@ -136,27 +136,7 @@
     }
 }
 
-@keyframes activityBackgroundShift {
-    0% {
-        background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%;
-    }
-
-    25% {
-        background-position: 100% 0%, 0% 100%, 25% 50%, 0% 0%, 25% 25%, 75% 75%, 45% 55%, 15% 75%, 25% 25%, 25% 25%;
-    }
-
-    50% {
-        background-position: 100% 100%, 0% 0%, 50% 50%, 0% 0%, 30% 30%, 70% 70%, 40% 60%, 20% 70%, 50% 50%, 50% 50%;
-    }
-
-    75% {
-        background-position: 0% 100%, 100% 0%, 75% 50%, 0% 0%, 35% 35%, 65% 65%, 35% 65%, 25% 65%, 75% 75%, 75% 75%;
-    }
-
-    100% {
-        background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 10% 80%, 0% 0%, 0% 0%;
-    }
-}
+/* activityBackgroundShift animation removed - using spectralBackgroundShift from animations.css to avoid duplication */
 
 /* Activity feed animations using central definitions */
 
