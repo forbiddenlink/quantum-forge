@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" class="custom-scrollbar">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Quantum Forge company intranet - Your enhanced digital workspace for collaboration, innovation, and growth">
+    <meta name="description"
+        content="Quantum Forge company intranet - Your enhanced digital workspace for collaboration, innovation, and growth">
     <meta name="theme-color" content="#6366f1">
     <!-- Performance optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="../styles/main.css" as="style">
     <link rel="preload" href="../styles/enhanced.css" as="style">
-    
+
     <title>Benefits & Wellness - Quantum Forge</title>
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='70' font-family='Inter, sans-serif' font-size='60' fill='white' text-anchor='middle'%3EQ%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Three.js dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
         // Create OrbitControls if not available
         if (typeof THREE !== 'undefined' && !THREE.OrbitControls) {
-            THREE.OrbitControls = function(object, domElement) {
+            THREE.OrbitControls = function (object, domElement) {
                 this.object = object;
                 this.domElement = domElement;
                 this.enabled = true;
@@ -39,7 +43,7 @@
                 this.enablePan = true;
                 this.panSpeed = 1.0;
                 this.screenSpacePanning = true;
-                this.update = function() {
+                this.update = function () {
                     if (this.enabled) {
                         // Simple update for now
                         this.object.lookAt(this.target);
@@ -48,7 +52,7 @@
             };
         }
     </script>
-    
+
     <!-- Enhanced visualization libraries -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs"></script>
@@ -56,7 +60,7 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css" rel="stylesheet">
-    
+
     <!-- CSS Files -->
     <link rel="stylesheet" href="../styles/components.css">
     <link rel="stylesheet" href="../styles/main.css">
@@ -73,6 +77,7 @@
     <link rel="stylesheet" href="../styles/team.css">
     <link rel="stylesheet" href="../styles/page-specific.css">
 </head>
+
 <body class="custom-scrollbar">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <div class="dashboard" role="application">
@@ -89,11 +94,13 @@
                 <div class="page-header">
                     <div class="header-content">
                         <h1 class="page-title">Benefits & Wellness</h1>
-                        <p class="page-description">Explore our comprehensive benefits package and wellness programs designed to support your health, wealth, and work-life balance.</p>
+                        <p class="page-description">Explore our comprehensive benefits package and wellness programs
+                            designed to support your health, wealth, and work-life balance.</p>
                     </div>
                     <div class="header-actions">
                         <button class="btn btn-secondary" onclick="downloadGuide()">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                                 <polyline points="17 8 12 3 7 8"></polyline>
                                 <line x1="12" y1="3" x2="12" y2="15"></line>
@@ -101,7 +108,8 @@
                             Download Guide
                         </button>
                         <button class="btn btn-primary" onclick="startEnrollment()">
-                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <line x1="12" y1="8" x2="12" y2="16"></line>
                                 <line x1="8" y1="12" x2="16" y2="12"></line>
@@ -181,7 +189,8 @@
                     <h2 id="wellness-title" class="section-title">Wellness Program</h2>
                     <div class="wellness-grid">
                         <div class="wellness-card">
-                            <div class="wellness-header" style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);">
+                            <div class="wellness-header"
+                                style="background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);">
                                 <h3 class="wellness-title">Physical Wellness</h3>
                                 <p class="wellness-points">Earn up to 500 points</p>
                             </div>
@@ -207,7 +216,8 @@
                             </div>
                         </div>
                         <div class="wellness-card">
-                            <div class="wellness-header" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
+                            <div class="wellness-header"
+                                style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
                                 <h3 class="wellness-title">Mental Wellness</h3>
                                 <p class="wellness-points">Earn up to 400 points</p>
                             </div>
@@ -233,7 +243,8 @@
                             </div>
                         </div>
                         <div class="wellness-card">
-                            <div class="wellness-header" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                            <div class="wellness-header"
+                                style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
                                 <h3 class="wellness-title">Financial Wellness</h3>
                                 <p class="wellness-points">Earn up to 300 points</p>
                             </div>
@@ -390,7 +401,9 @@
                         <div class="category-header">
                             <div class="category-icon additional">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                                    </path>
                                 </svg>
                             </div>
                             <h2>Additional Benefits</h2>
@@ -459,7 +472,7 @@
                         </div>
                     </div>
                 </div>
-            
+
             </main>
         </div>
     </div>
@@ -493,4 +506,5 @@
     <script src="../js/components/unified-search.js"></script>
     <script src="../js/app.js"></script>
 </body>
+
 </html>

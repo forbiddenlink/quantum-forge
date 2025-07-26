@@ -310,7 +310,7 @@ class EnhancedAchievementSystem extends HTMLElement {
         achievement.unlocked = true;
         this.userPoints += achievement.points;
         this.recentAchievements.unshift(achievement);
-        
+
         // Keep only last 5 recent achievements
         if (this.recentAchievements.length > 5) {
             this.recentAchievements = this.recentAchievements.slice(0, 5);
@@ -430,7 +430,7 @@ class EnhancedAchievementSystem extends HTMLElement {
 
     shareProgress() {
         const shareText = `I'm level ${this.userLevel} with ${this.userPoints} points in Quantum Forge! 🚀`;
-        
+
         if (navigator.share) {
             navigator.share({
                 title: 'My Quantum Forge Progress',
@@ -448,11 +448,11 @@ class EnhancedAchievementSystem extends HTMLElement {
     initializeGamification() {
         // Initialize daily streak tracking
         this.checkDailyStreak();
-        
+
         // Set up daily login tracking
         const today = new Date().toDateString();
         const lastLogin = localStorage.getItem('lastLogin');
-        
+
         if (lastLogin !== today) {
             this.userStreak++;
             localStorage.setItem('lastLogin', today);
@@ -465,11 +465,11 @@ class EnhancedAchievementSystem extends HTMLElement {
     checkDailyStreak() {
         const today = new Date();
         const lastLogin = localStorage.getItem('lastLogin');
-        
+
         if (lastLogin) {
             const lastLoginDate = new Date(lastLogin);
             const daysDiff = Math.floor((today - lastLoginDate) / (1000 * 60 * 60 * 24));
-            
+
             if (daysDiff > 1) {
                 // Streak broken
                 this.userStreak = 0;
@@ -505,9 +505,9 @@ class EnhancedAchievementSystem extends HTMLElement {
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
         notification.textContent = message;
-        
+
         document.body.appendChild(notification);
-        
+
         setTimeout(() => {
             notification.remove();
         }, 3000);

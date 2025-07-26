@@ -9,19 +9,19 @@ export const SVGIcons = {
         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
         <polyline points="9 22 9 12 15 12 15 22"></polyline>
     </svg>`,
-    
+
     profile: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
         <circle cx="12" cy="7" r="4"></circle>
     </svg>`,
-    
+
     team: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
         <circle cx="9" cy="7" r="4"></circle>
         <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
         <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
     </svg>`,
-    
+
     tasks: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4"></path>
         <polyline points="9 11 12 14 22 4"></polyline>
@@ -33,12 +33,12 @@ export const SVGIcons = {
         <path d="M12 2v20"></path>
         <circle cx="12" cy="8" r="3"></circle>
     </svg>`,
-    
+
     money: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="12" y1="1" x2="12" y2="23"></line>
         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
     </svg>`,
-    
+
     vacation: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="12" r="10"></circle>
         <path d="M2 12l10 10 10-10"></path>
@@ -46,7 +46,7 @@ export const SVGIcons = {
         <path d="M9 9h.01"></path>
         <path d="M15 9h.01"></path>
     </svg>`,
-    
+
     learning: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
         <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
@@ -59,12 +59,12 @@ export const SVGIcons = {
         <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
         <polyline points="17 6 23 6 23 12"></polyline>
     </svg>`,
-    
+
     analytics: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M3 3v18h18"></path>
         <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
     </svg>`,
-    
+
     clock: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="12" r="10"></circle>
         <polyline points="12 6 12 12 16 14"></polyline>
@@ -74,7 +74,7 @@ export const SVGIcons = {
     star: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <polygon points="12 2 15.09 8.26 22 9 17 14 18.18 21 12 17.77 5.82 21 7 14 2 9 8.91 8.26 12 2"></polygon>
     </svg>`,
-    
+
     trophy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
         <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
@@ -87,20 +87,20 @@ export const SVGIcons = {
         <polyline points="16 18 22 12 16 6"></polyline>
         <polyline points="8 6 2 12 8 18"></polyline>
     </svg>`,
-    
+
     design: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
         <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
         <path d="M2 2l7.586 7.586"></path>
         <circle cx="11" cy="11" r="2"></circle>
     </svg>`,
-    
+
     product: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
         <line x1="3" y1="6" x2="21" y2="6"></line>
         <path d="M16 10a4 4 0 0 1-8 0"></path>
     </svg>`,
-    
+
     security: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
     </svg>`,
@@ -154,12 +154,12 @@ export const SVGIcons = {
             height: '24px',
             display: 'inline-block'
         };
-        
+
         const style = { ...defaultStyle, ...customStyle };
         const styleString = Object.entries(style)
             .map(([key, value]) => `${key}: ${value}`)
             .join('; ');
-        
+
         const icon = this[iconName] || this.star;
         return icon.replace('<svg', `<svg style="${styleString}"`);
     }
@@ -173,6 +173,6 @@ export function getIconHTML(iconName, size = '16px', customStyle = {}) {
         display: 'inline-block',
         ...customStyle
     };
-    
+
     return SVGIcons.getIcon(iconName, style);
 }
