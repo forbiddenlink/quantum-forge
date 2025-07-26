@@ -231,7 +231,13 @@
   .widget {
     animation: none;
   }
-}/* NEW: Accessibility */
+  
+  .dashboard-item {
+    animation: none;
+  }
+}
+
+/* NEW: Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .widget,
   .dashboard-item,
@@ -2416,7 +2422,10 @@
     color: var(--text-primary);
 }
 
-
+.notification-close svg {
+    width: 16px;
+    height: 16px;
+}
 
 .detailed-action-btn {
     background: var(--primary-500);
@@ -2934,7 +2943,14 @@
         box-shadow: none;
         border: 1px solid #ccc;
     }
-}/* Responsive Design */
+    
+    .live-dot,
+    .culture-badge::before {
+        animation: none;
+    }
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
     .pulse-dashboard {
         grid-template-columns: 1fr;
@@ -3356,4 +3372,3 @@ html body .company-culture-showcase [style*="color: #333"],
 html body .company-culture-showcase [style*="color: #666"] {
     color: #ffffff !important;
 }
-

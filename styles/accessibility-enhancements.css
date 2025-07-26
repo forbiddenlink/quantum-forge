@@ -371,9 +371,6 @@ body.keyboard-nav-active .skip-links {
 }
 
 /* ===== FORM ACCESSIBILITY ENHANCEMENTS ===== */
-.form-group {
-    margin-bottom: var(--space-4);
-}
 
 .form-label {
     display: block;

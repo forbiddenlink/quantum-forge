@@ -231,7 +231,13 @@
   .widget {
     animation: none;
   }
-}/* NEW: Accessibility */
+  
+  .dashboard-item {
+    animation: none;
+  }
+}
+
+/* NEW: Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .widget,
   .dashboard-item,
@@ -2934,7 +2940,14 @@
         box-shadow: none;
         border: 1px solid #ccc;
     }
-}/* Responsive Design */
+    
+    .live-dot,
+    .culture-badge::before {
+        animation: none;
+    }
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
     .pulse-dashboard {
         grid-template-columns: 1fr;

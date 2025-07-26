@@ -2934,7 +2934,14 @@
         box-shadow: none;
         border: 1px solid #ccc;
     }
-}/* Responsive Design */
+    
+    .live-dot,
+    .culture-badge::before {
+        animation: none;
+    }
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
     .pulse-dashboard {
         grid-template-columns: 1fr;

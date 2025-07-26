@@ -16,12 +16,12 @@ Write-Host "📋 Total lines: $($lines.Count)" -ForegroundColor Cyan
 
 # Target specific duplicate keyframes by line numbers (from our analysis)
 $duplicatesToRemove = @(
-    @{Name="expandIn"; StartLine=2138; EndLine=2148},  # First duplicate
-    @{Name="expandIn"; StartLine=9888; EndLine=9898},  # Second duplicate  
-    @{Name="expandIn"; StartLine=19663; EndLine=19673}, # Third duplicate
-    @{Name="float"; StartLine=5535; EndLine=5544},     # First float duplicate
-    @{Name="float"; StartLine=12930; EndLine=12939},   # Second float duplicate
-    @{Name="float"; StartLine=23060; EndLine=23069}    # Third float duplicate
+    @{Name = "expandIn"; StartLine = 2138; EndLine = 2148 },  # First duplicate
+    @{Name = "expandIn"; StartLine = 9888; EndLine = 9898 },  # Second duplicate  
+    @{Name = "expandIn"; StartLine = 19663; EndLine = 19673 }, # Third duplicate
+    @{Name = "float"; StartLine = 5535; EndLine = 5544 },     # First float duplicate
+    @{Name = "float"; StartLine = 12930; EndLine = 12939 },   # Second float duplicate
+    @{Name = "float"; StartLine = 23060; EndLine = 23069 }    # Third float duplicate
 )
 
 # Sort by line number descending to avoid index shifting
@@ -40,9 +40,10 @@ foreach ($duplicate in $duplicatesToRemove) {
         
         # Remove the lines (in reverse order to maintain indices)
         for ($i = $endIdx; $i -ge $startIdx; $i--) {
-            $lines = $lines[0..($i-1)] + $lines[($i+1)..($lines.Length-1)]
+            $lines = $lines[0..($i - 1)] + $lines[($i + 1)..($lines.Length - 1)]
         }
-    } else {
+    }
+    else {
         Write-Host "   ⚠️ Skipping $($duplicate.Name) - line content doesn't match: $keyframeLine" -ForegroundColor Red
     }
 }
@@ -50,7 +51,7 @@ foreach ($duplicate in $duplicatesToRemove) {
 # Write back to file
 $lines | Set-Content $mainCssPath -Encoding UTF8
 
-$newSize = [math]::Round((Get-Item $mainCssPath).Length/1KB,2)
+$newSize = [math]::Round((Get-Item $mainCssPath).Length / 1KB, 2)
 $savings = [math]::Round(815.94 - $newSize, 2)
 
 Write-Host "✅ Cleanup complete!" -ForegroundColor Green

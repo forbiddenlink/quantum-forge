@@ -1,6 +1,6 @@
 # CSS Duplication Report
 
-Found 472 duplicate rule(s).
+Found 456 duplicate rule(s).
 
 ## Duplicate Rule Found
 
@@ -93,7 +93,7 @@ Found 472 duplicate rule(s).
     100%)
 - animations.css:254 (0%,
     100%)
-- contest-enhancements.css:1313 (0%, 100%)
+- contest-enhancements.css:1307 (0%, 100%)
 - team.css:345 (0%,
     100%)
 
@@ -111,7 +111,7 @@ Found 472 duplicate rule(s).
     100%)
 - animations.css:453 (0%,
     100%)
-- contest-enhancements.css:1163 (0%, 100%)
+- contest-enhancements.css:1157 (0%, 100%)
 
 ### Rule Content:
 ```css
@@ -229,7 +229,7 @@ from { opacity: 1; transform: translateY(0); }
     100%)
 - company-news.css:179 (0%,
     100%)
-- enhanced-knowledge-hub.css:528 (0%,
+- enhanced-knowledge-hub.css:516 (0%,
     100%)
 
 ### Rule Content:
@@ -297,17 +297,6 @@ from { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- accessibility-enhancements.css:374 (.form-group)
-- components.css:227 (.form-group)
-
-### Rule Content:
-```css
-.form-group { margin-bottom: var(--space-4); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - animations.css:209 (0%,
     100%)
 - contest-enhancements.css:15 (0%, 100%)
@@ -331,19 +320,8 @@ from { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:235 (.dashboard-item)
-- contest-enhancements.css:446 (.dashboard-item)
-
-### Rule Content:
-```css
-.dashboard-item { animation: none; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - analytics-dashboard.css:1668 (50%)
-- contest-enhancements.css:1314 (50%)
+- contest-enhancements.css:1308 (50%)
 
 ### Rule Content:
 ```css
@@ -353,12 +331,12 @@ from { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:1136 (0%, 100%)
-- contest-enhancements.css:1468 (0%, 100%)
+- contest-enhancements.css:1130 (0%, 100%)
+- contest-enhancements.css:1462 (0%, 100%)
 - team-chat-widget.css:94 (0%, 100%)
 - welcome-section.css:2982 (0%,
     100%)
-- welcome-section.css:5936 (0%,
+- welcome-section.css:5848 (0%,
     100%)
 - wellness-tracker.css:45 (0%, 100%)
 
@@ -370,8 +348,8 @@ from { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:1137 (50%)
-- contest-enhancements.css:1471 (50%)
+- contest-enhancements.css:1131 (50%)
+- contest-enhancements.css:1465 (50%)
 
 ### Rule Content:
 ```css
@@ -382,7 +360,7 @@ from { opacity: 1; transform: translateY(0); }
 
 ### Locations:
 - analytics-dashboard.css:2321 (50%)
-- contest-enhancements.css:1603 (50%)
+- contest-enhancements.css:1597 (50%)
 
 ### Rule Content:
 ```css
@@ -392,19 +370,8 @@ from { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- analytics-dashboard.css:2524 (.notification-close svg)
-- contest-enhancements.css:2425 (.notification-close svg)
-
-### Rule Content:
-```css
-.notification-close svg { width: 16px; height: 16px; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - analytics-dashboard.css:2212 (100%)
-- contest-enhancements.css:2459 (100%)
+- contest-enhancements.css:2450 (100%)
 
 ### Rule Content:
 ```css
@@ -415,7 +382,7 @@ from { opacity: 1; transform: translateY(0); }
 
 ### Locations:
 - accessibility-enhancements.css:243 (.chart-container)
-- contest-enhancements.css:2527 (.chart-container)
+- contest-enhancements.css:2518 (.chart-container)
 
 ### Rule Content:
 ```css
@@ -425,21 +392,8 @@ from { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:2920 (.live-dot,
-    .culture-badge::before)
-- contest-enhancements.css:2947 (.live-dot,
-    .culture-badge::before)
-
-### Rule Content:
-```css
-.live-dot, .culture-badge::before { animation: none; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- contest-enhancements.css:2897 (.story-controls)
-- contest-enhancements.css:3030 (.story-controls)
+- contest-enhancements.css:2888 (.story-controls)
+- contest-enhancements.css:3014 (.story-controls)
 
 ### Rule Content:
 ```css
@@ -449,8 +403,8 @@ from { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:2902 (.story-indicators)
-- contest-enhancements.css:3035 (.story-indicators)
+- contest-enhancements.css:2893 (.story-indicators)
+- contest-enhancements.css:3019 (.story-indicators)
 
 ### Rule Content:
 ```css
@@ -460,10 +414,10 @@ from { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:2984 (.stories-section,
+- contest-enhancements.css:2968 (.stories-section,
     .values-section,
     .timeline-section)
-- contest-enhancements.css:3039 (.stories-section,
+- contest-enhancements.css:3023 (.stories-section,
     .values-section,
     .timeline-section)
 
@@ -854,7 +808,7 @@ to { opacity: 1; transform: scale(1); }
 ### Locations:
 - analytics-dashboard.css:449 (0%,
     100%)
-- enhanced-knowledge-hub.css:576 (0%,
+- enhanced-knowledge-hub.css:564 (0%,
     100%)
 
 ### Rule Content:
@@ -867,15 +821,15 @@ to { opacity: 1; transform: scale(1); }
 ### Locations:
 - analytics-dashboard.css:495 (0%,
     100%)
-- enhanced-knowledge-hub.css:631 (0%,
+- enhanced-knowledge-hub.css:619 (0%,
     100%)
 - enhanced-task-system.css:753 (0%,
     100%)
 - welcome-section.css:2257 (0%,
     100%)
-- welcome-section.css:5173 (0%,
+- welcome-section.css:5085 (0%,
     100%)
-- welcome-section.css:8127 (0%,
+- welcome-section.css:7951 (0%,
     100%)
 
 ### Rule Content:
@@ -887,7 +841,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - analytics-dashboard.css:501 (50%)
-- enhanced-knowledge-hub.css:637 (50%)
+- enhanced-knowledge-hub.css:625 (50%)
 
 ### Rule Content:
 ```css
@@ -899,7 +853,7 @@ to { opacity: 1; transform: scale(1); }
 ### Locations:
 - analytics-dashboard.css:586 (0%,
     100%)
-- enhanced-knowledge-hub.css:657 (0%,
+- enhanced-knowledge-hub.css:645 (0%,
     100%)
 
 ### Rule Content:
@@ -911,7 +865,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - analytics-dashboard.css:593 (50%)
-- enhanced-knowledge-hub.css:664 (50%)
+- enhanced-knowledge-hub.css:652 (50%)
 
 ### Rule Content:
 ```css
@@ -921,8 +875,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:2088 (0%, 100%)
-- enhanced-knowledge-hub.css:1022 (0%,
+- contest-enhancements.css:2082 (0%, 100%)
+- enhanced-knowledge-hub.css:1010 (0%,
     100%)
 - team-chat-widget.css:177 (0%, 100%)
 
@@ -935,7 +889,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - enhanced-knowledge-hub.css:328 (.hub-title.spectacular)
-- enhanced-knowledge-hub.css:2450 (.hub-title.spectacular)
+- enhanced-knowledge-hub.css:2438 (.hub-title.spectacular)
 
 ### Rule Content:
 ```css
@@ -946,7 +900,7 @@ to { opacity: 1; transform: scale(1); }
 
 ### Locations:
 - analytics-dashboard.css:541 (50%)
-- enhanced-knowledge-hub.css:2673 (50%)
+- enhanced-knowledge-hub.css:2661 (50%)
 
 ### Rule Content:
 ```css
@@ -956,8 +910,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:1484 (.gap-info)
-- enhanced-knowledge-hub.css:2821 (.gap-info)
+- enhanced-knowledge-hub.css:1472 (.gap-info)
+- enhanced-knowledge-hub.css:2809 (.gap-info)
 
 ### Rule Content:
 ```css
@@ -967,8 +921,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:1595 (.trending-info)
-- enhanced-knowledge-hub.css:2957 (.trending-info)
+- enhanced-knowledge-hub.css:1583 (.trending-info)
+- enhanced-knowledge-hub.css:2945 (.trending-info)
 
 ### Rule Content:
 ```css
@@ -978,8 +932,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:3955 (.enhanced-knowledge-hub.spectacular-mode)
-- enhanced-knowledge-hub.css:3995 (.enhanced-knowledge-hub.spectacular-mode)
+- enhanced-knowledge-hub.css:3943 (.enhanced-knowledge-hub.spectacular-mode)
+- enhanced-knowledge-hub.css:3983 (.enhanced-knowledge-hub.spectacular-mode)
 
 ### Rule Content:
 ```css
@@ -989,8 +943,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:3303 (.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular)
-- enhanced-knowledge-hub.css:4029 (.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular)
+- enhanced-knowledge-hub.css:3291 (.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular)
+- enhanced-knowledge-hub.css:4017 (.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular)
 
 ### Rule Content:
 ```css
@@ -1003,8 +957,8 @@ to { opacity: 1; transform: scale(1); }
 - analytics-dashboard.css:1859 (50%)
 - enhanced-task-system.css:759 (50%)
 - welcome-section.css:2263 (50%)
-- welcome-section.css:5179 (50%)
-- welcome-section.css:8133 (50%)
+- welcome-section.css:5091 (50%)
+- welcome-section.css:7957 (50%)
 
 ### Rule Content:
 ```css
@@ -1376,7 +1330,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4529 (.filter-group)
+- enhanced-knowledge-hub.css:4517 (.filter-group)
 - enhanced-task-system.css:4319 (.filter-group)
 
 ### Rule Content:
@@ -1387,7 +1341,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4534 (.filter-btn)
+- enhanced-knowledge-hub.css:4522 (.filter-btn)
 - enhanced-task-system.css:4324 (.filter-btn)
 
 ### Rule Content:
@@ -1398,7 +1352,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4547 (.filter-btn:hover)
+- enhanced-knowledge-hub.css:4535 (.filter-btn:hover)
 - enhanced-task-system.css:4337 (.filter-btn:hover)
 
 ### Rule Content:
@@ -1409,7 +1363,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4553 (.filter-btn.active)
+- enhanced-knowledge-hub.css:4541 (.filter-btn.active)
 - enhanced-task-system.css:4343 (.filter-btn.active)
 
 ### Rule Content:
@@ -1420,7 +1374,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-knowledge-hub.css:4574 (.filter-group)
+- enhanced-knowledge-hub.css:4562 (.filter-group)
 - enhanced-task-system.css:4388 (.filter-group)
 
 ### Rule Content:
@@ -1665,7 +1619,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- contest-enhancements.css:2089 (50%)
+- contest-enhancements.css:2083 (50%)
 - team-chat-widget.css:178 (50%)
 
 ### Rule Content:
@@ -1811,7 +1765,7 @@ from { opacity: 0; transform: translateY(10px); }
 - accessibility-enhancements.css:133 (.sr-only)
 - utilities.css:6 (.sr-only)
 - welcome-section.css:2853 (.sr-only)
-- welcome-section.css:5807 (.sr-only)
+- welcome-section.css:5719 (.sr-only)
 
 ### Rule Content:
 ```css
@@ -1846,7 +1800,7 @@ from { opacity: 0; transform: translateY(10px); }
 - team.css:1695 (.quick-insights .insights-title .btn-icon:hover)
 - welcome-section.css:1114 (.quick-insights .insights-title .btn-icon:hover)
 - welcome-section.css:4035 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:6993 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:6905 (.quick-insights .insights-title .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -1862,7 +1816,7 @@ from { opacity: 0; transform: translateY(10px); }
 .quick-insights .insights-title .btn-icon:hover path)
 - welcome-section.css:4043 (.quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:hover path)
-- welcome-section.css:7001 (.quick-insights .insights-title .btn-icon:hover svg,
+- welcome-section.css:6913 (.quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:hover path)
 
 ### Rule Content:
@@ -1879,7 +1833,7 @@ from { opacity: 0; transform: translateY(10px); }
 .quick-insights .insight-content *)
 - welcome-section.css:4335 (.quick-insights .insight-content,
 .quick-insights .insight-content *)
-- welcome-section.css:7289 (.quick-insights .insight-content,
+- welcome-section.css:7201 (.quick-insights .insight-content,
 .quick-insights .insight-content *)
 
 ### Rule Content:
@@ -1906,11 +1860,11 @@ from { opacity: 0; transform: translateY(10px); }
 .quick-insights .insight-content p[style*="color"],
 .quick-insights .insight-content span[style*="color"],
 .quick-insights .insight-content div[style*="color"])
-- welcome-section.css:7259 (.quick-insights .insight-content h4[style*="color"],
+- welcome-section.css:7171 (.quick-insights .insight-content h4[style*="color"],
 .quick-insights .insight-content p[style*="color"],
 .quick-insights .insight-content span[style*="color"],
 .quick-insights .insight-content div[style*="color"])
-- welcome-section.css:7308 (.quick-insights .insight-content h4[style*="color"],
+- welcome-section.css:7220 (.quick-insights .insight-content h4[style*="color"],
 .quick-insights .insight-content p[style*="color"],
 .quick-insights .insight-content span[style*="color"],
 .quick-insights .insight-content div[style*="color"])
@@ -1927,9 +1881,9 @@ from { opacity: 0; transform: translateY(10px); }
     100%)
 - welcome-section.css:2289 (0%,
     100%)
-- welcome-section.css:5205 (0%,
+- welcome-section.css:5117 (0%,
     100%)
-- welcome-section.css:8159 (0%,
+- welcome-section.css:7983 (0%,
     100%)
 
 ### Rule Content:
@@ -1944,7 +1898,7 @@ from { opacity: 0; transform: translateY(10px); }
     100%)
 - welcome-section.css:2623 (0%,
     100%)
-- welcome-section.css:5609 (0%,
+- welcome-section.css:5521 (0%,
     100%)
 
 ### Rule Content:
@@ -1957,7 +1911,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - enhanced-task-system.css:2196 (50%)
 - welcome-section.css:2629 (50%)
-- welcome-section.css:5615 (50%)
+- welcome-section.css:5527 (50%)
 
 ### Rule Content:
 ```css
@@ -1969,7 +1923,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:615 (.welcome-section .quick-actions .btn:hover::before)
 - welcome-section.css:3107 (.welcome-section .quick-actions .btn:hover::before)
-- welcome-section.css:6054 (.welcome-section .quick-actions .btn:hover::before)
+- welcome-section.css:5966 (.welcome-section .quick-actions .btn:hover::before)
 
 ### Rule Content:
 ```css
@@ -1981,7 +1935,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:282 (.welcome-header)
 - welcome-section.css:3132 (.welcome-header)
-- welcome-section.css:6079 (.welcome-header)
+- welcome-section.css:5991 (.welcome-header)
 
 ### Rule Content:
 ```css
@@ -1993,7 +1947,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:288 (.welcome-title)
 - welcome-section.css:3138 (.welcome-title)
-- welcome-section.css:6085 (.welcome-title)
+- welcome-section.css:5997 (.welcome-title)
 
 ### Rule Content:
 ```css
@@ -2005,7 +1959,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:301 (.greeting)
 - welcome-section.css:3151 (.greeting)
-- welcome-section.css:6098 (.greeting)
+- welcome-section.css:6010 (.greeting)
 
 ### Rule Content:
 ```css
@@ -2017,7 +1971,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:314 (.welcome-title .user-name)
 - welcome-section.css:3164 (.welcome-title .user-name)
-- welcome-section.css:6111 (.welcome-title .user-name)
+- welcome-section.css:6023 (.welcome-title .user-name)
 
 ### Rule Content:
 ```css
@@ -2029,7 +1983,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:327 (.welcome-title .user-name::after)
 - welcome-section.css:3177 (.welcome-title .user-name::after)
-- welcome-section.css:6124 (.welcome-title .user-name::after)
+- welcome-section.css:6036 (.welcome-title .user-name::after)
 
 ### Rule Content:
 ```css
@@ -2041,7 +1995,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:338 (.welcome-subtitle)
 - welcome-section.css:3188 (.welcome-subtitle)
-- welcome-section.css:6135 (.welcome-subtitle)
+- welcome-section.css:6047 (.welcome-subtitle)
 
 ### Rule Content:
 ```css
@@ -2053,7 +2007,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:346 (.welcome-status)
 - welcome-section.css:3196 (.welcome-status)
-- welcome-section.css:6143 (.welcome-status)
+- welcome-section.css:6055 (.welcome-status)
 
 ### Rule Content:
 ```css
@@ -2065,7 +2019,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:353 (.status-indicator)
 - welcome-section.css:3203 (.status-indicator)
-- welcome-section.css:6150 (.status-indicator)
+- welcome-section.css:6062 (.status-indicator)
 
 ### Rule Content:
 ```css
@@ -2077,7 +2031,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:362 (.status-indicator.online)
 - welcome-section.css:3212 (.status-indicator.online)
-- welcome-section.css:6159 (.status-indicator.online)
+- welcome-section.css:6071 (.status-indicator.online)
 
 ### Rule Content:
 ```css
@@ -2089,7 +2043,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:367 (.status-indicator.warning)
 - welcome-section.css:3217 (.status-indicator.warning)
-- welcome-section.css:6164 (.status-indicator.warning)
+- welcome-section.css:6076 (.status-indicator.warning)
 
 ### Rule Content:
 ```css
@@ -2101,7 +2055,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:372 (.status-indicator.error)
 - welcome-section.css:3222 (.status-indicator.error)
-- welcome-section.css:6169 (.status-indicator.error)
+- welcome-section.css:6081 (.status-indicator.error)
 
 ### Rule Content:
 ```css
@@ -2113,7 +2067,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:378 (.status-text)
 - welcome-section.css:3228 (.status-text)
-- welcome-section.css:6175 (.status-text)
+- welcome-section.css:6087 (.status-text)
 
 ### Rule Content:
 ```css
@@ -2125,7 +2079,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:396 (.welcome-stats)
 - welcome-section.css:3246 (.welcome-stats)
-- welcome-section.css:6193 (.welcome-stats)
+- welcome-section.css:6105 (.welcome-stats)
 
 ### Rule Content:
 ```css
@@ -2137,7 +2091,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:406 (.stat-item)
 - welcome-section.css:3256 (.stat-item)
-- welcome-section.css:6203 (.stat-item)
+- welcome-section.css:6115 (.stat-item)
 
 ### Rule Content:
 ```css
@@ -2149,7 +2103,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:420 (.stat-item::before)
 - welcome-section.css:3270 (.stat-item::before)
-- welcome-section.css:6217 (.stat-item::before)
+- welcome-section.css:6129 (.stat-item::before)
 
 ### Rule Content:
 ```css
@@ -2161,7 +2115,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:432 (.stat-item:hover)
 - welcome-section.css:3282 (.stat-item:hover)
-- welcome-section.css:6229 (.stat-item:hover)
+- welcome-section.css:6141 (.stat-item:hover)
 
 ### Rule Content:
 ```css
@@ -2173,7 +2127,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:438 (.stat-item:hover::before)
 - welcome-section.css:3288 (.stat-item:hover::before)
-- welcome-section.css:6235 (.stat-item:hover::before)
+- welcome-section.css:6147 (.stat-item:hover::before)
 
 ### Rule Content:
 ```css
@@ -2185,7 +2139,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:492 (.stat-label)
 - welcome-section.css:3306 (.stat-label)
-- welcome-section.css:6289 (.stat-label)
+- welcome-section.css:6201 (.stat-label)
 
 ### Rule Content:
 ```css
@@ -2197,7 +2151,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:504 (.quick-actions)
 - welcome-section.css:3332 (.quick-actions)
-- welcome-section.css:6301 (.quick-actions)
+- welcome-section.css:6213 (.quick-actions)
 
 ### Rule Content:
 ```css
@@ -2209,7 +2163,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:514 (.quick-actions .btn)
 - welcome-section.css:3342 (.quick-actions .btn)
-- welcome-section.css:6311 (.quick-actions .btn)
+- welcome-section.css:6223 (.quick-actions .btn)
 
 ### Rule Content:
 ```css
@@ -2221,7 +2175,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:535 (.quick-actions .btn .btn-icon:hover)
 - welcome-section.css:3363 (.quick-actions .btn .btn-icon:hover)
-- welcome-section.css:6332 (.quick-actions .btn .btn-icon:hover)
+- welcome-section.css:6244 (.quick-actions .btn .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -2233,7 +2187,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:541 (.quick-actions .btn:hover .btn-icon)
 - welcome-section.css:3369 (.quick-actions .btn:hover .btn-icon)
-- welcome-section.css:6338 (.quick-actions .btn:hover .btn-icon)
+- welcome-section.css:6250 (.quick-actions .btn:hover .btn-icon)
 
 ### Rule Content:
 ```css
@@ -2245,7 +2199,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:547 (.quick-actions .btn::before)
 - welcome-section.css:3375 (.quick-actions .btn::before)
-- welcome-section.css:6344 (.quick-actions .btn::before)
+- welcome-section.css:6256 (.quick-actions .btn::before)
 
 ### Rule Content:
 ```css
@@ -2257,7 +2211,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:558 (.quick-actions .btn:hover::before)
 - welcome-section.css:3386 (.quick-actions .btn:hover::before)
-- welcome-section.css:6355 (.quick-actions .btn:hover::before)
+- welcome-section.css:6267 (.quick-actions .btn:hover::before)
 
 ### Rule Content:
 ```css
@@ -2269,7 +2223,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:562 (.quick-actions .btn .btn-icon)
 - welcome-section.css:3390 (.quick-actions .btn .btn-icon)
-- welcome-section.css:6359 (.quick-actions .btn .btn-icon)
+- welcome-section.css:6271 (.quick-actions .btn .btn-icon)
 
 ### Rule Content:
 ```css
@@ -2281,7 +2235,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:572 (.quick-actions .btn.primary)
 - welcome-section.css:3400 (.quick-actions .btn.primary)
-- welcome-section.css:6369 (.quick-actions .btn.primary)
+- welcome-section.css:6281 (.quick-actions .btn.primary)
 
 ### Rule Content:
 ```css
@@ -2293,7 +2247,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:579 (.quick-actions .btn.primary:hover)
 - welcome-section.css:3407 (.quick-actions .btn.primary:hover)
-- welcome-section.css:6376 (.quick-actions .btn.primary:hover)
+- welcome-section.css:6288 (.quick-actions .btn.primary:hover)
 
 ### Rule Content:
 ```css
@@ -2305,7 +2259,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:585 (.quick-actions .btn.secondary)
 - welcome-section.css:3413 (.quick-actions .btn.secondary)
-- welcome-section.css:6382 (.quick-actions .btn.secondary)
+- welcome-section.css:6294 (.quick-actions .btn.secondary)
 
 ### Rule Content:
 ```css
@@ -2317,7 +2271,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:590 (.quick-actions .btn.secondary:hover)
 - welcome-section.css:3418 (.quick-actions .btn.secondary:hover)
-- welcome-section.css:6387 (.quick-actions .btn.secondary:hover)
+- welcome-section.css:6299 (.quick-actions .btn.secondary:hover)
 
 ### Rule Content:
 ```css
@@ -2329,7 +2283,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:652 (.quick-insights .insights-title .btn-icon:hover)
 - welcome-section.css:3454 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:6423 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:6335 (.quick-insights .insights-title .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -2341,7 +2295,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:660 (.upcoming-events)
 - welcome-section.css:3462 (.upcoming-events)
-- welcome-section.css:6431 (.upcoming-events)
+- welcome-section.css:6343 (.upcoming-events)
 
 ### Rule Content:
 ```css
@@ -2359,7 +2313,7 @@ from { opacity: 0; transform: translateY(10px); }
 .upcoming-events-title .icon,
 .welcome-section .insights-title svg,
 .welcome-section .insights-title .icon)
-- welcome-section.css:6445 (.upcoming-events-title svg,
+- welcome-section.css:6357 (.upcoming-events-title svg,
 .upcoming-events-title .icon,
 .welcome-section .insights-title svg,
 .welcome-section .insights-title .icon)
@@ -2382,7 +2336,7 @@ from { opacity: 0; transform: translateY(10px); }
 .upcoming-events-title .btn-icon,
 .upcoming-events-title .icon,
 .upcoming-events-title [class*="icon"])
-- welcome-section.css:6459 (.upcoming-events-title *,
+- welcome-section.css:6371 (.upcoming-events-title *,
 .upcoming-events-title svg,
 .upcoming-events-title .btn-icon,
 .upcoming-events-title .icon,
@@ -2412,7 +2366,7 @@ from { opacity: 0; transform: translateY(10px); }
 .welcome-section .insights-title .btn-icon,
 .welcome-section .insights-title .icon,
 .welcome-section .insights-title [class*="icon"])
-- welcome-section.css:6474 (.upcoming-events-title svg,
+- welcome-section.css:6386 (.upcoming-events-title svg,
 .upcoming-events-title .btn-icon,
 .upcoming-events-title .icon,
 .upcoming-events-title [class*="icon"],
@@ -2442,7 +2396,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:735 (.upcoming-events-title)
 - welcome-section.css:3533 (.upcoming-events-title)
-- welcome-section.css:6491 (.upcoming-events-title)
+- welcome-section.css:6403 (.upcoming-events-title)
 
 ### Rule Content:
 ```css
@@ -2454,7 +2408,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:746 (.events-list)
 - welcome-section.css:3544 (.events-list)
-- welcome-section.css:6502 (.events-list)
+- welcome-section.css:6414 (.events-list)
 
 ### Rule Content:
 ```css
@@ -2466,7 +2420,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:755 (.events-list::-webkit-scrollbar)
 - welcome-section.css:3553 (.events-list::-webkit-scrollbar)
-- welcome-section.css:6511 (.events-list::-webkit-scrollbar)
+- welcome-section.css:6423 (.events-list::-webkit-scrollbar)
 
 ### Rule Content:
 ```css
@@ -2478,7 +2432,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:759 (.events-list::-webkit-scrollbar-thumb)
 - welcome-section.css:3557 (.events-list::-webkit-scrollbar-thumb)
-- welcome-section.css:6515 (.events-list::-webkit-scrollbar-thumb)
+- welcome-section.css:6427 (.events-list::-webkit-scrollbar-thumb)
 
 ### Rule Content:
 ```css
@@ -2490,7 +2444,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:816 (.welcome-section .insights-section)
 - welcome-section.css:3648 (.welcome-section .insights-section)
-- welcome-section.css:6606 (.welcome-section .insights-section)
+- welcome-section.css:6518 (.welcome-section .insights-section)
 
 ### Rule Content:
 ```css
@@ -2502,7 +2456,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:828 (.welcome-section .insights-title)
 - welcome-section.css:3660 (.welcome-section .insights-title)
-- welcome-section.css:6618 (.welcome-section .insights-title)
+- welcome-section.css:6530 (.welcome-section .insights-title)
 
 ### Rule Content:
 ```css
@@ -2514,7 +2468,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:839 (.welcome-section .insights-grid)
 - welcome-section.css:3671 (.welcome-section .insights-grid)
-- welcome-section.css:6629 (.welcome-section .insights-grid)
+- welcome-section.css:6541 (.welcome-section .insights-grid)
 
 ### Rule Content:
 ```css
@@ -2526,7 +2480,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:845 (.welcome-section .insight-card)
 - welcome-section.css:3677 (.welcome-section .insight-card)
-- welcome-section.css:6635 (.welcome-section .insight-card)
+- welcome-section.css:6547 (.welcome-section .insight-card)
 
 ### Rule Content:
 ```css
@@ -2538,7 +2492,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:856 (.welcome-section .insight-card::before)
 - welcome-section.css:3688 (.welcome-section .insight-card::before)
-- welcome-section.css:6646 (.welcome-section .insight-card::before)
+- welcome-section.css:6558 (.welcome-section .insight-card::before)
 
 ### Rule Content:
 ```css
@@ -2550,7 +2504,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:868 (.welcome-section .insight-card:hover)
 - welcome-section.css:3700 (.welcome-section .insight-card:hover)
-- welcome-section.css:6658 (.welcome-section .insight-card:hover)
+- welcome-section.css:6570 (.welcome-section .insight-card:hover)
 
 ### Rule Content:
 ```css
@@ -2562,7 +2516,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:874 (.welcome-section .insight-card:hover::before)
 - welcome-section.css:3706 (.welcome-section .insight-card:hover::before)
-- welcome-section.css:6664 (.welcome-section .insight-card:hover::before)
+- welcome-section.css:6576 (.welcome-section .insight-card:hover::before)
 
 ### Rule Content:
 ```css
@@ -2574,7 +2528,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:878 (.welcome-section .insight-card h4)
 - welcome-section.css:3710 (.welcome-section .insight-card h4)
-- welcome-section.css:6668 (.welcome-section .insight-card h4)
+- welcome-section.css:6580 (.welcome-section .insight-card h4)
 
 ### Rule Content:
 ```css
@@ -2586,7 +2540,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:886 (.welcome-section .insight-card p)
 - welcome-section.css:3718 (.welcome-section .insight-card p)
-- welcome-section.css:6676 (.welcome-section .insight-card p)
+- welcome-section.css:6588 (.welcome-section .insight-card p)
 
 ### Rule Content:
 ```css
@@ -2598,7 +2552,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:894 (.welcome-section .insight-card .insight-icon)
 - welcome-section.css:3726 (.welcome-section .insight-card .insight-icon)
-- welcome-section.css:6684 (.welcome-section .insight-card .insight-icon)
+- welcome-section.css:6596 (.welcome-section .insight-card .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2610,7 +2564,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:906 (.welcome-section .insight-card .insight-icon svg)
 - welcome-section.css:3738 (.welcome-section .insight-card .insight-icon svg)
-- welcome-section.css:6696 (.welcome-section .insight-card .insight-icon svg)
+- welcome-section.css:6608 (.welcome-section .insight-card .insight-icon svg)
 
 ### Rule Content:
 ```css
@@ -2622,7 +2576,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:914 (.welcome-section .insight-card.positive .insight-icon)
 - welcome-section.css:3746 (.welcome-section .insight-card.positive .insight-icon)
-- welcome-section.css:6704 (.welcome-section .insight-card.positive .insight-icon)
+- welcome-section.css:6616 (.welcome-section .insight-card.positive .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2634,7 +2588,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:919 (.welcome-section .insight-card.info .insight-icon)
 - welcome-section.css:3751 (.welcome-section .insight-card.info .insight-icon)
-- welcome-section.css:6709 (.welcome-section .insight-card.info .insight-icon)
+- welcome-section.css:6621 (.welcome-section .insight-card.info .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2646,7 +2600,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:924 (.welcome-section .insight-card.warning .insight-icon)
 - welcome-section.css:3756 (.welcome-section .insight-card.warning .insight-icon)
-- welcome-section.css:6714 (.welcome-section .insight-card.warning .insight-icon)
+- welcome-section.css:6626 (.welcome-section .insight-card.warning .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2658,7 +2612,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:936 (.quick-insights .insight-card:hover::before)
 - welcome-section.css:3857 (.quick-insights .insight-card:hover::before)
-- welcome-section.css:6815 (.quick-insights .insight-card:hover::before)
+- welcome-section.css:6727 (.quick-insights .insight-card:hover::before)
 
 ### Rule Content:
 ```css
@@ -2670,7 +2624,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:940 (.quick-insights .insight-card h4)
 - welcome-section.css:3861 (.quick-insights .insight-card h4)
-- welcome-section.css:6819 (.quick-insights .insight-card h4)
+- welcome-section.css:6731 (.quick-insights .insight-card h4)
 
 ### Rule Content:
 ```css
@@ -2682,7 +2636,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:948 (.quick-insights .insight-card p)
 - welcome-section.css:3869 (.quick-insights .insight-card p)
-- welcome-section.css:6827 (.quick-insights .insight-card p)
+- welcome-section.css:6739 (.quick-insights .insight-card p)
 
 ### Rule Content:
 ```css
@@ -2694,7 +2648,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:956 (.quick-insights .insight-card .insight-icon)
 - welcome-section.css:3877 (.quick-insights .insight-card .insight-icon)
-- welcome-section.css:6835 (.quick-insights .insight-card .insight-icon)
+- welcome-section.css:6747 (.quick-insights .insight-card .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2706,7 +2660,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:968 (.quick-insights .insight-card .insight-icon svg)
 - welcome-section.css:3889 (.quick-insights .insight-card .insight-icon svg)
-- welcome-section.css:6847 (.quick-insights .insight-card .insight-icon svg)
+- welcome-section.css:6759 (.quick-insights .insight-card .insight-icon svg)
 
 ### Rule Content:
 ```css
@@ -2718,7 +2672,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:976 (.quick-insights .insight-card.positive .insight-icon)
 - welcome-section.css:3897 (.quick-insights .insight-card.positive .insight-icon)
-- welcome-section.css:6855 (.quick-insights .insight-card.positive .insight-icon)
+- welcome-section.css:6767 (.quick-insights .insight-card.positive .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2730,7 +2684,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:981 (.quick-insights .insight-card.info .insight-icon)
 - welcome-section.css:3902 (.quick-insights .insight-card.info .insight-icon)
-- welcome-section.css:6860 (.quick-insights .insight-card.info .insight-icon)
+- welcome-section.css:6772 (.quick-insights .insight-card.info .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2742,7 +2696,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:986 (.quick-insights .insight-card.warning .insight-icon)
 - welcome-section.css:3907 (.quick-insights .insight-card.warning .insight-icon)
-- welcome-section.css:6865 (.quick-insights .insight-card.warning .insight-icon)
+- welcome-section.css:6777 (.quick-insights .insight-card.warning .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2754,7 +2708,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:992 (.quick-insights .insight-card:hover .insight-icon)
 - welcome-section.css:3913 (.quick-insights .insight-card:hover .insight-icon)
-- welcome-section.css:6871 (.quick-insights .insight-card:hover .insight-icon)
+- welcome-section.css:6783 (.quick-insights .insight-card:hover .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2766,7 +2720,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:997 (.quick-insights .insight-card.positive:hover .insight-icon)
 - welcome-section.css:3918 (.quick-insights .insight-card.positive:hover .insight-icon)
-- welcome-section.css:6876 (.quick-insights .insight-card.positive:hover .insight-icon)
+- welcome-section.css:6788 (.quick-insights .insight-card.positive:hover .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2778,7 +2732,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:1002 (.quick-insights .insight-card.info:hover .insight-icon)
 - welcome-section.css:3923 (.quick-insights .insight-card.info:hover .insight-icon)
-- welcome-section.css:6881 (.quick-insights .insight-card.info:hover .insight-icon)
+- welcome-section.css:6793 (.quick-insights .insight-card.info:hover .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2790,7 +2744,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:1007 (.quick-insights .insight-card.warning:hover .insight-icon)
 - welcome-section.css:3928 (.quick-insights .insight-card.warning:hover .insight-icon)
-- welcome-section.css:6886 (.quick-insights .insight-card.warning:hover .insight-icon)
+- welcome-section.css:6798 (.quick-insights .insight-card.warning:hover .insight-icon)
 
 ### Rule Content:
 ```css
@@ -2802,7 +2756,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:1012 (.quick-insights .insight-card:hover .insight-icon svg)
 - welcome-section.css:3933 (.quick-insights .insight-card:hover .insight-icon svg)
-- welcome-section.css:6891 (.quick-insights .insight-card:hover .insight-icon svg)
+- welcome-section.css:6803 (.quick-insights .insight-card:hover .insight-icon svg)
 
 ### Rule Content:
 ```css
@@ -2814,7 +2768,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:1018 (.quick-insights .insights-title .btn-icon:hover)
 - welcome-section.css:3939 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:6897 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:6809 (.quick-insights .insights-title .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -2826,7 +2780,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:1026 (.quick-insights .insights-title .btn-icon:hover svg)
 - welcome-section.css:3947 (.quick-insights .insights-title .btn-icon:hover svg)
-- welcome-section.css:6905 (.quick-insights .insights-title .btn-icon:hover svg)
+- welcome-section.css:6817 (.quick-insights .insights-title .btn-icon:hover svg)
 
 ### Rule Content:
 ```css
@@ -2844,7 +2798,7 @@ from { opacity: 0; transform: translateY(10px); }
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
-- welcome-section.css:6911 (.quick-insights .insights-title .btn-icon,
+- welcome-section.css:6823 (.quick-insights .insights-title .btn-icon,
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
@@ -2865,7 +2819,7 @@ from { opacity: 0; transform: translateY(10px); }
 .quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:focus svg,
 .quick-insights .insights-title .btn-icon:active svg)
-- welcome-section.css:6920 (.quick-insights .insights-title .btn-icon svg,
+- welcome-section.css:6832 (.quick-insights .insights-title .btn-icon svg,
 .quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:focus svg,
 .quick-insights .insights-title .btn-icon:active svg)
@@ -2880,7 +2834,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:1051 (.quick-insights .insights-title .btn-icon:hover)
 - welcome-section.css:3972 (.quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:6930 (.quick-insights .insights-title .btn-icon:hover)
+- welcome-section.css:6842 (.quick-insights .insights-title .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -2892,7 +2846,7 @@ from { opacity: 0; transform: translateY(10px); }
 ### Locations:
 - welcome-section.css:1061 (.quick-insights .insights-title .btn-icon:hover svg)
 - welcome-section.css:3982 (.quick-insights .insights-title .btn-icon:hover svg)
-- welcome-section.css:6940 (.quick-insights .insights-title .btn-icon:hover svg)
+- welcome-section.css:6852 (.quick-insights .insights-title .btn-icon:hover svg)
 
 ### Rule Content:
 ```css
@@ -2910,7 +2864,7 @@ from { opacity: 0; transform: translateY(10px); }
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
-- welcome-section.css:6947 (.quick-insights .insights-title .btn-icon,
+- welcome-section.css:6859 (.quick-insights .insights-title .btn-icon,
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
@@ -2933,7 +2887,7 @@ body .quick-insights .insights-title .btn-icon:hover,
 #app .quick-insights .insights-title .btn-icon:hover,
 .dashboard .quick-insights .insights-title .btn-icon:hover,
 .main-content .quick-insights .insights-title .btn-icon:hover)
-- welcome-section.css:6959 (html body .quick-insights .insights-title .btn-icon:hover,
+- welcome-section.css:6871 (html body .quick-insights .insights-title .btn-icon:hover,
 body .quick-insights .insights-title .btn-icon:hover,
 #app .quick-insights .insights-title .btn-icon:hover,
 .dashboard .quick-insights .insights-title .btn-icon:hover,
@@ -2957,7 +2911,7 @@ body .quick-insights .insights-title .btn-icon:hover svg,
 #app .quick-insights .insights-title .btn-icon:hover svg,
 .dashboard .quick-insights .insights-title .btn-icon:hover svg,
 .main-content .quick-insights .insights-title .btn-icon:hover svg)
-- welcome-section.css:6971 (html body .quick-insights .insights-title .btn-icon:hover svg,
+- welcome-section.css:6883 (html body .quick-insights .insights-title .btn-icon:hover svg,
 body .quick-insights .insights-title .btn-icon:hover svg,
 #app .quick-insights .insights-title .btn-icon:hover svg,
 .dashboard .quick-insights .insights-title .btn-icon:hover svg,
@@ -2977,7 +2931,7 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 - welcome-section.css:4024 (.quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover,
 .quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover *,
 .quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover path)
-- welcome-section.css:6982 (.quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover,
+- welcome-section.css:6894 (.quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover,
 .quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover *,
 .quick-insights .insights-title .btn-icon[viewBox="0 0 24 24"]:hover path)
 
@@ -2991,7 +2945,7 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 ### Locations:
 - welcome-section.css:1130 (.quick-insights .insight-card.positive)
 - welcome-section.css:4051 (.quick-insights .insight-card.positive)
-- welcome-section.css:7009 (.quick-insights .insight-card.positive)
+- welcome-section.css:6921 (.quick-insights .insight-card.positive)
 
 ### Rule Content:
 ```css
@@ -3003,7 +2957,7 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 ### Locations:
 - welcome-section.css:1134 (.quick-insights .insight-card.info)
 - welcome-section.css:4055 (.quick-insights .insight-card.info)
-- welcome-section.css:7013 (.quick-insights .insight-card.info)
+- welcome-section.css:6925 (.quick-insights .insight-card.info)
 
 ### Rule Content:
 ```css
@@ -3015,7 +2969,7 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 ### Locations:
 - welcome-section.css:1138 (.quick-insights .insight-card.warning)
 - welcome-section.css:4059 (.quick-insights .insight-card.warning)
-- welcome-section.css:7017 (.quick-insights .insight-card.warning)
+- welcome-section.css:6929 (.quick-insights .insight-card.warning)
 
 ### Rule Content:
 ```css
@@ -3033,7 +2987,7 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 .quick-insights *,
 .quick-insights *::before,
 .quick-insights *::after)
-- welcome-section.css:7022 (.quick-insights,
+- welcome-section.css:6934 (.quick-insights,
 .quick-insights *,
 .quick-insights *::before,
 .quick-insights *::after)
@@ -3072,7 +3026,7 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 .quick-insights em,
 .quick-insights b,
 .quick-insights i)
-- welcome-section.css:7031 (.quick-insights h1,
+- welcome-section.css:6943 (.quick-insights h1,
 .quick-insights h2,
 .quick-insights h3,
 .quick-insights h4,
@@ -3106,7 +3060,7 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 .quick-insights .insight-content p,
 .quick-insights .insight-content span,
 .quick-insights .insight-content div)
-- welcome-section.css:7049 (.quick-insights .insight-content,
+- welcome-section.css:6961 (.quick-insights .insight-content,
 .quick-insights .insight-content *,
 .quick-insights .insight-content h4,
 .quick-insights .insight-content p,
@@ -3125,7 +3079,7 @@ html body .quick-insights .insights-title .btn-icon:hover svg, body .quick-insig
 .quick-insights *)
 - welcome-section.css:4102 (.quick-insights,
 .quick-insights *)
-- welcome-section.css:7060 (.quick-insights,
+- welcome-section.css:6972 (.quick-insights,
 .quick-insights *)
 
 ### Rule Content:
@@ -3146,7 +3100,7 @@ html body .quick-insights,
 #app .quick-insights,
 .dashboard .quick-insights,
 .main-content .quick-insights)
-- welcome-section.css:7069 (body .quick-insights,
+- welcome-section.css:6981 (body .quick-insights,
 html body .quick-insights,
 #app .quick-insights,
 .dashboard .quick-insights,
@@ -3170,7 +3124,7 @@ html body .quick-insights *,
 #app .quick-insights *,
 .dashboard .quick-insights *,
 .main-content .quick-insights *)
-- welcome-section.css:7077 (body .quick-insights *,
+- welcome-section.css:6989 (body .quick-insights *,
 html body .quick-insights *,
 #app .quick-insights *,
 .dashboard .quick-insights *,
@@ -3200,7 +3154,7 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 .quick-insights .insight-content p,
 .quick-insights .insight-content span,
 .quick-insights .insight-content div)
-- welcome-section.css:7086 (.quick-insights .insight-card h4,
+- welcome-section.css:6998 (.quick-insights .insight-card h4,
 .quick-insights .insight-card p,
 .quick-insights .insight-card span,
 .quick-insights .insight-card div,
@@ -3219,7 +3173,7 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ### Locations:
 - welcome-section.css:1220 (.quick-insights [class*="insight"])
 - welcome-section.css:4141 (.quick-insights [class*="insight"])
-- welcome-section.css:7099 (.quick-insights [class*="insight"])
+- welcome-section.css:7011 (.quick-insights [class*="insight"])
 
 ### Rule Content:
 ```css
@@ -3231,7 +3185,7 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ### Locations:
 - welcome-section.css:1224 (.quick-insights [class*="content"])
 - welcome-section.css:4145 (.quick-insights [class*="content"])
-- welcome-section.css:7103 (.quick-insights [class*="content"])
+- welcome-section.css:7015 (.quick-insights [class*="content"])
 
 ### Rule Content:
 ```css
@@ -3243,7 +3197,7 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ### Locations:
 - welcome-section.css:1229 (.quick-insights>*)
 - welcome-section.css:4150 (.quick-insights>*)
-- welcome-section.css:7108 (.quick-insights>*)
+- welcome-section.css:7020 (.quick-insights>*)
 
 ### Rule Content:
 ```css
@@ -3255,7 +3209,7 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 ### Locations:
 - welcome-section.css:1233 (.quick-insights>*>*)
 - welcome-section.css:4154 (.quick-insights>*>*)
-- welcome-section.css:7112 (.quick-insights>*>*)
+- welcome-section.css:7024 (.quick-insights>*>*)
 
 ### Rule Content:
 ```css
@@ -3282,7 +3236,7 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 - welcome-section.css:4163 (.quick-insights .insights-title,
 .quick-insights h3,
 .quick-insights h3.insights-title)
-- welcome-section.css:7117 (.quick-insights .insights-title,
+- welcome-section.css:7029 (.quick-insights .insights-title,
 .quick-insights h3,
 .quick-insights h3.insights-title)
 
@@ -3302,7 +3256,7 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 .quick-insights h3:not(svg),
 .quick-insights .insights-title span,
 .quick-insights h3 span)
-- welcome-section.css:7127 (.quick-insights .insights-title:not(svg),
+- welcome-section.css:7039 (.quick-insights .insights-title:not(svg),
 .quick-insights h3:not(svg),
 .quick-insights .insights-title span,
 .quick-insights h3 span)
@@ -3319,7 +3273,7 @@ body .quick-insights *, html body .quick-insights *, #app .quick-insights *, .da
 .quick-insights h3[style*="color"])
 - welcome-section.css:4182 (.quick-insights .insights-title[style*="color"],
 .quick-insights h3[style*="color"])
-- welcome-section.css:7136 (.quick-insights .insights-title[style*="color"],
+- welcome-section.css:7048 (.quick-insights .insights-title[style*="color"],
 .quick-insights h3[style*="color"])
 
 ### Rule Content:
@@ -3340,7 +3294,7 @@ html body .quick-insights .insights-title,
 #app .quick-insights .insights-title,
 .dashboard .quick-insights .insights-title,
 .main-content .quick-insights .insights-title)
-- welcome-section.css:7142 (body .quick-insights .insights-title,
+- welcome-section.css:7054 (body .quick-insights .insights-title,
 html body .quick-insights .insights-title,
 #app .quick-insights .insights-title,
 .dashboard .quick-insights .insights-title,
@@ -3358,7 +3312,7 @@ body .quick-insights .insights-title, html body .quick-insights .insights-title,
 .quick-insights h3::text)
 - welcome-section.css:4197 (.quick-insights .insights-title::text,
 .quick-insights h3::text)
-- welcome-section.css:7151 (.quick-insights .insights-title::text,
+- welcome-section.css:7063 (.quick-insights .insights-title::text,
 .quick-insights h3::text)
 
 ### Rule Content:
@@ -3371,7 +3325,7 @@ body .quick-insights .insights-title, html body .quick-insights .insights-title,
 ### Locations:
 - welcome-section.css:1282 (.quick-insights h3.insights-title)
 - welcome-section.css:4203 (.quick-insights h3.insights-title)
-- welcome-section.css:7157 (.quick-insights h3.insights-title)
+- welcome-section.css:7069 (.quick-insights h3.insights-title)
 
 ### Rule Content:
 ```css
@@ -3383,7 +3337,7 @@ body .quick-insights .insights-title, html body .quick-insights .insights-title,
 ### Locations:
 - welcome-section.css:1290 (.quick-insights h3.insights-title:not(svg))
 - welcome-section.css:4211 (.quick-insights h3.insights-title:not(svg))
-- welcome-section.css:7165 (.quick-insights h3.insights-title:not(svg))
+- welcome-section.css:7077 (.quick-insights h3.insights-title:not(svg))
 
 ### Rule Content:
 ```css
@@ -3395,7 +3349,7 @@ body .quick-insights .insights-title, html body .quick-insights .insights-title,
 ### Locations:
 - welcome-section.css:1295 (.quick-insights h3.insights-title[style*="color"])
 - welcome-section.css:4216 (.quick-insights h3.insights-title[style*="color"])
-- welcome-section.css:7170 (.quick-insights h3.insights-title[style*="color"])
+- welcome-section.css:7082 (.quick-insights h3.insights-title[style*="color"])
 
 ### Rule Content:
 ```css
@@ -3415,7 +3369,7 @@ html body .quick-insights h3.insights-title,
 #app .quick-insights h3.insights-title,
 .dashboard .quick-insights h3.insights-title,
 .main-content .quick-insights h3.insights-title)
-- welcome-section.css:7175 (body .quick-insights h3.insights-title,
+- welcome-section.css:7087 (body .quick-insights h3.insights-title,
 html body .quick-insights h3.insights-title,
 #app .quick-insights h3.insights-title,
 .dashboard .quick-insights h3.insights-title,
@@ -3431,7 +3385,7 @@ body .quick-insights h3.insights-title, html body .quick-insights h3.insights-ti
 ### Locations:
 - welcome-section.css:1309 (.quick-insights h3)
 - welcome-section.css:4230 (.quick-insights h3)
-- welcome-section.css:7184 (.quick-insights h3)
+- welcome-section.css:7096 (.quick-insights h3)
 
 ### Rule Content:
 ```css
@@ -3443,7 +3397,7 @@ body .quick-insights h3.insights-title, html body .quick-insights h3.insights-ti
 ### Locations:
 - welcome-section.css:1315 (.quick-insights h3.insights-title)
 - welcome-section.css:4236 (.quick-insights h3.insights-title)
-- welcome-section.css:7190 (.quick-insights h3.insights-title)
+- welcome-section.css:7102 (.quick-insights h3.insights-title)
 
 ### Rule Content:
 ```css
@@ -3455,7 +3409,7 @@ body .quick-insights h3.insights-title, html body .quick-insights h3.insights-ti
 ### Locations:
 - welcome-section.css:1323 (.quick-insights h3.insights-title *)
 - welcome-section.css:4244 (.quick-insights h3.insights-title *)
-- welcome-section.css:7198 (.quick-insights h3.insights-title *)
+- welcome-section.css:7110 (.quick-insights h3.insights-title *)
 
 ### Rule Content:
 ```css
@@ -3481,7 +3435,7 @@ body .quick-insights h3.insights-title, html body .quick-insights h3.insights-ti
 .quick-insights .insight-content em,
 .quick-insights .insight-content b,
 .quick-insights .insight-content i)
-- welcome-section.css:7203 (.quick-insights .insight-content h4,
+- welcome-section.css:7115 (.quick-insights .insight-content h4,
 .quick-insights .insight-content p,
 .quick-insights .insight-content span,
 .quick-insights .insight-content div,
@@ -3508,7 +3462,7 @@ html body .quick-insights .insight-content h4,
 #app .quick-insights .insight-content h4,
 .dashboard .quick-insights .insight-content h4,
 .main-content .quick-insights .insight-content h4)
-- welcome-section.css:7216 (body .quick-insights .insight-content h4,
+- welcome-section.css:7128 (body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content h4,
 #app .quick-insights .insight-content h4,
 .dashboard .quick-insights .insight-content h4,
@@ -3532,7 +3486,7 @@ html body .quick-insights .insight-content p,
 #app .quick-insights .insight-content p,
 .dashboard .quick-insights .insight-content p,
 .main-content .quick-insights .insight-content p)
-- welcome-section.css:7228 (body .quick-insights .insight-content p,
+- welcome-section.css:7140 (body .quick-insights .insight-content p,
 html body .quick-insights .insight-content p,
 #app .quick-insights .insight-content p,
 .dashboard .quick-insights .insight-content p,
@@ -3554,7 +3508,7 @@ body .quick-insights .insight-content p, html body .quick-insights .insight-cont
 .quick-insights .insight-content *,
 .quick-insights .insight-content *::before,
 .quick-insights .insight-content *::after)
-- welcome-section.css:7250 (.quick-insights .insight-content,
+- welcome-section.css:7162 (.quick-insights .insight-content,
 .quick-insights .insight-content *,
 .quick-insights .insight-content *::before,
 .quick-insights .insight-content *::after)
@@ -3575,7 +3529,7 @@ body .quick-insights .insight-content p, html body .quick-insights .insight-cont
 .quick-insights [class*="insight"] [class*="content"] p,
 .quick-insights [class*="insight"] [class*="content"] span,
 .quick-insights [class*="insight"] [class*="content"] div)
-- welcome-section.css:7267 (.quick-insights [class*="insight"] [class*="content"] h4,
+- welcome-section.css:7179 (.quick-insights [class*="insight"] [class*="content"] h4,
 .quick-insights [class*="insight"] [class*="content"] p,
 .quick-insights [class*="insight"] [class*="content"] span,
 .quick-insights [class*="insight"] [class*="content"] div)
@@ -3604,7 +3558,7 @@ html body .quick-insights .insight-content strong,
 html body .quick-insights .insight-content em,
 html body .quick-insights .insight-content b,
 html body .quick-insights .insight-content i)
-- welcome-section.css:7276 (html body .quick-insights .insight-content h4,
+- welcome-section.css:7188 (html body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content p,
 html body .quick-insights .insight-content span,
 html body .quick-insights .insight-content div,
@@ -3629,7 +3583,7 @@ html body .quick-insights .insight-content div)
 html body .quick-insights .insight-content p,
 html body .quick-insights .insight-content span,
 html body .quick-insights .insight-content div)
-- welcome-section.css:7299 (html body .quick-insights .insight-content h4,
+- welcome-section.css:7211 (html body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content p,
 html body .quick-insights .insight-content span,
 html body .quick-insights .insight-content div)
@@ -3644,7 +3598,7 @@ html body .quick-insights .insight-content h4, html body .quick-insights .insigh
 ### Locations:
 - welcome-section.css:1442 (.quick-insights .insight-content *)
 - welcome-section.css:4362 (.quick-insights .insight-content *)
-- welcome-section.css:7316 (.quick-insights .insight-content *)
+- welcome-section.css:7228 (.quick-insights .insight-content *)
 
 ### Rule Content:
 ```css
@@ -3658,7 +3612,7 @@ html body .quick-insights .insight-content h4, html body .quick-insights .insigh
 .quick-insights .insight-card:hover .insight-icon svg)
 - welcome-section.css:4368 (.quick-insights .insight-card .insight-icon svg,
 .quick-insights .insight-card:hover .insight-icon svg)
-- welcome-section.css:7322 (.quick-insights .insight-card .insight-icon svg,
+- welcome-section.css:7234 (.quick-insights .insight-card .insight-icon svg,
 .quick-insights .insight-card:hover .insight-icon svg)
 
 ### Rule Content:
@@ -3679,7 +3633,7 @@ body .quick-insights .insight-card .insight-icon svg,
 #app .quick-insights .insight-card .insight-icon svg,
 .dashboard .quick-insights .insight-card .insight-icon svg,
 .main-content .quick-insights .insight-card .insight-icon svg)
-- welcome-section.css:7330 (html body .quick-insights .insight-card .insight-icon svg,
+- welcome-section.css:7242 (html body .quick-insights .insight-card .insight-icon svg,
 body .quick-insights .insight-card .insight-icon svg,
 #app .quick-insights .insight-card .insight-icon svg,
 .dashboard .quick-insights .insight-card .insight-icon svg,
@@ -3703,7 +3657,7 @@ body .quick-insights .insight-card:hover .insight-icon svg,
 #app .quick-insights .insight-card:hover .insight-icon svg,
 .dashboard .quick-insights .insight-card:hover .insight-icon svg,
 .main-content .quick-insights .insight-card:hover .insight-icon svg)
-- welcome-section.css:7340 (html body .quick-insights .insight-card:hover .insight-icon svg,
+- welcome-section.css:7252 (html body .quick-insights .insight-card:hover .insight-icon svg,
 body .quick-insights .insight-card:hover .insight-icon svg,
 #app .quick-insights .insight-card:hover .insight-icon svg,
 .dashboard .quick-insights .insight-card:hover .insight-icon svg,
@@ -3721,7 +3675,7 @@ html body .quick-insights .insight-card:hover .insight-icon svg, body .quick-ins
 .upcoming-events-title svg:hover)
 - welcome-section.css:4397 (.upcoming-events-title .btn-icon:hover,
 .upcoming-events-title svg:hover)
-- welcome-section.css:7351 (.upcoming-events-title .btn-icon:hover,
+- welcome-section.css:7263 (.upcoming-events-title .btn-icon:hover,
 .upcoming-events-title svg:hover)
 
 ### Rule Content:
@@ -3742,7 +3696,7 @@ body .upcoming-events-title .btn-icon:hover,
 #app .upcoming-events-title .btn-icon:hover,
 .dashboard .upcoming-events-title .btn-icon:hover,
 .main-content .upcoming-events-title .btn-icon:hover)
-- welcome-section.css:7359 (html body .upcoming-events-title .btn-icon:hover,
+- welcome-section.css:7271 (html body .upcoming-events-title .btn-icon:hover,
 body .upcoming-events-title .btn-icon:hover,
 #app .upcoming-events-title .btn-icon:hover,
 .dashboard .upcoming-events-title .btn-icon:hover,
@@ -3766,7 +3720,7 @@ body .upcoming-events-title svg:hover,
 #app .upcoming-events-title svg:hover,
 .dashboard .upcoming-events-title svg:hover,
 .main-content .upcoming-events-title svg:hover)
-- welcome-section.css:7369 (html body .upcoming-events-title svg:hover,
+- welcome-section.css:7281 (html body .upcoming-events-title svg:hover,
 body .upcoming-events-title svg:hover,
 #app .upcoming-events-title svg:hover,
 .dashboard .upcoming-events-title svg:hover,
@@ -3782,7 +3736,7 @@ html body .upcoming-events-title svg:hover, body .upcoming-events-title svg:hove
 ### Locations:
 - welcome-section.css:1506 (.upcoming-events-title .btn-icon)
 - welcome-section.css:4426 (.upcoming-events-title .btn-icon)
-- welcome-section.css:7380 (.upcoming-events-title .btn-icon)
+- welcome-section.css:7292 (.upcoming-events-title .btn-icon)
 
 ### Rule Content:
 ```css
@@ -3794,7 +3748,7 @@ html body .upcoming-events-title svg:hover, body .upcoming-events-title svg:hove
 ### Locations:
 - welcome-section.css:1512 (.upcoming-events-title .btn-icon:hover)
 - welcome-section.css:4432 (.upcoming-events-title .btn-icon:hover)
-- welcome-section.css:7386 (.upcoming-events-title .btn-icon:hover)
+- welcome-section.css:7298 (.upcoming-events-title .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -3852,7 +3806,7 @@ body .welcome-section .btn-icon:active,
 .main-content .welcome-section .btn-icon:hover,
 .main-content .welcome-section .btn-icon:focus,
 .main-content .welcome-section .btn-icon:active)
-- welcome-section.css:7395 (.welcome-section .btn-icon,
+- welcome-section.css:7307 (.welcome-section .btn-icon,
 .welcome-section .btn-icon:hover,
 .welcome-section .btn-icon:focus,
 .welcome-section .btn-icon:active,
@@ -3933,7 +3887,7 @@ body .welcome-section .btn-icon:active svg,
 .main-content .welcome-section .btn-icon:hover svg,
 .main-content .welcome-section .btn-icon:focus svg,
 .main-content .welcome-section .btn-icon:active svg)
-- welcome-section.css:7433 (.welcome-section .btn-icon svg,
+- welcome-section.css:7345 (.welcome-section .btn-icon svg,
 .welcome-section .btn-icon:hover svg,
 .welcome-section .btn-icon:focus svg,
 .welcome-section .btn-icon:active svg,
@@ -3982,7 +3936,7 @@ html body .welcome-section .quick-actions .btn-icon,
 html body .welcome-section .quick-actions .btn-icon:hover,
 html body .welcome-section .quick-actions .btn-icon:focus,
 html body .welcome-section .quick-actions .btn-icon:active)
-- welcome-section.css:7463 (.welcome-section .quick-actions .btn-icon,
+- welcome-section.css:7375 (.welcome-section .quick-actions .btn-icon,
 .welcome-section .quick-actions .btn-icon:hover,
 .welcome-section .quick-actions .btn-icon:focus,
 .welcome-section .quick-actions .btn-icon:active,
@@ -4023,7 +3977,7 @@ body .welcome-section .welcome-status .status-text,
 .dashboard .welcome-section .welcome-status .status-text,
 .main-content .welcome-section .status-text,
 .main-content .welcome-section .welcome-status .status-text)
-- welcome-section.css:7485 (.welcome-section .status-text,
+- welcome-section.css:7397 (.welcome-section .status-text,
 .welcome-section .welcome-status .status-text,
 html body .welcome-section .status-text,
 html body .welcome-section .welcome-status .status-text,
@@ -4116,7 +4070,7 @@ body .welcome-section .stat-item .stat-label,
 .main-content .welcome-section .welcome-stats .stat-label,
 .main-content .welcome-section .stat-item .stat-number,
 .main-content .welcome-section .stat-item .stat-label)
-- welcome-section.css:7509 (.welcome-section .stat-number,
+- welcome-section.css:7421 (.welcome-section .stat-number,
 .welcome-section .stat-label,
 .welcome-section .welcome-stats .stat-number,
 .welcome-section .welcome-stats .stat-label,
@@ -4209,7 +4163,7 @@ body .welcome-section .welcome-title .user-name,
 .main-content .welcome-section .user-name,
 .main-content .welcome-section .welcome-title .greeting,
 .main-content .welcome-section .welcome-title .user-name)
-- welcome-section.css:7556 (.welcome-section .greeting,
+- welcome-section.css:7468 (.welcome-section .greeting,
 .welcome-section .user-name,
 .welcome-section .welcome-title .greeting,
 .welcome-section .welcome-title .user-name,
@@ -4244,7 +4198,7 @@ body .welcome-section .welcome-title .user-name,
 ### Locations:
 - welcome-section.css:1722 (.welcome-section .upcoming-events-title .custom-events-icon)
 - welcome-section.css:4642 (.welcome-section .upcoming-events-title .custom-events-icon)
-- welcome-section.css:7596 (.welcome-section .upcoming-events-title .custom-events-icon)
+- welcome-section.css:7508 (.welcome-section .upcoming-events-title .custom-events-icon)
 
 ### Rule Content:
 ```css
@@ -4256,7 +4210,7 @@ body .welcome-section .welcome-title .user-name,
 ### Locations:
 - welcome-section.css:1736 (.calendar-icon-fixed)
 - welcome-section.css:4656 (.calendar-icon-fixed)
-- welcome-section.css:7610 (.calendar-icon-fixed)
+- welcome-section.css:7522 (.calendar-icon-fixed)
 
 ### Rule Content:
 ```css
@@ -4268,7 +4222,7 @@ body .welcome-section .welcome-title .user-name,
 ### Locations:
 - welcome-section.css:1751 (.calendar-icon-fixed:hover)
 - welcome-section.css:4671 (.calendar-icon-fixed:hover)
-- welcome-section.css:7625 (.calendar-icon-fixed:hover)
+- welcome-section.css:7537 (.calendar-icon-fixed:hover)
 
 ### Rule Content:
 ```css
@@ -4298,7 +4252,7 @@ body .welcome-section .upcoming-events-title .calendar-icon-fixed,
 #app .welcome-section .upcoming-events-title .calendar-icon-fixed,
 .dashboard .welcome-section .upcoming-events-title .calendar-icon-fixed,
 .main-content .welcome-section .upcoming-events-title .calendar-icon-fixed)
-- welcome-section.css:7632 (html body .calendar-icon-fixed,
+- welcome-section.css:7544 (html body .calendar-icon-fixed,
 body .calendar-icon-fixed,
 #app .calendar-icon-fixed,
 .dashboard .calendar-icon-fixed,
@@ -4319,7 +4273,7 @@ html body .calendar-icon-fixed, body .calendar-icon-fixed, #app .calendar-icon-f
 ### Locations:
 - welcome-section.css:1781 (.calendar-icon-fixed)
 - welcome-section.css:4701 (.calendar-icon-fixed)
-- welcome-section.css:7655 (.calendar-icon-fixed)
+- welcome-section.css:7567 (.calendar-icon-fixed)
 
 ### Rule Content:
 ```css
@@ -4331,7 +4285,7 @@ html body .calendar-icon-fixed, body .calendar-icon-fixed, #app .calendar-icon-f
 ### Locations:
 - welcome-section.css:1796 (.calendar-icon-container)
 - welcome-section.css:4716 (.calendar-icon-container)
-- welcome-section.css:7670 (.calendar-icon-container)
+- welcome-section.css:7582 (.calendar-icon-container)
 
 ### Rule Content:
 ```css
@@ -4343,7 +4297,7 @@ html body .calendar-icon-fixed, body .calendar-icon-fixed, #app .calendar-icon-f
 ### Locations:
 - welcome-section.css:1808 (.calendar-icon-container svg)
 - welcome-section.css:4728 (.calendar-icon-container svg)
-- welcome-section.css:7682 (.calendar-icon-container svg)
+- welcome-section.css:7594 (.calendar-icon-container svg)
 
 ### Rule Content:
 ```css
@@ -4355,7 +4309,7 @@ html body .calendar-icon-fixed, body .calendar-icon-fixed, #app .calendar-icon-f
 ### Locations:
 - welcome-section.css:1817 (.calendar-icon-container:hover)
 - welcome-section.css:4737 (.calendar-icon-container:hover)
-- welcome-section.css:7691 (.calendar-icon-container:hover)
+- welcome-section.css:7603 (.calendar-icon-container:hover)
 
 ### Rule Content:
 ```css
@@ -4377,7 +4331,7 @@ html body .company-culture-showcase .stat-item,
 html body .company-culture-showcase .stat-item *,
 html body .culture-stats .stat-item,
 html body .culture-stats .stat-item *)
-- welcome-section.css:7698 (html body .stat-item,
+- welcome-section.css:7610 (html body .stat-item,
 html body .stat-item *,
 html body .company-culture-showcase .stat-item,
 html body .company-culture-showcase .stat-item *,
@@ -4616,7 +4570,7 @@ body .welcome-section .events-list [class*="icon"],
 .main-content .welcome-section .events-list .btn-icon,
 .main-content .welcome-section .events-list .icon,
 .main-content .welcome-section .events-list [class*="icon"])
-- welcome-section.css:7716 (.upcoming-events svg,
+- welcome-section.css:7628 (.upcoming-events svg,
 .upcoming-events .btn-icon,
 .upcoming-events .icon,
 .upcoming-events [class*="icon"],
@@ -4833,7 +4787,7 @@ html body .welcome-section .events-list svg:hover,
 html body .welcome-section .events-list .btn-icon:hover,
 html body .welcome-section .events-list .icon:hover,
 html body .welcome-section .events-list [class*="icon"]:hover)
-- welcome-section.css:7842 (.upcoming-events svg:hover,
+- welcome-section.css:7754 (.upcoming-events svg:hover,
 .upcoming-events .btn-icon:hover,
 .upcoming-events .icon:hover,
 .upcoming-events [class*="icon"]:hover,
@@ -4890,156 +4844,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:2031 (.welcome-section .floating-icons)
-- welcome-section.css:4951 (.welcome-section .floating-icons)
-- welcome-section.css:7905 (.welcome-section .floating-icons)
-
-### Rule Content:
-```css
-.welcome-section .floating-icons { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 3; overflow: hidden; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2042 (.welcome-section .floating-icon)
-- welcome-section.css:4962 (.welcome-section .floating-icon)
-- welcome-section.css:7916 (.welcome-section .floating-icon)
-
-### Rule Content:
-```css
-.welcome-section .floating-icon { position: absolute; font-size: 2rem; opacity: 0.6; pointer-events: none; animation: iconFloat 25s ease-in-out infinite; text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2052 (.welcome-section .floating-icon:nth-child(1))
-- welcome-section.css:4972 (.welcome-section .floating-icon:nth-child(1))
-- welcome-section.css:7926 (.welcome-section .floating-icon:nth-child(1))
-
-### Rule Content:
-```css
-.welcome-section .floating-icon:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; animation-duration: 28s; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2059 (.welcome-section .floating-icon:nth-child(2))
-- welcome-section.css:4979 (.welcome-section .floating-icon:nth-child(2))
-- welcome-section.css:7933 (.welcome-section .floating-icon:nth-child(2))
-
-### Rule Content:
-```css
-.welcome-section .floating-icon:nth-child(2) { top: 25%; right: 15%; animation-delay: -5s; animation-duration: 32s; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2066 (.welcome-section .floating-icon:nth-child(3))
-- welcome-section.css:4986 (.welcome-section .floating-icon:nth-child(3))
-- welcome-section.css:7940 (.welcome-section .floating-icon:nth-child(3))
-
-### Rule Content:
-```css
-.welcome-section .floating-icon:nth-child(3) { bottom: 20%; left: 20%; animation-delay: -10s; animation-duration: 35s; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2073 (.welcome-section .floating-icon:nth-child(4))
-- welcome-section.css:4993 (.welcome-section .floating-icon:nth-child(4))
-- welcome-section.css:7947 (.welcome-section .floating-icon:nth-child(4))
-
-### Rule Content:
-```css
-.welcome-section .floating-icon:nth-child(4) { bottom: 30%; right: 25%; animation-delay: -15s; animation-duration: 30s; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2080 (.welcome-section .floating-icon:nth-child(5))
-- welcome-section.css:5000 (.welcome-section .floating-icon:nth-child(5))
-- welcome-section.css:7954 (.welcome-section .floating-icon:nth-child(5))
-
-### Rule Content:
-```css
-.welcome-section .floating-icon:nth-child(5) { top: 40%; left: 60%; animation-delay: -20s; animation-duration: 26s; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2087 (.welcome-section .floating-icon:nth-child(6))
-- welcome-section.css:5007 (.welcome-section .floating-icon:nth-child(6))
-- welcome-section.css:7961 (.welcome-section .floating-icon:nth-child(6))
-
-### Rule Content:
-```css
-.welcome-section .floating-icon:nth-child(6) { top: 60%; right: 40%; animation-delay: -8s; animation-duration: 38s; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2096 (0%,
-    100%)
-- welcome-section.css:5016 (0%,
-    100%)
-- welcome-section.css:7970 (0%,
-    100%)
-
-### Rule Content:
-```css
-0%, 100% { transform: translateX(0px) translateY(0px) rotate(0deg) scale(1); opacity: 0.6; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2102 (25%)
-- welcome-section.css:5022 (25%)
-- welcome-section.css:7976 (25%)
-
-### Rule Content:
-```css
-25% { transform: translateX(30px) translateY(-40px) rotate(90deg) scale(1.2); opacity: 0.9; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2107 (50%)
-- welcome-section.css:5027 (50%)
-- welcome-section.css:7981 (50%)
-
-### Rule Content:
-```css
-50% { transform: translateX(-20px) translateY(-20px) rotate(180deg) scale(0.8); opacity: 0.7; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:2112 (75%)
-- welcome-section.css:5032 (75%)
-- welcome-section.css:7986 (75%)
-
-### Rule Content:
-```css
-75% { transform: translateX(-35px) translateY(30px) rotate(270deg) scale(1.1); opacity: 0.8; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - welcome-section.css:2119 (.welcome-section .aurora-effect)
-- welcome-section.css:5039 (.welcome-section .aurora-effect)
-- welcome-section.css:7993 (.welcome-section .aurora-effect)
+- welcome-section.css:4951 (.welcome-section .aurora-effect)
+- welcome-section.css:7817 (.welcome-section .aurora-effect)
 
 ### Rule Content:
 ```css
@@ -5051,9 +4858,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ### Locations:
 - welcome-section.css:2138 (0%,
     100%)
-- welcome-section.css:5058 (0%,
+- welcome-section.css:4970 (0%,
     100%)
-- welcome-section.css:8012 (0%,
+- welcome-section.css:7836 (0%,
     100%)
 
 ### Rule Content:
@@ -5065,8 +4872,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2144 (25%)
-- welcome-section.css:5064 (25%)
-- welcome-section.css:8018 (25%)
+- welcome-section.css:4976 (25%)
+- welcome-section.css:7842 (25%)
 
 ### Rule Content:
 ```css
@@ -5077,8 +4884,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2149 (50%)
-- welcome-section.css:5069 (50%)
-- welcome-section.css:8023 (50%)
+- welcome-section.css:4981 (50%)
+- welcome-section.css:7847 (50%)
 
 ### Rule Content:
 ```css
@@ -5089,8 +4896,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2154 (75%)
-- welcome-section.css:5074 (75%)
-- welcome-section.css:8028 (75%)
+- welcome-section.css:4986 (75%)
+- welcome-section.css:7852 (75%)
 
 ### Rule Content:
 ```css
@@ -5101,8 +4908,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2161 (.welcome-section .constellation)
-- welcome-section.css:5081 (.welcome-section .constellation)
-- welcome-section.css:8035 (.welcome-section .constellation)
+- welcome-section.css:4993 (.welcome-section .constellation)
+- welcome-section.css:7859 (.welcome-section .constellation)
 
 ### Rule Content:
 ```css
@@ -5113,8 +4920,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2172 (.welcome-section .constellation-line)
-- welcome-section.css:5092 (.welcome-section .constellation-line)
-- welcome-section.css:8046 (.welcome-section .constellation-line)
+- welcome-section.css:5004 (.welcome-section .constellation-line)
+- welcome-section.css:7870 (.welcome-section .constellation-line)
 
 ### Rule Content:
 ```css
@@ -5125,8 +4932,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2180 (.welcome-section .constellation-line:nth-child(1))
-- welcome-section.css:5100 (.welcome-section .constellation-line:nth-child(1))
-- welcome-section.css:8054 (.welcome-section .constellation-line:nth-child(1))
+- welcome-section.css:5012 (.welcome-section .constellation-line:nth-child(1))
+- welcome-section.css:7878 (.welcome-section .constellation-line:nth-child(1))
 
 ### Rule Content:
 ```css
@@ -5137,8 +4944,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2188 (.welcome-section .constellation-line:nth-child(2))
-- welcome-section.css:5108 (.welcome-section .constellation-line:nth-child(2))
-- welcome-section.css:8062 (.welcome-section .constellation-line:nth-child(2))
+- welcome-section.css:5020 (.welcome-section .constellation-line:nth-child(2))
+- welcome-section.css:7886 (.welcome-section .constellation-line:nth-child(2))
 
 ### Rule Content:
 ```css
@@ -5149,8 +4956,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2196 (.welcome-section .constellation-line:nth-child(3))
-- welcome-section.css:5116 (.welcome-section .constellation-line:nth-child(3))
-- welcome-section.css:8070 (.welcome-section .constellation-line:nth-child(3))
+- welcome-section.css:5028 (.welcome-section .constellation-line:nth-child(3))
+- welcome-section.css:7894 (.welcome-section .constellation-line:nth-child(3))
 
 ### Rule Content:
 ```css
@@ -5161,8 +4968,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2204 (.welcome-section .constellation-line:nth-child(4))
-- welcome-section.css:5124 (.welcome-section .constellation-line:nth-child(4))
-- welcome-section.css:8078 (.welcome-section .constellation-line:nth-child(4))
+- welcome-section.css:5036 (.welcome-section .constellation-line:nth-child(4))
+- welcome-section.css:7902 (.welcome-section .constellation-line:nth-child(4))
 
 ### Rule Content:
 ```css
@@ -5174,9 +4981,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ### Locations:
 - welcome-section.css:2214 (0%,
     100%)
-- welcome-section.css:5134 (0%,
+- welcome-section.css:5046 (0%,
     100%)
-- welcome-section.css:8088 (0%,
+- welcome-section.css:7912 (0%,
     100%)
 
 ### Rule Content:
@@ -5188,8 +4995,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2220 (50%)
-- welcome-section.css:5140 (50%)
-- welcome-section.css:8094 (50%)
+- welcome-section.css:5052 (50%)
+- welcome-section.css:7918 (50%)
 
 ### Rule Content:
 ```css
@@ -5200,8 +5007,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2227 (.welcome-section .sparkles)
-- welcome-section.css:5147 (.welcome-section .sparkles)
-- welcome-section.css:8101 (.welcome-section .sparkles)
+- welcome-section.css:5059 (.welcome-section .sparkles)
+- welcome-section.css:7925 (.welcome-section .sparkles)
 
 ### Rule Content:
 ```css
@@ -5212,8 +5019,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2237 (.welcome-section .sparkle)
-- welcome-section.css:5157 (.welcome-section .sparkle)
-- welcome-section.css:8111 (.welcome-section .sparkle)
+- welcome-section.css:5069 (.welcome-section .sparkle)
+- welcome-section.css:7935 (.welcome-section .sparkle)
 
 ### Rule Content:
 ```css
@@ -5224,8 +5031,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2246 (.welcome-section .sparkle:nth-child(even))
-- welcome-section.css:5166 (.welcome-section .sparkle:nth-child(even))
-- welcome-section.css:8120 (.welcome-section .sparkle:nth-child(even))
+- welcome-section.css:5078 (.welcome-section .sparkle:nth-child(even))
+- welcome-section.css:7944 (.welcome-section .sparkle:nth-child(even))
 
 ### Rule Content:
 ```css
@@ -5236,8 +5043,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2270 (.welcome-section .wave-distortion)
-- welcome-section.css:5186 (.welcome-section .wave-distortion)
-- welcome-section.css:8140 (.welcome-section .wave-distortion)
+- welcome-section.css:5098 (.welcome-section .wave-distortion)
+- welcome-section.css:7964 (.welcome-section .wave-distortion)
 
 ### Rule Content:
 ```css
@@ -5248,8 +5055,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2295 (25%)
-- welcome-section.css:5211 (25%)
-- welcome-section.css:8165 (25%)
+- welcome-section.css:5123 (25%)
+- welcome-section.css:7989 (25%)
 
 ### Rule Content:
 ```css
@@ -5260,8 +5067,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2300 (50%)
-- welcome-section.css:5216 (50%)
-- welcome-section.css:8170 (50%)
+- welcome-section.css:5128 (50%)
+- welcome-section.css:7994 (50%)
 
 ### Rule Content:
 ```css
@@ -5272,8 +5079,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2305 (75%)
-- welcome-section.css:5221 (75%)
-- welcome-section.css:8175 (75%)
+- welcome-section.css:5133 (75%)
+- welcome-section.css:7999 (75%)
 
 ### Rule Content:
 ```css
@@ -5284,8 +5091,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2312 (.welcome-section:hover)
-- welcome-section.css:5228 (.welcome-section:hover)
-- welcome-section.css:8182 (.welcome-section:hover)
+- welcome-section.css:5140 (.welcome-section:hover)
+- welcome-section.css:8006 (.welcome-section:hover)
 
 ### Rule Content:
 ```css
@@ -5296,8 +5103,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2316 (.welcome-section .mouse-follower)
-- welcome-section.css:5232 (.welcome-section .mouse-follower)
-- welcome-section.css:8186 (.welcome-section .mouse-follower)
+- welcome-section.css:5144 (.welcome-section .mouse-follower)
+- welcome-section.css:8010 (.welcome-section .mouse-follower)
 
 ### Rule Content:
 ```css
@@ -5308,8 +5115,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2329 (.welcome-section:hover .mouse-follower)
-- welcome-section.css:5245 (.welcome-section:hover .mouse-follower)
-- welcome-section.css:8199 (.welcome-section:hover .mouse-follower)
+- welcome-section.css:5157 (.welcome-section:hover .mouse-follower)
+- welcome-section.css:8023 (.welcome-section:hover .mouse-follower)
 
 ### Rule Content:
 ```css
@@ -5320,8 +5127,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2334 (.welcome-section .holographic-overlay)
-- welcome-section.css:5250 (.welcome-section .holographic-overlay)
-- welcome-section.css:8204 (.welcome-section .holographic-overlay)
+- welcome-section.css:5162 (.welcome-section .holographic-overlay)
+- welcome-section.css:8028 (.welcome-section .holographic-overlay)
 
 ### Rule Content:
 ```css
@@ -5332,8 +5139,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2365 (.welcome-section .energy-rings)
-- welcome-section.css:5276 (.welcome-section .energy-rings)
-- welcome-section.css:8235 (.welcome-section .energy-rings)
+- welcome-section.css:5188 (.welcome-section .energy-rings)
+- welcome-section.css:8059 (.welcome-section .energy-rings)
 
 ### Rule Content:
 ```css
@@ -5344,8 +5151,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2374 (.welcome-section .energy-ring)
-- welcome-section.css:5285 (.welcome-section .energy-ring)
-- welcome-section.css:8244 (.welcome-section .energy-ring)
+- welcome-section.css:5197 (.welcome-section .energy-ring)
+- welcome-section.css:8068 (.welcome-section .energy-ring)
 
 ### Rule Content:
 ```css
@@ -5356,8 +5163,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2381 (.welcome-section .energy-ring:nth-child(1))
-- welcome-section.css:5292 (.welcome-section .energy-ring:nth-child(1))
-- welcome-section.css:8251 (.welcome-section .energy-ring:nth-child(1))
+- welcome-section.css:5204 (.welcome-section .energy-ring:nth-child(1))
+- welcome-section.css:8075 (.welcome-section .energy-ring:nth-child(1))
 
 ### Rule Content:
 ```css
@@ -5368,8 +5175,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2389 (.welcome-section .energy-ring:nth-child(2))
-- welcome-section.css:5300 (.welcome-section .energy-ring:nth-child(2))
-- welcome-section.css:8259 (.welcome-section .energy-ring:nth-child(2))
+- welcome-section.css:5212 (.welcome-section .energy-ring:nth-child(2))
+- welcome-section.css:8083 (.welcome-section .energy-ring:nth-child(2))
 
 ### Rule Content:
 ```css
@@ -5380,8 +5187,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2397 (.welcome-section .energy-ring:nth-child(3))
-- welcome-section.css:5308 (.welcome-section .energy-ring:nth-child(3))
-- welcome-section.css:8267 (.welcome-section .energy-ring:nth-child(3))
+- welcome-section.css:5220 (.welcome-section .energy-ring:nth-child(3))
+- welcome-section.css:8091 (.welcome-section .energy-ring:nth-child(3))
 
 ### Rule Content:
 ```css
@@ -5393,9 +5200,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ### Locations:
 - welcome-section.css:2407 (0%,
     100%)
-- welcome-section.css:5318 (0%,
+- welcome-section.css:5230 (0%,
     100%)
-- welcome-section.css:8277 (0%,
+- welcome-section.css:8101 (0%,
     100%)
 
 ### Rule Content:
@@ -5407,8 +5214,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2414 (50%)
-- welcome-section.css:5325 (50%)
-- welcome-section.css:8284 (50%)
+- welcome-section.css:5237 (50%)
+- welcome-section.css:8108 (50%)
 
 ### Rule Content:
 ```css
@@ -5419,8 +5226,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2429 (.welcome-section::before)
-- welcome-section.css:5341 (.welcome-section::before)
-- welcome-section.css:8300 (.welcome-section::before)
+- welcome-section.css:5253 (.welcome-section::before)
+- welcome-section.css:8124 (.welcome-section::before)
 
 ### Rule Content:
 ```css
@@ -5431,8 +5238,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2438 (.welcome-section::after)
-- welcome-section.css:5350 (.welcome-section::after)
-- welcome-section.css:8309 (.welcome-section::after)
+- welcome-section.css:5262 (.welcome-section::after)
+- welcome-section.css:8133 (.welcome-section::after)
 
 ### Rule Content:
 ```css
@@ -5443,8 +5250,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2476 (.welcome-section .particle:nth-child(n+2))
-- welcome-section.css:5432 (.welcome-section .particle:nth-child(n+2))
-- welcome-section.css:8391 (.welcome-section .particle:nth-child(n+2))
+- welcome-section.css:5344 (.welcome-section .particle:nth-child(n+2))
+- welcome-section.css:8215 (.welcome-section .particle:nth-child(n+2))
 
 ### Rule Content:
 ```css
@@ -5455,8 +5262,8 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2480 (.welcome-section .particle:nth-child(1))
-- welcome-section.css:5436 (.welcome-section .particle:nth-child(1))
-- welcome-section.css:8395 (.welcome-section .particle:nth-child(1))
+- welcome-section.css:5348 (.welcome-section .particle:nth-child(1))
+- welcome-section.css:8219 (.welcome-section .particle:nth-child(1))
 
 ### Rule Content:
 ```css
@@ -5468,9 +5275,9 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ### Locations:
 - welcome-section.css:2505 (.welcome-section::before,
     .welcome-section::after)
-- welcome-section.css:5491 (.welcome-section::before,
+- welcome-section.css:5403 (.welcome-section::before,
     .welcome-section::after)
-- welcome-section.css:8450 (.welcome-section::before,
+- welcome-section.css:8274 (.welcome-section::before,
     .welcome-section::after)
 
 ### Rule Content:
@@ -5482,7 +5289,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2513 (.welcome-section)
-- welcome-section.css:5499 (.welcome-section)
+- welcome-section.css:5411 (.welcome-section)
 
 ### Rule Content:
 ```css
@@ -5497,7 +5304,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
     .welcome-section .aurora-effect,
     .welcome-section .wave-distortion,
     .welcome-section .holographic-overlay)
-- welcome-section.css:5505 (.welcome-section::before,
+- welcome-section.css:5417 (.welcome-section::before,
     .welcome-section::after,
     .welcome-section .aurora-effect,
     .welcome-section .wave-distortion,
@@ -5516,7 +5323,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
     .welcome-section .sparkle,
     .welcome-section .constellation-line,
     .welcome-section .energy-ring)
-- welcome-section.css:5513 (.welcome-section .particle,
+- welcome-section.css:5425 (.welcome-section .particle,
     .welcome-section .floating-icon,
     .welcome-section .sparkle,
     .welcome-section .constellation-line,
@@ -5531,7 +5338,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2537 (.welcome-section:hover .particle)
-- welcome-section.css:5523 (.welcome-section:hover .particle)
+- welcome-section.css:5435 (.welcome-section:hover .particle)
 
 ### Rule Content:
 ```css
@@ -5542,7 +5349,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2543 (.welcome-section:hover .floating-icon)
-- welcome-section.css:5529 (.welcome-section:hover .floating-icon)
+- welcome-section.css:5441 (.welcome-section:hover .floating-icon)
 
 ### Rule Content:
 ```css
@@ -5553,7 +5360,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2549 (.welcome-section:hover .sparkle)
-- welcome-section.css:5535 (.welcome-section:hover .sparkle)
+- welcome-section.css:5447 (.welcome-section:hover .sparkle)
 
 ### Rule Content:
 ```css
@@ -5564,7 +5371,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2554 (.welcome-section:hover .aurora-effect)
-- welcome-section.css:5540 (.welcome-section:hover .aurora-effect)
+- welcome-section.css:5452 (.welcome-section:hover .aurora-effect)
 
 ### Rule Content:
 ```css
@@ -5575,7 +5382,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2559 (.welcome-section:hover .constellation-line)
-- welcome-section.css:5545 (.welcome-section:hover .constellation-line)
+- welcome-section.css:5457 (.welcome-section:hover .constellation-line)
 
 ### Rule Content:
 ```css
@@ -5586,7 +5393,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2564 (.welcome-section:hover .energy-ring)
-- welcome-section.css:5550 (.welcome-section:hover .energy-ring)
+- welcome-section.css:5462 (.welcome-section:hover .energy-ring)
 
 ### Rule Content:
 ```css
@@ -5597,7 +5404,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2571 (.welcome-section:focus-within)
-- welcome-section.css:5557 (.welcome-section:focus-within)
+- welcome-section.css:5469 (.welcome-section:focus-within)
 
 ### Rule Content:
 ```css
@@ -5608,7 +5415,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2583 (.welcome-section.loading)
-- welcome-section.css:5569 (.welcome-section.loading)
+- welcome-section.css:5481 (.welcome-section.loading)
 
 ### Rule Content:
 ```css
@@ -5619,7 +5426,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2590 (0%)
-- welcome-section.css:5576 (0%)
+- welcome-section.css:5488 (0%)
 
 ### Rule Content:
 ```css
@@ -5630,7 +5437,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2595 (60%)
-- welcome-section.css:5581 (60%)
+- welcome-section.css:5493 (60%)
 
 ### Rule Content:
 ```css
@@ -5641,7 +5448,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2600 (100%)
-- welcome-section.css:5586 (100%)
+- welcome-section.css:5498 (100%)
 
 ### Rule Content:
 ```css
@@ -5652,7 +5459,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2607 (.welcome-section.contest-winner)
-- welcome-section.css:5593 (.welcome-section.contest-winner)
+- welcome-section.css:5505 (.welcome-section.contest-winner)
 
 ### Rule Content:
 ```css
@@ -5663,7 +5470,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2611 (.welcome-section.contest-winner::before)
-- welcome-section.css:5597 (.welcome-section.contest-winner::before)
+- welcome-section.css:5509 (.welcome-section.contest-winner::before)
 
 ### Rule Content:
 ```css
@@ -5685,7 +5492,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 .welcome-section .mouse-follower,
 .welcome-section .holographic-overlay,
 .welcome-section .energy-ring)
-- welcome-section.css:5622 (.welcome-section,
+- welcome-section.css:5534 (.welcome-section,
 .welcome-section::before,
 .welcome-section::after,
 .welcome-section .particle,
@@ -5707,7 +5514,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2687 (.welcome-section[data-theme="dark"] .stat-item)
-- welcome-section.css:5641 (.welcome-section[data-theme="dark"] .stat-item)
+- welcome-section.css:5553 (.welcome-section[data-theme="dark"] .stat-item)
 
 ### Rule Content:
 ```css
@@ -5718,7 +5525,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2692 (.welcome-section[data-theme="dark"] .stat-item:hover)
-- welcome-section.css:5646 (.welcome-section[data-theme="dark"] .stat-item:hover)
+- welcome-section.css:5558 (.welcome-section[data-theme="dark"] .stat-item:hover)
 
 ### Rule Content:
 ```css
@@ -5729,7 +5536,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2697 (.welcome-section[data-theme="dark"] .quick-actions .btn)
-- welcome-section.css:5651 (.welcome-section[data-theme="dark"] .quick-actions .btn)
+- welcome-section.css:5563 (.welcome-section[data-theme="dark"] .quick-actions .btn)
 
 ### Rule Content:
 ```css
@@ -5740,7 +5547,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2703 (.welcome-section[data-theme="dark"] .quick-actions .btn:hover)
-- welcome-section.css:5657 (.welcome-section[data-theme="dark"] .quick-actions .btn:hover)
+- welcome-section.css:5569 (.welcome-section[data-theme="dark"] .quick-actions .btn:hover)
 
 ### Rule Content:
 ```css
@@ -5751,7 +5558,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2708 (.welcome-section[data-theme="dark"] .event-card)
-- welcome-section.css:5662 (.welcome-section[data-theme="dark"] .event-card)
+- welcome-section.css:5574 (.welcome-section[data-theme="dark"] .event-card)
 
 ### Rule Content:
 ```css
@@ -5762,7 +5569,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2713 (.welcome-section[data-theme="dark"] .event-card:hover)
-- welcome-section.css:5667 (.welcome-section[data-theme="dark"] .event-card:hover)
+- welcome-section.css:5579 (.welcome-section[data-theme="dark"] .event-card:hover)
 
 ### Rule Content:
 ```css
@@ -5773,7 +5580,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2718 (.welcome-section[data-theme="dark"] .insight-card)
-- welcome-section.css:5672 (.welcome-section[data-theme="dark"] .insight-card)
+- welcome-section.css:5584 (.welcome-section[data-theme="dark"] .insight-card)
 
 ### Rule Content:
 ```css
@@ -5784,7 +5591,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2723 (.welcome-section[data-theme="dark"] .insight-card:hover)
-- welcome-section.css:5677 (.welcome-section[data-theme="dark"] .insight-card:hover)
+- welcome-section.css:5589 (.welcome-section[data-theme="dark"] .insight-card:hover)
 
 ### Rule Content:
 ```css
@@ -5795,7 +5602,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2728 (.welcome-section[data-theme="dark"] .btn-icon)
-- welcome-section.css:5682 (.welcome-section[data-theme="dark"] .btn-icon)
+- welcome-section.css:5594 (.welcome-section[data-theme="dark"] .btn-icon)
 
 ### Rule Content:
 ```css
@@ -5806,7 +5613,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2732 (.welcome-section[data-theme="dark"] .btn-icon:hover)
-- welcome-section.css:5686 (.welcome-section[data-theme="dark"] .btn-icon:hover)
+- welcome-section.css:5598 (.welcome-section[data-theme="dark"] .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -5817,7 +5624,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2736 (.welcome-section[data-theme="dark"] .status-text)
-- welcome-section.css:5690 (.welcome-section[data-theme="dark"] .status-text)
+- welcome-section.css:5602 (.welcome-section[data-theme="dark"] .status-text)
 
 ### Rule Content:
 ```css
@@ -5828,7 +5635,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2740 (.welcome-section[data-theme="dark"] .stat-number)
-- welcome-section.css:5694 (.welcome-section[data-theme="dark"] .stat-number)
+- welcome-section.css:5606 (.welcome-section[data-theme="dark"] .stat-number)
 
 ### Rule Content:
 ```css
@@ -5839,7 +5646,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2744 (.welcome-section[data-theme="dark"] .stat-label)
-- welcome-section.css:5698 (.welcome-section[data-theme="dark"] .stat-label)
+- welcome-section.css:5610 (.welcome-section[data-theme="dark"] .stat-label)
 
 ### Rule Content:
 ```css
@@ -5850,7 +5657,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2748 (.welcome-section[data-theme="dark"] .greeting)
-- welcome-section.css:5702 (.welcome-section[data-theme="dark"] .greeting)
+- welcome-section.css:5614 (.welcome-section[data-theme="dark"] .greeting)
 
 ### Rule Content:
 ```css
@@ -5861,7 +5668,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2753 (.welcome-section[data-theme="dark"] .aurora-effect)
-- welcome-section.css:5707 (.welcome-section[data-theme="dark"] .aurora-effect)
+- welcome-section.css:5619 (.welcome-section[data-theme="dark"] .aurora-effect)
 
 ### Rule Content:
 ```css
@@ -5872,7 +5679,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2757 (.welcome-section[data-theme="dark"] .constellation-line)
-- welcome-section.css:5711 (.welcome-section[data-theme="dark"] .constellation-line)
+- welcome-section.css:5623 (.welcome-section[data-theme="dark"] .constellation-line)
 
 ### Rule Content:
 ```css
@@ -5883,7 +5690,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2761 (.welcome-section[data-theme="dark"] .sparkle)
-- welcome-section.css:5715 (.welcome-section[data-theme="dark"] .sparkle)
+- welcome-section.css:5627 (.welcome-section[data-theme="dark"] .sparkle)
 
 ### Rule Content:
 ```css
@@ -5894,7 +5701,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2765 (.welcome-section[data-theme="dark"] .wave-distortion)
-- welcome-section.css:5719 (.welcome-section[data-theme="dark"] .wave-distortion)
+- welcome-section.css:5631 (.welcome-section[data-theme="dark"] .wave-distortion)
 
 ### Rule Content:
 ```css
@@ -5905,7 +5712,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2769 (.welcome-section[data-theme="dark"] .holographic-overlay)
-- welcome-section.css:5723 (.welcome-section[data-theme="dark"] .holographic-overlay)
+- welcome-section.css:5635 (.welcome-section[data-theme="dark"] .holographic-overlay)
 
 ### Rule Content:
 ```css
@@ -5916,7 +5723,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2774 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb)
-- welcome-section.css:5728 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb)
+- welcome-section.css:5640 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb)
 
 ### Rule Content:
 ```css
@@ -5927,7 +5734,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2778 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb:hover)
-- welcome-section.css:5732 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb:hover)
+- welcome-section.css:5644 (.welcome-section[data-theme="dark"] .events-list::-webkit-scrollbar-thumb:hover)
 
 ### Rule Content:
 ```css
@@ -5938,7 +5745,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2786 (.welcome-section)
-- welcome-section.css:5740 (.welcome-section)
+- welcome-section.css:5652 (.welcome-section)
 
 ### Rule Content:
 ```css
@@ -5954,7 +5761,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
     .welcome-section .aurora-effect,
     .welcome-section .wave-distortion,
     .welcome-section .holographic-overlay)
-- welcome-section.css:5746 (.welcome-section .particle,
+- welcome-section.css:5658 (.welcome-section .particle,
     .welcome-section .floating-icon,
     .welcome-section .sparkle,
     .welcome-section .aurora-effect,
@@ -5972,7 +5779,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 - welcome-section.css:2801 (.welcome-section .stat-item,
     .welcome-section .quick-actions .btn,
     .welcome-section .event-card)
-- welcome-section.css:5755 (.welcome-section .stat-item,
+- welcome-section.css:5667 (.welcome-section .stat-item,
     .welcome-section .quick-actions .btn,
     .welcome-section .event-card)
 
@@ -5985,7 +5792,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2811 (.welcome-section *:focus-visible)
-- welcome-section.css:5765 (.welcome-section *:focus-visible)
+- welcome-section.css:5677 (.welcome-section *:focus-visible)
 
 ### Rule Content:
 ```css
@@ -5998,7 +5805,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 - welcome-section.css:2823 (.welcome-section .btn:focus-visible,
 .welcome-section .stat-item:focus-visible,
 .welcome-section .event-card:focus-visible)
-- welcome-section.css:5777 (.welcome-section .btn:focus-visible,
+- welcome-section.css:5689 (.welcome-section .btn:focus-visible,
 .welcome-section .stat-item:focus-visible,
 .welcome-section .event-card:focus-visible)
 
@@ -6011,7 +5818,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2833 (.welcome-section .keyboard-nav-helper)
-- welcome-section.css:5787 (.welcome-section .keyboard-nav-helper)
+- welcome-section.css:5699 (.welcome-section .keyboard-nav-helper)
 
 ### Rule Content:
 ```css
@@ -6022,7 +5829,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2848 (.welcome-section:focus-within .keyboard-nav-helper)
-- welcome-section.css:5802 (.welcome-section:focus-within .keyboard-nav-helper)
+- welcome-section.css:5714 (.welcome-section:focus-within .keyboard-nav-helper)
 
 ### Rule Content:
 ```css
@@ -6033,7 +5840,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2866 (.skip-link)
-- welcome-section.css:5820 (.skip-link)
+- welcome-section.css:5732 (.skip-link)
 
 ### Rule Content:
 ```css
@@ -6044,7 +5851,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2880 (.skip-link:focus)
-- welcome-section.css:5834 (.skip-link:focus)
+- welcome-section.css:5746 (.skip-link:focus)
 
 ### Rule Content:
 ```css
@@ -6055,7 +5862,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2887 (.welcome-section .data-viz-container)
-- welcome-section.css:5841 (.welcome-section .data-viz-container)
+- welcome-section.css:5753 (.welcome-section .data-viz-container)
 
 ### Rule Content:
 ```css
@@ -6066,7 +5873,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2898 (.welcome-section .progress-ring)
-- welcome-section.css:5852 (.welcome-section .progress-ring)
+- welcome-section.css:5764 (.welcome-section .progress-ring)
 
 ### Rule Content:
 ```css
@@ -6077,7 +5884,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2904 (.welcome-section .progress-ring-circle)
-- welcome-section.css:5858 (.welcome-section .progress-ring-circle)
+- welcome-section.css:5770 (.welcome-section .progress-ring-circle)
 
 ### Rule Content:
 ```css
@@ -6088,7 +5895,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2912 (.welcome-section .progress-ring-progress)
-- welcome-section.css:5866 (.welcome-section .progress-ring-progress)
+- welcome-section.css:5778 (.welcome-section .progress-ring-progress)
 
 ### Rule Content:
 ```css
@@ -6099,7 +5906,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2923 (.welcome-section .smart-recommendations)
-- welcome-section.css:5877 (.welcome-section .smart-recommendations)
+- welcome-section.css:5789 (.welcome-section .smart-recommendations)
 
 ### Rule Content:
 ```css
@@ -6110,7 +5917,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2930 (.welcome-section .recommendation-card)
-- welcome-section.css:5884 (.welcome-section .recommendation-card)
+- welcome-section.css:5796 (.welcome-section .recommendation-card)
 
 ### Rule Content:
 ```css
@@ -6121,7 +5928,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2941 (.welcome-section .recommendation-card::before)
-- welcome-section.css:5895 (.welcome-section .recommendation-card::before)
+- welcome-section.css:5807 (.welcome-section .recommendation-card::before)
 
 ### Rule Content:
 ```css
@@ -6132,7 +5939,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2952 (.welcome-section .recommendation-card:hover::before)
-- welcome-section.css:5906 (.welcome-section .recommendation-card:hover::before)
+- welcome-section.css:5818 (.welcome-section .recommendation-card:hover::before)
 
 ### Rule Content:
 ```css
@@ -6143,7 +5950,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2956 (.welcome-section .recommendation-card:hover)
-- welcome-section.css:5910 (.welcome-section .recommendation-card:hover)
+- welcome-section.css:5822 (.welcome-section .recommendation-card:hover)
 
 ### Rule Content:
 ```css
@@ -6154,7 +5961,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2963 (.welcome-section .ai-insight)
-- welcome-section.css:5917 (.welcome-section .ai-insight)
+- welcome-section.css:5829 (.welcome-section .ai-insight)
 
 ### Rule Content:
 ```css
@@ -6165,7 +5972,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2975 (.welcome-section .ai-insight::before)
-- welcome-section.css:5929 (.welcome-section .ai-insight::before)
+- welcome-section.css:5841 (.welcome-section .ai-insight::before)
 
 ### Rule Content:
 ```css
@@ -6176,7 +5983,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2987 (50%)
-- welcome-section.css:5941 (50%)
+- welcome-section.css:5853 (50%)
 
 ### Rule Content:
 ```css
@@ -6187,7 +5994,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:2994 (.welcome-section .live-indicator)
-- welcome-section.css:5948 (.welcome-section .live-indicator)
+- welcome-section.css:5860 (.welcome-section .live-indicator)
 
 ### Rule Content:
 ```css
@@ -6198,7 +6005,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:3004 (.welcome-section .live-dot)
-- welcome-section.css:5958 (.welcome-section .live-dot)
+- welcome-section.css:5870 (.welcome-section .live-dot)
 
 ### Rule Content:
 ```css
@@ -6210,7 +6017,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ### Locations:
 - welcome-section.css:3014 (0%,
     100%)
-- welcome-section.css:5968 (0%,
+- welcome-section.css:5880 (0%,
     100%)
 
 ### Rule Content:
@@ -6222,7 +6029,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:3020 (50%)
-- welcome-section.css:5974 (50%)
+- welcome-section.css:5886 (50%)
 
 ### Rule Content:
 ```css
@@ -6233,7 +6040,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:3027 (.welcome-section .stat-item)
-- welcome-section.css:5981 (.welcome-section .stat-item)
+- welcome-section.css:5893 (.welcome-section .stat-item)
 
 ### Rule Content:
 ```css
@@ -6244,7 +6051,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:3036 (.welcome-section .stat-item::after)
-- welcome-section.css:5990 (.welcome-section .stat-item::after)
+- welcome-section.css:5902 (.welcome-section .stat-item::after)
 
 ### Rule Content:
 ```css
@@ -6255,7 +6062,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:3049 (.welcome-section .stat-item:hover::after)
-- welcome-section.css:6003 (.welcome-section .stat-item:hover::after)
+- welcome-section.css:5915 (.welcome-section .stat-item:hover::after)
 
 ### Rule Content:
 ```css
@@ -6266,7 +6073,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:3054 (.welcome-section .stat-item:hover)
-- welcome-section.css:6008 (.welcome-section .stat-item:hover)
+- welcome-section.css:5920 (.welcome-section .stat-item:hover)
 
 ### Rule Content:
 ```css
@@ -6277,7 +6084,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:3076 (.welcome-section .stat-label)
-- welcome-section.css:6023 (.welcome-section .stat-label)
+- welcome-section.css:5935 (.welcome-section .stat-label)
 
 ### Rule Content:
 ```css
@@ -6288,7 +6095,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:3087 (.welcome-section .quick-actions .btn)
-- welcome-section.css:6034 (.welcome-section .quick-actions .btn)
+- welcome-section.css:5946 (.welcome-section .quick-actions .btn)
 
 ### Rule Content:
 ```css
@@ -6299,7 +6106,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:3096 (.welcome-section .quick-actions .btn::before)
-- welcome-section.css:6043 (.welcome-section .quick-actions .btn::before)
+- welcome-section.css:5955 (.welcome-section .quick-actions .btn::before)
 
 ### Rule Content:
 ```css
@@ -6310,7 +6117,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:3111 (.welcome-section .quick-actions .btn:hover)
-- welcome-section.css:6058 (.welcome-section .quick-actions .btn:hover)
+- welcome-section.css:5970 (.welcome-section .quick-actions .btn:hover)
 
 ### Rule Content:
 ```css
@@ -6321,7 +6128,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:3118 (.welcome-section .event-card)
-- welcome-section.css:6065 (.welcome-section .event-card)
+- welcome-section.css:5977 (.welcome-section .event-card)
 
 ### Rule Content:
 ```css
@@ -6332,7 +6139,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 
 ### Locations:
 - welcome-section.css:3125 (.welcome-section .event-card:hover)
-- welcome-section.css:6072 (.welcome-section .event-card:hover)
+- welcome-section.css:5984 (.welcome-section .event-card:hover)
 
 ### Rule Content:
 ```css
@@ -6346,7 +6153,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 html body .welcome-section .stat-number,
 .welcome-section .stat-item .stat-number,
 .welcome-section .stat-number)
-- welcome-section.css:6240 (html body .welcome-section .stat-item .stat-number,
+- welcome-section.css:6152 (html body .welcome-section .stat-item .stat-number,
 html body .welcome-section .stat-number,
 .welcome-section .stat-item .stat-number,
 .welcome-section .stat-number)
@@ -6361,7 +6168,7 @@ html body .welcome-section .stat-item .stat-number, html body .welcome-section .
 ### Locations:
 - welcome-section.css:463 (html body .welcome-section .stat-item.warning .stat-number,
 .welcome-section .stat-item.warning .stat-number)
-- welcome-section.css:6260 (html body .welcome-section .stat-item.warning .stat-number,
+- welcome-section.css:6172 (html body .welcome-section .stat-item.warning .stat-number,
 .welcome-section .stat-item.warning .stat-number)
 
 ### Rule Content:
@@ -6374,7 +6181,7 @@ html body .welcome-section .stat-item.warning .stat-number, .welcome-section .st
 ### Locations:
 - welcome-section.css:474 (html body .welcome-section .stat-item.error .stat-number,
 .welcome-section .stat-item.error .stat-number)
-- welcome-section.css:6271 (html body .welcome-section .stat-item.error .stat-number,
+- welcome-section.css:6183 (html body .welcome-section .stat-item.error .stat-number,
 .welcome-section .stat-item.error .stat-number)
 
 ### Rule Content:
@@ -6388,7 +6195,7 @@ html body .welcome-section .stat-item.error .stat-number, .welcome-section .stat
 - welcome-section.css:485 (html body .welcome-section [style*="color: black"],
 html body .welcome-section [style*="color: #000"],
 html body .welcome-section [style*="color: #000000"])
-- welcome-section.css:6282 (html body .welcome-section [style*="color: black"],
+- welcome-section.css:6194 (html body .welcome-section [style*="color: black"],
 html body .welcome-section [style*="color: #000"],
 html body .welcome-section [style*="color: #000000"])
 
@@ -6404,7 +6211,7 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 .welcome-section .btn:hover .btn-icon,
 .welcome-section .quick-actions .btn .btn-icon:hover,
 .welcome-section .quick-actions .btn:hover .btn-icon)
-- welcome-section.css:6394 (.welcome-section .btn-icon:hover,
+- welcome-section.css:6306 (.welcome-section .btn-icon:hover,
 .welcome-section .btn:hover .btn-icon,
 .welcome-section .quick-actions .btn .btn-icon:hover,
 .welcome-section .quick-actions .btn:hover .btn-icon)
@@ -6418,7 +6225,7 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 
 ### Locations:
 - welcome-section.css:3435 (.welcome-section .btn-icon)
-- welcome-section.css:6404 (.welcome-section .btn-icon)
+- welcome-section.css:6316 (.welcome-section .btn-icon)
 
 ### Rule Content:
 ```css
@@ -6429,7 +6236,7 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 
 ### Locations:
 - welcome-section.css:3441 (.welcome-section .btn:hover .btn-icon)
-- welcome-section.css:6410 (.welcome-section .btn:hover .btn-icon)
+- welcome-section.css:6322 (.welcome-section .btn:hover .btn-icon)
 
 ### Rule Content:
 ```css
@@ -6440,7 +6247,7 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 
 ### Locations:
 - welcome-section.css:3448 (.welcome-section .btn-icon:hover)
-- welcome-section.css:6417 (.welcome-section .btn-icon:hover)
+- welcome-section.css:6329 (.welcome-section .btn-icon:hover)
 
 ### Rule Content:
 ```css
@@ -6451,7 +6258,7 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 
 ### Locations:
 - welcome-section.css:3562 (.event-card)
-- welcome-section.css:6520 (.event-card)
+- welcome-section.css:6432 (.event-card)
 
 ### Rule Content:
 ```css
@@ -6462,7 +6269,7 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 
 ### Locations:
 - welcome-section.css:3574 (.event-card::before)
-- welcome-section.css:6532 (.event-card::before)
+- welcome-section.css:6444 (.event-card::before)
 
 ### Rule Content:
 ```css
@@ -6473,7 +6280,7 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 
 ### Locations:
 - welcome-section.css:3586 (.event-card:hover)
-- welcome-section.css:6544 (.event-card:hover)
+- welcome-section.css:6456 (.event-card:hover)
 
 ### Rule Content:
 ```css
@@ -6484,7 +6291,7 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 
 ### Locations:
 - welcome-section.css:3592 (.event-card:hover::before)
-- welcome-section.css:6550 (.event-card:hover::before)
+- welcome-section.css:6462 (.event-card:hover::before)
 
 ### Rule Content:
 ```css
@@ -6495,7 +6302,7 @@ html body .welcome-section [style*="color: black"], html body .welcome-section [
 
 ### Locations:
 - welcome-section.css:3596 (.event-time)
-- welcome-section.css:6554 (.event-time)
+- welcome-section.css:6466 (.event-time)
 
 ### Rule Content:
 ```css
@@ -6514,7 +6321,7 @@ body .welcome-section .event-title,
 #app .welcome-section .event-title,
 .dashboard .welcome-section .event-title,
 .main-content .welcome-section .event-title)
-- welcome-section.css:6564 (.event-title,
+- welcome-section.css:6476 (.event-title,
 .upcoming-events .event-title,
 .events-list .event-title,
 .welcome-section .event-title,
@@ -6533,7 +6340,7 @@ body .welcome-section .event-title,
 
 ### Locations:
 - welcome-section.css:3625 (.event-participants)
-- welcome-section.css:6583 (.event-participants)
+- welcome-section.css:6495 (.event-participants)
 
 ### Rule Content:
 ```css
@@ -6544,7 +6351,7 @@ body .welcome-section .event-title,
 
 ### Locations:
 - welcome-section.css:3637 (.event-participants svg)
-- welcome-section.css:6595 (.event-participants svg)
+- welcome-section.css:6507 (.event-participants svg)
 
 ### Rule Content:
 ```css
@@ -6555,7 +6362,7 @@ body .welcome-section .event-title,
 
 ### Locations:
 - welcome-section.css:3762 (.quick-insights)
-- welcome-section.css:6720 (.quick-insights)
+- welcome-section.css:6632 (.quick-insights)
 
 ### Rule Content:
 ```css
@@ -6566,7 +6373,7 @@ body .welcome-section .event-title,
 
 ### Locations:
 - welcome-section.css:3774 (.quick-insights .insights-title)
-- welcome-section.css:6732 (.quick-insights .insights-title)
+- welcome-section.css:6644 (.quick-insights .insights-title)
 
 ### Rule Content:
 ```css
@@ -6578,7 +6385,7 @@ body .welcome-section .event-title,
 ### Locations:
 - welcome-section.css:3785 (.quick-insights .insights-title svg,
 .quick-insights .insights-title .icon)
-- welcome-section.css:6743 (.quick-insights .insights-title svg,
+- welcome-section.css:6655 (.quick-insights .insights-title svg,
 .quick-insights .insights-title .icon)
 
 ### Rule Content:
@@ -6590,7 +6397,7 @@ body .welcome-section .event-title,
 
 ### Locations:
 - welcome-section.css:3797 (.quick-insights .insights-title .btn-icon)
-- welcome-section.css:6755 (.quick-insights .insights-title .btn-icon)
+- welcome-section.css:6667 (.quick-insights .insights-title .btn-icon)
 
 ### Rule Content:
 ```css
@@ -6604,7 +6411,7 @@ body .welcome-section .event-title,
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
-- welcome-section.css:6762 (.quick-insights .insights-title .btn-icon,
+- welcome-section.css:6674 (.quick-insights .insights-title .btn-icon,
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
@@ -6620,7 +6427,7 @@ body .welcome-section .event-title,
 - welcome-section.css:3813 (.quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
-- welcome-section.css:6771 (.quick-insights .insights-title .btn-icon:hover,
+- welcome-section.css:6683 (.quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active)
 
@@ -6633,7 +6440,7 @@ body .welcome-section .event-title,
 
 ### Locations:
 - welcome-section.css:3822 (.quick-insights .insights-grid)
-- welcome-section.css:6780 (.quick-insights .insights-grid)
+- welcome-section.css:6692 (.quick-insights .insights-grid)
 
 ### Rule Content:
 ```css
@@ -6644,7 +6451,7 @@ body .welcome-section .event-title,
 
 ### Locations:
 - welcome-section.css:3828 (.quick-insights .insight-card)
-- welcome-section.css:6786 (.quick-insights .insight-card)
+- welcome-section.css:6698 (.quick-insights .insight-card)
 
 ### Rule Content:
 ```css
@@ -6655,7 +6462,7 @@ body .welcome-section .event-title,
 
 ### Locations:
 - welcome-section.css:3839 (.quick-insights .insight-card::before)
-- welcome-section.css:6797 (.quick-insights .insight-card::before)
+- welcome-section.css:6709 (.quick-insights .insight-card::before)
 
 ### Rule Content:
 ```css
@@ -6666,7 +6473,7 @@ body .welcome-section .event-title,
 
 ### Locations:
 - welcome-section.css:3851 (.quick-insights .insight-card:hover)
-- welcome-section.css:6809 (.quick-insights .insight-card:hover)
+- welcome-section.css:6721 (.quick-insights .insight-card:hover)
 
 ### Rule Content:
 ```css
@@ -6678,7 +6485,7 @@ body .welcome-section .event-title,
 ### Locations:
 - welcome-section.css:4287 (.quick-insights .insight-content,
 .quick-insights .insight-content *)
-- welcome-section.css:7241 (.quick-insights .insight-content,
+- welcome-section.css:7153 (.quick-insights .insight-content,
 .quick-insights .insight-content *)
 
 ### Rule Content:
@@ -6690,7 +6497,7 @@ body .welcome-section .event-title,
 
 ### Locations:
 - welcome-section.css:2355 (0%)
-- welcome-section.css:8225 (0%)
+- welcome-section.css:8049 (0%)
 
 ### Rule Content:
 ```css
@@ -6701,7 +6508,7 @@ body .welcome-section .event-title,
 
 ### Locations:
 - welcome-section.css:2359 (100%)
-- welcome-section.css:8229 (100%)
+- welcome-section.css:8053 (100%)
 
 ### Rule Content:
 ```css
@@ -6711,8 +6518,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5334 (.welcome-section)
-- welcome-section.css:8293 (.welcome-section)
+- welcome-section.css:5246 (.welcome-section)
+- welcome-section.css:8117 (.welcome-section)
 
 ### Rule Content:
 ```css
@@ -6722,8 +6529,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5360 (.welcome-section .particle:nth-child(1))
-- welcome-section.css:8319 (.welcome-section .particle:nth-child(1))
+- welcome-section.css:5272 (.welcome-section .particle:nth-child(1))
+- welcome-section.css:8143 (.welcome-section .particle:nth-child(1))
 
 ### Rule Content:
 ```css
@@ -6733,8 +6540,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5366 (.welcome-section .particle:nth-child(2))
-- welcome-section.css:8325 (.welcome-section .particle:nth-child(2))
+- welcome-section.css:5278 (.welcome-section .particle:nth-child(2))
+- welcome-section.css:8149 (.welcome-section .particle:nth-child(2))
 
 ### Rule Content:
 ```css
@@ -6744,8 +6551,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5372 (.welcome-section .particle:nth-child(3))
-- welcome-section.css:8331 (.welcome-section .particle:nth-child(3))
+- welcome-section.css:5284 (.welcome-section .particle:nth-child(3))
+- welcome-section.css:8155 (.welcome-section .particle:nth-child(3))
 
 ### Rule Content:
 ```css
@@ -6755,8 +6562,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5379 (.welcome-section .floating-icon:nth-child(n+4))
-- welcome-section.css:8338 (.welcome-section .floating-icon:nth-child(n+4))
+- welcome-section.css:5291 (.welcome-section .floating-icon:nth-child(n+4))
+- welcome-section.css:8162 (.welcome-section .floating-icon:nth-child(n+4))
 
 ### Rule Content:
 ```css
@@ -6766,8 +6573,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5383 (.welcome-section .floating-icon)
-- welcome-section.css:8342 (.welcome-section .floating-icon)
+- welcome-section.css:5295 (.welcome-section .floating-icon)
+- welcome-section.css:8166 (.welcome-section .floating-icon)
 
 ### Rule Content:
 ```css
@@ -6777,8 +6584,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5389 (.welcome-section .sparkle:nth-child(n+11))
-- welcome-section.css:8348 (.welcome-section .sparkle:nth-child(n+11))
+- welcome-section.css:5301 (.welcome-section .sparkle:nth-child(n+11))
+- welcome-section.css:8172 (.welcome-section .sparkle:nth-child(n+11))
 
 ### Rule Content:
 ```css
@@ -6788,8 +6595,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5394 (.welcome-section .constellation-line:nth-child(n+3))
-- welcome-section.css:8353 (.welcome-section .constellation-line:nth-child(n+3))
+- welcome-section.css:5306 (.welcome-section .constellation-line:nth-child(n+3))
+- welcome-section.css:8177 (.welcome-section .constellation-line:nth-child(n+3))
 
 ### Rule Content:
 ```css
@@ -6799,8 +6606,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5399 (.welcome-section .energy-ring:nth-child(3))
-- welcome-section.css:8358 (.welcome-section .energy-ring:nth-child(3))
+- welcome-section.css:5311 (.welcome-section .energy-ring:nth-child(3))
+- welcome-section.css:8182 (.welcome-section .energy-ring:nth-child(3))
 
 ### Rule Content:
 ```css
@@ -6810,8 +6617,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5404 (.welcome-section .aurora-effect)
-- welcome-section.css:8363 (.welcome-section .aurora-effect)
+- welcome-section.css:5316 (.welcome-section .aurora-effect)
+- welcome-section.css:8187 (.welcome-section .aurora-effect)
 
 ### Rule Content:
 ```css
@@ -6821,8 +6628,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5411 (.welcome-section .mouse-follower)
-- welcome-section.css:8370 (.welcome-section .mouse-follower)
+- welcome-section.css:5323 (.welcome-section .mouse-follower)
+- welcome-section.css:8194 (.welcome-section .mouse-follower)
 
 ### Rule Content:
 ```css
@@ -6832,8 +6639,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5416 (.welcome-section .holographic-overlay)
-- welcome-section.css:8375 (.welcome-section .holographic-overlay)
+- welcome-section.css:5328 (.welcome-section .holographic-overlay)
+- welcome-section.css:8199 (.welcome-section .holographic-overlay)
 
 ### Rule Content:
 ```css
@@ -6843,8 +6650,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5423 (.welcome-section)
-- welcome-section.css:8382 (.welcome-section)
+- welcome-section.css:5335 (.welcome-section)
+- welcome-section.css:8206 (.welcome-section)
 
 ### Rule Content:
 ```css
@@ -6854,8 +6661,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5443 (.welcome-section .floating-icon:nth-child(n+3))
-- welcome-section.css:8402 (.welcome-section .floating-icon:nth-child(n+3))
+- welcome-section.css:5355 (.welcome-section .floating-icon:nth-child(n+3))
+- welcome-section.css:8226 (.welcome-section .floating-icon:nth-child(n+3))
 
 ### Rule Content:
 ```css
@@ -6865,8 +6672,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5448 (.welcome-section .sparkle:nth-child(n+6))
-- welcome-section.css:8407 (.welcome-section .sparkle:nth-child(n+6))
+- welcome-section.css:5360 (.welcome-section .sparkle:nth-child(n+6))
+- welcome-section.css:8231 (.welcome-section .sparkle:nth-child(n+6))
 
 ### Rule Content:
 ```css
@@ -6876,8 +6683,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5453 (.welcome-section .constellation)
-- welcome-section.css:8412 (.welcome-section .constellation)
+- welcome-section.css:5365 (.welcome-section .constellation)
+- welcome-section.css:8236 (.welcome-section .constellation)
 
 ### Rule Content:
 ```css
@@ -6887,8 +6694,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5458 (.welcome-section .wave-distortion)
-- welcome-section.css:8417 (.welcome-section .wave-distortion)
+- welcome-section.css:5370 (.welcome-section .wave-distortion)
+- welcome-section.css:8241 (.welcome-section .wave-distortion)
 
 ### Rule Content:
 ```css
@@ -6898,7 +6705,7 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5466 (.welcome-section,
+- welcome-section.css:5378 (.welcome-section,
     .welcome-section::before,
     .welcome-section::after,
     .welcome-section .particle,
@@ -6909,7 +6716,7 @@ body .welcome-section .event-title,
     .welcome-section .wave-distortion,
     .welcome-section .holographic-overlay,
     .welcome-section .energy-ring)
-- welcome-section.css:8425 (.welcome-section,
+- welcome-section.css:8249 (.welcome-section,
     .welcome-section::before,
     .welcome-section::after,
     .welcome-section .particle,
@@ -6929,8 +6736,8 @@ body .welcome-section .event-title,
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:5487 (.welcome-section)
-- welcome-section.css:8446 (.welcome-section)
+- welcome-section.css:5399 (.welcome-section)
+- welcome-section.css:8270 (.welcome-section)
 
 ### Rule Content:
 ```css

@@ -1648,17 +1648,17 @@
 
 .member-status.online {
     background: var(--success-500);
-    box-shadow: 0 0 0 2px var(--surface-card), 0 0 0 4px var(--success-100);
+    box-shadow: 0 0 0 2px var(--bg-elevated), 0 0 0 4px var(--success-100);
 }
 
 .member-status.away {
     background: var(--warning-500);
-    box-shadow: 0 0 0 2px var(--surface-card), 0 0 0 4px var(--warning-100);
+    box-shadow: 0 0 0 2px var(--bg-elevated), 0 0 0 4px var(--warning-100);
 }
 
 .member-status.offline {
     background: var(--text-tertiary);
-    box-shadow: 0 0 0 2px var(--surface-card), 0 0 0 4px var(--surface-border);
+    box-shadow: 0 0 0 2px var(--bg-elevated), 0 0 0 4px var(--surface-border);
 }
 
 .member-actions {
