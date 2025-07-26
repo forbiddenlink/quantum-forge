@@ -318,13 +318,21 @@ function hexToHsl(hex) {
 }
 
 function detectPreferredTheme() {
-    // Auto-detect based on system preference and time of day
-    const hour = new Date().getHours();
-    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (systemDark || hour < 7 || hour > 19) {
-        return 'dark';
+    // Check if user has manually set a theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        return savedTheme; // Use saved preference
     }
+    
+    // Only use system preference if no manual setting exists
+    // const hour = new Date().getHours();
+    // const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // 
+    // if (systemDark || hour < 7 || hour > 19) {
+    //     return 'dark';
+    // }
+    
+    // Default to light mode for new users
     return 'light';
 }
 

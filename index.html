@@ -39,9 +39,9 @@
             }
         }
 
-        /* Dark Mode Detection */
+        /* Dark Mode Detection - Only applies if no manual theme is set */
         @media (prefers-color-scheme: dark) {
-            :root {
+            :root:not([data-theme]) {
                 --bg-primary: #0f172a;
                 --text-primary: #f8fafc;
             }
@@ -610,6 +610,17 @@
 
     <script>
         console.log('🚀 Quantum Forge loading...');
+
+        // Theme initialization - ensure light mode for new users
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (!savedTheme) {
+                // New user - default to light mode
+                localStorage.setItem('theme', 'light');
+                document.documentElement.setAttribute('data-theme', 'light');
+                document.body.setAttribute('data-theme', 'light');
+            }
+        })();
 
         // Global loading screen management
         let loadingScreenHidden = false;
