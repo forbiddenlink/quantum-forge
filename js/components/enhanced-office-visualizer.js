@@ -23,7 +23,7 @@ class EnhancedOfficeVisualizer extends HTMLElement {
     connectedCallback() {
         this.render2DView();
         this.loadOfficeData();
-        
+
         setTimeout(() => {
             if (typeof THREE === 'undefined') {
                 console.error('Three.js not loaded');
@@ -118,17 +118,17 @@ class EnhancedOfficeVisualizer extends HTMLElement {
                 
                 <div class="office-stats">
                     <div class="stat-item">
-                        <span class="stat-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('team') : '👥'}</span>
+                        <span class="stat-icon">👥</span>
                         <span class="stat-value">${this.officeData.teamMembers.length}</span>
                         <span class="stat-label">Team Members</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('office') : '🏢'}</span>
+                        <span class="stat-icon">🏢</span>
                         <span class="stat-value">${this.officeData.rooms.length}</span>
                         <span class="stat-label">Rooms</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('energy') : '⚡'}</span>
+                        <span class="stat-icon">⚡</span>
                         <span class="stat-value">${this.officeData.equipment.length}</span>
                         <span class="stat-label">Equipment</span>
                     </div>
@@ -241,13 +241,13 @@ class EnhancedOfficeVisualizer extends HTMLElement {
 
     createRoom(room, index) {
         const roomGeometry = new THREE.BoxGeometry(6, 3, 6);
-        const roomMaterial = new THREE.MeshLambertMaterial({ 
+        const roomMaterial = new THREE.MeshLambertMaterial({
             color: this.getRoomColor(room.status),
             transparent: true,
             opacity: 0.8
         });
         const roomMesh = new THREE.Mesh(roomGeometry, roomMaterial);
-        
+
         roomMesh.position.set(
             (index % 3 - 1) * 8,
             1.5,
@@ -255,7 +255,7 @@ class EnhancedOfficeVisualizer extends HTMLElement {
         );
         roomMesh.castShadow = true;
         roomMesh.receiveShadow = true;
-        
+
         // Add room label
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
@@ -267,27 +267,27 @@ class EnhancedOfficeVisualizer extends HTMLElement {
         context.font = '24px Inter';
         context.textAlign = 'center';
         context.fillText(room.name, 128, 40);
-        
+
         const texture = new THREE.CanvasTexture(canvas);
         const labelGeometry = new THREE.PlaneGeometry(4, 1);
         const labelMaterial = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
         const label = new THREE.Mesh(labelGeometry, labelMaterial);
         label.position.set(0, 3, 0);
         roomMesh.add(label);
-        
+
         this.scene.add(roomMesh);
-        
+
         // Store room reference
         this.hotspots.set(room.id, roomMesh);
     }
 
     createTeamMember(member) {
         const memberGeometry = new THREE.SphereGeometry(0.3, 8, 8);
-        const memberMaterial = new THREE.MeshLambertMaterial({ 
+        const memberMaterial = new THREE.MeshLambertMaterial({
             color: this.getMemberColor(member.status)
         });
         const memberMesh = new THREE.Mesh(memberGeometry, memberMaterial);
-        
+
         // Position member in their room
         const room = this.officeData.rooms.find(r => r.id === member.room);
         if (room) {
@@ -298,10 +298,10 @@ class EnhancedOfficeVisualizer extends HTMLElement {
                 Math.floor(roomIndex / 3) * 8 + (Math.random() - 0.5) * 4
             );
         }
-        
+
         memberMesh.castShadow = true;
         this.scene.add(memberMesh);
-        
+
         // Store member reference
         this.teamLocations.set(member.id, memberMesh);
     }
@@ -405,7 +405,7 @@ class EnhancedOfficeVisualizer extends HTMLElement {
         `;
 
         document.body.appendChild(modal);
-        
+
         modal.querySelector('.modal-close').addEventListener('click', () => {
             modal.remove();
         });
@@ -448,7 +448,7 @@ class EnhancedOfficeVisualizer extends HTMLElement {
     updateLoadingProgress(progress) {
         const progressFill = this.querySelector('.progress-fill');
         const progressText = this.querySelector('.progress-text');
-        
+
         if (progressFill) progressFill.style.width = `${progress}%`;
         if (progressText) progressText.textContent = `${progress}%`;
     }
@@ -498,7 +498,7 @@ class EnhancedOfficeVisualizer extends HTMLElement {
             btn.addEventListener('click', (e) => {
                 const floor = parseInt(e.target.dataset.floor);
                 this.switchToFloor(floor);
-                
+
                 floorBtns.forEach(b => b.classList.remove('active'));
                 e.target.classList.add('active');
             });
@@ -541,27 +541,27 @@ class EnhancedOfficeVisualizer extends HTMLElement {
 
     disconnectedCallback() {
         console.log('Enhanced Office Visualizer disconnecting...');
-        
+
         // Cancel animation frame
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
             this.animationFrame = null;
         }
-        
+
         // Remove window event listener
         window.removeEventListener('resize', this.onWindowResize);
-        
+
         // Clean up Three.js resources
         if (this.scene) {
             this.scene.clear();
             this.scene = null;
         }
-        
+
         if (this.renderer) {
             this.renderer.dispose();
             this.renderer = null;
         }
-        
+
         console.log('Enhanced Office Visualizer cleanup complete');
     }
 }

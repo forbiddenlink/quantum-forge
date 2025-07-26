@@ -1,11 +1,4 @@
 /* Real-time Statistics Animations */
-
-/* CSS Custom Properties for common animation states */
-:root {
-    --stat-default-color: var(--text-primary);
-    --stat-default-scale: scale(1);
-}
-
 .stat-increase {
     animation: statIncrease 1.5s ease-out;
 }
@@ -16,41 +9,47 @@
 
 @keyframes statIncrease {
     0% {
-        color: var(--stat-default-color);
-        transform: var(--stat-default-scale);
+        color: var(--text-primary);
+        transform: scale(1);
     }
+
     25% {
         color: var(--success-600);
         transform: scale(1.2);
         text-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
     }
+
     75% {
         color: var(--success-600);
         transform: scale(1.15);
     }
+
     100% {
-        color: var(--stat-default-color);
-        transform: var(--stat-default-scale);
+        color: var(--text-primary);
+        transform: scale(1);
     }
 }
 
 @keyframes statDecrease {
     0% {
-        color: var(--stat-default-color);
-        transform: var(--stat-default-scale);
+        color: var(--text-primary);
+        transform: scale(1);
     }
+
     25% {
         color: var(--error-600);
         transform: scale(1.2);
         text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
     }
+
     75% {
         color: var(--error-600);
         transform: scale(1.15);
     }
+
     100% {
-        color: var(--stat-default-color);
-        transform: var(--stat-default-scale);
+        color: var(--text-primary);
+        transform: scale(1);
     }
 }
 
@@ -136,11 +135,11 @@
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-2);
     }
-    
+
     .stat-item {
         padding: var(--space-2);
     }
-    
+
     .stat-number {
         font-size: var(--font-size-xl);
     }
@@ -150,4 +149,4 @@
     .welcome-stats {
         grid-template-columns: 1fr;
     }
-} 
+}

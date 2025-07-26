@@ -14,6 +14,8 @@ Quantum Forge is a contest-winning employee portal featuring AI-powered task man
 
 **Technical Constraints**: Pure frontend stack only (HTML/CSS/JavaScript) - no backend or build tools allowed.
 
+**Current Status**: 35+ Web Components implemented, 16-page portal ecosystem, extensive CSS cleanup completed with 14.3% duplicate reduction (453→388 rules).
+
 ## Architecture Overview
 
 ### Core Structure
@@ -24,22 +26,52 @@ Quantum Forge is a contest-winning employee portal featuring AI-powered task man
 
 ### Key Design Patterns
 ```javascript
-// Custom Web Components pattern used throughout
+// Custom Web Components pattern used throughout (35+ components)
 class SpectacularTaskSystem extends HTMLElement {
+    constructor() {
+        super();
+        this.isInitialized = false; // Prevent double initialization
+        this.animationFrame = null; // Always track animation frames for cleanup
+    }
+    
     connectedCallback() {
+        if (this.isInitialized) return; // Guard against re-initialization
         this.render();
         this.setupEventListeners();
         this.initializeSpectacularEffects();
+        this.isInitialized = true;
+    }
+    
+    disconnectedCallback() {
+        // CRITICAL: Always implement proper cleanup
+        if (this.animationFrame) {
+            cancelAnimationFrame(this.animationFrame);
+            this.animationFrame = null;
+        }
+        // Clear intervals, observers, event listeners
     }
 }
 customElements.define('task-system', SpectacularTaskSystem);
 ```
 
+### Component Registration System
+All components follow this registration pattern in `js/app.js`:
+```javascript
+// Components are checked for registration on DOMContentLoaded
+const customElementsToCheck = [
+    'analytics-dashboard', 'task-system', 'enhanced-knowledge-hub',
+    'live-activity-feed', 'office-visualizer', // ... 35+ total
+];
+```
+
 ### CSS Architecture
 - **Critical loading order**: `critical.css` → `main.css` → `components.css` → feature-specific files
+- **Centralized animation system**: All keyframes in `animations.css` (50+ shared animations like `spectralGlow`, `standardPulse`)
+- **Component consolidation**: Shared components in `components.css` (`.task-assignee`, `.activity-content`)
 - **CSS Variables hierarchy**: Design tokens in `:root`, component variables that reference globals
 - **BEM-like naming**: `.task-card`, `.task-card__header`, `.task-card--highlighted`
 - **Component isolation**: Each component has dedicated CSS files in `/styles/components/`
+- **Recent cleanup achievement**: 14.3% duplicate reduction (453→388 rules) via `css-cleanup-tools/`
 
 ## Development Workflows
 
@@ -55,6 +87,7 @@ customElements.define('task-system', SpectacularTaskSystem);
 - **Always backup before changes** - Extensive backup system with timestamped saves
 - **Check for duplicates** - Use `find-duplicates.js` to detect duplicate CSS rules
 - **Follow import hierarchy** - Defined in `styles/imports.css` and `CSS_ARCHITECTURE.md`
+- **Animation consolidation** - Use centralized animations from `animations.css` instead of duplicating keyframes
 
 ### Performance Optimization
 ```javascript
@@ -158,10 +191,12 @@ class SecurityManager {
 - Component registration logging in `app.js` shows which custom elements loaded
 - Performance metrics available via `window.getContestStatus()`
 - CSS duplicate detection through `css-cleanup-tools/find-duplicates.js`
+- Manual component testing via browser console: `document.createElement('analytics-dashboard')`
 
 ### Common Issues
 - **Component not rendering** - Check custom element registration in browser console
 - **CSS conflicts** - Use duplicate detection tools before making changes
 - **Performance issues** - Monitor via `PerformanceMonitor` service
+- **Memory leaks** - Ensure proper cleanup in `disconnectedCallback()` methods
 
 When working on this codebase, prioritize the modular component architecture, maintain the CSS cleanup discipline, and leverage the built-in performance and error handling systems.

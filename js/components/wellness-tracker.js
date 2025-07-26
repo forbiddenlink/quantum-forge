@@ -8,7 +8,7 @@ class WellnessTracker extends HTMLElement {
         this.updateInterval = null;
         this.isVisible = false;
         this.hasSubmittedToday = false;
-        
+
         // Mood types with contest-appealing SVG icons and colors
         this.moodTypes = [
             {
@@ -52,7 +52,7 @@ class WellnessTracker extends HTMLElement {
                 description: 'Low energy, need a break'
             }
         ];
-        
+
         // Wellness tips for different moods
         this.wellnessTips = {
             excellent: [
@@ -81,7 +81,7 @@ class WellnessTracker extends HTMLElement {
                 "Ensure you're getting enough sleep tonight."
             ]
         };
-        
+
         // Team wellness data (simulated)
         this.teamWellness = {
             averageMood: 3.8,
@@ -131,7 +131,7 @@ class WellnessTracker extends HTMLElement {
         // Check if user has already submitted today
         const today = new Date().toDateString();
         const storedMood = localStorage.getItem(`wellness-${today}`);
-        
+
         if (storedMood) {
             this.currentMood = storedMood;
             this.hasSubmittedToday = true;
@@ -143,14 +143,14 @@ class WellnessTracker extends HTMLElement {
         // Generate mock data for the past 7 days
         const today = new Date();
         this.weekData = [];
-        
+
         for (let i = 6; i >= 0; i--) {
             const date = new Date(today);
             date.setDate(date.getDate() - i);
-            
+
             const moodScores = [4.2, 3.8, 4.1, 3.5, 4.0, 3.9, 4.3];
             const responses = [22, 24, 20, 25, 23, 24, 26];
-            
+
             this.weekData.push({
                 date: date,
                 averageMood: moodScores[6 - i],
@@ -173,37 +173,37 @@ class WellnessTracker extends HTMLElement {
         // Simulate real-time updates
         const variation = (Math.random() - 0.5) * 0.2;
         this.teamWellness.averageMood = Math.max(1, Math.min(5, this.teamWellness.averageMood + variation));
-        
+
         if (Math.random() > 0.7) {
             this.teamWellness.totalResponses++;
         }
-        
+
         this.updateTeamStatsDisplay();
     }
 
     submitMood(moodId) {
         if (this.hasSubmittedToday) return;
-        
+
         this.currentMood = moodId;
         this.hasSubmittedToday = true;
-        
+
         // Store in localStorage
         const today = new Date().toDateString();
         localStorage.setItem(`wellness-${today}`, moodId);
-        
+
         // Update team stats
         this.teamWellness.totalResponses++;
         this.updateTeamWellnessDistribution(moodId);
-        
+
         // Show thank you state
         this.showThankYouState();
-        
+
         // Show wellness tip
         this.showWellnessTip(moodId);
-        
+
         // Announce to screen readers
         this.announceSubmission(moodId);
-        
+
         console.log(`Mood submitted: ${moodId}`);
     }
 
@@ -211,21 +211,21 @@ class WellnessTracker extends HTMLElement {
         if (this.teamWellness.moodDistribution[moodId] !== undefined) {
             this.teamWellness.moodDistribution[moodId]++;
         }
-        
+
         // Recalculate average
         const total = Object.values(this.teamWellness.moodDistribution).reduce((a, b) => a + b, 0);
         const weightedSum = Object.entries(this.teamWellness.moodDistribution).reduce((sum, [mood, count]) => {
             const weight = this.moodTypes.findIndex(m => m.id === mood) + 1;
             return sum + (weight * count);
         }, 0);
-        
+
         this.teamWellness.averageMood = weightedSum / total;
     }
 
     showThankYouState() {
         const moodSelector = this.querySelector('.mood-selector');
         const mood = this.moodTypes.find(m => m.id === this.currentMood);
-        
+
         if (moodSelector && mood) {
             moodSelector.innerHTML = `
                 <div class="thank-you-state">
@@ -247,14 +247,14 @@ class WellnessTracker extends HTMLElement {
     showWellnessTip(moodId) {
         const tips = this.wellnessTips[moodId];
         if (!tips || tips.length === 0) return;
-        
+
         const randomTip = tips[Math.floor(Math.random() * tips.length)];
         const tipContainer = this.querySelector('.wellness-tip');
-        
+
         if (tipContainer) {
             tipContainer.innerHTML = `
                 <div class="tip-content">
-                    <div class="tip-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('lightbulb') : '💡'}</div>
+                    <div class="tip-icon">💡</div>
                     <div class="tip-text">
                         <h5>Wellness Tip</h5>
                         <p>${randomTip}</p>
@@ -273,7 +273,7 @@ class WellnessTracker extends HTMLElement {
         announcement.className = 'sr-only';
         announcement.textContent = `Mood submitted: ${mood.label}. Thank you for sharing your wellness status.`;
         this.appendChild(announcement);
-        
+
         setTimeout(() => {
             this.removeChild(announcement);
         }, 1000);
@@ -282,11 +282,11 @@ class WellnessTracker extends HTMLElement {
     updateTeamStatsDisplay() {
         const avgElement = this.querySelector('.team-average');
         const responsesElement = this.querySelector('.team-responses');
-        
+
         if (avgElement) {
             avgElement.textContent = this.teamWellness.averageMood.toFixed(1);
         }
-        
+
         if (responsesElement) {
             responsesElement.textContent = this.teamWellness.totalResponses;
         }
@@ -351,7 +351,7 @@ class WellnessTracker extends HTMLElement {
         if (this.hasSubmittedToday) {
             return ''; // Will be replaced by thank you state
         }
-        
+
         return `
             <div class="mood-selector">
                 <h4 class="selector-title">How are you feeling today?</h4>
@@ -372,9 +372,9 @@ class WellnessTracker extends HTMLElement {
     }
 
     renderTeamStats() {
-        const trendIcon = this.teamWellness.trendDirection === 'up' ? this.getIconSvg('trend-up') : 
-                         this.teamWellness.trendDirection === 'down' ? this.getIconSvg('trend-down') : this.getIconSvg('trend-stable');
-        
+        const trendIcon = this.teamWellness.trendDirection === 'up' ? this.getIconSvg('trend-up') :
+            this.teamWellness.trendDirection === 'down' ? this.getIconSvg('trend-down') : this.getIconSvg('trend-stable');
+
         return `
             <div class="team-stats">
                 <h4 class="stats-title">Team Wellness</h4>
@@ -399,21 +399,21 @@ class WellnessTracker extends HTMLElement {
     renderMiniChart() {
         const maxMood = 5;
         const maxHeight = 40;
-        
+
         return `
             <div class="chart-container">
                 <div class="chart-title">This Week's Trend</div>
                 <div class="chart-bars">
                     ${this.weekData.map((day, index) => {
-                        const height = (day.averageMood / maxMood) * maxHeight;
-                        return `
+            const height = (day.averageMood / maxMood) * maxHeight;
+            return `
                             <div class="chart-bar" 
                                  style="height: ${height}px"
                                  title="${day.day}: ${day.averageMood.toFixed(1)}/5">
                                 <span class="bar-label">${day.day}</span>
                             </div>
                         `;
-                    }).join('')}
+        }).join('')}
                 </div>
             </div>
         `;
@@ -426,7 +426,7 @@ class WellnessTracker extends HTMLElement {
                 this.submitMood(moodId);
             }
         });
-        
+
         // Keyboard navigation for mood options
         this.addEventListener('keydown', (e) => {
             if (e.target.classList.contains('mood-option')) {
@@ -450,11 +450,11 @@ class WellnessTracker extends HTMLElement {
                         Wellness Check
                     </h3>
                     <div class="tracker-date">
-                        ${new Date().toLocaleDateString('en-US', { 
-                            weekday: 'short', 
-                            month: 'short', 
-                            day: 'numeric' 
-                        })}
+                        ${new Date().toLocaleDateString('en-US', {
+            weekday: 'short',
+            month: 'short',
+            day: 'numeric'
+        })}
                     </div>
                 </div>
                 
@@ -467,7 +467,7 @@ class WellnessTracker extends HTMLElement {
                 ${this.renderTeamStats()}
             </div>
         `;
-        
+
         // If user already submitted today, show thank you state
         if (this.hasSubmittedToday) {
             setTimeout(() => this.showThankYouState(), 100);

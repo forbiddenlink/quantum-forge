@@ -9,7 +9,7 @@ class SpectacularWelcomeSection extends HTMLElement {
         this.isInitialized = false;
         this.floatingIcons = ['rocket', 'star', 'diamond', 'sparkle', 'magic', 'target', 'art', 'theater', 'rainbow', 'crystal'];
         this.mouseFollower = null;
-        
+
         // Contest Enhancement Features
         this.recommendations = [];
         this.currentTime = new Date();
@@ -21,7 +21,7 @@ class SpectacularWelcomeSection extends HTMLElement {
 
     connectedCallback() {
         console.log('🎨 Contest-Winning Welcome Section Loading...');
-        
+
         // Initialize SVG icon library first and wait for it
         const initializeLibrary = () => {
             return new Promise((resolve) => {
@@ -89,19 +89,19 @@ class SpectacularWelcomeSection extends HTMLElement {
         // Add ARIA attributes
         welcomeSection.setAttribute('role', 'main');
         welcomeSection.setAttribute('aria-label', 'Welcome dashboard with interactive statistics and upcoming events');
-        
+
         // Add skip link
         this.createSkipLink(welcomeSection);
-        
+
         // Add keyboard navigation helper
         this.createKeyboardHelper(welcomeSection);
-        
+
         // Add screen reader announcements
         this.createLiveRegion(welcomeSection);
-        
+
         // Make interactive elements focusable
         this.enhanceInteractiveElements(welcomeSection);
-        
+
         console.log('♿ Accessibility features initialized!');
     }
 
@@ -144,16 +144,16 @@ class SpectacularWelcomeSection extends HTMLElement {
     enhanceInteractiveElements(container) {
         // Make all interactive elements focusable and add click handlers
         const interactiveElements = container.querySelectorAll('button, .btn, .event-card, .insight-card, .stat-item');
-        
+
         interactiveElements.forEach((element, index) => {
             element.setAttribute('tabindex', '0');
             element.setAttribute('role', 'button');
-            
+
             // Add SVG icons to buttons
             if (element.classList.contains('btn')) {
                 const buttonText = element.textContent.trim();
                 let iconName = '';
-                
+
                 // Map button text to icon names
                 switch (buttonText.toLowerCase()) {
                     case 'new task':
@@ -171,19 +171,19 @@ class SpectacularWelcomeSection extends HTMLElement {
                     default:
                         iconName = 'default';
                 }
-                
+
                 // Remove any existing icons
                 const existingIcon = element.querySelector('.btn-icon');
                 if (existingIcon) {
                     existingIcon.remove();
                 }
-                
+
                 // Create and add the icon
                 if (window.svgIconLibrary) {
                     const iconElement = window.svgIconLibrary.createIconElement(iconName, 'btn-icon');
                     // Insert icon before any text
                     element.insertBefore(iconElement, element.firstChild);
-                    
+
                     // Ensure icon is visible and properly styled
                     iconElement.style.cssText = `
                         display: inline-flex !important;
@@ -206,7 +206,7 @@ class SpectacularWelcomeSection extends HTMLElement {
                         `;
                     }
                 }
-                
+
                 element.addEventListener('click', (e) => {
                     this.handleQuickActionClick(e, element);
                 });
@@ -223,7 +223,7 @@ class SpectacularWelcomeSection extends HTMLElement {
                     this.handleStatItemClick(e, element);
                 });
             }
-            
+
             // Add keyboard support
             element.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -232,7 +232,7 @@ class SpectacularWelcomeSection extends HTMLElement {
                 }
             });
         });
-        
+
         console.log('♿ Enhanced interactive elements:', interactiveElements.length);
     }
 
@@ -240,7 +240,7 @@ class SpectacularWelcomeSection extends HTMLElement {
     handleQuickActionClick(event, button) {
         const buttonText = button.textContent.trim();
         console.log('🎯 Quick action clicked:', buttonText);
-        
+
         switch (buttonText) {
             case 'New Task':
                 window.location.href = '/pages/tasks.html';
@@ -257,7 +257,7 @@ class SpectacularWelcomeSection extends HTMLElement {
             default:
                 console.log('Unknown quick action:', buttonText);
         }
-        
+
         // Announce to screen reader
         this.announceToScreenReader(`Navigating to ${buttonText}`);
     }
@@ -266,10 +266,10 @@ class SpectacularWelcomeSection extends HTMLElement {
     handleEventCardClick(event, card) {
         const eventTitle = card.querySelector('.event-title')?.textContent;
         console.log('📅 Event card clicked:', eventTitle);
-        
+
         // Navigate to calendar page
         window.location.href = '/pages/calendar.html';
-        
+
         this.announceToScreenReader(`Opening calendar for ${eventTitle}`);
     }
 
@@ -277,10 +277,10 @@ class SpectacularWelcomeSection extends HTMLElement {
     handleInsightCardClick(event, card) {
         const insightTitle = card.querySelector('h4')?.textContent;
         console.log('💡 Insight card clicked:', insightTitle);
-        
+
         // Navigate to analytics page for insights
         window.location.href = '/pages/analytics.html';
-        
+
         this.announceToScreenReader(`Viewing analytics for ${insightTitle}`);
     }
 
@@ -288,7 +288,7 @@ class SpectacularWelcomeSection extends HTMLElement {
     handleStatItemClick(event, statItem) {
         const statLabel = statItem.querySelector('.stat-label')?.textContent;
         console.log('📊 Stat item clicked:', statLabel);
-        
+
         // Navigate to appropriate page based on stat type
         switch (statLabel) {
             case 'Active Projects':
@@ -308,7 +308,7 @@ class SpectacularWelcomeSection extends HTMLElement {
             default:
                 console.log('Unknown stat type:', statLabel);
         }
-        
+
         this.announceToScreenReader(`Viewing details for ${statLabel}`);
     }
 
@@ -318,7 +318,7 @@ class SpectacularWelcomeSection extends HTMLElement {
         if (!welcomeSection) return;
 
         welcomeSection.addEventListener('keydown', (e) => {
-            switch(e.key) {
+            switch (e.key) {
                 case 'Escape':
                     this.resetFocus();
                     break;
@@ -367,11 +367,11 @@ class SpectacularWelcomeSection extends HTMLElement {
     generateSmartRecommendations() {
         const currentHour = this.currentTime.getHours();
         const dayOfWeek = this.currentTime.getDay();
-        
+
         this.recommendations = [
             {
                 id: 'focus-time',
-                title: `${window.svgIconLibrary ? window.svgIconLibrary.getIcon('target') : '🎯'} Focus Time`,
+                title: '🎯 Focus Time',
                 description: 'Block 2 hours for deep work on Project Alpha',
                 priority: 'high',
                 reason: 'Based on your most productive hours',
@@ -380,7 +380,7 @@ class SpectacularWelcomeSection extends HTMLElement {
             },
             {
                 id: 'team-standup',
-                title: `${window.svgIconLibrary ? window.svgIconLibrary.getIcon('team') : '👥'} Team Check-in`,
+                title: '👥 Team Check-in',
                 description: 'Quick sync with your remote teammates',
                 priority: 'medium',
                 reason: 'Your team is online now',
@@ -389,7 +389,7 @@ class SpectacularWelcomeSection extends HTMLElement {
             },
             {
                 id: 'learning-break',
-                title: `${window.svgIconLibrary ? window.svgIconLibrary.getIcon('learning') : '📚'} Skill Building`,
+                title: '📚 Skill Building',
                 description: 'Complete JavaScript fundamentals module',
                 priority: 'low',
                 reason: 'You have 30 minutes until your next meeting',
@@ -409,7 +409,7 @@ class SpectacularWelcomeSection extends HTMLElement {
 
         // Filter recommendations based on time relevance
         this.recommendations = this.recommendations.filter(rec => rec.timeRelevant);
-        
+
         console.log('🤖 Smart recommendations generated:', this.recommendations.length);
     }
 
@@ -419,7 +419,7 @@ class SpectacularWelcomeSection extends HTMLElement {
         vizContainer.className = 'data-viz-container';
         vizContainer.setAttribute('role', 'img');
         vizContainer.setAttribute('aria-label', `Progress visualization showing ${data.label} at ${data.percentage}% completion`);
-        
+
         const progressRing = this.createProgressRing(data.percentage, data.color);
         const label = document.createElement('div');
         label.textContent = data.label;
@@ -427,16 +427,16 @@ class SpectacularWelcomeSection extends HTMLElement {
         label.style.marginTop = '8px';
         label.style.fontSize = '0.875rem';
         label.style.fontWeight = '600';
-        
+
         vizContainer.appendChild(progressRing);
         vizContainer.appendChild(label);
         container.appendChild(vizContainer);
-        
+
         // Animate the progress ring
         setTimeout(() => {
             this.animateProgressRing(progressRing, data.percentage);
         }, 500);
-        
+
         return vizContainer;
     }
 
@@ -445,18 +445,18 @@ class SpectacularWelcomeSection extends HTMLElement {
         const strokeWidth = 4;
         const radius = (size - strokeWidth) / 2;
         const circumference = radius * 2 * Math.PI;
-        
+
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.setAttribute('class', 'progress-ring');
         svg.setAttribute('width', size);
         svg.setAttribute('height', size);
-        
+
         const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         circle.setAttribute('class', 'progress-ring-circle');
         circle.setAttribute('cx', size / 2);
         circle.setAttribute('cy', size / 2);
         circle.setAttribute('r', radius);
-        
+
         const progress = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         progress.setAttribute('class', 'progress-ring-progress');
         progress.setAttribute('cx', size / 2);
@@ -464,10 +464,10 @@ class SpectacularWelcomeSection extends HTMLElement {
         progress.setAttribute('r', radius);
         progress.setAttribute('stroke', color);
         progress.style.strokeDasharray = `0 ${circumference}`;
-        
+
         svg.appendChild(circle);
         svg.appendChild(progress);
-        
+
         return svg;
     }
 
@@ -476,10 +476,10 @@ class SpectacularWelcomeSection extends HTMLElement {
         const radius = 36; // (80 - 4) / 2
         const circumference = radius * 2 * Math.PI;
         const offset = circumference - (percentage / 100) * circumference;
-        
+
         progress.style.strokeDasharray = `${circumference} ${circumference}`;
         progress.style.strokeDashoffset = circumference;
-        
+
         // Trigger animation
         requestAnimationFrame(() => {
             progress.style.strokeDashoffset = offset;
@@ -493,7 +493,7 @@ class SpectacularWelcomeSection extends HTMLElement {
             this.refreshRecommendations();
             this.updateProgressData();
         }, 30000); // Update every 30 seconds
-        
+
         console.log('📡 Real-time updates started!');
     }
 
@@ -503,7 +503,7 @@ class SpectacularWelcomeSection extends HTMLElement {
             // Simulate real-time data updates
             const randomActivity = Math.floor(Math.random() * 5) + 1;
             const activityText = this.generateActivityText(randomActivity);
-            
+
             if (indicator.textContent !== activityText) {
                 indicator.textContent = activityText;
                 this.announceToScreenReader(`Activity update: ${activityText}`);
@@ -543,31 +543,31 @@ class SpectacularWelcomeSection extends HTMLElement {
         this.createSmartRecommendationsUI(welcomeSection);
         this.createAIInsights(welcomeSection);
         this.createRealTimeIndicators(welcomeSection);
-        
+
         console.log('🌟 All spectacular effects initialized!');
     }
 
     createSmartRecommendationsUI(container) {
         if (this.recommendations.length === 0) return;
-        
+
         const recommendationsContainer = document.createElement('div');
         recommendationsContainer.className = 'smart-recommendations';
         recommendationsContainer.setAttribute('role', 'region');
         recommendationsContainer.setAttribute('aria-label', 'Smart recommendations based on your activity');
-        
+
         const title = document.createElement('h3');
         title.textContent = '🤖 Smart Recommendations';
         title.style.marginBottom = 'var(--space-3)';
         title.style.fontSize = '1.125rem';
         title.style.fontWeight = '600';
-        
+
         container.appendChild(title);
-        
+
         this.recommendations.slice(0, 3).forEach((rec, index) => {
             const card = this.createRecommendationCard(rec, index);
             recommendationsContainer.appendChild(card);
         });
-        
+
         container.appendChild(recommendationsContainer);
         console.log('🤖 Smart recommendations UI created!');
     }
@@ -602,14 +602,14 @@ class SpectacularWelcomeSection extends HTMLElement {
         card.addEventListener('click', () => {
             this.executeRecommendation(recommendation, index);
         });
-        
+
         card.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 this.executeRecommendation(recommendation, index);
             }
         });
-        
+
         return card;
     }
 
@@ -669,15 +669,15 @@ class SpectacularWelcomeSection extends HTMLElement {
     executeRecommendation(recommendation, index) {
         this.announceToScreenReader(`Executing recommendation: ${recommendation.title}`);
         console.log(`🎯 Executing recommendation: ${recommendation.title}`);
-        
+
         // Trigger visual feedback
         this.createActionFeedback(recommendation.title);
-        
+
         // Execute the action
         if (recommendation.action) {
             recommendation.action();
         }
-        
+
         // Remove the executed recommendation
         this.recommendations.splice(index, 1);
         this.refreshRecommendationsUI();
@@ -699,9 +699,9 @@ class SpectacularWelcomeSection extends HTMLElement {
             animation: slideInRight 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
         `;
         feedback.textContent = `✅ ${actionName}`;
-        
+
         document.body.appendChild(feedback);
-        
+
         setTimeout(() => {
             if (feedback.parentNode) {
                 feedback.parentNode.removeChild(feedback);
@@ -712,10 +712,10 @@ class SpectacularWelcomeSection extends HTMLElement {
     showStatDetails(statElement, index) {
         const statName = statElement.querySelector('.stat-label')?.textContent || 'Statistic';
         const statValue = statElement.querySelector('.stat-number')?.textContent || 'N/A';
-        
+
         this.announceToScreenReader(`Showing details for ${statName}: ${statValue}`);
         console.log(`📊 Stat Details: ${statName} = ${statValue}`);
-        
+
         // Create a visual popup or detailed view
         this.createStatPopup(statName, statValue, statElement);
     }
@@ -754,9 +754,9 @@ class SpectacularWelcomeSection extends HTMLElement {
         const rect = element.getBoundingClientRect();
         popup.style.top = (rect.bottom + 10) + 'px';
         popup.style.left = rect.left + 'px';
-        
+
         document.body.appendChild(popup);
-        
+
         // Auto-close after 3 seconds or on click
         const closePopup = () => {
             if (popup.parentNode) {
@@ -768,7 +768,7 @@ class SpectacularWelcomeSection extends HTMLElement {
                 }, 300);
             }
         };
-        
+
         setTimeout(closePopup, 3000);
         document.addEventListener('click', closePopup, { once: true });
     }
@@ -876,11 +876,11 @@ class SpectacularWelcomeSection extends HTMLElement {
         for (let i = 0; i < 20; i++) {
             const sparkle = document.createElement('div');
             sparkle.className = 'sparkle';
-            
+
             sparkle.style.top = Math.random() * 100 + '%';
             sparkle.style.left = Math.random() * 100 + '%';
             sparkle.style.animationDelay = Math.random() * 3 + 's';
-            
+
             sparklesContainer.appendChild(sparkle);
         }
 
@@ -951,7 +951,7 @@ class SpectacularWelcomeSection extends HTMLElement {
             const rect = welcomeSection.getBoundingClientRect();
             this.mousePosition.x = e.clientX - rect.left;
             this.mousePosition.y = e.clientY - rect.top;
-            
+
             if (this.mouseFollower) {
                 this.mouseFollower.style.left = this.mousePosition.x + 'px';
                 this.mouseFollower.style.top = this.mousePosition.y + 'px';
@@ -991,13 +991,13 @@ class SpectacularWelcomeSection extends HTMLElement {
         for (let i = 0; i < 10; i++) {
             const sparkle = document.createElement('div');
             sparkle.className = 'sparkle temporary';
-            
+
             sparkle.style.top = (this.mousePosition.y + Math.random() * 100 - 50) + 'px';
             sparkle.style.left = (this.mousePosition.x + Math.random() * 100 - 50) + 'px';
             sparkle.style.animationDuration = '1s';
-            
+
             sparklesContainer.appendChild(sparkle);
-            
+
             setTimeout(() => {
                 if (sparkle.parentNode) {
                     sparkle.parentNode.removeChild(sparkle);
@@ -1023,7 +1023,7 @@ class SpectacularWelcomeSection extends HTMLElement {
     updateParticleColors() {
         const currentTheme = localStorage.getItem('userColor') || '#6366f1';
         const particles = document.querySelectorAll('.welcome-section .particle');
-        
+
         particles.forEach((particle, index) => {
             const hue = this.hexToHue(currentTheme) + (index * 30);
             particle.style.filter = `hue-rotate(${hue}deg)`;
@@ -1033,7 +1033,7 @@ class SpectacularWelcomeSection extends HTMLElement {
     updateSparkleIntensity() {
         const intensity = 0.5 + 0.5 * Math.sin(Date.now() * 0.001);
         const sparkles = document.querySelectorAll('.welcome-section .sparkle');
-        
+
         sparkles.forEach(sparkle => {
             sparkle.style.opacity = intensity;
         });
@@ -1043,11 +1043,11 @@ class SpectacularWelcomeSection extends HTMLElement {
         const r = parseInt(hex.slice(1, 3), 16) / 255;
         const g = parseInt(hex.slice(3, 5), 16) / 255;
         const b = parseInt(hex.slice(5, 7), 16) / 255;
-        
+
         const max = Math.max(r, g, b);
         const min = Math.min(r, g, b);
         let h = 0;
-        
+
         if (max !== min) {
             const d = max - min;
             switch (max) {
@@ -1057,7 +1057,7 @@ class SpectacularWelcomeSection extends HTMLElement {
             }
             h /= 6;
         }
-        
+
         return h * 360;
     }
 
@@ -1084,25 +1084,25 @@ class SpectacularWelcomeSection extends HTMLElement {
         sparkle.style.left = '50%';
         sparkle.style.pointerEvents = 'none';
         sparkle.style.zIndex = '10';
-        
+
         const angle = (index / 50) * Math.PI * 2;
         const distance = 100 + Math.random() * 200;
         const duration = 2000 + Math.random() * 1000;
-        
+
         const targetX = Math.cos(angle) * distance;
         const targetY = Math.sin(angle) * distance;
-        
+
         sparkle.animate([
-            { 
+            {
                 transform: 'translate(-50%, -50%) scale(0)',
                 opacity: 0
             },
-            { 
+            {
                 transform: `translate(calc(-50% + ${targetX}px), calc(-50% + ${targetY}px)) scale(1)`,
                 opacity: 1,
                 offset: 0.3
             },
-            { 
+            {
                 transform: `translate(calc(-50% + ${targetX * 1.5}px), calc(-50% + ${targetY * 1.5}px)) scale(0)`,
                 opacity: 0
             }
@@ -1114,7 +1114,7 @@ class SpectacularWelcomeSection extends HTMLElement {
                 sparkle.parentNode.removeChild(sparkle);
             }
         };
-        
+
         const welcomeSection = document.querySelector('.welcome-section');
         if (welcomeSection) {
             welcomeSection.appendChild(sparkle);
@@ -1161,7 +1161,7 @@ class SpectacularWelcomeSection extends HTMLElement {
         if (existingContainer) {
             existingContainer.remove();
         }
-        
+
         const welcomeSection = document.querySelector('.welcome-section');
         if (welcomeSection && this.recommendations.length > 0) {
             this.createSmartRecommendationsUI(welcomeSection);
@@ -1184,14 +1184,14 @@ class SpectacularWelcomeSection extends HTMLElement {
                 sparkle.parentNode.removeChild(sparkle);
             }
         });
-        
+
         console.log('🧹 Spectacular effects cleanup complete!');
     }
 
     // Add new method to refresh icons
     refreshIcons() {
         console.log('Refreshing icons...');
-        
+
         // Check if SVG library is loaded
         if (!window.svgIconLibrary) {
             console.error('SVG library not loaded yet, retrying in 500ms...');
@@ -1201,7 +1201,7 @@ class SpectacularWelcomeSection extends HTMLElement {
 
         const buttons = document.querySelectorAll('.welcome-section .btn');
         console.log('Found buttons:', buttons.length);
-        
+
         buttons.forEach(button => {
             // Get the text content without the icon
             const buttonText = Array.from(button.childNodes)
@@ -1209,9 +1209,9 @@ class SpectacularWelcomeSection extends HTMLElement {
                 .map(node => node.textContent.trim())
                 .join('')
                 .toLowerCase();
-                
+
             console.log('Processing button:', buttonText);
-            
+
             let iconName = '';
             switch (buttonText) {
                 case 'new task':
@@ -1230,21 +1230,21 @@ class SpectacularWelcomeSection extends HTMLElement {
                     console.log('Unknown button text:', buttonText);
                     iconName = 'default';
             }
-            
+
             // Remove any existing icons
             const existingIcon = button.querySelector('.btn-icon');
             if (existingIcon) {
                 console.log('Removing existing icon');
                 existingIcon.remove();
             }
-            
+
             // Create and add the icon
             console.log('Creating icon:', iconName);
             const iconElement = window.svgIconLibrary.createIconElement(iconName, 'btn-icon');
-            
+
             // Insert icon before any text
             button.insertBefore(iconElement, button.firstChild);
-            
+
             // Ensure icon is visible and properly styled
             iconElement.style.cssText = `
                 display: inline-flex !important;
@@ -1292,9 +1292,9 @@ if (!customElements.get('spectacular-welcome-section')) {
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🎨 Initializing Contest-Winning Welcome Section...');
-    
+
     const spectacularWelcome = new SpectacularWelcomeSection();
-    
+
     const checkAndInit = () => {
         const welcomeSection = document.querySelector('.welcome-section');
         if (welcomeSection) {
@@ -1304,9 +1304,9 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(checkAndInit, 100);
         }
     };
-    
+
     checkAndInit();
-    
+
     // Add global access for triggering spectacular effects
     window.spectacularWelcome = spectacularWelcome;
 });
