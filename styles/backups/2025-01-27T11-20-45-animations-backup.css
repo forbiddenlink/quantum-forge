@@ -740,13 +740,19 @@
         transform: scale(0.8);
     }
 
-    /* 100% rule removed - duplicate of scaleIn keyframe */
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Swing Animation - Gentle pendulum swing effect */
 @keyframes swing {
 
-    /* 0%, 100% rule removed - duplicate of wave keyframe */
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
 
     25% {
         transform: rotate(3deg);

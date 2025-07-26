@@ -1386,7 +1386,12 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     margin-bottom: var(--space-4);
 }
 
-/* .progress-header moved to components/task-system.css to avoid duplication */
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+}
 
 .progress-label {
     font-size: var(--font-size-sm);
@@ -1455,7 +1460,11 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* .task-meta-items moved to components/task-system.css to avoid duplication */
+.task-meta-items {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+}
 
 .meta-item {
     display: flex;
@@ -1752,9 +1761,13 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         animation: spectralGlow 6s ease-in-out infinite;
     }
 
-    /* .task-cards-grid moved to components/task-system.css to avoid duplication */
+    .task-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
 
-    /* .analytics-grid moved to components/task-system.css to avoid duplication */
+    .analytics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
@@ -2299,7 +2312,9 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         display: none;
     }
 
-    /* Duplicate rule removed - already defined above */
+    .task-sparkle:nth-child(n+4) {
+        display: none;
+    }
 }
 
 /* 🏆 LARGE MOBILE DEVICES (414px - 479px) */

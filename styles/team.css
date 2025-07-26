@@ -501,11 +501,7 @@
     color: var(--error-600);
 }
 
-.stat-label {
-    font-size: var(--font-size-xs);
-    color: var(--text-muted);
-    font-weight: 500;
-}
+/* .stat-label duplicate removed - already defined above */
 
 /* Member Details Grid */
 .member-details {
@@ -1408,11 +1404,7 @@
         gap: var(--space-6);
     }
 
-    .member-header {
-        flex-direction: column;
-        text-align: center;
-        gap: var(--space-4);
-    }
+    /* .member-header duplicate removed - already defined above */
 
     .member-avatar-container {
         align-self: center;
@@ -1434,9 +1426,7 @@
 }
 
 @media (max-width: 480px) {
-    .enhanced-team-spotlight {
-        padding: var(--space-4);
-    }
+    /* .enhanced-team-spotlight duplicate removed - already defined above */
 
     .spotlight-title {
         font-size: var(--font-size-xl);
