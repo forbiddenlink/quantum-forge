@@ -564,15 +564,45 @@ task-system .task-list-header {
     font-weight: 600 !important;
 }
 
-/* 🔧 CRISP TITLE FIXES */
+/* === TASK SYSTEM TITLE: Consolidated Responsive Design === */
 .enhanced-task-system .task-system-title,
-task-system .task-system-title {
+task-system .task-system-title,
+.task-system-title {
+    /* Base styling */
     color: white !important;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
     font-weight: 800 !important;
+    font-size: var(--font-size-3xl) !important;
+    margin: 0 0 var(--space-2) 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
+    
+    /* Typography optimization */
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
     text-rendering: optimizeLegibility !important;
+    
+    /* Transitions */
+    transition: all var(--duration-fast) var(--ease-bounce) !important;
+    position: relative !important;
+}
+
+/* Hover effect */
+.task-system-title:hover {
+    transform: translateY(-1px);
+}
+
+/* Dark mode support */
+[data-theme="dark"] .task-system-title {
+    background: linear-gradient(135deg,
+            var(--primary-400) 0%,
+            var(--primary-300) 30%,
+            var(--accent-color) 60%,
+            var(--primary-200) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .enhanced-task-system .section-title,
@@ -713,38 +743,8 @@ task-system .analytics-title {
     flex: 1;
 }
 
-.enhanced-task-system .task-system-title,
-task-system .task-system-title,
-.task-system-title {
-    font-size: var(--font-size-3xl) !important;
-    font-weight: 800 !important;
-    margin: 0 0 var(--space-2) 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: var(--space-3) !important;
-    color: white !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
-
-    /* Elegant hover effect */
-    transition: all var(--duration-fast) var(--ease-bounce) !important;
-    position: relative !important;
-}
-
-.task-system-title:hover {
-    transform: translateY(-1px);
-}
-
-/* Dark mode support for task title */
-[data-theme="dark"] .task-system-title {
-    background: linear-gradient(135deg,
-            var(--primary-400) 0%,
-            var(--primary-300) 30%,
-            var(--accent-color) 60%,
-            var(--primary-200) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+/* === TASK SYSTEM TITLE: Consolidated above === */
+/* REMOVED: Duplicate definition - consolidated with base definition above */
 
 .task-system-subtitle {
     font-size: var(--font-size-lg);
@@ -830,6 +830,33 @@ task-system .task-system-title,
     stroke: white !important;
     fill: none !important;
     flex-shrink: 0;
+}
+
+/* === AI INSIGHTS GRID: Responsive Layouts === */
+.ai-insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-4);
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Tablet and below: 2 columns */
+@media (min-width: 480px) and (max-width: 1023px) {
+    .ai-insights-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+}
+
+/* Large mobile: 1 column, tighter gap */
+@media (max-width: 479px) {
+    .ai-insights-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
 }
 
 html body .enhanced-task-system.spectacular-mode .ai-insights-grid,
@@ -1817,7 +1844,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 
     .task-system-title {
-        font-size: var(--font-size-2xl);
+        font-size: var(--font-size-2xl) !important;
     }
 
     /* Hide complex effects on very small screens */
@@ -1921,20 +1948,8 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* Scale bounce effect */
-@keyframes taskScaleBounce {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.08);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
+/* Scale bounce effect - consolidated to use scaleBounce from animations.css */
+/* @keyframes taskScaleBounce - REMOVED: Duplicate of scaleBounce in animations.css */
 
 /* Utility classes for dynamic animations */
 .task-pulse {
@@ -1946,7 +1961,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 }
 
 .task-scale-bounce {
-    animation: taskScaleBounce 0.6s ease-out;
+    animation: scaleBounce 0.6s ease-out;
 }
 
 /* 🌟 CONTEST-WINNING HOVER EFFECTS */
@@ -2098,8 +2113,8 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 
     .task-system-title {
-        font-size: var(--font-size-lg);
-        margin-bottom: var(--space-2);
+        font-size: var(--font-size-lg) !important;
+        margin-bottom: var(--space-2) !important;
     }
 
     .task-system-subtitle {
@@ -2271,7 +2286,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 
     .task-system-title {
-        font-size: var(--font-size-xl);
+        font-size: var(--font-size-xl) !important;
     }
 
     .task-stats {
@@ -2309,7 +2324,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 
     .task-system-title {
-        font-size: var(--font-size-2xl);
+        font-size: var(--font-size-2xl) !important;
     }
 
     .task-stats {
@@ -4195,5 +4210,48 @@ enhanced-task-system .section-icon-svg {
     .task-search {
         max-width: none;
         width: 100%;
+    }
+}
+
+/* === ANALYTICS GRID: Responsive Layouts === */
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+}
+
+/* Tablet and below: 3 columns */
+@media (min-width: 480px) and (max-width: 639px) {
+    .analytics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-4);
+    }
+}
+
+/* Large mobile: 2 columns */
+@media (min-width: 375px) and (max-width: 479px) {
+    .analytics-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+    }
+}
+
+/* Small mobile: 1 column */
+@media (max-width: 374px) {
+    .analytics-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+}
+
+/* Tablet and below: 1 column (fallback for max-width: 768px) */
+@media (max-width: 768px) {
+    .analytics-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
     }
 }
