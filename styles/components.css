@@ -819,63 +819,63 @@
 
 /* Impact Badge Component - Consolidated from analytics-dashboard.css and enhanced-task-system.css */
 .impact-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-1);
-    padding: var(--space-1) var(--space-2);
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-xs);
-    font-weight: 500;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .impact-badge.high {
-    background: rgba(239, 68, 68, 0.2);
-    color: var(--error-200);
+  background: rgba(239, 68, 68, 0.2);
+  color: var(--error-200);
 }
 
 .impact-badge.medium {
-    background: rgba(245, 158, 11, 0.2);
-    color: var(--warning-200);
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--warning-200);
 }
 
 .impact-badge.low {
-    background: rgba(99, 102, 241, 0.2);
-    color: var(--primary-200);
+  background: rgba(99, 102, 241, 0.2);
+  color: var(--primary-200);
 }
 
 /* Shortcuts Content Component - Consolidated from analytics-dashboard.css and enhanced-task-system.css */
 .shortcuts-content {
-    background: var(--bg-elevated);
-    padding: 2rem;
-    border-radius: 12px;
-    max-width: 500px;
-    max-height: 80vh;
-    overflow-y: auto;
+  background: var(--bg-elevated);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .shortcuts-content h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
 }
 
 .shortcuts-content pre {
-    background: var(--bg-secondary);
-    padding: 1rem;
-    border-radius: 8px;
-    white-space: pre-wrap;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
+  background: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
 }
 
 .close-shortcuts {
-    background: var(--primary-500);
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
+  background: var(--primary-500);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
 }
