@@ -167,13 +167,10 @@
     height: 8px;
     background: var(--success-500);
     border-radius: var(--radius-full);
-    animation: pulse-online 2s infinite;
+    animation: standardPulse 2s infinite;
 }
 
-@keyframes pulse-online {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
+/* pulse-online animation removed - using standardPulse from animations.css to avoid duplication */
 
 .chat-header-actions {
     display: flex;

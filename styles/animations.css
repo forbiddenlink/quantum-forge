@@ -774,6 +774,16 @@
     }
 }
 
+/* Standardized pulse animation for opacity changes - consolidates statusPulse and pulse-online */
+@keyframes standardPulse {
+    0%, 100% { 
+        opacity: 1; 
+    }
+    50% { 
+        opacity: 0.5; 
+    }
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
 

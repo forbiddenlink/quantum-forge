@@ -3916,7 +3916,21 @@ html body .dashboard .enhanced-knowledge-hub.spectacular-mode *:not(input):not(s
 
 /* 🔧 CRITICAL UI FIXES FOR KNOWLEDGE HUB */
 
-/* Search container styling handled by previous definition */
+/* 🔧 FIX SEARCH ICON AND STAR ALIGNMENT */
+.enhanced-knowledge-hub.spectacular-mode .search-container.spectacular {
+    position: relative;
+    width: 320px;
+    min-width: 280px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    backdrop-filter: blur(15px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    display: flex !important;
+    align-items: center !important;
+    height: 56px;
+}
 
 /* Fix search input positioning and alignment */
 .enhanced-knowledge-hub.spectacular-mode .enhanced-search.spectacular {

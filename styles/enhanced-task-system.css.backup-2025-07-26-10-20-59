@@ -49,7 +49,7 @@ enhanced-task-system {
 
     /* SPECTACULAR glow and animation effects */
     animation:
-        spectralGlow 6s ease-in-out infinite,
+        taskGlow 6s ease-in-out infinite,
         spectralBackgroundShift 20s linear infinite,
         subtlePulse 4s ease-in-out infinite !important;
 
@@ -80,7 +80,52 @@ enhanced-task-system {
         repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.05) 4px, rgba(255, 255, 255, 0.05) 8px) !important;
 }
 
-/* taskGlow animation removed - using spectralGlow from animations.css to avoid duplication */
+/* 🎨 SPECTACULAR KEYFRAME ANIMATIONS - MATCHING WELCOME/ANALYTICS */
+@keyframes taskGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 20px 25px -5px rgba(0, 0, 0, 0.1),
+            0 10px 10px -5px rgba(0, 0, 0, 0.04),
+            0 0 0 1px rgba(255, 255, 255, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4),
+            0 0 60px rgba(99, 102, 241, 0.4),
+            0 0 120px rgba(99, 102, 241, 0.2);
+    }
+
+    25% {
+        box-shadow:
+            0 25px 30px -5px rgba(0, 0, 0, 0.12),
+            0 12px 12px -5px rgba(0, 0, 0, 0.06),
+            0 0 0 1px rgba(255, 255, 255, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.5),
+            0 0 80px rgba(139, 92, 246, 0.5),
+            0 0 140px rgba(139, 92, 246, 0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 22px 27px -5px rgba(0, 0, 0, 0.11),
+            0 11px 11px -5px rgba(0, 0, 0, 0.05),
+            0 0 0 1px rgba(255, 255, 255, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.45),
+            0 0 70px rgba(6, 182, 212, 0.45),
+            0 0 130px rgba(6, 182, 212, 0.25);
+    }
+
+    75% {
+        box-shadow:
+            0 24px 29px -5px rgba(0, 0, 0, 0.13),
+            0 13px 13px -5px rgba(0, 0, 0, 0.07),
+            0 0 0 1px rgba(255, 255, 255, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.48),
+            0 0 75px rgba(16, 185, 129, 0.48),
+            0 0 135px rgba(16, 185, 129, 0.28);
+    }
+}
+
+/* taskBackgroundShift animation removed - using spectralBackgroundShift from animations.css to avoid duplication */
 
 /* Task system animations using central definitions */
 
@@ -680,10 +725,22 @@ task-system .analytics-title {
 
 .task-sparkle {
     position: absolute;
-    animation: sparkleAnimation 2s ease-in-out infinite;
+    animation: taskSparkle 2s ease-in-out infinite;
 }
 
-/* Animation consolidated with sparkleAnimation in welcome-section.css */
+@keyframes taskSparkle {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5) rotate(180deg);
+    }
+}
 
 /* 🎭 MOUSE FOLLOWER */
 .task-mouse-follower:hover {
@@ -1024,7 +1081,23 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     transition: all var(--duration-normal) var(--ease-spring);
 }
 
-/* .insight-action-btn styles defined in analytics-dashboard.css */
+.insight-action-btn.primary {
+    background: linear-gradient(135deg, var(--success-500), var(--success-600));
+    color: white !important;
+    border-color: var(--success-400);
+}
+
+.insight-action-btn.primary:hover {
+    background: linear-gradient(135deg, var(--success-400), var(--success-500)) !important;
+    color: white !important;
+    transform: translateY(-1px);
+}
+
+.insight-action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white !important;
+    border-color: rgba(255, 255, 255, 0.3);
+}
 
 .insight-action-btn:hover {
     transform: translateY(-1px);
@@ -1098,7 +1171,11 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     pointer-events: none;
 }
 
-/* .filter-controls defined in components/task-management.css */
+.filter-controls {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
 
 .enhanced-select {
     padding: var(--space-3) var(--space-4);
@@ -1815,7 +1892,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     .enhanced-task-system {
         padding: var(--space-6);
         /* Reduce animation complexity for better performance */
-        animation: spectralGlow 6s ease-in-out infinite;
+        animation: taskGlow 6s ease-in-out infinite;
     }
 
     .task-cards-grid {
@@ -1946,7 +2023,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 /* Loading state */
 .enhanced-task-system.task-system-loaded {
     animation:
-        spectralGlow 5s ease-in-out infinite,
+        taskGlow 5s ease-in-out infinite,
         spectralBackgroundShift 18s linear infinite,
         subtlePulse 3.5s ease-in-out infinite,
         taskSpectacularEntrance 1.2s ease-out;
@@ -2348,7 +2425,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 @media (min-width: 375px) and (max-width: 413px) {
     .enhanced-task-system {
         padding: var(--space-3);
-        animation: spectralGlow 8s ease-in-out infinite;
+        animation: taskGlow 8s ease-in-out infinite;
     }
 
     .task-system-title {
@@ -2478,7 +2555,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     .enhanced-task-system {
         padding: var(--space-6);
         animation:
-            spectralGlow 5s ease-in-out infinite,
+            taskGlow 5s ease-in-out infinite,
             spectralBackgroundShift 20s linear infinite;
     }
 
@@ -2516,7 +2593,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     .enhanced-task-system {
         padding: var(--space-6);
         animation:
-            spectralGlow 5s ease-in-out infinite,
+            taskGlow 5s ease-in-out infinite,
             spectralBackgroundShift 18s linear infinite,
             subtlePulse 4s ease-in-out infinite;
     }
@@ -2581,7 +2658,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         padding: var(--space-8);
         /* Full spectacular effects */
         animation:
-            spectralGlow 5s ease-in-out infinite,
+            taskGlow 5s ease-in-out infinite,
             spectralBackgroundShift 18s linear infinite,
             subtlePulse 3.5s ease-in-out infinite;
     }

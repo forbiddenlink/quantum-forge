@@ -680,10 +680,22 @@ task-system .analytics-title {
 
 .task-sparkle {
     position: absolute;
-    animation: sparkleAnimation 2s ease-in-out infinite;
+    animation: taskSparkle 2s ease-in-out infinite;
 }
 
-/* Animation consolidated with sparkleAnimation in welcome-section.css */
+@keyframes taskSparkle {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5) rotate(180deg);
+    }
+}
 
 /* 🎭 MOUSE FOLLOWER */
 .task-mouse-follower:hover {
@@ -1024,7 +1036,23 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     transition: all var(--duration-normal) var(--ease-spring);
 }
 
-/* .insight-action-btn styles defined in analytics-dashboard.css */
+.insight-action-btn.primary {
+    background: linear-gradient(135deg, var(--success-500), var(--success-600));
+    color: white !important;
+    border-color: var(--success-400);
+}
+
+.insight-action-btn.primary:hover {
+    background: linear-gradient(135deg, var(--success-400), var(--success-500)) !important;
+    color: white !important;
+    transform: translateY(-1px);
+}
+
+.insight-action-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white !important;
+    border-color: rgba(255, 255, 255, 0.3);
+}
 
 .insight-action-btn:hover {
     transform: translateY(-1px);
@@ -1098,7 +1126,11 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     pointer-events: none;
 }
 
-/* .filter-controls defined in components/task-management.css */
+.filter-controls {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
 
 .enhanced-select {
     padding: var(--space-3) var(--space-4);

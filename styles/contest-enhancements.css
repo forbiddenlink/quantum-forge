@@ -2125,20 +2125,10 @@
 
 .avatar-status.online {
     background: #10b981;
-    animation: statusPulse 2s ease-in-out infinite;
+    animation: standardPulse 2s ease-in-out infinite;
 }
 
-@keyframes statusPulse {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.5;
-    }
-}
+/* statusPulse animation removed - using standardPulse from animations.css to avoid duplication */
 
 .avatar-emoji {
     font-size: var(--font-size-3xl);
