@@ -835,7 +835,10 @@
         0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Action button icon styles moved to components.css to avoid duplication */
+.action-btn svg {
+    width: 16px;
+    height: 16px;
+}
 
 .action-btn.primary {
     background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);

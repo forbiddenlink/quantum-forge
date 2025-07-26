@@ -69,7 +69,10 @@
     z-index: 1000;
 }
 
-/* FAB hover styles moved to mobile-nav.css to avoid duplication */
+.fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(99, 102, 241, 0.6);
+}
 
 /* 4. PROGRESS INDICATORS */
 .progress-ring {

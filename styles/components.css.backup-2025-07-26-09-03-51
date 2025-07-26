@@ -316,52 +316,6 @@
   height: 12px;
 }
 
-/* Status Indicators
- * -------------------------------------------------- */
-
-/* Status indicator variants - master definition */
-.status-indicator.online {
-  background: var(--success-500);
-}
-
-.status-indicator.away {
-  background: var(--warning-500);
-}
-
-.status-indicator.offline {
-  background: var(--gray-400);
-}
-
-/* Achievement Components
- * -------------------------------------------------- */
-
-/* Achievement content and date styles - master definition */
-.achievement-content {
-  flex: 1;
-}
-
-.achievement-date {
-  font-size: var(--font-size-xs);
-  color: var(--text-muted);
-}
-
-/* Activity Components
- * -------------------------------------------------- */
-
-/* Activity content styles - master definition */
-.activity-content {
-  flex: 1;
-}
-
-/* Action Button Components
- * -------------------------------------------------- */
-
-/* Action button icon styles - master definition */
-.action-btn svg {
-  width: 16px;
-  height: 16px;
-}
-
 /* Tooltips
  * -------------------------------------------------- */
 

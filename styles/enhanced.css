@@ -1157,9 +1157,7 @@ enhanced-task-system,
     border-radius: var(--radius-lg);
 }
 
-.achievement-content {
-    flex: 1;
-}
+/* Achievement styles moved to components.css to avoid duplication */
 
 .achievement-content h4 {
     margin: 0 0 var(--space-1) 0;
@@ -1175,10 +1173,7 @@ enhanced-task-system,
     line-height: 1.4;
 }
 
-.achievement-date {
-    font-size: var(--font-size-xs);
-    color: var(--text-muted);
-}
+/* Achievement date styles moved to components.css to avoid duplication */
 
 .achievement-points {
     font-weight: 600;
@@ -1514,17 +1509,7 @@ enhanced-task-system,
     border: 2px solid white;
 }
 
-.status-indicator.online {
-    background: var(--success-500);
-}
-
-.status-indicator.away {
-    background: var(--warning-500);
-}
-
-.status-indicator.offline {
-    background: var(--gray-400);
-}
+/* Status indicator styles moved to components.css to avoid duplication */
 
 .user-info {
     flex: 1;
@@ -1563,10 +1548,7 @@ enhanced-task-system,
     color: var(--text-primary);
 }
 
-.action-btn svg {
-    width: 16px;
-    height: 16px;
-}
+/* Action button icon styles moved to components.css to avoid duplication */
 
 .document-card {
     display: flex;

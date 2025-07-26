@@ -368,10 +368,7 @@
     box-shadow: var(--shadow-sm);
 }
 
-.action-btn svg {
-    width: 16px;
-    height: 16px;
-}
+/* Action button icon styles moved to main components.css to avoid duplication */
 
 /* Task Card Content */
 .task-card-content {

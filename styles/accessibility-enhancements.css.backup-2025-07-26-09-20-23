@@ -131,9 +131,38 @@ select:focus {
     }
 }
 
-/* .sr-only class moved to utilities.css to avoid duplication */
-/* .sr-only-focusable:focus class moved to utilities.css to avoid duplication */
-/* .live-region class moved to utilities.css to avoid duplication */
+/* ===== SCREEN READER ONLY CONTENT ===== */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.sr-only-focusable:focus {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    padding: inherit !important;
+    margin: inherit !important;
+    overflow: visible !important;
+    clip: auto !important;
+    white-space: normal !important;
+}
+
+/* ===== LIVE REGIONS FOR DYNAMIC CONTENT ===== */
+.live-region {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
 
 .status-announcer {
     position: absolute;

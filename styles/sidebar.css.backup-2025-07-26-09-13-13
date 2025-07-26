@@ -646,10 +646,20 @@ body.sidebar-collapsed .nav-text {
     width: 90%;
     max-height: 80vh;
     overflow-y: auto;
-    animation: slideInUp 0.3s ease-out;
+    animation: slideUp 0.3s ease-out;
 }
 
-/* slideUp animation removed - using slideInUp from animations.css to avoid duplication */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .help-dialog-header {
     display: flex;

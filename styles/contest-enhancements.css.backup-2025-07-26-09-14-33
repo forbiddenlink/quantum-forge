@@ -1193,7 +1193,7 @@
 
 .culture-icon {
     font-size: var(--font-size-4xl);
-    animation: floatUpDown 4s ease-in-out infinite;
+    animation: gentle-float 4s ease-in-out infinite;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1208,7 +1208,17 @@
     color: white;
 }
 
-/* gentle-float animation removed - using floatUpDown from animations.css to avoid duplication */
+@keyframes gentle-float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
 
 .culture-subtitle {
     font-size: var(--font-size-lg);
@@ -2610,7 +2620,9 @@
     text-align: center;
 }
 
-/* .chart-container rule moved to accessibility-enhancements.css to avoid duplication */
+.chart-container {
+    position: relative;
+}
 
 .gender-bars {
     display: flex;
@@ -3109,7 +3121,14 @@
         grid-template-columns: 1fr;
     }
 
-    /* Duplicate .story-controls and .story-indicators rules removed - already defined above */
+    .story-controls {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+
+    .story-indicators {
+        order: -1;
+    }
 
     .stories-section,
     .values-section,

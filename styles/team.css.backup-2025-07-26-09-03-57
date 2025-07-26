@@ -320,7 +320,17 @@
     box-shadow: var(--shadow-sm);
 }
 
-/* Status indicator styles moved to components.css to avoid duplication */
+.status-indicator.online {
+    background: var(--success-500);
+}
+
+.status-indicator.away {
+    background: var(--warning-500);
+}
+
+.status-indicator.offline {
+    background: var(--gray-400);
+}
 
 .status-pulse {
     width: 8px;
@@ -838,7 +848,9 @@
     height: 20px;
 }
 
-/* Achievement content styles moved to components.css to avoid duplication */
+.achievement-content {
+    flex: 1;
+}
 
 .achievement-title {
     font-size: var(--font-size-base);
@@ -860,7 +872,10 @@
     align-items: center;
 }
 
-/* Achievement date styles moved to components.css to avoid duplication */
+.achievement-date {
+    font-size: var(--font-size-xs);
+    color: var(--text-muted);
+}
 
 .achievement-impact {
     font-size: var(--font-size-xs);
@@ -944,7 +959,9 @@
     height: 16px;
 }
 
-/* Activity content styles moved to components.css to avoid duplication */
+.activity-content {
+    flex: 1;
+}
 
 .activity-text {
     font-size: var(--font-size-sm);
