@@ -10,15 +10,15 @@ class Sidebar extends HTMLElement {
 
     connectedCallback() {
         console.log('🚀 Sidebar component connecting...');
-        
+
         // Load collapsed state from localStorage
         const savedCollapsed = localStorage.getItem('sidebarCollapsed');
         this.collapsed = savedCollapsed === 'true';
         console.log('📱 Sidebar collapsed state from storage:', this.collapsed);
-        
+
         // Detect current page from URL
         this.detectCurrentPage();
-        
+
         // Apply initial state without animation
         if (this.collapsed) {
             document.documentElement.style.setProperty('--sidebar-transition', 'none');
@@ -28,13 +28,13 @@ class Sidebar extends HTMLElement {
             document.documentElement.style.removeProperty('--sidebar-transition');
             console.log('📱 Applied collapsed state to body');
         }
-        
+
         this.loadUserPreferences();
         this.render();
         this.setupEventListeners();
-        
+
         console.log('✅ Sidebar component connected successfully');
-        
+
         // Ensure collapse button is always visible
         setTimeout(() => {
             const collapseBtn = this.querySelector('.collapse-btn');
@@ -45,7 +45,7 @@ class Sidebar extends HTMLElement {
                 console.log('👁️ Collapse button visibility ensured');
             }
         }, 100);
-        
+
         // Add click handler to entire sidebar header as backup
         setTimeout(() => {
             const header = this.querySelector('.sidebar-header');
@@ -82,7 +82,7 @@ class Sidebar extends HTMLElement {
     detectCurrentPage() {
         const path = window.location.pathname;
         const filename = path.split('/').pop();
-        
+
         // Map filenames to page identifiers - Updated to include all pages
         const pageMap = {
             'index.html': 'dashboard',
@@ -106,7 +106,7 @@ class Sidebar extends HTMLElement {
             'profile.html': 'profile',
             'settings.html': 'settings'
         };
-        
+
         this.activeItem = pageMap[filename] || 'dashboard';
     }
 
@@ -136,22 +136,22 @@ class Sidebar extends HTMLElement {
                     <polyline points="15 18 9 12 15 6"></polyline>
                 </svg>
             `;
-            
+
             header.appendChild(collapseBtn);
-            
+
             // Add event listener to the new button
             collapseBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 console.log('🔄 Manual collapse button clicked, current state:', this.collapsed);
-                
+
                 this.collapsed = !this.collapsed;
                 document.body.classList.toggle('sidebar-collapsed', this.collapsed);
                 localStorage.setItem('sidebarCollapsed', this.collapsed);
-                
+
                 console.log('✅ Sidebar toggled via manual button, new state:', this.collapsed);
             });
-            
+
             console.log('✅ Collapse button created manually');
         }
     }
@@ -474,23 +474,23 @@ class Sidebar extends HTMLElement {
                 </div>
             </nav>
         `;
-        
+
         // 🔧 FORCE LIGHT MODE STYLES IMMEDIATELY AFTER RENDER
         setTimeout(() => {
             this.forceLightModeStyles();
         }, 0);
     }
-    
+
     forceLightModeStyles() {
         console.log('🔧 Forcing light mode styles on sidebar component');
-        
+
         const sidebar = this.querySelector('.sidebar');
         const sidebarHeader = this.querySelector('.sidebar-header');
         const navSections = this.querySelector('.nav-sections');
         const collapseBtn = this.querySelector('.collapse-btn');
         const helpButton = this.querySelector('.help-button');
         const navLinks = this.querySelectorAll('.nav-link');
-        
+
         if (sidebar) {
             sidebar.style.cssText = `
                 background: #ffffff !important;
@@ -500,7 +500,7 @@ class Sidebar extends HTMLElement {
                 color: #475569 !important;
             `;
         }
-        
+
         if (sidebarHeader) {
             sidebarHeader.style.cssText = `
                 background: #ffffff !important;
@@ -509,7 +509,7 @@ class Sidebar extends HTMLElement {
                 border-bottom: 1px solid #e2e8f0 !important;
             `;
         }
-        
+
         if (navSections) {
             navSections.style.cssText = `
                 background: #ffffff !important;
@@ -517,7 +517,7 @@ class Sidebar extends HTMLElement {
                 background-image: none !important;
             `;
         }
-        
+
         if (collapseBtn) {
             collapseBtn.style.cssText = `
                 background: #ffffff !important;
@@ -527,7 +527,7 @@ class Sidebar extends HTMLElement {
                 border: 1px solid #e2e8f0 !important;
             `;
         }
-        
+
         if (helpButton) {
             helpButton.style.cssText = `
                 background: #ffffff !important;
@@ -537,7 +537,7 @@ class Sidebar extends HTMLElement {
                 border: 1px solid #e2e8f0 !important;
             `;
         }
-        
+
         navLinks.forEach(link => {
             link.style.cssText = `
                 color: #475569 !important;
@@ -546,7 +546,7 @@ class Sidebar extends HTMLElement {
                 background-image: none !important;
             `;
         });
-        
+
         console.log('✅ Light mode styles applied to sidebar component');
     }
 
@@ -589,7 +589,7 @@ class Sidebar extends HTMLElement {
 
     setupFloatingToggle() {
         console.log('🎯 Sidebar toggle handler setup (button is now in sidebar header)');
-        
+
         // Add keyboard shortcut: Ctrl+B to toggle sidebar
         document.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
@@ -598,13 +598,13 @@ class Sidebar extends HTMLElement {
                 this.toggleSidebar();
             }
         });
-        
+
         console.log('⌨️ Keyboard shortcut added: Ctrl+B');
-        
+
         // Show help tooltip when sidebar is first collapsed
         this.showCollapseHelp();
     }
-    
+
     showCollapseHelp() {
         if (document.body.classList.contains('sidebar-collapsed')) {
             // Show a temporary notification about how to reopen sidebar
@@ -631,19 +631,19 @@ class Sidebar extends HTMLElement {
                     • Press Ctrl+B<br>
                     • Call window.toggleSidebar()
                 `;
-                
+
                 document.body.appendChild(helpDiv);
-                
+
                 // Auto-remove after 5 seconds
                 setTimeout(() => {
                     if (helpDiv.parentNode) {
                         helpDiv.remove();
                     }
                 }, 5000);
-                
+
                 // Remove on click
                 helpDiv.addEventListener('click', () => helpDiv.remove());
-                
+
                 console.log('💡 Sidebar help tooltip shown');
             }, 1000);
         }
@@ -653,17 +653,17 @@ class Sidebar extends HTMLElement {
         // Collapse button
         const collapseBtn = this.querySelector('.collapse-btn');
         console.log('🔧 Setting up sidebar collapse button:', collapseBtn);
-        
+
         if (collapseBtn) {
             collapseBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 console.log('🔄 Sidebar toggle clicked, current state:', this.collapsed);
-                
+
                 this.collapsed = !this.collapsed;
                 document.body.classList.toggle('sidebar-collapsed', this.collapsed);
                 localStorage.setItem('sidebarCollapsed', this.collapsed);
-                
+
                 console.log('✅ Sidebar toggled, new state:', this.collapsed);
                 console.log('📱 Body classes:', document.body.className);
             });
@@ -672,7 +672,7 @@ class Sidebar extends HTMLElement {
             // Try to find it with a more general selector
             const backupBtn = document.querySelector('.collapse-btn');
             console.log('🔍 Backup collapse button search:', backupBtn);
-            
+
             // If still not found, create the button manually
             if (!backupBtn) {
                 console.log('🔧 Creating collapse button manually...');
@@ -731,9 +731,9 @@ class Sidebar extends HTMLElement {
 
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 1024 && 
-                document.body.classList.contains('nav-open') && 
-                !this.contains(e.target) && 
+            if (window.innerWidth <= 1024 &&
+                document.body.classList.contains('nav-open') &&
+                !this.contains(e.target) &&
                 !e.target.closest('.menu-button')) {
                 document.body.classList.remove('nav-open');
             }
@@ -756,7 +756,7 @@ class Sidebar extends HTMLElement {
                 link.classList.add('active');
             }
         });
-        
+
         // Store current page in localStorage for persistence
         localStorage.setItem('currentPage', page);
     }
@@ -765,7 +765,7 @@ class Sidebar extends HTMLElement {
 customElements.define('app-sidebar', Sidebar);
 
 // Emergency global sidebar toggle function
-window.toggleSidebar = function() {
+window.toggleSidebar = function () {
     console.log('🚨 Emergency sidebar toggle called');
     const sidebar = document.querySelector('app-sidebar');
     if (sidebar) {
@@ -777,7 +777,7 @@ window.toggleSidebar = function() {
         console.error('❌ Sidebar element not found');
         console.log('🔧 Sidebar component loaded. Emergency toggle available: window.toggleSidebar()');
         console.log('✅ TOGGLE BUTTON FIXED: Now properly positioned in collapsed sidebar strip!');
-        
+
         // Add floating toggle button click handler for collapsed state
         if (this.setupFloatingToggle) {
             this.setupFloatingToggle();

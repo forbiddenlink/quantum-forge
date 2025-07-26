@@ -19,7 +19,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
         this.spectacularMode = true; // Enable contest-winning visual effects
         this.particleSystem = null;
         this.observer = null;
-        
+
         // Enhanced AI-powered insights with spectacular visual effects
         this.aiInsights = [
             {
@@ -86,14 +86,14 @@ class EnhancedKnowledgeHub extends HTMLElement {
 
     connectedCallback() {
         if (this.isInitialized) return;
-        
+
         console.log('🚀 Enhanced Knowledge Hub: connectedCallback called');
         console.log('🎯 Initial AI Insights count:', this.aiInsights?.length || 0);
-        
+
         try {
             // Clean up any existing sparkles first
             document.querySelectorAll('.knowledge-sparkle, .hover-sparkle').forEach(el => el.remove());
-            
+
             console.log('📚 Loading enhanced resources...');
             this.loadEnhancedResources();
             console.log('🔍 Building search index...');
@@ -102,10 +102,10 @@ class EnhancedKnowledgeHub extends HTMLElement {
             this.generateLearningPaths();
             console.log('📊 Calculating analytics...');
             this.calculateAnalytics();
-            
+
             console.log('📝 Data loaded, starting render...');
             this.render();
-            
+
             console.log('🎧 Setting up event listeners...');
             this.setupEventListeners();
             console.log('✨ Initializing spectacular effects...');
@@ -114,15 +114,15 @@ class EnhancedKnowledgeHub extends HTMLElement {
             this.startRealTimeUpdates();
             console.log('🎬 Initializing animations...');
             this.initializeAnimations();
-            
+
             this.isInitialized = true;
             console.log('✅ Enhanced Knowledge Hub fully initialized!');
-            
+
             // Final cleanup of any sparkles that might have been created
             setTimeout(() => {
                 document.querySelectorAll('.knowledge-sparkle, .hover-sparkle, .knowledge-sparkles').forEach(el => el.remove());
             }, 100);
-            
+
         } catch (error) {
             console.error('❌ Enhanced Knowledge Hub initialization failed:', error);
             console.error('Error stack:', error.stack);
@@ -135,16 +135,16 @@ class EnhancedKnowledgeHub extends HTMLElement {
             clearInterval(this.realTimeUpdates);
             this.realTimeUpdates = null;
         }
-        
+
         if (this.observer) {
             this.observer.disconnect();
             this.observer = null;
         }
-        
+
         if (this.particleSystem) {
             this.cleanupParticleSystem();
         }
-        
+
         console.log('Enhanced Knowledge Hub cleanup complete');
     }
 
@@ -154,20 +154,20 @@ class EnhancedKnowledgeHub extends HTMLElement {
         root.style.setProperty('--knowledge-hub-primary', `hsl(${theme.hue}, ${theme.saturation}%, ${theme.lightness}%)`);
         root.style.setProperty('--knowledge-hub-primary-light', `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 20, 95)}%)`);
         root.style.setProperty('--knowledge-hub-primary-dark', `hsl(${theme.hue}, ${theme.saturation}%, ${Math.max(theme.lightness - 20, 5)}%)`);
-        
+
         // Trigger visual refresh
         this.refreshSpectacularEffects();
     }
 
     initializeSpectacularEffects() {
         console.log('✨ Initializing spectacular effects...');
-        
+
         // NUCLEAR OPTION - Force spectacular styling on ALL elements
         setTimeout(() => {
             const container = this.querySelector('.enhanced-knowledge-hub');
             if (container) {
                 container.classList.add('spectacular-mode');
-                
+
                 // FORCE styling on ALL elements
                 const allElements = this.querySelectorAll('*');
                 allElements.forEach(element => {
@@ -175,10 +175,10 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     if (!element.matches('input, select, textarea')) {
                         element.style.color = 'white';
                     }
-                    
+
                     // Remove any white backgrounds
-                    if (element.style.backgroundColor === 'white' || 
-                        element.style.backgroundColor === '#fff' || 
+                    if (element.style.backgroundColor === 'white' ||
+                        element.style.backgroundColor === '#fff' ||
                         element.style.backgroundColor === '#ffffff' ||
                         element.style.background === 'white' ||
                         element.style.background === '#fff' ||
@@ -187,7 +187,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                         element.style.backgroundColor = 'transparent';
                     }
                 });
-                
+
                 // Force styling on all cards with highest priority
                 const cards = this.querySelectorAll('.ai-insight-card, .analytics-card, .learning-path-card, .enhanced-resource-card, .resource-card, .insight-card, .stat-card, .card');
                 cards.forEach(card => {
@@ -200,20 +200,20 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     card.style.setProperty('padding', 'var(--space-5)', 'important');
                     card.style.setProperty('box-shadow', '0 8px 20px rgba(99, 102, 241, 0.2)', 'important');
                 });
-                
+
                 // Force styling on all sections
                 const sections = this.querySelectorAll('.ai-insights-section, .learning-analytics, .learning-paths-section, .resources-section, .section');
                 sections.forEach(section => {
                     section.style.setProperty('background', 'transparent', 'important');
                     section.style.setProperty('background-color', 'transparent', 'important');
                 });
-                
+
                 // Force text colors with highest priority
                 const textElements = this.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, div, .insight-title, .section-title, .hub-title, .resource-title, .stat-label, .confidence-text, .insight-description, .resource-summary');
                 textElements.forEach(element => {
                     element.style.setProperty('color', 'white', 'important');
                 });
-                
+
                 // Force button styling
                 const buttons = this.querySelectorAll('button, .btn, .resource-btn, .insight-action-btn');
                 buttons.forEach(button => {
@@ -221,7 +221,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     button.style.setProperty('color', 'white', 'important');
                     button.style.setProperty('border', '1px solid rgba(255, 255, 255, 0.3)', 'important');
                 });
-                
+
                 // Force badges and tags
                 const badges = this.querySelectorAll('.badge, .tag, .resource-tag, .impact-badge, .confidence-indicator, .priority-badge');
                 badges.forEach(badge => {
@@ -229,25 +229,25 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     badge.style.setProperty('color', 'white', 'important');
                     badge.style.setProperty('border', '1px solid rgba(255, 255, 255, 0.3)', 'important');
                 });
-                
+
                 console.log('🚨 NUCLEAR STYLING APPLIED - All elements forced to spectacular mode');
             }
         }, 100);
-        
+
         // Additional forcing after a longer delay
         setTimeout(() => {
             this.forceSpectacularStyling();
         }, 500);
-        
+
         // Create spectacular particle system
         this.createParticleSystem();
-        
+
         // Add floating geometric shapes
         this.addFloatingShapes();
-        
+
         // Initialize sparkle effects
         // this.initializeSparkles(); // Disabled to prevent overflow
-        
+
         // Add energy rings
         this.addEnergyRings();
     }
@@ -255,7 +255,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
     createParticleSystem() {
         const particlesContainer = document.createElement('div');
         particlesContainer.className = 'knowledge-particles-system';
-        
+
         for (let i = 0; i < 15; i++) {
             const particle = document.createElement('div');
             particle.className = 'knowledge-particle';
@@ -269,7 +269,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
             `;
             particlesContainer.appendChild(particle);
         }
-        
+
         this.appendChild(particlesContainer);
         this.particleSystem = particlesContainer;
     }
@@ -292,11 +292,11 @@ class EnhancedKnowledgeHub extends HTMLElement {
     initializeSparkles() {
         const sparklesContainer = document.createElement('div');
         sparklesContainer.className = 'knowledge-sparkles';
-        
+
         for (let i = 0; i < 6; i++) {
             const sparkle = document.createElement('div');
             sparkle.className = 'knowledge-sparkle';
-            sparkle.innerHTML = '✨';
+            sparkle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 12px; height: 12px;"><polygon points="12 2 15.09 8.26 22 9 17 14 18.18 21 12 17.77 5.82 21 7 14 2 9 8.91 8.26 12 2"></polygon></svg>';
             sparkle.style.cssText = `
                 left: ${Math.random() * 85 + 5}%;
                 top: ${Math.random() * 85 + 5}%;
@@ -305,7 +305,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
             `;
             sparklesContainer.appendChild(sparkle);
         }
-        
+
         this.appendChild(sparklesContainer);
     }
 
@@ -335,10 +335,10 @@ class EnhancedKnowledgeHub extends HTMLElement {
             this.particleSystem.remove();
             this.particleSystem = null;
         }
-        
+
         // Clean up other spectacular effects
         this.querySelectorAll('.knowledge-floating-shape, .knowledge-sparkles, .knowledge-energy-ring').forEach(el => el.remove());
-        
+
         // Clean up any escaped sparkles on the page
         document.querySelectorAll('.knowledge-sparkle, .hover-sparkle').forEach(el => el.remove());
     }
@@ -499,7 +499,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
 
     buildAdvancedSearchIndex() {
         this.searchIndex = new Map();
-        
+
         this.resources.forEach(resource => {
             const searchText = [
                 resource.title,
@@ -511,7 +511,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                 ...resource.tags,
                 ...resource.learningObjectives
             ].join(' ').toLowerCase();
-            
+
             this.searchIndex.set(resource.id, searchText);
         });
     }
@@ -606,14 +606,14 @@ class EnhancedKnowledgeHub extends HTMLElement {
         console.log('🤖 AI Insights data:', this.aiInsights);
         console.log('📊 Learning Analytics:', this.learningAnalytics);
         console.log('🎯 AI Insights length:', this.aiInsights?.length || 0);
-        
+
         // Check if aiInsights exists and has content
         if (!this.aiInsights || this.aiInsights.length === 0) {
             console.error('❌ AI Insights data is missing or empty!');
         } else {
             console.log('✅ AI Insights data is available:', this.aiInsights.length, 'insights');
         }
-        
+
         this.innerHTML = `
             <div class="enhanced-knowledge-hub spectacular-mode" style="display: block !important; width: 100% !important; position: relative !important; background: linear-gradient(45deg, var(--primary-500) 0%, transparent 50%, var(--primary-500) 100%), linear-gradient(-45deg, var(--primary-600) 0%, transparent 50%, var(--primary-600) 100%), linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%), linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%), radial-gradient(ellipse 1200px 800px at 20% 20%, rgba(139, 92, 246, 0.5) 0%, transparent 50%), radial-gradient(ellipse 800px 1200px at 80% 80%, rgba(6, 182, 212, 0.4) 0%, transparent 50%), radial-gradient(ellipse 600px 600px at 50% 50%, rgba(16, 185, 129, 0.3) 0%, transparent 70%), radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%), repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px), repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important; border-radius: var(--radius-2xl) !important; padding: var(--space-8) !important; color: white !important; border: 1px solid rgba(255, 255, 255, 0.2) !important; backdrop-filter: blur(20px) !important; animation: knowledgeGlow 6s ease-in-out infinite, knowledgeBackgroundShift 20s linear infinite, knowledgeSubtlePulse 4s ease-in-out infinite !important;">
                 <!-- Spectacular Header Section with Multi-layered Background -->
@@ -688,8 +688,8 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     </h3>
                     <div class="ai-insights-grid spectacular">
                         ${this.aiInsights.map((insight, index) => {
-                            console.log(`🎯 Rendering insight ${index + 1}:`, insight.title);
-                            return `
+            console.log(`🎯 Rendering insight ${index + 1}:`, insight.title);
+            return `
                             <div class="ai-insight-card spectacular ${insight.type}" data-priority="${insight.priority}" style="animation-delay: ${index * 0.1}s; background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important; backdrop-filter: blur(15px) !important; border: 1px solid rgba(255, 255, 255, 0.2) !important; color: white !important; border-radius: var(--radius-xl) !important; padding: var(--space-5) !important;">
                                 <div class="insight-header spectacular">
                                     <div class="insight-icon spectacular ${insight.type}">
@@ -730,7 +730,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                                 </div>
                             </div>
                         `;
-                        }).join('')}
+        }).join('')}
                     </div>
                 </div>
 
@@ -802,7 +802,13 @@ class EnhancedKnowledgeHub extends HTMLElement {
                         <div class="analytics-card spectacular trending-card">
                             <div class="card-header spectacular">
                                 <h4>Trending in Your Network</h4>
-                                <div class="trend-indicator spectacular">📈 +127%</div>
+                                <div class="trend-indicator spectacular">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px; display: inline-block; margin-right: 4px;">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                        <polyline points="17 6 23 6 23 12"></polyline>
+                                    </svg>
+                                    +127%
+                                </div>
                             </div>
                             <div class="trending-topics spectacular">
                                 ${this.learningAnalytics.trendingTopics.map((topic, index) => `
@@ -812,7 +818,11 @@ class EnhancedKnowledgeHub extends HTMLElement {
                                             <span class="trending-title">${topic.title}</span>
                                             <span class="trending-stats">${topic.views} views • +${topic.growth}%</span>
                                         </div>
-                                        <div class="trending-spark">✨</div>
+                                        <div class="trending-spark">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 12px; height: 12px;">
+                                                <polygon points="12 2 15.09 8.26 22 9 17 14 18.18 21 12 17.77 5.82 21 7 14 2 9 8.91 8.26 12 2"></polygon>
+                                            </svg>
+                                        </div>
                                     </div>
                                 `).join('')}
                             </div>
@@ -836,8 +846,20 @@ class EnhancedKnowledgeHub extends HTMLElement {
                                 <div class="path-header spectacular">
                                     <h4 class="path-title">${path.title}</h4>
                                     <div class="path-meta spectacular">
-                                        <span class="path-duration">⏱️ ${path.duration}</span>
-                                        <span class="path-difficulty">📊 ${path.difficulty}</span>
+                                        <span class="path-duration">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 12px; height: 12px; display: inline-block; margin-right: 4px;">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <polyline points="12 6 12 12 16 14"></polyline>
+                                            </svg>
+                                            ${path.duration}
+                                        </span>
+                                        <span class="path-difficulty">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 12px; height: 12px; display: inline-block; margin-right: 4px;">
+                                                <path d="M3 3v18h18"></path>
+                                                <path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path>
+                                            </svg>
+                                            ${path.difficulty}
+                                        </span>
                                     </div>
                                 </div>
                                 <p class="path-description">${path.description}</p>
@@ -913,11 +935,11 @@ class EnhancedKnowledgeHub extends HTMLElement {
             const insightsSection = this.querySelector('.ai-insights-section');
             const insightsGrid = this.querySelector('.ai-insights-grid');
             const insightCards = this.querySelectorAll('.ai-insight-card');
-            
+
             console.log('📍 AI Insights Section found:', !!insightsSection);
             console.log('📍 AI Insights Grid found:', !!insightsGrid);
             console.log('📍 AI Insight Cards found:', insightCards.length);
-            
+
             if (insightsSection) {
                 console.log('📐 Section dimensions:', {
                     offsetWidth: insightsSection.offsetWidth,
@@ -926,7 +948,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     visibility: getComputedStyle(insightsSection).visibility
                 });
             }
-            
+
             if (insightsGrid) {
                 console.log('📐 Grid dimensions:', {
                     offsetWidth: insightsGrid.offsetWidth,
@@ -934,30 +956,30 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     innerHTML: insightsGrid.innerHTML.length + ' chars'
                 });
             }
-            
+
             if (insightCards.length === 0) {
                 console.error('❌ NO AI INSIGHT CARDS FOUND IN DOM!');
                 console.log('🔍 Checking for any element with "insight" in class name...');
                 const anyInsightElements = this.querySelectorAll('[class*="insight"]');
                 console.log('📍 Elements with "insight" in class:', anyInsightElements.length);
                 anyInsightElements.forEach((el, i) => {
-                    console.log(`   ${i+1}. ${el.className}`);
+                    console.log(`   ${i + 1}. ${el.className}`);
                 });
             } else {
                 console.log('✅ AI Insight cards successfully rendered!');
                 insightCards.forEach((card, i) => {
-                    console.log(`   Card ${i+1}: ${card.querySelector('.insight-title')?.textContent}`);
+                    console.log(`   Card ${i + 1}: ${card.querySelector('.insight-title')?.textContent}`);
                 });
             }
         }, 100);
-        
+
         console.log('📝 Render method completed successfully');
     }
 
     renderEnhancedResourceCard(resource, index = 0) {
         const difficultyColor = {
             'Beginner': 'success',
-            'Intermediate': 'warning', 
+            'Intermediate': 'warning',
             'Advanced': 'danger'
         };
 
@@ -969,8 +991,8 @@ class EnhancedKnowledgeHub extends HTMLElement {
                         ${this.getResourceIcon(resource.type)}
                     </div>
                     <div class="resource-badges spectacular">
-                        ${resource.isNew ? '<span class="badge spectacular new">✨ NEW</span>' : ''}
-                        ${resource.isFeatured ? '<span class="badge spectacular featured">🏆 FEATURED</span>' : ''}
+                        ${resource.isNew ? '<span class="badge spectacular new"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 12px; height: 12px; display: inline-block; margin-right: 4px;"><polygon points="12 2 15.09 8.26 22 9 17 14 18.18 21 12 17.77 5.82 21 7 14 2 9 8.91 8.26 12 2"></polygon></svg>NEW</span>' : ''}
+                        ${resource.isFeatured ? '<span class="badge spectacular featured"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 12px; height: 12px; display: inline-block; margin-right: 4px;"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16l-1.36-4.88"></path><path d="M18 9v-3h-2.5a2.5 2.5 0 0 1 0-5H18V1a2 2 0 0 1 2 2v5h-3a3 3 0 0 1 0 6h3v7a2 2 0 0 1-2 2z"></path></svg>FEATURED</span>' : ''}
                         <span class="badge spectacular difficulty ${difficultyColor[resource.difficulty]}">${resource.difficulty}</span>
                         <span class="badge spectacular ai-score">🤖 ${resource.aiScore}</span>
                     </div>
@@ -1108,26 +1130,26 @@ class EnhancedKnowledgeHub extends HTMLElement {
 
     getCategoryIcon(category) {
         const icons = {
-            'Development': '💻',
-            'Design': '🎨',
-            'Product': '🚀',
-            'Analytics': '📊',
-            'Sales': '💰',
-            'Security': '🔒',
-            'Marketing': '📈',
-            'Leadership': '👑'
+            'Development': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>',
+            'Design': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>',
+            'Product': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>',
+            'Analytics': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M3 3v18h18"></path><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"></path></svg>',
+            'Sales': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>',
+            'Security': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+            'Marketing': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>',
+            'Leadership': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>'
         };
-        return icons[category] || '📚';
+        return icons[category] || '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>';
     }
 
     getFilteredResources() {
         let filtered = this.resources;
-        
+
         // Apply category filter
         if (this.currentFilter !== 'all') {
             filtered = filtered.filter(r => r.category === this.currentFilter);
         }
-        
+
         // Apply search filter
         if (this.searchQuery) {
             const query = this.searchQuery.toLowerCase();
@@ -1136,7 +1158,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                 return searchText.includes(query);
             });
         }
-        
+
         return filtered;
     }
 
@@ -1147,7 +1169,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
             searchInput.addEventListener('input', (e) => {
                 this.searchQuery = e.target.value;
                 this.updateResourceDisplay();
-                
+
                 // Add AI search suggestions
                 if (this.searchQuery.length > 2) {
                     this.showAISearchSuggestions();
@@ -1203,8 +1225,8 @@ class EnhancedKnowledgeHub extends HTMLElement {
         this.querySelectorAll('.action-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 if (e.currentTarget.id.startsWith('sortBy')) {
-                const sortBy = e.currentTarget.id.replace('sortBy', '').toLowerCase();
-                this.sortResources(sortBy);
+                    const sortBy = e.currentTarget.id.replace('sortBy', '').toLowerCase();
+                    this.sortResources(sortBy);
                     this.triggerSpectacularTransition();
                 }
             });
@@ -1230,7 +1252,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
         const container = this.querySelector('.resources-container');
         if (container) {
             const filteredResources = this.getFilteredResources();
-            container.innerHTML = filteredResources.map(resource => 
+            container.innerHTML = filteredResources.map(resource =>
                 this.renderEnhancedResourceCard(resource)
             ).join('');
         }
@@ -1241,7 +1263,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
         if (container) {
             container.className = `resources-container ${this.viewMode}`;
         }
-        
+
         // Update active view button
         this.querySelectorAll('.view-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.view === this.viewMode);
@@ -1253,7 +1275,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
         this.querySelectorAll('.filter-chip').forEach(chip => {
             chip.classList.toggle('active', chip.dataset.filter === this.currentFilter);
         });
-        
+
         this.updateResourceDisplay();
     }
 
@@ -1331,7 +1353,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
     updateAnalytics() {
         // Simulate real-time updates
         this.learningAnalytics.learningStreak = Math.min(30, this.learningAnalytics.learningStreak + Math.floor(Math.random() * 2));
-        
+
         // Update trending topics
         this.learningAnalytics.trendingTopics.forEach(topic => {
             topic.views += Math.floor(Math.random() * 10);
@@ -1395,7 +1417,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
 
     performAISearch() {
         this.showNotification('🤖 AI is analyzing your search...', 'info');
-        
+
         // Simulate AI search processing
         setTimeout(() => {
             this.showNotification('✨ AI found enhanced results for you!', 'success');
@@ -1413,7 +1435,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
         const aiRecommended = this.resources
             .filter(r => r.aiScore > 90)
             .sort((a, b) => b.aiScore - a.aiScore);
-        
+
         this.showNotification(`🤖 Found ${aiRecommended.length} AI-recommended resources!`, 'success');
         this.triggerSpectacularTransition();
     }
@@ -1433,13 +1455,13 @@ class EnhancedKnowledgeHub extends HTMLElement {
     addHoverSparkles(element) {
         // Disabled to prevent sparkles from escaping container bounds
         return;
-        
+
         if (!this.spectacularMode) return;
-        
+
         for (let i = 0; i < 1; i++) {
             const sparkle = document.createElement('div');
             sparkle.className = 'hover-sparkle';
-            sparkle.innerHTML = '✨';
+            sparkle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 12px; height: 12px;"><polygon points="12 2 15.09 8.26 22 9 17 14 18.18 21 12 17.77 5.82 21 7 14 2 9 8.91 8.26 12 2"></polygon></svg>';
             sparkle.style.cssText = `
                 position: absolute;
                 left: ${Math.random() * 80 + 10}%;
@@ -1450,7 +1472,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                 font-size: 0.7rem;
             `;
             element.appendChild(sparkle);
-            
+
             setTimeout(() => sparkle.remove(), 1000);
         }
     }
@@ -1462,7 +1484,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
 
     forceSpectacularStyling() {
         console.log('🔥 ULTIMATE FORCE: Applying nuclear styling...');
-        
+
         // ULTRA-AGGRESSIVE: Apply styling every 100ms for the first 15 seconds
         const ultraForceInterval = setInterval(() => {
             const container = this.querySelector('.enhanced-knowledge-hub');
@@ -1470,7 +1492,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                 clearInterval(ultraForceInterval);
                 return;
             }
-            
+
             // Force container to be spectacular with maximum specificity
             container.className = 'enhanced-knowledge-hub spectacular-mode';
             container.style.cssText = `
@@ -1494,22 +1516,22 @@ class EnhancedKnowledgeHub extends HTMLElement {
                 animation: knowledgeGlow 6s ease-in-out infinite, knowledgeBackgroundShift 20s linear infinite, knowledgeSubtlePulse 4s ease-in-out infinite !important;
                 box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 60px rgba(99, 102, 241, 0.4), 0 0 120px rgba(99, 102, 241, 0.2) !important;
             `;
-            
+
             // Force ALL elements to have white text
             const allElements = this.querySelectorAll('*');
             allElements.forEach(element => {
                 if (!element.matches('input, select, textarea, .search-input')) {
                     element.style.setProperty('color', 'white', 'important');
-                    
+
                     // Remove any non-transparent backgrounds
-                    if (element.style.backgroundColor && 
-                        element.style.backgroundColor !== 'transparent' && 
+                    if (element.style.backgroundColor &&
+                        element.style.backgroundColor !== 'transparent' &&
                         element.style.backgroundColor !== 'rgba(0, 0, 0, 0)') {
                         element.style.setProperty('background-color', 'transparent', 'important');
                     }
                 }
             });
-            
+
             // Force cards with ultra-high specificity
             const cards = this.querySelectorAll('.ai-insight-card, .analytics-card, .learning-path-card, .enhanced-resource-card, .resource-card, .insight-card, .stat-card, .card');
             cards.forEach(card => {
@@ -1524,14 +1546,14 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
                 `;
             });
-            
+
             // Force sections to be transparent
             const sections = this.querySelectorAll('.ai-insights-section, .learning-analytics, .learning-paths-section, .resources-section, .section');
             sections.forEach(section => {
                 section.style.setProperty('background', 'transparent', 'important');
                 section.style.setProperty('background-color', 'transparent', 'important');
             });
-            
+
             // Force buttons
             const buttons = this.querySelectorAll('button, .btn, .resource-btn, .insight-action-btn');
             buttons.forEach(button => {
@@ -1542,7 +1564,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     border-radius: var(--radius-lg) !important;
                 `;
             });
-            
+
             // Force badges
             const badges = this.querySelectorAll('.badge, .tag, .resource-tag, .impact-badge, .confidence-indicator, .priority-badge');
             badges.forEach(badge => {
@@ -1552,16 +1574,16 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     border: 1px solid rgba(255, 255, 255, 0.3) !important;
                 `;
             });
-            
+
             console.log('🚨 NUCLEAR STYLING CYCLE COMPLETE');
-            
+
         }, 100); // Every 100ms for maximum override
-        
+
         // Stop ultra-forcing after 15 seconds, then continue with normal forcing
         setTimeout(() => {
             clearInterval(ultraForceInterval);
             console.log('🎯 Ultra-force complete, continuing with normal enforcement...');
-            
+
             // Continue with less frequent forcing
             const normalForceInterval = setInterval(() => {
                 const container = this.querySelector('.enhanced-knowledge-hub');
@@ -1569,7 +1591,7 @@ class EnhancedKnowledgeHub extends HTMLElement {
                     clearInterval(normalForceInterval);
                     return;
                 }
-                
+
                 // Apply styling less frequently
                 container.classList.add('spectacular-mode');
                 const allText = this.querySelectorAll('*:not(input):not(select):not(textarea)');
@@ -1578,15 +1600,15 @@ class EnhancedKnowledgeHub extends HTMLElement {
                         el.style.setProperty('color', 'white', 'important');
                     }
                 });
-                
+
             }, 1000); // Every 1 second
-            
+
             // Stop normal forcing after 30 more seconds
             setTimeout(() => {
                 clearInterval(normalForceInterval);
                 console.log('🏁 All styling enforcement complete');
             }, 30000);
-            
+
         }, 15000);
     }
 }
