@@ -27,25 +27,25 @@ company-culture-showcase {
 }
 
 /* Enhanced Hover Effects for All Components */
-.dashboard-item:hover > analytics-dashboard,
-.dashboard-item:hover > task-system,
-.dashboard-item:hover > enhanced-task-system,
-.dashboard-item:hover > company-news,
-.dashboard-item:hover > team-spotlight,
-.dashboard-item:hover > enhanced-knowledge-hub,
-.dashboard-item:hover > collaboration-hub,
-.dashboard-item:hover > enhanced-interactive-poll,
-.dashboard-item:hover > weather-widget,
-.dashboard-item:hover > achievement-system,
-.dashboard-item:hover > office-visualizer,
-.dashboard-item:hover > company-culture-showcase {
+.dashboard-item:hover>analytics-dashboard,
+.dashboard-item:hover>task-system,
+.dashboard-item:hover>enhanced-task-system,
+.dashboard-item:hover>company-news,
+.dashboard-item:hover>team-spotlight,
+.dashboard-item:hover>enhanced-knowledge-hub,
+.dashboard-item:hover>collaboration-hub,
+.dashboard-item:hover>enhanced-interactive-poll,
+.dashboard-item:hover>weather-widget,
+.dashboard-item:hover>achievement-system,
+.dashboard-item:hover>office-visualizer,
+.dashboard-item:hover>company-culture-showcase {
     transform: translateY(-8px) !important;
     box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15), 0 8px 16px rgba(0, 0, 0, 0.1) !important;
     border-color: var(--primary-200) !important;
 }
 
 /* Micro-interactions: Subtle Glow Effect */
-.dashboard-item > *::before {
+.dashboard-item>*::before {
     content: '';
     position: absolute;
     top: 0;
@@ -59,7 +59,7 @@ company-culture-showcase {
     border-radius: inherit;
 }
 
-.dashboard-item:hover > *::before {
+.dashboard-item:hover>*::before {
     opacity: 1;
 }
 
@@ -208,8 +208,13 @@ button:active::after,
 }
 
 @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
 }
 
 /* Enhanced Form Consistency */
@@ -285,9 +290,11 @@ button:hover svg,
     0% {
         box-shadow: 0 0 0 0 currentColor;
     }
+
     70% {
         box-shadow: 0 0 0 6px transparent;
     }
+
     100% {
         box-shadow: 0 0 0 0 transparent;
     }
@@ -316,10 +323,10 @@ button:hover svg,
     font-size: var(--font-size-sm) !important;
 }
 
-.floating-label input:focus + label,
-.floating-label input:not(:placeholder-shown) + label,
-.floating-label textarea:focus + label,
-.floating-label textarea:not(:placeholder-shown) + label {
+.floating-label input:focus+label,
+.floating-label input:not(:placeholder-shown)+label,
+.floating-label textarea:focus+label,
+.floating-label textarea:not(:placeholder-shown)+label {
     top: 0 !important;
     transform: translateY(-50%) scale(0.85) !important;
     color: var(--primary-500) !important;
@@ -359,8 +366,13 @@ button:hover svg,
 }
 
 @keyframes progress-shine {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 /* Enhanced Notification Styles */
@@ -408,6 +420,7 @@ button:hover svg,
 
 /* Enhanced Responsive Component Behavior */
 @media (max-width: 768px) {
+
     .widget-header,
     .component-header,
     .section-header,
@@ -415,7 +428,7 @@ button:hover svg,
     .panel-header {
         padding: var(--space-4) var(--space-4) !important;
     }
-    
+
     .widget-title,
     .component-title,
     .section-title,
@@ -423,7 +436,7 @@ button:hover svg,
     .panel-title {
         font-size: var(--font-size-lg) !important;
     }
-    
+
     .card,
     .widget-card,
     .component-card {
@@ -454,4 +467,4 @@ button:hover svg,
     border-radius: var(--radius-sm) !important;
 }
 
-/* Performance Optimization: Reduce Animations rule moved to critical.css to avoid duplication */ 
+/* Performance Optimization: Reduce Animations rule moved to critical.css to avoid duplication */

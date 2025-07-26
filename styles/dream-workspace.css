@@ -12,6 +12,7 @@
 .dream-workspace {
     display: block !important;
 }
+
 /* Dream workspace variables now consolidated in critical-fixes.css */
 
 /* Modern Dream Workspace */
@@ -20,14 +21,14 @@
     margin-top: 0 !important;
     position: relative !important;
     z-index: 1 !important;
-    background: 
+    background:
         linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)),
         linear-gradient(45deg, rgba(99, 102, 241, 0.05), rgba(139, 92, 246, 0.05)),
         linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(16, 185, 129, 0.05)) !important;
     border-radius: var(--radius-xl) !important;
     padding: var(--space-4) !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    box-shadow: 
+    box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.1),
         0 2px 4px -1px rgba(0, 0, 0, 0.06),
         inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
@@ -42,7 +43,7 @@
     border-radius: var(--radius-lg) !important;
     padding: var(--space-3) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    box-shadow: 
+    box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.05),
         0 2px 4px -1px rgba(0, 0, 0, 0.03),
         inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
@@ -53,7 +54,7 @@
 .dream-workspace [class*="-section"]:hover,
 .dream-workspace [class*="-hub"]:hover {
     transform: translateY(-1px) !important;
-    box-shadow: 
+    box-shadow:
         0 6px 8px -1px rgba(0, 0, 0, 0.08),
         0 4px 6px -1px rgba(0, 0, 0, 0.05),
         inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
@@ -71,7 +72,7 @@
     border-radius: var(--radius-lg) !important;
     padding: var(--space-2) var(--space-3) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    box-shadow: 
+    box-shadow:
         0 2px 4px -1px rgba(0, 0, 0, 0.03),
         0 1px 2px -1px rgba(0, 0, 0, 0.02),
         inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
@@ -86,7 +87,7 @@
 .room:hover,
 .desk:hover {
     transform: translateY(-1px) !important;
-    box-shadow: 
+    box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.05),
         0 2px 4px -1px rgba(0, 0, 0, 0.03),
         inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
@@ -103,7 +104,7 @@
     font-size: var(--font-size-xs) !important;
     font-weight: 600 !important;
     border: none !important;
-    box-shadow: 
+    box-shadow:
         0 2px 4px -1px rgba(99, 102, 241, 0.2),
         0 1px 2px -1px rgba(99, 102, 241, 0.1) !important;
     transition: transform 0.2s ease, box-shadow 0.2s ease !important;
@@ -112,7 +113,7 @@
 .join-btn:hover,
 .book-btn:hover {
     transform: translateY(-1px) !important;
-    box-shadow: 
+    box-shadow:
         0 4px 6px -1px rgba(99, 102, 241, 0.3),
         0 2px 4px -1px rgba(99, 102, 241, 0.2) !important;
 }
@@ -168,7 +169,7 @@
     border-radius: var(--radius-full) !important;
     padding: var(--space-2) !important;
     color: white !important;
-    box-shadow: 
+    box-shadow:
         0 2px 4px -1px rgba(99, 102, 241, 0.2),
         0 1px 2px -1px rgba(99, 102, 241, 0.1) !important;
 }
@@ -181,7 +182,7 @@
     border-radius: var(--radius-full) !important;
     font-size: var(--font-size-xs) !important;
     font-weight: 700 !important;
-    box-shadow: 
+    box-shadow:
         0 2px 4px -1px rgba(6, 182, 212, 0.2),
         0 1px 2px -1px rgba(6, 182, 212, 0.1) !important;
 }
@@ -198,7 +199,7 @@
     border-radius: var(--radius-lg) !important;
     padding: var(--space-2) var(--space-3) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    box-shadow: 
+    box-shadow:
         0 2px 4px -1px rgba(0, 0, 0, 0.03),
         0 1px 2px -1px rgba(0, 0, 0, 0.02),
         inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
@@ -217,7 +218,8 @@
 .stat-label {
     font-size: var(--font-size-sm) !important;
     font-weight: 600 !important;
-    color: #475569 !important; /* Slate 600 - dark enough to be visible */
+    color: #475569 !important;
+    /* Slate 600 - dark enough to be visible */
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
     display: block !important;
@@ -225,7 +227,8 @@
 
 /* Ensure stat labels are visible in both light and dark modes */
 [data-theme="dark"] .stat-label {
-    color: #94a3b8 !important; /* Slate 400 - visible in dark mode */
+    color: #94a3b8 !important;
+    /* Slate 400 - visible in dark mode */
 }
 
 /* Modern Status Indicators */
@@ -248,11 +251,11 @@
     .dream-workspace {
         padding: var(--space-3) !important;
     }
-    
+
     .workspace-content {
         gap: var(--space-2) !important;
     }
-    
+
     .workspace-stats {
         grid-template-columns: repeat(2, 1fr) !important;
     }
@@ -290,7 +293,7 @@
     top: 10%;
     right: 15%;
     animation: workspaceFloat 28s ease-in-out infinite reverse;
-    background: 
+    background:
         radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%),
         radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
 }
@@ -301,7 +304,7 @@
     top: 60%;
     left: 10%;
     animation: workspaceFloat 32s ease-in-out infinite;
-    background: 
+    background:
         radial-gradient(circle, rgba(6, 182, 212, 0.08) 0%, transparent 70%),
         radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
 }
@@ -312,7 +315,7 @@
     top: 30%;
     left: 70%;
     animation: workspaceFloat 35s ease-in-out infinite reverse;
-    background: 
+    background:
         radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, transparent 70%),
         radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, transparent 50%);
 }
@@ -1015,13 +1018,13 @@
         gap: var(--space-5) !important;
         margin-bottom: var(--space-5) !important;
     }
-    
+
     .workspace-header {
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: var(--space-4) !important;
     }
-    
+
     .workspace-stats {
         width: 100% !important;
         justify-content: space-between !important;
@@ -1033,25 +1036,25 @@
         padding: var(--space-3) !important;
         margin-bottom: var(--space-8) !important;
     }
-    
+
     .workspace-content {
         grid-template-columns: 1fr !important;
         gap: var(--space-2) !important;
         margin-bottom: var(--space-5) !important;
     }
-    
+
     .actions-grid,
     .spotlight-grid,
     .resources-grid {
         grid-template-columns: 1fr !important;
         gap: var(--space-3) !important;
     }
-    
+
     .map-grid {
         grid-template-columns: repeat(3, 1fr) !important;
         gap: var(--space-2) !important;
     }
-    
+
     /* Ensure sections don't overlap */
     .activity-feed-section,
     .quick-actions-hub,
@@ -1065,15 +1068,18 @@
 
 /* Animations */
 @keyframes workspaceGlow {
-    0%, 100% {
-        box-shadow: 
+
+    0%,
+    100% {
+        box-shadow:
             var(--workspace-shadow),
             0 0 0 1px rgba(99, 102, 241, 0.1),
             inset 0 1px 0 rgba(255, 255, 255, 0.4),
             0 0 40px rgba(99, 102, 241, 0.1) !important;
     }
+
     50% {
-        box-shadow: 
+        box-shadow:
             var(--workspace-shadow),
             0 0 0 1px rgba(99, 102, 241, 0.15),
             inset 0 1px 0 rgba(255, 255, 255, 0.5),
@@ -1082,12 +1088,16 @@
 }
 
 @keyframes workspaceFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px) rotate(0deg) !important;
     }
+
     33% {
         transform: translateY(-20px) rotate(120deg) !important;
     }
+
     66% {
         transform: translateY(10px) rotate(240deg) !important;
     }
@@ -1095,9 +1105,12 @@
 
 /* Particle opacity animation */
 @keyframes particleOpacity {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1 !important;
     }
+
     50% {
         opacity: 0.7 !important;
     }
@@ -1120,7 +1133,8 @@
     /* Remove any blur effects */
     filter: none !important;
     /* Force dark, highly visible colors */
-    color: #1e293b !important; /* Dark, highly visible */
+    color: #1e293b !important;
+    /* Dark, highly visible */
     /* Ensure proper contrast with dark shadow */
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
     /* Force crisp rendering */
@@ -1133,7 +1147,8 @@
 .dream-workspace .workspace-status .status-text,
 .dream-workspace .welcome-status .status-text {
     /* Ensure proper contrast */
-    color: #475569 !important; /* Force darker, more visible color */
+    color: #475569 !important;
+    /* Force darker, more visible color */
     /* Enhanced text rendering */
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
@@ -1151,7 +1166,8 @@
 
 /* Override any conflicting styles that might cause white-on-white text */
 .dream-workspace .status-text {
-    color: #475569 !important; /* Force a darker, more visible color */
+    color: #475569 !important;
+    /* Force a darker, more visible color */
     font-weight: 600 !important;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
@@ -1254,7 +1270,7 @@
 .map-grid {
     max-width: 100% !important;
     overflow: hidden !important;
-} 
+}
 
 /* Workspace Header Stats */
 /* Duplicate .workspace-stats rule removed - already defined above */
@@ -1264,7 +1280,7 @@
     border-radius: var(--radius-lg) !important;
     padding: var(--space-2) var(--space-3) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    box-shadow: 
+    box-shadow:
         0 2px 4px -1px rgba(0, 0, 0, 0.03),
         0 1px 2px -1px rgba(0, 0, 0, 0.02),
         inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
@@ -1277,7 +1293,8 @@
 .workspace-stats .stat-number {
     font-size: var(--font-size-xl) !important;
     font-weight: 700 !important;
-    color: #1e293b !important; /* Slate 900 - very dark and visible */
+    color: #1e293b !important;
+    /* Slate 900 - very dark and visible */
     margin-bottom: var(--space-1) !important;
     display: block !important;
     line-height: 1.2 !important;
@@ -1286,7 +1303,8 @@
 .workspace-stats .stat-label {
     font-size: var(--font-size-sm) !important;
     font-weight: 600 !important;
-    color: #475569 !important; /* Slate 600 - dark enough to be visible */
+    color: #475569 !important;
+    /* Slate 600 - dark enough to be visible */
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
     display: block !important;
@@ -1295,11 +1313,13 @@
 
 /* Dark mode adjustments */
 [data-theme="dark"] .workspace-stats .stat-number {
-    color: #f1f5f9 !important; /* Slate 100 - light and visible in dark mode */
+    color: #f1f5f9 !important;
+    /* Slate 100 - light and visible in dark mode */
 }
 
 [data-theme="dark"] .workspace-stats .stat-label {
-    color: #94a3b8 !important; /* Slate 400 - visible in dark mode */
+    color: #94a3b8 !important;
+    /* Slate 400 - visible in dark mode */
 }
 
 /* Remove any gradient text effects from stats */
@@ -1308,4 +1328,4 @@
     background: none !important;
     -webkit-background-clip: unset !important;
     -webkit-text-fill-color: unset !important;
-} 
+}

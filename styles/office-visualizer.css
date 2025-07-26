@@ -57,7 +57,7 @@
     border-radius: var(--radius-2xl);
     overflow: visible;
     border: 1px solid var(--border-color);
-    box-shadow: 
+    box-shadow:
         var(--shadow-xl),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: all var(--duration-normal) var(--ease-spring);
@@ -72,7 +72,7 @@
 }
 
 .office-visualizer:hover {
-    box-shadow: 
+    box-shadow:
         0 32px 64px -12px rgba(0, 0, 0, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
@@ -81,9 +81,9 @@
 .visualizer-header {
     padding: var(--space-6);
     border-bottom: 1px solid var(--border-color);
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.95) 0%, 
-        rgba(249, 250, 251, 0.95) 100%);
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(249, 250, 251, 0.95) 100%);
     backdrop-filter: blur(20px);
     display: flex;
     justify-content: space-between;
@@ -100,10 +100,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(99, 102, 241, 0.02) 50%, 
-        transparent 100%);
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(99, 102, 241, 0.02) 50%,
+            transparent 100%);
     opacity: 0;
 }
 
@@ -163,9 +163,9 @@
     flex: 1;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(180deg, 
-        rgba(240, 244, 248, 0.8) 0%, 
-        rgba(248, 250, 252, 0.9) 100%);
+    background: linear-gradient(180deg,
+            rgba(240, 244, 248, 0.8) 0%,
+            rgba(248, 250, 252, 0.9) 100%);
     min-height: 500px;
     border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
 }
@@ -236,7 +236,7 @@
     padding: var(--space-4);
     border-radius: var(--radius-xl);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 
+    box-shadow:
         0 20px 25px -5px rgba(0, 0, 0, 0.1),
         0 10px 10px -5px rgba(0, 0, 0, 0.04);
     backdrop-filter: blur(20px);
@@ -320,7 +320,7 @@
     padding: var(--space-4);
     border-radius: var(--radius-xl);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 
+    box-shadow:
         0 20px 25px -5px rgba(0, 0, 0, 0.1),
         0 10px 10px -5px rgba(0, 0, 0, 0.04);
     backdrop-filter: blur(20px);
@@ -423,7 +423,7 @@
     cursor: pointer;
     transition: all var(--duration-normal) var(--ease-spring);
     backdrop-filter: blur(20px);
-    box-shadow: 
+    box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.1),
         0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
@@ -431,7 +431,7 @@
 .control-btn:hover {
     background: rgba(255, 255, 255, 1);
     transform: translateY(-2px);
-    box-shadow: 
+    box-shadow:
         0 10px 15px -3px rgba(0, 0, 0, 0.1),
         0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
@@ -444,7 +444,7 @@
 
 .control-btn.primary:hover {
     background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
-    box-shadow: 
+    box-shadow:
         0 10px 15px -3px rgba(99, 102, 241, 0.3),
         0 4px 6px -2px rgba(99, 102, 241, 0.2);
 }
@@ -473,7 +473,7 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: var(--radius-xl);
     backdrop-filter: blur(20px);
-    box-shadow: 
+    box-shadow:
         0 20px 25px -5px rgba(0, 0, 0, 0.1),
         0 10px 10px -5px rgba(0, 0, 0, 0.04);
     min-width: 280px;
@@ -484,7 +484,7 @@
 .panel:hover {
     background: rgba(255, 255, 255, 1);
     transform: translateY(-2px);
-    box-shadow: 
+    box-shadow:
         0 25px 50px -12px rgba(0, 0, 0, 0.15),
         0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
@@ -805,7 +805,7 @@
     cursor: pointer;
     transition: all var(--duration-normal) var(--ease-spring);
     backdrop-filter: blur(20px);
-    box-shadow: 
+    box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.1),
         0 2px 4px -1px rgba(0, 0, 0, 0.06);
     position: relative;
@@ -830,7 +830,7 @@
 .action-btn:hover {
     background: rgba(255, 255, 255, 1);
     transform: translateY(-2px);
-    box-shadow: 
+    box-shadow:
         0 10px 15px -3px rgba(0, 0, 0, 0.1),
         0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
@@ -845,7 +845,7 @@
 
 .action-btn.primary:hover {
     background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%);
-    box-shadow: 
+    box-shadow:
         0 10px 15px -3px rgba(99, 102, 241, 0.3),
         0 4px 6px -2px rgba(99, 102, 241, 0.2);
 }
@@ -870,7 +870,7 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: var(--radius-2xl);
     backdrop-filter: blur(20px);
-    box-shadow: 
+    box-shadow:
         0 25px 50px -12px rgba(0, 0, 0, 0.25),
         0 10px 10px -5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -989,31 +989,37 @@
 
 /* Animations */
 @keyframes workspaceGlow {
-    0%, 100% {
-        box-shadow: 
+
+    0%,
+    100% {
+        box-shadow:
             0 0 20px rgba(99, 102, 241, 0.3),
             inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
+
     50% {
-        box-shadow: 
+        box-shadow:
             0 0 30px rgba(99, 102, 241, 0.5),
             inset 0 1px 0 rgba(255, 255, 255, 0.2);
     }
 }
 
 @keyframes workspaceFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px);
     }
+
     50% {
         transform: translateY(-4px);
     }
 }
 
-    50% {
-        opacity: 0.6;
-        transform: scale(1.1);
-    }
+50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+}
 }
 
 /* Responsive Design */
@@ -1021,7 +1027,7 @@
     .workspace-content {
         flex-direction: column;
     }
-    
+
     .workspace-panels {
         position: static;
         flex-direction: row;
@@ -1030,7 +1036,7 @@
         max-height: none;
         overflow: visible;
     }
-    
+
     .panel {
         min-width: 200px;
         max-width: 250px;
@@ -1041,34 +1047,34 @@
     .dream-workspace {
         padding: var(--space-6) !important;
     }
-    
+
     .workspace-header {
         flex-direction: column !important;
         gap: var(--space-4) !important;
     }
-    
+
     .workspace-stats {
         grid-template-columns: repeat(2, 1fr) !important;
         min-width: auto !important;
     }
-    
+
     .workspace-panels {
         flex-direction: column !important;
     }
-    
+
     .panel {
         min-width: auto !important;
     }
-    
+
     .workspace-actions {
         flex-direction: column !important;
         align-items: stretch !important;
     }
-    
+
     .action-btn {
         justify-content: center !important;
     }
-    
+
     .info-panel {
         position: fixed !important;
         top: 50% !important;
@@ -1084,14 +1090,14 @@
     .workspace-stats {
         grid-template-columns: 1fr !important;
     }
-    
+
     .workspace-grid {
         grid-template-columns: 1fr !important;
     }
 }
 
 /* Ensure proper spacing between sections */
-.dream-workspace + .dashboard-item {
+.dream-workspace+.dashboard-item {
     margin-top: var(--space-8) !important;
     position: relative !important;
     z-index: 1 !important;
@@ -1112,7 +1118,7 @@
 
 /* Dark theme support */
 [data-theme="dark"] .dream-workspace {
-    background: 
+    background:
         linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-secondary) 100%),
         radial-gradient(ellipse 1200px 900px at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
         radial-gradient(ellipse 900px 1200px at 80% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
@@ -1129,9 +1135,9 @@
 }
 
 [data-theme="dark"] .workspace-area {
-    background: linear-gradient(135deg, 
-        rgba(30, 41, 59, 0.9) 0%, 
-        rgba(15, 23, 42, 0.9) 100%) !important;
+    background: linear-gradient(135deg,
+            rgba(30, 41, 59, 0.9) 0%,
+            rgba(15, 23, 42, 0.9) 100%) !important;
 }
 
 /* Workspace Notifications */
@@ -1143,7 +1149,7 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: var(--radius-xl);
     backdrop-filter: blur(20px);
-    box-shadow: 
+    box-shadow:
         0 20px 25px -5px rgba(0, 0, 0, 0.1),
         0 10px 10px -5px rgba(0, 0, 0, 0.04);
     z-index: 2000;
@@ -1208,6 +1214,7 @@
         transform: translateX(100%);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
@@ -1216,9 +1223,9 @@
 
 /* Enhanced mode styles */
 .visualizer-canvas.enhanced-mode {
-    background: linear-gradient(180deg, 
-        rgba(99, 102, 241, 0.1) 0%, 
-        rgba(139, 92, 246, 0.1) 100%);
+    background: linear-gradient(180deg,
+            rgba(99, 102, 241, 0.1) 0%,
+            rgba(139, 92, 246, 0.1) 100%);
     border: 2px solid rgba(99, 102, 241, 0.3);
 }
 
