@@ -577,12 +577,12 @@ task-system .task-system-title,
     display: flex !important;
     align-items: center !important;
     gap: var(--space-3) !important;
-    
+
     /* Typography optimization */
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important;
     text-rendering: optimizeLegibility !important;
-    
+
     /* Transitions */
     transition: all var(--duration-fast) var(--ease-bounce) !important;
     position: relative !important;
@@ -919,6 +919,10 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     box-shadow: 0 12px 25px rgba(99, 102, 241, 0.25);
     border-color: rgba(255, 255, 255, 0.3);
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+}
+
+.ai-insight-card:hover::before {
+    transform: scaleY(1);
 }
 
 .insight-header {
@@ -1326,6 +1330,13 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     transform: scaleY(1);
 }
 
+.task-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+}
+
 .task-priority {
     display: flex;
     align-items: center;
@@ -1351,6 +1362,14 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 .task-priority.low {
     background: rgba(16, 185, 129, 0.2);
     color: var(--success-200);
+}
+
+.priority-icon {
+    font-size: var(--font-size-sm);
+}
+
+.task-card-content {
+    margin-bottom: var(--space-4);
 }
 
 .task-title {
@@ -1388,6 +1407,10 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     font-size: var(--font-size-xs);
     font-weight: 500;
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.task-card-progress {
+    margin-bottom: var(--space-4);
 }
 
 /* .progress-header moved to components/task-system.css to avoid duplication */

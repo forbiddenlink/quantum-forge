@@ -290,26 +290,6 @@ class SVGIconLibrary {
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="12" y1="8" x2="12" y2="12"></line>
                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
-            </svg>`,
-
-            // Additional missing icons for emoji replacement
-            'lightbulb': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 21h6"></path>
-                <path d="M12 17v4"></path>
-                <path d="M12 3a6 6 0 0 1 6 6c0 1.7-.7 3.2-1.8 4.3-.3.3-.7.7-.9 1.1-.2.4-.3.9-.3 1.4v.2"></path>
-                <path d="M6 9a6 6 0 0 1 6-6"></path>
-            </svg>`,
-            'calendar': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>`,
-            'check': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>`,
-            'energy': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
             </svg>`
         };
 
@@ -318,21 +298,21 @@ class SVGIconLibrary {
             '📋': 'page-tasks',
             '📊': 'page-polls',
             '🔄': 'active-tasks',
-            '✅': 'check',
+            '✅': 'completed-tasks',
             '⏰': 'upcoming-deadlines',
             '🗳️': 'active-polls',
-            '👥': 'team',
-            '⭐': 'star',
+            '👥': 'participation',
+            '⭐': 'feedback-score',
             '💬': 'responses',
             '🏢': 'workplace',
             '🎁': 'benefits',
-            '🌟': 'star',
-            '📚': 'learning',
+            '🌟': 'culture',
+            '📚': 'development',
             '🎯': 'target',
             '🏆': 'trophy',
-            '⚡': 'energy',
-            '💡': 'lightbulb',
-            '📅': 'calendar',
+            '⚡': 'performance',
+            '💡': 'innovation',
+            '📅': 'meeting',
             '🤝': 'collaboration',
             '🧠': 'knowledge-share',
             '🚀': 'innovation-rocket',
@@ -341,9 +321,7 @@ class SVGIconLibrary {
             '📈': 'team-productivity',
             '✖️': 'close',
             '🔄': 'refresh',
-            '⌨️': 'settings',
-            '🔥': 'energy',
-            '🌅': 'productivity'
+            '⌨️': 'settings'
         };
     }
 
@@ -386,7 +364,7 @@ class SVGIconLibrary {
     // Replace emoji in DOM elements
     replaceEmojiInElement(element) {
         if (!element) return;
-        
+
         // Replace text content
         if (element.childNodes.length === 1 && element.childNodes[0].nodeType === Node.TEXT_NODE) {
             const text = element.textContent;
