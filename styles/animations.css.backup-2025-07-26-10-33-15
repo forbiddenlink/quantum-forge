@@ -136,6 +136,8 @@
     }
 }
 
+/* fadeInUp animation removed - identical to slideInUp above, use slideInUp instead */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -145,6 +147,8 @@
         opacity: 1;
     }
 }
+
+/* Duplicate fadeInUp removed - keeping the 20px version as the primary one */
 
 @keyframes fadeOut {
     from {
@@ -601,6 +605,8 @@
         border-color: var(--text-primary);
     }
 }
+
+/* gentleFloat animation removed - identical keyframe definition exists in main.css */
 
 /* Wave Animation */
 @keyframes wave {

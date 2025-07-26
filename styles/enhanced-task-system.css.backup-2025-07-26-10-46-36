@@ -977,7 +977,32 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     white-space: nowrap;
 }
 
-/* COMPONENT REFERENCE: .impact-badge classes moved to components.css for shared use */
+.impact-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.impact-badge.high {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--error-200);
+}
+
+.impact-badge.medium {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--warning-200);
+}
+
+.impact-badge.low {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--primary-200);
+}
 
 .insight-actions {
     display: flex;
@@ -1718,7 +1743,39 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     z-index: 10000;
 }
 
-/* COMPONENT REFERENCE: .shortcuts-content and .close-shortcuts moved to components.css for shared use */
+.shortcuts-content {
+    background: var(--bg-elevated);
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.shortcuts-content h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.shortcuts-content pre {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.close-shortcuts {
+    background: var(--primary-500);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
 
 /* Enhanced focus indicators */
 .enhanced-task-system *:focus-visible {
@@ -1916,8 +1973,19 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 /* 🎆 ADDITIONAL SPECTACULAR ANIMATION KEYFRAMES */
 
 /* Pulse effect for highlighted elements */
-/* ANIMATION REFERENCE: Using centralized dataPulse from animations.css */
-/* Replaced taskPulse - consolidated to master definition with enhanced effects */
+@keyframes taskPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(99, 102, 241, 0.7);
+    }
+
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+    }
+}
 
 /* Breathing effect for containers */
 @keyframes taskBreathing {
@@ -1951,7 +2019,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 
 /* Utility classes for dynamic animations */
 .task-pulse {
-    animation: dataPulse 1.2s ease-in-out infinite;
+    animation: taskPulse 1.2s ease-in-out infinite;
 }
 
 .task-breathing {

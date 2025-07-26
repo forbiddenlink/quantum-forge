@@ -909,12 +909,21 @@ html body .knowledge-hub.spectacular-mode .search-icon {
     border-radius: var(--radius-full);
     font-size: var(--font-size-xs);
     font-weight: 600;
-    animation: livePulse 1.5s ease-in-out infinite;
+    animation: knowledgeLivePulse 1.5s ease-in-out infinite;
     box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
 }
 
-/* ANIMATION REFERENCE: Using centralized livePulse from animations.css */
-/* Replaced knowledgeLivePulse - consolidated to master definition with enhanced scale effect */
+@keyframes knowledgeLivePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
 
 .ai-insights-grid.spectacular {
     display: grid;

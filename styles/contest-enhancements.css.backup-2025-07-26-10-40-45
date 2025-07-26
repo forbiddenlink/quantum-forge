@@ -1144,8 +1144,17 @@
     animation: cultureBadgeDot 1.5s ease-in-out infinite;
 }
 
-/* ANIMATION REFERENCE: Using centralized simplePulse from animations.css */
-/* Replaced cultureBadgePulse - consolidated to master definition with enhanced 1.1 scale effect */
+@keyframes cultureBadgePulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
 
 @keyframes cultureBadgeDot {
 
@@ -1325,7 +1334,19 @@
     animation: livePulse 2s ease-in-out infinite;
 }
 
-/* livePulse animation removed - use master definition in animations.css */
+@keyframes livePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+}
 
 .pulse-indicator.positive {
     color: #10b981;
@@ -1480,7 +1501,7 @@
     font-weight: 700;
     color: #ffffff;
     text-align: center;
-    animation: simplePulse 2s ease-in-out infinite;
+    animation: cultureBadgePulse 2s ease-in-out infinite;
     transform-origin: center;
     transition: all 0.3s ease;
     line-height: 1;
