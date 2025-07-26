@@ -658,6 +658,28 @@
     visibility: visible !important;
 }
 
+/* Enhanced Notification Badge */
+.notification-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    background: var(--gradient-error);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    animation: pulse 2s infinite;
+    z-index: 10;
+    border: 2px solid var(--bg-elevated);
+}
+
 /* Sidebar Navigation Icon Fixes */
 .sidebar .nav-icon {
     display: block !important;
@@ -835,7 +857,8 @@
     margin-top: var(--space-6);
 }
 
-@media (max-width: 768px) {}
+@media (max-width: 768px) {
+}
 
 /* Chart Loading State */
 .chart::before {

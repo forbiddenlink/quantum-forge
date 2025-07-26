@@ -4254,6 +4254,12 @@ enhanced-task-system .section-icon-svg {
     gap: var(--space-2);
 }
 
+.task-assignee {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
 .assignee-avatar {
     width: 24px;
     height: 24px;

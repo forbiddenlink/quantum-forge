@@ -12,7 +12,8 @@
     border-radius: 0 0 var(--radius-md) 0;
     box-shadow: var(--shadow-lg);
     transition: top var(--duration-normal) var(--ease-in-out);
-    display: none !important; /* Temporarily hide all skip links */
+    display: none !important;
+    /* Temporarily hide all skip links */
     pointer-events: none;
     opacity: 0;
 }
@@ -79,22 +80,22 @@ select:focus {
         --bg-elevated: #ffffff;
         --focus-ring: #ff0000;
     }
-    
+
     .btn {
         border: 2px solid #ffffff !important;
         background: #ffffff !important;
         color: #ffffff !important;
     }
-    
+
     .btn:hover {
         background: #ffffff !important;
         color: #ffffff !important;
     }
-    
+
     .dashboard-item {
         border: 2px solid #ffffff !important;
     }
-    
+
     /* Remove gradients and subtle effects */
     .dashboard,
     .welcome-section,
@@ -106,6 +107,7 @@ select:focus {
 
 /* ===== REDUCED MOTION SUPPORT ===== */
 @media (prefers-reduced-motion: reduce) {
+
     *,
     *::before,
     *::after {
@@ -114,14 +116,14 @@ select:focus {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-    
+
     /* Disable complex animations */
     .particle,
     .floating-element,
     .pulse-animation {
         display: none !important;
     }
-    
+
     /* Disable auto-scroll and parallax */
     .auto-scroll,
     .parallax {
@@ -199,19 +201,23 @@ body.keyboard-nav-active .skip-links {
 /* ===== COLOR AND CONTRAST ENHANCEMENTS ===== */
 /* Ensure sufficient color contrast */
 .success-text {
-    color: #006400; /* Dark green for better contrast */
+    color: #006400;
+    /* Dark green for better contrast */
 }
 
 .warning-text {
-    color: #b8860b; /* Dark yellow for better contrast */
+    color: #b8860b;
+    /* Dark yellow for better contrast */
 }
 
 .error-text {
-    color: #dc143c; /* Dark red for better contrast */
+    color: #dc143c;
+    /* Dark red for better contrast */
 }
 
 .info-text {
-    color: #191970; /* Dark blue for better contrast */
+    color: #191970;
+    /* Dark blue for better contrast */
 }
 
 /* Add patterns to color-only information */
@@ -326,6 +332,7 @@ body.keyboard-nav-active .skip-links {
 
 /* ===== TOUCH AND MOBILE ACCESSIBILITY ===== */
 @media (hover: none) and (pointer: coarse) {
+
     /* Touch-friendly targets */
     button,
     .btn,
@@ -334,12 +341,12 @@ body.keyboard-nav-active .skip-links {
         min-height: 44px;
         min-width: 44px;
     }
-    
+
     /* Remove hover effects for touch devices */
     .dashboard-item:hover {
         transform: none;
     }
-    
+
     /* Enhanced touch feedback */
     .btn:active {
         transform: scale(0.95);
@@ -349,20 +356,21 @@ body.keyboard-nav-active .skip-links {
 
 /* ===== PRINT ACCESSIBILITY ===== */
 @media print {
+
     .skip-links,
     .accessibility-panel,
     .live-region,
     .status-announcer {
         display: none !important;
     }
-    
+
     .chart-description {
         position: static !important;
         width: auto !important;
         height: auto !important;
         overflow: visible !important;
     }
-    
+
     /* Ensure good contrast in print */
     * {
         background: white !important;
@@ -449,11 +457,13 @@ body.keyboard-nav-active .skip-links {
 
 /* ===== RESPONSIVE FONT SCALING ===== */
 @media (max-width: 768px) {
+
     /* Ensure text remains readable on mobile */
     .form-input,
     .btn,
     .nav-link {
-        font-size: 16px; /* Prevents zoom on iOS */
+        font-size: 16px;
+        /* Prevents zoom on iOS */
     }
 }
 
@@ -462,10 +472,10 @@ body.keyboard-nav-active .skip-links {
     .btn {
         border: 2px solid;
     }
-    
+
     .focus-ring {
         outline: 2px solid;
     }
 }
 
-/* ===== END ACCESSIBILITY ENHANCEMENTS ===== */ 
+/* ===== END ACCESSIBILITY ENHANCEMENTS ===== */
