@@ -1,0 +1,230 @@
+/* 🏆 CRITICAL CSS - Above the Fold Styles Only */
+/* Contest Optimization: Fast Initial Load */
+
+/* Variables are defined in main.css - removed duplicates */
+
+/* Dark Mode Critical Variables */
+[data-theme="dark"] {
+    --bg-primary: #111827;
+    --bg-elevated: #1f2937;
+    --text-primary: #f9fafb;
+    --text-secondary: #e5e7eb;
+}
+
+/* Base Reset - Critical Only */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Critical Layout Structure */
+.main-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.main-content {
+    flex: 1;
+    padding: var(--space-4);
+    width: 100%;
+    min-width: 0;
+}
+
+/* Header - Critical Styles Only */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0 var(--space-6);
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+[data-theme="dark"] .header {
+    background: rgba(17, 24, 39, 0.95);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Logo - Critical */
+.logo-text {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--primary-600);
+    text-decoration: none;
+}
+
+/* Dashboard grid defined in main.css to eliminate duplication */
+
+/* Welcome Section - Critical Above-the-Fold */
+.welcome-section {
+    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-8);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--space-6);
+}
+
+.welcome-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    margin: 0 0 var(--space-3) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.welcome-subtitle {
+    font-size: var(--font-size-lg);
+    opacity: 0.9;
+    margin: 0 0 var(--space-6) 0;
+}
+
+/* Stats Grid - Critical */
+.stat-item {
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.1);
+    transition: all var(--duration-normal) var(--ease-in-out);
+}
+
+.stat-number {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    color: white;
+}
+
+.stat-label {
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+    color: white;
+}
+
+/* Quick Actions - Critical */
+.quick-actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+/* Button styles consolidated in components.css */
+
+/* Dashboard item styles now consolidated in components.css */
+
+/* Sidebar - Critical Mobile behavior consolidated in sidebar.css to avoid conflicts */
+@media (max-width: 1024px) {
+    .main-content {
+        width: 100%;
+        padding: var(--space-3);
+    }
+}
+
+/* Loading State - Critical */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Focus States - Critical for Accessibility */
+*:focus-visible {
+    outline: 2px solid var(--primary-500);
+    outline-offset: 2px;
+}
+
+/* Essential Responsive - Mobile Critical */
+@media (max-width: 768px) {
+    .welcome-section {
+        padding: var(--space-5);
+    }
+
+    .welcome-title {
+        font-size: var(--font-size-2xl);
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quick-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header {
+        padding: 0 var(--space-4);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: var(--space-2);
+    }
+
+    .dashboard-grid {
+        gap: var(--space-3);
+    }
+
+    .welcome-section {
+        padding: var(--space-4);
+    }
+
+    .welcome-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2);
+    }
+
+    .stat-item {
+        padding: var(--space-3);
+    }
+}
+
+/* Prevent Flash of Unstyled Content */
+.dashboard-item>* {
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out 0.1s forwards;
+}
+
+/* fadeIn animation defined in main.css to eliminate duplication */
+
+/* Critical Performance Optimizations */
+.welcome-section,
+.dashboard-item {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Reduce Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

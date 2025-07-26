@@ -1,0 +1,1465 @@
+/* 🏆 CONTEST-WINNING ENHANCED COMPANY NEWS - Spectacular Visual Design */
+/* Company news variables now consolidated in critical-fixes.css */
+
+/* 🚀 SPECTACULAR COMPANY NEWS CONTAINER - MATCHING OTHER ENHANCED SECTIONS */
+.company-news {
+    /* ENHANCED Multi-layer animated background - EXACT MATCH to other sections */
+    background:
+        /* Animated gradient waves */
+        linear-gradient(45deg, var(--primary-500) 0%, transparent 50%, var(--primary-500) 100%),
+        linear-gradient(-45deg, var(--primary-600) 0%, transparent 50%, var(--primary-600) 100%),
+        linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%),
+        /* Primary gradient base */
+        linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%),
+        /* Animated accent gradients */
+        radial-gradient(ellipse 1200px 800px at 20% 20%, rgba(139, 92, 246, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 800px 1200px at 80% 80%, rgba(6, 182, 212, 0.4) 0%, transparent 50%),
+        radial-gradient(ellipse 600px 600px at 50% 50%, rgba(16, 185, 129, 0.3) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
+        /* Enhanced texture overlay with animation */
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
+
+    border-radius: var(--radius-2xl) !important;
+    padding: var(--space-8) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    margin-bottom: var(--space-6) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+    /* Spectacular glow and animation effects matching other sections */
+    box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(99, 102, 241, 0.4),
+        0 0 120px rgba(99, 102, 241, 0.2) !important;
+
+    /* Smooth transitions */
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+
+    /* Enhanced backdrop */
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+
+    /* SPECTACULAR glow and animation effects */
+    animation:
+        spectralGlow 6s ease-in-out infinite,
+        spectralBackgroundShift 20s linear infinite,
+        subtlePulse 4s ease-in-out infinite !important;
+
+    /* 3D transform for depth */
+    transform-style: preserve-3d !important;
+    perspective: 1000px !important;
+}
+
+/* Remove the old simple hover effect */
+.company-news:hover,
+.company-news:focus-within {
+    transform: none !important;
+    box-shadow:
+        0 25px 30px -5px rgba(0, 0, 0, 0.12),
+        0 12px 12px -5px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(255, 255, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        0 0 80px rgba(139, 92, 246, 0.5),
+        0 0 140px rgba(139, 92, 246, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Remove the old simple top border */
+.company-news::before {
+    content: '';
+    position: absolute;
+    top: -80%;
+    right: -80%;
+    width: 260%;
+    height: 260%;
+    background:
+        radial-gradient(circle at 40% 40%, rgba(99, 102, 241, 0.4) 0%, rgba(99, 102, 241, 0.2) 20%, transparent 50%),
+        radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.3) 0%, rgba(139, 92, 246, 0.15) 25%, transparent 40%),
+        radial-gradient(circle at 70% 70%, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0.1) 30%, transparent 50%);
+    border-radius: 50%;
+    animation: float 20s ease-in-out infinite reverse;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(1px);
+}
+
+.company-news::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(circle at 70% 30%, rgba(6, 182, 212, 0.4) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 50%),
+        radial-gradient(circle at 20% 70%, rgba(16, 185, 129, 0.3) 0%, rgba(16, 185, 129, 0.15) 30%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.25) 0%, rgba(245, 158, 11, 0.1) 35%, transparent 60%);
+    animation: float 25s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(0.8px);
+}
+
+/* newsGlow animation removed - using spectralGlow from animations.css to avoid duplication */
+
+/* newsBackgroundShift animation removed - using spectralBackgroundShift from animations.css to avoid duplication */
+
+/* News animations using central definitions */
+
+/* newsFloat animation removed - using master float definition from animations.css to avoid duplication */
+
+/* 🌟 ENHANCED TEXT STYLING - ALL WHITE ON GRADIENT BACKGROUND */
+.company-news *:not(input):not(select):not(textarea):not(.search-input) {
+    color: white !important;
+    position: relative;
+    z-index: 10;
+}
+
+.news-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    position: relative;
+    z-index: 10;
+}
+
+.news-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: white !important;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 10;
+}
+
+.news-title::before {
+    content: '📰';
+    font-size: 20px !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    animation: gentle-bounce 3s ease-in-out infinite;
+    position: relative;
+    z-index: 10;
+}
+
+/* 🎨 GLASS MORPHISM CARDS - MATCHING OTHER SECTIONS */
+.news-card,
+.pinned-grid .news-card,
+.news-grid .news-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-5) !important;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.news-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    transform: translateY(-3px) scale(1.02) !important;
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 🔍 ENHANCED SEARCH AND FILTERS */
+.search-bar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--radius-lg);
+    padding: var(--space-2);
+    transition: all var(--duration-normal) var(--ease-spring);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+}
+
+.search-bar:focus-within {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1) !important;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    background: none;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-sm);
+    color: white !important;
+    outline: none;
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 🏷️ ENHANCED CATEGORY FILTERS */
+.category-btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: var(--radius-full);
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--duration-normal) var(--ease-spring);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+}
+
+.category-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+.category-btn.active {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8)) !important;
+    border-color: rgba(255, 255, 255, 0.9) !important;
+    color: var(--primary-600) !important;
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
+}
+
+.category-count {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    padding: 2px 6px;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+}
+
+.category-btn.active .category-count {
+    background: rgba(99, 102, 241, 0.2) !important;
+    color: var(--primary-600) !important;
+}
+
+/* 📊 ENHANCED STATS SECTION */
+.news-stats {
+    margin-top: var(--space-8);
+    position: relative;
+    z-index: 10;
+}
+
+.section-subtitle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: white !important;
+    margin: 0 0 var(--space-4) 0;
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section-subtitle svg {
+    width: 24px;
+    height: 24px;
+    color: white !important;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+}
+
+.stat-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-6) !important;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+    transition: all var(--duration-normal) var(--ease-spring);
+    position: relative;
+    z-index: 10;
+}
+
+.stat-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 🎯 ENHANCED PRIORITY BARS */
+.stat-bar-wrapper {
+    margin-bottom: var(--space-3);
+}
+
+.stat-bar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)) !important;
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-3);
+    margin-bottom: var(--space-2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--duration-normal) var(--ease-spring);
+    backdrop-filter: blur(10px);
+}
+
+.stat-bar.high {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.4), rgba(239, 68, 68, 0.3)) !important;
+}
+
+.stat-bar.medium {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0.3)) !important;
+}
+
+.stat-bar.low {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(34, 197, 94, 0.3)) !important;
+}
+
+.stat-label,
+.stat-count {
+    color: white !important;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 📈 ENHANCED TRENDING SECTION */
+.trending-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    margin-bottom: var(--space-3);
+    transition: all var(--duration-normal) var(--ease-spring);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+}
+
+.trending-item:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* 🔧 ENHANCED CONTROLS */
+.news-controls {
+    display: flex;
+    gap: var(--space-2);
+    position: relative;
+    z-index: 10;
+}
+
+.btn-icon {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    border-radius: var(--radius-lg);
+    padding: var(--space-2);
+    transition: all var(--duration-normal) var(--ease-spring);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.btn-icon:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* 🎨 ENHANCED BADGES AND TAGS */
+.news-category,
+.pinned-badge,
+.priority-badge {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: var(--radius-md);
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 💫 ENHANCED ANIMATIONS */
+@keyframes gentle-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    25% {
+        transform: translateY(-2px) rotate(2deg);
+    }
+
+    50% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    75% {
+        transform: translateY(-1px) rotate(-1deg);
+    }
+}
+
+/* 🌙 DARK MODE ENHANCEMENTS */
+[data-theme="dark"] .company-news {
+    /* Enhanced dark mode background matching other sections */
+    background:
+        linear-gradient(45deg, var(--primary-400) 0%, transparent 50%, var(--primary-400) 100%),
+        linear-gradient(-45deg, var(--primary-500) 0%, transparent 50%, var(--primary-500) 100%),
+        linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.5) 25%, transparent 50%, rgba(6, 182, 212, 0.5) 75%, transparent 100%),
+        linear-gradient(135deg, var(--primary-600) 0%, var(--primary-700) 100%),
+        radial-gradient(ellipse 1200px 800px at 20% 20%, rgba(139, 92, 246, 0.6) 0%, transparent 50%),
+        radial-gradient(ellipse 800px 1200px at 80% 80%, rgba(6, 182, 212, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 600px 600px at 50% 50%, rgba(16, 185, 129, 0.4) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.4) 0%, transparent 60%),
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.1) 2px, rgba(255, 255, 255, 0.1) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.05) 4px, rgba(255, 255, 255, 0.05) 8px) !important;
+}
+
+/* 🔧 ENHANCED ICON SIZING - MATCHING OTHER SECTIONS */
+
+/* Force proper icon sizes with higher specificity */
+.company-news .news-title::before {
+    font-size: 20px !important;
+    line-height: 1 !important;
+}
+
+/* ALL SVG ICONS - Comprehensive targeting */
+.company-news svg,
+.company-news .section-subtitle svg,
+.company-news .stats-icon,
+.company-news .pin-icon {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.company-news .category-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+.company-news .search-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.company-news .btn-icon svg,
+.company-news .btn-icon.small svg,
+.company-news #prevNews svg,
+.company-news #nextNews svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.company-news .news-category svg,
+.company-news .news-card svg {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* Specific targeting for any remaining large icons */
+.company-news .news-filters svg,
+.company-news .news-controls svg,
+.company-news .news-actions svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* Target any icons in stat cards */
+.company-news .stat-card svg {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* Target trending section icons */
+.company-news .trending-item svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* 🚨 UNIVERSAL ICON SIZE CONTROL - Catch-all for any missed icons */
+.company-news * svg:not(.custom-size) {
+    max-width: 20px !important;
+    max-height: 20px !important;
+}
+
+/* Override for specific small icons */
+.company-news .category-filters svg,
+.company-news .category-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+    max-width: 14px !important;
+    max-height: 14px !important;
+}
+
+/* Override for button icons */
+.company-news button svg,
+.company-news .btn svg,
+.company-news .search-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
+}
+
+/* Force emoji icon size */
+.company-news .news-title::before,
+company-news .news-title::before {
+    font-size: 20px !important;
+    line-height: 1 !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+/* 🚨 REMOVE ALL DARK BACKGROUNDS - FORCE GLASS MORPHISM EVERYWHERE */
+
+/* Override any remaining solid backgrounds */
+.company-news .news-filters,
+.company-news .category-filters,
+.company-news .pinned-news,
+.company-news .news-content,
+.company-news .news-stats,
+.company-news .stats-grid,
+.company-news .news-grid,
+.company-news .pinned-grid {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Fix any remaining dark elements */
+.company-news .news-image,
+.company-news .news-details,
+.company-news .news-headline,
+.company-news .news-excerpt,
+.company-news .news-meta,
+.company-news .news-author,
+.company-news .news-date,
+.company-news .news-actions,
+.company-news .news-reactions {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: white !important;
+}
+
+/* 🎯 FIX SOCIAL INTERACTION BUTTONS - GLASS MORPHISM STYLE */
+.company-news .news-reactions button,
+.company-news .news-actions button,
+.company-news .reaction-btn,
+.company-news .like-btn,
+.company-news .comment-btn,
+.company-news .share-btn,
+.company-news .news-reaction-btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-2) var(--space-3) !important;
+    font-size: var(--font-size-xs) !important;
+    font-weight: 500 !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    cursor: pointer !important;
+}
+
+.company-news .news-reactions button:hover,
+.company-news .news-actions button:hover,
+.company-news .reaction-btn:hover,
+.company-news .like-btn:hover,
+.company-news .comment-btn:hover,
+.company-news .share-btn:hover,
+.company-news .news-reaction-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Force icons in reaction buttons to be white */
+.company-news .news-reactions button svg,
+.company-news .news-actions button svg,
+.company-news .reaction-btn svg,
+.company-news .like-btn svg,
+.company-news .comment-btn svg,
+.company-news .share-btn svg,
+.company-news .news-reaction-btn svg {
+    color: white !important;
+    fill: white !important;
+    stroke: white !important;
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* Fix reaction counts/numbers */
+.company-news .news-reactions .reaction-count,
+.company-news .news-reactions .like-count,
+.company-news .news-reactions .comment-count,
+.company-news .news-reactions .share-count {
+    color: white !important;
+    font-weight: 500 !important;
+    margin-left: var(--space-1) !important;
+}
+
+/* Force all inner containers to be transparent */
+.company-news .trending-section,
+.company-news .trending-items,
+.company-news .stat-header,
+.company-news .stat-chart,
+.company-news .stat-bars {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Remove any remaining dark borders and replace with glass borders */
+.company-news *:not(.search-input):not(input):not(select):not(textarea) {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Fix notification toasts if they exist */
+.company-news .notification-toast,
+.company-news .toast {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+/* Fix loading placeholder */
+.company-news .loading-placeholder {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    color: white !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Fix empty states */
+.company-news .news-empty-state,
+.company-news .news-error-state {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+/* Fix any modal or popup elements */
+.company-news .modal,
+.company-news .popup,
+.company-news .dropdown {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+/* 🔍 FIX SEARCH ICON SPECIFICALLY - GLASS MORPHISM STYLE */
+.company-news .search-icon,
+.company-news .search-btn,
+.company-news .search-button,
+.company-news [class*="search"] button,
+.company-news .news-search button,
+.company-news .search-input-wrapper button,
+.company-news .search-container button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-2) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    cursor: pointer !important;
+}
+
+.company-news .search-icon:hover,
+.company-news .search-btn:hover,
+.company-news .search-button:hover,
+.company-news [class*="search"] button:hover,
+.company-news .news-search button:hover,
+.company-news .search-input-wrapper button:hover,
+.company-news .search-container button:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Force search icon SVG to be white */
+.company-news .search-icon svg,
+.company-news .search-btn svg,
+.company-news .search-button svg,
+.company-news [class*="search"] button svg,
+.company-news .news-search button svg,
+.company-news .search-input-wrapper button svg,
+.company-news .search-container button svg {
+    color: white !important;
+    fill: white !important;
+    stroke: white !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* Target any search elements by common attributes */
+.company-news button[aria-label*="search" i],
+.company-news button[title*="search" i],
+.company-news [role="search"] button,
+.company-news form[role="search"] button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+/* Fix any remaining text that might be dark */
+.company-news h1,
+.company-news h2,
+.company-news h3,
+.company-news h4,
+.company-news h5,
+.company-news h6,
+.company-news p,
+.company-news span,
+.company-news div:not(.search-input):not(input),
+.company-news a,
+.company-news button:not(.search-input),
+.company-news label {
+    color: white !important;
+}
+
+/* Force proper z-index layering */
+.company-news .news-header,
+.company-news .news-content,
+.company-news .news-stats {
+    position: relative;
+    z-index: 10;
+}
+
+/* Remove any box-shadow that might look like dark backgrounds */
+.company-news .news-card,
+.company-news .stat-card,
+.company-news .category-btn,
+.company-news .search-bar,
+.company-news .trending-item {
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+}
+
+/* Make sure hover states maintain glass morphism */
+.company-news .news-card:hover,
+.company-news .stat-card:hover,
+.company-news .category-btn:hover,
+.company-news .trending-item:hover {
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* 📊 NEWS INSIGHTS SECTION - ENHANCED GLASS MORPHISM */
+
+/* Fix insights section header */
+.company-news .news-stats .section-subtitle {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 0 var(--space-4) 0 !important;
+    padding-bottom: var(--space-3) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    background: transparent !important;
+}
+
+/* Fix stat cards with proper glass morphism */
+.company-news .stat-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-6) !important;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    position: relative !important;
+    z-index: 10 !important;
+    color: white !important;
+}
+
+.company-news .stat-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Fix stat card headers */
+.company-news .stat-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: var(--space-4) !important;
+    background: transparent !important;
+}
+
+.company-news .stat-header h5 {
+    font-size: var(--font-size-base) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.company-news .stat-total {
+    font-size: var(--font-size-lg) !important;
+    font-weight: 700 !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    padding: var(--space-1) var(--space-3) !important;
+    border-radius: var(--radius-full) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Fix stat chart and bars */
+.company-news .stat-chart {
+    background: transparent !important;
+}
+
+.company-news .stat-bar-wrapper {
+    margin-bottom: var(--space-3) !important;
+}
+
+.company-news .stat-bar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2)) !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-2) var(--space-3) !important;
+    margin-bottom: var(--space-2) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.company-news .stat-bar.high {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.4), rgba(239, 68, 68, 0.3)) !important;
+    border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.company-news .stat-bar.medium {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(245, 158, 11, 0.3)) !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+.company-news .stat-bar.low {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.4), rgba(34, 197, 94, 0.3)) !important;
+    border-color: rgba(34, 197, 94, 0.3) !important;
+}
+
+/* Fix stat labels and counts */
+.company-news .stat-label,
+.company-news .stat-count {
+    color: white !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    font-size: var(--font-size-sm) !important;
+}
+
+/* Fix trending section */
+.company-news .trending-list {
+    background: transparent !important;
+}
+
+.company-news .trending-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-4) !important;
+    margin-bottom: var(--space-3) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    backdrop-filter: blur(10px) !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.company-news .trending-item:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Fix trending titles and metrics */
+.company-news .trending-title {
+    font-size: var(--font-size-sm) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 0 var(--space-2) 0 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+.company-news .trending-metrics {
+    display: flex !important;
+    gap: var(--space-3) !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+.company-news .trending-metrics .metric {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-1) !important;
+    font-size: var(--font-size-xs) !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    padding: var(--space-1) var(--space-2) !important;
+    border-radius: var(--radius-md) !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    font-weight: 500 !important;
+}
+
+.company-news .trending-metrics .metric.total {
+    background: rgba(99, 102, 241, 0.3) !important;
+    border-color: rgba(99, 102, 241, 0.4) !important;
+    font-weight: 600 !important;
+}
+
+.company-news .trending-metrics .metric svg {
+    width: 12px !important;
+    height: 12px !important;
+    color: white !important;
+    flex-shrink: 0 !important;
+}
+
+/* Fix news actions section */
+.company-news .news-actions {
+    display: flex !important;
+    gap: var(--space-4) !important;
+    justify-content: center !important;
+    padding: var(--space-6) 0 0 0 !important;
+    margin-top: var(--space-6) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: transparent !important;
+}
+
+.company-news .news-actions .btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-3) var(--space-6) !important;
+    font-size: var(--font-size-sm) !important;
+    font-weight: 500 !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+}
+
+.company-news .news-actions .btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1) !important;
+}
+
+.company-news .news-actions .btn svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: white !important;
+}
+
+/* 📱 MOBILE ICON SIZING */
+@media (max-width: 768px) {
+    .company-news .news-title::before {
+        font-size: 18px !important;
+    }
+
+    .company-news svg,
+    .company-news .section-subtitle svg {
+        width: 18px !important;
+        height: 18px !important;
+        max-width: 18px !important;
+        max-height: 18px !important;
+    }
+
+    .company-news .category-btn svg {
+        width: 12px !important;
+        height: 12px !important;
+        max-width: 12px !important;
+        max-height: 12px !important;
+    }
+
+    .company-news button svg {
+        width: 14px !important;
+        height: 14px !important;
+        max-width: 14px !important;
+        max-height: 14px !important;
+    }
+
+    /* Mobile adjustments for insights section */
+    .company-news .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-3) !important;
+    }
+
+    .company-news .trending-metrics {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: var(--space-2) !important;
+    }
+
+    .company-news .news-actions {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-news .news-title::before {
+        font-size: 16px !important;
+    }
+
+    .company-news svg {
+        max-width: 16px !important;
+        max-height: 16px !important;
+    }
+
+    .company-news .section-subtitle svg {
+        width: 16px !important;
+        height: 16px !important;
+        max-width: 16px !important;
+        max-height: 16px !important;
+    }
+
+    .company-news .category-btn svg {
+        width: 10px !important;
+        height: 10px !important;
+        max-width: 10px !important;
+        max-height: 10px !important;
+    }
+
+    .company-news .search-btn svg,
+    .company-news button svg {
+        width: 12px !important;
+        height: 12px !important;
+        max-width: 12px !important;
+        max-height: 12px !important;
+    }
+}
+
+/* 📊 ENHANCED NEWS INSIGHTS SECTION - IMPROVED ALIGNMENT */
+
+/* Fix insights section header alignment */
+.company-news .news-stats .section-subtitle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: var(--space-3) !important;
+    font-size: var(--font-size-lg) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 0 var(--space-6) 0 !important;
+    padding: 0 0 var(--space-4) 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    background: transparent !important;
+}
+
+/* Enhanced stats grid with better alignment */
+.company-news .stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: var(--space-5) !important;
+    margin-top: var(--space-6) !important;
+    padding: 0 !important;
+    align-items: start !important;
+}
+
+/* Fix stat cards with consistent alignment */
+.company-news .stat-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-6) !important;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    position: relative !important;
+    z-index: 10 !important;
+    color: white !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+.company-news .stat-card:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Fix stat card headers with better alignment */
+.company-news .stat-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    margin-bottom: var(--space-5) !important;
+    background: transparent !important;
+    gap: var(--space-3) !important;
+}
+
+.company-news .stat-header h5 {
+    font-size: var(--font-size-lg) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    line-height: 1.3 !important;
+    flex: 1 !important;
+}
+
+.company-news .stat-total {
+    font-size: var(--font-size-xl) !important;
+    font-weight: 700 !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    padding: var(--space-2) var(--space-4) !important;
+    border-radius: var(--radius-full) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    white-space: nowrap !important;
+    align-self: flex-start !important;
+}
+
+/* Enhanced stat chart content with proper alignment */
+.company-news .stat-chart {
+    background: transparent !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    min-height: 200px !important;
+}
+
+/* Improved stat bar wrapper alignment */
+.company-news .stat-bar-wrapper {
+    margin-bottom: var(--space-4) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-2) !important;
+}
+
+/* Enhanced stat bars with perfect alignment */
+.company-news .stat-bar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15)) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-3) var(--space-4) !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    min-height: 48px !important;
+}
+
+.company-news .stat-bar:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.25)) !important;
+    transform: translateX(4px) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.company-news .stat-bar.high {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.5), rgba(239, 68, 68, 0.35)) !important;
+    border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
+.company-news .stat-bar.medium {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.5), rgba(245, 158, 11, 0.35)) !important;
+    border-color: rgba(245, 158, 11, 0.4) !important;
+}
+
+.company-news .stat-bar.low {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.5), rgba(34, 197, 94, 0.35)) !important;
+    border-color: rgba(34, 197, 94, 0.4) !important;
+}
+
+/* Perfect alignment for stat labels and counts */
+.company-news .stat-label {
+    color: white !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    font-size: var(--font-size-sm) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    flex: 1 !important;
+    text-align: left !important;
+}
+
+.company-news .stat-count {
+    color: white !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    font-size: var(--font-size-lg) !important;
+    white-space: nowrap !important;
+    text-align: right !important;
+    min-width: 40px !important;
+}
+
+/* Enhanced trending section with better alignment */
+.company-news .trending-list {
+    background: transparent !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+    margin-top: var(--space-2) !important;
+}
+
+.company-news .trending-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-4) var(--space-5) !important;
+    margin-bottom: 0 !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    backdrop-filter: blur(10px) !important;
+    position: relative !important;
+    z-index: 10 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+}
+
+.company-news .trending-item:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    transform: translateY(-2px) translateX(4px) !important;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Perfect trending title alignment */
+.company-news .trending-title {
+    font-size: var(--font-size-base) !important;
+    font-weight: 600 !important;
+    color: white !important;
+    margin: 0 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+    line-height: 1.4 !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: var(--space-2) !important;
+}
+
+/* Enhanced trending metrics with perfect alignment */
+.company-news .trending-metrics {
+    display: flex !important;
+    gap: var(--space-3) !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+}
+
+.company-news .trending-metrics .metric {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+    font-size: var(--font-size-sm) !important;
+    color: white !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    padding: var(--space-2) var(--space-3) !important;
+    border-radius: var(--radius-lg) !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+    min-height: 32px !important;
+}
+
+.company-news .trending-metrics .metric.total {
+    background: rgba(99, 102, 241, 0.4) !important;
+    border-color: rgba(99, 102, 241, 0.5) !important;
+    font-weight: 600 !important;
+    color: white !important;
+}
+
+.company-news .trending-metrics .metric svg {
+    width: 14px !important;
+    height: 14px !important;
+    color: white !important;
+    flex-shrink: 0 !important;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* Enhanced news actions section with perfect alignment */
+.company-news .news-actions {
+    display: flex !important;
+    gap: var(--space-4) !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: var(--space-6) 0 0 0 !important;
+    margin-top: var(--space-6) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: transparent !important;
+    flex-wrap: wrap !important;
+}
+
+.company-news .news-actions .btn {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.1) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: white !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-3) var(--space-6) !important;
+    font-size: var(--font-size-sm) !important;
+    font-weight: 600 !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: var(--space-2) !important;
+    min-height: 44px !important;
+    white-space: nowrap !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.company-news .news-actions .btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15) !important;
+}
+
+.company-news .news-actions .btn svg {
+    width: 16px !important;
+    height: 16px !important;
+    color: white !important;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* 📱 ENHANCED MOBILE ALIGNMENT */
+@media (max-width: 768px) {
+
+    /* Mobile stats grid - single column for better alignment */
+    .company-news .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-4) !important;
+        margin-top: var(--space-4) !important;
+    }
+
+    /* Mobile stat card adjustments */
+    .company-news .stat-card {
+        padding: var(--space-5) !important;
+        min-height: auto !important;
+    }
+
+    /* Mobile stat header alignment */
+    .company-news .stat-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: var(--space-2) !important;
+        margin-bottom: var(--space-4) !important;
+    }
+
+    .company-news .stat-header h5 {
+        font-size: var(--font-size-base) !important;
+    }
+
+    .company-news .stat-total {
+        font-size: var(--font-size-lg) !important;
+        align-self: flex-start !important;
+    }
+
+    /* Mobile trending metrics alignment - duplicate removed, already defined above */
+
+    .company-news .trending-metrics .metric {
+        font-size: var(--font-size-xs) !important;
+        padding: var(--space-1) var(--space-2) !important;
+        min-height: 28px !important;
+    }
+
+    /* Mobile news actions alignment */
+    .company-news .news-actions {
+        flex-direction: column !important;
+        gap: var(--space-3) !important;
+        align-items: stretch !important;
+    }
+
+    .company-news .news-actions .btn {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Extra small mobile adjustments */
+    .company-news .stats-grid {
+        gap: var(--space-3) !important;
+        margin-top: var(--space-3) !important;
+    }
+
+    .company-news .stat-card {
+        padding: var(--space-4) !important;
+    }
+
+    .company-news .stat-chart {
+        min-height: 160px !important;
+    }
+
+    .company-news .stat-bar {
+        padding: var(--space-2) var(--space-3) !important;
+        min-height: 40px !important;
+    }
+
+    .company-news .stat-label {
+        font-size: var(--font-size-xs) !important;
+    }
+
+    .company-news .stat-count {
+        font-size: var(--font-size-base) !important;
+    }
+
+    .company-news .trending-item {
+        padding: var(--space-3) var(--space-4) !important;
+    }
+
+    .company-news .trending-title {
+        font-size: var(--font-size-sm) !important;
+    }
+}

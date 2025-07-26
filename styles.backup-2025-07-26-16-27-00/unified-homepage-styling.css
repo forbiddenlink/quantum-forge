@@ -1,0 +1,527 @@
+/* 🌟 UNIFIED HOMEPAGE STYLING - Consistent Design Across All Sections */
+
+/* Target all main dashboard sections - EXCLUDE welcome section but include analytics */
+/* MAXIMUM SPECIFICITY - Override all component-specific backgrounds */
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) analytics-dashboard,
+html body .dashboard:not(.welcome-section) .dashboard-item.full-width.compact analytics-dashboard,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) task-system,
+html body .dashboard:not(.welcome-section) .dashboard-item task-system,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) enhanced-knowledge-hub,
+html body .dashboard:not(.welcome-section) .dashboard-item enhanced-knowledge-hub,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) smart-insights-dashboard,
+html body .dashboard:not(.welcome-section) .dashboard-item smart-insights-dashboard,
+html body .dashboard:not(.welcome-section) smart-insights-dashboard,
+html body .dashboard:not(.welcome-section) .smart-insights-dashboard,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) live-activity-feed,
+html body .dashboard:not(.welcome-section) .dashboard-item live-activity-feed,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) wellness-tracker,
+html body .dashboard:not(.welcome-section) .dashboard-item wellness-tracker,
+html body .dashboard:not(.welcome-section) .wellness-tracker,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) team-spotlight,
+html body .dashboard:not(.welcome-section) .dashboard-item team-spotlight,
+html body .dashboard:not(.welcome-section) .team-spotlight,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) company-news,
+html body .dashboard:not(.welcome-section) .dashboard-item company-news,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) collaboration-hub,
+html body .dashboard:not(.welcome-section) .dashboard-item collaboration-hub,
+html body .dashboard:not(.welcome-section) .collaboration-hub,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) office-visualizer,
+html body .dashboard:not(.welcome-section) .dashboard-item office-visualizer,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) enhanced-interactive-poll,
+html body .dashboard:not(.welcome-section) .dashboard-item enhanced-interactive-poll,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) weather-widget,
+html body .dashboard:not(.welcome-section) .dashboard-item weather-widget,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) achievement-system,
+html body .dashboard:not(.welcome-section) .dashboard-item achievement-system,
+html body .dashboard:not(.welcome-section) .achievement-system,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) company-culture-showcase,
+html body .dashboard:not(.welcome-section) .dashboard-item company-culture-showcase,
+html body .dashboard:not(.welcome-section) .company-culture-showcase,
+html body .dashboard:not(.welcome-section) .analytics-dashboard {
+    /* ENHANCED Multi-layer animated background - same as welcome section */
+    background:
+        /* Animated gradient waves */
+        linear-gradient(45deg, var(--welcome-bg-start) 0%, transparent 50%, var(--welcome-bg-start) 100%),
+        linear-gradient(-45deg, var(--welcome-bg-end) 0%, transparent 50%, var(--welcome-bg-end) 100%),
+        linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%),
+        /* Primary gradient base */
+        linear-gradient(135deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%),
+        /* Animated accent gradients */
+        radial-gradient(ellipse 1400px 1000px at 20% 20%, rgba(139, 92, 246, 0.6) 0%, transparent 50%),
+        radial-gradient(ellipse 1000px 1400px at 80% 80%, rgba(6, 182, 212, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 800px 800px at 50% 50%, rgba(16, 185, 129, 0.4) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
+        /* Enhanced texture overlay with animation */
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
+
+    border-radius: var(--radius-2xl) !important;
+    padding: var(--space-8) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-shadow:
+        var(--welcome-shadow),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(99, 102, 241, 0.4),
+        0 0 120px rgba(99, 102, 241, 0.2) !important;
+    border: 1px solid var(--welcome-border) !important;
+    color: var(--welcome-text) !important;
+
+    /* Smooth transitions */
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+
+    /* Enhanced backdrop */
+    backdrop-filter: blur(20px) !important;
+
+    /* Subtle effects only - no excessive animations */
+    animation: none !important;
+
+    /* 3D transform for depth */
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* 🎨 ALL SECTION ANIMATIONS - Same as Welcome Section */
+/* Animation keyframes moved to welcome-section.css to prevent duplicates */
+
+/* 🌟 UNIFIED TEXT STYLING - All Text White (EXCLUDE welcome section) */
+/* MAXIMUM SPECIFICITY - Override all component-specific text colors */
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) *:not(input):not(select):not(textarea),
+html body .dashboard:not(.welcome-section) .dashboard-item.full-width.compact *:not(input):not(select):not(textarea),
+html body .dashboard:not(.welcome-section) .smart-insights-dashboard *:not(input):not(select):not(textarea),
+html body .dashboard:not(.welcome-section) .analytics-dashboard *:not(input):not(select):not(textarea),
+html body .dashboard:not(.welcome-section) .wellness-tracker *:not(input):not(select):not(textarea),
+html body .dashboard:not(.welcome-section) .team-spotlight *:not(input):not(select):not(textarea),
+html body .dashboard:not(.welcome-section) .collaboration-hub *:not(input):not(select):not(textarea),
+html body .dashboard:not(.welcome-section) .achievement-system *:not(input):not(select):not(textarea),
+html body .dashboard:not(.welcome-section) .company-culture-showcase *:not(input):not(select):not(textarea) {
+    color: var(--welcome-text) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 🎯 UNIFIED CARD STYLING - Glassmorphism Cards */
+/* MAXIMUM SPECIFICITY - Override all component-specific card backgrounds */
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) .card,
+html body .dashboard:not(.welcome-section) .dashboard-item.full-width.compact .card,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) .widget,
+html body .dashboard:not(.welcome-section) .dashboard-item.full-width.compact .widget,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) .panel,
+html body .dashboard:not(.welcome-section) .dashboard-item.full-width.compact .panel,
+html body .dashboard:not(.welcome-section) .dashboard-item:not(.full-width) .section,
+html body .dashboard:not(.welcome-section) .dashboard-item.full-width.compact .section,
+html body .dashboard:not(.welcome-section) .smart-insights-dashboard .card,
+html body .dashboard:not(.welcome-section) .analytics-dashboard .card,
+html body .dashboard:not(.welcome-section) .wellness-tracker .card,
+html body .dashboard:not(.welcome-section) .team-spotlight .card,
+html body .dashboard:not(.welcome-section) .collaboration-hub .card,
+html body .dashboard:not(.welcome-section) .achievement-system .card,
+html body .dashboard:not(.welcome-section) .company-culture-showcase .card {
+    background: linear-gradient(135deg, var(--component-bg) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid var(--component-border) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-5) !important;
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Card Hover Effects */
+.dashboard-item .card:hover,
+.dashboard-item .widget:hover,
+.dashboard-item .panel:hover {
+    background: linear-gradient(135deg, var(--component-hover-bg) 0%, rgba(255, 255, 255, 0.12) 100%) !important;
+    border-color: var(--component-hover-border) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: var(--component-hover-shadow) !important;
+}
+
+/* 🎨 UNIFIED BUTTON STYLING */
+.dashboard-item button,
+.dashboard-item .btn,
+.dashboard-item .action-btn {
+    background: linear-gradient(135deg, var(--component-bg) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid var(--component-border) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-3) var(--space-5) !important;
+    color: var(--welcome-text) !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all var(--duration-normal) var(--ease-in-out) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Button Hover Effects */
+.dashboard-item button:hover,
+.dashboard-item .btn:hover {
+    background: linear-gradient(135deg, var(--component-hover-bg) 0%, rgba(255, 255, 255, 0.15) 100%) !important;
+    border-color: var(--component-hover-border) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: var(--component-hover-shadow) !important;
+}
+
+/* 🎯 UNIFIED ICON STYLING */
+.dashboard-item svg,
+.dashboard-item .icon,
+.dashboard-item .btn-icon {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+    /* Consistent icon sizing */
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+}
+
+/* Special handling for larger decorative icons */
+.dashboard-item .hero-icon,
+.dashboard-item .feature-icon,
+.dashboard-item .stat-icon {
+    width: 32px !important;
+    height: 32px !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
+}
+
+/* Icon Hover Effects */
+.dashboard-item svg:hover,
+.dashboard-item .icon:hover,
+.dashboard-item .btn-icon:hover {
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+    transform: scale(1.1) !important;
+}
+
+/* Prevent oversized icons in components */
+.dashboard-item .kpi-icon,
+.dashboard-item .resource-icon,
+.dashboard-item .member-avatar,
+.dashboard-item .news-icon,
+.dashboard-item .progress-icon,
+.dashboard-item .wellness-icon {
+    width: 28px !important;
+    height: 28px !important;
+    max-width: 28px !important;
+    max-height: 28px !important;
+}
+
+/* 🎨 UNIFIED TITLE STYLING */
+.dashboard-item h1,
+.dashboard-item h2,
+.dashboard-item h3,
+.dashboard-item .title,
+.dashboard-item .section-title,
+.dashboard-item .header-title {
+    color: var(--welcome-text) !important;
+    font-weight: 700 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    margin-bottom: var(--space-4) !important;
+}
+
+/* 🌟 UNIFIED SECTION HEADERS WITH ICONS */
+.dashboard-item .section-header,
+.dashboard-item .header {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
+    margin-bottom: var(--space-6) !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Section Header Icons */
+.dashboard-item .section-header svg,
+.dashboard-item .section-header .icon {
+    width: 32px !important;
+    height: 32px !important;
+    color: var(--welcome-text) !important;
+    stroke: var(--welcome-text) !important;
+    fill: none !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 6px !important;
+    transition: all 0.3s ease !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+}
+
+/* Section Header Icon Hover */
+.dashboard-item .section-header svg:hover,
+.dashboard-item .section-header .icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* 🎯 UNIFIED BADGES AND TAGS */
+.dashboard-item .badge,
+.dashboard-item .tag,
+.dashboard-item .status {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: var(--welcome-text) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: var(--radius-md) !important;
+    padding: var(--space-1) var(--space-3) !important;
+    font-size: var(--font-size-xs) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* 🎨 UNIFIED PROGRESS BARS */
+.dashboard-item .progress,
+.dashboard-item .progress-bar {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: var(--radius-full) !important;
+    overflow: hidden !important;
+    height: 8px !important;
+}
+
+/* Progress Fill */
+.dashboard-item .progress-fill,
+.dashboard-item .progress-bar-fill {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6)) !important;
+    height: 100% !important;
+    border-radius: var(--radius-full) !important;
+    transition: width 0.5s ease !important;
+}
+
+/* 📱 MOBILE RESPONSIVENESS & PERFORMANCE OPTIMIZATIONS */
+/* Dashboard item mobile styles now consolidated in components.css */
+
+/* Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+
+    .dashboard-item,
+    .dashboard-item * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+    .dashboard-item {
+        background: Canvas !important;
+        color: CanvasText !important;
+        border-color: ButtonBorder !important;
+    }
+
+    .dashboard-item .card,
+    .dashboard-item .button,
+    .dashboard-item .badge {
+        border-width: 2px !important;
+    }
+}
+
+/* Dark Mode Support - handled in dark-theme.css and components.css */
+
+/* ===== NUCLEAR-LEVEL BACKGROUND OVERRIDE - MAXIMUM SPECIFICITY ===== */
+/* Force all dashboard components to use unified glassmorphism background */
+
+/* Override ALL component-specific backgrounds with maximum specificity */
+html body .dashboard .smart-insights-dashboard,
+html body .dashboard .analytics-dashboard,
+html body .dashboard .wellness-tracker,
+html body .dashboard .team-spotlight,
+html body .dashboard .collaboration-hub,
+html body .dashboard .achievement-system,
+html body .dashboard .company-culture-showcase,
+html body .dashboard .enhanced-knowledge-hub,
+html body .dashboard .live-activity-feed,
+html body .dashboard .office-visualizer,
+html body .dashboard .enhanced-interactive-poll,
+html body .dashboard .task-system,
+html body .dashboard .company-news,
+/* CRITICAL: Target Dream Workspace Hub specifically */
+html body .dashboard .dream-workspace-hub,
+html body .dashboard .workspace-hub,
+html body .dashboard office-visualizer,
+html body office-visualizer,
+html body .office-visualizer {
+    background:
+        /* Animated gradient waves */
+        linear-gradient(45deg, var(--welcome-bg-start) 0%, transparent 50%, var(--welcome-bg-start) 100%),
+        linear-gradient(-45deg, var(--welcome-bg-end) 0%, transparent 50%, var(--welcome-bg-end) 100%),
+        linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%),
+        /* Primary gradient base */
+        linear-gradient(135deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%),
+        /* Animated accent gradients */
+        radial-gradient(ellipse 1400px 1000px at 20% 20%, rgba(139, 92, 246, 0.6) 0%, transparent 50%),
+        radial-gradient(ellipse 1000px 1400px at 80% 80%, rgba(6, 182, 212, 0.5) 0%, transparent 50%),
+        radial-gradient(ellipse 800px 800px at 50% 50%, rgba(16, 185, 129, 0.4) 0%, transparent 70%),
+        radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
+        /* Enhanced texture overlay with animation */
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
+        repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
+
+    background-color: transparent !important;
+    color: var(--welcome-text) !important;
+    border: 1px solid var(--welcome-border) !important;
+    box-shadow:
+        var(--welcome-shadow),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(99, 102, 241, 0.4),
+        0 0 120px rgba(99, 102, 241, 0.2) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+/* Override ALL inner card backgrounds */
+html body .dashboard .smart-insights-dashboard *,
+html body .dashboard .analytics-dashboard *,
+html body .dashboard .wellness-tracker *,
+html body .dashboard .team-spotlight *,
+html body .dashboard .collaboration-hub *,
+html body .dashboard .achievement-system *,
+html body .dashboard .company-culture-showcase *,
+html body .dashboard .enhanced-knowledge-hub *,
+html body .dashboard .live-activity-feed *,
+html body .dashboard .office-visualizer *,
+html body .dashboard .enhanced-interactive-poll *,
+html body .dashboard .task-system *,
+html body .dashboard .company-news *,
+/* CRITICAL: Force Dream Workspace Hub inner elements */
+html body .dashboard .dream-workspace-hub *,
+html body .dashboard .workspace-hub *,
+html body office-visualizer *,
+html body .office-visualizer * {
+    background-color: transparent !important;
+    color: var(--welcome-text) !important;
+}
+
+/* ULTRA-SPECIFIC: Target white cards inside Dream Workspace Hub */
+html body .dashboard .office-visualizer .workspace-card,
+html body .dashboard .office-visualizer .activity-card,
+html body .dashboard .office-visualizer .stat-card,
+html body .dashboard .office-visualizer .info-card,
+html body .dashboard .office-visualizer .project-card,
+html body .dashboard .office-visualizer .team-card,
+html body .dashboard .office-visualizer .meeting-card,
+html body .dashboard .office-visualizer .desk-card,
+html body .dashboard .office-visualizer div[style*="background"],
+html body .dashboard .office-visualizer div[class*="card"],
+html body .dashboard .office-visualizer div[class*="item"],
+html body .dashboard .office-visualizer div[class*="box"],
+html body .dashboard .office-visualizer .card,
+html body .dashboard .office-visualizer .widget,
+html body .dashboard .office-visualizer .panel {
+    background: linear-gradient(135deg, var(--component-bg) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid var(--component-border) !important;
+    color: var(--welcome-text) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Specifically target inner cards and components that might have white backgrounds */
+html body .dashboard .smart-insights-dashboard .card,
+html body .dashboard .smart-insights-dashboard .widget,
+html body .dashboard .smart-insights-dashboard .panel,
+html body .dashboard .analytics-dashboard .card,
+html body .dashboard .analytics-dashboard .widget,
+html body .dashboard .analytics-dashboard .kpi-card,
+html body .dashboard .wellness-tracker .card,
+html body .dashboard .wellness-tracker .wellness-card,
+html body .dashboard .team-spotlight .card,
+html body .dashboard .team-spotlight .member-card,
+html body .dashboard .collaboration-hub .card,
+html body .dashboard .collaboration-hub .project-card,
+html body .dashboard .achievement-system .card,
+html body .dashboard .achievement-system .achievement-card,
+html body .dashboard .company-culture-showcase .card,
+html body .dashboard .company-culture-showcase .culture-card {
+    background: linear-gradient(135deg, var(--component-bg) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid var(--component-border) !important;
+    color: var(--welcome-text) !important;
+}
+
+/* Remove hardcoded purple colors if any exist */
+html body .dashboard .team-spotlight *[style*="purple"],
+html body .dashboard .team-spotlight *[style*="#8b5cf6"],
+html body .dashboard .team-spotlight *[style*="#7c3aed"],
+html body .dashboard .team-spotlight *[style*="#6d28d9"] {
+    background: linear-gradient(135deg, var(--component-bg) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    color: var(--welcome-text) !important;
+}
+
+/* ===== COMPREHENSIVE WHITE BACKGROUND ELIMINATION ===== */
+/* Target ALL possible white backgrounds across the entire dashboard */
+html body .dashboard *[style*="background: white"],
+html body .dashboard *[style*="background:white"],
+html body .dashboard *[style*="background-color: white"],
+html body .dashboard *[style*="background-color:white"],
+html body .dashboard *[style*="background: #fff"],
+html body .dashboard *[style*="background:#fff"],
+html body .dashboard *[style*="background: #ffffff"],
+html body .dashboard *[style*="background:#ffffff"],
+html body .dashboard .ai-suggestion-item,
+html body .dashboard .suggestion-item,
+html body .dashboard .status-pulse,
+html body .dashboard .theme-toggle::before {
+    background: linear-gradient(135deg, var(--component-bg) 0%, rgba(255, 255, 255, 0.08) 100%) !important;
+    background-color: transparent !important;
+    color: var(--welcome-text) !important;
+}
+
+/* ===== COMPREHENSIVE PURPLE COLOR ELIMINATION ===== */
+/* Remove all unwanted purple colors and replace with theme colors */
+html body .dashboard *[style*="purple"],
+html body .dashboard *[style*="#8b5cf6"],
+html body .dashboard *[style*="#7c3aed"],
+html body .dashboard *[style*="#6d28d9"],
+html body .dashboard *[style*="#a855f7"],
+html body .dashboard *[class*="purple"],
+html body .dashboard *[class*="violet"] {
+    background: var(--primary-500) !important;
+    color: var(--welcome-text) !important;
+    border-color: var(--primary-400) !important;
+}
+
+/* ===== UNIFIED DESIGN SYSTEM ENFORCEMENT ===== */
+/* Force ALL dashboard components to use consistent styling */
+html body .dashboard .smart-insights-dashboard,
+html body .dashboard .analytics-dashboard,
+html body .dashboard .wellness-tracker,
+html body .dashboard .team-spotlight,
+html body .dashboard .collaboration-hub,
+html body .dashboard .achievement-system,
+html body .dashboard .company-culture-showcase,
+html body .dashboard .enhanced-knowledge-hub,
+html body .dashboard .live-activity-feed,
+html body .dashboard .office-visualizer,
+html body .dashboard .enhanced-interactive-poll,
+html body .dashboard .task-system,
+html body .dashboard .company-news {
+    /* Force consistent typography */
+    font-family: var(--font-family-base) !important;
+
+    /* Force consistent spacing */
+    padding: var(--space-8) !important;
+    margin: 0 !important;
+
+    /* Force consistent borders */
+    border: 1px solid var(--welcome-border) !important;
+    border-radius: var(--radius-2xl) !important;
+
+    /* Force consistent shadows */
+    box-shadow:
+        var(--welcome-shadow),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(99, 102, 241, 0.4),
+        0 0 120px rgba(99, 102, 241, 0.2) !important;
+}
+
+/* GPU acceleration properties moved to components.css for consolidation */

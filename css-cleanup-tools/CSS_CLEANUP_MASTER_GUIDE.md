@@ -25,26 +25,37 @@ This guide provides comprehensive information for CSS cleanup, consolidation, an
   - Slide animations: `slideInRight`, `slideInLeft`, `slideInUp`, `expandIn`, `slideUp`
   - Slide out animations: `slideOutDown`, `slideDown`
 
+#### 3. **Cross-File Animation Duplicates** (NEW - July 26, 2025)
+- **✅ Shimmer Keyframes**: Removed duplicate `@keyframes shimmer` block from `component-enhancements.css`
+  - Master definition remains in `animations.css`
+  - 2 duplicate rules eliminated (0%, 100% background-position keyframes)
+- **✅ Pulse Opacity Keyframe**: Removed duplicate `50% { opacity: 1; }` from `contest-enhancements.css`
+  - Master definition remains in `animations.css`
+  - 1 duplicate rule eliminated
+- **✅ Impact**: 3 rules safely removed, 0 functionality lost
+
 ### 📊 **Current Metrics**
-- **Total Duplicates**: 356 (down from 357)
+- **Total Duplicates**: 353 (down from 356 - 3 rules eliminated)
 - **Internal Duplicates Eliminated**: ✅ Complete in `animations.css`
-- **Cross-file Duplicates**: 356 remaining (between different files)
+- **Cross-file Animation Duplicates**: ✅ 3 rules eliminated (shimmer keyframes, opacity keyframe)
+- **Cross-file Duplicates Remaining**: 353 (between different files)
 
 ### 🎯 **Next Priority Targets**
 
-#### 1. **Cross-file Animation Consolidation**
-- `animations.css` vs `component-enhancements.css` shimmer duplicates
-- `animations.css` vs `contest-enhancements.css` opacity duplicates
-
-#### 2. **Grid Layout Consolidation**
+#### 1. **Grid Layout Consolidation** (SAFE - Medium Risk)
 - `.analytics-grid` patterns across multiple files
-- `.ai-insights-grid` patterns across multiple files
+- `.ai-insights-grid` patterns across multiple files  
 - `.task-cards-grid` patterns across multiple files
 
-#### 3. **Component Style Consolidation**
+#### 2. **Welcome Section Massive Duplicates** (HIGH RISK)
+- `welcome-section.css` has 100+ identical rules across 3 internal sections
+- Highest impact potential but requires very careful handling
+
+#### 3. **Component Style Consolidation** (MEDIUM RISK)
 - Button styles and variations
 - Form element styles
 - Card component styles
+- Filter button patterns between files
 
 ## Tools and Scripts
 
