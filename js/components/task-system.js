@@ -25,7 +25,7 @@ class SpectacularTaskSystem extends HTMLElement {
         this.mouseFollower = null;
         this.keyboardNavIndex = 0;
         this.focusableElements = [];
-        
+
         // 🏆 ENHANCED PERFORMANCE TRACKING - Contest-Winning Analytics
         this.performanceMetrics = {
             tasksCreated: 0,
@@ -41,7 +41,7 @@ class SpectacularTaskSystem extends HTMLElement {
             teamSyncRate: 95,
             innovationScore: 83
         };
-        
+
         // 🤖 ADVANCED AI LEARNING ENGINE
         this.aiLearningEngine = {
             userBehaviorPatterns: new Map(),
@@ -54,7 +54,7 @@ class SpectacularTaskSystem extends HTMLElement {
             adaptiveRecommendations: [],
             performanceTrends: []
         };
-        
+
         // 📊 REAL-TIME PERFORMANCE MONITORING
         this.realTimeMonitoring = {
             currentFocusTime: 0,
@@ -64,7 +64,7 @@ class SpectacularTaskSystem extends HTMLElement {
             cognitiveLoad: 'optimal',
             stressIndicators: 'low'
         };
-        
+
         // 🏆 CONTEST-WINNING AI-POWERED INSIGHTS - Advanced Intelligence Engine
         this.aiInsights = [
             {
@@ -157,10 +157,10 @@ class SpectacularTaskSystem extends HTMLElement {
 
     connectedCallback() {
         if (this.isInitialized) return;
-        
+
         // Add the CSS class for proper styling
         this.classList.add('enhanced-task-system');
-        
+
         console.log('🚀 Task System: connectedCallback called!');
         console.log('📊 Task System: AI insights available:', this.aiInsights?.length || 0);
         console.log('🚀 Contest-Winning Task Management System Loading...');
@@ -182,13 +182,13 @@ class SpectacularTaskSystem extends HTMLElement {
             console.error('❌ Error initializing Spectacular Task System:', error);
             this.renderFallback();
         }
-        
+
         // Force render AI insights after initialization with multiple safety checks
         setTimeout(() => {
             this.forceRenderAIInsights();
             this.setupInsightProtection();
         }, 200);
-        
+
         // Additional safety check after a longer delay
         setTimeout(() => {
             const insightsContainer = this.querySelector('.ai-insights-grid');
@@ -208,7 +208,7 @@ class SpectacularTaskSystem extends HTMLElement {
             this.integrateWithThemeSystem();
             console.log('✨ Contest-Winning Task Management System loaded and animated');
         }, 100);
-        
+
         this.isInitialized = true;
     }
 
@@ -217,9 +217,9 @@ class SpectacularTaskSystem extends HTMLElement {
         // Listen for theme changes
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
-                if (mutation.type === 'attributes' && 
-                    (mutation.attributeName === 'data-theme' || 
-                     mutation.attributeName === 'data-accent-color')) {
+                if (mutation.type === 'attributes' &&
+                    (mutation.attributeName === 'data-theme' ||
+                        mutation.attributeName === 'data-accent-color')) {
                     this.updateTheme();
                 }
             });
@@ -238,17 +238,17 @@ class SpectacularTaskSystem extends HTMLElement {
     updateTheme() {
         const currentTheme = document.body.getAttribute('data-theme');
         const accentColor = document.body.getAttribute('data-accent-color');
-        
+
         // Apply theme to task system
         if (currentTheme) {
             this.setAttribute('data-theme', currentTheme);
         }
-        
+
         if (accentColor) {
             this.setAttribute('data-accent-color', accentColor);
             this.style.setProperty('--accent-color', accentColor);
         }
-        
+
         console.log(`🎨 Task system theme updated: ${currentTheme}, accent: ${accentColor}`);
     }
 
@@ -257,19 +257,19 @@ class SpectacularTaskSystem extends HTMLElement {
         // Add ARIA attributes
         this.setAttribute('role', 'main');
         this.setAttribute('aria-label', 'Advanced Task Management System with AI-powered insights and workflow optimization');
-        
+
         // Create skip link
         this.createSkipLink();
-        
+
         // Create keyboard navigation helper
         this.createKeyboardHelper();
-        
+
         // Create screen reader announcements
         this.createLiveRegion();
-        
+
         // Enhance interactive elements with accessibility
         this.enhanceInteractiveElements();
-        
+
         console.log('♿ Advanced accessibility features initialized for task management!');
     }
 
@@ -278,16 +278,16 @@ class SpectacularTaskSystem extends HTMLElement {
         if (document.querySelector('.task-skip')) {
             return;
         }
-        
+
         const skipLink = document.createElement('a');
         skipLink.href = '#task-main-content';
         skipLink.className = 'skip-link task-skip';
         skipLink.textContent = 'Skip to task management content';
         skipLink.setAttribute('aria-label', 'Skip to main task management dashboard content');
-        
+
         // Append to document body for proper fixed positioning
         document.body.appendChild(skipLink);
-        
+
         // Clean up when component is removed
         this.skipLinkElement = skipLink;
     }
@@ -336,7 +336,7 @@ class SpectacularTaskSystem extends HTMLElement {
             card.setAttribute('tabindex', '0');
             card.setAttribute('role', 'button');
             card.setAttribute('aria-label', `Task: ${card.querySelector('.task-title')?.textContent || 'Unknown'}`);
-            
+
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -344,7 +344,7 @@ class SpectacularTaskSystem extends HTMLElement {
                     this.triggerTaskAnimation(card);
                 }
             });
-            
+
             card.addEventListener('click', () => {
                 this.highlightTask(card);
                 this.triggerTaskAnimation(card);
@@ -358,7 +358,7 @@ class SpectacularTaskSystem extends HTMLElement {
             card.setAttribute('tabindex', '0');
             card.setAttribute('role', 'button');
             card.setAttribute('aria-label', `AI Insight: ${card.querySelector('.insight-title')?.textContent || 'Unknown'}`);
-            
+
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -372,7 +372,7 @@ class SpectacularTaskSystem extends HTMLElement {
         const quickActions = this.querySelectorAll('.enhanced-btn');
         quickActions.forEach((btn, index) => {
             btn.setAttribute('aria-label', `Quick action: ${btn.textContent.trim()}`);
-            
+
             btn.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -386,7 +386,7 @@ class SpectacularTaskSystem extends HTMLElement {
         const viewBtns = this.querySelectorAll('.view-btn');
         viewBtns.forEach((btn, index) => {
             btn.setAttribute('aria-label', `Switch to ${btn.title || 'view'} mode`);
-            
+
             btn.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -400,7 +400,7 @@ class SpectacularTaskSystem extends HTMLElement {
     render() {
         console.log('🎨 Task System: Starting render...');
         console.log('📊 Task System AI Insights count:', this.aiInsights?.length || 0);
-        
+
         this.innerHTML = `
             <div class="enhanced-task-system spectacular-mode" id="task-main-content">
                 <!-- Task System Header -->
@@ -560,7 +560,7 @@ class SpectacularTaskSystem extends HTMLElement {
         `;
 
         console.log('✨ Task management system rendered successfully!');
-        
+
         // 🎬 SUPER AGGRESSIVE ANIMATION FIX
         console.log('🚨 FORCING AI INSIGHTS ANIMATION...');
         setTimeout(() => {
@@ -568,7 +568,7 @@ class SpectacularTaskSystem extends HTMLElement {
             const taskSystemCards = this.querySelectorAll('.ai-insight-card');
             console.log('🔍 AGGRESSIVE: Found', allInsightCards.length, 'total insight cards in document');
             console.log('🔍 AGGRESSIVE: Found', taskSystemCards.length, 'insight cards in task system');
-            
+
             taskSystemCards.forEach((card, index) => {
                 console.log(`🎬 AGGRESSIVE: Animating card ${index + 1}, current classes:`, card.className);
                 card.classList.add('animate-in');
@@ -577,18 +577,18 @@ class SpectacularTaskSystem extends HTMLElement {
                 console.log(`✅ AGGRESSIVE: Card ${index + 1} forced visible`);
             });
         }, 100);
-        
+
         // Post-render verification
         setTimeout(() => {
             console.log('🔍 Task System POST-RENDER VERIFICATION:');
             const insightsSection = this.querySelector('.ai-insights-section');
             const insightsGrid = this.querySelector('.ai-insights-grid');
             const insightCards = this.querySelectorAll('.ai-insight-card');
-            
+
             console.log('📍 AI Insights Section found:', !!insightsSection);
             console.log('📍 AI Insights Grid found:', !!insightsGrid);
             console.log('📍 AI Insight Cards found:', insightCards.length);
-            
+
             if (insightsSection) {
                 console.log('📐 Section dimensions:', {
                     offsetWidth: insightsSection.offsetWidth,
@@ -597,14 +597,14 @@ class SpectacularTaskSystem extends HTMLElement {
                     visibility: getComputedStyle(insightsSection).visibility
                 });
             }
-            
+
             if (insightCards.length === 0) {
                 console.error('❌ NO AI INSIGHT CARDS FOUND IN TASK SYSTEM DOM!');
                 console.log('🔧 Attempting to force render AI insights...');
                 this.forceRenderAIInsights();
             } else {
                 console.log('✅ Task System AI insights successfully rendered!');
-                
+
                 // 🎬 CRITICAL FIX: Add animate-in class to make cards visible
                 insightCards.forEach((card, index) => {
                     setTimeout(() => {
@@ -686,12 +686,12 @@ class SpectacularTaskSystem extends HTMLElement {
         console.log('🤖 Task System: renderAIInsights called');
         console.log('🎯 AI Insights data:', this.aiInsights);
         console.log('📊 AI Insights length:', this.aiInsights?.length || 0);
-        
+
         if (!this.aiInsights || this.aiInsights.length === 0) {
             console.error('❌ Task System: AI Insights data is missing or empty!');
             return '<div class="ai-insights-error">No AI insights available</div>';
         }
-        
+
         const renderedInsights = this.aiInsights.map((insight, index) => {
             console.log(`🎯 Rendering AI insight ${index + 1}:`, insight.title);
             return `
@@ -734,9 +734,9 @@ class SpectacularTaskSystem extends HTMLElement {
             </div>
         `;
         }).join('');
-        
+
         console.log('✅ Task System: AI insights rendered successfully, HTML length:', renderedInsights.length);
-        
+
         // 🎬 IMMEDIATE ANIMATION FIX: Force animate-in class right after render
         setTimeout(() => {
             const insightCards = this.querySelectorAll('.ai-insight-card');
@@ -748,7 +748,7 @@ class SpectacularTaskSystem extends HTMLElement {
                 }, index * 100);
             });
         }, 50);
-        
+
         return renderedInsights;
     }
 
@@ -836,72 +836,69 @@ class SpectacularTaskSystem extends HTMLElement {
 
     renderPerformanceAnalytics() {
         const metrics = [
-            { 
-                label: 'Weekly Velocity', 
-                value: this.performanceMetrics.weeklyVelocity, 
-                icon: 'innovation-rocket',
+            {
+                label: 'Weekly Velocity',
+                value: this.performanceMetrics.weeklyVelocity,
+                icon: '🚀',
                 trend: 'positive',
                 unit: 'tasks/week'
             },
-            { 
-                label: 'Burndown Rate', 
-                value: this.performanceMetrics.burndownRate, 
-                icon: 'team-productivity',
+            {
+                label: 'Burndown Rate',
+                value: this.performanceMetrics.burndownRate,
+                icon: '📉',
                 trend: 'positive',
                 unit: '%'
             },
-            { 
-                label: 'Quality Score', 
-                value: this.performanceMetrics.qualityScore, 
-                icon: 'star',
+            {
+                label: 'Quality Score',
+                value: this.performanceMetrics.qualityScore,
+                icon: '⭐',
                 trend: 'positive',
                 unit: '%'
             },
-            { 
-                label: 'Team Sync', 
-                value: this.performanceMetrics.teamSyncRate, 
-                icon: 'team',
+            {
+                label: 'Team Sync',
+                value: this.performanceMetrics.teamSyncRate,
+                icon: '👥',
                 trend: 'positive',
                 unit: '%'
             },
-            { 
-                label: 'Innovation Index', 
-                value: this.performanceMetrics.innovationScore, 
-                icon: 'lightbulb',
+            {
+                label: 'Innovation Index',
+                value: this.performanceMetrics.innovationScore,
+                icon: '💡',
                 trend: 'neutral',
                 unit: '%'
             }
         ];
 
-        return metrics.map((metric, index) => {
-            const iconSvg = window.svgIconLibrary ? window.svgIconLibrary.getIcon(metric.icon) : metric.icon;
-            return `
+        return metrics.map((metric, index) => `
             <div class="analytics-metric" style="animation-delay: ${index * 0.1}s">
-                <div class="metric-icon">${iconSvg}</div>
+                <div class="metric-icon">${metric.icon}</div>
                 <div class="metric-content">
                     <div class="metric-value">${metric.value}${metric.unit}</div>
                     <div class="metric-label">${metric.label}</div>
                     <div class="metric-trend ${metric.trend}">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            ${metric.trend === 'positive' ? 
-                                '<line x1="7" y1="17" x2="17" y2="7"></line><polyline points="17,7 17,13 11,7"></polyline>' :
-                                metric.trend === 'negative' ?
-                                '<line x1="17" y1="7" x2="7" y2="17"></line><polyline points="7,17 7,11 13,17"></polyline>' :
-                                '<line x1="5" y1="12" x2="19" y2="12"></line>'
-                            }
+                            ${metric.trend === 'positive' ?
+                '<line x1="7" y1="17" x2="17" y2="7"></line><polyline points="17,7 17,13 11,7"></polyline>' :
+                metric.trend === 'negative' ?
+                    '<line x1="17" y1="7" x2="7" y2="17"></line><polyline points="7,17 7,11 13,17"></polyline>' :
+                    '<line x1="5" y1="12" x2="19" y2="12"></line>'
+            }
                         </svg>
                         <span>Steady</span>
                     </div>
                 </div>
             </div>
-            `;
-        }).join('');
+        `).join('');
     }
 
     // 🏆 UTILITY METHODS
     getFilteredTasks() {
         let filtered = [...this.tasks];
-        
+
         if (this.filter !== 'all') {
             if (this.filter === 'high-priority') {
                 filtered = filtered.filter(task => task.priority === 'high');
@@ -909,36 +906,34 @@ class SpectacularTaskSystem extends HTMLElement {
                 filtered = filtered.filter(task => task.status === this.filter);
             }
         }
-        
+
         if (this.searchQuery) {
-            filtered = filtered.filter(task => 
+            filtered = filtered.filter(task =>
                 task.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
                 task.description.toLowerCase().includes(this.searchQuery.toLowerCase())
             );
         }
-        
+
         return filtered;
     }
 
     getPriorityIcon(priority) {
         const icons = {
-            'high': 'energy',
-            'medium': 'performance', 
-            'low': 'documentation'
+            'high': '🔥',
+            'medium': '⚡',
+            'low': '📝'
         };
-        const iconName = icons[priority] || 'documentation';
-        return window.svgIconLibrary ? window.svgIconLibrary.getIcon(iconName) : iconName;
+        return icons[priority] || '📝';
     }
 
     getStatusIcon(status) {
         const icons = {
-            'pending': 'time',
-            'in-progress': 'active-tasks',
-            'completed': 'check',
-            'cancelled': 'close'
+            'pending': '⏳',
+            'in-progress': '🔄',
+            'completed': '✅',
+            'cancelled': '❌'
         };
-        const iconName = icons[status] || 'time';
-        return window.svgIconLibrary ? window.svgIconLibrary.getIcon(iconName) : iconName;
+        return icons[status] || '⏳';
     }
 
     isOverdue(dueDate) {
@@ -1008,7 +1003,7 @@ class SpectacularTaskSystem extends HTMLElement {
     // 🏆 MISSING METHODS - Adding the missing methods that were causing errors
     setupEventListeners() {
         console.log('🎯 Setting up event listeners...');
-        
+
         // Search functionality
         const searchInput = this.querySelector('#taskSearch');
         if (searchInput) {
@@ -1086,7 +1081,7 @@ class SpectacularTaskSystem extends HTMLElement {
             btn.classList.remove('active');
             btn.setAttribute('aria-selected', 'false');
         });
-        
+
         const activeBtn = this.querySelector(`[data-view="${this.viewMode}"]`);
         if (activeBtn) {
             activeBtn.classList.add('active');
@@ -1163,7 +1158,7 @@ class SpectacularTaskSystem extends HTMLElement {
     updatePerformanceMetrics() {
         // Simulate real-time metric updates
         this.performanceMetrics.productivityScore = Math.min(100, this.performanceMetrics.productivityScore + Math.random() * 2 - 1);
-        
+
         // Update the display
         const productivityStat = this.querySelector('.stat-card:last-child .stat-number');
         if (productivityStat) {
@@ -1173,29 +1168,29 @@ class SpectacularTaskSystem extends HTMLElement {
 
     forceRenderAIInsights() {
         console.log('🔧 Task System: Force rendering AI insights...');
-        
+
         const insightsSection = this.querySelector('.ai-insights-section');
         const insightsContainer = this.querySelector('.ai-insights-grid');
-        
+
         console.log('📍 AI Insights Section found:', !!insightsSection);
         console.log('📍 AI Insights Grid found:', !!insightsContainer);
-        
+
         if (insightsContainer) {
             console.log('📝 Calling renderAIInsights method...');
             const renderedHTML = this.renderAIInsights();
             console.log('📄 Generated HTML length:', renderedHTML.length);
-            
+
             insightsContainer.innerHTML = renderedHTML;
             console.log('✅ AI insights HTML inserted into container');
-            
+
             // Verify DOM elements were created
             setTimeout(() => {
                 const insightCards = this.querySelectorAll('.ai-insight-card');
                 console.log('🔍 Verification: Found', insightCards.length, 'AI insight cards in DOM');
-                
+
                 if (insightCards.length === 0) {
                     console.error('❌ NO AI INSIGHT CARDS FOUND AFTER RENDERING!');
-                    
+
                     // Additional debugging
                     console.log('🔍 Container innerHTML:', insightsContainer.innerHTML.substring(0, 200) + '...');
                     console.log('🔍 Container dimensions:', {
@@ -1207,9 +1202,9 @@ class SpectacularTaskSystem extends HTMLElement {
                 } else {
                     console.log('✅ AI insight cards successfully created!');
                     insightCards.forEach((card, i) => {
-                        console.log(`   Card ${i+1}: ${card.querySelector('.insight-title')?.textContent}`);
+                        console.log(`   Card ${i + 1}: ${card.querySelector('.insight-title')?.textContent}`);
                     });
-                    
+
                     // 🎬 CRITICAL FIX: Add animate-in class to make cards visible
                     insightCards.forEach((card, index) => {
                         setTimeout(() => {
@@ -1217,18 +1212,18 @@ class SpectacularTaskSystem extends HTMLElement {
                             console.log(`🎬 Force-animated insight card ${index + 1}: ${card.querySelector('.insight-title')?.textContent}`);
                         }, index * 100);
                     });
-                    
+
                     this.enhanceAIInsightCards();
                 }
             }, 100);
         } else {
             console.error('❌ AI insights container not found! Looking for .ai-insights-grid');
-            
+
             // Additional debugging
             const allInsightElements = this.querySelectorAll('[class*="insight"]');
             console.log('🔍 Elements with "insight" in class name:', allInsightElements.length);
             allInsightElements.forEach((el, i) => {
-                console.log(`   ${i+1}. ${el.className}`);
+                console.log(`   ${i + 1}. ${el.className}`);
             });
         }
     }
@@ -1259,7 +1254,7 @@ class SpectacularTaskSystem extends HTMLElement {
     // 🎯 KEYBOARD NAVIGATION
     setupKeyboardNavigation() {
         this.addEventListener('keydown', (e) => {
-            switch(e.key) {
+            switch (e.key) {
                 case 'Escape':
                     this.resetFocus();
                     break;
@@ -1333,7 +1328,7 @@ class SpectacularTaskSystem extends HTMLElement {
             </div>
         `;
         document.body.appendChild(modal);
-        
+
         // Auto-close after 10 seconds
         setTimeout(() => {
             if (modal.parentNode) {
@@ -1347,7 +1342,7 @@ class SpectacularTaskSystem extends HTMLElement {
         if (!this.options.enableSpectacularEffects) return;
 
         console.log('🎨 Initializing spectacular visual effects for task management...');
-        
+
         this.createParticleSystem();
         this.createSparkles();
         this.createAuroraEffect();
@@ -1357,7 +1352,7 @@ class SpectacularTaskSystem extends HTMLElement {
         this.createHolographicOverlay();
         this.createEnergyRings();
         this.createDataVisualizationEffects();
-        
+
         console.log('✨ All spectacular effects initialized for task management!');
     }
 
@@ -1385,7 +1380,7 @@ class SpectacularTaskSystem extends HTMLElement {
             `;
             particlesContainer.appendChild(particle);
         }
-        
+
         console.log('🎯 Task particle system created!');
     }
 
@@ -1457,7 +1452,7 @@ class SpectacularTaskSystem extends HTMLElement {
                 pointer-events: none;
                 z-index: 2;
             `;
-            
+
             // Position lines randomly
             const positions = [
                 { top: '15%', left: '10%', width: '80px', rotate: '20deg' },
@@ -1466,11 +1461,11 @@ class SpectacularTaskSystem extends HTMLElement {
                 { bottom: '35%', right: '25%', width: '50px', rotate: '-25deg' },
                 { top: '55%', left: '55%', width: '70px', rotate: '10deg' }
             ];
-            
+
             const pos = positions[i];
             Object.assign(line.style, pos);
             line.style.transform = `rotate(${pos.rotate})`;
-            
+
             constellation.appendChild(line);
         }
 
@@ -1568,8 +1563,8 @@ class SpectacularTaskSystem extends HTMLElement {
                 position: absolute;
                 width: ${size}px;
                 height: ${size}px;
-                top: -${size/2}px;
-                left: -${size/2}px;
+                top: -${size / 2}px;
+                left: -${size / 2}px;
                 border: 1px solid rgba(99, 102, 241, 0.08);
                 border-radius: 50%;
                 animation: taskEnergyPulse ${3 + i * 1.5}s ease-in-out infinite;
@@ -1616,7 +1611,7 @@ class SpectacularTaskSystem extends HTMLElement {
             const rect = this.getBoundingClientRect();
             this.mousePosition.x = e.clientX - rect.left;
             this.mousePosition.y = e.clientY - rect.top;
-            
+
             if (this.mouseFollower) {
                 this.mouseFollower.style.left = this.mousePosition.x + 'px';
                 this.mouseFollower.style.top = this.mousePosition.y + 'px';
@@ -1669,7 +1664,7 @@ class SpectacularTaskSystem extends HTMLElement {
                 z-index: 6;
             `;
             sparklesContainer.appendChild(sparkle);
-            
+
             setTimeout(() => {
                 if (sparkle.parentNode) {
                     sparkle.parentNode.removeChild(sparkle);
@@ -1681,7 +1676,7 @@ class SpectacularTaskSystem extends HTMLElement {
     // 🎆 SPECTACULAR ANIMATION SEQUENCES
     triggerSpectacularEntrance() {
         console.log('🎆 Triggering spectacular task entrance animation!');
-        
+
         // Animate elements in sequence
         const elements = this.querySelectorAll('.enhanced-task-card, .ai-insight-card, .stat-card, .analytics-metric');
         elements.forEach((element, index) => {
@@ -1699,7 +1694,7 @@ class SpectacularTaskSystem extends HTMLElement {
 
     triggerSpectacularBurst() {
         console.log('💥 Triggering spectacular task burst effect!');
-        
+
         for (let i = 0; i < 25; i++) {
             this.createBurstSparkle(i);
         }
@@ -1710,7 +1705,7 @@ class SpectacularTaskSystem extends HTMLElement {
             particle.style.animationDuration = '1.5s';
             particle.style.transform = 'scale(1.3)';
             particle.style.filter = 'brightness(1.4) saturate(1.4)';
-            
+
             setTimeout(() => {
                 particle.style.animationDuration = '';
                 particle.style.transform = '';
@@ -1733,25 +1728,25 @@ class SpectacularTaskSystem extends HTMLElement {
             left: 50%;
             z-index: 10;
         `;
-        
+
         const angle = (index / 25) * Math.PI * 2;
         const distance = 120 + Math.random() * 80;
         const duration = 1200 + Math.random() * 400;
-        
+
         const targetX = Math.cos(angle) * distance;
         const targetY = Math.sin(angle) * distance;
-        
+
         sparkle.animate([
-            { 
+            {
                 transform: 'translate(-50%, -50%) scale(0)',
                 opacity: 0
             },
-            { 
+            {
                 transform: `translate(calc(-50% + ${targetX}px), calc(-50% + ${targetY}px)) scale(1.2)`,
                 opacity: 1,
                 offset: 0.3
             },
-            { 
+            {
                 transform: `translate(calc(-50% + ${targetX * 1.3}px), calc(-50% + ${targetY * 1.3}px)) scale(0)`,
                 opacity: 0
             }
@@ -1763,7 +1758,7 @@ class SpectacularTaskSystem extends HTMLElement {
                 sparkle.parentNode.removeChild(sparkle);
             }
         };
-        
+
         this.appendChild(sparkle);
     }
 
@@ -1788,7 +1783,7 @@ class SpectacularTaskSystem extends HTMLElement {
                 box-shadow: 0 0 15px rgba(99, 102, 241, 0.7);
             `;
             particlesContainer.appendChild(particle);
-            
+
             setTimeout(() => {
                 if (particle.parentNode) {
                     particle.parentNode.removeChild(particle);
@@ -1801,7 +1796,7 @@ class SpectacularTaskSystem extends HTMLElement {
         card.style.transform = 'translateY(-6px) scale(1.03)';
         card.style.boxShadow = '0 15px 30px rgba(99, 102, 241, 0.25)';
         card.style.borderColor = 'rgba(99, 102, 241, 0.4)';
-        
+
         // Create glow effect
         const glow = document.createElement('div');
         glow.style.cssText = `
@@ -1818,7 +1813,7 @@ class SpectacularTaskSystem extends HTMLElement {
         `;
         card.style.position = 'relative';
         card.appendChild(glow);
-        
+
         setTimeout(() => {
             card.style.transform = '';
             card.style.boxShadow = '';
@@ -1827,7 +1822,7 @@ class SpectacularTaskSystem extends HTMLElement {
                 glow.parentNode.removeChild(glow);
             }
         }, 800);
-        
+
         // Create sparkle burst around the card
         for (let i = 0; i < 4; i++) {
             setTimeout(() => {
@@ -1839,7 +1834,7 @@ class SpectacularTaskSystem extends HTMLElement {
     createCardSparkle(card) {
         const rect = card.getBoundingClientRect();
         const containerRect = this.getBoundingClientRect();
-        
+
         const sparkle = document.createElement('div');
         sparkle.className = 'task-card-sparkle';
         sparkle.style.cssText = `
@@ -1855,7 +1850,7 @@ class SpectacularTaskSystem extends HTMLElement {
             z-index: 10;
         `;
         this.appendChild(sparkle);
-        
+
         setTimeout(() => {
             if (sparkle.parentNode) {
                 sparkle.parentNode.removeChild(sparkle);
@@ -1882,7 +1877,7 @@ class SpectacularTaskSystem extends HTMLElement {
     updateParticleColors() {
         const time = Date.now() * 0.0008;
         const particles = this.querySelectorAll('.task-particle');
-        
+
         particles.forEach((particle, index) => {
             const hue = (time * 15 + index * 25) % 360;
             particle.style.filter = `hue-rotate(${hue}deg) brightness(1.1)`;
@@ -1892,7 +1887,7 @@ class SpectacularTaskSystem extends HTMLElement {
     updateSparkleIntensity() {
         const intensity = 0.3 + 0.7 * Math.sin(Date.now() * 0.0015);
         const sparkles = this.querySelectorAll('.task-sparkle');
-        
+
         sparkles.forEach(sparkle => {
             sparkle.style.opacity = intensity;
         });
@@ -1901,7 +1896,7 @@ class SpectacularTaskSystem extends HTMLElement {
     updateEnergyRings() {
         const rings = this.querySelectorAll('.task-energy-ring');
         const time = Date.now() * 0.0008;
-        
+
         rings.forEach((ring, index) => {
             const scale = 1 + 0.08 * Math.sin(time + index * 1.5);
             const opacity = 0.08 + 0.15 * Math.sin(time * 0.4 + index);

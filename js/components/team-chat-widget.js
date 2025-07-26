@@ -208,7 +208,7 @@ class TeamChatWidget extends HTMLElement {
         const now = new Date();
         const diff = now - timestamp;
         const minutes = Math.floor(diff / 60000);
-        
+
         if (minutes < 1) return 'just now';
         if (minutes < 60) return `${minutes}m ago`;
         if (minutes < 1440) return `${Math.floor(minutes / 60)}h ago`;
@@ -253,14 +253,14 @@ class TeamChatWidget extends HTMLElement {
         this.isOpen = !this.isOpen;
         this.messageCount = 0;
         this.updateDisplay();
-        
+
         if (this.isOpen) {
             // Focus on input when opened
             setTimeout(() => {
                 const input = this.querySelector('.chat-input');
                 input?.focus();
             }, 300);
-            
+
             // Announce to screen readers
             this.announceToScreenReader('Team chat opened');
         } else {
@@ -284,7 +284,7 @@ class TeamChatWidget extends HTMLElement {
     handleInputChange(e) {
         const value = e.target.value.trim();
         const sendBtn = this.querySelector('.chat-send-btn');
-        
+
         if (sendBtn) {
             sendBtn.disabled = value.length === 0;
         }
@@ -298,7 +298,7 @@ class TeamChatWidget extends HTMLElement {
     sendMessage() {
         const input = this.querySelector('.chat-input');
         const message = input?.value.trim();
-        
+
         if (!message) return;
 
         const newMessage = {
@@ -313,13 +313,13 @@ class TeamChatWidget extends HTMLElement {
 
         this.messages.push(newMessage);
         input.value = '';
-        
+
         const sendBtn = this.querySelector('.chat-send-btn');
         if (sendBtn) sendBtn.disabled = true;
 
         this.updateMessages();
         this.scrollToBottom();
-        
+
         // Simulate response
         setTimeout(() => {
             this.simulateResponse();
@@ -336,10 +336,10 @@ class TeamChatWidget extends HTMLElement {
             "I'll check that out now.",
             "Awesome work everyone! 🎉"
         ];
-        
+
         const randomUser = this.onlineUsers[Math.floor(Math.random() * this.onlineUsers.length)];
         const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-        
+
         const responseMessage = {
             id: Date.now(),
             userId: randomUser.id,
@@ -353,7 +353,7 @@ class TeamChatWidget extends HTMLElement {
         this.messages.push(responseMessage);
         this.updateMessages();
         this.scrollToBottom();
-        
+
         // Show notification if chat is closed
         if (!this.isOpen) {
             this.messageCount++;
@@ -367,7 +367,7 @@ class TeamChatWidget extends HTMLElement {
             const randomUser = this.onlineUsers[Math.floor(Math.random() * this.onlineUsers.length)];
             this.typingUsers.push(randomUser.name);
             this.updateTypingIndicator();
-            
+
             setTimeout(() => {
                 this.typingUsers = [];
                 this.updateTypingIndicator();
@@ -381,7 +381,7 @@ class TeamChatWidget extends HTMLElement {
             if (Math.random() > 0.85) {
                 this.simulateRandomMessage();
             }
-            
+
             if (Math.random() > 0.9) {
                 this.updateUserStatuses();
             }
@@ -397,10 +397,10 @@ class TeamChatWidget extends HTMLElement {
             "Anyone free for a quick sync?",
             "Lunch recommendation: the new cafe downtown! 🥪"
         ];
-        
+
         const randomUser = this.onlineUsers[Math.floor(Math.random() * this.onlineUsers.length)];
         const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-        
+
         const newMessage = {
             id: Date.now(),
             userId: randomUser.id,
@@ -412,7 +412,7 @@ class TeamChatWidget extends HTMLElement {
         };
 
         this.messages.push(newMessage);
-        
+
         if (this.isOpen) {
             this.updateMessages();
             this.scrollToBottom();
@@ -430,7 +430,7 @@ class TeamChatWidget extends HTMLElement {
                 user.status = statuses[Math.floor(Math.random() * statuses.length)];
             }
         });
-        
+
         if (this.isOpen) {
             const usersSection = this.querySelector('.online-users-scroll');
             if (usersSection) {
@@ -441,13 +441,13 @@ class TeamChatWidget extends HTMLElement {
 
     updateDisplay() {
         this.className = `team-chat-widget ${this.isOpen ? 'open' : ''} ${this.isMinimized ? 'minimized' : ''}`;
-        
+
         const unreadIndicator = this.querySelector('.unread-indicator');
         if (unreadIndicator) {
             unreadIndicator.textContent = this.messageCount;
             unreadIndicator.style.display = this.messageCount > 0 ? 'flex' : 'none';
         }
-        
+
         const toggleBtn = this.querySelector('.chat-toggle-btn');
         if (toggleBtn) {
             toggleBtn.setAttribute('aria-expanded', this.isOpen.toString());
@@ -487,7 +487,7 @@ class TeamChatWidget extends HTMLElement {
             const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
             input.value += randomEmoji;
             input.focus();
-            
+
             const event = new Event('input', { bubbles: true });
             input.dispatchEvent(event);
         }
@@ -509,9 +509,9 @@ class TeamChatWidget extends HTMLElement {
         announcement.style.height = '1px';
         announcement.style.overflow = 'hidden';
         announcement.textContent = message;
-        
+
         document.body.appendChild(announcement);
-        
+
         setTimeout(() => {
             document.body.removeChild(announcement);
         }, 1000);
