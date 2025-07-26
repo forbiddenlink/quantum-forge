@@ -329,7 +329,7 @@ html body .dashboard:not(.welcome-section) .company-culture-showcase .card {
 /* Force all dashboard components to use unified glassmorphism background */
 
 /* Override ALL component-specific backgrounds with maximum specificity */
-/* EXCLUDE smart-insights-dashboard from this override since it has its own unified styling */
+html body .dashboard .smart-insights-dashboard,
 html body .dashboard .analytics-dashboard,
 html body .dashboard .wellness-tracker,
 html body .dashboard .team-spotlight,
@@ -363,7 +363,7 @@ html body .office-visualizer {
         /* Enhanced texture overlay with animation */
         repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
         repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px) !important;
-    
+
     background-color: transparent !important;
     color: var(--welcome-text) !important;
     border: 1px solid var(--welcome-border) !important;
@@ -377,7 +377,7 @@ html body .office-visualizer {
 }
 
 /* Override ALL inner card backgrounds */
-/* EXCLUDE smart-insights-dashboard from this override since it has its own unified styling */
+html body .dashboard .smart-insights-dashboard *,
 html body .dashboard .analytics-dashboard *,
 html body .dashboard .wellness-tracker *,
 html body .dashboard .team-spotlight *,
@@ -424,7 +424,9 @@ html body .dashboard .office-visualizer .panel {
 }
 
 /* Specifically target inner cards and components that might have white backgrounds */
-/* EXCLUDE smart-insights-dashboard from this override since it has its own unified styling */
+html body .dashboard .smart-insights-dashboard .card,
+html body .dashboard .smart-insights-dashboard .widget,
+html body .dashboard .smart-insights-dashboard .panel,
 html body .dashboard .analytics-dashboard .card,
 html body .dashboard .analytics-dashboard .widget,
 html body .dashboard .analytics-dashboard .kpi-card,
@@ -489,7 +491,7 @@ html body .dashboard *[class*="violet"] {
 
 /* ===== UNIFIED DESIGN SYSTEM ENFORCEMENT ===== */
 /* Force ALL dashboard components to use consistent styling */
-/* EXCLUDE smart-insights-dashboard from this override since it has its own unified styling */
+html body .dashboard .smart-insights-dashboard,
 html body .dashboard .analytics-dashboard,
 html body .dashboard .wellness-tracker,
 html body .dashboard .team-spotlight,
@@ -504,15 +506,15 @@ html body .dashboard .task-system,
 html body .dashboard .company-news {
     /* Force consistent typography */
     font-family: var(--font-family-base) !important;
-    
+
     /* Force consistent spacing */
     padding: var(--space-8) !important;
     margin: 0 !important;
-    
+
     /* Force consistent borders */
     border: 1px solid var(--welcome-border) !important;
     border-radius: var(--radius-2xl) !important;
-    
+
     /* Force consistent shadows */
     box-shadow:
         var(--welcome-shadow),

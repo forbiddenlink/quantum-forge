@@ -473,6 +473,18 @@
     }
 }
 
+@keyframes knowledgeSparkleFloat {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.5);
+    }
+}
+
 /* ✨ FLOATING GEOMETRIC SHAPES - CONSTRAINED */
 .enhanced-knowledge-hub::before {
     content: '';
