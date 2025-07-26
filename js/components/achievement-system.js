@@ -44,17 +44,17 @@ class AchievementSystem extends HTMLElement {
                     </div>
                     <div class="streak-display">
                         <div class="streak-item">
-                            <span class="streak-icon">🔥</span>
+                            <span class="streak-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('energy') : '🔥'}</span>
                             <span class="streak-count">${this.streaks.login}</span>
                             <span class="streak-label">Login</span>
                         </div>
                         <div class="streak-item">
-                            <span class="streak-icon">✅</span>
+                            <span class="streak-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('check') : '✅'}</span>
                             <span class="streak-count">${this.streaks.tasks}</span>
                             <span class="streak-label">Tasks</span>
                         </div>
                         <div class="streak-item">
-                            <span class="streak-icon">🤝</span>
+                            <span class="streak-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('collaboration') : '🤝'}</span>
                             <span class="streak-count">${this.streaks.collaboration}</span>
                             <span class="streak-label">Team</span>
                         </div>
@@ -79,10 +79,12 @@ class AchievementSystem extends HTMLElement {
     }
 
     renderAchievements() {
-        return this.achievements.slice(-3).map(achievement => `
+        return this.achievements.slice(-3).map(achievement => {
+            const iconSvg = window.svgIconLibrary ? window.svgIconLibrary.getIcon(achievement.icon) : achievement.icon;
+            return `
             <div class="achievement-card ${achievement.type}">
                 <div class="achievement-icon">
-                    ${achievement.icon}
+                    ${iconSvg}
                 </div>
                 <div class="achievement-content">
                     <h4>${achievement.title}</h4>
@@ -91,22 +93,24 @@ class AchievementSystem extends HTMLElement {
                 </div>
                 <div class="achievement-points">+${achievement.points}</div>
             </div>
-        `).join('');
+            `;
+        }).join('');
     }
 
     renderMilestones() {
         const milestones = [
-            { title: 'Task Master', description: 'Complete 50 tasks', progress: 35, target: 50, icon: '📋' },
-            { title: 'Team Player', description: 'Collaborate with 10 team members', progress: 7, target: 10, icon: '👥' },
-            { title: 'Knowledge Seeker', description: 'Complete 5 training modules', progress: 3, target: 5, icon: '📚' },
-            { title: 'Early Bird', description: 'Login 7 days in a row', progress: 5, target: 7, icon: '🌅' }
+            { title: 'Task Master', description: 'Complete 50 tasks', progress: 35, target: 50, icon: 'page-tasks' },
+            { title: 'Team Player', description: 'Collaborate with 10 team members', progress: 7, target: 10, icon: 'team' },
+            { title: 'Knowledge Seeker', description: 'Complete 5 training modules', progress: 3, target: 5, icon: 'learning' },
+            { title: 'Early Bird', description: 'Login 7 days in a row', progress: 5, target: 7, icon: 'productivity' }
         ];
 
         return milestones.map(milestone => {
             const percentage = (milestone.progress / milestone.target) * 100;
+            const iconSvg = window.svgIconLibrary ? window.svgIconLibrary.getIcon(milestone.icon) : milestone.icon;
             return `
                 <div class="milestone-card">
-                    <div class="milestone-icon">${milestone.icon}</div>
+                    <div class="milestone-icon">${iconSvg}</div>
                     <div class="milestone-content">
                         <h4>${milestone.title}</h4>
                         <p>${milestone.description}</p>
@@ -158,7 +162,7 @@ class AchievementSystem extends HTMLElement {
             this.unlockAchievement({
                 title: 'Regular Visitor',
                 description: 'Logged in 3 days in a row',
-                icon: '🌟',
+                icon: 'star',
                 points: 50,
                 type: 'streak'
             });
@@ -168,7 +172,7 @@ class AchievementSystem extends HTMLElement {
             this.unlockAchievement({
                 title: 'Dedicated User',
                 description: 'Logged in 7 days in a row',
-                icon: '🔥',
+                icon: 'energy',
                 points: 100,
                 type: 'streak'
             });
@@ -178,7 +182,7 @@ class AchievementSystem extends HTMLElement {
             this.unlockAchievement({
                 title: 'Monthly Master',
                 description: 'Logged in 30 days in a row',
-                icon: '🏆',
+                icon: 'trophy',
                 points: 500,
                 type: 'streak'
             });
@@ -194,7 +198,7 @@ class AchievementSystem extends HTMLElement {
             this.unlockAchievement({
                 title: 'Task Enthusiast',
                 description: 'Completed 10 tasks',
-                icon: '🎯',
+                icon: 'target',
                 points: 50,
                 type: 'task'
             });
@@ -204,7 +208,7 @@ class AchievementSystem extends HTMLElement {
             this.unlockAchievement({
                 title: 'Task Master',
                 description: 'Completed 50 tasks',
-                icon: '🏆',
+                icon: 'trophy',
                 points: 200,
                 type: 'task'
             });
@@ -216,7 +220,7 @@ class AchievementSystem extends HTMLElement {
             this.unlockAchievement({
                 title: 'Early Bird',
                 description: 'Logged in 7 days in a row',
-                icon: '🌅',
+                icon: 'productivity',
                 points: 100,
                 type: 'streak'
             });
@@ -241,7 +245,7 @@ class AchievementSystem extends HTMLElement {
             this.unlockAchievement({
                 title: 'Team Player',
                 description: 'Collaborated with team 5 times',
-                icon: '🤝',
+                icon: 'collaboration',
                 points: 75,
                 type: 'collaboration'
             });
@@ -266,9 +270,10 @@ class AchievementSystem extends HTMLElement {
     showAchievementNotification(achievement) {
         const notification = document.createElement('div');
         notification.className = 'achievement-notification';
+        const iconSvg = window.svgIconLibrary ? window.svgIconLibrary.getIcon(achievement.icon) : achievement.icon;
         notification.innerHTML = `
             <div class="notification-content">
-                <div class="notification-icon">${achievement.icon}</div>
+                <div class="notification-icon">${iconSvg}</div>
                 <div class="notification-text">
                     <h4>Achievement Unlocked!</h4>
                     <p>${achievement.title}</p>

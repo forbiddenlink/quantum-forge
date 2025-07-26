@@ -76,7 +76,7 @@ class PerformanceOptimizedStats extends HTMLElement {
 
                 <div class="stats-grid">
                     <div class="stat-card modern">
-                        <div class="stat-icon">👥</div>
+                        <div class="stat-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('team') : '👥'}</div>
                         <div class="stat-content">
                             <div class="stat-value" id="activeUsers">${this.stats.activeUsers}</div>
                             <div class="stat-label">Active Users</div>
@@ -90,7 +90,7 @@ class PerformanceOptimizedStats extends HTMLElement {
                     </div>
 
                     <div class="stat-card modern">
-                        <div class="stat-icon">✅</div>
+                        <div class="stat-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('check') : '✅'}</div>
                         <div class="stat-content">
                             <div class="stat-value" id="tasksCompleted">${this.stats.tasksCompleted}</div>
                             <div class="stat-label">Tasks Completed</div>
@@ -104,7 +104,7 @@ class PerformanceOptimizedStats extends HTMLElement {
                     </div>
 
                     <div class="stat-card modern">
-                        <div class="stat-icon">📅</div>
+                        <div class="stat-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('calendar') : '📅'}</div>
                         <div class="stat-content">
                             <div class="stat-value" id="meetingsToday">${this.stats.meetingsToday}</div>
                             <div class="stat-label">Meetings Today</div>
@@ -135,7 +135,7 @@ class PerformanceOptimizedStats extends HTMLElement {
                 <div class="performance-info">
                     <div class="performance-stats">
                         <span class="performance-label">Performance Mode:</span>
-                        <span class="performance-status">Optimized ⚡</span>
+                        <span class="performance-status">Optimized ${window.svgIconLibrary ? window.svgIconLibrary.getIcon('energy') : '⚡'}</span>
                     </div>
                     <div class="update-info">
                         <span class="update-counter">Updates: ${this.updateCounter}/${this.maxUpdates}</span>

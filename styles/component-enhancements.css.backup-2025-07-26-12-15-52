@@ -207,6 +207,16 @@ button:active::after,
     border-radius: var(--radius-lg) !important;
 }
 
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
 /* Enhanced Form Consistency */
 input,
 textarea,

@@ -839,43 +839,45 @@ class SpectacularTaskSystem extends HTMLElement {
             { 
                 label: 'Weekly Velocity', 
                 value: this.performanceMetrics.weeklyVelocity, 
-                icon: '🚀',
+                icon: 'innovation-rocket',
                 trend: 'positive',
                 unit: 'tasks/week'
             },
             { 
                 label: 'Burndown Rate', 
                 value: this.performanceMetrics.burndownRate, 
-                icon: '📉',
+                icon: 'team-productivity',
                 trend: 'positive',
                 unit: '%'
             },
             { 
                 label: 'Quality Score', 
                 value: this.performanceMetrics.qualityScore, 
-                icon: '⭐',
+                icon: 'star',
                 trend: 'positive',
                 unit: '%'
             },
             { 
                 label: 'Team Sync', 
                 value: this.performanceMetrics.teamSyncRate, 
-                icon: '👥',
+                icon: 'team',
                 trend: 'positive',
                 unit: '%'
             },
             { 
                 label: 'Innovation Index', 
                 value: this.performanceMetrics.innovationScore, 
-                icon: '💡',
+                icon: 'lightbulb',
                 trend: 'neutral',
                 unit: '%'
             }
         ];
 
-        return metrics.map((metric, index) => `
+        return metrics.map((metric, index) => {
+            const iconSvg = window.svgIconLibrary ? window.svgIconLibrary.getIcon(metric.icon) : metric.icon;
+            return `
             <div class="analytics-metric" style="animation-delay: ${index * 0.1}s">
-                <div class="metric-icon">${metric.icon}</div>
+                <div class="metric-icon">${iconSvg}</div>
                 <div class="metric-content">
                     <div class="metric-value">${metric.value}${metric.unit}</div>
                     <div class="metric-label">${metric.label}</div>
@@ -892,7 +894,8 @@ class SpectacularTaskSystem extends HTMLElement {
                     </div>
                 </div>
             </div>
-        `).join('');
+            `;
+        }).join('');
     }
 
     // 🏆 UTILITY METHODS
@@ -919,21 +922,23 @@ class SpectacularTaskSystem extends HTMLElement {
 
     getPriorityIcon(priority) {
         const icons = {
-            'high': '🔥',
-            'medium': '⚡',
-            'low': '📝'
+            'high': 'energy',
+            'medium': 'performance', 
+            'low': 'documentation'
         };
-        return icons[priority] || '📝';
+        const iconName = icons[priority] || 'documentation';
+        return window.svgIconLibrary ? window.svgIconLibrary.getIcon(iconName) : iconName;
     }
 
     getStatusIcon(status) {
         const icons = {
-            'pending': '⏳',
-            'in-progress': '🔄',
-            'completed': '✅',
-            'cancelled': '❌'
+            'pending': 'time',
+            'in-progress': 'active-tasks',
+            'completed': 'check',
+            'cancelled': 'close'
         };
-        return icons[status] || '⏳';
+        const iconName = icons[status] || 'time';
+        return window.svgIconLibrary ? window.svgIconLibrary.getIcon(iconName) : iconName;
     }
 
     isOverdue(dueDate) {

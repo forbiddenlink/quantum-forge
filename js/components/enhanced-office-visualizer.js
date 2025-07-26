@@ -118,17 +118,17 @@ class EnhancedOfficeVisualizer extends HTMLElement {
                 
                 <div class="office-stats">
                     <div class="stat-item">
-                        <span class="stat-icon">👥</span>
+                        <span class="stat-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('team') : '👥'}</span>
                         <span class="stat-value">${this.officeData.teamMembers.length}</span>
                         <span class="stat-label">Team Members</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-icon">🏢</span>
+                        <span class="stat-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('office') : '🏢'}</span>
                         <span class="stat-value">${this.officeData.rooms.length}</span>
                         <span class="stat-label">Rooms</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-icon">⚡</span>
+                        <span class="stat-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('energy') : '⚡'}</span>
                         <span class="stat-value">${this.officeData.equipment.length}</span>
                         <span class="stat-label">Equipment</span>
                     </div>

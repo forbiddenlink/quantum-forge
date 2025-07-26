@@ -371,7 +371,7 @@ class SpectacularWelcomeSection extends HTMLElement {
         this.recommendations = [
             {
                 id: 'focus-time',
-                title: '🎯 Focus Time',
+                title: `${window.svgIconLibrary ? window.svgIconLibrary.getIcon('target') : '🎯'} Focus Time`,
                 description: 'Block 2 hours for deep work on Project Alpha',
                 priority: 'high',
                 reason: 'Based on your most productive hours',
@@ -380,7 +380,7 @@ class SpectacularWelcomeSection extends HTMLElement {
             },
             {
                 id: 'team-standup',
-                title: '👥 Team Check-in',
+                title: `${window.svgIconLibrary ? window.svgIconLibrary.getIcon('team') : '👥'} Team Check-in`,
                 description: 'Quick sync with your remote teammates',
                 priority: 'medium',
                 reason: 'Your team is online now',
@@ -389,7 +389,7 @@ class SpectacularWelcomeSection extends HTMLElement {
             },
             {
                 id: 'learning-break',
-                title: '📚 Skill Building',
+                title: `${window.svgIconLibrary ? window.svgIconLibrary.getIcon('learning') : '📚'} Skill Building`,
                 description: 'Complete JavaScript fundamentals module',
                 priority: 'low',
                 reason: 'You have 30 minutes until your next meeting',

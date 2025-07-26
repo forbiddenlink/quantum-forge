@@ -1,6 +1,6 @@
 # CSS Duplication Report
 
-Found 356 duplicate rule(s).
+Found 349 duplicate rule(s).
 
 ## Duplicate Rule Found
 
@@ -65,28 +65,6 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:15 (0%)
-- component-enhancements.css:211 (0%)
-
-### Rule Content:
-```css
-0% { background-position: -200% 0; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- animations.css:19 (100%)
-- component-enhancements.css:215 (100%)
-
-### Rule Content:
-```css
-100% { background-position: 200% 0; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - animations.css:112 (50%)
 - contest-enhancements.css:1624 (50%)
 
@@ -144,52 +122,8 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- components\task-system.css:54 (.task-card-header)
-- enhanced-task-system.css:1333 (.task-card-header)
-
-### Rule Content:
-```css
-.task-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-4); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- components\task-system.css:68 (.priority-icon)
-- enhanced-task-system.css:1367 (.priority-icon)
-
-### Rule Content:
-```css
-.priority-icon { font-size: var(--font-size-sm); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- components\task-management.css:374 (.task-card-content)
-- enhanced-task-system.css:1371 (.task-card-content)
-
-### Rule Content:
-```css
-.task-card-content { margin-bottom: var(--space-4); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- components\task-system.css:80 (.task-card-progress)
-- enhanced-task-system.css:1412 (.task-card-progress)
-
-### Rule Content:
-```css
-.task-card-progress { margin-bottom: var(--space-4); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - animations.css:671 (100%)
-- enhanced-task-system.css:1664 (100%)
+- enhanced-task-system.css:1645 (100%)
 
 ### Rule Content:
 ```css
@@ -201,7 +135,7 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ### Locations:
 - animations.css:577 (0%,
     100%)
-- enhanced-task-system.css:1939 (0%,
+- enhanced-task-system.css:1920 (0%,
     100%)
 - smart-search-overlay.css:125 (0%, 100%)
 
@@ -214,7 +148,7 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 
 ### Locations:
 - components\task-management.css:637 (.task-cards-grid)
-- enhanced-task-system.css:2302 (.task-cards-grid)
+- enhanced-task-system.css:2283 (.task-cards-grid)
 
 ### Rule Content:
 ```css
@@ -224,8 +158,8 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:1846 (.task-system-title)
-- enhanced-task-system.css:2326 (.task-system-title)
+- enhanced-task-system.css:1827 (.task-system-title)
+- enhanced-task-system.css:2307 (.task-system-title)
 
 ### Rule Content:
 ```css
@@ -236,8 +170,8 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 
 ### Locations:
 - components\task-system.css:204 (.analytics-grid)
-- enhanced-task-system.css:2386 (.analytics-grid)
-- enhanced-task-system.css:2424 (.analytics-grid)
+- enhanced-task-system.css:2367 (.analytics-grid)
+- enhanced-task-system.css:2405 (.analytics-grid)
 
 ### Rule Content:
 ```css
@@ -248,8 +182,8 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 
 ### Locations:
 - components\task-system.css:210 (.analytics-grid)
-- enhanced-task-system.css:2460 (.analytics-grid)
-- enhanced-task-system.css:2492 (.analytics-grid)
+- enhanced-task-system.css:2441 (.analytics-grid)
+- enhanced-task-system.css:2473 (.analytics-grid)
 
 ### Rule Content:
 ```css
@@ -259,9 +193,9 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2484 (.ai-insights-grid)
-- enhanced-task-system.css:2513 (.ai-insights-grid)
-- enhanced-task-system.css:2842 (.ai-insights-grid)
+- enhanced-task-system.css:2465 (.ai-insights-grid)
+- enhanced-task-system.css:2494 (.ai-insights-grid)
+- enhanced-task-system.css:2823 (.ai-insights-grid)
 
 ### Rule Content:
 ```css
@@ -271,8 +205,8 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:1820 (.task-cards-grid)
-- enhanced-task-system.css:2822 (.task-cards-grid)
+- enhanced-task-system.css:1801 (.task-cards-grid)
+- enhanced-task-system.css:2803 (.task-cards-grid)
 
 ### Rule Content:
 ```css
@@ -282,8 +216,8 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:1824 (.analytics-grid)
-- enhanced-task-system.css:2826 (.analytics-grid)
+- enhanced-task-system.css:1805 (.analytics-grid)
+- enhanced-task-system.css:2807 (.analytics-grid)
 - team.css:1423 (.analytics-grid)
 
 ### Rule Content:
@@ -294,8 +228,8 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2452 (.ai-insights-grid)
-- enhanced-task-system.css:2832 (.ai-insights-grid)
+- enhanced-task-system.css:2433 (.ai-insights-grid)
+- enhanced-task-system.css:2813 (.ai-insights-grid)
 
 ### Rule Content:
 ```css
@@ -306,7 +240,7 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 
 ### Locations:
 - enhanced-knowledge-hub.css:4386 (.filter-group)
-- enhanced-task-system.css:4136 (.filter-group)
+- enhanced-task-system.css:4117 (.filter-group)
 
 ### Rule Content:
 ```css
@@ -317,7 +251,7 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 
 ### Locations:
 - enhanced-knowledge-hub.css:4391 (.filter-btn)
-- enhanced-task-system.css:4141 (.filter-btn)
+- enhanced-task-system.css:4122 (.filter-btn)
 
 ### Rule Content:
 ```css
@@ -328,7 +262,7 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 
 ### Locations:
 - enhanced-knowledge-hub.css:4404 (.filter-btn:hover)
-- enhanced-task-system.css:4154 (.filter-btn:hover)
+- enhanced-task-system.css:4135 (.filter-btn:hover)
 
 ### Rule Content:
 ```css
@@ -339,7 +273,7 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 
 ### Locations:
 - enhanced-knowledge-hub.css:4410 (.filter-btn.active)
-- enhanced-task-system.css:4160 (.filter-btn.active)
+- enhanced-task-system.css:4141 (.filter-btn.active)
 
 ### Rule Content:
 ```css
@@ -350,7 +284,7 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 
 ### Locations:
 - enhanced-knowledge-hub.css:4431 (.filter-group)
-- enhanced-task-system.css:4205 (.filter-group)
+- enhanced-task-system.css:4186 (.filter-group)
 
 ### Rule Content:
 ```css
@@ -360,8 +294,8 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:1564 (.analytics-grid)
-- enhanced-task-system.css:4217 (.analytics-grid)
+- enhanced-task-system.css:1545 (.analytics-grid)
+- enhanced-task-system.css:4198 (.analytics-grid)
 
 ### Rule Content:
 ```css
@@ -429,34 +363,23 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- critical.css:172 (.btn)
-- mobile-optimizations.css:132 (.btn)
+- real-time-stats.css:18 (0%)
+- real-time-stats.css:38 (0%)
 
 ### Rule Content:
 ```css
-.btn { width: 100%; justify-content: center; }
+0% { color: var(--stat-default-color); transform: var(--stat-default-scale); }
 ```
 
 ## Duplicate Rule Found
 
 ### Locations:
-- real-time-stats.css:11 (0%)
-- real-time-stats.css:31 (0%)
+- real-time-stats.css:31 (100%)
+- real-time-stats.css:51 (100%)
 
 ### Rule Content:
 ```css
-0% { color: var(--text-primary); transform: scale(1); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- real-time-stats.css:24 (100%)
-- real-time-stats.css:44 (100%)
-
-### Rule Content:
-```css
-100% { color: var(--text-primary); transform: scale(1); }
+100% { color: var(--stat-default-color); transform: var(--stat-default-scale); }
 ```
 
 ## Duplicate Rule Found
@@ -4259,7 +4182,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2023 (0%,
+- enhanced-task-system.css:2004 (0%,
     100%)
 - welcome-section.css:5498 (0%,
     100%)
@@ -4272,7 +4195,7 @@ html body .welcome-section .events-list [class*="icon"]:hover)
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:2029 (50%)
+- enhanced-task-system.css:2010 (50%)
 - welcome-section.css:5504 (50%)
 
 ### Rule Content:

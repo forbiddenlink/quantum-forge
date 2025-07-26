@@ -254,7 +254,7 @@ class WellnessTracker extends HTMLElement {
         if (tipContainer) {
             tipContainer.innerHTML = `
                 <div class="tip-content">
-                    <div class="tip-icon">💡</div>
+                    <div class="tip-icon">${window.svgIconLibrary ? window.svgIconLibrary.getIcon('lightbulb') : '💡'}</div>
                     <div class="tip-text">
                         <h5>Wellness Tip</h5>
                         <p>${randomTip}</p>

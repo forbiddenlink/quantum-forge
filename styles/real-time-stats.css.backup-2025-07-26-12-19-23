@@ -1,11 +1,4 @@
 /* Real-time Statistics Animations */
-
-/* CSS Custom Properties for common animation states */
-:root {
-    --stat-default-color: var(--text-primary);
-    --stat-default-scale: scale(1);
-}
-
 .stat-increase {
     animation: statIncrease 1.5s ease-out;
 }
@@ -16,8 +9,8 @@
 
 @keyframes statIncrease {
     0% {
-        color: var(--stat-default-color);
-        transform: var(--stat-default-scale);
+        color: var(--text-primary);
+        transform: scale(1);
     }
     25% {
         color: var(--success-600);
@@ -29,15 +22,15 @@
         transform: scale(1.15);
     }
     100% {
-        color: var(--stat-default-color);
-        transform: var(--stat-default-scale);
+        color: var(--text-primary);
+        transform: scale(1);
     }
 }
 
 @keyframes statDecrease {
     0% {
-        color: var(--stat-default-color);
-        transform: var(--stat-default-scale);
+        color: var(--text-primary);
+        transform: scale(1);
     }
     25% {
         color: var(--error-600);
@@ -49,8 +42,8 @@
         transform: scale(1.15);
     }
     100% {
-        color: var(--stat-default-color);
-        transform: var(--stat-default-scale);
+        color: var(--text-primary);
+        transform: scale(1);
     }
 }
 
