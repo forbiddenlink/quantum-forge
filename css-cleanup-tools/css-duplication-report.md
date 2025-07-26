@@ -1,13 +1,13 @@
 # CSS Duplication Report
 
-Found 453 duplicate rule(s).
+Found 447 duplicate rule(s).
 
 ## Duplicate Rule Found
 
 ### Locations:
 - animations.css:99 (from)
 - animations.css:123 (from)
-- enhanced-colors.css:288 (from)
+- enhanced-colors.css:270 (from)
 - sidebar.css:653 (from)
 
 ### Rule Content:
@@ -22,7 +22,7 @@ from { opacity: 0; transform: translateY(20px); }
 - animations.css:128 (to)
 - animations.css:386 (to)
 - animations.css:705 (to)
-- enhanced-colors.css:293 (to)
+- enhanced-colors.css:275 (to)
 - sidebar.css:658 (to)
 - team-chat-widget.css:336 (to)
 
@@ -582,52 +582,8 @@ a:hover, .link:hover, .text-link:hover { color: var(--primary-600) !important; }
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:293 (.badge.primary)
-- enhanced-colors.css:266 (.badge.primary)
-
-### Rule Content:
-```css
-.badge.primary { background: var(--primary-100); color: var(--primary-700); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- components.css:298 (.badge.success)
-- enhanced-colors.css:271 (.badge.success)
-
-### Rule Content:
-```css
-.badge.success { background: var(--success-100); color: var(--success-700); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- components.css:303 (.badge.warning)
-- enhanced-colors.css:276 (.badge.warning)
-
-### Rule Content:
-```css
-.badge.warning { background: var(--warning-100); color: var(--warning-700); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- components.css:308 (.badge.error)
-- enhanced-colors.css:281 (.badge.error)
-
-### Rule Content:
-```css
-.badge.error { background: var(--error-100); color: var(--error-700); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - contest-enhancements.css:43 (from)
-- enhanced-colors.css:300 (from)
+- enhanced-colors.css:282 (from)
 
 ### Rule Content:
 ```css
@@ -638,7 +594,7 @@ from { opacity: 0; transform: scale(0.9); }
 
 ### Locations:
 - contest-enhancements.css:48 (to)
-- enhanced-colors.css:305 (to)
+- enhanced-colors.css:287 (to)
 
 ### Rule Content:
 ```css
@@ -1346,30 +1302,8 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:390 (*:focus-visible)
-- enhanced-theme-fixes.css:121 (*:focus-visible)
-
-### Rule Content:
-```css
-*:focus-visible { outline: 2px solid var(--primary-500) !important; outline-offset: 2px !important; box-shadow: 0 0 0 4px hsla(var(--user-primary-h), var(--user-primary-s), var(--user-primary-l), 0.2) !important; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- components.css:488 (.dropdown-item:hover)
-- enhanced.css:506 (.dropdown-item:hover)
-
-### Rule Content:
-```css
-.dropdown-item:hover { background: var(--bg-hover); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - components\task-management.css:371 (.action-btn svg)
-- enhanced.css:1568 (.action-btn svg)
+- enhanced.css:1566 (.action-btn svg)
 
 ### Rule Content:
 ```css
@@ -1591,7 +1525,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced.css:1519 (.status-indicator.online)
+- enhanced.css:1517 (.status-indicator.online)
 - team.css:323 (.status-indicator.online)
 
 ### Rule Content:
@@ -1602,7 +1536,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced.css:1523 (.status-indicator.away)
+- enhanced.css:1521 (.status-indicator.away)
 - team.css:327 (.status-indicator.away)
 
 ### Rule Content:
@@ -1613,7 +1547,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced.css:1527 (.status-indicator.offline)
+- enhanced.css:1525 (.status-indicator.offline)
 - team.css:331 (.status-indicator.offline)
 
 ### Rule Content:
@@ -1624,7 +1558,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced.css:1162 (.achievement-content)
+- enhanced.css:1160 (.achievement-content)
 - team.css:851 (.achievement-content)
 
 ### Rule Content:
@@ -1635,7 +1569,7 @@ to { opacity: 1; transform: scale(1); }
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced.css:1180 (.achievement-date)
+- enhanced.css:1178 (.achievement-date)
 - team.css:875 (.achievement-date)
 
 ### Rule Content:

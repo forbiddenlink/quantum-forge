@@ -503,7 +503,9 @@ enhanced-task-system,
     font-size: 0.875rem;
 }
 
-/* Dropdown hover styles moved to components.css to avoid duplication */
+.dropdown-item:hover {
+    background: var(--bg-hover);
+}
 
 .dropdown-item svg {
     width: 18px;

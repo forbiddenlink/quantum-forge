@@ -117,7 +117,12 @@ button[class*="primary"]:not(.theme-toggle-btn):hover {
     box-shadow: 0 4px 12px hsla(var(--user-primary-h), var(--user-primary-s), var(--user-primary-l), 0.3) !important;
 }
 
-/* 5. ENHANCED FOCUS STYLES WITH DYNAMIC COLORS - moved to critical-fixes.css to avoid duplication */
+/* 5. ENHANCED FOCUS STYLES WITH DYNAMIC COLORS */
+*:focus-visible {
+    outline: 2px solid var(--primary-500) !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 4px hsla(var(--user-primary-h), var(--user-primary-s), var(--user-primary-l), 0.2) !important;
+}
 
 /* 6. PROGRESSIVE ENHANCEMENT FOR ANIMATIONS */
 /* Smooth transitions for theme changes */

@@ -263,7 +263,25 @@
     letter-spacing: 0.05em;
 }
 
-/* Badge color variants moved to components.css to avoid duplication */
+.badge.primary {
+    background: var(--primary-100);
+    color: var(--primary-700);
+}
+
+.badge.success {
+    background: var(--success-100);
+    color: var(--success-700);
+}
+
+.badge.warning {
+    background: var(--warning-100);
+    color: var(--warning-700);
+}
+
+.badge.error {
+    background: var(--error-100);
+    color: var(--error-700);
+}
 
 /* Enhanced Animations */
 @keyframes fadeInUp {
