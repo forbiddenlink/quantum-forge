@@ -66,19 +66,22 @@
                 </div>
 
                 <!-- Collaboration Hub Content -->
-                <div class="collaboration-grid">
-                    <!-- Active Collaborations -->
-                    <div class="dashboard-item">
+                <div class="collaboration-grid" style="display: grid; gap: 1.5rem; grid-template-columns: 2fr 1fr; grid-template-areas: 
+                    'collab chat'
+                    'collab workspaces'
+                    'activity activity';">
+                    <!-- Active Collaborations - Taller, primary focus -->
+                    <div class="dashboard-item" style="grid-area: collab; min-height: 700px; height: auto; overflow: visible;">
                         <collaboration-hub></collaboration-hub>
                     </div>
 
-                    <!-- Team Chat Widget -->
-                    <div class="dashboard-item">
+                    <!-- Team Chat Widget - Adjustable height -->
+                    <div class="dashboard-item" style="grid-area: chat; min-height: 500px; height: auto; overflow: visible;">
                         <team-chat-widget></team-chat-widget>
                     </div>
 
-                    <!-- Shared Workspaces -->
-                    <div class="dashboard-item">
+                    <!-- Shared Workspaces - Adjustable list view -->
+                    <div class="dashboard-item" style="grid-area: workspaces; min-height: 400px; height: auto; overflow: visible;">
                         <div class="widget-header">
                             <h2 class="widget-title">Shared Workspaces</h2>
                             <button class="btn-icon" aria-label="Manage workspaces">
@@ -90,7 +93,7 @@
                             </button>
                         </div>
                         <div class="workspaces-list">
-                            <div class="workspace-item">
+                            <div class="workspace-item" data-workspace="project-alpha">
                                 <div class="workspace-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
@@ -102,9 +105,9 @@
                                     <h3>Project Alpha</h3>
                                     <p>8 members • Last updated 2h ago</p>
                                 </div>
-                                <button class="btn secondary btn-sm">Join</button>
+                                <button class="btn secondary btn-sm workspace-join-btn" data-workspace="project-alpha">Join</button>
                             </div>
-                            <div class="workspace-item">
+                            <div class="workspace-item" data-workspace="design-sprint">
                                 <div class="workspace-icon">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <circle cx="12" cy="12" r="10"></circle>
@@ -117,15 +120,160 @@
                                     <h3>Design Sprint</h3>
                                     <p>12 members • Active now</p>
                                 </div>
-                                <button class="btn primary btn-sm">Join</button>
+                                <button class="btn primary btn-sm workspace-join-btn" data-workspace="design-sprint">Join</button>
                             </div>
+                            
+                            <script>
+                                // Handle workspace join buttons
+                                document.querySelectorAll('.workspace-join-btn').forEach(btn => {
+                                    btn.addEventListener('click', function(e) {
+                                        const workspaceId = e.target.dataset.workspace;
+                                        const workspaceTitle = e.target.closest('.workspace-item').querySelector('h3').textContent;
+                                        
+                                        // Create join confirmation modal
+                                        const modal = document.createElement('div');
+                                        modal.className = 'workspace-join-modal';
+                                        modal.innerHTML = `
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h2>Join ${workspaceTitle}</h2>
+                                                    <button class="close-modal-btn">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>You're about to join the workspace "${workspaceTitle}". You'll have access to:</p>
+                                                    <ul>
+                                                        <li>Shared files and resources</li>
+                                                        <li>Team chat and collaboration tools</li>
+                                                        <li>Project updates and notifications</li>
+                                                    </ul>
+                                                    <div class="workspace-preview">
+                                                        <img src="../assets/workspace-previews/${workspaceId}.png" 
+                                                             alt="Workspace preview" 
+                                                             onerror="this.src='../assets/workspace-previews/default.png'">
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn secondary" id="cancelJoin">Cancel</button>
+                                                    <button class="btn primary" id="confirmJoin">Join Workspace</button>
+                                                </div>
+                                            </div>
+                                        `;
+                                        document.body.appendChild(modal);
+
+                                        // Add modal interactions
+                                        const closeModal = () => {
+                                            modal.classList.add('fade-out');
+                                            setTimeout(() => modal.remove(), 300);
+                                        };
+
+                                        modal.querySelector('.close-modal-btn').addEventListener('click', closeModal);
+                                        modal.querySelector('#cancelJoin').addEventListener('click', closeModal);
+                                        
+                                        modal.querySelector('#confirmJoin').addEventListener('click', function() {
+                                            // Join workspace logic
+                                            e.target.textContent = 'Joined';
+                                            e.target.classList.remove('primary', 'secondary');
+                                            e.target.classList.add('success');
+                                            e.target.disabled = true;
+
+                                            // Update members count
+                                            const membersText = e.target.closest('.workspace-item').querySelector('p');
+                                            const currentCount = parseInt(membersText.textContent);
+                                            membersText.textContent = membersText.textContent.replace(
+                                                /(\d+) members/,
+                                                `${currentCount + 1} members • You joined just now`
+                                            );
+
+                                            // Update activity feed
+                                            const activityFeed = document.querySelector('live-activity-feed');
+                                            if (activityFeed) {
+                                                activityFeed.addRandomActivity(true, {
+                                                    type: 'collaboration',
+                                                    message: `You joined the "${workspaceTitle}" workspace`
+                                                });
+                                            }
+
+                                            closeModal();
+                                        });
+
+                                        // Show modal with animation
+                                        requestAnimationFrame(() => modal.classList.add('active'));
+                                    });
+                                });
+                            </script>
                         </div>
                     </div>
 
-                    <!-- Recent Activity -->
-                    <div class="dashboard-item">
+                    <!-- Recent Activity - Full width but compact -->
+                    <div class="dashboard-item" style="grid-area: activity; max-height: 300px;">
                         <live-activity-feed></live-activity-feed>
                     </div>
+                </div>
+
+                <style>
+                    /* Enhanced Grid Layout Styles */
+                    .collaboration-grid {
+                        margin: 1.5rem 0;
+                    }
+
+                    .dashboard-item {
+                        background: var(--bg-elevated);
+                        border-radius: var(--radius-lg);
+                        box-shadow: var(--shadow-sm);
+                        overflow: hidden;
+                        transition: all 0.3s ease;
+                    }
+
+                    /* Proper spacing and padding */
+                    .widget-header {
+                        padding: 1rem 1.5rem;
+                        border-bottom: 1px solid var(--border-color);
+                    }
+
+                    .workspaces-list {
+                        padding: 1rem;
+                        overflow-y: auto;
+                        max-height: calc(300px - 4rem); /* Account for header */
+                    }
+
+                    .workspace-item {
+                        padding: 1rem;
+                        border-radius: var(--radius-md);
+                        border: 1px solid var(--border-color);
+                        margin-bottom: 0.75rem;
+                        display: flex;
+                        align-items: center;
+                        gap: 1rem;
+                    }
+
+                    .workspace-item:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    /* Ensure content doesn't overflow */
+                    .dashboard-item > * {
+                        height: 100%;
+                        overflow-y: auto;
+                        scrollbar-width: thin;
+                    }
+
+                    /* Responsive adjustments */
+                    @media (max-width: 1024px) {
+                        .collaboration-grid {
+                            grid-template-columns: 1fr;
+                            grid-template-areas: 
+                                'collab'
+                                'chat'
+                                'workspaces'
+                                'activity';
+                        }
+
+                        .dashboard-item {
+                            max-height: none !important;
+                            min-height: 0 !important;
+                        }
+                    }
+                </style>
                 </div>
             </main>
         </div>
@@ -158,16 +306,133 @@
 
             if (refreshBtn) {
                 refreshBtn.addEventListener('click', function() {
-                    // Refresh collaboration data
-                    location.reload();
+                    // Show refresh animation
+                    refreshBtn.classList.add('rotating');
+                    
+                    // Refresh all dynamic components
+                    const components = [
+                        document.querySelector('collaboration-hub'),
+                        document.querySelector('team-chat-widget'),
+                        document.querySelector('live-activity-feed')
+                    ];
+                    
+                    // Sequential refresh with visual feedback
+                    const refreshSequence = async () => {
+                        for (const component of components) {
+                            if (component) {
+                                // Add shimmer effect
+                                component.classList.add('refreshing');
+                                
+                                // Wait for component refresh
+                                if (component.refreshActivities) {
+                                    await component.refreshActivities();
+                                } else if (component.loadMockData) {
+                                    await component.loadMockData();
+                                }
+                                
+                                // Remove shimmer
+                                component.classList.remove('refreshing');
+                                
+                                // Small delay between components
+                                await new Promise(resolve => setTimeout(resolve, 300));
+                            }
+                        }
+                        
+                        // Reset refresh button
+                        refreshBtn.classList.remove('rotating');
+                        
+                        // Show success feedback
+                        const notification = document.createElement('div');
+                        notification.className = 'refresh-notification';
+                        notification.textContent = '✨ Collaboration data refreshed';
+                        document.body.appendChild(notification);
+                        
+                        setTimeout(() => {
+                            notification.classList.add('fade-out');
+                            setTimeout(() => notification.remove(), 300);
+                        }, 2000);
+                    };
+                    
+                    refreshSequence();
                 });
             }
 
             if (newCollabBtn) {
                 newCollabBtn.addEventListener('click', function() {
-                    // Open new collaboration modal
-                    console.log('Opening new collaboration modal...');
-                    // TODO: Implement collaboration creation modal
+                    const modal = document.createElement('div');
+                    modal.className = 'collaboration-modal';
+                    modal.innerHTML = `
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2>Create New Collaboration</h2>
+                                <button class="close-modal-btn">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="newCollabForm">
+                                    <div class="form-group">
+                                        <label for="collabName">Collaboration Name</label>
+                                        <input type="text" id="collabName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="collabType">Type</label>
+                                        <select id="collabType" required>
+                                            <option value="project">Project</option>
+                                            <option value="workshop">Workshop</option>
+                                            <option value="brainstorm">Brainstorm</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="collabDesc">Description</label>
+                                        <textarea id="collabDesc" required></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="collabMembers">Invite Members</label>
+                                        <select id="collabMembers" multiple>
+                                            <option value="sarah">Sarah Chen</option>
+                                            <option value="mike">Mike Rodriguez</option>
+                                            <option value="emily">Emily Davis</option>
+                                            <option value="alex">Alex Johnson</option>
+                                        </select>
+                                    </div>
+                                    <div class="modal-actions">
+                                        <button type="button" class="btn secondary" id="cancelCollab">Cancel</button>
+                                        <button type="submit" class="btn primary">Create Collaboration</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(modal);
+
+                    const closeBtn = modal.querySelector('.close-modal-btn');
+                    const cancelBtn = modal.querySelector('#cancelCollab');
+                    const form = modal.querySelector('#newCollabForm');
+
+                    function closeModal() {
+                        modal.classList.add('fade-out');
+                        setTimeout(() => modal.remove(), 300);
+                    }
+
+                    closeBtn.addEventListener('click', closeModal);
+                    cancelBtn.addEventListener('click', closeModal);
+
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        const collabHub = document.querySelector('collaboration-hub');
+                        if (collabHub) {
+                            collabHub.createCollaborativeSpace({
+                                name: form.collabName.value,
+                                type: form.collabType.value,
+                                description: form.collabDesc.value,
+                                members: Array.from(form.collabMembers.selectedOptions).map(opt => opt.text)
+                            });
+                        }
+                        closeModal();
+                    });
+
+                    // Fade in animation
+                    requestAnimationFrame(() => modal.classList.add('active'));
                 });
             }
         }

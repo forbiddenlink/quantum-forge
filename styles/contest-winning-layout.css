@@ -1,0 +1,289 @@
+/* Contest-Winning Homepage Layout
+   Organized by importance and logical grouping */
+
+.homepage-grid {
+    display: grid;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    max-width: 1800px;
+    margin: 0 auto;
+    grid-template-areas:
+        "welcome welcome"
+        "ai-assistant quick-stats"
+        "tasks innovation"
+        "analytics wellness"
+        "activity team"
+        "office office"
+        "news resources";
+}
+
+/* Priority-based sizing and responsive behavior */
+.welcome-section { 
+    grid-area: welcome;
+    height: auto;
+    min-height: 300px;
+}
+
+.ai-assistant-section {
+    grid-area: ai-assistant;
+    height: 400px;
+}
+
+.quick-stats-section {
+    grid-area: quick-stats;
+    height: 400px;
+}
+
+.tasks-section {
+    grid-area: tasks;
+    height: 500px;
+}
+
+.innovation-section {
+    grid-area: innovation;
+    height: 500px;
+}
+
+.analytics-section {
+    grid-area: analytics;
+    height: 450px;
+}
+
+.wellness-section {
+    grid-area: wellness;
+    height: 450px;
+}
+
+.activity-section {
+    grid-area: activity;
+    height: 400px;
+}
+
+.team-section {
+    grid-area: team;
+    height: 400px;
+}
+
+.office-section {
+    grid-area: office;
+    height: 500px;
+}
+
+.news-section {
+    grid-area: news;
+    height: 350px;
+}
+
+.resources-section {
+    grid-area: resources;
+    height: 350px;
+}
+
+/* Component Height Management */
+.dashboard-item {
+    position: relative;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Smart content overflow handling */
+.dashboard-item.expandable {
+    cursor: pointer;
+}
+
+.dashboard-item.expandable:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.content-wrapper {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.expand-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to top, var(--bg-elevated) 0%, transparent 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 8px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.dashboard-item.has-overflow .expand-indicator {
+    opacity: 1;
+}
+
+.expand-indicator::after {
+    content: "Show More";
+    background: var(--bg-subtle);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* Responsive Layout */
+@media (max-width: 1200px) {
+    .homepage-grid {
+        grid-template-areas:
+            "welcome"
+            "ai-assistant"
+            "quick-stats"
+            "tasks"
+            "innovation"
+            "analytics"
+            "wellness"
+            "activity"
+            "team"
+            "office"
+            "news"
+            "resources";
+    }
+
+    .dashboard-item {
+        height: auto;
+        min-height: 300px;
+        max-height: 600px;
+    }
+}
+
+/* Component Groups */
+.priority-high {
+    min-height: 400px;
+    max-height: 600px;
+}
+
+.priority-medium {
+    min-height: 300px;
+    max-height: 500px;
+}
+
+.priority-low {
+    min-height: 200px;
+    max-height: 400px;
+}
+
+/* Enhanced Visual Hierarchy */
+.dashboard-item h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.dashboard-item h2 svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--primary-500);
+}
+
+/* Interactive Elements */
+.dashboard-item .btn-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.dashboard-item .btn {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.dashboard-item .btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Component-specific adjustments */
+smart-assistant-dashboard {
+    max-height: 500px;
+    overflow: hidden;
+}
+
+team-wellness-hub {
+    max-height: 450px;
+    overflow: auto;
+}
+
+innovation-lab {
+    max-height: 500px;
+    overflow: auto;
+}
+
+/* Animation & Transitions */
+.dashboard-item {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Loading States */
+.dashboard-item.loading {
+    position: relative;
+    min-height: 200px;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-elevated);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border-color);
+    border-top-color: var(--primary-500);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Accessibility Enhancements */
+.dashboard-item:focus-within {
+    outline: 2px solid var(--primary-500);
+    outline-offset: 2px;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .homepage-grid {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .dashboard-item {
+        min-height: 250px;
+        max-height: 500px;
+    }
+
+    .expand-indicator {
+        height: 32px;
+    }
+}

@@ -350,21 +350,29 @@ class CollaborationHub extends HTMLElement {
         return activities[Math.floor(Math.random() * activities.length)];
     }
 
-    createCollaborativeSpace() {
-        // Show modal for creating new space
-        const spaceName = prompt('Enter space name:');
-        if (spaceName) {
-            const newSpace = {
-                id: Date.now(),
-                name: spaceName,
-                type: 'Project',
-                description: 'New collaborative space',
-                participants: ['You'],
-                lastActivity: new Date()
-            };
-            this.collaborativeSpaces.unshift(newSpace);
-            this.querySelector('#collaborativeSpacesGrid').innerHTML = this.renderCollaborativeSpaces();
-        }
+    createCollaborativeSpace(spaceData) {
+        const newSpace = {
+            id: Date.now(),
+            name: spaceData.name || 'New Space',
+            type: spaceData.type || 'Project',
+            description: spaceData.description || 'New collaborative space',
+            participants: spaceData.members ? ['You', ...spaceData.members] : ['You'],
+            lastActivity: new Date()
+        };
+        this.collaborativeSpaces.unshift(newSpace);
+        this.querySelector('#collaborativeSpacesGrid').innerHTML = this.renderCollaborativeSpaces();
+        
+        // Show success feedback
+        this.showNotification(`Created new ${newSpace.type.toLowerCase()}: ${newSpace.name}`);
+        
+        // Update activity feed
+        document.querySelector('live-activity-feed')?.addActivity({
+            type: 'collaboration',
+            user: 'You',
+            action: 'created',
+            target: newSpace.name,
+            context: `${newSpace.type.toLowerCase()} with ${newSpace.participants.length} participants`
+        });
     }
 
     shareDocument() {

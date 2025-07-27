@@ -1,0 +1,117 @@
+/* Innovation Lab Styles */
+.innovation-lab-container {
+    background: linear-gradient(135deg, var(--primary-50) 0%, transparent 100%);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.idea-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.idea-card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.idea-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-200);
+}
+
+.idea-category {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--primary-50);
+    color: var(--primary-700);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+}
+
+.idea-votes {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.vote-btn {
+    padding: 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.vote-btn:hover {
+    color: var(--primary-500);
+    transform: translateY(-1px);
+}
+
+.innovation-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.metric-card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+}
+
+.metric-value {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.metric-value .number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-500);
+    line-height: 1;
+}
+
+.resource-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.resource-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.resource-icon {
+    font-size: 2rem;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-50);
+    border-radius: var(--radius-lg);
+    color: var(--primary-700);
+}

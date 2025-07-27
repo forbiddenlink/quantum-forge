@@ -31,6 +31,13 @@
 @import url('./components/quick-insights.css');
 
 /* ===== 4. ENHANCEMENT STYLES - Load Fourth ===== */
+/* New Contest-Winning Components */
+@import url('./components/smart-assistant-dashboard.css');
+@import url('./components/team-wellness-hub.css');
+@import url('./components/innovation-lab.css');
+@import url('./contest-winning-layout.css');
+/* Contest-winning components and layout */
+
 @import url('./enhanced-task-system.css');
 /* Enhanced task system */
 @import url('./welcome-section.css');
