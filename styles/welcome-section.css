@@ -1,4 +1,5 @@
 /* Enhanced Welcome Section Styles - Dream Intranet Homepage */
+@import url('background-consistency-fix.css');
 
 /* Button and Icon Base Styles */
 .welcome-section .btn-icon {
@@ -70,6 +71,9 @@
     left: 0 !important;
     right: 0 !important;
     transform: none !important;
+
+    /* Add subtle dark gradient for better text contrast */
+    box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.2), inset 0 0 100px rgba(0, 0, 0, 0.1) !important;
 
     /* ENHANCED Multi-layer animated background */
     background:
@@ -160,16 +164,22 @@
 .welcome-section::before {
     content: '';
     position: absolute;
-    top: -100%;
-    right: -100%;
-    width: 300%;
-    height: 300%;
+    top: -50%;
+    /* Reduced offset for better positioning */
+    right: -50%;
+    width: 200%;
+    /* Reduced size for better control */
+    height: 200%;
+    opacity: 0.8;
+    /* Slightly reduce overall opacity */
     background:
-        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 15%, rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.1) 45%, transparent 60%),
-        radial-gradient(circle at 30% 30%, var(--welcome-accent-1) 0%, rgba(139, 92, 246, 0.3) 20%, transparent 40%),
-        radial-gradient(circle at 70% 70%, var(--welcome-accent-2) 0%, rgba(6, 182, 212, 0.2) 25%, transparent 50%),
-        radial-gradient(circle at 60% 20%, var(--welcome-accent-3) 0%, transparent 30%),
-        radial-gradient(circle at 20% 80%, var(--welcome-accent-4) 0%, transparent 35%);
+        /* Reduced opacity on white circle for better text contrast */
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.15) 15%, rgba(255, 255, 255, 0.1) 30%, rgba(255, 255, 255, 0.05) 45%, transparent 60%),
+        /* Softer accent gradients */
+        radial-gradient(circle at 30% 30%, var(--welcome-accent-1) 0%, rgba(139, 92, 246, 0.15) 20%, transparent 40%),
+        radial-gradient(circle at 70% 70%, var(--welcome-accent-2) 0%, rgba(6, 182, 212, 0.1) 25%, transparent 50%),
+        radial-gradient(circle at 60% 20%, var(--welcome-accent-3) 0%, rgba(16, 185, 129, 0.1) 30%, transparent 50%),
+        radial-gradient(circle at 20% 80%, var(--welcome-accent-4) 0%, rgba(245, 158, 11, 0.1) 35%, transparent 60%);
     border-radius: 50%;
     animation: float 25s var(--welcome-animation-timing) infinite reverse;
     pointer-events: none;
@@ -295,7 +305,10 @@
     align-items: center !important;
     gap: var(--space-4) !important;
     flex-wrap: wrap !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    position: relative !important;
+    z-index: 5 !important;
+    /* Ensure text stays above background effects */
 }
 
 .greeting {
@@ -1069,9 +1082,7 @@ html body .welcome-section [style*="color: #000000"] {
 .quick-insights .insights-title .btn-icon:hover,
 .quick-insights .insights-title .btn-icon:focus,
 .quick-insights .insights-title .btn-icon:active {
-    --primary-50: rgba(255, 255, 255, 0.1) !important;
-    --primary-300: rgba(255, 255, 255, 0.3) !important;
-    --primary-600: white !important;
+    /* Theme colors are now managed by the color picker */
     --text-primary: white !important;
     --bg-hover: rgba(255, 255, 255, 0.2) !important;
 }

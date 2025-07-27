@@ -1,0 +1,42 @@
+/* Color Theme Fixes - Ensures all theme colors display correctly */
+
+/* Reset any conflicting theme color overrides */
+[data-theme="light"],
+[data-theme="dark"] {
+    --primary-500: hsl(var(--user-primary-h), var(--user-primary-s), var(--user-primary-l)) !important;
+}
+
+/* Ensure red theme displays correctly */
+[data-theme] .preset-theme[data-theme*='"name":"Red"'] .preset-color {
+    background: hsl(0, 85%, 60%) !important;
+}
+
+/* Ensure Emerald theme displays correctly */
+[data-theme] .preset-theme[data-theme*='"name":"Emerald"'] .preset-color {
+    background: hsl(150, 75%, 45%) !important;
+}
+
+/* Fix theme preview card colors */
+.theme-preview-card {
+    background: var(--primary-500) !important;
+}
+
+/* Ensure color dots show correct theme colors */
+.color-dot {
+    background: var(--primary-500) !important;
+}
+
+/* Make sure buttons use theme colors */
+.btn.primary {
+    background: var(--primary-500) !important;
+    border-color: var(--primary-600) !important;
+}
+
+/* Force color picker to use correct theme colors */
+.color-picker-toggle {
+    background: var(--primary-500) !important;
+}
+
+.color-picker-toggle:hover {
+    background: var(--primary-600) !important;
+}

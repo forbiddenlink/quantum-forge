@@ -1,0 +1,113 @@
+// Dynamic Color Picker - Contest Show-Stopper Feature
+class DynamicColorPicker extends HTMLElement {
+    constructor() {
+        super();
+        this.isOpen = false;
+        this.currentTheme = {
+            hue: 270, // Default violet
+            saturation: 80,
+            lightness: 50,
+            name: 'Violet'
+        };
+        this.presetThemes = [
+            { name: 'Violet', hue: 270, saturation: 80, lightness: 50, icon: '💜' },
+            { name: 'Emerald', hue: 150, saturation: 75, lightness: 45, icon: '🌿' },
+            { name: 'Amber', hue: 45, saturation: 85, lightness: 60, icon: '🌅' },
+            { name: 'Red', hue: 0, saturation: 85, lightness: 60, icon: '❤️' },
+            { name: 'Blue', hue: 210, saturation: 90, lightness: 55, icon: '🌊' },
+            { name: 'Cyan', hue: 195, saturation: 100, lightness: 50, icon: '💠' },
+            { name: 'Lime', hue: 160, saturation: 70, lightness: 55, icon: '🌱' },
+            { name: 'Custom', hue: 248, saturation: 85, lightness: 63, icon: '🎨' }
+        ];
+        this.colorHistory = [];
+    }
+
+    connectedCallback() {
+        this.loadSavedTheme();
+        this.render();
+        this.setupEventListeners();
+        this.createToggleButton();
+    }
+
+    loadSavedTheme() {
+        try {
+            const saved = localStorage.getItem('userTheme');
+            if (saved) {
+                this.currentTheme = JSON.parse(saved);
+                this.applyTheme(this.currentTheme);
+            } else {
+                // If no saved theme, apply the default Violet theme
+                this.applyTheme(this.presetThemes[0]); // Violet is at index 0
+            }
+        } catch (error) {
+            console.error('Error loading theme:', error);
+            // Fall back to default Violet theme
+            this.applyTheme(this.presetThemes[0]); // Violet is at index 0
+        }
+    }
+
+    isCurrentTheme(theme) {
+        return theme.name === this.currentTheme.name;
+    }
+
+    setupEventListeners() {
+        this.querySelectorAll('.preset-theme').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const theme = JSON.parse(e.currentTarget.dataset.theme);
+                this.currentTheme = { ...theme }; // Make a copy of the theme
+                this.applyTheme(this.currentTheme);
+                this.render();
+            });
+        });
+
+        // Other event listeners...
+    }
+
+    applyTheme(theme) {
+        // Make sure we're working with a fresh copy of the theme
+        const themeToApply = { ...theme };
+        
+        // Set CSS variables
+        document.documentElement.style.setProperty('--primary-h', themeToApply.hue);
+        document.documentElement.style.setProperty('--primary-s', themeToApply.saturation + '%');
+        document.documentElement.style.setProperty('--primary-l', themeToApply.lightness + '%');
+
+        // Save current theme
+        this.currentTheme = themeToApply;
+        
+        // Update local storage
+        localStorage.setItem('userTheme', JSON.stringify(themeToApply));
+
+        // Trigger update
+        this.updatePreview();
+        this.render();
+    }
+
+    render() {
+        // Re-render the color picker with updated state
+        this.innerHTML = `
+            <div class="color-picker-panel">
+                <!-- ... rest of your HTML template ... -->
+                <div class="preset-themes">
+                    ${this.presetThemes.map(theme => `
+                        <button class="preset-theme ${theme.name === this.currentTheme.name ? 'active' : ''}" 
+                                data-theme='${JSON.stringify(theme)}'>
+                            ${theme.icon} ${theme.name}
+                        </button>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+
+    updatePreview() {
+        requestAnimationFrame(() => {
+            const preview = this.querySelector('.color-preview');
+            if (preview) {
+                preview.style.backgroundColor = `hsl(${this.currentTheme.hue}, ${this.currentTheme.saturation}%, ${this.currentTheme.lightness}%)`;
+            }
+        });
+    }
+}
+
+customElements.define('dynamic-color-picker', DynamicColorPicker);

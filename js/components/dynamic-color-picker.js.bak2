@@ -1,0 +1,23 @@
+// Dynamic Color Picker - Contest Show-Stopper Feature
+class DynamicColorPicker extends HTMLElement {
+    constructor() {
+        super();
+        this.isOpen = false;
+        this.currentTheme = {
+            hue: 270, // Default violet
+            saturation: 80,
+            lightness: 50,
+            name: 'Violet'
+        };
+        this.presetThemes = [
+            { name: 'Violet', hue: 270, saturation: 80, lightness: 50, icon: '💜' },
+            { name: 'Emerald', hue: 150, saturation: 75, lightness: 45, icon: '🌿' },
+            { name: 'Amber', hue: 45, saturation: 85, lightness: 60, icon: '🌅' },
+            { name: 'Red', hue: 0, saturation: 85, lightness: 60, icon: '❤️' },
+            { name: 'Blue', hue: 210, saturation: 90, lightness: 55, icon: '🌊' },
+            { name: 'Cyan', hue: 195, saturation: 100, lightness: 50, icon: '💠' },
+            { name: 'Lime', hue: 160, saturation: 70, lightness: 55, icon: '🌱' },
+            { name: 'Custom', hue: 248, saturation: 85, lightness: 63, icon: '🎨' }
+        ];
+        this.colorHistory = [];
+    }

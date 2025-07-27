@@ -1,0 +1,58 @@
+/* Smart Insights Header Fix */
+.smart-insights-header,
+.smart-insights .dashboard-header,
+.smart-insights .header-section,
+.smart-insights-dashboard .header,
+.smart-insights-dashboard .dashboard-header {
+    background: transparent !important;
+    background-image: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: var(--welcome-text) !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Ensure header text is white */
+.smart-insights-header *,
+.smart-insights .dashboard-header *,
+.smart-insights .header-section *,
+.smart-insights-dashboard .header *,
+.smart-insights-dashboard .dashboard-header * {
+    color: var(--welcome-text) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Header icons */
+.smart-insights-header .btn-icon,
+.smart-insights .dashboard-header .btn-icon,
+.smart-insights .header-section .btn-icon,
+.smart-insights-dashboard .header .btn-icon,
+.smart-insights-dashboard .dashboard-header .btn-icon {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Header icons hover state */
+.smart-insights-header .btn-icon:hover,
+.smart-insights .dashboard-header .btn-icon:hover,
+.smart-insights .header-section .btn-icon:hover,
+.smart-insights-dashboard .header .btn-icon:hover,
+.smart-insights-dashboard .dashboard-header .btn-icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Fix any white backgrounds in children */
+.smart-insights *[style*="background: white"],
+.smart-insights *[style*="background:white"],
+.smart-insights *[style*="background-color: white"],
+.smart-insights *[style*="background-color:white"],
+.smart-insights *[style*="background: #fff"],
+.smart-insights *[style*="background:#fff"],
+.smart-insights *[style*="background: #ffffff"],
+.smart-insights *[style*="background:#ffffff"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}

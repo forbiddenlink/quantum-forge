@@ -228,109 +228,11 @@ function initializeTheme() {
     document.documentElement.setAttribute('data-theme', theme);
     document.body.setAttribute('data-theme', theme);
 
-    // Load saved user theme (new system with hue/saturation/lightness)
-    const savedUserTheme = localStorage.getItem('userTheme');
-    if (savedUserTheme) {
-        try {
-            const themeData = JSON.parse(savedUserTheme);
-            console.log('Loading saved theme:', themeData);
-
-            // Apply theme using the same method as dynamic color picker
-            applyColorTheme(themeData);
-        } catch (error) {
-            console.warn('Failed to parse saved theme, falling back to default');
-        }
-    } else {
-        // Load legacy saved color if it exists
-        const savedColor = localStorage.getItem('userColor');
-        if (savedColor) {
-            console.log('Loading legacy saved color:', savedColor);
-            // Convert hex to HSL and apply
-            const hsl = hexToHsl(savedColor);
-            if (hsl) {
-                const legacyTheme = {
-                    hue: hsl.h,
-                    saturation: hsl.s,
-                    lightness: hsl.l,
-                    name: 'Imported'
-                };
-                applyColorTheme(legacyTheme);
-            }
-        }
-    }
+        // Theme color will be managed by simple-color-picker component
+    console.log('Theme initialization complete');
 }
 
-// Helper function to apply color theme (mirrors dynamic-color-picker logic)
-function applyColorTheme(theme) {
-    // Set user color variables
-    document.documentElement.style.setProperty('--user-primary-h', theme.hue);
-    document.documentElement.style.setProperty('--user-primary-s', theme.saturation + '%');
-    document.documentElement.style.setProperty('--user-primary-l', theme.lightness + '%');
-
-    // Calculate and set derived colors
-    const baseColor = `hsl(${theme.hue}, ${theme.saturation}%, ${theme.lightness}%)`;
-    const lighterColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 10, 95)}%)`;
-    const darkerColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.max(theme.lightness - 10, 5)}%)`;
-    const muchDarkerColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.max(theme.lightness - 20, 5)}%)`;
-    const lightestColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 20, 95)}%)`;
-    const evenLighterColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 30, 97)}%)`;
-    const paleColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 40, 98)}%)`;
-
-    // Set all primary color variations
-    document.documentElement.style.setProperty('--primary-500', baseColor);
-    document.documentElement.style.setProperty('--primary-400', lighterColor);
-    document.documentElement.style.setProperty('--primary-600', darkerColor);
-    document.documentElement.style.setProperty('--primary-700', muchDarkerColor);
-    document.documentElement.style.setProperty('--primary-300', lightestColor);
-    document.documentElement.style.setProperty('--primary-200', evenLighterColor);
-    document.documentElement.style.setProperty('--primary-100', paleColor);
-
-    // Set accent color
-    document.documentElement.style.setProperty('--accent-color', baseColor);
-
-    // Override any hardcoded purple references
-    document.documentElement.style.setProperty('--welcome-bg-start', baseColor);
-    document.documentElement.style.setProperty('--welcome-bg-end', muchDarkerColor);
-    document.documentElement.style.setProperty('--button-primary', baseColor);
-    document.documentElement.style.setProperty('--link-color', baseColor);
-
-    console.log('Color theme applied:', theme, 'Base color:', baseColor);
-}
-
-// Helper function to convert hex to HSL
-function hexToHsl(hex) {
-    try {
-        const r = parseInt(hex.slice(1, 3), 16) / 255;
-        const g = parseInt(hex.slice(3, 5), 16) / 255;
-        const b = parseInt(hex.slice(5, 7), 16) / 255;
-
-        const max = Math.max(r, g, b);
-        const min = Math.min(r, g, b);
-        let h, s, l = (max + min) / 2;
-
-        if (max === min) {
-            h = s = 0;
-        } else {
-            const d = max - min;
-            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-            switch (max) {
-                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-                case g: h = (b - r) / d + 2; break;
-                case b: h = (r - g) / d + 4; break;
-            }
-            h /= 6;
-        }
-
-        return {
-            h: Math.round(h * 360),
-            s: Math.round(s * 100),
-            l: Math.round(l * 100)
-        };
-    } catch (error) {
-        console.warn('Failed to convert hex to HSL:', hex);
-        return null;
-    }
-}
+// Color theming is now handled by simple-color-picker component
 
 function detectPreferredTheme() {
     // Check if user has manually set a theme preference

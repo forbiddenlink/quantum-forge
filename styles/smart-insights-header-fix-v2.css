@@ -1,0 +1,123 @@
+/* Smart Insights Header Fix v2 - Contest-Ready Enhancement */
+
+/* Force transparent backgrounds for all header elements with maximum specificity */
+html body .smart-insights-dashboard .dashboard-header,
+html body .smart-insights-dashboard .dashboard-title,
+html body .smart-insights-dashboard .dashboard-meta,
+html body .smart-insights-dashboard .ai-badge,
+html body .smart-insights-dashboard .performance-badge {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Force white text and add subtle text shadow for readability */
+html body .smart-insights-dashboard .dashboard-header *,
+html body .smart-insights-dashboard .dashboard-title,
+html body .smart-insights-dashboard .dashboard-meta * {
+    color: var(--welcome-text) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Badge and icon styling */
+html body .smart-insights-dashboard .badge-icon,
+html body .smart-insights-dashboard .perf-icon,
+html body .smart-insights-dashboard .btn-icon {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Icon hover effects */
+html body .smart-insights-dashboard .badge-icon:hover,
+html body .smart-insights-dashboard .perf-icon:hover,
+html body .smart-insights-dashboard .btn-icon:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-1px) !important;
+    transition: all 0.2s ease;
+}
+
+/* Override any inline white background styles */
+html body .smart-insights-dashboard .dashboard-header *[style*="background"],
+html body .smart-insights-dashboard .dashboard-title[style*="background"],
+html body .smart-insights-dashboard .dashboard-meta *[style*="background"] {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
+/* Enhanced header layout */
+html body .smart-insights-dashboard .dashboard-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-element);
+    margin-bottom: var(--spacing-card);
+    position: relative;
+    z-index: 2;
+}
+
+/* Title icon pulse effect */
+html body .smart-insights-dashboard .dashboard-header .icon-pulse {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
+}
+
+/* Badge shimmer animation */
+html body .smart-insights-dashboard .badge-shimmer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    animation: badgeShimmer 2s infinite;
+}
+
+@keyframes badgeShimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Dark mode compatibility */
+[data-theme="dark"] .smart-insights-dashboard .dashboard-header {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Success Metrics:
+✅ White backgrounds eliminated
+✅ Text contrast improved
+✅ Interactive elements enhanced
+✅ Animation effects added
+✅ Dark mode compatibility
+✅ Maximum CSS specificity
+*/

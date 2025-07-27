@@ -1,24 +1,14 @@
 /* Smart Insights Dashboard Styles */
 /* Smart insights variables now consolidated in critical-fixes.css */
+@import url('smart-insights-header-fix-v2.css');
+/* Import header-specific fixes */
 
 /* Base Container - Use unified welcome section background */
 .smart-insights-dashboard {
-    /* Use unified welcome section background instead of white */
-    background:
-        /* Animated gradient waves */
-        linear-gradient(45deg, var(--welcome-bg-start) 0%, transparent 50%, var(--welcome-bg-start) 100%),
-        linear-gradient(-45deg, var(--welcome-bg-end) 0%, transparent 50%, var(--welcome-bg-end) 100%),
-        linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%),
-        /* Primary gradient base */
-        linear-gradient(135deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%),
-        /* Animated accent gradients */
-        radial-gradient(ellipse 1400px 1000px at 20% 20%, rgba(139, 92, 246, 0.6) 0%, transparent 50%),
-        radial-gradient(ellipse 1000px 1400px at 80% 80%, rgba(6, 182, 212, 0.5) 0%, transparent 50%),
-        radial-gradient(ellipse 800px 800px at 50% 50%, rgba(16, 185, 129, 0.4) 0%, transparent 70%),
-        radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
-        /* Enhanced texture overlay with animation */
-        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
-        repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px);
+    /* Simplified background for better contrast */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+    /* Add subtle dark overlay for better text contrast */
+    box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.2), inset 0 0 100px rgba(0, 0, 0, 0.1);
     border-radius: var(--radius-2xl);
     padding: var(--spacing-card);
     position: relative;
@@ -54,18 +44,11 @@
 
 /* Main Insight Card - Use unified background */
 .main-insight {
-    /* Use unified welcome section background instead of white */
-    background:
-        linear-gradient(45deg, var(--welcome-bg-start) 0%, transparent 50%, var(--welcome-bg-start) 100%),
-        linear-gradient(-45deg, var(--welcome-bg-end) 0%, transparent 50%, var(--welcome-bg-end) 100%),
-        linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.4) 25%, transparent 50%, rgba(6, 182, 212, 0.4) 75%, transparent 100%),
-        linear-gradient(135deg, var(--welcome-bg-start) 0%, var(--welcome-bg-end) 100%),
-        radial-gradient(ellipse 1400px 1000px at 20% 20%, rgba(139, 92, 246, 0.6) 0%, transparent 50%),
-        radial-gradient(ellipse 1000px 1400px at 80% 80%, rgba(6, 182, 212, 0.5) 0%, transparent 50%),
-        radial-gradient(ellipse 800px 800px at 50% 50%, rgba(16, 185, 129, 0.4) 0%, transparent 70%),
-        radial-gradient(ellipse 600px 600px at 10% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 60%),
-        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255, 255, 255, 0.08) 2px, rgba(255, 255, 255, 0.08) 4px),
-        repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(255, 255, 255, 0.04) 4px, rgba(255, 255, 255, 0.04) 8px);
+    /* Simplified background with better contrast */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+    position: relative;
+    z-index: 2;
+    /* Ensure content stays above background effects */
     border-radius: var(--radius-xl);
     padding: var(--spacing-card);
     border: var(--border-base);
