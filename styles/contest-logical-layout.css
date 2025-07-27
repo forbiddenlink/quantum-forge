@@ -1,0 +1,264 @@
+/* Contest Layout Optimization - Better Component Proportions */
+/* Fixes "too long and narrow" component sizing issues */
+/* Contest Fix: Improves logical layout flow and component sizing */
+
+/* ===== CONTEST-CRITICAL LAYOUT IMPROVEMENTS ===== */
+
+/* Better dashboard grid for optimal component proportions */
+@media (min-width: 1200px) {
+    .dashboard-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        /* Give more space to all components */
+        gap: 32px !important;
+        padding: 32px !important;
+        max-width: 1800px !important;
+        margin: 0 auto !important;
+    }
+
+    .dashboard-row {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        /* Equal wide columns for all components */
+        gap: 32px !important;
+        align-items: stretch !important;
+    }
+
+    /* Three column layout for smaller components */
+    .dashboard-row.three-col {
+        grid-template-columns: 1fr 1fr 1fr !important;
+    }
+
+    /* Responsive content areas */
+    .dashboard-row.content-heavy {
+        grid-template-columns: 2fr 2fr !important;
+        /* More space for content-heavy sections */
+    }
+}
+
+/* Tablet optimizations - prevent narrow columns */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 20px !important;
+    }
+
+    .dashboard-row {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        /* Single column on tablets */
+        gap: 20px !important;
+    }
+
+    /* Stack components vertically to avoid narrow layouts */
+    .dashboard-item {
+        width: 100% !important;
+        min-height: auto !important;
+    }
+}
+
+/* Mobile - Always single column */
+@media (max-width: 767px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+        padding: 15px !important;
+    }
+
+    .dashboard-row {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+}
+
+/* ===== COMPONENT SIZING IMPROVEMENTS ===== */
+
+/* Welcome section - Optimal proportions */
+
+.dashboard-item.full-width {
+    grid-column: 1 / -1 !important;
+    min-height: 600px !important;
+    /* More space for full-width components */
+    max-height: none !important;
+}
+
+/* Standard components - Better aspect ratios */
+
+.dashboard-item {
+    min-height: 500px !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 32px !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+/* Sidebar components - Optimal width */
+
+.dashboard-item.sidebar-item {
+    min-width: 350px !important;
+    max-width: 600px !important;
+}
+
+/* ===== LOGICAL LAYOUT FLOW IMPROVEMENTS ===== */
+
+/* Ensure proper content hierarchy */
+.welcome-section {
+    margin-bottom: 0 !important;
+    /* Let grid handle spacing */
+}
+
+/* Better spacing between sections */
+.section-divider {
+    height: 2px !important;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent) !important;
+    margin: 30px 0 !important;
+    border: none !important;
+}
+
+/* Improved visual hierarchy */
+.dashboard-item h2,
+.dashboard-item h3 {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important;
+    /* Responsive headings */
+}
+
+/* Better content flow within components */
+.dashboard-item>* {
+    margin-bottom: 15px !important;
+}
+
+.dashboard-item>*:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* ===== WHITE SPACE CONSISTENCY ===== */
+
+/* Remove extra white space around components */
+.dashboard-item .widget-content,
+.dashboard-item .component-content,
+.dashboard-item .section-content {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Consistent internal spacing */
+.dashboard-item .card,
+.dashboard-item .panel,
+.dashboard-item .box {
+    margin: 0 0 20px 0 !important;
+    padding: 15px !important;
+}
+
+/* ===== CONTEST-SPECIFIC ENHANCEMENTS ===== */
+
+/* Visual cohesion improvements */
+.dashboard-item {
+    background: var(--bg-widget) !important;
+    border: 1px solid var(--border-color) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+}
+
+.dashboard-item:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border-color: var(--primary-200) !important;
+}
+
+/* Unified component headers */
+.dashboard-item .widget-header,
+.dashboard-item .component-header,
+.dashboard-item .section-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 15px !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Enhanced readability */
+.dashboard-item p,
+.dashboard-item span,
+.dashboard-item div {
+    line-height: 1.6 !important;
+    color: var(--text-primary) !important;
+    font-size: clamp(0.875rem, 1.5vw, 1rem) !important;
+    /* Responsive text */
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+
+/* Better focus indicators for contest compliance */
+.dashboard-item:focus-within {
+    outline: 3px solid var(--primary-400) !important;
+    outline-offset: 2px !important;
+}
+
+/* Enhanced keyboard navigation */
+.dashboard-item [tabindex] {
+    border-radius: var(--radius-md) !important;
+    transition: all var(--duration-fast) var(--ease-in-out) !important;
+}
+
+.dashboard-item [tabindex]:focus {
+    outline: 2px solid var(--primary-500) !important;
+    outline-offset: 1px !important;
+    background: var(--primary-50) !important;
+}
+
+/* ===== RESPONSIVE CONTENT SIZING ===== */
+
+/* Prevent content overflow in narrow layouts */
+.dashboard-item img,
+.dashboard-item svg,
+.dashboard-item canvas {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Flexible content containers */
+.dashboard-item .flex-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 15px !important;
+    align-items: flex-start !important;
+}
+
+/* Grid content improvements */
+.dashboard-item .grid-container {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 15px !important;
+    align-items: start !important;
+}
+
+/* ===== CONTEST DEADLINE CRITICAL FIXES ===== */
+
+/* Ensure all components are properly sized and proportioned */
+@media (min-width: 1024px) {
+
+    /* Primary content should be prominent */
+    .dashboard-row .dashboard-item:first-child {
+        min-width: 60% !important;
+    }
+
+    /* Secondary content should complement */
+    .dashboard-row .dashboard-item:last-child {
+        min-width: 35% !important;
+    }
+}
+
+/* Final polish for contest submission */
+.dashboard-grid {
+    contain: layout style !important;
+    will-change: contents !important;
+}
+
+.dashboard-item {
+    contain: layout style !important;
+    isolation: isolate !important;
+}

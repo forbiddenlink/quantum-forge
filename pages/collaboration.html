@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaboration Hub - Quantum Forge</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../styles/imports.css">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <meta name="description" content="Collaboration Hub - Connect, share, and work together seamlessly">
+    <meta name="theme-color" content="#4f46e5">
+</head>
+<body data-page="collaboration">
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Live region for dynamic announcements -->
+    <div aria-live="polite" aria-atomic="true" class="live-region" id="announcements"></div>
+
+    <div class="dashboard" role="application">
+        <!-- Header will be injected here -->
+        <app-header></app-header>
+
+        <div class="main-container">
+            <!-- Enhanced Sidebar -->
+            <app-sidebar></app-sidebar>
+
+            <!-- Main Content -->
+            <main id="main-content" class="main-content" role="main" aria-label="Collaboration Hub">
+                <div class="page-header">
+                    <div class="page-title-section">
+                        <div class="page-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h1 class="page-title">Collaboration Hub</h1>
+                            <p class="page-description">Connect, share, and work together seamlessly</p>
+                        </div>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn secondary" id="refreshBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 4 23 10 17 10"></polyline>
+                                <polyline points="1 20 1 14 7 14"></polyline>
+                                <path d="m3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                            </svg>
+                            Refresh
+                        </button>
+                        <button class="btn primary" id="newCollabBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"></path>
+                            </svg>
+                            New Collaboration
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Collaboration Hub Content -->
+                <div class="collaboration-grid">
+                    <!-- Active Collaborations -->
+                    <div class="dashboard-item">
+                        <collaboration-hub></collaboration-hub>
+                    </div>
+
+                    <!-- Team Chat Widget -->
+                    <div class="dashboard-item">
+                        <team-chat-widget></team-chat-widget>
+                    </div>
+
+                    <!-- Shared Workspaces -->
+                    <div class="dashboard-item">
+                        <div class="widget-header">
+                            <h2 class="widget-title">Shared Workspaces</h2>
+                            <button class="btn-icon" aria-label="Manage workspaces">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="12" cy="12" r="8"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="workspaces-list">
+                            <div class="workspace-item">
+                                <div class="workspace-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                        <polyline points="2 17 12 22 22 17"></polyline>
+                                        <polyline points="2 12 12 17 22 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="workspace-details">
+                                    <h3>Project Alpha</h3>
+                                    <p>8 members • Last updated 2h ago</p>
+                                </div>
+                                <button class="btn secondary btn-sm">Join</button>
+                            </div>
+                            <div class="workspace-item">
+                                <div class="workspace-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <circle cx="12" cy="12" r="4"></circle>
+                                        <line x1="12" y1="2" x2="12" y2="6"></line>
+                                        <line x1="12" y1="18" x2="12" y2="22"></line>
+                                    </svg>
+                                </div>
+                                <div class="workspace-details">
+                                    <h3>Design Sprint</h3>
+                                    <p>12 members • Active now</p>
+                                </div>
+                                <button class="btn primary btn-sm">Join</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="dashboard-item">
+                        <live-activity-feed></live-activity-feed>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/components/header.js"></script>
+    <script src="../js/components/sidebar.js"></script>
+    <script src="../js/components/collaboration-hub.js"></script>
+    <script src="../js/components/team-chat-widget.js"></script>
+    <script src="../js/components/live-activity-feed.js"></script>
+    <script src="../js/app.js"></script>
+
+    <script>
+        // Page-specific initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set active sidebar item
+            const sidebar = document.querySelector('app-sidebar');
+            if (sidebar && sidebar.setActivePage) {
+                sidebar.setActivePage('collaboration');
+            }
+
+            // Initialize page actions
+            setupPageActions();
+        });
+
+        function setupPageActions() {
+            const refreshBtn = document.getElementById('refreshBtn');
+            const newCollabBtn = document.getElementById('newCollabBtn');
+
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', function() {
+                    // Refresh collaboration data
+                    location.reload();
+                });
+            }
+
+            if (newCollabBtn) {
+                newCollabBtn.addEventListener('click', function() {
+                    // Open new collaboration modal
+                    console.log('Opening new collaboration modal...');
+                    // TODO: Implement collaboration creation modal
+                });
+            }
+        }
+    </script>
+</body>
+</html>

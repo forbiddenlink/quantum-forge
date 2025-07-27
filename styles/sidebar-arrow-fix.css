@@ -1,0 +1,67 @@
+/* Sidebar Arrow Fix - Pure CSS Arrow */
+
+/* DISABLE OLD ARROW IMPLEMENTATIONS */
+.collapse-btn::after {
+    display: none !important;
+    content: none !important;
+}
+
+body.sidebar-collapsed .collapse-btn::after {
+    display: none !important;
+    content: none !important;
+}
+
+[data-theme="dark"] .collapse-btn::after {
+    display: none !important;
+    content: none !important;
+}
+
+[data-theme="dark"] .collapse-btn:hover::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* NEW PURE CSS ARROW */
+.collapse-btn .arrow-icon {
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 8px solid currentColor;
+    display: inline-block;
+    transform: rotate(0deg);
+    transition: transform 0.2s ease;
+    margin-left: 2px;
+}
+
+/* Rotate arrow when sidebar is collapsed */
+.sidebar.collapsed .collapse-btn .arrow-icon {
+    transform: rotate(180deg);
+    margin-left: -2px;
+}
+
+/* Better button styling */
+.collapse-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.collapse-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .collapse-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.collapse-btn:active {
+    transform: scale(0.95);
+}

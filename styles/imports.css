@@ -14,6 +14,8 @@
 /* CSS variables and critical fixes */
 @import url('./critical.css');
 /* Critical above-the-fold styles */
+@import url('./comprehensive-background-fix.css');
+/* 🎯 COMPREHENSIVE WHITE BACKGROUND FIX - Contest Ready */
 
 /* ===== 2. CORE STYLES - Load Second ===== */
 @import url('./main.css');
@@ -99,6 +101,12 @@
 /* SVG icon styles */
 @import url('./svg-icon-replacements.css');
 /* SVG icon replacements */
+@import url('./welcome-section-icon-fix.css');
+/* Welcome section button icon fix - Contest critical */
+@import url('./contest-logical-layout.css');
+/* Contest layout optimization - Fix "too long and narrow" components */
+@import url('./sidebar-arrow-fix.css');
+/* Sidebar arrow fix - Clean CSS arrow */
 
 /* ===== 6. UNIFIED HOMEPAGE STYLING - CRITICAL: Load After All Components ===== */
 @import url('./unified-homepage-styling.css');

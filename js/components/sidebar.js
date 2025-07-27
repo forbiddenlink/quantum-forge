@@ -32,6 +32,7 @@ class Sidebar extends HTMLElement {
         this.loadUserPreferences();
         this.render();
         this.setupEventListeners();
+        this.setupThemeListener();
 
         console.log('✅ Sidebar component connected successfully');
 
@@ -132,9 +133,7 @@ class Sidebar extends HTMLElement {
             collapseBtn.className = 'collapse-btn';
             collapseBtn.setAttribute('aria-label', 'Toggle sidebar');
             collapseBtn.innerHTML = `
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
+                <span class="arrow-icon"></span>
             `;
 
             header.appendChild(collapseBtn);
@@ -161,9 +160,7 @@ class Sidebar extends HTMLElement {
             <nav class="sidebar ${this.collapsed ? 'collapsed' : ''}" role="navigation" aria-label="Main navigation">
                 <div class="sidebar-header">
                     <button class="collapse-btn" aria-label="${this.collapsed ? 'Expand' : 'Collapse'} sidebar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M15 18l-6-6 6-6"></path>
-                        </svg>
+                        <span class="arrow-icon"></span>
                     </button>
                 </div>
 
@@ -475,14 +472,138 @@ class Sidebar extends HTMLElement {
             </nav>
         `;
 
-        // 🔧 FORCE LIGHT MODE STYLES IMMEDIATELY AFTER RENDER
+        // 🎨 APPLY THEME-AWARE STYLES IMMEDIATELY AFTER RENDER
         setTimeout(() => {
-            this.forceLightModeStyles();
+            this.applyThemeStyles();
         }, 0);
     }
 
+    applyThemeStyles() {
+        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+        console.log('🎨 Applying theme styles to sidebar. Dark mode:', isDarkMode);
+
+        if (isDarkMode) {
+            this.applyDarkModeStyles();
+        } else {
+            this.applyLightModeStyles();
+        }
+    }
+
+    applyLightModeStyles() {
+        console.log('☀️ Applying light mode styles to sidebar');
+
+        const sidebar = this.querySelector('.sidebar');
+        const sidebarHeader = this.querySelector('.sidebar-header');
+        const navSections = this.querySelector('.nav-sections');
+        const collapseBtn = this.querySelector('.collapse-btn');
+        const helpButton = this.querySelector('.help-button');
+        const navLinks = this.querySelectorAll('.nav-link');
+
+        if (sidebar) {
+            sidebar.style.cssText = `
+                background: #ffffff !important;
+                background-color: #ffffff !important;
+                background-image: none !important;
+                border-right: 1px solid #e2e8f0 !important;
+                color: #475569 !important;
+            `;
+        }
+
+        if (sidebarHeader) {
+            sidebarHeader.style.cssText = `
+                background: #ffffff !important;
+                background-color: #ffffff !important;
+                background-image: none !important;
+                border-bottom: 1px solid #e2e8f0 !important;
+                color: #1e293b !important;
+            `;
+        }
+
+        if (navSections) {
+            navSections.style.cssText = `
+                background: #ffffff !important;
+                background-color: #ffffff !important;
+                background-image: none !important;
+            `;
+        }
+
+        if (collapseBtn) {
+            collapseBtn.style.cssText = `
+                background: #ffffff !important;
+                background-color: #ffffff !important;
+                background-image: none !important;
+                color: #475569 !important;
+                border: 1px solid #e2e8f0 !important;
+            `;
+        }
+
+        navLinks.forEach(link => {
+            link.style.cssText = `
+                color: #475569 !important;
+                background: transparent !important;
+            `;
+        });
+    }
+
+    applyDarkModeStyles() {
+        console.log('🌙 Applying dark mode styles to sidebar');
+
+        const sidebar = this.querySelector('.sidebar');
+        const sidebarHeader = this.querySelector('.sidebar-header');
+        const navSections = this.querySelector('.nav-sections');
+        const collapseBtn = this.querySelector('.collapse-btn');
+        const helpButton = this.querySelector('.help-button');
+        const navLinks = this.querySelectorAll('.nav-link');
+
+        if (sidebar) {
+            sidebar.style.cssText = `
+                background: #1e293b !important;
+                background-color: #1e293b !important;
+                background-image: none !important;
+                border-right: 1px solid #334155 !important;
+                color: #e2e8f0 !important;
+            `;
+        }
+
+        if (sidebarHeader) {
+            sidebarHeader.style.cssText = `
+                background: #1e293b !important;
+                background-color: #1e293b !important;
+                background-image: none !important;
+                border-bottom: 1px solid #334155 !important;
+                color: #f1f5f9 !important;
+            `;
+        }
+
+        if (navSections) {
+            navSections.style.cssText = `
+                background: #1e293b !important;
+                background-color: #1e293b !important;
+                background-image: none !important;
+            `;
+        }
+
+        if (collapseBtn) {
+            collapseBtn.style.cssText = `
+                background: #334155 !important;
+                background-color: #334155 !important;
+                background-image: none !important;
+                color: #e2e8f0 !important;
+                border: 1px solid #475569 !important;
+            `;
+        }
+
+        navLinks.forEach(link => {
+            link.style.cssText = `
+                color: #e2e8f0 !important;
+                background: transparent !important;
+            `;
+        });
+    }
+
     forceLightModeStyles() {
-        console.log('🔧 Forcing light mode styles on sidebar component');
+        // Deprecated - use applyThemeStyles instead
+        this.applyLightModeStyles();
 
         const sidebar = this.querySelector('.sidebar');
         const sidebarHeader = this.querySelector('.sidebar-header');
@@ -759,6 +880,35 @@ class Sidebar extends HTMLElement {
 
         // Store current page in localStorage for persistence
         localStorage.setItem('currentPage', page);
+    }
+
+    setupThemeListener() {
+        console.log('🎨 Setting up theme change listener for sidebar');
+        
+        // Listen for theme changes
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'data-theme') {
+                    console.log('🎨 Theme changed, updating sidebar styles');
+                    this.applyThemeStyles();
+                }
+            });
+        });
+
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['data-theme']
+        });
+
+        // Store observer for cleanup
+        this.themeObserver = observer;
+    }
+
+    disconnectedCallback() {
+        // Cleanup theme observer
+        if (this.themeObserver) {
+            this.themeObserver.disconnect();
+        }
     }
 }
 

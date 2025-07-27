@@ -1,0 +1,78 @@
+/* Welcome Section Button Icon Fix */
+/* Fixes missing icons in welcome section quick action buttons */
+/* Contest Fix: Ensures all buttons are properly visible with icons */
+
+/* Override conflicting team.css styles for welcome section buttons */
+.welcome-section .btn-icon {
+    background: transparent !important;
+    color: currentColor !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-right: 8px !important;
+    vertical-align: middle !important;
+    flex-shrink: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 8px 0 0 !important;
+}
+
+/* Ensure SVG icons are properly sized and visible */
+.welcome-section .btn-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Specific fixes for welcome section button structure */
+.welcome-section .quick-actions .btn {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    position: relative !important;
+}
+
+/* Ensure proper icon visibility in both light and dark themes */
+.welcome-section .quick-actions .btn .btn-icon {
+    flex-shrink: 0 !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+.welcome-section .quick-actions .btn:hover .btn-icon {
+    opacity: 1 !important;
+    background: transparent !important;
+}
+
+/* Additional fallback for any hidden icons */
+.welcome-section svg {
+    visibility: visible !important;
+    display: inline-block !important;
+    opacity: 1 !important;
+}
+
+/* Override any potential display:none rules */
+.welcome-section .btn-icon[style*="display: none"] {
+    display: inline-flex !important;
+}
+
+.welcome-section .btn-icon svg[style*="display: none"] {
+    display: block !important;
+}
+
+/* Force visibility even if JavaScript hasn't run yet */
+.welcome-section .quick-actions button .btn-icon,
+.welcome-section .quick-actions a .btn-icon {
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: inline-flex !important;
+}

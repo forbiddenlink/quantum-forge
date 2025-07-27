@@ -5,7 +5,7 @@ class Header extends HTMLElement {
         this.userMenuOpen = false;
         this.notificationsOpen = false;
         this.colorPickerOpen = false;
-        this.currentColor = localStorage.getItem('userColor') || '#6366f1';
+        this.currentColor = localStorage.getItem('userColor') || '#4f46e5';
         this.notificationInterval = null;
         this.unreadCount = 0;
 
@@ -255,49 +255,354 @@ class Header extends HTMLElement {
                         </button>
                         
                         ${this.colorPickerOpen ? `
-                            <div class="color-picker-dropdown" role="dialog" aria-label="Color picker">
+                            <div class="color-picker-dropdown" role="dialog" aria-label="Color picker" style="
+                                min-width: 460px !important; 
+                                max-width: 480px !important; 
+                                width: 460px !important;
+                                padding: 20px !important;
+                                right: -20px !important;
+                            ">
                                 <div class="color-picker-header">
-                                    <h3>🎨 Theme Colors</h3>
+                                    <div>
+                                        <h3 style="margin: 0; font-size: 16px; font-weight: 700; background: linear-gradient(135deg, var(--primary-500, #4f46e5) 0%, var(--primary-600, #4338ca) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                                            🎨 Theme Palette
+                                        </h3>
+                                        <p style="margin: 4px 0 0 0; font-size: 12px; opacity: 0.7;">Choose your perfect color theme</p>
+                                    </div>
                                     <button class="close-color-picker" aria-label="Close color picker">×</button>
                                 </div>
                                 <div class="color-options">
                                     <div class="preset-colors">
-                                        <p>Choose a color:</p>
-                                        <div class="color-grid">
-                                            <button class="color-option" data-color="#6366f1" title="Indigo" style="background: #6366f1;">
-                                                <span class="color-check" style="display: ${this.currentColor === '#6366f1' ? 'block' : 'none'};">✓</span>
-                                            </button>
-                                            <button class="color-option" data-color="#3b82f6" title="Blue" style="background: #3b82f6;">
-                                                <span class="color-check" style="display: ${this.currentColor === '#3b82f6' ? 'block' : 'none'};">✓</span>
-                                            </button>
-                                            <button class="color-option" data-color="#10b981" title="Emerald" style="background: #10b981;">
-                                                <span class="color-check" style="display: ${this.currentColor === '#10b981' ? 'block' : 'none'};">✓</span>
-                                            </button>
-                                            <button class="color-option" data-color="#f59e0b" title="Amber" style="background: #f59e0b;">
-                                                <span class="color-check" style="display: ${this.currentColor === '#f59e0b' ? 'block' : 'none'};">✓</span>
-                                            </button>
-                                            <button class="color-option" data-color="#ef4444" title="Red" style="background: #ef4444;">
-                                                <span class="color-check" style="display: ${this.currentColor === '#ef4444' ? 'block' : 'none'};">✓</span>
-                                            </button>
-                                            <button class="color-option" data-color="#8b5cf6" title="Violet" style="background: #8b5cf6;">
-                                                <span class="color-check" style="display: ${this.currentColor === '#8b5cf6' ? 'block' : 'none'};">✓</span>
-                                            </button>
-                                            <button class="color-option" data-color="#06b6d4" title="Cyan" style="background: #06b6d4;">
-                                                <span class="color-check" style="display: ${this.currentColor === '#06b6d4' ? 'block' : 'none'};">✓</span>
-                                            </button>
-                                            <button class="color-option" data-color="#84cc16" title="Lime" style="background: #84cc16;">
-                                                <span class="color-check" style="display: ${this.currentColor === '#84cc16' ? 'block' : 'none'};">✓</span>
-                                            </button>
+                                        <div class="color-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px;">
+                                            <div class="color-option-card" data-color="#4f46e5" style="
+                                                position: relative;
+                                                background: linear-gradient(135deg, #4f46e515 0%, #4f46e505 100%);
+                                                border: 2px solid #4f46e520;
+                                                border-radius: 12px;
+                                                padding: 12px 8px;
+                                                cursor: pointer;
+                                                transition: all 0.3s ease;
+                                                text-align: center;
+                                            ">
+                                                <div style="
+                                                    width: 24px;
+                                                    height: 24px;
+                                                    background: linear-gradient(135deg, #4f46e5 0%, #4f46e5dd 100%);
+                                                    border-radius: 8px;
+                                                    margin: 0 auto 6px auto;
+                                                    box-shadow: 0 3px 8px #4f46e540;
+                                                "></div>
+                                                <div style="font-size: 11px; font-weight: 600; color: #4f46e5;">Indigo</div>
+                                                <div class="selection-indicator" style="
+                                                    position: absolute;
+                                                    top: 6px;
+                                                    right: 6px;
+                                                    width: 14px;
+                                                    height: 14px;
+                                                    background: #4f46e5;
+                                                    border-radius: 50%;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    font-size: 8px;
+                                                    color: white;
+                                                    font-weight: bold;
+                                                    opacity: ${this.currentColor === '#4f46e5' ? '1' : '0'};
+                                                    transform: scale(${this.currentColor === '#4f46e5' ? '1' : '0'});
+                                                    transition: all 0.2s ease;
+                                                ">✓</div>
+                                            </div>
+                                            <div class="color-option-card" data-color="#2563eb" style="
+                                                position: relative;
+                                                background: linear-gradient(135deg, #2563eb15 0%, #2563eb05 100%);
+                                                border: 2px solid #2563eb20;
+                                                border-radius: 12px;
+                                                padding: 12px 8px;
+                                                cursor: pointer;
+                                                transition: all 0.3s ease;
+                                                text-align: center;
+                                            ">
+                                                <div style="
+                                                    width: 24px;
+                                                    height: 24px;
+                                                    background: linear-gradient(135deg, #2563eb 0%, #2563ebdd 100%);
+                                                    border-radius: 8px;
+                                                    margin: 0 auto 6px auto;
+                                                    box-shadow: 0 3px 8px #2563eb40;
+                                                "></div>
+                                                <div style="font-size: 11px; font-weight: 600; color: #2563eb;">Blue</div>
+                                                <div class="selection-indicator" style="
+                                                    position: absolute;
+                                                    top: 6px;
+                                                    right: 6px;
+                                                    width: 14px;
+                                                    height: 14px;
+                                                    background: #2563eb;
+                                                    border-radius: 50%;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    font-size: 8px;
+                                                    color: white;
+                                                    font-weight: bold;
+                                                    opacity: ${this.currentColor === '#2563eb' ? '1' : '0'};
+                                                    transform: scale(${this.currentColor === '#2563eb' ? '1' : '0'});
+                                                    transition: all 0.2s ease;
+                                                ">✓</div>
+                                            </div>
+                                            <div class="color-option-card" data-color="#059669" style="
+                                                position: relative;
+                                                background: linear-gradient(135deg, #05966915 0%, #05966905 100%);
+                                                border: 2px solid #05966920;
+                                                border-radius: 12px;
+                                                padding: 12px 8px;
+                                                cursor: pointer;
+                                                transition: all 0.3s ease;
+                                                text-align: center;
+                                            ">
+                                                <div style="
+                                                    width: 24px;
+                                                    height: 24px;
+                                                    background: linear-gradient(135deg, #059669 0%, #059669dd 100%);
+                                                    border-radius: 8px;
+                                                    margin: 0 auto 6px auto;
+                                                    box-shadow: 0 3px 8px #05966940;
+                                                "></div>
+                                                <div style="font-size: 11px; font-weight: 600; color: #059669;">Emerald</div>
+                                                <div class="selection-indicator" style="
+                                                    position: absolute;
+                                                    top: 6px;
+                                                    right: 6px;
+                                                    width: 14px;
+                                                    height: 14px;
+                                                    background: #059669;
+                                                    border-radius: 50%;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    font-size: 8px;
+                                                    color: white;
+                                                    font-weight: bold;
+                                                    opacity: ${this.currentColor === '#059669' ? '1' : '0'};
+                                                    transform: scale(${this.currentColor === '#059669' ? '1' : '0'});
+                                                    transition: all 0.2s ease;
+                                                ">✓</div>
+                                            </div>
+                                            <div class="color-option-card" data-color="#d97706" style="
+                                                position: relative;
+                                                background: linear-gradient(135deg, #d9770615 0%, #d9770605 100%);
+                                                border: 2px solid #d9770620;
+                                                border-radius: 12px;
+                                                padding: 12px 8px;
+                                                cursor: pointer;
+                                                transition: all 0.3s ease;
+                                                text-align: center;
+                                            ">
+                                                <div style="
+                                                    width: 24px;
+                                                    height: 24px;
+                                                    background: linear-gradient(135deg, #d97706 0%, #d97706dd 100%);
+                                                    border-radius: 8px;
+                                                    margin: 0 auto 6px auto;
+                                                    box-shadow: 0 3px 8px #d9770640;
+                                                "></div>
+                                                <div style="font-size: 11px; font-weight: 600; color: #d97706;">Amber</div>
+                                                <div class="selection-indicator" style="
+                                                    position: absolute;
+                                                    top: 6px;
+                                                    right: 6px;
+                                                    width: 14px;
+                                                    height: 14px;
+                                                    background: #d97706;
+                                                    border-radius: 50%;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    font-size: 8px;
+                                                    color: white;
+                                                    font-weight: bold;
+                                                    opacity: ${this.currentColor === '#d97706' ? '1' : '0'};
+                                                    transform: scale(${this.currentColor === '#d97706' ? '1' : '0'});
+                                                    transition: all 0.2s ease;
+                                                ">✓</div>
+                                            </div>
+                                            <div class="color-option-card" data-color="#dc2626" style="
+                                                position: relative;
+                                                background: linear-gradient(135deg, #dc262615 0%, #dc262605 100%);
+                                                border: 2px solid #dc262620;
+                                                border-radius: 12px;
+                                                padding: 12px 8px;
+                                                cursor: pointer;
+                                                transition: all 0.3s ease;
+                                                text-align: center;
+                                            ">
+                                                <div style="
+                                                    width: 24px;
+                                                    height: 24px;
+                                                    background: linear-gradient(135deg, #dc2626 0%, #dc2626dd 100%);
+                                                    border-radius: 8px;
+                                                    margin: 0 auto 6px auto;
+                                                    box-shadow: 0 3px 8px #dc262640;
+                                                "></div>
+                                                <div style="font-size: 11px; font-weight: 600; color: #dc2626;">Red</div>
+                                                <div class="selection-indicator" style="
+                                                    position: absolute;
+                                                    top: 6px;
+                                                    right: 6px;
+                                                    width: 14px;
+                                                    height: 14px;
+                                                    background: #dc2626;
+                                                    border-radius: 50%;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    font-size: 8px;
+                                                    color: white;
+                                                    font-weight: bold;
+                                                    opacity: ${this.currentColor === '#dc2626' ? '1' : '0'};
+                                                    transform: scale(${this.currentColor === '#dc2626' ? '1' : '0'});
+                                                    transition: all 0.2s ease;
+                                                ">✓</div>
+                                            </div>
+                                            <div class="color-option-card" data-color="#7c3aed" style="
+                                                position: relative;
+                                                background: linear-gradient(135deg, #7c3aed15 0%, #7c3aed05 100%);
+                                                border: 2px solid #7c3aed20;
+                                                border-radius: 12px;
+                                                padding: 12px 8px;
+                                                cursor: pointer;
+                                                transition: all 0.3s ease;
+                                                text-align: center;
+                                            ">
+                                                <div style="
+                                                    width: 24px;
+                                                    height: 24px;
+                                                    background: linear-gradient(135deg, #7c3aed 0%, #7c3aeddd 100%);
+                                                    border-radius: 8px;
+                                                    margin: 0 auto 6px auto;
+                                                    box-shadow: 0 3px 8px #7c3aed40;
+                                                "></div>
+                                                <div style="font-size: 11px; font-weight: 600; color: #7c3aed;">Violet</div>
+                                                <div class="selection-indicator" style="
+                                                    position: absolute;
+                                                    top: 6px;
+                                                    right: 6px;
+                                                    width: 14px;
+                                                    height: 14px;
+                                                    background: #7c3aed;
+                                                    border-radius: 50%;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    font-size: 8px;
+                                                    color: white;
+                                                    font-weight: bold;
+                                                    opacity: ${this.currentColor === '#7c3aed' ? '1' : '0'};
+                                                    transform: scale(${this.currentColor === '#7c3aed' ? '1' : '0'});
+                                                    transition: all 0.2s ease;
+                                                ">✓</div>
+                                            </div>
+                                            <div class="color-option-card" data-color="#0891b2" style="
+                                                position: relative;
+                                                background: linear-gradient(135deg, #0891b215 0%, #0891b205 100%);
+                                                border: 2px solid #0891b220;
+                                                border-radius: 12px;
+                                                padding: 12px 8px;
+                                                cursor: pointer;
+                                                transition: all 0.3s ease;
+                                                text-align: center;
+                                            ">
+                                                <div style="
+                                                    width: 24px;
+                                                    height: 24px;
+                                                    background: linear-gradient(135deg, #0891b2 0%, #0891b2dd 100%);
+                                                    border-radius: 8px;
+                                                    margin: 0 auto 6px auto;
+                                                    box-shadow: 0 3px 8px #0891b240;
+                                                "></div>
+                                                <div style="font-size: 11px; font-weight: 600; color: #0891b2;">Cyan</div>
+                                                <div class="selection-indicator" style="
+                                                    position: absolute;
+                                                    top: 6px;
+                                                    right: 6px;
+                                                    width: 14px;
+                                                    height: 14px;
+                                                    background: #0891b2;
+                                                    border-radius: 50%;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    font-size: 8px;
+                                                    color: white;
+                                                    font-weight: bold;
+                                                    opacity: ${this.currentColor === '#0891b2' ? '1' : '0'};
+                                                    transform: scale(${this.currentColor === '#0891b2' ? '1' : '0'});
+                                                    transition: all 0.2s ease;
+                                                ">✓</div>
+                                            </div>
+                                            <div class="color-option-card" data-color="#65a30d" style="
+                                                position: relative;
+                                                background: linear-gradient(135deg, #65a30d15 0%, #65a30d05 100%);
+                                                border: 2px solid #65a30d20;
+                                                border-radius: 12px;
+                                                padding: 12px 8px;
+                                                cursor: pointer;
+                                                transition: all 0.3s ease;
+                                                text-align: center;
+                                            ">
+                                                <div style="
+                                                    width: 24px;
+                                                    height: 24px;
+                                                    background: linear-gradient(135deg, #65a30d 0%, #65a30ddd 100%);
+                                                    border-radius: 8px;
+                                                    margin: 0 auto 6px auto;
+                                                    box-shadow: 0 3px 8px #65a30d40;
+                                                "></div>
+                                                <div style="font-size: 11px; font-weight: 600; color: #65a30d;">Lime</div>
+                                                <div class="selection-indicator" style="
+                                                    position: absolute;
+                                                    top: 6px;
+                                                    right: 6px;
+                                                    width: 14px;
+                                                    height: 14px;
+                                                    background: #65a30d;
+                                                    border-radius: 50%;
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    font-size: 8px;
+                                                    color: white;
+                                                    font-weight: bold;
+                                                    opacity: ${this.currentColor === '#65a30d' ? '1' : '0'};
+                                                    transform: scale(${this.currentColor === '#65a30d' ? '1' : '0'});
+                                                    transition: all 0.2s ease;
+                                                ">✓</div>
+                                            </div>
                                         </div>
                                     </div>
                                     
-                                    <div class="custom-color">
-                                        <label>Custom Color:</label>
-                                        <input type="color" value="${this.currentColor}" id="customColorInput">
+                                    <div class="custom-color" style="margin-bottom: 16px;">
+                                        <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px; opacity: 0.8;">Custom Color</div>
+                                        <input type="color" value="${this.currentColor}" id="customColorInput" style="
+                                            width: 100%;
+                                            height: 40px;
+                                            border: 2px solid rgba(0, 0, 0, 0.1);
+                                            border-radius: 8px;
+                                            cursor: pointer;
+                                            background: rgba(0, 0, 0, 0.02);
+                                            transition: all 0.2s ease;
+                                        ">
                                     </div>
                                     
-                                    <div class="color-info">
-                                        ✨ Changes apply instantly
+                                    <div class="color-info" style="
+                                        font-size: 12px;
+                                        text-align: center;
+                                        padding: 8px;
+                                        background: rgba(0, 0, 0, 0.02);
+                                        border-radius: 6px;
+                                        opacity: 0.7;
+                                    ">
+                                        ✨ Changes apply instantly across the entire interface
                                     </div>
                                 </div>
                             </div>
@@ -581,12 +886,40 @@ class Header extends HTMLElement {
             });
         }
 
-        // Color option buttons
-        this.querySelectorAll('.color-option').forEach(btn => {
-            btn.addEventListener('click', (e) => {
+        // Color option cards with enhanced interactions
+        this.querySelectorAll('.color-option-card').forEach(card => {
+            const color = card.dataset.color;
+            
+            // Add hover effects
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px) scale(1.05)';
+                card.style.borderColor = color + '60';
+                card.style.boxShadow = `0 6px 20px ${color}25`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+                card.style.borderColor = color + '20';
+                card.style.boxShadow = 'none';
+            });
+            
+            card.addEventListener('click', (e) => {
                 e.stopPropagation();
-                const color = btn.dataset.color;
+                
+                // Visual feedback
+                card.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    card.style.transform = 'translateY(-2px) scale(1.05)';
+                }, 150);
+                
+                console.log('🎨 Color selected:', color);
                 this.applyColor(color);
+                
+                // Close color picker after selection
+                setTimeout(() => {
+                    this.colorPickerOpen = false;
+                    this.render();
+                }, 600);
             });
         });
 
@@ -597,13 +930,9 @@ class Header extends HTMLElement {
         console.log('🎨 Header applying color:', color);
         this.currentColor = color;
 
-        // Update active state for color options
-        this.querySelectorAll('.color-option').forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.dataset.color === color) {
-                btn.classList.add('active');
-            }
-        });
+        // Update active state for color option cards by re-rendering
+        // This ensures the selection indicators are properly updated
+        this.render();
 
         const root = document.documentElement;
 
