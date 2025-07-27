@@ -1796,7 +1796,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         grid-template-columns: 1fr;
     }
 
-/* Reduce particle count on mobile */
+    /* Reduce particle count on mobile */
     .task-particle:nth-child(n+9) {
         display: none;
     }
@@ -2350,7 +2350,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         align-items: center;
     }
 
-/* Restore some effects */
+    /* Restore some effects */
     .task-constellation {
         display: block;
     }
@@ -2384,7 +2384,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         gap: var(--space-4);
     }
 
-/* More visual effects */
+    /* More visual effects */
     .task-wave-distortion {
         display: block;
     }
@@ -2416,7 +2416,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
 
-/* Restore most effects */
+    /* Restore most effects */
     .task-energy-rings {
         display: block;
     }
@@ -2444,7 +2444,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
 
-/* Restore holographic effects */
+    /* Restore holographic effects */
     .task-holographic-overlay {
         display: block;
     }
