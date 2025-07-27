@@ -1720,7 +1720,7 @@ office-visualizer {
 /* Dark theme enhancements */
 [data-theme="dark"] .quick-access-link:hover {
     background: var(--bg-hover-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .update-card.featured {
@@ -9336,7 +9336,7 @@ app-header {
     /* Dark theme enhancements */
     [data-theme="dark"] .quick-access-link:hover {
         background: var(--bg-hover-dark);
-        border-color: var(--border-color-dark);
+        border-color: var(--border-color);
     }
 
     [data-theme="dark"] .update-card.featured {
@@ -15360,7 +15360,7 @@ to {
 /* Dark mode adjustments */
 [data-theme="dark"] .team-member {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .team-member:hover {
@@ -15379,7 +15379,7 @@ to {
 
 [data-theme="dark"] .contact-link {
     background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
     color: var(--text-secondary-dark);
 }
 
@@ -15390,12 +15390,12 @@ to {
 
 [data-theme="dark"] .skills-matrix {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .matrix-header {
     background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .matrix-row:hover {
@@ -16520,7 +16520,7 @@ to {
 [data-theme="dark"] .settings-section,
 [data-theme="dark"] .course-card {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .stat-card:hover,
@@ -16926,7 +16926,7 @@ to {
 /* Dark mode adjustments for new elements */
 [data-theme="dark"] .action-btn {
     background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
     color: var(--text-secondary-dark);
 }
 
@@ -16939,7 +16939,7 @@ to {
 [data-theme="dark"] .upload-section,
 [data-theme="dark"] .ticket-item {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .upload-section:hover {
@@ -16955,7 +16955,7 @@ to {
 
 [data-theme="dark"] .search-input {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
     color: var(--text-primary-dark);
 }
 
@@ -16965,7 +16965,7 @@ to {
 
 [data-theme="dark"] .info-item {
     background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 /* Enhanced Task System - AI Insights Visibility Fix */
@@ -18938,7 +18938,7 @@ office-visualizer {
 /* Dark theme enhancements */
 [data-theme="dark"] .quick-access-link:hover {
     background: var(--bg-hover-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .update-card.featured {
@@ -26372,7 +26372,7 @@ office-visualizer {
 /* Dark theme enhancements */
 [data-theme="dark"] .quick-access-link:hover {
     background: var(--bg-hover-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .update-card.featured {
@@ -32371,7 +32371,7 @@ app-header {
 /* Dark mode adjustments */
 [data-theme="dark"] .team-member {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .team-member:hover {
@@ -32390,7 +32390,7 @@ app-header {
 
 [data-theme="dark"] .contact-link {
     background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
     color: var(--text-secondary-dark);
 }
 
@@ -32401,12 +32401,12 @@ app-header {
 
 [data-theme="dark"] .skills-matrix {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .matrix-header {
     background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .matrix-row:hover {
@@ -33482,7 +33482,7 @@ app-header {
 [data-theme="dark"] .settings-section,
 [data-theme="dark"] .course-card {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .stat-card:hover,
@@ -33888,7 +33888,7 @@ app-header {
 /* Dark mode adjustments for new elements */
 [data-theme="dark"] .action-btn {
     background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
     color: var(--text-secondary-dark);
 }
 
@@ -33901,7 +33901,7 @@ app-header {
 [data-theme="dark"] .upload-section,
 [data-theme="dark"] .ticket-item {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .upload-section:hover {
@@ -33917,7 +33917,7 @@ app-header {
 
 [data-theme="dark"] .search-input {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
     color: var(--text-primary-dark);
 }
 
@@ -33927,7 +33927,7 @@ app-header {
 
 [data-theme="dark"] .info-item {
     background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 /* Enhanced Task System - AI Insights Visibility Fix */
@@ -35154,7 +35154,7 @@ app-header {
 [data-theme="dark"] .policy-card,
 [data-theme="dark"] .procedure-item {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .category-card:hover,
@@ -35183,7 +35183,7 @@ app-header {
 
 [data-theme="dark"] .resource-action {
     background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
     color: var(--text-secondary-dark);
 }
 
@@ -35548,7 +35548,7 @@ input:checked+.slider:before {
 [data-theme="dark"] .stat-item,
 [data-theme="dark"] .stat-card {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .task-card:hover,
@@ -35572,7 +35572,7 @@ input:checked+.slider:before {
 
 [data-theme="dark"] .form-select {
     background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
     color: var(--text-primary-dark);
 }
 
@@ -35779,7 +35779,7 @@ input:checked+.slider:before {
 [data-theme="dark"] .activity-item,
 [data-theme="dark"] .goal-item {
     background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .activity-item:hover,
@@ -35959,12 +35959,12 @@ input:checked+.slider:before {
 /* Dark mode adjustments for quick access section */
 [data-theme="dark"] .quick-access-section {
     background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .quick-access-link {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .quick-access-link:hover {
@@ -37087,24 +37087,24 @@ input:checked+.slider:before {
 /* Dark mode support */
 [data-theme="dark"] .smart-quick-access {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .recommendation-card,
 [data-theme="dark"] .frequently-used-item {
     background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .recommendation-card:hover,
 [data-theme="dark"] .frequently-used-item:hover {
     background: var(--bg-hover-dark);
-    border-color: var(--border-hover-dark);
+    border-color: var(--border-hover);
 }
 
 [data-theme="dark"] .recommendation-action {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
     color: var(--text-secondary-dark);
 }
 

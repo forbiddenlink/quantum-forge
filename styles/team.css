@@ -1,4 +1,4 @@
-﻿/* Enhanced Team Spotlight Component - Contest-Winning Design */
+/* Enhanced Team Spotlight Component - Contest-Winning Design */
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -1343,19 +1343,19 @@
 /* Dark Mode Adjustments */
 [data-theme="dark"] .enhanced-team-spotlight {
     background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .member-card,
 [data-theme="dark"] .details-section,
 [data-theme="dark"] .analytics-card {
     background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .control-btn {
     background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
     color: var(--text-secondary-dark);
 }
 

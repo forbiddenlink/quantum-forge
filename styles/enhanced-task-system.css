@@ -1,4 +1,4 @@
-﻿/* ðŸ† CONTEST-WINNING TASK MANAGEMENT SYSTEM - Spectacular Visual Design */
+/* ðŸ† CONTEST-WINNING TASK MANAGEMENT SYSTEM - Spectacular Visual Design */
 /* Task system variables now consolidated in critical-fixes.css */
 
 /* ðŸš€ SPECTACULAR TASK MANAGEMENT CONTAINER - MATCHING WELCOME & ANALYTICS SECTIONS */
@@ -926,6 +926,9 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     align-items: flex-start;
     gap: var(--space-3);
     margin-bottom: var(--space-3);
+    /* Force transparent background to prevent white backgrounds */
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
 .insight-icon {
@@ -1963,7 +1966,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
 }
 
-/* ðŸ’« SPECTACULAR FOCUS EFFECTS */
+/* ðŸ'« SPECTACULAR FOCUS EFFECTS */
 .enhanced-task-system:focus-within {
     outline: 3px solid rgba(99, 102, 241, 0.5);
     outline-offset: 4px;
@@ -2788,7 +2791,7 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
     }
 }
 
-/* ðŸ’¥ NUCLEAR OPTION - OVERRIDE ALL CONFLICTING STYLES FROM MAIN.CSS */
+/* ðŸ'¥ NUCLEAR OPTION - OVERRIDE ALL CONFLICTING STYLES FROM MAIN.CSS */
 body .enhanced-task-system .stat-card,
 body task-system .stat-card,
 html .enhanced-task-system .stat-card,
@@ -3251,7 +3254,7 @@ html body .dashboard-item task-system .percentage {
     font-weight: 700 !important;
 }
 
-/* ðŸ”¥ FINAL NUCLEAR OVERRIDE - ENSURE PERFECT CONSISTENCY WITH WELCOME/ANALYTICS SECTIONS */
+/* ðŸ"¥ FINAL NUCLEAR OVERRIDE - ENSURE PERFECT CONSISTENCY WITH WELCOME/ANALYTICS SECTIONS */
 
 /* Task Cards Matching Welcome Section */
 .dashboard-item .enhanced-task-system .enhanced-task-card,
@@ -3358,7 +3361,7 @@ body .dashboard-item task-system .section-icon-svg {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4)) !important;
 }
 
-/* ðŸ”¥ COMPREHENSIVE OVERRIDE - CATCH ALL REMAINING TEXT CONFLICTS */
+/* ðŸ"¥ COMPREHENSIVE OVERRIDE - CATCH ALL REMAINING TEXT CONFLICTS */
 
 /* Catch ALL possible text elements with maximum specificity */
 .dashboard-item .enhanced-task-system *,
@@ -3403,7 +3406,7 @@ body .dashboard-item task-system .subtitle {
     background-clip: unset !important;
 }
 
-/* ðŸ”§ COMPREHENSIVE FILTER BOX AND INPUT FIXES */
+/* ðŸ"§ COMPREHENSIVE FILTER BOX AND INPUT FIXES */
 
 /* Fix ALL search containers, inputs, and form elements */
 .dashboard-item .enhanced-task-system input,
@@ -3526,7 +3529,7 @@ body .dashboard-item task-system .chip-text {
     background-clip: unset !important;
 }
 
-/* ðŸ”§ SEARCH BOX ALIGNMENT AND ANIMATION FIXES */
+/* ðŸ"§ SEARCH BOX ALIGNMENT AND ANIMATION FIXES */
 
 /* Fix search container positioning and alignment */
 .dashboard-item .enhanced-task-system .search-and-filters,
@@ -3744,7 +3747,7 @@ body .dashboard-item task-system .task-controls * {
     will-change: auto !important;
 }
 
-/* ðŸ”’ FINAL STABILITY FIXES */
+/* ðŸ"’ FINAL STABILITY FIXES */
 
 /* Ensure stable positioning */
 .dashboard-item .enhanced-task-system .search-container,

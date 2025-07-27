@@ -1,4 +1,4 @@
-﻿/* Sidebar Styles */
+/* Sidebar Styles */
 .main-container {
     display: flex;
     width: 100%;
@@ -148,7 +148,7 @@ body.sidebar-collapsed .sidebar-header {
 
 /* Collapse button arrow - single consolidated definition */
 .collapse-btn::after {
-    content: 'â€¹';
+    content: '‹';
     position: absolute;
     font-size: 16px;
     font-weight: 900;
@@ -169,7 +169,7 @@ body.sidebar-collapsed .sidebar-header {
 }
 
 body.sidebar-collapsed .collapse-btn::after {
-    content: 'â€º';
+    content: '›';
 }
 
 body.sidebar-collapsed .collapse-btn {

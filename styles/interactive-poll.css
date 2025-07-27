@@ -216,12 +216,12 @@
 /* Dark theme adjustments */
 [data-theme="dark"] .interactive-poll {
     background: var(--bg-widget-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .poll-option {
     background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .poll-option.voted {
@@ -230,7 +230,7 @@
 }
 
 [data-theme="dark"] .vote-btn {
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
     color: var(--text-muted-dark);
 }
 

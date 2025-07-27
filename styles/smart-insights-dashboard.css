@@ -29,6 +29,15 @@
     transition: var(--transition-base);
 }
 
+/* Comprehensive fix for all insight-header elements to prevent white backgrounds */
+.smart-insights-dashboard .insight-header,
+.smart-insights-dashboard .insight-header *,
+.smart-insights-dashboard .insight-meta,
+.smart-insights-dashboard .insight-meta * {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
 /* Dashboard Header */
 .dashboard-header {
     display: flex;

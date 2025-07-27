@@ -454,12 +454,12 @@
 /* ===== DARK MODE SUPPORT ===== */
 [data-theme="dark"] .wellness-tracker {
     background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .mood-option {
     background: var(--bg-secondary-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .mood-option:hover {

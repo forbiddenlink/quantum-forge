@@ -1,4 +1,4 @@
-﻿/* Analytics Dashboard - Using Unified Theme */
+/* Analytics Dashboard - Using Unified Theme */
 
 .analytics-dashboard {
     background: var(--component-bg);
@@ -323,7 +323,7 @@
 
 /* Analytics animations using central definitions */
 
-/* âœ¨ FLOATING GEOMETRIC SHAPES FOR ANALYTICS */
+/* ✨ FLOATING GEOMETRIC SHAPES FOR ANALYTICS */
 .analytics-dashboard::before {
     content: '';
     position: absolute;
@@ -359,7 +359,7 @@
     filter: blur(0.8px);
 }
 
-/* ðŸŒŸ SPECTACULAR PARTICLE SYSTEM */
+/* 🌟 SPECTACULAR PARTICLE SYSTEM */
 .analytics-particles-system {
     position: absolute;
     top: 0;
@@ -383,7 +383,7 @@
 
 
 
-/* âœ¨ SPARKLE EFFECTS */
+/* ✨ SPARKLE EFFECTS */
 .analytics-sparkles {
     position: absolute;
     top: 0;
@@ -401,19 +401,19 @@
 
 
 
-/* ðŸŒŠ WAVE DISTORTION */
+/* 🌊 WAVE DISTORTION */
 
 
-/* ðŸ”® HOLOGRAPHIC SHIMMER */
+/* 🔮 HOLOGRAPHIC SHIMMER */
 
 
-/* ðŸŽ¯ ENERGY RINGS */
+/* 🎯 ENERGY RINGS */
 
 
-/* ðŸ“Š DATA VISUALIZATION EFFECTS */
+/* 📊 DATA VISUALIZATION EFFECTS */
 
 
-/* ðŸŽ­ MOUSE FOLLOWER */
+/* 🎭 MOUSE FOLLOWER */
 .analytics-mouse-follower:hover {
     opacity: 1 !important;
 }
@@ -1000,7 +1000,7 @@
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ðŸŽ¬ CRITICAL FIX: Ensure all AI insight cards are always visible */
+/* 🎬 CRITICAL FIX: Ensure all AI insight cards are always visible */
 .ai-insight-card {
     opacity: 1 !important;
     transform: translateY(0) !important;
@@ -1059,7 +1059,7 @@
     color: var(--error-200);
 }
 
-/* ðŸŽ¬ CRITICAL FIX: Ensure alert-type insight cards are always visible */
+/* 🎬 CRITICAL FIX: Ensure alert-type insight cards are always visible */
 .ai-insight-card.alert {
     opacity: 1 !important;
     transform: translateY(0) !important;
@@ -1553,7 +1553,7 @@
     height: 16px;
 }
 
-/* ðŸ† CONTEST-WINNING ANIMATION ENHANCEMENTS */
+/* 🏆 CONTEST-WINNING ANIMATION ENHANCEMENTS */
 
 /* spectacularEntrance animation removed - using master definition from animations.css to avoid duplication */
 
@@ -1563,7 +1563,7 @@
 
 /* cardSparkle animation removed - using master definition from animations.css to avoid duplication */
 
-/* â™¿ ACCESSIBILITY ENHANCEMENTS */
+/* ♿ ACCESSIBILITY ENHANCEMENTS */
 
 /* Skip links for analytics */
 .analytics-skip {
@@ -1666,7 +1666,7 @@
     }
 }
 
-/* ðŸ“± RESPONSIVE DESIGN & PERFORMANCE */
+/* 📱 RESPONSIVE DESIGN & PERFORMANCE */
 @media (max-width: 1024px) {
     .analytics-dashboard {
         padding: var(--space-6);
@@ -1819,7 +1819,7 @@
     perspective: 1000px;
 }
 
-/* ðŸŽ† ADDITIONAL SPECTACULAR ANIMATION KEYFRAMES */
+/* 🎆 ADDITIONAL SPECTACULAR ANIMATION KEYFRAMES */
 
 /* Pulse effect for highlighted elements */
 /* Breathing effect for containers */
@@ -2127,7 +2127,7 @@
     color: white !important;
 }
 
-/* ðŸŽ­ EXPANDED INSIGHT CARDS - Contest-Winning Feature */
+/* 🎭 EXPANDED INSIGHT CARDS - Contest-Winning Feature */
 .ai-insight-card.expanded {
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 25px 50px rgba(99, 102, 241, 0.4);
@@ -2152,7 +2152,7 @@
     color: white !important;
 }
 
-/* ðŸ† HIGHLIGHTED STATES - Contest-Winning Animations */
+/* 🏆 HIGHLIGHTED STATES - Contest-Winning Animations */
 .advanced-kpi-card.highlighted {
     animation: glowingBorder 2s ease-in-out infinite, floatUpDown 3s ease-in-out infinite;
     transform: translateY(-4px) scale(1.02);
@@ -2169,7 +2169,7 @@
     z-index: 10;
 }
 
-/* ðŸŽ¯ INTERACTION FEEDBACK ENHANCEMENTS */
+/* 🎯 INTERACTION FEEDBACK ENHANCEMENTS */
 .analytics-dashboard .advanced-kpi-card:active {
     transform: translateY(-4px) scale(1.01);
     transition: transform 0.1s ease;
@@ -2195,7 +2195,7 @@
     transition: transform 0.1s ease;
 }
 
-/* ðŸŽ† LOADING STATES FOR BETTER UX */
+/* 🎆 LOADING STATES FOR BETTER UX */
 .analytics-dashboard.loading .advanced-kpi-card,
 .analytics-dashboard.loading .goal-card,
 .analytics-dashboard.loading .ai-insight-card,
@@ -2203,7 +2203,7 @@
     animation: analyticsLoadingShimmer 1.5s infinite;
 }
 
-/* ðŸŒŸ FOCUS ENHANCEMENTS FOR ACCESSIBILITY */
+/* 🌟 FOCUS ENHANCEMENTS FOR ACCESSIBILITY */
 .analytics-dashboard .advanced-kpi-card:focus-visible {
     outline: 3px solid rgba(99, 102, 241, 0.8);
     outline-offset: 4px;
@@ -2249,7 +2249,7 @@
     transform: translateX(8px) translateY(-2px);
 }
 
-/* ðŸŽ¨ FINAL POLISH - Contest-Winning Details */
+/* 🎨 FINAL POLISH - Contest-Winning Details */
 .analytics-dashboard .trend-icon {
     transition: all var(--duration-normal) var(--ease-spring);
 }
@@ -2278,11 +2278,11 @@
     filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.6));
 }
 
-/* ðŸ† CONTEST-WINNING SPARKLE TRAILS */
+/* 🏆 CONTEST-WINNING SPARKLE TRAILS */
 .analytics-dashboard .advanced-kpi-card:hover::after,
 .analytics-dashboard .goal-card:hover::after,
 .analytics-dashboard .ai-insight-card:hover::after {
-    content: 'âœ¨';
+    content: '✨';
     position: absolute;
     top: -10px;
     right: -10px;
@@ -2292,7 +2292,7 @@
     z-index: 10;
 }
 
-/* ðŸŽ­ PERFORMANCE OPTIMIZATIONS */
+/* 🎭 PERFORMANCE OPTIMIZATIONS */
 .analytics-dashboard .advanced-kpi-card,
 .analytics-dashboard .goal-card,
 .analytics-dashboard .ai-insight-card,

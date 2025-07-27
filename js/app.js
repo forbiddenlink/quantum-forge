@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Force sidebar background fix
     forceSidebarLightMode();
+    
+    // Force light theme and fix white backgrounds
+    forceLightThemeAndFixBackgrounds();
 
     // Initialize performance monitoring
     if (window.PerformanceMonitor) {
@@ -75,6 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     console.log('✅ Quantum Forge - Ready!');
+    
+    // Additional fix after components are loaded
+    setTimeout(() => {
+        forceLightThemeAndFixBackgrounds();
+    }, 2000);
 
     // Fallback: If components are not rendering, show fallback content
     setTimeout(() => {
@@ -209,15 +217,22 @@ window.addEventListener('load', () => {
 
 // Enhanced Theme Management with Dynamic Workspace Themes
 function initializeTheme() {
+    // Force light theme for new users and clear any dark mode preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        console.log('🔄 Clearing dark theme preference, forcing light mode');
+        localStorage.removeItem('theme');
+    }
+    
     const theme = localStorage.getItem('theme') || detectPreferredTheme();
     document.documentElement.setAttribute('data-theme', theme);
     document.body.setAttribute('data-theme', theme);
 
     // Load saved user theme (new system with hue/saturation/lightness)
-    const savedTheme = localStorage.getItem('userTheme');
-    if (savedTheme) {
+    const savedUserTheme = localStorage.getItem('userTheme');
+    if (savedUserTheme) {
         try {
-            const themeData = JSON.parse(savedTheme);
+            const themeData = JSON.parse(savedUserTheme);
             console.log('Loading saved theme:', themeData);
 
             // Apply theme using the same method as dynamic color picker
@@ -324,15 +339,7 @@ function detectPreferredTheme() {
         return savedTheme; // Use saved preference
     }
     
-    // Only use system preference if no manual setting exists
-    // const hour = new Date().getHours();
-    // const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    // 
-    // if (systemDark || hour < 7 || hour > 19) {
-    //     return 'dark';
-    // }
-    
-    // Default to light mode for new users
+    // Default to light mode for new users - no more dark mode default
     return 'light';
 }
 
@@ -683,4 +690,38 @@ function forceSidebarLightMode() {
     }
 
     console.log('✅ Sidebar background fix initialized');
+}
+
+// Force light theme and fix white backgrounds
+function forceLightThemeAndFixBackgrounds() {
+    console.log('🚨 Force light theme and fix white backgrounds...');
+    
+    // Force light theme
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.body.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+    
+    // Remove white backgrounds from all insight elements
+    function removeWhiteBackgrounds() {
+        const insightElements = document.querySelectorAll('*[class*="insight"]');
+        insightElements.forEach(element => {
+            element.style.setProperty('background', 'transparent', 'important');
+            element.style.setProperty('background-color', 'transparent', 'important');
+        });
+        
+        // Also fix any elements with white backgrounds
+        const whiteBackgroundElements = document.querySelectorAll('*[style*="background: white"], *[style*="background-color: white"]');
+        whiteBackgroundElements.forEach(element => {
+            element.style.setProperty('background', 'transparent', 'important');
+            element.style.setProperty('background-color', 'transparent', 'important');
+        });
+    }
+    
+    // Apply fixes immediately and after delays
+    removeWhiteBackgrounds();
+    setTimeout(removeWhiteBackgrounds, 100);
+    setTimeout(removeWhiteBackgrounds, 500);
+    setTimeout(removeWhiteBackgrounds, 1000);
+    
+    console.log('✅ Light theme forced and white backgrounds removed');
 }

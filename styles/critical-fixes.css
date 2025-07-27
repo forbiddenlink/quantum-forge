@@ -549,6 +549,32 @@ html:not([data-theme="dark"]) .logo-text,
     color: rgba(243, 244, 246, 0.95) !important;
 }
 
+/* Comprehensive fix for all insight-header elements to prevent white backgrounds */
+.insight-header,
+.insight-header *,
+[data-theme="dark"] .insight-header,
+[data-theme="dark"] .insight-header * {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Ensure insight-header elements in Smart Insights Dashboard and Knowledge Hub use proper backgrounds */
+.smart-insights-dashboard .insight-header,
+.enhanced-knowledge-hub .insight-header,
+.enhanced-task-system .insight-header {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Fix any insight-meta elements that might have white backgrounds */
+.insight-meta,
+.insight-meta *,
+[data-theme="dark"] .insight-meta,
+[data-theme="dark"] .insight-meta * {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
 /* Fix main dashboard and body backgrounds */
 [data-theme="dark"] body,
 [data-theme="dark"] .dashboard,
@@ -1688,3 +1714,193 @@ html:not([data-theme="dark"]) {
 }
 
 /* Additional specificity for any stubborn elements in sidebar - handled above */
+
+/* Dark mode specific component styles */
+[data-theme="dark"] {
+    /* Ensure dark mode uses purple theme consistently */
+    --bg-base: #0f172a;
+    --bg-elevated: #1e293b;
+    --bg-secondary: #334155;
+    --bg-muted: #475569;
+    --bg-hover: #475569;
+    --bg-overlay: rgba(15, 23, 42, 0.8);
+    
+    /* Text colors for dark mode */
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --text-on-primary: #ffffff;
+    
+    /* Border colors for dark mode */
+    --border-color: #475569;
+    --border-hover: #64748b;
+    --border-focus: rgba(99, 102, 241, 0.5);
+    
+    /* Ensure welcome section uses purple theme in dark mode */
+    --welcome-bg-start: var(--primary-500);
+    --welcome-bg-end: var(--primary-700);
+    --welcome-text: white;
+    --welcome-text-secondary: rgba(255, 255, 255, 0.9);
+    --welcome-text-muted: rgba(255, 255, 255, 0.7);
+    --welcome-overlay: rgba(255, 255, 255, 0.1);
+    --welcome-overlay-hover: rgba(255, 255, 255, 0.15);
+    --welcome-border: rgba(255, 255, 255, 0.2);
+    --welcome-border-hover: rgba(255, 255, 255, 0.3);
+
+    .dashboard-item:hover {
+        border-color: var(--border-hover);
+        box-shadow: var(--shadow-lg);
+    }
+
+    /* Button styles */
+    .btn.primary {
+        background: var(--gradient-primary);
+        color: var(--text-on-primary);
+    }
+
+    .btn.secondary {
+        background: var(--bg-secondary);
+        border-color: var(--border-color);
+        color: var(--text-primary);
+    }
+
+    .btn.secondary:hover {
+        background: var(--bg-hover);
+        border-color: var(--border-hover);
+    }
+
+    /* Input styles */
+    input,
+    textarea,
+    select {
+        background: var(--bg-secondary);
+        border-color: var(--border-color);
+        color: var(--text-primary);
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        border-color: var(--primary-500);
+        box-shadow: 0 0 0 2px var(--border-focus);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: var(--text-muted);
+    }
+
+    /* Table styles */
+    table {
+        border-color: var(--border-color);
+    }
+
+    th {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+    }
+
+    td {
+        border-color: var(--border-color);
+    }
+
+    tr:hover {
+        background: var(--bg-hover);
+    }
+
+    /* Modal and overlay styles */
+    .modal {
+        background: var(--bg-elevated);
+        border-color: var(--border-color);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .overlay {
+        background: var(--bg-overlay);
+        backdrop-filter: blur(8px);
+    }
+
+    /* Glass effect components */
+    .glass-card {
+        background: var(--glass-bg);
+        border-color: var(--glass-border);
+        box-shadow: var(--glass-shadow);
+    }
+
+    /* Code and pre blocks */
+    code,
+    pre {
+        background: var(--bg-secondary);
+        border-color: var(--border-color);
+        color: var(--text-primary);
+    }
+
+    /* Scrollbar styles */
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--border-hover);
+    }
+
+    /* Selection styles */
+    ::selection {
+        background: var(--primary-500);
+        color: var(--text-on-primary);
+    }
+}
+
+/* NUCLEAR OPTION - Override ALL possible white backgrounds in insight elements */
+*[class*="insight"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+*[class*="insight"] * {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Force all insight-related elements to use themed backgrounds */
+.insight-header,
+.insight-meta,
+.insight-content,
+.insight-title,
+.insight-description,
+.insight-actions,
+.insight-icon,
+.insight-icon-container,
+.insight-badges,
+.insight-metrics,
+.insight-confidence,
+.insight-ai-score,
+.insight-priority,
+.insight-type-badge,
+.insight-impact-grid,
+.impact-metric,
+.impact-icon,
+.impact-details,
+.impact-label,
+.impact-value {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Ensure these elements inherit the proper themed background from their parent containers */
+.smart-insights-dashboard *[class*="insight"],
+.enhanced-knowledge-hub *[class*="insight"],
+.enhanced-task-system *[class*="insight"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}

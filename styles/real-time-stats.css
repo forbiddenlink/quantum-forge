@@ -118,7 +118,7 @@
 /* Dark theme adjustments */
 [data-theme="dark"] .stat-item {
     background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .stat-item:hover {

@@ -1,4 +1,4 @@
-﻿/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
+/* Enhanced Welcome Section Styles - Dream Intranet Homepage */
 
 /* Button and Icon Base Styles */
 .welcome-section .btn-icon {
@@ -60,7 +60,7 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* 🚀 CONTEST-WINNING WELCOME SECTION - SPECTACULAR DESIGN */
+/* ?? CONTEST-WINNING WELCOME SECTION - SPECTACULAR DESIGN */
 .welcome-section {
     margin-bottom: var(--space-6) !important;
     margin-top: 0 !important;
@@ -120,7 +120,7 @@
         glow 6s ease-in-out infinite !important;
 }
 
-/* 🎯 CRITICAL FIX: Ensure button icons are always visible */
+/* ?? CRITICAL FIX: Ensure button icons are always visible */
 /* Using unified icon styles */
 .welcome-section .quick-actions .btn .btn-icon {
     /* Icon base styles */
@@ -2027,7 +2027,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     --text-secondary: white !important;
 }
 
-/* 🌟 FLOATING EMOJI PARTICLES - Contest Enhancement */
+/* ?? FLOATING EMOJI PARTICLES - Contest Enhancement */
 .welcome-section .floating-icons {
     position: absolute;
     top: 0;
@@ -2115,7 +2115,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🌈 AURORA EFFECT - Gradient Waves */
+/* ?? AURORA EFFECT - Gradient Waves */
 .welcome-section .aurora-effect {
     position: absolute;
     top: 0;
@@ -2157,7 +2157,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* ⭐ CONSTELLATION PATTERN - Connecting Lines */
+/* ? CONSTELLATION PATTERN - Connecting Lines */
 .welcome-section .constellation {
     position: absolute;
     top: 0;
@@ -2223,7 +2223,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🎆 SPARKLE PARTICLES - Tiny Animated Dots */
+/* ?? SPARKLE PARTICLES - Tiny Animated Dots */
 .welcome-section .sparkles {
     position: absolute;
     top: 0;
@@ -2266,7 +2266,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🌊 WAVE DISTORTION EFFECT */
+/* ?? WAVE DISTORTION EFFECT */
 .welcome-section .wave-distortion {
     position: absolute;
     top: 0;
@@ -2308,7 +2308,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🎨 INTERACTIVE MOUSE FOLLOW EFFECT */
+/* ?? INTERACTIVE MOUSE FOLLOW EFFECT */
 .welcome-section:hover {
     animation-play-state: paused;
 }
@@ -2330,7 +2330,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     opacity: 1;
 }
 
-/* 🔮 HOLOGRAPHIC SHIMMER EFFECT */
+/* ?? HOLOGRAPHIC SHIMMER EFFECT */
 .welcome-section .holographic-overlay {
     position: absolute;
     top: 0;
@@ -2361,7 +2361,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🎯 PULSING ENERGY RINGS */
+/* ?? PULSING ENERGY RINGS */
 .welcome-section .energy-rings {
     position: absolute;
     top: 50%;
@@ -2973,7 +2973,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 .welcome-section .ai-insight::before {
-    content: '🤖';
+    content: '??';
     animation: aiPulse 2s ease-in-out infinite;
 }
 
@@ -4989,7 +4989,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* ⭐ CONSTELLATION PATTERN - Connecting Lines */
+/* ? CONSTELLATION PATTERN - Connecting Lines */
 .welcome-section .constellation {
     position: absolute;
     top: 0;
@@ -5055,7 +5055,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🎆 SPARKLE PARTICLES - Tiny Animated Dots */
+/* ?? SPARKLE PARTICLES - Tiny Animated Dots */
 .welcome-section .sparkles {
     position: absolute;
     top: 0;
@@ -5094,7 +5094,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🌊 WAVE DISTORTION EFFECT */
+/* ?? WAVE DISTORTION EFFECT */
 .welcome-section .wave-distortion {
     position: absolute;
     top: 0;
@@ -5136,7 +5136,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🎨 INTERACTIVE MOUSE FOLLOW EFFECT */
+/* ?? INTERACTIVE MOUSE FOLLOW EFFECT */
 .welcome-section:hover {
     animation-play-state: paused;
 }
@@ -5158,7 +5158,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     opacity: 1;
 }
 
-/* 🔮 HOLOGRAPHIC SHIMMER EFFECT */
+/* ?? HOLOGRAPHIC SHIMMER EFFECT */
 .welcome-section .holographic-overlay {
     position: absolute;
     top: 0;
@@ -5181,10 +5181,10 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 
 /* Holographic shimmer defined above - duplicate removed */
 
-/* 🎯 BUTTON ICONS */
+/* ?? BUTTON ICONS */
 /* Button styles moved to unified theme */
 
-/* 🎯 PULSING ENERGY RINGS */
+/* ?? PULSING ENERGY RINGS */
 .welcome-section .energy-rings {
     position: absolute;
     top: 50%;
@@ -5241,7 +5241,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 📱 MOBILE RESPONSIVENESS & PERFORMANCE OPTIMIZATIONS */
+/* ?? MOBILE RESPONSIVENESS & PERFORMANCE OPTIMIZATIONS */
 @media (max-width: 768px) {
     .welcome-section {
         padding: var(--spacing-card) !important;
@@ -5501,7 +5501,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🏆 CONTEST WINNER BADGE EFFECT */
+/* ?? CONTEST WINNER BADGE EFFECT */
 .welcome-section.contest-winner {
     position: relative;
 }
@@ -5530,7 +5530,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🎨 GPU ACCELERATION FOR SMOOTH PERFORMANCE */
+/* ?? GPU ACCELERATION FOR SMOOTH PERFORMANCE */
 .welcome-section,
 .welcome-section::before,
 .welcome-section::after,
@@ -5645,7 +5645,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     background: rgba(255, 255, 255, 0.3) !important;
 }
 
-/* ♿ ACCESSIBILITY ENHANCEMENTS - CONTEST WINNING */
+/* ? ACCESSIBILITY ENHANCEMENTS - CONTEST WINNING */
 
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
@@ -5747,7 +5747,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     top: 6px;
 }
 
-/* 🎨 CREATIVE CONTEST ENHANCEMENTS */
+/* ?? CREATIVE CONTEST ENHANCEMENTS */
 
 /* Interactive Data Visualization Containers */
 .welcome-section .data-viz-container {
@@ -5839,7 +5839,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
 }
 
 .welcome-section .ai-insight::before {
-    content: '🤖';
+    content: '??';
     animation: aiPulse 2s ease-in-out infinite;
 }
 
@@ -7813,7 +7813,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     --text-secondary: white !important;
 }
 
-/* 🌈 AURORA EFFECT - Gradient Waves */
+/* ?? AURORA EFFECT - Gradient Waves */
 .welcome-section .aurora-effect {
     position: absolute;
     top: 0;
@@ -7855,7 +7855,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* ⭐ CONSTELLATION PATTERN - Connecting Lines */
+/* ? CONSTELLATION PATTERN - Connecting Lines */
 .welcome-section .constellation {
     position: absolute;
     top: 0;
@@ -7921,7 +7921,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🎆 SPARKLE PARTICLES - Tiny Animated Dots */
+/* ?? SPARKLE PARTICLES - Tiny Animated Dots */
 .welcome-section .sparkles {
     position: absolute;
     top: 0;
@@ -7960,7 +7960,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🌊 WAVE DISTORTION EFFECT */
+/* ?? WAVE DISTORTION EFFECT */
 .welcome-section .wave-distortion {
     position: absolute;
     top: 0;
@@ -8002,7 +8002,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🎨 INTERACTIVE MOUSE FOLLOW EFFECT */
+/* ?? INTERACTIVE MOUSE FOLLOW EFFECT */
 .welcome-section:hover {
     animation-play-state: paused;
 }
@@ -8024,7 +8024,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     opacity: 1;
 }
 
-/* 🔮 HOLOGRAPHIC SHIMMER EFFECT */
+/* ?? HOLOGRAPHIC SHIMMER EFFECT */
 .welcome-section .holographic-overlay {
     position: absolute;
     top: 0;
@@ -8055,7 +8055,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 🎯 PULSING ENERGY RINGS */
+/* ?? PULSING ENERGY RINGS */
 .welcome-section .energy-rings {
     position: absolute;
     top: 50%;
@@ -8112,7 +8112,7 @@ html body .welcome-section .events-list [class*="icon"]:hover {
     }
 }
 
-/* 📱 MOBILE RESPONSIVENESS & PERFORMANCE OPTIMIZATIONS */
+/* ?? MOBILE RESPONSIVENESS & PERFORMANCE OPTIMIZATIONS */
 @media (max-width: 768px) {
     .welcome-section {
         padding: var(--spacing-card) !important;

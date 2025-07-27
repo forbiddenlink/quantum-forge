@@ -1329,7 +1329,7 @@ enhanced-task-system,
 /* Dark mode adjustments */
 [data-theme="dark"] .achievement-system {
     background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .achievement-card,
@@ -1345,7 +1345,7 @@ enhanced-task-system,
 [data-theme="dark"] .achievement-notification,
 [data-theme="dark"] .level-up-notification {
     background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 /* Responsive adjustments */
@@ -1680,7 +1680,7 @@ enhanced-task-system,
 /* Dark mode adjustments */
 [data-theme="dark"] .collaboration-hub {
     background: var(--bg-elevated-dark);
-    border-color: var(--border-color-dark);
+    border-color: var(--border-color);
 }
 
 [data-theme="dark"] .user-card,
