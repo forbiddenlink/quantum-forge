@@ -1,0 +1,194 @@
+/* Analytics Dashboard - Targeted Fixes */
+
+/* Fix heatmap cell text visibility */
+.analytics-dashboard .heatmap-cell .cell-value {
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+[data-theme="dark"] .analytics-dashboard .heatmap-cell .cell-value {
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+/* Fix analytics dashboard backdrop filter conflicts */
+.analytics-dashboard {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.analytics-dashboard .metric-card,
+.analytics-dashboard .chart-container,
+.analytics-dashboard .ai-insight-card {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* Ensure proper text contrast in analytics components */
+.analytics-dashboard .metric-value,
+.analytics-dashboard .metric-label,
+.analytics-dashboard .chart-title,
+.analytics-dashboard .insight-title {
+    color: var(--text-primary) !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+/* Fix analytics dashboard hover states */
+.analytics-dashboard .metric-card:hover,
+.analytics-dashboard .chart-container:hover,
+.analytics-dashboard .ai-insight-card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--component-hover-shadow) !important;
+}
+
+/* Ensure proper z-index stacking */
+.analytics-dashboard {
+    position: relative;
+    z-index: 1;
+}
+
+.analytics-dashboard .metric-card,
+.analytics-dashboard .chart-container,
+.analytics-dashboard .ai-insight-card {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fix analytics dashboard responsive behavior */
+@media (max-width: 768px) {
+    .analytics-dashboard {
+        padding: var(--space-4) !important;
+    }
+    
+    .analytics-dashboard .metrics-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-3) !important;
+    }
+    
+    .analytics-dashboard .charts-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-4) !important;
+    }
+}
+
+/* Fix analytics dashboard loading states */
+.analytics-dashboard.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.analytics-dashboard.loading * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Ensure proper focus states for accessibility */
+.analytics-dashboard .metric-card:focus-visible,
+.analytics-dashboard .chart-container:focus-visible,
+.analytics-dashboard .ai-insight-card:focus-visible {
+    outline: 2px solid var(--primary-500) !important;
+    outline-offset: 2px !important;
+}
+
+/* Fix analytics dashboard dark theme compatibility */
+[data-theme="dark"] .analytics-dashboard {
+    background: var(--component-bg) !important;
+    border-color: var(--component-border) !important;
+}
+
+[data-theme="dark"] .analytics-dashboard .metric-card,
+[data-theme="dark"] .analytics-dashboard .chart-container,
+[data-theme="dark"] .analytics-dashboard .ai-insight-card {
+    background: var(--component-bg) !important;
+    border-color: var(--component-border) !important;
+}
+
+/* Fix analytics dashboard animation conflicts */
+.analytics-dashboard .metric-card,
+.analytics-dashboard .chart-container,
+.analytics-dashboard .ai-insight-card {
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+}
+
+/* Ensure proper text rendering */
+.analytics-dashboard * {
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Fix analytics dashboard overflow issues */
+.analytics-dashboard {
+    overflow: visible !important;
+}
+
+.analytics-dashboard .metric-card,
+.analytics-dashboard .chart-container,
+.analytics-dashboard .ai-insight-card {
+    overflow: hidden !important;
+}
+
+/* Fix analytics dashboard border radius consistency */
+.analytics-dashboard .metric-card,
+.analytics-dashboard .chart-container,
+.analytics-dashboard .ai-insight-card {
+    border-radius: var(--radius-xl) !important;
+}
+
+/* Fix analytics dashboard spacing consistency */
+.analytics-dashboard .metrics-grid {
+    gap: var(--space-4) !important;
+    margin-bottom: var(--space-6) !important;
+}
+
+.analytics-dashboard .charts-grid {
+    gap: var(--space-4) !important;
+    margin-bottom: var(--space-6) !important;
+}
+
+/* Fix analytics dashboard icon sizing */
+.analytics-dashboard .metric-card .card-icon,
+.analytics-dashboard .ai-insight-card .insight-icon {
+    width: 24px !important;
+    height: 24px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Fix analytics dashboard button styling */
+.analytics-dashboard .btn {
+    background: var(--primary-500) !important;
+    color: white !important;
+    border: none !important;
+    padding: var(--space-2) var(--space-4) !important;
+    border-radius: var(--radius-lg) !important;
+    font-weight: 600 !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+}
+
+.analytics-dashboard .btn:hover {
+    background: var(--primary-600) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Fix analytics dashboard form elements */
+.analytics-dashboard input,
+.analytics-dashboard select,
+.analytics-dashboard textarea {
+    background: var(--bg-elevated) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: var(--space-2) var(--space-3) !important;
+}
+
+.analytics-dashboard input:focus,
+.analytics-dashboard select:focus,
+.analytics-dashboard textarea:focus {
+    outline: none !important;
+    border-color: var(--primary-500) !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+} 

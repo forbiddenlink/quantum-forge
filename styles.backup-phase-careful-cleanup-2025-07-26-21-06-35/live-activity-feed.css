@@ -918,7 +918,7 @@
 .view-all-btn-enhanced.btn-clicked {
     transform: scale(0.98);
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-    animation: activityClickFeedback 0.6s ease-out;
+    animation: btnClickFeedback 0.6s ease-out;
 }
 
 .btn-icon-wrapper {
@@ -977,6 +977,21 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     animation: btnShimmer 3s ease-in-out infinite;
     border-radius: var(--radius-xl);
+}
+
+@keyframes btnClickFeedback {
+    0% {
+        transform: scale(0.98);
+    }
+
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes btnGlowPulse {

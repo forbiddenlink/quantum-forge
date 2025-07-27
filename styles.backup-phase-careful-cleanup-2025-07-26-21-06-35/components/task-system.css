@@ -65,6 +65,10 @@
   margin: 0;
 }
 
+.priority-icon {
+  font-size: var(--font-size-sm);
+}
+
 /* Task Card Content */
 .task-card-content {
   margin-bottom: var(--space-4);

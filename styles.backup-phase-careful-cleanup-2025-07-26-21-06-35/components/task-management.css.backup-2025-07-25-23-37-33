@@ -368,7 +368,10 @@
     box-shadow: var(--shadow-sm);
 }
 
-/* Action button icon styles moved to main components.css to avoid duplication */
+.action-btn svg {
+    width: 16px;
+    height: 16px;
+}
 
 /* Task Card Content */
 .task-card-content {
@@ -422,7 +425,11 @@
     border-top: 1px solid var(--border-color);
 }
 
-/* .task-assignee moved to components.css to avoid duplication */
+.task-assignee {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
 
 .assignee-avatar {
     width: 24px;
@@ -565,7 +572,11 @@
     border: 1px solid var(--primary-200);
 }
 
-/* .task-actions moved to components.css to avoid duplication */
+/* Task Actions */
+.task-actions {
+    display: flex;
+    gap: var(--space-2);
+}
 
 .task-count {
     font-size: var(--font-size-sm);
@@ -634,6 +645,11 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .task-cards-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
     .task-controls {
         flex-direction: column;
         align-items: stretch;

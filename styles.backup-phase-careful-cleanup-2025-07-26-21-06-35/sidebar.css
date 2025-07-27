@@ -858,6 +858,22 @@ body.sidebar-collapsed .nav-text {
     border-color: var(--border-color) !important;
 }
 
+[data-theme="dark"] .help-option:hover {
+    background: var(--bg-hover) !important;
+}
+
+[data-theme="dark"] .help-dialog-footer {
+    border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .quick-links a {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .quick-links a:hover {
+    color: var(--primary-400) !important;
+}
+
 /* Dark mode icons and text */
 [data-theme="dark"] .nav-icon {
     color: var(--text-secondary) !important;

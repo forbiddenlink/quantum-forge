@@ -11,6 +11,16 @@
 }
 
 /* Shimmer Animation - For loading states and attention-grabbing effects */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
 /* Pulse Animation - For status indicators and breathing effects */
 @keyframes pulse {
 

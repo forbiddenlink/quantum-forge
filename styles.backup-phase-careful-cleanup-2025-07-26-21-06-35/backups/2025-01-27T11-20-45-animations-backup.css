@@ -1,50 +1,52 @@
-﻿/* === ANIMATIONS: Master Animation Library === */
-/* Consolidated and optimized animations with duplicate removal */
+﻿/* Centralized Animations - Consolidated from multiple files to reduce duplication */
 
-/* CSS Custom Properties for Common Transforms */
-:root {
-    --transform-reset: translateX(0px) translateY(0px) scale(1) rotate(0deg);
-    --opacity-normal: 1;
-    --scale-normal: 1;
-    --translate-x-end: 0;
-    --translate-y-end: 0;
+/* Common Animation Keyframes */
+
+/* Shimmer Effects - Master definition (replaces progressShimmer, confidenceShimmer) */
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
 }
 
-/* Shimmer Animation - For loading states and attention-grabbing effects */
-/* Pulse Animation - For status indicators and breathing effects */
+/* Pulse Animations - Master definition (replaces aiPulse, livePulse) */
 @keyframes pulse {
 
     0%,
     100% {
-        opacity: var(--opacity-normal);
-        transform: scale(var(--scale-normal));
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(99, 102, 241, 0.7);
     }
 
     50% {
-        opacity: 0.5;
         transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
     }
 }
 
-/* Simple Pulse Animation - For subtle status changes */
+/* Simple Pulse Animation - Basic scale transform (replaces pulse-notification, heartbeat) */
 @keyframes simplePulse {
 
     0%,
     100% {
-        opacity: var(--opacity-normal);
+        transform: scale(1);
     }
 
     50% {
-        opacity: 0.7;
+        transform: scale(1.1);
     }
 }
 
-/* Float Animation - For floating elements with complex movement */
+/* Float Animations - Master definition (replaces iconFloat) */
 @keyframes float {
 
     0%,
     100% {
-        transform: var(--transform-reset);
+        transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
         opacity: 0.6;
     }
 
@@ -69,8 +71,8 @@
 
     0%,
     100% {
-        opacity: var(--opacity-normal);
-        transform: scale(var(--scale-normal));
+        opacity: 1;
+        transform: scale(1);
     }
 
     50% {
@@ -117,8 +119,8 @@
     }
 
     to {
-        opacity: var(--opacity-normal);
-        transform: translateY(var(--translate-y-end));
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -129,8 +131,8 @@
     }
 
     to {
-        transform: translateX(var(--translate-x-end));
-        opacity: var(--opacity-normal);
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
@@ -173,8 +175,8 @@
     }
 
     to {
-        transform: translateX(var(--translate-x-end));
-        opacity: var(--opacity-normal);
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
@@ -395,7 +397,7 @@
 
     0%,
     100% {
-        transform: var(--transform-reset);
+        transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
         opacity: 0.4;
         filter: blur(0.5px) hue-rotate(0deg);
     }
@@ -471,8 +473,8 @@
     }
 
     to {
-        opacity: var(--opacity-normal);
-        transform: translateY(var(--translate-y-end));
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -515,8 +517,8 @@
 /* Slide Out Down Animation */
 @keyframes slideOutDown {
     from {
-        opacity: var(--opacity-normal);
-        transform: translateY(var(--translate-y-end));
+        opacity: 1;
+        transform: translateY(0);
     }
 
     to {
@@ -738,13 +740,19 @@
         transform: scale(0.8);
     }
 
-    /* 100% rule removed - duplicate of scaleIn keyframe */
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Swing Animation - Gentle pendulum swing effect */
 @keyframes swing {
 
-    /* 0%, 100% rule removed - duplicate of wave keyframe */
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
 
     25% {
         transform: rotate(3deg);
@@ -814,16 +822,16 @@
     }
 
     to {
-        opacity: var(--opacity-normal);
-        transform: translateY(var(--translate-y-end));
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 /* Slide Down Animation */
 @keyframes slideDown {
     from {
-        opacity: var(--opacity-normal);
-        transform: translateY(var(--translate-y-end));
+        opacity: 1;
+        transform: translateY(0);
     }
 
     to {
@@ -837,7 +845,7 @@
 
     0%,
     100% {
-        opacity: var(--opacity-normal);
+        opacity: 1;
     }
 
     50% {
