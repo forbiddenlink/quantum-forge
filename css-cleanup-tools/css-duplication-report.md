@@ -1,6 +1,6 @@
 # CSS Duplication Report
 
-Found 37 duplicate rule(s).
+Found 27 duplicate rule(s).
 
 ## Duplicate Rule Found
 
@@ -115,8 +115,6 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
     100%)
 - enhanced-task-system.css:1910 (0%,
     100%)
-- smart-search-overlay.css:126 (0%,
-    100%)
 
 ### Rule Content:
 ```css
@@ -128,7 +126,6 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ### Locations:
 - enhanced-task-system.css:2439 (.ai-insights-grid)
 - enhanced-task-system.css:2464 (.ai-insights-grid)
-- enhanced-task-system.css:2790 (.ai-insights-grid)
 
 ### Rule Content:
 ```css
@@ -138,34 +135,12 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- enhanced-task-system.css:1795 (.task-cards-grid)
-- enhanced-task-system.css:2773 (.task-cards-grid)
-
-### Rule Content:
-```css
-.task-cards-grid { grid-template-columns: 1fr; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - enhanced-task-system.css:2411 (.ai-insights-grid)
-- enhanced-task-system.css:2780 (.ai-insights-grid)
+- enhanced-task-system.css:2776 (.ai-insights-grid)
 
 ### Rule Content:
 ```css
 .ai-insights-grid { grid-template-columns: repeat(2, 1fr); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- enhanced-knowledge-hub.css:4431 (.filter-group)
-- enhanced-task-system.css:4123 (.filter-group)
-
-### Rule Content:
-```css
-.filter-group { width: 100%; justify-content: space-between; }
 ```
 
 ## Duplicate Rule Found
@@ -228,39 +203,6 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- sidebar.css:764 ([data-theme="dark"] .help-dialog-content)
-- sidebar.css:852 ([data-theme="dark"] .help-dialog-content)
-
-### Rule Content:
-```css
-[data-theme="dark"] .help-dialog-content { background: var(--bg-elevated) !important; border-color: var(--border-color) !important; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- sidebar.css:769 ([data-theme="dark"] .help-dialog-header)
-- sidebar.css:857 ([data-theme="dark"] .help-dialog-header)
-
-### Rule Content:
-```css
-[data-theme="dark"] .help-dialog-header { border-color: var(--border-color) !important; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- animations.css:573 (50%)
-- smart-search-overlay.css:132 (50%)
-
-### Rule Content:
-```css
-50% { transform: scale(1.05); opacity: 0.9; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - svg-icon-styles.css:192 (.activity-icon svg)
 - team.css:938 (.activity-icon svg)
 
@@ -307,39 +249,9 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- welcome-section.css:1366 (.quick-insights .insight-content,
-.quick-insights .insight-content *)
-- welcome-section.css:1415 (.quick-insights .insight-content,
-.quick-insights .insight-content *)
-
-### Rule Content:
-```css
-.quick-insights .insight-content, .quick-insights .insight-content * { --text-primary: white !important; --text-secondary: white !important; --text-tertiary: white !important; --text-muted: white !important; color: white !important; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- welcome-section.css:1385 (.quick-insights .insight-content h4[style*="color"],
-.quick-insights .insight-content p[style*="color"],
-.quick-insights .insight-content span[style*="color"],
-.quick-insights .insight-content div[style*="color"])
-- welcome-section.css:1434 (.quick-insights .insight-content h4[style*="color"],
-.quick-insights .insight-content p[style*="color"],
-.quick-insights .insight-content span[style*="color"],
-.quick-insights .insight-content div[style*="color"])
-
-### Rule Content:
-```css
-.quick-insights .insight-content h4[style*="color"], .quick-insights .insight-content p[style*="color"], .quick-insights .insight-content span[style*="color"], .quick-insights .insight-content div[style*="color"] { color: white !important; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - animations.css:311 (0%,
     100%)
-- welcome-section.css:2257 (0%,
+- welcome-section.css:2239 (0%,
     100%)
 
 ### Rule Content:
@@ -351,7 +263,7 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 
 ### Locations:
 - animations.css:693 (50%)
-- welcome-section.css:2263 (50%)
+- welcome-section.css:2245 (50%)
 
 ### Rule Content:
 ```css
@@ -363,7 +275,7 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ### Locations:
 - animations.css:326 (0%,
     100%)
-- welcome-section.css:2289 (0%,
+- welcome-section.css:2271 (0%,
     100%)
 
 ### Rule Content:
@@ -375,7 +287,7 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 
 ### Locations:
 - utilities.css:6 (.sr-only)
-- welcome-section.css:2841 (.sr-only)
+- welcome-section.css:2823 (.sr-only)
 
 ### Rule Content:
 ```css
@@ -386,7 +298,7 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 
 ### Locations:
 - welcome-section.css:615 (.welcome-section .quick-actions .btn:hover::before)
-- welcome-section.css:3084 (.welcome-section .quick-actions .btn:hover::before)
+- welcome-section.css:3066 (.welcome-section .quick-actions .btn:hover::before)
 
 ### Rule Content:
 ```css
@@ -396,49 +308,8 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:624 (0%,
-    20%,
-    50%,
-    80%,
-    100%)
-- wellness-tracker.css:179 (0%,
-    20%,
-    50%,
-    80%,
-    100%)
-
-### Rule Content:
-```css
-0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- animations.css:632 (40%)
-- wellness-tracker.css:187 (40%)
-
-### Rule Content:
-```css
-40% { transform: translateY(-10px); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- animations.css:636 (60%)
-- wellness-tracker.css:191 (60%)
-
-### Rule Content:
-```css
-60% { transform: translateY(-5px); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - animations.css:142 (to)
-- wellness-tracker.css:383 (to)
+- wellness-tracker.css:364 (to)
 
 ### Rule Content:
 ```css

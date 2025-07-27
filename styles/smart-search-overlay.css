@@ -118,21 +118,7 @@
     font-size: var(--font-size-xs);
     font-weight: 600;
     margin-right: var(--spacing-element);
-    animation: ai-pulse 3s ease-in-out infinite;
-}
-
-@keyframes ai-pulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.05);
-        opacity: 0.9;
-    }
+    animation: focusPulse 3s ease-in-out infinite;
 }
 
 .search-ai-indicator svg {

@@ -2770,10 +2770,6 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
         grid-template-columns: 1fr;
     }
 
-    .task-cards-grid {
-        grid-template-columns: 1fr;
-    }
-
 }
 
 @container (min-width: 800px) {
@@ -2787,10 +2783,6 @@ html body .enhanced-task-system .ai-insight-card.animate-in,
 }
 
 @container (min-width: 1200px) {
-    .ai-insights-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
     .task-cards-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -4118,11 +4110,6 @@ enhanced-task-system .section-icon-svg {
     .task-filters {
         flex-direction: column;
         gap: var(--space-3);
-    }
-
-    .filter-group {
-        width: 100%;
-        justify-content: space-between;
     }
 
     .task-search {

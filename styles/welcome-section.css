@@ -1411,16 +1411,6 @@ html body .quick-insights .insight-content i {
     color: var(--welcome-text) !important;
 }
 
-/* Override any CSS variables that might be set by other files */
-.quick-insights .insight-content,
-.quick-insights .insight-content * {
-    --text-primary: white !important;
-    --text-secondary: white !important;
-    --text-tertiary: white !important;
-    --text-muted: white !important;
-    color: white !important;
-}
-
 /* Force white text with maximum specificity for all text elements */
 html body .quick-insights .insight-content h4,
 html body .quick-insights .insight-content p,
@@ -1428,14 +1418,6 @@ html body .quick-insights .insight-content span,
 html body .quick-insights .insight-content div {
     color: white !important;
     color: var(--welcome-text) !important;
-}
-
-/* Override any inline styles or computed styles */
-.quick-insights .insight-content h4[style*="color"],
-.quick-insights .insight-content p[style*="color"],
-.quick-insights .insight-content span[style*="color"],
-.quick-insights .insight-content div[style*="color"] {
-    color: white !important;
 }
 
 /* Final override for any remaining dark text */
