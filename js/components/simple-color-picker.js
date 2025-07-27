@@ -50,24 +50,24 @@ class SimpleColorPicker extends HTMLElement {
             justify-content: center;
             backdrop-filter: blur(10px);
         `;
-        
+
         button.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
             console.log('🎨 Toggle clicked');
             this.toggle();
         });
-        
+
         button.addEventListener('mouseenter', () => {
             button.style.transform = 'scale(1.1)';
             button.style.boxShadow = '0 6px 16px rgba(0,0,0,0.35)';
         });
-        
+
         button.addEventListener('mouseleave', () => {
             button.style.transform = 'scale(1)';
             button.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
         });
-        
+
         document.body.appendChild(button);
         this.toggleButton = button;
         console.log('🎨 Toggle button created and added to body');
@@ -76,16 +76,16 @@ class SimpleColorPicker extends HTMLElement {
     createPanel() {
         const panel = document.createElement('div');
         panel.className = 'simple-color-panel';
-        
+
         // Get theme for dynamic styling
         const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-        
+
         panel.style.cssText = `
             position: fixed !important;
             top: 145px !important;
             right: 20px !important;
             width: 340px;
-            background: ${isDarkMode 
+            background: ${isDarkMode
                 ? 'linear-gradient(135deg, rgba(30, 41, 59, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%)'
                 : 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%)'
             };
@@ -124,7 +124,7 @@ class SimpleColorPicker extends HTMLElement {
             { color: '#b91c1c', name: 'Crimson', desc: 'Power & Passion' },
             { color: '#6d28d9', name: 'Purple', desc: 'Royal & Sophisticated' }
         ];
-        
+
         panel.innerHTML = `
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                 <div>
@@ -261,26 +261,26 @@ class SimpleColorPicker extends HTMLElement {
         panel.querySelectorAll('.color-option').forEach(option => {
             const color = option.dataset.color;
             const indicator = option.querySelector('.selection-indicator');
-            
+
             option.addEventListener('mouseenter', () => {
                 option.style.transform = 'translateY(-4px) scale(1.02)';
                 option.style.borderColor = color + '60';
                 option.style.boxShadow = `0 8px 25px ${color}25`;
             });
-            
+
             option.addEventListener('mouseleave', () => {
                 option.style.transform = 'translateY(0) scale(1)';
                 option.style.borderColor = color + '20';
                 option.style.boxShadow = 'none';
             });
-            
+
             option.addEventListener('click', () => {
                 // Visual feedback
                 option.style.transform = 'scale(0.95)';
                 setTimeout(() => {
                     option.style.transform = 'translateY(-4px) scale(1.02)';
                 }, 150);
-                
+
                 // Update selection indicator
                 panel.querySelectorAll('.selection-indicator').forEach(ind => {
                     ind.style.opacity = '0';
@@ -288,14 +288,14 @@ class SimpleColorPicker extends HTMLElement {
                 });
                 indicator.style.opacity = '1';
                 indicator.style.transform = 'scale(1)';
-                
+
                 // Apply color
                 this.applyColor(color);
-                
+
                 // Update current color display
                 const colorName = colors.find(c => c.color === color)?.name || 'Custom';
                 panel.querySelector('.current-color-name').textContent = colorName;
-                
+
                 // Close after short delay
                 setTimeout(() => this.close(), 800);
             });
@@ -318,16 +318,16 @@ class SimpleColorPicker extends HTMLElement {
             const color = e.target.value;
             console.log('🎨 Custom color selected:', color);
             this.applyColor(color);
-            
+
             // Update current color display
             panel.querySelector('.current-color-name').textContent = 'Custom';
-            
+
             // Show all selection indicators as inactive since this is custom
             panel.querySelectorAll('.selection-indicator').forEach(ind => {
                 ind.style.opacity = '0';
                 ind.style.transform = 'scale(0)';
             });
-            
+
             // Close after short delay
             setTimeout(() => this.close(), 800);
         });
@@ -351,22 +351,22 @@ class SimpleColorPicker extends HTMLElement {
 
         document.body.appendChild(panel);
         this.panel = panel;
-        
+
         // Set current selection indicator
         this.updateCurrentSelection();
-        
+
         console.log('🎨 Enhanced color panel created');
     }
 
     updateCurrentSelection() {
         if (!this.panel) return;
-        
+
         console.log('🎨 Updating selection for:', this.currentColor);
-        
+
         // Update selection indicators
         const indicators = this.panel.querySelectorAll('.selection-indicator');
         const options = this.panel.querySelectorAll('.color-option');
-        
+
         options.forEach((option, index) => {
             const indicator = indicators[index];
             if (option.dataset.color === this.currentColor) {
@@ -382,7 +382,7 @@ class SimpleColorPicker extends HTMLElement {
     getColorName(color) {
         const colorNames = {
             '#4f46e5': 'Indigo',
-            '#2563eb': 'Blue', 
+            '#2563eb': 'Blue',
             '#0891b2': 'Cyan',
             '#059669': 'Emerald',
             '#65a30d': 'Lime',
@@ -399,18 +399,18 @@ class SimpleColorPicker extends HTMLElement {
 
     applyColor(color) {
         console.log('🎨 APPLYING COLOR COMPREHENSIVELY:', color);
-        
+
         const root = document.documentElement;
-        
+
         // Convert hex to RGB for color variations
         const rgb = this.hexToRgb(color);
         const hsl = this.rgbToHsl(rgb.r, rgb.g, rgb.b);
-        
+
         // Generate comprehensive color palette
         const palette = this.generateColorPalette(hsl);
-        
+
         console.log('🎨 Generated palette:', palette);
-        
+
         // Update ALL primary color variables
         root.style.setProperty('--primary-50', palette.primary50);
         root.style.setProperty('--primary-100', palette.primary100);
@@ -422,45 +422,45 @@ class SimpleColorPicker extends HTMLElement {
         root.style.setProperty('--primary-700', palette.primary700);
         root.style.setProperty('--primary-800', palette.primary800);
         root.style.setProperty('--primary-900', palette.primary900);
-        
+
         // Update common color variables
         root.style.setProperty('--accent-color', palette.primary400);
         root.style.setProperty('--primary-rgb', `${rgb.r}, ${rgb.g}, ${rgb.b}`);
         root.style.setProperty('--accent-rgb', this.hexToRgbString(palette.primary400));
-        
+
         // Update gradient variables
         root.style.setProperty('--gradient-primary', `linear-gradient(135deg, ${color}, ${palette.primary600})`);
         root.style.setProperty('--gradient-secondary', `linear-gradient(135deg, ${palette.primary400}, ${palette.primary500})`);
-        
+
         // Update focus and interaction colors
         root.style.setProperty('--focus-ring', color);
         root.style.setProperty('--border-primary', palette.primary200);
-        
+
         // Update toggle button immediately
         if (this.toggleButton) {
             this.toggleButton.style.background = color;
         }
-        
+
         // Update current color
         this.currentColor = color;
-        
+
         // Save to localStorage
         localStorage.setItem('userColor', color);
-        
+
         // Force multiple repaints
         document.body.offsetHeight;
         root.offsetHeight;
-        
+
         // Trigger custom event for components to update
-        window.dispatchEvent(new CustomEvent('themeColorChanged', { 
-            detail: { 
-                color, 
+        window.dispatchEvent(new CustomEvent('themeColorChanged', {
+            detail: {
+                color,
                 palette,
                 rgb,
                 hsl
-            } 
+            }
         }));
-        
+
         console.log('🎨 COLOR APPLIED COMPREHENSIVELY:', color);
     }
 
@@ -482,17 +482,17 @@ class SimpleColorPicker extends HTMLElement {
         r /= 255;
         g /= 255;
         b /= 255;
-        
+
         const max = Math.max(r, g, b);
         const min = Math.min(r, g, b);
         let h, s, l = (max + min) / 2;
-        
+
         if (max === min) {
             h = s = 0; // achromatic
         } else {
             const d = max - min;
             s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-            
+
             switch (max) {
                 case r: h = (g - b) / d + (g < b ? 6 : 0); break;
                 case g: h = (b - r) / d + 2; break;
@@ -500,7 +500,7 @@ class SimpleColorPicker extends HTMLElement {
             }
             h /= 6;
         }
-        
+
         return { h: h * 360, s: s * 100, l: l * 100 };
     }
 
@@ -508,39 +508,39 @@ class SimpleColorPicker extends HTMLElement {
         h /= 360;
         s /= 100;
         l /= 100;
-        
+
         const hue2rgb = (p, q, t) => {
             if (t < 0) t += 1;
             if (t > 1) t -= 1;
-            if (t < 1/6) return p + (q - p) * 6 * t;
-            if (t < 1/2) return q;
-            if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+            if (t < 1 / 6) return p + (q - p) * 6 * t;
+            if (t < 1 / 2) return q;
+            if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
             return p;
         };
-        
+
         let r, g, b;
-        
+
         if (s === 0) {
             r = g = b = l; // achromatic
         } else {
             const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
             const p = 2 * l - q;
-            r = hue2rgb(p, q, h + 1/3);
+            r = hue2rgb(p, q, h + 1 / 3);
             g = hue2rgb(p, q, h);
-            b = hue2rgb(p, q, h - 1/3);
+            b = hue2rgb(p, q, h - 1 / 3);
         }
-        
+
         const toHex = (c) => {
             const hex = Math.round(c * 255).toString(16);
             return hex.length === 1 ? '0' + hex : hex;
         };
-        
+
         return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
     }
 
     generateColorPalette(hsl) {
         const { h, s } = hsl;
-        
+
         return {
             primary50: this.hslToHex(h, Math.max(s - 40, 10), 96),
             primary100: this.hslToHex(h, Math.max(s - 20, 20), 92),
@@ -558,7 +558,7 @@ class SimpleColorPicker extends HTMLElement {
     toggle() {
         this.isOpen = !this.isOpen;
         console.log('🎨 Panel now:', this.isOpen ? 'OPEN' : 'CLOSED');
-        
+
         if (this.isOpen) {
             this.panel.style.transform = 'translateX(0) scale(1)';
             this.panel.style.opacity = '1';
@@ -602,14 +602,14 @@ class SimpleColorPicker extends HTMLElement {
             margin: 0 !important;
             backdrop-filter: blur(10px);
         `;
-        
+
         document.body.appendChild(notification);
-        
+
         setTimeout(() => {
             notification.style.opacity = '1';
             notification.style.transform = 'translateY(0)';
         }, 100);
-        
+
         setTimeout(() => {
             notification.style.opacity = '0';
             notification.style.transform = 'translateY(-10px)';

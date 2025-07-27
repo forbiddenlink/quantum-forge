@@ -114,30 +114,44 @@ window.emergencyCleanup = function() {
     return cleaned;
 };
 
-// Auto cleanup with improved thresholds
-setInterval(() => {
-    const intervalCount = window.activeIntervals.size;
-    const timeoutCount = window.activeTimeouts.size;
-    const frameCount = window.activeAnimationFrames.size;
-    const total = intervalCount + timeoutCount + frameCount;
+// Smart cleanup with debouncing and throttling
+let cleanupTimeout = null;
+const smartCleanup = () => {
+    if (cleanupTimeout) return;
     
-    // More conservative thresholds
-    if (total > 30) { // Increased from 20
-        console.warn(`⚠️ High resource count detected: ${total} active resources`);
-        console.log(`Intervals: ${intervalCount}, Timeouts: ${timeoutCount}, Frames: ${frameCount}`);
+    cleanupTimeout = setTimeout(() => {
+        const intervalCount = window.activeIntervals.size;
+        const timeoutCount = window.activeTimeouts.size;
+        const frameCount = window.activeAnimationFrames.size;
+        const total = intervalCount + timeoutCount + frameCount;
         
-        // Enable low power mode if performance manager is available
-        if (window.performanceManager && !window.performanceManager.isLowPowerMode) {
-            window.performanceManager.enableLowPowerMode();
+        // Only log if there's a significant change
+        if (total > window.lastTotalResources + 10 || total < window.lastTotalResources - 10) {
+            console.debug(`Resource count changed: ${total} active resources`);
+            window.lastTotalResources = total;
         }
-    }
-    
-    // Emergency cleanup threshold increased
-    if (total > 100) { // Increased from 50
-        console.error('🚨 CRITICAL: Too many resources, triggering emergency cleanup!');
-        window.emergencyCleanup();
-    }
-}, 10000); // Increased from 5000ms to 10000ms
+        
+        // Progressive cleanup thresholds
+        if (total > 50) {
+            console.debug('Initiating progressive cleanup...');
+            // Clean old animation frames first
+            window.activeAnimationFrames.forEach(id => {
+                if (!document.querySelector('[data-animation-id="' + id + '"]')) {
+                    originalCancelAnimationFrame(id);
+                    window.activeAnimationFrames.delete(id);
+                }
+            });
+        }
+        
+        // Only trigger emergency cleanup in extreme cases
+        if (total > 200) {
+            console.warn('🚨 Resource threshold exceeded, cleaning up...');
+            window.emergencyCleanup();
+        }
+        
+        cleanupTimeout = null;
+    }, 30000); // Much longer interval
+};
 
 // Cleanup on page unload
 window.addEventListener('beforeunload', () => {

@@ -884,7 +884,7 @@ class Sidebar extends HTMLElement {
 
     setupThemeListener() {
         console.log('🎨 Setting up theme change listener for sidebar');
-        
+
         // Listen for theme changes
         const observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
@@ -912,7 +912,10 @@ class Sidebar extends HTMLElement {
     }
 }
 
-customElements.define('app-sidebar', Sidebar);
+// Add registration guard
+if (!customElements.get('app-sidebar')) {
+    customElements.define('app-sidebar', Sidebar);
+}
 
 // Emergency global sidebar toggle function
 window.toggleSidebar = function () {

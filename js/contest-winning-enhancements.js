@@ -7,7 +7,7 @@ class ContestWinningEnhancements {
         this.performanceMode = 'auto';
         this.accessibilityMode = 'auto';
         this.userPreferences = {};
-        
+
         // Performance monitoring
         this.performanceMetrics = {
             firstPaint: 0,
@@ -15,7 +15,7 @@ class ContestWinningEnhancements {
             largestContentfulPaint: 0,
             cumulativeLayoutShift: 0
         };
-        
+
         // Accessibility features
         this.accessibilityFeatures = {
             highContrast: false,
@@ -26,9 +26,9 @@ class ContestWinningEnhancements {
 
     init() {
         if (this.isInitialized) return;
-        
+
         console.log('🏆 Contest-Winning Enhancements Initializing...');
-        
+
         this.detectUserPreferences();
         this.setupPerformanceMonitoring();
         this.enhanceAccessibility();
@@ -36,7 +36,7 @@ class ContestWinningEnhancements {
         this.setupKeyboardShortcuts();
         this.enhanceMobileExperience();
         this.addProgressiveEnhancement();
-        
+
         this.isInitialized = true;
         console.log('✅ Contest-Winning Enhancements Ready!');
     }
@@ -45,32 +45,32 @@ class ContestWinningEnhancements {
         // Detect user preferences for accessibility
         this.accessibilityFeatures.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         this.accessibilityFeatures.highContrast = window.matchMedia('(prefers-contrast: high)').matches;
-        
+
         // Detect performance mode
         if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
             this.performanceMode = 'low-power';
         } else if (navigator.deviceMemory && navigator.deviceMemory < 4) {
             this.performanceMode = 'low-memory';
         }
-        
+
         // Apply preferences
         this.applyUserPreferences();
     }
 
     applyUserPreferences() {
         const root = document.documentElement;
-        
+
         // Apply performance mode
         if (this.performanceMode === 'low-power') {
             root.style.setProperty('--performance-mode', 'low-power');
             this.reduceAnimations();
         }
-        
+
         // Apply accessibility preferences
         if (this.accessibilityFeatures.reducedMotion) {
             root.style.setProperty('--reduced-motion', 'reduce');
         }
-        
+
         if (this.accessibilityFeatures.highContrast) {
             root.style.setProperty('--high-contrast', 'high');
         }
@@ -133,13 +133,13 @@ class ContestWinningEnhancements {
     enhanceAccessibility() {
         // Enhanced focus management
         this.setupFocusManagement();
-        
+
         // Screen reader announcements
         this.setupScreenReaderSupport();
-        
+
         // Keyboard navigation improvements
         this.enhanceKeyboardNavigation();
-        
+
         // High contrast mode support
         this.setupHighContrastSupport();
     }
@@ -224,12 +224,12 @@ class ContestWinningEnhancements {
                 e.preventDefault();
                 this.openSearch();
             }
-            
+
             // Escape to close modals
             if (e.key === 'Escape') {
                 this.closeModals();
             }
-            
+
             // Alt + 1-9 for quick navigation
             if (e.altKey && /^[1-9]$/.test(e.key)) {
                 e.preventDefault();
@@ -255,10 +255,10 @@ class ContestWinningEnhancements {
     addMicroInteractions() {
         // Enhanced hover effects
         this.addHoverEffects();
-        
+
         // Loading states
         this.addLoadingStates();
-        
+
         // Success feedback
         this.addSuccessFeedback();
     }
@@ -266,7 +266,7 @@ class ContestWinningEnhancements {
     addHoverEffects() {
         // Add subtle hover effects to interactive elements
         const interactiveElements = document.querySelectorAll('.btn, .stat-item, .dashboard-item');
-        
+
         interactiveElements.forEach(element => {
             element.addEventListener('mouseenter', () => {
                 if (!this.accessibilityFeatures.reducedMotion) {
@@ -274,7 +274,7 @@ class ContestWinningEnhancements {
                     element.style.transition = 'transform 0.2s ease';
                 }
             });
-            
+
             element.addEventListener('mouseleave', () => {
                 if (!this.accessibilityFeatures.reducedMotion) {
                     element.style.transform = 'translateY(0)';
@@ -290,7 +290,7 @@ class ContestWinningEnhancements {
                 const originalText = e.target.textContent;
                 e.target.textContent = 'Loading...';
                 e.target.disabled = true;
-                
+
                 setTimeout(() => {
                     e.target.textContent = originalText;
                     e.target.disabled = false;
@@ -316,9 +316,9 @@ class ContestWinningEnhancements {
                 z-index: 1000;
                 animation: slideIn 0.3s ease;
             `;
-            
+
             document.body.appendChild(notification);
-            
+
             setTimeout(() => {
                 notification.remove();
             }, 3000);
@@ -341,7 +341,7 @@ class ContestWinningEnhancements {
             { key: 'Alt + 1-9', action: 'Quick navigation' },
             { key: '?', action: 'Show this help' }
         ];
-        
+
         const helpText = shortcuts.map(s => `${s.key}: ${s.action}`).join('\n');
         alert('Keyboard Shortcuts:\n\n' + helpText);
     }
@@ -349,7 +349,7 @@ class ContestWinningEnhancements {
     enhanceMobileExperience() {
         // Touch-friendly interactions
         this.addTouchSupport();
-        
+
         // Mobile-specific optimizations
         this.optimizeForMobile();
     }
@@ -357,12 +357,12 @@ class ContestWinningEnhancements {
     addTouchSupport() {
         // Add touch feedback
         const touchElements = document.querySelectorAll('.btn, .stat-item');
-        
+
         touchElements.forEach(element => {
             element.addEventListener('touchstart', () => {
                 element.style.transform = 'scale(0.95)';
             });
-            
+
             element.addEventListener('touchend', () => {
                 element.style.transform = 'scale(1)';
             });
@@ -385,19 +385,19 @@ class ContestWinningEnhancements {
             intersectionObserver: 'IntersectionObserver' in window,
             performanceObserver: 'PerformanceObserver' in window
         };
-        
+
         // Apply progressive enhancement
         if (features.intersectionObserver) {
             this.setupIntersectionObserver();
         }
-        
+
         if (features.serviceWorker) {
             this.setupServiceWorker();
         }
-        
+
         // 🏆 CONTEST ENHANCEMENT - Component Alignment Fix
         this.fixComponentAlignment();
-        
+
         // 🏆 CONTEST ENHANCEMENT - HALF-WIDTH COMPONENT ALIGNMENT FIX
         this.fixHalfWidthComponentAlignment();
     }
@@ -408,12 +408,12 @@ class ContestWinningEnhancements {
         setTimeout(() => {
             this.alignDashboardComponents();
         }, 100);
-        
+
         // Also fix after any dynamic content loads
         setTimeout(() => {
             this.alignDashboardComponents();
         }, 1000);
-        
+
         // Fix on window resize
         window.addEventListener('resize', () => {
             this.alignDashboardComponents();
@@ -457,7 +457,7 @@ class ContestWinningEnhancements {
             item.style.padding = 'var(--space-6)';
             item.style.alignSelf = 'stretch';
             item.style.justifySelf = 'stretch';
-            
+
             // Remove any inline styles that might conflict
             if (item.style.marginTop) item.style.marginTop = '0';
             if (item.style.marginBottom) item.style.marginBottom = '0';
@@ -468,7 +468,7 @@ class ContestWinningEnhancements {
         // 🏆 CONTEST ENHANCEMENT - Force Perfect Alignment for Task System and Knowledge Hub
         const taskSystemContainer = document.querySelector('.task-system-container');
         const knowledgeHubContainer = document.querySelector('.knowledge-hub-container');
-        
+
         if (taskSystemContainer) {
             taskSystemContainer.style.height = '100%';
             taskSystemContainer.style.minHeight = '400px';
@@ -479,7 +479,7 @@ class ContestWinningEnhancements {
             taskSystemContainer.style.alignSelf = 'stretch';
             taskSystemContainer.style.justifySelf = 'stretch';
         }
-        
+
         if (knowledgeHubContainer) {
             knowledgeHubContainer.style.height = '100%';
             knowledgeHubContainer.style.minHeight = '400px';
@@ -524,7 +524,7 @@ class ContestWinningEnhancements {
                 row.style.gridTemplateColumns = '1fr';
                 row.style.gap = 'var(--space-4)';
             });
-            
+
             dashboardItems.forEach(item => {
                 if (!item.classList.contains('full-width')) {
                     item.style.minHeight = '250px';
@@ -535,15 +535,15 @@ class ContestWinningEnhancements {
         if (window.innerWidth <= 768) {
             dashboardGrid.style.gap = 'var(--space-4)';
             dashboardGrid.style.padding = 'var(--space-3)';
-            
+
             dashboardRows.forEach(row => {
                 row.style.gap = 'var(--space-3)';
             });
-            
+
             dashboardItems.forEach(item => {
                 item.style.padding = 'var(--space-4)';
                 item.style.minHeight = '200px';
-                
+
                 if (item.classList.contains('compact')) {
                     item.style.padding = 'var(--space-3)';
                     item.style.minHeight = '120px';
@@ -551,18 +551,18 @@ class ContestWinningEnhancements {
             });
         }
 
-        if (window.innerWidth <= 480px) {
+        if (window.innerWidth <= 480) {
             dashboardGrid.style.gap = 'var(--space-3)';
             dashboardGrid.style.padding = 'var(--space-2)';
-            
+
             dashboardRows.forEach(row => {
                 row.style.gap = 'var(--space-2)';
             });
-            
+
             dashboardItems.forEach(item => {
                 item.style.padding = 'var(--space-3)';
                 item.style.minHeight = '180px';
-                
+
                 if (item.classList.contains('compact')) {
                     item.style.padding = 'var(--space-2)';
                     item.style.minHeight = '100px';
@@ -571,10 +571,10 @@ class ContestWinningEnhancements {
         }
 
         // 🏆 CONTEST ENHANCEMENT - Final Alignment Check
-        setTimeout(function() {
+        setTimeout(function () {
             const firstRowItem = document.querySelector('.dashboard-row > .dashboard-item:first-child');
             const lastRowItem = document.querySelector('.dashboard-row > .dashboard-item:last-child');
-            
+
             if (firstRowItem && lastRowItem) {
                 // Force same height
                 const maxHeight = Math.max(firstRowItem.offsetHeight, lastRowItem.offsetHeight);
@@ -594,7 +594,7 @@ class ContestWinningEnhancements {
                 }
             });
         });
-        
+
         // Observe dashboard items
         document.querySelectorAll('.dashboard-item').forEach(item => {
             observer.observe(item);
@@ -638,7 +638,7 @@ class ContestWinningEnhancements {
             'profile',
             'help'
         ];
-        
+
         const target = sections[number - 1];
         if (target) {
             const element = document.querySelector(target);
@@ -677,7 +677,7 @@ class ContestWinningEnhancements {
     // 🏆 CONTEST ENHANCEMENT - HALF-WIDTH COMPONENT ALIGNMENT FIX
     fixHalfWidthComponentAlignment() {
         console.log('🔧 Fixing half-width component alignment...');
-        
+
         // 🏆 CRITICAL FIX: Remove Massive Inline Styles from Knowledge Hub
         const knowledgeHub = document.querySelector('enhanced-knowledge-hub');
         if (knowledgeHub) {
@@ -687,7 +687,7 @@ class ContestWinningEnhancements {
             knowledgeHub.style.removeProperty('background-size');
             knowledgeHub.style.removeProperty('background-position');
             knowledgeHub.style.removeProperty('background-repeat');
-            
+
             // Force proper styling
             knowledgeHub.style.width = '100%';
             knowledgeHub.style.height = '100%';
@@ -705,7 +705,7 @@ class ContestWinningEnhancements {
             knowledgeHub.style.overflow = 'hidden';
             knowledgeHub.style.boxSizing = 'border-box';
         }
-        
+
         // 🏆 CRITICAL FIX: Remove Massive Inline Styles from Knowledge Hub Container
         const knowledgeHubContainer = document.querySelector('.enhanced-knowledge-hub');
         if (knowledgeHubContainer) {
@@ -715,7 +715,7 @@ class ContestWinningEnhancements {
             knowledgeHubContainer.style.removeProperty('background-size');
             knowledgeHubContainer.style.removeProperty('background-position');
             knowledgeHubContainer.style.removeProperty('background-repeat');
-            
+
             // Force proper styling
             knowledgeHubContainer.style.width = '100%';
             knowledgeHubContainer.style.height = '100%';
@@ -735,7 +735,7 @@ class ContestWinningEnhancements {
             knowledgeHubContainer.style.border = '1px solid rgba(255, 255, 255, 0.2)';
             knowledgeHubContainer.style.borderRadius = 'var(--radius-2xl)';
         }
-        
+
         // Fix the specific dashboard row containing task-system and enhanced-knowledge-hub
         const taskSystemRow = document.querySelector('.dashboard-row:has(.task-system-container)');
         if (taskSystemRow) {
@@ -750,7 +750,7 @@ class ContestWinningEnhancements {
             taskSystemRow.style.height = 'auto';
             taskSystemRow.style.overflow = 'visible';
         }
-        
+
         // Fix task-system container
         const taskSystemContainer = document.querySelector('.task-system-container');
         if (taskSystemContainer) {
@@ -770,7 +770,7 @@ class ContestWinningEnhancements {
             taskSystemContainer.style.overflow = 'hidden';
             taskSystemContainer.style.boxSizing = 'border-box';
         }
-        
+
         // Fix knowledge-hub container
         const knowledgeHubContainerWrapper = document.querySelector('.knowledge-hub-container');
         if (knowledgeHubContainerWrapper) {
@@ -790,7 +790,7 @@ class ContestWinningEnhancements {
             knowledgeHubContainerWrapper.style.overflow = 'hidden';
             knowledgeHubContainerWrapper.style.boxSizing = 'border-box';
         }
-        
+
         // Fix task-system component
         const taskSystem = document.querySelector('task-system');
         if (taskSystem) {
@@ -810,7 +810,7 @@ class ContestWinningEnhancements {
             taskSystem.style.overflow = 'hidden';
             taskSystem.style.boxSizing = 'border-box';
         }
-        
+
         // Fix enhanced-knowledge-hub component
         const enhancedKnowledgeHub = document.querySelector('enhanced-knowledge-hub');
         if (enhancedKnowledgeHub) {
@@ -830,7 +830,7 @@ class ContestWinningEnhancements {
             enhancedKnowledgeHub.style.overflow = 'hidden';
             enhancedKnowledgeHub.style.boxSizing = 'border-box';
         }
-        
+
         // Fix component internal containers
         const taskSystemEnhanced = document.querySelector('task-system .enhanced-task-system');
         if (taskSystemEnhanced) {
@@ -848,7 +848,7 @@ class ContestWinningEnhancements {
             taskSystemEnhanced.style.overflow = 'hidden';
             taskSystemEnhanced.style.boxSizing = 'border-box';
         }
-        
+
         const knowledgeHubEnhanced = document.querySelector('enhanced-knowledge-hub .enhanced-knowledge-hub');
         if (knowledgeHubEnhanced) {
             // Remove the massive inline style
@@ -857,7 +857,7 @@ class ContestWinningEnhancements {
             knowledgeHubEnhanced.style.removeProperty('background-size');
             knowledgeHubEnhanced.style.removeProperty('background-position');
             knowledgeHubEnhanced.style.removeProperty('background-repeat');
-            
+
             knowledgeHubEnhanced.style.width = '100%';
             knowledgeHubEnhanced.style.height = '100%';
             knowledgeHubEnhanced.style.minHeight = '400px';
@@ -872,26 +872,26 @@ class ContestWinningEnhancements {
             knowledgeHubEnhanced.style.overflow = 'hidden';
             knowledgeHubEnhanced.style.boxSizing = 'border-box';
         }
-        
+
         // Force equal heights for both containers
         setTimeout(() => {
             const taskContainer = document.querySelector('.task-system-container');
             const knowledgeContainer = document.querySelector('.knowledge-hub-container');
-            
+
             if (taskContainer && knowledgeContainer) {
                 const maxHeight = Math.max(taskContainer.offsetHeight, knowledgeContainer.offsetHeight);
                 taskContainer.style.height = maxHeight + 'px';
                 knowledgeContainer.style.height = maxHeight + 'px';
-                
+
                 // Also force the components inside to match
                 const taskSystem = document.querySelector('task-system');
                 const enhancedKnowledgeHub = document.querySelector('enhanced-knowledge-hub');
-                
+
                 if (taskSystem) taskSystem.style.height = maxHeight + 'px';
                 if (enhancedKnowledgeHub) enhancedKnowledgeHub.style.height = maxHeight + 'px';
             }
         }, 100);
-        
+
         console.log('✅ Half-width component alignment fix applied');
     }
 }
@@ -905,4 +905,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // Export for module systems
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = ContestWinningEnhancements;
-} 
+}

@@ -1927,16 +1927,4 @@ if (!taskSystemRegistered) {
     }
 } else {
     console.log('⚠️ task-system already registered, skipping');
-}
-
-// Only register enhanced version if not already registered
-if (!enhancedTaskSystemRegistered) {
-    try {
-        customElements.define('enhanced-task-system', SpectacularTaskSystem);
-        console.log('✅ enhanced-task-system custom element registered successfully!');
-    } catch (error) {
-        console.error('❌ Failed to register enhanced-task-system:', error);
-    }
-} else {
-    console.log('⚠️ enhanced-task-system already registered, skipping');
 } 

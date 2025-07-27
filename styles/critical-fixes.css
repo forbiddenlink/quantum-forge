@@ -1724,18 +1724,18 @@ html:not([data-theme="dark"]) {
     --bg-muted: #475569;
     --bg-hover: #475569;
     --bg-overlay: rgba(15, 23, 42, 0.8);
-    
+
     /* Text colors for dark mode */
     --text-primary: #f8fafc;
     --text-secondary: #cbd5e1;
     --text-muted: #94a3b8;
     --text-on-primary: #ffffff;
-    
+
     /* Border colors for dark mode */
     --border-color: #475569;
     --border-hover: #64748b;
     --border-focus: rgba(99, 102, 241, 0.5);
-    
+
     /* Ensure welcome section uses purple theme in dark mode */
     --welcome-bg-start: var(--primary-500);
     --welcome-bg-end: var(--primary-700);

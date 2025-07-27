@@ -6,7 +6,10 @@ let analyticsServiceInstance = null;
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Quantum Forge - Loading...');
 
-    // Debug: Check if custom elements are registered
+    // Color picker is now handled by the header component
+    // Remove direct DOM manipulation to prevent conflicts
+
+    // Debug: Check if custom elements are registered 
     console.log('🔍 Checking custom element registration...');
     const customElementsToCheck = [
         'analytics-dashboard',
@@ -22,7 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'enhanced-interactive-poll',
         'weather-widget',
         'achievement-system',
-        'company-culture-showcase'
+        'company-culture-showcase',
+        'dynamic-color-picker'
     ];
 
     customElementsToCheck.forEach(tagName => {
@@ -49,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Force sidebar background fix
     forceSidebarLightMode();
-    
+
     // Force light theme and fix white backgrounds
     forceLightThemeAndFixBackgrounds();
 
@@ -78,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     console.log('✅ Quantum Forge - Ready!');
-    
+
     // Additional fix after components are loaded
     setTimeout(() => {
         forceLightThemeAndFixBackgrounds();
@@ -200,39 +204,180 @@ function hideLoadingScreen() {
     }
 }
 
-// Multiple fallback timers to ensure loading screen is hidden
-setTimeout(hideLoadingScreen, 500);
-setTimeout(hideLoadingScreen, 1000);
-setTimeout(hideLoadingScreen, 2000);
+// Single loading screen management with state tracking
+let isLoadingScreenHidden = false;
 
-// Also hide loading screen when DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(hideLoadingScreen, 100);
-});
+// Create a promise-based loading screen manager
+const loadingManager = {
+    hideLoadingScreen: function() {
+        if (isLoadingScreenHidden) return;
+        
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            isLoadingScreenHidden = true;
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.transition = 'opacity 0.3s ease-out';
 
-// Hide loading screen when window is fully loaded
-window.addEventListener('load', () => {
-    setTimeout(hideLoadingScreen, 50);
-});
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                document.body.classList.remove('loading');
+            }, 300);
+        }
+    },
+    
+    onDOMReady: new Promise(resolve => {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', resolve);
+        } else {
+            resolve();
+        }
+    }),
+    
+    onLoad: new Promise(resolve => {
+        if (document.readyState === 'complete') {
+            resolve();
+        } else {
+            window.addEventListener('load', resolve);
+        }
+    })
+};
+
+// Hide loading screen when either DOM is ready or window is loaded
+Promise.race([
+    loadingManager.onDOMReady.then(() => setTimeout(loadingManager.hideLoadingScreen, 100)),
+    loadingManager.onLoad.then(() => setTimeout(loadingManager.hideLoadingScreen, 50))
+]);
 
 // Enhanced Theme Management with Dynamic Workspace Themes
 function initializeTheme() {
-    // Force light theme for new users and clear any dark mode preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        console.log('🔄 Clearing dark theme preference, forcing light mode');
-        localStorage.removeItem('theme');
-    }
-    
-    const theme = localStorage.getItem('theme') || detectPreferredTheme();
-    document.documentElement.setAttribute('data-theme', theme);
-    document.body.setAttribute('data-theme', theme);
+    try {
+        // Force light theme for new users and clear any dark mode preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            console.log('🔄 Clearing dark theme preference, forcing light mode');
+            localStorage.removeItem('theme');
+        }
 
-        // Theme color will be managed by simple-color-picker component
-    console.log('Theme initialization complete');
+        const theme = localStorage.getItem('theme') || detectPreferredTheme();
+        document.documentElement.setAttribute('data-theme', theme);
+        document.body.setAttribute('data-theme', theme);
+
+        // Load saved user theme (new system with hue/saturation/lightness)
+        const savedUserTheme = localStorage.getItem('userTheme');
+        if (savedUserTheme) {
+            const themeData = JSON.parse(savedUserTheme);
+            console.log('Loading saved theme:', themeData);
+
+            if (themeData && typeof themeData.hue === 'number' &&
+                typeof themeData.saturation === 'number' &&
+                typeof themeData.lightness === 'number') {
+                // Apply theme using the same method as dynamic color picker
+                applyColorTheme(themeData);
+            } else {
+                throw new Error('Invalid theme data structure');
+            }
+        } else {
+            // Load legacy saved color if it exists
+            const savedColor = localStorage.getItem('userColor');
+            if (savedColor) {
+                console.log('Loading legacy saved color:', savedColor);
+                // Convert hex to HSL and apply
+                const hsl = hexToHsl(savedColor);
+                if (hsl) {
+                    const legacyTheme = {
+                        hue: hsl.h,
+                        saturation: hsl.s,
+                        lightness: hsl.l,
+                        name: 'Imported'
+                    };
+                    applyColorTheme(legacyTheme);
+                }
+            }
+        }
+    } catch (error) {
+        console.warn('Failed to initialize theme:', error);
+        // Apply default theme
+        const defaultTheme = {
+            hue: 270,
+            saturation: 80,
+            lightness: 50,
+            name: 'Default'
+        };
+        applyColorTheme(defaultTheme);
+    }
 }
 
-// Color theming is now handled by simple-color-picker component
+// Helper function to apply color theme (mirrors dynamic-color-picker logic)
+function applyColorTheme(theme) {
+    // Set user color variables
+    document.documentElement.style.setProperty('--user-primary-h', theme.hue);
+    document.documentElement.style.setProperty('--user-primary-s', theme.saturation + '%');
+    document.documentElement.style.setProperty('--user-primary-l', theme.lightness + '%');
+
+    // Calculate and set derived colors
+    const baseColor = `hsl(${theme.hue}, ${theme.saturation}%, ${theme.lightness}%)`;
+    const lighterColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 10, 95)}%)`;
+    const darkerColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.max(theme.lightness - 10, 5)}%)`;
+    const muchDarkerColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.max(theme.lightness - 20, 5)}%)`;
+    const lightestColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 20, 95)}%)`;
+    const evenLighterColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 30, 97)}%)`;
+    const paleColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 40, 98)}%)`;
+
+    // Set all primary color variations
+    document.documentElement.style.setProperty('--primary-500', baseColor);
+    document.documentElement.style.setProperty('--primary-400', lighterColor);
+    document.documentElement.style.setProperty('--primary-600', darkerColor);
+    document.documentElement.style.setProperty('--primary-700', muchDarkerColor);
+    document.documentElement.style.setProperty('--primary-300', lightestColor);
+    document.documentElement.style.setProperty('--primary-200', evenLighterColor);
+    document.documentElement.style.setProperty('--primary-100', paleColor);
+
+    // Set accent color
+    document.documentElement.style.setProperty('--accent-color', baseColor);
+
+    // Override any hardcoded purple references
+    document.documentElement.style.setProperty('--welcome-bg-start', baseColor);
+    document.documentElement.style.setProperty('--welcome-bg-end', muchDarkerColor);
+    document.documentElement.style.setProperty('--button-primary', baseColor);
+    document.documentElement.style.setProperty('--link-color', baseColor);
+
+    console.log('Color theme applied:', theme, 'Base color:', baseColor);
+}
+
+// Helper function to convert hex to HSL
+function hexToHsl(hex) {
+    try {
+        const r = parseInt(hex.slice(1, 3), 16) / 255;
+        const g = parseInt(hex.slice(3, 5), 16) / 255;
+        const b = parseInt(hex.slice(5, 7), 16) / 255;
+
+        const max = Math.max(r, g, b);
+        const min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
+
+        if (max === min) {
+            h = s = 0;
+        } else {
+            const d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+            switch (max) {
+                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                case g: h = (b - r) / d + 2; break;
+                case b: h = (r - g) / d + 4; break;
+            }
+            h /= 6;
+        }
+
+        return {
+            h: Math.round(h * 360),
+            s: Math.round(s * 100),
+            l: Math.round(l * 100)
+        };
+    } catch (error) {
+        console.warn('Failed to convert hex to HSL:', hex);
+        return null;
+    }
+}
 
 function detectPreferredTheme() {
     // Check if user has manually set a theme preference
@@ -240,7 +385,7 @@ function detectPreferredTheme() {
     if (savedTheme) {
         return savedTheme; // Use saved preference
     }
-    
+
     // Default to light mode for new users - no more dark mode default
     return 'light';
 }
@@ -532,77 +677,69 @@ function announceToScreenReader(message) {
 
 // Force sidebar to have white background in light mode
 function forceSidebarLightMode() {
-    console.log('🚨 Emergency sidebar background fix running...');
+    let isInitialized = false;
+    let debounceTimeout = null;
 
     function applySidebarFix() {
-        const sidebar = document.querySelector('.sidebar');
-        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-
-        if (sidebar && !isDarkMode) {
-            console.log('🔧 Forcing sidebar background to white');
-
-            // Remove any existing background styles
-            sidebar.style.removeProperty('background');
-            sidebar.style.removeProperty('background-color');
-            sidebar.style.removeProperty('background-image');
-
-            // Force white background
-            sidebar.style.setProperty('background', '#ffffff', 'important');
-            sidebar.style.setProperty('background-color', '#ffffff', 'important');
-            sidebar.style.setProperty('background-image', 'none', 'important');
-
-            // Set CSS custom properties
-            sidebar.style.setProperty('--bg-elevated', '#ffffff', 'important');
-            sidebar.style.setProperty('--sidebar-bg', '#ffffff', 'important');
+        if (debounceTimeout) {
+            clearTimeout(debounceTimeout);
         }
+
+        debounceTimeout = setTimeout(() => {
+            const sidebar = document.querySelector('.sidebar');
+            const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+
+            if (sidebar && !isDarkMode && !isInitialized) {
+                // Remove any existing background styles
+                sidebar.style.removeProperty('background');
+                sidebar.style.removeProperty('background-color');
+                sidebar.style.removeProperty('background-image');
+
+                // Force white background once
+                sidebar.style.setProperty('background', '#ffffff', 'important');
+                sidebar.style.setProperty('background-color', '#ffffff', 'important');
+                sidebar.style.setProperty('background-image', 'none', 'important');
+
+                // Set CSS custom properties once
+                sidebar.style.setProperty('--bg-elevated', '#ffffff', 'important');
+                sidebar.style.setProperty('--sidebar-bg', '#ffffff', 'important');
+
+                isInitialized = true;
+            }
+        }, 100);
     }
 
-    // Apply immediately
+    // Apply only once
     applySidebarFix();
 
-    // Apply after a short delay to catch dynamic updates
-    setTimeout(applySidebarFix, 100);
-    setTimeout(applySidebarFix, 500);
-
-    // Watch for theme changes
+    // Watch for theme changes - single observer
     const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
-                setTimeout(applySidebarFix, 50);
-            }
-        });
+        const themeChanged = mutations.some(mutation => 
+            mutation.type === 'attributes' && 
+            mutation.attributeName === 'data-theme'
+        );
+
+        if (themeChanged) {
+            isInitialized = false;
+            applySidebarFix();
+        }
     });
 
     observer.observe(document.documentElement, {
         attributes: true,
         attributeFilter: ['data-theme']
     });
-
-    // Also watch for sidebar element changes
-    const sidebarObserver = new MutationObserver(() => {
-        setTimeout(applySidebarFix, 50);
-    });
-
-    const sidebar = document.querySelector('.sidebar');
-    if (sidebar) {
-        sidebarObserver.observe(sidebar, {
-            attributes: true,
-            attributeFilter: ['style', 'class']
-        });
-    }
-
-    console.log('✅ Sidebar background fix initialized');
 }
 
 // Force light theme and fix white backgrounds
 function forceLightThemeAndFixBackgrounds() {
     console.log('🚨 Force light theme and fix white backgrounds...');
-    
+
     // Force light theme
     document.documentElement.setAttribute('data-theme', 'light');
     document.body.setAttribute('data-theme', 'light');
     localStorage.setItem('theme', 'light');
-    
+
     // Remove white backgrounds from all insight elements
     function removeWhiteBackgrounds() {
         const insightElements = document.querySelectorAll('*[class*="insight"]');
@@ -610,7 +747,7 @@ function forceLightThemeAndFixBackgrounds() {
             element.style.setProperty('background', 'transparent', 'important');
             element.style.setProperty('background-color', 'transparent', 'important');
         });
-        
+
         // Also fix any elements with white backgrounds
         const whiteBackgroundElements = document.querySelectorAll('*[style*="background: white"], *[style*="background-color: white"]');
         whiteBackgroundElements.forEach(element => {
@@ -618,12 +755,12 @@ function forceLightThemeAndFixBackgrounds() {
             element.style.setProperty('background-color', 'transparent', 'important');
         });
     }
-    
+
     // Apply fixes immediately and after delays
     removeWhiteBackgrounds();
     setTimeout(removeWhiteBackgrounds, 100);
     setTimeout(removeWhiteBackgrounds, 500);
     setTimeout(removeWhiteBackgrounds, 1000);
-    
+
     console.log('✅ Light theme forced and white backgrounds removed');
 }

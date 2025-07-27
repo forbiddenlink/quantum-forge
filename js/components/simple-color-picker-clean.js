@@ -109,7 +109,8 @@ class SimpleColorPicker extends HTMLElement {
             color: ${isDarkMode ? '#f1f5f9' : '#1e293b'};
         `;
 
-        // Modern color palette with better variety
+        // DEPRECATED: Use dynamic-color-picker.js instead
+        // This component is kept for reference only and should not be used in production
         const colors = [
             { color: '#6366f1', name: 'Indigo', desc: 'Classic & Professional' },
             { color: '#3b82f6', name: 'Blue', desc: 'Trust & Stability' },

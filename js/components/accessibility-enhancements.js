@@ -8,7 +8,7 @@ class AccessibilityEnhancements {
         this.focusTrapStack = [];
         this.keyboardNavActive = false;
         this.lastFocusedElement = null;
-        
+
         this.init();
     }
 
@@ -19,7 +19,7 @@ class AccessibilityEnhancements {
             setTimeout(() => this.init(), 100);
             return;
         }
-        
+
         // Create essential accessibility elements
         this.createLiveRegions();
         this.createSkipLinks();
@@ -28,7 +28,7 @@ class AccessibilityEnhancements {
         this.setupChartAccessibility();
         this.setupModalAccessibility();
         this.enhanceExistingComponents();
-        
+
         console.log('🎯 Advanced Accessibility Enhancements loaded');
     }
 
@@ -39,7 +39,7 @@ class AccessibilityEnhancements {
         this.liveRegion.setAttribute('aria-atomic', 'true');
         this.liveRegion.className = 'live-region';
         this.liveRegion.id = 'live-region';
-        
+
         if (document.body) {
             document.body.appendChild(this.liveRegion);
         } else {
@@ -53,7 +53,7 @@ class AccessibilityEnhancements {
         this.statusAnnouncer.setAttribute('aria-atomic', 'true');
         this.statusAnnouncer.className = 'status-announcer';
         this.statusAnnouncer.id = 'status-announcer';
-        
+
         if (document.body) {
             document.body.appendChild(this.statusAnnouncer);
         } else {
@@ -67,7 +67,7 @@ class AccessibilityEnhancements {
         //     console.warn('Document body not ready for skip links');
         //     return;
         // }
-        
+
         // const skipLinks = document.createElement('div');
         // skipLinks.className = 'skip-links';
         // skipLinks.innerHTML = `
@@ -164,13 +164,13 @@ class AccessibilityEnhancements {
     enhanceExistingComponents() {
         // Enhance forms
         this.enhanceForms();
-        
+
         // Enhance interactive elements
         this.enhanceInteractiveElements();
-        
+
         // Enhance navigation
         this.enhanceNavigation();
-        
+
         // Enhance data tables
         this.enhanceDataTables();
     }
@@ -179,7 +179,7 @@ class AccessibilityEnhancements {
     announce(message, priority = 'polite') {
         const announcer = priority === 'assertive' ? this.statusAnnouncer : this.liveRegion;
         announcer.textContent = message;
-        
+
         // Clear after announcement
         setTimeout(() => {
             announcer.textContent = '';
@@ -191,7 +191,7 @@ class AccessibilityEnhancements {
         const focusableElements = container.querySelectorAll(
             'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
         );
-        
+
         if (focusableElements.length === 0) return;
 
         const firstElement = focusableElements[0];
@@ -219,7 +219,7 @@ class AccessibilityEnhancements {
 
     handleFocusTrap(e, focusTrap) {
         const { firstElement, lastElement } = focusTrap;
-        
+
         if (e.shiftKey) {
             if (document.activeElement === firstElement) {
                 e.preventDefault();
@@ -246,11 +246,11 @@ class AccessibilityEnhancements {
         const description = document.createElement('div');
         description.id = descriptionId;
         description.className = 'chart-description sr-only';
-        
+
         // Generate description based on chart type
         const chartTitle = chartElement.querySelector('.chart-title')?.textContent || 'Chart';
         description.textContent = `${chartTitle}. Press Enter for detailed description.`;
-        
+
         chartElement.setAttribute('aria-describedby', descriptionId);
         chartElement.parentNode.insertBefore(description, chartElement.nextSibling);
 
@@ -305,7 +305,7 @@ class AccessibilityEnhancements {
         const tables = document.querySelectorAll('table:not([role])');
         tables.forEach(table => {
             table.setAttribute('role', 'table');
-            
+
             // Add caption if missing
             if (!table.querySelector('caption')) {
                 const caption = document.createElement('caption');
@@ -326,10 +326,10 @@ class AccessibilityEnhancements {
 
     enhanceModal(modal) {
         modal.setAttribute('aria-modal', 'true');
-        
+
         // Add focus trap
         const focusTrap = this.trapFocus(modal);
-        
+
         // Add close handler
         const closeModal = () => {
             this.releaseFocusTrap();
@@ -383,10 +383,10 @@ class AccessibilityEnhancements {
         if (!panel) {
             panel = this.createAccessibilityPanel();
         }
-        
+
         const isVisible = panel.style.display !== 'none';
         panel.style.display = isVisible ? 'none' : 'block';
-        
+
         if (!isVisible) {
             this.trapFocus(panel);
             this.announce('Accessibility panel opened', 'assertive');
@@ -447,7 +447,7 @@ class AccessibilityEnhancements {
 
     loadAccessibilityPreferences(panel) {
         const prefs = JSON.parse(localStorage.getItem('accessibilityPrefs') || '{}');
-        
+
         panel.querySelector('#highContrast').checked = prefs.highContrast || false;
         panel.querySelector('#largeText').checked = prefs.largeText || false;
         panel.querySelector('#reducedMotion').checked = prefs.reducedMotion || false;
@@ -461,7 +461,7 @@ class AccessibilityEnhancements {
     addFormValidation(input) {
         const errorId = `${input.id || 'input'}-error`;
         const helpId = `${input.id || 'input'}-help`;
-        
+
         // Add error message container
         if (!document.getElementById(errorId)) {
             const errorDiv = document.createElement('div');
@@ -488,7 +488,7 @@ class AccessibilityEnhancements {
         if (!errorDiv) return;
 
         let errorMessage = '';
-        
+
         if (input.hasAttribute('required') && !input.value.trim()) {
             errorMessage = 'This field is required';
         } else if (input.type === 'email' && input.value && !this.isValidEmail(input.value)) {
@@ -515,14 +515,14 @@ class AccessibilityEnhancements {
     inferElementPurpose(element) {
         const classes = element.className.toLowerCase();
         const parent = element.parentElement;
-        
+
         if (classes.includes('close')) return 'Close';
         if (classes.includes('menu')) return 'Menu';
         if (classes.includes('search')) return 'Search';
         if (classes.includes('theme')) return 'Toggle theme';
         if (classes.includes('notification')) return 'Notifications';
         if (parent && parent.className.includes('chart')) return 'Chart controls';
-        
+
         return 'Button';
     }
 
@@ -537,11 +537,21 @@ class AccessibilityEnhancements {
 
 // Initialize accessibility enhancements
 if (typeof window !== 'undefined') {
-    window.accessibilityEnhancements = new AccessibilityEnhancements();
-    console.log('🎯 Accessibility Enhancements initialized');
+    function initAccessibilityEnhancements() {
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                window.accessibilityEnhancements = new AccessibilityEnhancements();
+                console.log('🎯 Accessibility Enhancements initialized');
+            });
+        } else {
+            window.accessibilityEnhancements = new AccessibilityEnhancements();
+            console.log('🎯 Accessibility Enhancements initialized');
+        }
+    }
+    initAccessibilityEnhancements();
 }
 
 // Export for modules
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = AccessibilityEnhancements;
-} 
+}

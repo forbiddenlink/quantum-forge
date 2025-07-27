@@ -10,7 +10,7 @@ class ErrorBoundary {
 
     setupErrorHandling() {
         window.addEventListener('error', (e) => {
-            if (this.element.contains(e.target)) {
+            if (this.element && e.target instanceof Node && this.element.contains(e.target)) {
                 this.showFallback(e.error);
             }
         });
@@ -34,14 +34,24 @@ class PerformanceMonitor {
     }
 
     startMonitoring() {
-        // Measure component load times
-        this.measureComponentLoading();
+        // Use requestIdleCallback for non-critical monitoring
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => {
+                this.measureComponentLoading();
+                this.observeLayoutShifts();
+            });
+        } else {
+            // Fallback to delayed initialization
+            setTimeout(() => {
+                this.measureComponentLoading();
+                this.observeLayoutShifts();
+            }, 2000);
+        }
 
-        // Monitor layout shifts
-        this.observeLayoutShifts();
-
-        // Track user interactions
-        this.trackInteractions();
+        // Track only essential user interactions with throttling
+        this.throttledTrackInteractions = Utils.throttle(() => {
+            this.trackInteractions();
+        }, 200);
     }
 
     measureComponentLoading() {

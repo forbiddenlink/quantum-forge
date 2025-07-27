@@ -25,7 +25,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         this.sparkles = [];
 
         this.mouseFollower = null;
-        
+
         // Enhanced analytics options with contest features
         this.options = {
             theme: 'light',
@@ -46,9 +46,12 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
 
     connectedCallback() {
         if (this.isInitialized) return;
-        
+
         console.log('🎨 Contest-Winning Analytics Dashboard Loading...');
-        
+
+        // Clean up any existing timers/animations before initializing
+        this.cleanupResources();
+
         this.render();
         this.setupAccessibilityFeatures();
         this.setupEventListeners();
@@ -60,7 +63,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         this.startRealTimeUpdates();
         this.startInsightRotation();
         this.startAnimationLoop();
-        
+
         // Subscribe to analytics updates
         if (window.analyticsService) {
             console.log('Analytics service found, subscribing...');
@@ -82,7 +85,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             this.triggerSpectacularEntrance();
             console.log('✨ Contest-Winning Analytics Dashboard loaded and animated');
         }, 100);
-        
+
         this.isInitialized = true;
         console.log('🏆 Analytics Dashboard initialized with contest-winning features!');
     }
@@ -92,19 +95,19 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         // Add ARIA attributes
         this.setAttribute('role', 'main');
         this.setAttribute('aria-label', 'Advanced Analytics Dashboard with real-time insights and performance metrics');
-        
+
         // Create skip link
         this.createSkipLink();
-        
+
         // Create keyboard navigation helper
         this.createKeyboardHelper();
-        
+
         // Create screen reader announcements
         this.createLiveRegion();
-        
+
         // Enhance interactive elements with accessibility
         this.enhanceInteractiveElements();
-        
+
         console.log('♿ Advanced accessibility features initialized!');
     }
 
@@ -113,16 +116,16 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         if (document.querySelector('.analytics-skip')) {
             return;
         }
-        
+
         const skipLink = document.createElement('a');
         skipLink.href = '#analytics-main-content';
         skipLink.className = 'skip-link analytics-skip';
         skipLink.textContent = 'Skip to analytics content';
         skipLink.setAttribute('aria-label', 'Skip to main analytics dashboard content');
-        
+
         // Append to document body for proper fixed positioning
         document.body.appendChild(skipLink);
-        
+
         // Clean up when component is removed
         this.skipLinkElement = skipLink;
     }
@@ -172,7 +175,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             card.setAttribute('tabindex', '0');
             card.setAttribute('role', 'button');
             card.setAttribute('aria-label', `KPI metric: ${card.querySelector('.kpi-name')?.textContent || 'Unknown'}`);
-            
+
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -180,7 +183,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                     this.triggerKPIAnimation(card);
                 }
             });
-            
+
             card.addEventListener('click', () => {
                 this.highlightMetric(card);
                 this.triggerKPIAnimation(card);
@@ -194,7 +197,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             card.setAttribute('tabindex', '0');
             card.setAttribute('role', 'button');
             card.setAttribute('aria-label', `Goal: ${card.querySelector('.goal-name')?.textContent || 'Unknown'}`);
-            
+
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -210,7 +213,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             card.setAttribute('tabindex', '0');
             card.setAttribute('role', 'button');
             card.setAttribute('aria-label', `AI Insight: ${card.querySelector('.insight-title')?.textContent || 'Unknown'}`);
-            
+
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -241,7 +244,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
     // 🎯 KEYBOARD NAVIGATION
     setupKeyboardNavigation() {
         this.addEventListener('keydown', (e) => {
-            switch(e.key) {
+            switch (e.key) {
                 case 'Escape':
                     this.resetFocus();
                     break;
@@ -307,7 +310,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             </div>
         `;
         document.body.appendChild(modal);
-        
+
         // Auto-close after 10 seconds
         setTimeout(() => {
             if (modal.parentNode) {
@@ -321,7 +324,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         if (!this.options.enableSpectacularEffects) return;
 
         console.log('🎨 Initializing spectacular visual effects...');
-        
+
         this.createParticleSystem();
 
         this.createSparkles();
@@ -332,7 +335,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         this.createHolographicOverlay();
         this.createEnergyRings();
         this.createDataVisualizationEffects();
-        
+
         console.log('✨ All spectacular effects initialized!');
     }
 
@@ -359,7 +362,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             `;
             particlesContainer.appendChild(particle);
         }
-        
+
         console.log('🎯 Analytics particle system created!');
     }
 
@@ -433,7 +436,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 pointer-events: none;
                 z-index: 2;
             `;
-            
+
             // Position lines randomly
             const positions = [
                 { top: '20%', left: '15%', width: '100px', rotate: '25deg' },
@@ -443,11 +446,11 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 { top: '60%', left: '60%', width: '90px', rotate: '15deg' },
                 { top: '50%', right: '40%', width: '70px', rotate: '-25deg' }
             ];
-            
+
             const pos = positions[i];
             Object.assign(line.style, pos);
             line.style.transform = `rotate(${pos.rotate})`;
-            
+
             constellation.appendChild(line);
         }
 
@@ -545,8 +548,8 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 position: absolute;
                 width: ${size}px;
                 height: ${size}px;
-                top: -${size/2}px;
-                left: -${size/2}px;
+                top: -${size / 2}px;
+                left: -${size / 2}px;
                 border: 1px solid rgba(99, 102, 241, 0.1);
                 border-radius: 50%;
                 animation: analyticsEnergyPulse ${4 + i * 2}s ease-in-out infinite;
@@ -630,7 +633,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             const rect = this.getBoundingClientRect();
             this.mousePosition.x = e.clientX - rect.left;
             this.mousePosition.y = e.clientY - rect.top;
-            
+
             if (this.mouseFollower) {
                 this.mouseFollower.style.left = this.mousePosition.x + 'px';
                 this.mouseFollower.style.top = this.mousePosition.y + 'px';
@@ -683,7 +686,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 z-index: 6;
             `;
             sparklesContainer.appendChild(sparkle);
-            
+
             setTimeout(() => {
                 if (sparkle.parentNode) {
                     sparkle.parentNode.removeChild(sparkle);
@@ -695,7 +698,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
     // 🎆 SPECTACULAR ANIMATION SEQUENCES
     triggerSpectacularEntrance() {
         console.log('🎆 Triggering spectacular entrance animation!');
-        
+
         // Animate elements in sequence
         const elements = this.querySelectorAll('.advanced-kpi-card, .goal-card, .ai-insight-card, .chart-container');
         elements.forEach((element, index) => {
@@ -713,7 +716,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
 
     triggerSpectacularBurst() {
         console.log('💥 Triggering spectacular burst effect!');
-        
+
         for (let i = 0; i < 30; i++) {
             this.createBurstSparkle(i);
         }
@@ -724,7 +727,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             particle.style.animationDuration = '2s';
             particle.style.transform = 'scale(1.5)';
             particle.style.filter = 'brightness(1.5) saturate(1.5)';
-            
+
             setTimeout(() => {
                 particle.style.animationDuration = '';
                 particle.style.transform = '';
@@ -747,25 +750,25 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             left: 50%;
             z-index: 10;
         `;
-        
+
         const angle = (index / 30) * Math.PI * 2;
         const distance = 150 + Math.random() * 100;
         const duration = 1500 + Math.random() * 500;
-        
+
         const targetX = Math.cos(angle) * distance;
         const targetY = Math.sin(angle) * distance;
-        
+
         sparkle.animate([
-            { 
+            {
                 transform: 'translate(-50%, -50%) scale(0)',
                 opacity: 0
             },
-            { 
+            {
                 transform: `translate(calc(-50% + ${targetX}px), calc(-50% + ${targetY}px)) scale(1.5)`,
                 opacity: 1,
                 offset: 0.3
             },
-            { 
+            {
                 transform: `translate(calc(-50% + ${targetX * 1.5}px), calc(-50% + ${targetY * 1.5}px)) scale(0)`,
                 opacity: 0
             }
@@ -777,7 +780,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 sparkle.parentNode.removeChild(sparkle);
             }
         };
-        
+
         this.appendChild(sparkle);
     }
 
@@ -802,7 +805,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 box-shadow: 0 0 20px rgba(99, 102, 241, 0.8);
             `;
             particlesContainer.appendChild(particle);
-            
+
             setTimeout(() => {
                 if (particle.parentNode) {
                     particle.parentNode.removeChild(particle);
@@ -815,7 +818,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         card.style.transform = 'translateY(-8px) scale(1.05)';
         card.style.boxShadow = '0 20px 40px rgba(99, 102, 241, 0.3)';
         card.style.borderColor = 'rgba(99, 102, 241, 0.5)';
-        
+
         // Create glow effect
         const glow = document.createElement('div');
         glow.style.cssText = `
@@ -832,7 +835,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         `;
         card.style.position = 'relative';
         card.appendChild(glow);
-        
+
         setTimeout(() => {
             card.style.transform = '';
             card.style.boxShadow = '';
@@ -841,7 +844,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 glow.parentNode.removeChild(glow);
             }
         }, 1000);
-        
+
         // Create sparkle burst around the card
         for (let i = 0; i < 5; i++) {
             setTimeout(() => {
@@ -853,7 +856,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
     createCardSparkle(card) {
         const rect = card.getBoundingClientRect();
         const containerRect = this.getBoundingClientRect();
-        
+
         const sparkle = document.createElement('div');
         sparkle.className = 'analytics-card-sparkle';
         sparkle.style.cssText = `
@@ -869,7 +872,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             z-index: 10;
         `;
         this.appendChild(sparkle);
-        
+
         setTimeout(() => {
             if (sparkle.parentNode) {
                 sparkle.parentNode.removeChild(sparkle);
@@ -896,7 +899,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
     updateParticleColors() {
         const time = Date.now() * 0.001;
         const particles = this.querySelectorAll('.analytics-particle');
-        
+
         particles.forEach((particle, index) => {
             const hue = (time * 20 + index * 30) % 360;
             particle.style.filter = `hue-rotate(${hue}deg) brightness(1.2)`;
@@ -906,7 +909,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
     updateSparkleIntensity() {
         const intensity = 0.4 + 0.6 * Math.sin(Date.now() * 0.002);
         const sparkles = this.querySelectorAll('.analytics-sparkle');
-        
+
         sparkles.forEach(sparkle => {
             sparkle.style.opacity = intensity;
         });
@@ -915,7 +918,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
     updateEnergyRings() {
         const rings = this.querySelectorAll('.analytics-energy-ring');
         const time = Date.now() * 0.001;
-        
+
         rings.forEach((ring, index) => {
             const scale = 1 + 0.1 * Math.sin(time + index * 2);
             const opacity = 0.1 + 0.2 * Math.sin(time * 0.5 + index);
@@ -926,7 +929,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
 
     setupEventListeners() {
         console.log('Setting up Analytics Dashboard event listeners...');
-        
+
         // Range selector
         const rangeSelector = this.querySelector('.range-selector');
         if (rangeSelector) {
@@ -1008,7 +1011,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 const filterType = e.target.dataset.filter;
                 this.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 e.target.classList.add('active');
-                
+
                 const activityItems = this.querySelectorAll('.activity-item');
                 activityItems.forEach(item => {
                     if (filterType === 'all' || item.dataset.type === filterType) {
@@ -1025,10 +1028,13 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         console.log('Analytics Dashboard event listeners setup complete');
     }
 
-    disconnectedCallback() {
-        console.log('Analytics Dashboard disconnecting...');
+    cleanupResources() {
+        console.log('🧹 Cleaning up Analytics Dashboard resources...');
+
+        // Clear all intervals
         if (this.unsubscribe) {
             this.unsubscribe();
+            this.unsubscribe = null;
         }
         if (this.realTimeUpdates) {
             clearInterval(this.realTimeUpdates);
@@ -1042,8 +1048,8 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             clearInterval(this.updateInterval);
             this.updateInterval = null;
         }
-        
-        // Cancel animation frames
+
+        // Cancel all animation frames
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
             this.animationFrame = null;
@@ -1052,30 +1058,66 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             cancelAnimationFrame(this.pulseAnimation);
             this.pulseAnimation = null;
         }
-        
-        // Disconnect any observers
+
+        // Disconnect all observers
         if (this.observer) {
             this.observer.disconnect();
             this.observer = null;
         }
-        
-        this.chartInstances.forEach(chart => chart.destroy());
-        this.chartInstances.clear();
-        
-        // Clean up skip link
+
+        // Destroy all chart instances
+        if (this.chartInstances) {
+            this.chartInstances.forEach(chart => {
+                try {
+                    chart.destroy();
+                } catch (e) {
+                    console.warn('Failed to destroy chart:', e);
+                }
+            });
+            this.chartInstances.clear();
+        }
+
+        // Remove DOM elements
         if (this.skipLinkElement && this.skipLinkElement.parentNode) {
             this.skipLinkElement.parentNode.removeChild(this.skipLinkElement);
             this.skipLinkElement = null;
         }
-        
-        console.log('Analytics Dashboard cleanup complete');
+
+        // Clean up particles and effects
+        const effectContainers = [
+            '.analytics-particles-system',
+            '.analytics-sparkles',
+            '.analytics-aurora-effect',
+            '.analytics-constellation',
+            '.analytics-wave-distortion',
+            '.analytics-mouse-follower',
+            '.analytics-holographic-overlay',
+            '.analytics-energy-rings',
+            '.analytics-data-points'
+        ];
+
+        effectContainers.forEach(selector => {
+            const container = this.querySelector(selector);
+            if (container) {
+                container.remove();
+            }
+        });
+
+        console.log('✨ Analytics Dashboard cleanup complete');
+    }
+
+    disconnectedCallback() {
+        console.log('Analytics Dashboard disconnecting...');
+        this.cleanupResources();
+        this.isInitialized = false;
+        console.log('Analytics Dashboard disconnected');
     }
 
     initializeParticles() {
         const particlesContainer = document.createElement('div');
         particlesContainer.className = 'analytics-particles';
         this.appendChild(particlesContainer);
-        
+
         // Create floating particles
         for (let i = 0; i < this.options.particleCount; i++) {
             const particle = document.createElement('div');
@@ -1094,7 +1136,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             `;
             particlesContainer.appendChild(particle);
         }
-        
+
         // Add particle animation CSS
         if (!document.querySelector('#analytics-particle-styles')) {
             const style = document.createElement('style');
@@ -1117,7 +1159,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-in');
-                    
+
                     // Animate progress bars
                     const progressBars = entry.target.querySelectorAll('.progress-fill, .bar');
                     progressBars.forEach(bar => {
@@ -1137,18 +1179,29 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
     }
 
     startRealTimeUpdates() {
-        if (!this.isRealTimeEnabled) return;
-        
-        this.realTimeUpdates = setInterval(() => {
-            this.updateRandomMetrics();
-        }, this.options.chartRefreshRate);
+        // Clear any existing update interval
+        if (this.realTimeUpdates) {
+            clearInterval(this.realTimeUpdates);
+            this.realTimeUpdates = null;
+        }
+
+        // Only start if real-time updates are enabled
+        if (this.isRealTimeEnabled) {
+            console.log('🔄 Starting real-time updates...');
+            this.realTimeUpdates = setInterval(() => {
+                this.updateRandomMetrics();
+            }, this.options.chartRefreshRate);
+        }
     }
 
     startInsightRotation() {
+        // Clear any existing rotation interval
         if (this.insightRotationInterval) {
             clearInterval(this.insightRotationInterval);
+            this.insightRotationInterval = null;
         }
 
+        console.log('🔄 Starting insight rotation...');
         this.insightRotationInterval = setInterval(() => {
             this.rotateInsights();
         }, this.options.insightRotationInterval);
@@ -1165,14 +1218,14 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
 
     updateRandomMetrics() {
         if (!this.data) return;
-        
+
         // Randomly update some KPIs
         Object.keys(this.data.kpiData).forEach(kpi => {
             if (Math.random() > 0.7) {
                 const change = Math.random() > 0.5 ? 1 : -1;
                 this.data.kpiData[kpi].current = Math.max(0, Math.min(100, this.data.kpiData[kpi].current + change));
                 this.data.kpiData[kpi].trend = `${change >= 0 ? '+' : ''}${change}%`;
-                
+
                 // Animate the change
                 const kpiCard = this.querySelector(`[data-kpi="${kpi}"]`);
                 if (kpiCard) {
@@ -1181,13 +1234,13 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 }
             }
         });
-        
+
         this.updateDashboard();
     }
 
     render() {
         console.log('Analytics Dashboard rendering with data:', this.data);
-        
+
         // Initialize with default data if none is available
         if (!this.data) {
             this.data = {
@@ -1274,7 +1327,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
 
         this.data.taskChart = this.data.taskChart || [0, 0, 0, 0, 0, 0, 0];
         this.data.projectChart = this.data.projectChart || [65, 25, 10];
-        
+
         this.innerHTML = `
             <div class="analytics-dashboard" id="analytics-main-content">
                 <div class="dashboard-header">
@@ -1368,11 +1421,11 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                     </h3>
                     <div class="goals-grid">
                         ${this.data.goals.quarterly.map(goal => {
-                            const circumference = 2 * Math.PI * 54;
-                            const offset = circumference * (1 - goal.progress / 100);
-                            const strokeColor = goal.status === 'exceeded' ? 'var(--success-500)' : 'var(--primary-500)';
-                            
-                            return `
+            const circumference = 2 * Math.PI * 54;
+            const offset = circumference * (1 - goal.progress / 100);
+            const strokeColor = goal.status === 'exceeded' ? 'var(--success-500)' : 'var(--primary-500)';
+
+            return `
                                 <div class="goal-card ${goal.status}" data-goal="${goal.name}">
                                     <div class="goal-header">
                                         <h4 class="goal-name">${goal.name}</h4>
@@ -1409,7 +1462,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                                     </div>
                                 </div>
                             `;
-                        }).join('')}
+        }).join('')}
                     </div>
                 </div>
 
@@ -1617,7 +1670,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         `;
         console.log('Analytics Dashboard rendered, element:', this);
         console.log('Analytics Dashboard innerHTML length:', this.innerHTML.length);
-        
+
         // Add entrance animations for AI insights
         setTimeout(() => {
             const insightCards = this.querySelectorAll('.ai-insight-card');
@@ -1629,7 +1682,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 }, index * 150); // Stagger the animations
             });
         }, 100);
-        
+
         // 🎬 CRITICAL FIX: Ensure all AI insight cards are visible
         setTimeout(() => {
             const insightCards = this.querySelectorAll('.ai-insight-card');
@@ -1640,7 +1693,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 }
             });
         }, 500);
-        
+
         // 🎬 ADDITIONAL SAFETY CHECK: Force visibility after a longer delay
         setTimeout(() => {
             const insightCards = this.querySelectorAll('.ai-insight-card');
@@ -1657,7 +1710,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         // Create a color gradient from red (70) to green (100)
         const normalizedValue = Math.max(70, Math.min(100, value));
         const intensity = (normalizedValue - 70) / 30; // Normalize to 0-1 range
-        
+
         if (intensity < 0.5) {
             // Red to yellow
             const red = 255;
@@ -1715,14 +1768,14 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
 
     initializeCharts() {
         console.log('🚀 Initializing Analytics Charts...');
-        
+
         // Check if Chart.js is loaded
         if (typeof Chart === 'undefined') {
             console.error('Chart.js is not loaded! Adding Chart.js dynamically...');
             this.loadChartJS();
             return;
         }
-        
+
         // Task Completion Chart
         const taskCanvas = this.querySelector('#taskChartCanvas');
         if (taskCanvas) {
@@ -1792,7 +1845,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                                 size: 13
                             },
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     return `${context.dataset.label}: ${context.parsed.y} tasks`;
                                 }
                             }
@@ -1842,12 +1895,12 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             projectCanvas.width = projectCanvas.offsetWidth;
             projectCanvas.height = projectCanvas.offsetHeight;
             const projectCtx = projectCanvas.getContext('2d');
-            
+
             // Use actual data or fallback to realistic defaults
-            const projectData = this.data.projectChart && this.data.projectChart.some(val => val > 0) 
-                ? this.data.projectChart 
+            const projectData = this.data.projectChart && this.data.projectChart.some(val => val > 0)
+                ? this.data.projectChart
                 : [65, 25, 10];
-            
+
             const projectChart = new Chart(projectCtx, {
                 type: 'doughnut',
                 data: {
@@ -1904,7 +1957,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                                 size: 13
                             },
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     return `${context.label}: ${context.parsed}%`;
                                 }
                             }
@@ -1919,7 +1972,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
 
     updateDashboard() {
         if (!this.data) return;
-        
+
         // Update KPIs
         Object.entries(this.data.kpiData).forEach(([key, kpi]) => {
             const kpiCard = this.querySelector(`[data-kpi="${key}"]`);
@@ -1927,20 +1980,20 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 const valueEl = kpiCard.querySelector('.kpi-value');
                 const trendEl = kpiCard.querySelector('.kpi-trend');
                 const progressFill = kpiCard.querySelector('.progress-fill');
-                
+
                 if (valueEl) {
                     this.animateNumber(valueEl, parseInt(valueEl.textContent), kpi.current);
                 }
-                
+
                 if (trendEl) {
                     trendEl.textContent = kpi.trend;
                     trendEl.className = `kpi-trend ${kpi.trend.startsWith('+') ? 'positive' : 'negative'}`;
                 }
-                
+
                 if (progressFill) {
                     progressFill.style.width = `${(kpi.current / kpi.target) * 100}%`;
                 }
-                
+
                 kpiCard.className = `kpi-card ${kpi.status}`;
             }
         });
@@ -1964,15 +2017,15 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 const progressEl = goalCard.querySelector('.progress-fill');
                 const progressText = goalCard.querySelector('.goal-progress-value');
                 const statusBadge = goalCard.querySelector('.goal-status');
-                
+
                 if (progressEl) {
                     progressEl.style.width = `${goal.progress}%`;
                 }
-                
+
                 if (progressText) {
                     progressText.textContent = `${goal.progress.toFixed(1)}%`;
                 }
-                
+
                 if (statusBadge) {
                     statusBadge.className = `goal-status ${goal.status}`;
                     statusBadge.textContent = goal.status.replace('-', ' ');
@@ -2084,7 +2137,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         if (refreshBtn) {
             refreshBtn.style.transform = 'rotate(360deg)';
             refreshBtn.setAttribute('aria-label', 'Refreshing analytics data...');
-            
+
             setTimeout(() => {
                 refreshBtn.style.transform = 'rotate(0deg)';
                 refreshBtn.setAttribute('aria-label', 'Refresh analytics data');
@@ -2162,7 +2215,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
         // Create a color gradient from red (70) to green (100)
         const normalizedValue = Math.max(70, Math.min(100, value));
         const intensity = (normalizedValue - 70) / 30; // Normalize to 0-1 range
-        
+
         if (intensity < 0.5) {
             // Red to yellow
             const red = 255;
@@ -2223,7 +2276,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             card.style.boxShadow = '0 20px 40px rgba(99, 102, 241, 0.3)';
             card.style.borderColor = 'rgba(255, 255, 255, 0.4)';
             card.classList.add('analytics-float');
-            
+
             // Create ripple effect
             this.createRippleEffect(card);
         } else {
@@ -2240,7 +2293,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             card.style.boxShadow = '0 20px 40px rgba(99, 102, 241, 0.3)';
             card.style.borderColor = 'rgba(255, 255, 255, 0.4)';
             card.classList.add('analytics-breathing');
-            
+
             // Animate progress ring
             const progressRing = card.querySelector('.progress-ring-circle');
             if (progressRing) {
@@ -2251,7 +2304,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             card.style.boxShadow = '';
             card.style.borderColor = '';
             card.classList.remove('analytics-breathing');
-            
+
             const progressRing = card.querySelector('.progress-ring-circle');
             if (progressRing) {
                 progressRing.style.filter = '';
@@ -2265,14 +2318,14 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             card.style.boxShadow = '0 20px 40px rgba(99, 102, 241, 0.3)';
             card.style.borderColor = 'rgba(255, 255, 255, 0.4)';
             card.classList.add('analytics-glow');
-            
+
             // Animate insight icon
             const insightIcon = card.querySelector('.insight-type-icon');
             if (insightIcon) {
                 insightIcon.style.transform = 'scale(1.15) rotate(5deg)';
                 insightIcon.style.boxShadow = '0 0 20px rgba(99, 102, 241, 0.5)';
             }
-            
+
             // Animate confidence bar
             const confidenceBar = card.querySelector('.confidence-fill');
             if (confidenceBar) {
@@ -2283,13 +2336,13 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             card.style.boxShadow = '';
             card.style.borderColor = '';
             card.classList.remove('analytics-glow');
-            
+
             const insightIcon = card.querySelector('.insight-type-icon');
             if (insightIcon) {
                 insightIcon.style.transform = '';
                 insightIcon.style.boxShadow = '';
             }
-            
+
             const confidenceBar = card.querySelector('.confidence-fill');
             if (confidenceBar) {
                 confidenceBar.style.boxShadow = '';
@@ -2303,7 +2356,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             container.style.boxShadow = '0 20px 40px rgba(99, 102, 241, 0.3)';
             container.style.borderColor = 'rgba(255, 255, 255, 0.4)';
             container.classList.add('analytics-pulse');
-            
+
             // Animate chart title
             const chartTitle = container.querySelector('.chart-title');
             if (chartTitle) {
@@ -2315,7 +2368,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             container.style.boxShadow = '';
             container.style.borderColor = '';
             container.classList.remove('analytics-pulse');
-            
+
             const chartTitle = container.querySelector('.chart-title');
             if (chartTitle) {
                 chartTitle.style.color = '';
@@ -2330,7 +2383,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             item.style.background = 'rgba(255, 255, 255, 0.15)';
             item.style.borderColor = 'rgba(255, 255, 255, 0.3)';
             item.style.boxShadow = '0 8px 25px rgba(99, 102, 241, 0.2)';
-            
+
             // Animate activity icon
             const activityIcon = item.querySelector('.activity-icon');
             if (activityIcon) {
@@ -2342,7 +2395,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             item.style.background = '';
             item.style.borderColor = '';
             item.style.boxShadow = '';
-            
+
             const activityIcon = item.querySelector('.activity-icon');
             if (activityIcon) {
                 activityIcon.style.transform = '';
@@ -2364,17 +2417,17 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
             pointer-events: none;
             z-index: 1;
         `;
-        
+
         const rect = element.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
         ripple.style.width = size + 'px';
         ripple.style.height = size + 'px';
         ripple.style.left = (rect.width / 2 - size / 2) + 'px';
         ripple.style.top = (rect.height / 2 - size / 2) + 'px';
-        
+
         element.style.position = 'relative';
         element.appendChild(ripple);
-        
+
         setTimeout(() => {
             if (ripple.parentNode) {
                 ripple.parentNode.removeChild(ripple);
@@ -2385,16 +2438,16 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
     highlightMetric(card) {
         // Remove previous highlights
         this.querySelectorAll('.advanced-kpi-card').forEach(c => c.classList.remove('highlighted'));
-        
+
         // Add highlight to selected card
         card.classList.add('highlighted');
         this.triggerKPIAnimation(card);
-        
+
         // Announce the metric
         const label = card.querySelector('.kpi-name')?.textContent || 'KPI';
         const value = card.querySelector('.kpi-value')?.textContent || 'N/A';
         this.announceUpdate(`${label}: ${value}`);
-        
+
         // Create success notification
         this.showNotification(`Viewing ${label} details`, 'info');
     }
@@ -2402,29 +2455,29 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
     showGoalDetails(card, index) {
         const goalName = card.querySelector('.goal-name')?.textContent || 'Goal';
         const goalProgress = card.querySelector('.goal-progress-value')?.textContent || '0%';
-        
+
         this.announceUpdate(`Showing details for goal: ${goalName} at ${goalProgress} completion`);
-        
+
         // Highlight the goal card
         this.querySelectorAll('.goal-card').forEach(c => c.classList.remove('highlighted'));
         card.classList.add('highlighted');
-        
+
         // Create info notification
         this.showNotification(`Goal: ${goalName} - ${goalProgress} complete`, 'info');
-        
+
         console.log(`🎯 Goal details: ${goalName} = ${goalProgress}`);
     }
 
     expandInsight(card) {
         // Toggle expanded state
         const isExpanded = card.classList.contains('expanded');
-        
+
         // Remove expanded from all cards
         this.querySelectorAll('.ai-insight-card').forEach(c => c.classList.remove('expanded'));
-        
+
         if (!isExpanded) {
             card.classList.add('expanded');
-            
+
             // Add expanded content if not exists
             if (!card.querySelector('.insight-expanded')) {
                 const expandedContent = document.createElement('div');
@@ -2451,7 +2504,7 @@ class SpectacularAnalyticsDashboard extends HTMLElement {
                 `;
                 card.appendChild(expandedContent);
             }
-            
+
             // Announce expansion
             const title = card.querySelector('.insight-title')?.textContent || 'AI Insight';
             this.announceUpdate(`Expanded insight: ${title}`);

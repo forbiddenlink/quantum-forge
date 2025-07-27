@@ -26,7 +26,7 @@ class DynamicColorPicker extends HTMLElement {
         this.loadSavedTheme();
         this.render();
         this.setupEventListeners();
-        this.createToggleButton();
+        // Remove createToggleButton() as we'll use the header's button
     }
 
     loadSavedTheme() {
@@ -262,9 +262,19 @@ class DynamicColorPicker extends HTMLElement {
             });
         });
 
+        // Handle document clicks for closing the picker
         document.addEventListener('click', (e) => {
-            if (this.isOpen && !this.contains(e.target) && !e.target.closest('.color-picker-toggle')) {
-                this.toggle();
+            // Only handle close events, let header handle open
+            if (this.isOpen &&
+                !this.contains(e.target) &&
+                !e.target.closest('#toggleColorPicker') &&
+                !e.target.closest('.color-picker-panel')) {
+                this.isOpen = false;
+                this.render();
+                console.log('Color picker closed by outside click');
+                document.dispatchEvent(new CustomEvent('colorPickerToggled', {
+                    detail: { isOpen: false }
+                }));
             }
         });
     }
@@ -299,6 +309,12 @@ class DynamicColorPicker extends HTMLElement {
             preview.querySelector('h4').textContent = this.currentTheme.name;
         }
         this.updateSliderTracks();
+
+        // Update color picker button color
+        const toggleButton = document.querySelector('#toggleColorPicker');
+        if (toggleButton) {
+            toggleButton.style.setProperty('--button-color', `hsl(${this.currentTheme.hue}, ${this.currentTheme.saturation}%, ${this.currentTheme.lightness}%)`);
+        }
     }
 
     applyTheme(theme) {
@@ -354,8 +370,25 @@ class DynamicColorPicker extends HTMLElement {
     }
 
     toggle() {
+        const wasOpen = this.isOpen;
         this.isOpen = !this.isOpen;
+
+        console.log(`Color picker toggling from ${wasOpen} to ${this.isOpen}`);
+
+        // Force panel update
         this.render();
+
+        // Update any listeners
+        document.dispatchEvent(new CustomEvent('colorPickerToggled', {
+            detail: {
+                isOpen: this.isOpen,
+                previous: wasOpen
+            }
+        }));
+
+        // Debug info
+        console.log('Color picker rendered, current DOM state:',
+            this.querySelector('.color-picker-panel')?.classList.contains('open'));
     }
 
     showNotification(message) {

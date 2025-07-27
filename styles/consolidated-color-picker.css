@@ -1,0 +1,115 @@
+/* Consolidated Color Picker Styles */
+
+/* Container positioning */
+.color-picker-menu {
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+/* Toggle button styling */
+#toggleColorPicker {
+    --button-color: var(--primary-500);
+    position: relative !important;
+    z-index: 101 !important;
+    background: var(--button-color) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: var(--radius-full) !important;
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+}
+
+/* Button hover effects */
+#toggleColorPicker:hover {
+    transform: scale(1.1) !important;
+    background: var(--button-color) !important;
+    opacity: 0.9 !important;
+}
+
+/* Button active state */
+#toggleColorPicker:active {
+    transform: scale(0.95) !important;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] #toggleColorPicker {
+    background: var(--button-color) !important;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] #toggleColorPicker:hover {
+    background: var(--button-color) !important;
+    opacity: 0.9 !important;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Icon styling */
+#toggleColorPicker svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* Color picker panel */
+.color-picker-panel {
+    position: absolute !important;
+    top: calc(100% + 10px) !important;
+    right: 0 !important;
+    z-index: 102 !important;
+    width: 320px !important;
+    background: var(--bg-elevated) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: var(--shadow-2xl) !important;
+    border: 1px solid var(--border-color) !important;
+    transition: all var(--duration-normal) var(--ease-spring) !important;
+}
+
+/* Hidden state */
+.color-picker-panel[style*="display: none"] {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-10px) !important;
+    pointer-events: none !important;
+}
+
+/* Open state */
+.color-picker-panel.open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+}
+
+/* Dark mode panel */
+[data-theme="dark"] .color-picker-panel {
+    background: var(--bg-elevated) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Panel content */
+.color-picker-content {
+    padding: var(--space-4) !important;
+}
+
+/* Ensure clickable areas */
+.color-picker-panel.open,
+.color-picker-panel.open * {
+    pointer-events: auto !important;
+}
+
+/* Debug outlines - comment out in production */
+.color-picker-menu {
+    outline: 2px solid blue;
+}
+
+#toggleColorPicker {
+    outline: 2px solid green;
+}
+
+.color-picker-panel {
+    outline: 2px solid red;
+}

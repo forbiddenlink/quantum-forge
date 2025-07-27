@@ -4,15 +4,15 @@ class Header extends HTMLElement {
         super();
         this.userMenuOpen = false;
         this.notificationsOpen = false;
-        this.colorPickerOpen = false;
-        this.currentColor = localStorage.getItem('userColor') || '#4f46e5';
         this.notificationInterval = null;
         this.unreadCount = 0;
+        this.isInitialized = false;
 
         // Bind event handlers to maintain proper context
         this.handleDocumentClick = this.handleDocumentClick.bind(this);
         this.handleClick = this.handleClick.bind(this);
-        this.applyColor = this.applyColor.bind(this);
+
+        console.log('🏗️ Header component constructed');
 
         this.notifications = [
             {
@@ -40,18 +40,24 @@ class Header extends HTMLElement {
     }
 
     connectedCallback() {
+        if (this.isInitialized) return;
+
         console.log('Header component connected');
         this.render();
         this.setupEventListeners();
         this.updateUnreadCount();
         this.startNotificationPolling();
 
-        // Initialize saved color after a brief delay to ensure DOM is ready
-        setTimeout(() => {
-            if (this.currentColor) {
-                this.applyColor(this.currentColor);
-            }
-        }, 100);
+        // Load and apply saved theme
+        const savedTheme = localStorage.getItem('userTheme');
+        if (savedTheme) {
+            const { hue, saturation, lightness } = JSON.parse(savedTheme);
+            this.applyThemeColor(hue, saturation, lightness);
+        }
+
+        // Initialize color picker with persistence
+        this.initializeColorPicker();
+        this.isInitialized = true;
     }
 
     disconnectedCallback() {
@@ -65,6 +71,12 @@ class Header extends HTMLElement {
         document.removeEventListener('click', this.handleDocumentClick);
         this.removeEventListener('click', this.handleClick);
 
+        // Clean up color picker if it exists
+        const colorPicker = this.querySelector('dynamic-color-picker');
+        if (colorPicker) {
+            colorPicker.remove();
+        }
+
         console.log('Header cleanup complete');
     }
 
@@ -74,8 +86,21 @@ class Header extends HTMLElement {
         const userDropdown = this.querySelector('.user-dropdown');
         const notificationsButton = this.querySelector('#toggleNotifications');
         const notificationsDropdown = this.querySelector('.notifications-dropdown');
+        const colorPicker = this.querySelector('color-picker');
         const colorPickerButton = this.querySelector('#toggleColorPicker');
-        const colorPickerDropdown = this.querySelector('.color-picker-dropdown');
+        const colorPickerMenu = this.querySelector('.color-picker-menu');
+
+        // Check if click is outside color picker
+        const colorPickerPanel = this.querySelector('.color-picker-panel');
+        if (colorPickerPanel &&
+            !colorPickerPanel.contains(event.target) &&
+            !colorPickerButton?.contains(event.target)) {
+            colorPickerPanel.style.display = 'none';
+            document.dispatchEvent(new CustomEvent('colorPickerToggled', {
+                detail: { isOpen: false }
+            }));
+            console.log('Color picker closed due to outside click');
+        }
 
         // Check if click is outside user menu
         if (this.userMenuOpen &&
@@ -96,16 +121,6 @@ class Header extends HTMLElement {
             this.notificationsOpen = false;
             this.render();
         }
-
-        // Check if click is outside color picker
-        if (this.colorPickerOpen &&
-            colorPickerButton &&
-            colorPickerDropdown &&
-            !colorPickerButton.contains(event.target) &&
-            !colorPickerDropdown.contains(event.target)) {
-            this.colorPickerOpen = false;
-            this.render();
-        }
     }
 
     handleClick(event) {
@@ -115,13 +130,13 @@ class Header extends HTMLElement {
         const notificationsButton = this.querySelector('#toggleNotifications');
         const notificationsDropdown = this.querySelector('.notifications-dropdown');
         const colorPickerButton = this.querySelector('#toggleColorPicker');
+        const colorPickerMenu = this.querySelector('.color-picker-menu');
 
         // User menu toggle
         if (userMenuButton && userMenuButton.contains(event.target)) {
             event.stopPropagation();
             this.userMenuOpen = !this.userMenuOpen;
             this.notificationsOpen = false;
-            this.colorPickerOpen = false;
             this.render();
         }
 
@@ -130,17 +145,87 @@ class Header extends HTMLElement {
             event.stopPropagation();
             this.notificationsOpen = !this.notificationsOpen;
             this.userMenuOpen = false;
-            this.colorPickerOpen = false;
             this.render();
         }
 
         // Color picker toggle
         if (colorPickerButton && colorPickerButton.contains(event.target)) {
+            console.log('🎨 Color picker button clicked');
             event.stopPropagation();
-            this.colorPickerOpen = !this.colorPickerOpen;
+            event.preventDefault();
+
+            const colorPickerPanel = this.querySelector('.color-picker-panel');
+            if (colorPickerPanel) {
+                const currentDisplay = getComputedStyle(colorPickerPanel).display;
+                colorPickerPanel.style.display = currentDisplay === 'none' ? 'block' : 'none';
+
+                // If we're opening the picker, update the sliders to match current theme
+                if (currentDisplay === 'none') {
+                    const root = document.documentElement;
+                    const hue = root.style.getPropertyValue('--primary-h') || '270';
+                    const saturation = root.style.getPropertyValue('--primary-s')?.replace('%', '') || '80';
+                    const lightness = root.style.getPropertyValue('--primary-l')?.replace('%', '') || '50';
+
+                    const hueInput = colorPickerPanel.querySelector('#hue');
+                    const saturationInput = colorPickerPanel.querySelector('#saturation');
+                    const lightnessInput = colorPickerPanel.querySelector('#lightness');
+
+                    if (hueInput) hueInput.value = hue;
+                    if (saturationInput) saturationInput.value = saturation;
+                    if (lightnessInput) lightnessInput.value = lightness;
+
+                    this.updatePreviewColor(hue, saturation, lightness);
+                }
+            }
+
+            // Verify state after toggle
+            setTimeout(() => {
+                console.log('Color picker state after toggle:', {
+                    exists: !!this.querySelector('color-picker'),
+                    display: existingPicker?.style.display,
+                    visibility: existingPicker?.style.visibility,
+                    bounds: existingPicker?.getBoundingClientRect()
+                });
+            }, 0);
+
+            let colorPicker = this.querySelector('color-picker');
+            console.log('🔍 Existing color picker found:', colorPicker);
+
+            if (!colorPicker) {
+                console.log('📝 Creating new color picker...');
+                colorPicker = document.createElement('color-picker');
+                colorPicker.style.cssText = `
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    z-index: 1000;
+                    background: var(--bg-elevated, white);
+                    border: 1px solid var(--border-color, #e5e7eb);
+                    border-radius: 8px;
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                    margin-top: 8px;
+                    display: block;
+                `;
+                colorPickerMenu.appendChild(colorPicker);
+                console.log('✅ New color picker created and added to DOM');
+            } else {
+                console.log('🔄 Toggling existing color picker');
+                const currentDisplay = getComputedStyle(colorPicker).display;
+                const newDisplay = currentDisplay === 'none' ? 'block' : 'none';
+                colorPicker.style.display = newDisplay;
+                console.log('👁️ Color picker display set to:', newDisplay);
+            }
+
+            // Close other menus
             this.userMenuOpen = false;
             this.notificationsOpen = false;
             this.render();
+
+            // Fire event for theme toggle visibility
+            const isOpen = colorPicker?.style.display !== 'none';
+            document.dispatchEvent(new CustomEvent('colorPickerToggled', {
+                detail: { isOpen }
+            }));
         }
     }
 
@@ -178,25 +263,54 @@ class Header extends HTMLElement {
     }
 
     startNotificationPolling() {
-        // Poll for new notifications every 30 seconds
+        if (this.notificationInterval) return;
+
+        // Use requestIdleCallback for polling if available
+        const poll = () => {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(() => this.checkNewNotifications(), { timeout: 2000 });
+            } else {
+                this.checkNewNotifications();
+            }
+        };
+
+        // Poll less frequently and only when the tab is visible
         this.notificationInterval = setInterval(() => {
-            this.checkNewNotifications();
-        }, 30000);
+            if (document.visibilityState === 'visible') {
+                poll();
+            }
+        }, 60000); // Increased to 1 minute
+
+        // Stop polling when tab is hidden
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'hidden' && this.notificationInterval) {
+                clearInterval(this.notificationInterval);
+                this.notificationInterval = null;
+            } else if (document.visibilityState === 'visible' && !this.notificationInterval) {
+                this.startNotificationPolling();
+            }
+        });
     }
 
     checkNewNotifications() {
-        // In a real app, this would check an API endpoint
-        const mockNewNotification = Math.random() > 0.7;
+        // Batch updates to reduce renders
+        const updates = [];
+        const mockNewNotification = Math.random() > 0.8; // Reduced probability
+
         if (mockNewNotification) {
-            this.notifications.unshift({
+            updates.push({
                 id: Date.now(),
                 type: 'update',
                 message: 'New project update available',
                 time: 'Just now',
                 read: false
             });
+        }
+
+        if (updates.length > 0) {
+            this.notifications.unshift(...updates);
             this.updateUnreadCount();
-            this.render();
+            requestAnimationFrame(() => this.render());
         }
     }
 
@@ -246,368 +360,7 @@ class Header extends HTMLElement {
                         </svg>
                     </button>
 
-                    <div class="color-picker-menu">
-                        <button class="action-button" id="toggleColorPicker" aria-label="Customize colors">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <path d="M12 2a10 10 0 0 0 0 20 10 10 0 0 1 0-20z"></path>
-                            </svg>
-                        </button>
-                        
-                        ${this.colorPickerOpen ? `
-                            <div class="color-picker-dropdown" role="dialog" aria-label="Color picker" style="
-                                min-width: 460px !important; 
-                                max-width: 480px !important; 
-                                width: 460px !important;
-                                padding: 20px !important;
-                                right: -20px !important;
-                            ">
-                                <div class="color-picker-header">
-                                    <div>
-                                        <h3 style="margin: 0; font-size: 16px; font-weight: 700; background: linear-gradient(135deg, var(--primary-500, #4f46e5) 0%, var(--primary-600, #4338ca) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                                            🎨 Theme Palette
-                                        </h3>
-                                        <p style="margin: 4px 0 0 0; font-size: 12px; opacity: 0.7;">Choose your perfect color theme</p>
-                                    </div>
-                                    <button class="close-color-picker" aria-label="Close color picker">×</button>
-                                </div>
-                                <div class="color-options">
-                                    <div class="preset-colors">
-                                        <div class="color-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px;">
-                                            <div class="color-option-card" data-color="#4f46e5" style="
-                                                position: relative;
-                                                background: linear-gradient(135deg, #4f46e515 0%, #4f46e505 100%);
-                                                border: 2px solid #4f46e520;
-                                                border-radius: 12px;
-                                                padding: 12px 8px;
-                                                cursor: pointer;
-                                                transition: all 0.3s ease;
-                                                text-align: center;
-                                            ">
-                                                <div style="
-                                                    width: 24px;
-                                                    height: 24px;
-                                                    background: linear-gradient(135deg, #4f46e5 0%, #4f46e5dd 100%);
-                                                    border-radius: 8px;
-                                                    margin: 0 auto 6px auto;
-                                                    box-shadow: 0 3px 8px #4f46e540;
-                                                "></div>
-                                                <div style="font-size: 11px; font-weight: 600; color: #4f46e5;">Indigo</div>
-                                                <div class="selection-indicator" style="
-                                                    position: absolute;
-                                                    top: 6px;
-                                                    right: 6px;
-                                                    width: 14px;
-                                                    height: 14px;
-                                                    background: #4f46e5;
-                                                    border-radius: 50%;
-                                                    display: flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    font-size: 8px;
-                                                    color: white;
-                                                    font-weight: bold;
-                                                    opacity: ${this.currentColor === '#4f46e5' ? '1' : '0'};
-                                                    transform: scale(${this.currentColor === '#4f46e5' ? '1' : '0'});
-                                                    transition: all 0.2s ease;
-                                                ">✓</div>
-                                            </div>
-                                            <div class="color-option-card" data-color="#2563eb" style="
-                                                position: relative;
-                                                background: linear-gradient(135deg, #2563eb15 0%, #2563eb05 100%);
-                                                border: 2px solid #2563eb20;
-                                                border-radius: 12px;
-                                                padding: 12px 8px;
-                                                cursor: pointer;
-                                                transition: all 0.3s ease;
-                                                text-align: center;
-                                            ">
-                                                <div style="
-                                                    width: 24px;
-                                                    height: 24px;
-                                                    background: linear-gradient(135deg, #2563eb 0%, #2563ebdd 100%);
-                                                    border-radius: 8px;
-                                                    margin: 0 auto 6px auto;
-                                                    box-shadow: 0 3px 8px #2563eb40;
-                                                "></div>
-                                                <div style="font-size: 11px; font-weight: 600; color: #2563eb;">Blue</div>
-                                                <div class="selection-indicator" style="
-                                                    position: absolute;
-                                                    top: 6px;
-                                                    right: 6px;
-                                                    width: 14px;
-                                                    height: 14px;
-                                                    background: #2563eb;
-                                                    border-radius: 50%;
-                                                    display: flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    font-size: 8px;
-                                                    color: white;
-                                                    font-weight: bold;
-                                                    opacity: ${this.currentColor === '#2563eb' ? '1' : '0'};
-                                                    transform: scale(${this.currentColor === '#2563eb' ? '1' : '0'});
-                                                    transition: all 0.2s ease;
-                                                ">✓</div>
-                                            </div>
-                                            <div class="color-option-card" data-color="#059669" style="
-                                                position: relative;
-                                                background: linear-gradient(135deg, #05966915 0%, #05966905 100%);
-                                                border: 2px solid #05966920;
-                                                border-radius: 12px;
-                                                padding: 12px 8px;
-                                                cursor: pointer;
-                                                transition: all 0.3s ease;
-                                                text-align: center;
-                                            ">
-                                                <div style="
-                                                    width: 24px;
-                                                    height: 24px;
-                                                    background: linear-gradient(135deg, #059669 0%, #059669dd 100%);
-                                                    border-radius: 8px;
-                                                    margin: 0 auto 6px auto;
-                                                    box-shadow: 0 3px 8px #05966940;
-                                                "></div>
-                                                <div style="font-size: 11px; font-weight: 600; color: #059669;">Emerald</div>
-                                                <div class="selection-indicator" style="
-                                                    position: absolute;
-                                                    top: 6px;
-                                                    right: 6px;
-                                                    width: 14px;
-                                                    height: 14px;
-                                                    background: #059669;
-                                                    border-radius: 50%;
-                                                    display: flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    font-size: 8px;
-                                                    color: white;
-                                                    font-weight: bold;
-                                                    opacity: ${this.currentColor === '#059669' ? '1' : '0'};
-                                                    transform: scale(${this.currentColor === '#059669' ? '1' : '0'});
-                                                    transition: all 0.2s ease;
-                                                ">✓</div>
-                                            </div>
-                                            <div class="color-option-card" data-color="#d97706" style="
-                                                position: relative;
-                                                background: linear-gradient(135deg, #d9770615 0%, #d9770605 100%);
-                                                border: 2px solid #d9770620;
-                                                border-radius: 12px;
-                                                padding: 12px 8px;
-                                                cursor: pointer;
-                                                transition: all 0.3s ease;
-                                                text-align: center;
-                                            ">
-                                                <div style="
-                                                    width: 24px;
-                                                    height: 24px;
-                                                    background: linear-gradient(135deg, #d97706 0%, #d97706dd 100%);
-                                                    border-radius: 8px;
-                                                    margin: 0 auto 6px auto;
-                                                    box-shadow: 0 3px 8px #d9770640;
-                                                "></div>
-                                                <div style="font-size: 11px; font-weight: 600; color: #d97706;">Amber</div>
-                                                <div class="selection-indicator" style="
-                                                    position: absolute;
-                                                    top: 6px;
-                                                    right: 6px;
-                                                    width: 14px;
-                                                    height: 14px;
-                                                    background: #d97706;
-                                                    border-radius: 50%;
-                                                    display: flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    font-size: 8px;
-                                                    color: white;
-                                                    font-weight: bold;
-                                                    opacity: ${this.currentColor === '#d97706' ? '1' : '0'};
-                                                    transform: scale(${this.currentColor === '#d97706' ? '1' : '0'});
-                                                    transition: all 0.2s ease;
-                                                ">✓</div>
-                                            </div>
-                                            <div class="color-option-card" data-color="#dc2626" style="
-                                                position: relative;
-                                                background: linear-gradient(135deg, #dc262615 0%, #dc262605 100%);
-                                                border: 2px solid #dc262620;
-                                                border-radius: 12px;
-                                                padding: 12px 8px;
-                                                cursor: pointer;
-                                                transition: all 0.3s ease;
-                                                text-align: center;
-                                            ">
-                                                <div style="
-                                                    width: 24px;
-                                                    height: 24px;
-                                                    background: linear-gradient(135deg, #dc2626 0%, #dc2626dd 100%);
-                                                    border-radius: 8px;
-                                                    margin: 0 auto 6px auto;
-                                                    box-shadow: 0 3px 8px #dc262640;
-                                                "></div>
-                                                <div style="font-size: 11px; font-weight: 600; color: #dc2626;">Red</div>
-                                                <div class="selection-indicator" style="
-                                                    position: absolute;
-                                                    top: 6px;
-                                                    right: 6px;
-                                                    width: 14px;
-                                                    height: 14px;
-                                                    background: #dc2626;
-                                                    border-radius: 50%;
-                                                    display: flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    font-size: 8px;
-                                                    color: white;
-                                                    font-weight: bold;
-                                                    opacity: ${this.currentColor === '#dc2626' ? '1' : '0'};
-                                                    transform: scale(${this.currentColor === '#dc2626' ? '1' : '0'});
-                                                    transition: all 0.2s ease;
-                                                ">✓</div>
-                                            </div>
-                                            <div class="color-option-card" data-color="#7c3aed" style="
-                                                position: relative;
-                                                background: linear-gradient(135deg, #7c3aed15 0%, #7c3aed05 100%);
-                                                border: 2px solid #7c3aed20;
-                                                border-radius: 12px;
-                                                padding: 12px 8px;
-                                                cursor: pointer;
-                                                transition: all 0.3s ease;
-                                                text-align: center;
-                                            ">
-                                                <div style="
-                                                    width: 24px;
-                                                    height: 24px;
-                                                    background: linear-gradient(135deg, #7c3aed 0%, #7c3aeddd 100%);
-                                                    border-radius: 8px;
-                                                    margin: 0 auto 6px auto;
-                                                    box-shadow: 0 3px 8px #7c3aed40;
-                                                "></div>
-                                                <div style="font-size: 11px; font-weight: 600; color: #7c3aed;">Violet</div>
-                                                <div class="selection-indicator" style="
-                                                    position: absolute;
-                                                    top: 6px;
-                                                    right: 6px;
-                                                    width: 14px;
-                                                    height: 14px;
-                                                    background: #7c3aed;
-                                                    border-radius: 50%;
-                                                    display: flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    font-size: 8px;
-                                                    color: white;
-                                                    font-weight: bold;
-                                                    opacity: ${this.currentColor === '#7c3aed' ? '1' : '0'};
-                                                    transform: scale(${this.currentColor === '#7c3aed' ? '1' : '0'});
-                                                    transition: all 0.2s ease;
-                                                ">✓</div>
-                                            </div>
-                                            <div class="color-option-card" data-color="#0891b2" style="
-                                                position: relative;
-                                                background: linear-gradient(135deg, #0891b215 0%, #0891b205 100%);
-                                                border: 2px solid #0891b220;
-                                                border-radius: 12px;
-                                                padding: 12px 8px;
-                                                cursor: pointer;
-                                                transition: all 0.3s ease;
-                                                text-align: center;
-                                            ">
-                                                <div style="
-                                                    width: 24px;
-                                                    height: 24px;
-                                                    background: linear-gradient(135deg, #0891b2 0%, #0891b2dd 100%);
-                                                    border-radius: 8px;
-                                                    margin: 0 auto 6px auto;
-                                                    box-shadow: 0 3px 8px #0891b240;
-                                                "></div>
-                                                <div style="font-size: 11px; font-weight: 600; color: #0891b2;">Cyan</div>
-                                                <div class="selection-indicator" style="
-                                                    position: absolute;
-                                                    top: 6px;
-                                                    right: 6px;
-                                                    width: 14px;
-                                                    height: 14px;
-                                                    background: #0891b2;
-                                                    border-radius: 50%;
-                                                    display: flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    font-size: 8px;
-                                                    color: white;
-                                                    font-weight: bold;
-                                                    opacity: ${this.currentColor === '#0891b2' ? '1' : '0'};
-                                                    transform: scale(${this.currentColor === '#0891b2' ? '1' : '0'});
-                                                    transition: all 0.2s ease;
-                                                ">✓</div>
-                                            </div>
-                                            <div class="color-option-card" data-color="#65a30d" style="
-                                                position: relative;
-                                                background: linear-gradient(135deg, #65a30d15 0%, #65a30d05 100%);
-                                                border: 2px solid #65a30d20;
-                                                border-radius: 12px;
-                                                padding: 12px 8px;
-                                                cursor: pointer;
-                                                transition: all 0.3s ease;
-                                                text-align: center;
-                                            ">
-                                                <div style="
-                                                    width: 24px;
-                                                    height: 24px;
-                                                    background: linear-gradient(135deg, #65a30d 0%, #65a30ddd 100%);
-                                                    border-radius: 8px;
-                                                    margin: 0 auto 6px auto;
-                                                    box-shadow: 0 3px 8px #65a30d40;
-                                                "></div>
-                                                <div style="font-size: 11px; font-weight: 600; color: #65a30d;">Lime</div>
-                                                <div class="selection-indicator" style="
-                                                    position: absolute;
-                                                    top: 6px;
-                                                    right: 6px;
-                                                    width: 14px;
-                                                    height: 14px;
-                                                    background: #65a30d;
-                                                    border-radius: 50%;
-                                                    display: flex;
-                                                    align-items: center;
-                                                    justify-content: center;
-                                                    font-size: 8px;
-                                                    color: white;
-                                                    font-weight: bold;
-                                                    opacity: ${this.currentColor === '#65a30d' ? '1' : '0'};
-                                                    transform: scale(${this.currentColor === '#65a30d' ? '1' : '0'});
-                                                    transition: all 0.2s ease;
-                                                ">✓</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="custom-color" style="margin-bottom: 16px;">
-                                        <div style="font-size: 13px; font-weight: 600; margin-bottom: 8px; opacity: 0.8;">Custom Color</div>
-                                        <input type="color" value="${this.currentColor}" id="customColorInput" style="
-                                            width: 100%;
-                                            height: 40px;
-                                            border: 2px solid rgba(0, 0, 0, 0.1);
-                                            border-radius: 8px;
-                                            cursor: pointer;
-                                            background: rgba(0, 0, 0, 0.02);
-                                            transition: all 0.2s ease;
-                                        ">
-                                    </div>
-                                    
-                                    <div class="color-info" style="
-                                        font-size: 12px;
-                                        text-align: center;
-                                        padding: 8px;
-                                        background: rgba(0, 0, 0, 0.02);
-                                        border-radius: 6px;
-                                        opacity: 0.7;
-                                    ">
-                                        ✨ Changes apply instantly across the entire interface
-                                    </div>
-                                </div>
-                            </div>
-                        ` : ''}
-                    </div>
+                    <!-- Color picker menu will be initialized by JavaScript -->
 
                     <div class="notifications-menu">
                         <button class="action-button" id="toggleNotifications" aria-label="View notifications">
@@ -828,13 +581,241 @@ class Header extends HTMLElement {
         }
     }
 
+    initializeColorPicker() {
+        // Clean up any existing color picker
+        this.cleanupColorPicker();
+
+        // Create color picker menu container
+        const colorPickerMenu = document.createElement('div');
+        colorPickerMenu.className = 'color-picker-menu';
+        colorPickerMenu.style.cssText = 'position: relative; display: inline-block;';
+
+        // Create color picker content directly
+        const colorPicker = document.createElement('div');
+        colorPicker.className = 'color-picker-panel';
+        colorPicker.style.cssText = `
+            position: absolute !important;
+            top: 100% !important;
+            right: 0 !important;
+            z-index: 9999 !important;
+            background: var(--bg-primary, white) !important;
+            border: 1px solid var(--border-color, #e5e7eb) !important;
+            border-radius: 8px !important;
+            box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.2) !important;
+            margin-top: 8px !important;
+            padding: 16px !important;
+            min-width: 280px !important;
+            display: none !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+        `;
+
+        // Add color picker content
+        colorPicker.innerHTML = `
+            <div class="color-picker-content">
+                <div class="color-picker-header">
+                    <h3>Customize Theme</h3>
+                </div>
+                <div class="color-swatches">
+                    <div class="color-swatch" data-color="purple" style="background: hsl(270, 80%, 50%)"></div>
+                    <div class="color-swatch" data-color="blue" style="background: hsl(210, 80%, 50%)"></div>
+                    <div class="color-swatch" data-color="green" style="background: hsl(150, 80%, 50%)"></div>
+                    <div class="color-swatch" data-color="yellow" style="background: hsl(40, 80%, 50%)"></div>
+                    <div class="color-swatch" data-color="red" style="background: hsl(0, 80%, 50%)"></div>
+                </div>
+                <div class="color-controls">
+                    <div class="control-group">
+                        <label for="hue">Hue</label>
+                        <input type="range" id="hue" min="0" max="360" value="270">
+                    </div>
+                    <div class="control-group">
+                        <label for="saturation">Saturation</label>
+                        <input type="range" id="saturation" min="0" max="100" value="80">
+                    </div>
+                    <div class="control-group">
+                        <label for="lightness">Lightness</label>
+                        <input type="range" id="lightness" min="20" max="80" value="50">
+                    </div>
+                </div>
+                <div class="color-preview">
+                    <div class="preview-swatch"></div>
+                    <span class="preview-label">Current Color</span>
+                </div>
+            </div>
+        `;
+
+        // Create button
+        const colorPickerButton = document.createElement('button');
+        colorPickerButton.id = 'toggleColorPicker';
+        colorPickerButton.className = 'action-button';
+        colorPickerButton.setAttribute('aria-label', 'Customize colors');
+        colorPickerButton.innerHTML = `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a10 10 0 0 0 0 20 10 10 0 0 1 0-20z"></path>
+            </svg>
+        `;
+
+        // Event handlers
+        const toggleColorPicker = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            const isVisible = colorPicker.style.display === 'block';
+            colorPicker.style.display = isVisible ? 'none' : 'block';
+
+            // Load current theme values when opening
+            if (!isVisible) {
+                const root = document.documentElement;
+                const hue = root.style.getPropertyValue('--user-primary-h') || '270';
+                const saturation = root.style.getPropertyValue('--user-primary-s')?.replace('%', '') || '80';
+                const lightness = root.style.getPropertyValue('--user-primary-l')?.replace('%', '') || '50';
+
+                const hueInput = colorPicker.querySelector('#hue');
+                const saturationInput = colorPicker.querySelector('#saturation');
+                const lightnessInput = colorPicker.querySelector('#lightness');
+
+                if (hueInput) hueInput.value = hue;
+                if (saturationInput) saturationInput.value = saturation;
+                if (lightnessInput) lightnessInput.value = lightness;
+
+                this.updatePreviewColor(hue, saturation, lightness);
+            }
+        };
+
+        // Update color when controls change
+        const updateColor = () => {
+            const hue = colorPicker.querySelector('#hue').value;
+            const saturation = colorPicker.querySelector('#saturation').value;
+            const lightness = colorPicker.querySelector('#lightness').value;
+
+            this.updatePreviewColor(hue, saturation, lightness);
+            this.applyThemeColor(hue, saturation, lightness);
+        };
+
+        // Add event listeners for controls with immediate update
+        ['hue', 'saturation', 'lightness'].forEach(control => {
+            const input = colorPicker.querySelector(`#${control}`);
+            if (input) {
+                const updateHandler = () => {
+                    const hue = colorPicker.querySelector('#hue').value;
+                    const saturation = colorPicker.querySelector('#saturation').value;
+                    const lightness = colorPicker.querySelector('#lightness').value;
+
+                    this.updatePreviewColor(hue, saturation, lightness);
+                    this.applyThemeColor(hue, saturation, lightness);
+                };
+
+                input.addEventListener('input', updateHandler);
+                input.addEventListener('change', updateHandler);
+            }
+        });
+
+        // Add event listeners for color swatches
+        colorPicker.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                const color = swatch.dataset.color;
+                const values = {
+                    purple: { h: 270, s: 80, l: 50 },
+                    blue: { h: 210, s: 80, l: 50 },
+                    green: { h: 150, s: 80, l: 50 },
+                    yellow: { h: 40, s: 80, l: 50 },
+                    red: { h: 0, s: 80, l: 50 }
+                }[color];
+
+                if (values) {
+                    const { h, s, l } = values;
+                    colorPicker.querySelector('#hue').value = h;
+                    colorPicker.querySelector('#saturation').value = s;
+                    colorPicker.querySelector('#lightness').value = l;
+                    this.updatePreviewColor(h, s, l);
+                    this.applyThemeColor(h, s, l);
+                }
+            });
+        });
+
+        this.colorPickerCloseHandler = (e) => {
+            if (!colorPickerMenu.contains(e.target) && colorPicker.style.display === 'block') {
+                colorPicker.style.display = 'none';
+            }
+        };
+
+        // Add event listeners
+        colorPickerButton.addEventListener('click', toggleColorPicker);
+        document.addEventListener('click', this.colorPickerCloseHandler);
+
+        // Assemble and insert into DOM
+        colorPickerMenu.appendChild(colorPickerButton);
+        colorPickerMenu.appendChild(colorPicker);
+
+        // Insert after theme toggle button
+        const themeToggle = this.querySelector('#toggleTheme');
+        if (themeToggle) {
+            themeToggle.parentNode.insertBefore(colorPickerMenu, themeToggle.nextSibling);
+        } else {
+            this.querySelector('.header-right').appendChild(colorPickerMenu);
+        }
+
+        this.colorPickerInitialized = true;
+        console.log('✅ Color picker initialized successfully');
+    }
+
+    updatePreviewColor(hue, saturation, lightness) {
+        const previewSwatch = this.querySelector('.preview-swatch');
+        if (previewSwatch) {
+            previewSwatch.style.backgroundColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        }
+    }
+
+    applyThemeColor(hue, saturation, lightness) {
+        const root = document.documentElement;
+
+        // Set base HSL values that the CSS will use for calculations
+        root.style.setProperty('--primary-h', hue);
+        root.style.setProperty('--primary-s', saturation + '%');
+        root.style.setProperty('--primary-l', lightness + '%');
+
+        // Save theme to localStorage
+        localStorage.setItem('userTheme', JSON.stringify({ hue, saturation, lightness }));
+
+        // Force component update by dispatching event
+        window.dispatchEvent(new CustomEvent('themeChanged', {
+            detail: { hue, saturation, lightness }
+        }));
+
+        // Request a frame for the browser to recalculate styles
+        requestAnimationFrame(() => {
+            // Force a repaint by touching the transform property
+            document.body.style.transform = 'none';
+            requestAnimationFrame(() => {
+                document.body.style.transform = '';
+            });
+        });
+    }
+
+    cleanupColorPicker() {
+        // Remove any existing color picker elements
+        const existingMenu = this.querySelector('.color-picker-menu');
+        if (existingMenu) {
+            existingMenu.remove();
+        }
+
+        // Remove event listeners
+        if (this.colorPickerCloseHandler) {
+            document.removeEventListener('click', this.colorPickerCloseHandler);
+            this.colorPickerCloseHandler = null;
+        }
+
+        this.colorPickerInitialized = false;
+    }
+
     setupDynamicListeners() {
+        if (this.dynamicListenersInitialized) return;
+
         // Theme toggle - set up after render when element exists
         const themeToggle = this.querySelector('#toggleTheme');
         if (themeToggle) {
-            // Remove any existing listeners first
-            themeToggle.removeEventListener('click', this.themeToggleHandler);
-
             // Create bound handler if it doesn't exist
             if (!this.themeToggleHandler) {
                 this.themeToggleHandler = (e) => {
@@ -844,245 +825,19 @@ class Header extends HTMLElement {
                     const newTheme = (!currentTheme || currentTheme === 'light') ? 'dark' : 'light';
                     html.setAttribute('data-theme', newTheme);
                     localStorage.setItem('theme', newTheme);
-                    console.log('🌓 Theme switched to:', newTheme);
+                    this.setupColorPickerState(newTheme);
                 };
             }
 
             themeToggle.addEventListener('click', this.themeToggleHandler);
-            console.log('🌓 Theme toggle listener set up');
-        } else {
-            console.warn('🌓 Theme toggle button not found');
-        }
-
-        // Setup color picker listeners if dropdown is open
-        if (this.colorPickerOpen) {
-            this.setupColorPickerListeners();
+            this.dynamicListenersInitialized = true;
         }
     }
 
-    setupColorPickerListeners() {
-        // Color picker events - set up after render when elements exist
-        const colorPickerDropdown = this.querySelector('.color-picker-dropdown');
-        const customColorInput = this.querySelector('#customColorInput');
-        const closeColorPicker = this.querySelector('.close-color-picker');
 
-        if (colorPickerDropdown) {
-            colorPickerDropdown.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-        }
-
-        if (customColorInput) {
-            customColorInput.addEventListener('input', (e) => {
-                this.applyColor(e.target.value);
-            });
-        }
-
-        if (closeColorPicker) {
-            closeColorPicker.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.colorPickerOpen = false;
-                this.render();
-            });
-        }
-
-        // Color option cards with enhanced interactions
-        this.querySelectorAll('.color-option-card').forEach(card => {
-            const color = card.dataset.color;
-            
-            // Add hover effects
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-2px) scale(1.05)';
-                card.style.borderColor = color + '60';
-                card.style.boxShadow = `0 6px 20px ${color}25`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-                card.style.borderColor = color + '20';
-                card.style.boxShadow = 'none';
-            });
-            
-            card.addEventListener('click', (e) => {
-                e.stopPropagation();
-                
-                // Visual feedback
-                card.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    card.style.transform = 'translateY(-2px) scale(1.05)';
-                }, 150);
-                
-                console.log('🎨 Color selected:', color);
-                this.applyColor(color);
-                
-                // Close color picker after selection
-                setTimeout(() => {
-                    this.colorPickerOpen = false;
-                    this.render();
-                }, 600);
-            });
-        });
-
-        console.log('🎨 Color picker event listeners set up');
-    }
-
-    applyColor(color) {
-        console.log('🎨 Header applying color:', color);
-        this.currentColor = color;
-
-        // Update active state for color option cards by re-rendering
-        // This ensures the selection indicators are properly updated
-        this.render();
-
-        const root = document.documentElement;
-
-        // Convert hex to RGB for color variations
-        const rgb = this.hexToRgb(color);
-        const hsl = this.rgbToHsl(rgb.r, rgb.g, rgb.b);
-
-        // Generate comprehensive color palette
-        const palette = this.generateColorPalette(hsl);
-
-        // Update ALL primary color variables
-        root.style.setProperty('--primary-50', palette.primary50);
-        root.style.setProperty('--primary-100', palette.primary100);
-        root.style.setProperty('--primary-200', palette.primary200);
-        root.style.setProperty('--primary-300', palette.primary300);
-        root.style.setProperty('--primary-400', palette.primary400);
-        root.style.setProperty('--primary-500', color);
-        root.style.setProperty('--primary-600', palette.primary600);
-        root.style.setProperty('--primary-700', palette.primary700);
-        root.style.setProperty('--primary-800', palette.primary800);
-        root.style.setProperty('--primary-900', palette.primary900);
-
-        // Update common color variables for other components
-        root.style.setProperty('--primary-500', color);
-        root.style.setProperty('--accent-color', palette.primary400);
-        root.style.setProperty('--primary-rgb', `${rgb.r}, ${rgb.g}, ${rgb.b}`);
-        root.style.setProperty('--accent-rgb', this.hexToRgbString(palette.primary400));
-
-        // Update gradient variables (important for general components)
-        root.style.setProperty('--gradient-primary', `linear-gradient(135deg, ${color}, ${palette.primary600})`);
-        root.style.setProperty('--gradient-secondary', `linear-gradient(135deg, ${palette.primary400}, ${palette.primary500})`);
-
-        // ✨ IMPORTANT: Update welcome section specific variables
-        root.style.setProperty('--welcome-bg-start', color);
-        root.style.setProperty('--welcome-bg-end', palette.primary700);
-        root.style.setProperty('--welcome-accent-1', palette.primary400);
-        root.style.setProperty('--welcome-accent-2', palette.primary300);
-        root.style.setProperty('--welcome-accent-3', palette.primary600);
-        root.style.setProperty('--welcome-accent-4', palette.primary500);
-
-        // Update text colors to match theme (fixes purple in upcoming events)
-        root.style.setProperty('--text-muted', palette.primary300);
-        root.style.setProperty('--text-tertiary', palette.primary400);
-
-        // Update focus and interaction colors
-        root.style.setProperty('--focus-ring', color);
-        root.style.setProperty('--border-primary', palette.primary200);
-
-        // Save to localStorage
-        localStorage.setItem('userColor', color);
-
-        // Force repaint
-        document.body.offsetHeight;
-
-        // Re-render to update the checkmarks
-        setTimeout(() => this.render(), 50);
-
-        console.log('🎨 Color applied successfully including welcome section and upcoming events:', color);
-    }
-
-    hexToRgb(hex) {
-        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-        return result ? {
-            r: parseInt(result[1], 16),
-            g: parseInt(result[2], 16),
-            b: parseInt(result[3], 16)
-        } : { r: 99, g: 102, b: 241 }; // fallback
-    }
-
-    hexToRgbString(hex) {
-        const rgb = this.hexToRgb(hex);
-        return `${rgb.r}, ${rgb.g}, ${rgb.b}`;
-    }
-
-    rgbToHsl(r, g, b) {
-        r /= 255;
-        g /= 255;
-        b /= 255;
-
-        const max = Math.max(r, g, b);
-        const min = Math.min(r, g, b);
-        let h, s, l = (max + min) / 2;
-
-        if (max === min) {
-            h = s = 0; // achromatic
-        } else {
-            const d = max - min;
-            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-
-            switch (max) {
-                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-                case g: h = (b - r) / d + 2; break;
-                case b: h = (r - g) / d + 4; break;
-            }
-            h /= 6;
-        }
-
-        return { h: h * 360, s: s * 100, l: l * 100 };
-    }
-
-    hslToHex(h, s, l) {
-        h /= 360;
-        s /= 100;
-        l /= 100;
-
-        const hue2rgb = (p, q, t) => {
-            if (t < 0) t += 1;
-            if (t > 1) t -= 1;
-            if (t < 1 / 6) return p + (q - p) * 6 * t;
-            if (t < 1 / 2) return q;
-            if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
-            return p;
-        };
-
-        let r, g, b;
-
-        if (s === 0) {
-            r = g = b = l; // achromatic
-        } else {
-            const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-            const p = 2 * l - q;
-            r = hue2rgb(p, q, h + 1 / 3);
-            g = hue2rgb(p, q, h);
-            b = hue2rgb(p, q, h - 1 / 3);
-        }
-
-        const toHex = (c) => {
-            const hex = Math.round(c * 255).toString(16);
-            return hex.length === 1 ? '0' + hex : hex;
-        };
-
-        return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
-    }
-
-    generateColorPalette(hsl) {
-        const { h, s } = hsl;
-
-        return {
-            primary50: this.hslToHex(h, Math.max(s - 40, 10), 96),
-            primary100: this.hslToHex(h, Math.max(s - 20, 20), 92),
-            primary200: this.hslToHex(h, s, 85),
-            primary300: this.hslToHex(h, s, 75),
-            primary400: this.hslToHex(h, s, 65),
-            primary500: this.hslToHex(h, s, 55), // base color
-            primary600: this.hslToHex(h, s, 45),
-            primary700: this.hslToHex(h, s, 35),
-            primary800: this.hslToHex(h, s, 25),
-            primary900: this.hslToHex(h, s, 15)
-        };
-    }
 }
 
-customElements.define('app-header', Header); 
+// Add registration guard
+if (!customElements.get('app-header')) {
+    customElements.define('app-header', Header);
+}

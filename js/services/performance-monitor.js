@@ -1,5 +1,5 @@
 // Performance Monitor Service
-class PerformanceMonitor {
+class EnhancedPerformanceMonitor {
     constructor() {
         this.isMonitoring = false;
         this.freezeThreshold = 100; // ms
@@ -212,5 +212,5 @@ class PerformanceMonitor {
 }
 
 // Export for use in components
-window.performanceMonitor = new PerformanceMonitor();
-console.log('Performance monitor initialized'); 
+window.enhancedPerformanceMonitor = new EnhancedPerformanceMonitor();
+console.log('Enhanced performance monitor initialized'); 
