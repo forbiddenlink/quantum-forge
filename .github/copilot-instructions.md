@@ -1,10 +1,10 @@
 # Quantum Forge - AI Coding Assistant Instructions
 
-Quantum Forge is a contest-winning employee portal featuring AI-powered task management, real-time analytics, and spectacular visual effects. This modern web application uses vanilla JavaScript with Web Components architecture.
+Quantum Forge is a contest-winning employee portal featuring AI-powered task management, real-time analytics, and spectacular visual effects. Built with vanilla JavaScript using a Web Components architecture.
 
 ## Contest Context & Requirements
 
-**Challenge**: Design a dream intranet homepage for a fictional company using CSS, HTML, and JavaScript only. Create the perfect digital workspace showcasing upcoming events, team spotlights, useful resources, and innovative widgets.
+**Challenge**: Design your dream intranet homepage for a fictional company using CSS, HTML, and JavaScript only. Create the perfect digital workspace showcasing upcoming events, team spotlights, useful resources, and innovative widgets.
 
 **Judging Criteria** (Priority Focus Areas):
 1. **Responsiveness and Accessibility** - WCAG 2.1 compliance, mobile-first design
@@ -12,101 +12,108 @@ Quantum Forge is a contest-winning employee portal featuring AI-powered task man
 3. **Creativity** - Innovative visual effects, engaging animations, unique features
 4. **Code Quality** - Clean architecture, performance optimization, maintainable code
 
+**Contest Deadline**: July 27, 2025 at 11:59 PM PDT
 **Technical Constraints**: Pure frontend stack only (HTML/CSS/JavaScript) - no backend or build tools allowed.
 
-**Current Status**: 35+ Web Components implemented, 16-page portal ecosystem, extensive CSS cleanup completed with 14.3% duplicate reduction (453→388 rules).
+## Current Contest Issues to Address
 
-## Architecture Overview
+### Design & Layout Issues
+- **Cohesive design** - Ensure unified visual theme across all components
+- **Logical layout flow** - Components should flow in intuitive order
+- **Component sizing** - Some sections are too long and narrow, need better proportions
+- **White space consistency** - Remove extra white space around components
+- **Background conflicts** - Fix white backgrounds in components that don't match theme
 
-### Core Structure
-- **Frontend-only application** - No backend server, uses local storage and mock data
-- **Web Components architecture** - Custom elements like `<task-system>`, `<analytics-dashboard>`, `<office-visualizer>`
-- **Service-based architecture** - Core services in `js/services/` (performance, security, analytics, chart management)
-- **CSS-first design system** - Layered CSS architecture with critical/main/component separation
+### Functionality Requirements
+- **All buttons must be clickable** - Every interactive element needs proper routing
+- **Complete sidebar navigation** - All components need sidebar menu items
+- **16 sidebar pages** - All pages must be properly set up and functional
+- **Unified theme application** - All components must use consistent theming
 
-### Key Design Patterns
+## Essential Architecture Knowledge
+
+**Core Constraint**: Pure frontend stack - no backend, no build tools, no frameworks allowed.
+
+**Component Pattern**: All 35+ components follow this initialization pattern:
 ```javascript
-// Custom Web Components pattern used throughout (35+ components)
 class SpectacularTaskSystem extends HTMLElement {
     constructor() {
         super();
         this.isInitialized = false; // Prevent double initialization
-        this.animationFrame = null; // Always track animation frames for cleanup
+        this.animationFrame = null; // Always track for cleanup
     }
     
     connectedCallback() {
-        if (this.isInitialized) return; // Guard against re-initialization
+        if (this.isInitialized) return;
         this.render();
         this.setupEventListeners();
-        this.initializeSpectacularEffects();
         this.isInitialized = true;
     }
     
     disconnectedCallback() {
-        // CRITICAL: Always implement proper cleanup
+        // CRITICAL: Always cleanup animations/intervals
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
-            this.animationFrame = null;
         }
-        // Clear intervals, observers, event listeners
     }
 }
 customElements.define('task-system', SpectacularTaskSystem);
 ```
 
-### Component Registration System
-All components follow this registration pattern in `js/app.js`:
-```javascript
-// Components are checked for registration on DOMContentLoaded
-const customElementsToCheck = [
-    'analytics-dashboard', 'task-system', 'enhanced-knowledge-hub',
-    'live-activity-feed', 'office-visualizer', // ... 35+ total
-];
+**Component Registration**: All components registered in `js/app.js` via `customElementsToCheck` array.
+## Critical Development Workflows
+
+### Contest-Ready Checklist
+```bash
+# Before final submission - verify contest requirements
+1. All buttons clickable and route to proper pages ✓
+2. All 16 sidebar pages fully functional ✓
+3. Cohesive design theme applied everywhere ✓
+4. No white space or background inconsistencies ✓  
+5. Logical component flow and sizing ✓
+6. Creative features that wow judges ✓
 ```
 
-### CSS Architecture
-- **Critical loading order**: `critical.css` → `main.css` → `components.css` → feature-specific files
-- **Centralized animation system**: All keyframes in `animations.css` (50+ shared animations like `spectralGlow`, `standardPulse`)
-- **Component consolidation**: Shared components in `components.css` (`.task-assignee`, `.activity-content`)
-- **CSS Variables hierarchy**: Design tokens in `:root`, component variables that reference globals
-- **BEM-like naming**: `.task-card`, `.task-card__header`, `.task-card--highlighted`
-- **Component isolation**: Each component has dedicated CSS files in `/styles/components/`
-- **Recent cleanup achievement**: 14.3% duplicate reduction (453→388 rules) via `css-cleanup-tools/`
+### CSS Development - NEVER edit styles directly
+```bash
+# ALWAYS use cleanup tools before CSS changes
+cd css-cleanup-tools
+node find-duplicates.js  # Check current duplicate count
+```
+- All changes must go through `css-cleanup-tools/` directory
+- Always create timestamped backups before changes
+- CSS hierarchy: `critical.css` → `main.css` → `components.css` → feature files
+- All animations centralized in `animations.css` (50+ shared keyframes)
+- **Contest Priority**: Fix background conflicts and white space issues
 
-## Development Workflows
-
-### Adding New Components
-1. Create component in `js/components/[name].js` extending `HTMLElement`
-2. Register with `customElements.define('[tag-name]', ComponentClass)`
-3. Add CSS file to `styles/` following naming convention
+### Adding Components
+1. Create in `js/components/[name].js` extending `HTMLElement`
+2. Add to `customElementsToCheck` array in `js/app.js`
+3. Create CSS file following naming convention
 4. Import CSS in `styles/imports.css` following load order
-5. Add script tags to HTML pages that use the component
+5. Add script tags to HTML pages using the component
+6. **Contest Requirement**: Add sidebar menu item for component
+7. **Contest Requirement**: Ensure all buttons are clickable and route properly
 
-### CSS Development
-- **Never edit files directly** - Use the CSS cleanup tools in `css-cleanup-tools/` folder
-- **Always backup before changes** - Extensive backup system with timestamped saves
-- **Check for duplicates** - Use `find-duplicates.js` to detect duplicate CSS rules
-- **Follow import hierarchy** - Defined in `styles/imports.css` and `CSS_ARCHITECTURE.md`
-- **Animation consolidation** - Use centralized animations from `animations.css` instead of duplicating keyframes
-
-### Performance Optimization
+### Chart.js Integration
 ```javascript
-// All components use this performance-first pattern
-class PerformanceOptimizer {
-    preloadCriticalComponents() {
-        const critical = ['welcome-section', 'header', 'sidebar'];
-        critical.forEach(async (name) => {
-            await import(`../components/${name}.js`);
-        });
+// ALWAYS use centralized ChartManager to prevent memory leaks
+const chart = await window.chartManager.createChart('myCanvas', config);
+// Manager handles: loading, lifecycle, memory management, performance optimization
+```
+
+### Performance Patterns
+```javascript
+// All components use this pattern for optimal performance
+class PerformanceOptimizedComponent extends HTMLElement {
+    constructor() {
+        super();
+        this.intersectionObserver = null; // Lazy loading
+        this.resizeObserver = null;       // Responsive updates
+        this.animationFrame = null;       // Animation cleanup
     }
 }
 ```
-
-### Contest Quality Standards
-- **Code Quality Focus** - Clean, maintainable architecture is a judging criterion
-- **Performance monitoring** - Built-in metrics tracking for optimal UX
-- **Error boundaries** - Graceful degradation ensures reliability during judging
-- **No build tools** - Pure vanilla JavaScript showcases technical skill
 
 ## Project-Specific Conventions
 
@@ -129,74 +136,73 @@ this.dispatchEvent(new CustomEvent('task-updated', {
 - **Graceful degradation** - Components show fallback content when features fail
 - **Performance monitoring** - `PerformanceMonitor` tracks render times and memory usage
 
-### Accessibility
-- **WCAG 2.1 compliance** - Built-in `AccessibilityEnhancer` component
-- **Screen reader support** - Live regions and ARIA labels throughout
-- **Keyboard navigation** - All components support full keyboard interaction
-- **Contest requirement** - Accessibility is a primary judging criterion
-
-## Contest-Winning Features
-
-### Featured Widgets & Content
-- **Company Culture Showcase** - Interactive employee stories and values
-- **Enhanced Interactive Polls** - Real-time voting with animated charts
-- **AI-Powered Task Management** - Smart prioritization and workflow optimization
-- **Real-Time Analytics Dashboard** - Live performance metrics and visualizations
-- **Office Visualizer** - 3D workspace with desk booking and team presence
-- **Team Spotlight** - Employee achievements and collaboration metrics
-- **Smart Knowledge Hub** - AI-driven content recommendations
-- **Weather Integration** - Contextual office environment data
-
-### Creativity & Visual Excellence
-- **Spectacular effects** - Particle systems, aurora effects, constellation patterns
-- **Glassmorphism design** - Modern glass-like UI elements
-- **Smooth animations** - 60fps micro-interactions and transitions
-- **Dynamic theming** - Real-time color customization with HSL system
-- **Contest-grade polish** - Every interaction designed for judges' evaluation
-
-## Integration Points
-
-### External Dependencies
-- **Chart.js** - Managed through centralized `ChartManager` service to prevent memory leaks
-- **Web APIs** - Service Worker for offline support, Intersection Observer for performance
-- **No build system** - Direct ES6 imports and vanilla web standards
-
-### Data Flow
-- **Mock data patterns** - Components load realistic sample data from internal methods
-- **LocalStorage persistence** - User preferences and themes saved locally
-- **Event-driven updates** - Real-time UI updates via DOM events
-
-### Security Implementation
+### Service Architecture
 ```javascript
-// SecurityManager handles CSP, XSS prevention, input sanitization
-class SecurityManager {
-    cspDirectives = {
-        'script-src': "'self' 'unsafe-inline' https://cdn.jsdelivr.net",
-        'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com"
-    };
-}
+// Core services centralize critical functionality
+window.chartManager = new ChartManager();           // Chart.js lifecycle management
+window.performanceMonitor = new PerformanceMonitor(); // Real-time metrics
+window.analyticsService = new AnalyticsService();   // Data visualization
+// Access via: window.serviceName from any component
 ```
 
 ## Critical File Relationships
 
 - `index.html` → Entry point with all component script imports
-- `js/app.js` → Core initialization, theme management, sidebar handling  
+- `js/app.js` → Core initialization, theme management, component registration  
 - `styles/imports.css` → Central CSS import management with documented load order
 - `js/core/systems.js` → Error boundaries, performance monitoring, component lifecycle
 - `css-cleanup-tools/` → Essential for CSS maintenance, never edit styles without these tools
+- `js/services/chart-manager.js` → Centralized Chart.js management preventing memory leaks
 
 ## Testing & Debugging
 
 ### Built-in Debug Tools
 - Component registration logging in `app.js` shows which custom elements loaded
-- Performance metrics available via `window.getContestStatus()`
 - CSS duplicate detection through `css-cleanup-tools/find-duplicates.js`
 - Manual component testing via browser console: `document.createElement('analytics-dashboard')`
+- Chart performance: `window.chartManager.getPerformanceReport()`
 
 ### Common Issues
 - **Component not rendering** - Check custom element registration in browser console
 - **CSS conflicts** - Use duplicate detection tools before making changes
-- **Performance issues** - Monitor via `PerformanceMonitor` service
 - **Memory leaks** - Ensure proper cleanup in `disconnectedCallback()` methods
+- **Chart.js errors** - Always use `window.chartManager` instead of direct Chart.js
+- **Contest Issues**: 
+  - White backgrounds not matching theme - Check `applyColorTheme()` function
+  - Buttons not clickable - Ensure event listeners and routing are set up
+  - Missing sidebar items - Add entries to sidebar navigation for all components
+  - Layout flow issues - Review component order and sizing in main containers
+
+## Contest-Specific Patterns
+
+### Button Click Handling
+```javascript
+// All buttons must route somewhere - contest requirement
+button.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Route to appropriate page
+    window.location.href = '/pages/target-page.html';
+    // Or use custom navigation system
+});
+```
+
+### Sidebar Integration
+```javascript
+// Every component needs sidebar menu representation
+// Add to sidebar navigation in appropriate HTML files
+<nav class="sidebar-nav">
+    <a href="/pages/component-page.html">Component Name</a>
+</nav>
+```
+
+### Theme Consistency
+```javascript
+// Ensure all components use unified theming
+connectedCallback() {
+    this.render();
+    this.applyThemeConsistency(); // Apply unified colors/backgrounds
+    this.setupEventListeners();
+}
+```
 
 When working on this codebase, prioritize the modular component architecture, maintain the CSS cleanup discipline, and leverage the built-in performance and error handling systems.
