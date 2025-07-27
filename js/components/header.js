@@ -40,14 +40,24 @@ class Header extends HTMLElement {
         ];
     }
 
-    connectedCallback() {
+    async connectedCallback() {
         if (this.isInitialized) return;
 
-        console.log('Header component connected');
+        console.log('🏗️ Header component connected');
+
+        // Render immediately for faster initial paint
         this.render();
         this.setupEventListeners();
         this.updateUnreadCount();
         this.startNotificationPolling();
+
+        // Initialize color picker after initial render
+        try {
+            await customElements.whenDefined('dynamic-color-picker');
+            console.log('✅ DynamicColorPicker is ready');
+        } catch (error) {
+            console.error('❌ DynamicColorPicker not available:', error);
+        }
 
         // Load and apply saved theme
         const savedTheme = localStorage.getItem('userTheme');
@@ -56,9 +66,16 @@ class Header extends HTMLElement {
             this.applyThemeColor(hue, saturation, lightness);
         }
 
-        // Initialize color picker with persistence
-        this.initializeColorPicker();
+        try {
+            // Initialize color picker with persistence
+            await this.initializeColorPicker();
+            console.log('✅ Color picker initialization complete');
+        } catch (error) {
+            console.error('❌ Error initializing color picker:', error);
+        }
+
         this.isInitialized = true;
+        console.log('✅ Header component fully initialized');
     }
 
     disconnectedCallback() {
@@ -263,7 +280,15 @@ class Header extends HTMLElement {
                         </svg>
                     </button>
 
-                    <!-- Color picker menu will be initialized by JavaScript -->
+                    <div class="action-button color-picker-button">
+                        <button id="toggleColorPicker" aria-label="Customize colors">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 2a10 10 0 0 0 0 20 10 10 0 0 1 0-20z"></path>
+                            </svg>
+                        </button>
+                        <!-- Color picker will be initialized here by JavaScript -->
+                    </div>
 
                     <div class="notifications-menu">
                         <button class="action-button" id="toggleNotifications" aria-label="View notifications">
@@ -484,71 +509,88 @@ class Header extends HTMLElement {
         }
     }
 
-    initializeColorPicker() {
-        // Clean up any existing color picker
-        this.cleanupColorPicker();
+    async initializeColorPicker() {
+        try {
+            console.log('🎨 Initializing color picker...');
 
-        // Create color picker menu container
-        const colorPickerMenu = document.createElement('div');
-        colorPickerMenu.className = 'color-picker-menu';
-
-        // Create button
-        const colorPickerButton = document.createElement('button');
-        colorPickerButton.id = 'toggleColorPicker';
-        colorPickerButton.className = 'action-button';
-        colorPickerButton.setAttribute('aria-label', 'Customize colors');
-        colorPickerButton.innerHTML = `
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M12 2a10 10 0 0 0 0 20 10 10 0 0 1 0-20z"></path>
-            </svg>
-        `;
-
-        // Create and initialize the dynamic color picker
-        const colorPicker = document.createElement('dynamic-color-picker');
-        colorPicker.style.display = 'none';
-
-        // Event handlers
-        const toggleColorPicker = (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            if (colorPicker.isOpen) {
-                colorPicker.toggle();
-            } else {
-                colorPicker.toggle();
+            // Get the existing button container
+            const colorPickerButton = this.querySelector('#toggleColorPicker');
+            if (!colorPickerButton) {
+                console.error('❌ Color picker button not found');
+                return;
             }
-        };
 
-        this.colorPickerCloseHandler = (e) => {
-            if (!colorPickerMenu.contains(e.target) && colorPicker.isOpen) {
-                colorPicker.toggle();
+            // Check if color picker is already in the DOM
+            let colorPicker = document.querySelector('dynamic-color-picker');
+            if (!colorPicker) {
+                // Create new one if not found
+                colorPicker = document.createElement('dynamic-color-picker');
             }
-        };
 
-        // Add event listeners
-        colorPickerButton.addEventListener('click', toggleColorPicker);
-        document.addEventListener('click', this.colorPickerCloseHandler);
+            // Wait for custom element to be defined
+            await customElements.whenDefined('dynamic-color-picker');
+            console.log('✅ Color picker component defined');
 
-        // Listen for theme changes
-        window.addEventListener('themeChanged', (e) => {
-            const { hue, saturation, lightness } = e.detail;
-            this.applyThemeColor(hue, saturation, lightness);
-        });
+            // Find or create menu container
+            let colorPickerMenu = this.querySelector('.color-picker-menu');
+            if (!colorPickerMenu) {
+                colorPickerMenu = document.createElement('div');
+                colorPickerMenu.className = 'color-picker-menu';
+                this.appendChild(colorPickerMenu);
+                colorPickerMenu.appendChild(colorPicker);
+                console.log('✅ Added color picker to DOM');
+            }
 
-        // Assemble and insert into DOM
-        colorPickerMenu.appendChild(colorPickerButton);
-        colorPickerMenu.appendChild(colorPicker);
+            // Add button click handler if not already added
+            if (!colorPickerButton.hasAttribute('data-initialized')) {
+                console.log('🔄 Setting up color picker button handlers');
 
-        // Insert after theme toggle button
-        const themeToggle = this.querySelector('#toggleTheme');
-        if (themeToggle) {
-            themeToggle.parentNode.insertBefore(colorPickerMenu, themeToggle.nextSibling);
-        } else {
-            this.querySelector('.header-right').appendChild(colorPickerMenu);
+                // Add click handler
+                colorPickerButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    console.log('🖱️ Color picker button clicked');
+
+                    if (colorPicker && typeof colorPicker.toggle === 'function') {
+                        try {
+                            colorPicker.toggle();
+                            console.log('✅ Color picker toggled');
+                        } catch (error) {
+                            console.error('❌ Error toggling color picker:', error);
+                        }
+                    } else {
+                        console.error('❌ Color picker or toggle method not available');
+                    }
+                });
+
+                // Add close handler
+                this.colorPickerCloseHandler = (e) => {
+                    if (colorPicker.isOpen && !colorPickerMenu.contains(e.target) && e.target !== colorPickerButton) {
+                        colorPicker.toggle();
+                        console.log('✅ Color picker closed by outside click');
+                    }
+                };
+                document.addEventListener('click', this.colorPickerCloseHandler);
+
+                colorPickerButton.setAttribute('data-initialized', 'true');
+                console.log('✅ Color picker button initialized');
+            }
+
+            // Listen for theme changes if not already listening
+            if (!this.themeChangeHandler) {
+                this.themeChangeHandler = (e) => {
+                    const { hue, saturation, lightness } = e.detail;
+                    this.applyThemeColor(hue, saturation, lightness);
+                };
+                window.addEventListener('themeChanged', this.themeChangeHandler);
+            }
+
+            this.colorPickerInitialized = true;
+            console.log('✅ Color picker initialization complete');
+
+        } catch (error) {
+            console.error('❌ Error in color picker initialization:', error);
         }
-
-        this.colorPickerInitialized = true;
-        console.log('✅ Color picker initialized successfully');
     }
 
     applyThemeColor(hue, saturation, lightness) {
@@ -559,15 +601,42 @@ class Header extends HTMLElement {
         root.style.setProperty('--primary-s', saturation + '%');
         root.style.setProperty('--primary-l', lightness + '%');
 
+        // Set all derived colors immediately
+        const baseColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+        const darkerColor = `hsl(${hue}, ${saturation}%, ${Math.max(lightness - 20, 5)}%)`;
+        const lighterColor = `hsl(${hue}, ${saturation}%, ${Math.min(lightness + 20, 95)}%)`;
+
+        // Apply all color variables
+        root.style.setProperty('--primary-300', lighterColor);
+        root.style.setProperty('--primary-400', baseColor);
+        root.style.setProperty('--primary-500', baseColor);
+        root.style.setProperty('--primary-600', darkerColor);
+        root.style.setProperty('--accent-color', baseColor);
+        root.style.setProperty('--accent-light', lighterColor);
+        root.style.setProperty('--accent-dark', darkerColor);
+        root.style.setProperty('--button-primary', baseColor);
+        root.style.setProperty('--button-primary-hover', darkerColor);
+        root.style.setProperty('--link-color', baseColor);
+        root.style.setProperty('--link-hover', darkerColor);
+
         // Save theme to localStorage
         localStorage.setItem('userTheme', JSON.stringify({ hue, saturation, lightness }));
 
+        // Force immediate style recalculation
+        const _ = window.getComputedStyle(document.body).opacity;
+
         // Request a frame for the browser to recalculate styles
         requestAnimationFrame(() => {
-            // Force a repaint by touching the transform property
+            // Force a repaint by touching multiple properties
             document.body.style.transform = 'none';
+            document.body.style.backgroundColor = document.body.style.backgroundColor;
+
             requestAnimationFrame(() => {
                 document.body.style.transform = '';
+                // Dispatch theme changed event
+                document.dispatchEvent(new CustomEvent('themeChanged', {
+                    detail: { hue, saturation, lightness }
+                }));
             });
         });
     }

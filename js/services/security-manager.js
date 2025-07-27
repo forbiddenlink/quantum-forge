@@ -1,5 +1,18 @@
 /**
- * 🛡️ Security Manager Service
+ *    cspDirectives = {
+            'default-src': "'self'",
+            'script-src': "'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com",
+            'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net data: *",
+            'style-src-elem': "'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net data: *",
+            'font-src': "'self' https://fonts.gstatic.com",
+            'img-src': "'self' data: https:",
+            'connect-src': "'self' https://api.github.com",
+            'media-src': "'self'",
+            'object-src': "'none'",
+            'frame-src': "'none'",
+            'base-uri': "'self'",
+            'form-action': "'self'"
+        };Manager Service
  * Contest Enhancement: Comprehensive Security Hardening
  */
 
@@ -19,7 +32,7 @@ class SecurityManager {
             'base-uri': "'self'",
             'form-action': "'self'"
         };
-        
+
         this.init();
     }
 
@@ -45,13 +58,13 @@ class SecurityManager {
             const stylesheets = document.querySelectorAll('link[rel="stylesheet"]');
             let loadedCount = 0;
             const totalStylesheets = stylesheets.length;
-            
+
             if (totalStylesheets === 0) {
                 // No stylesheets found, apply CSP immediately
                 this.applyCSP();
                 return;
             }
-            
+
             stylesheets.forEach(link => {
                 if (link.sheet) {
                     loadedCount++;
@@ -70,7 +83,7 @@ class SecurityManager {
                     });
                 }
             });
-            
+
             // Fallback: apply CSP after 3 seconds regardless
             setTimeout(() => {
                 if (!document.querySelector('meta[http-equiv="Content-Security-Policy"]')) {
@@ -78,7 +91,7 @@ class SecurityManager {
                 }
             }, 3000);
         };
-        
+
         // Start waiting for stylesheets
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', waitForStylesheets);
@@ -86,7 +99,7 @@ class SecurityManager {
             waitForStylesheets();
         }
     }
-    
+
     /**
      * Apply Content Security Policy
      */
@@ -107,7 +120,7 @@ class SecurityManager {
                 blockedURI: e.blockedURI,
                 originalPolicy: e.originalPolicy
             });
-            
+
             // Report to analytics if available
             if (window.analytics) {
                 window.analytics.track('CSP Violation', {
@@ -134,7 +147,7 @@ class SecurityManager {
         // Create sanitization function
         this.sanitize = (input) => {
             if (typeof input !== 'string') return input;
-            
+
             return input
                 .replace(/[<>]/g, '') // Remove angle brackets
                 .replace(/javascript:/gi, '') // Remove javascript: protocol
@@ -149,7 +162,7 @@ class SecurityManager {
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
                 const originalValue = e.target.value;
                 const sanitizedValue = this.sanitize(originalValue);
-                
+
                 if (originalValue !== sanitizedValue) {
                     e.target.value = sanitizedValue;
                     console.warn('🧹 Input sanitized:', { original: originalValue, sanitized: sanitizedValue });
@@ -194,7 +207,7 @@ class SecurityManager {
         ];
 
         const hasXSS = xssPatterns.some(pattern => pattern.test(url));
-        
+
         if (hasXSS) {
             console.error('🚨 Potential XSS attempt detected in URL');
             // Redirect to safe page
@@ -208,7 +221,7 @@ class SecurityManager {
     setupClickjackingProtection() {
         // Note: X-Frame-Options must be set as HTTP header, not meta tag
         // This is client-side frame detection only
-        
+
         // Check if page is framed
         if (window.top !== window.self) {
             console.warn('🚨 Page is being framed - potential clickjacking attempt');
@@ -249,7 +262,7 @@ class SecurityManager {
             if (now - lastSubmissionTime < 1000) { // Less than 1 second
                 suspiciousActivityCount++;
                 console.warn('🚨 Rapid form submission detected');
-                
+
                 if (suspiciousActivityCount >= maxSuspiciousActivities) {
                     e.preventDefault();
                     this.triggerSecurityAlert('Multiple rapid submissions detected');
@@ -323,22 +336,22 @@ class SecurityManager {
      */
     calculatePasswordStrength(password) {
         let score = 0;
-        
+
         // Length bonus
         score += Math.min(password.length * 4, 25);
-        
+
         // Charset bonus
         if (/[a-z]/.test(password)) score += 5;
         if (/[A-Z]/.test(password)) score += 5;
         if (/\d/.test(password)) score += 5;
         if (/\W/.test(password)) score += 10;
-        
+
         // Pattern penalties
         if (/(.)\1{2,}/.test(password)) score -= 10; // Repeated characters
         if (/123|abc|qwe/i.test(password)) score -= 10; // Common patterns
-        
+
         score = Math.max(0, Math.min(100, score));
-        
+
         if (score < 30) return 'weak';
         if (score < 60) return 'medium';
         if (score < 90) return 'strong';
@@ -383,15 +396,15 @@ class SecurityManager {
         return (identifier) => {
             const now = Date.now();
             const userRequests = requests.get(identifier) || [];
-            
+
             // Remove old requests outside time window
             const validRequests = userRequests.filter(time => now - time < timeWindow);
-            
+
             if (validRequests.length >= maxRequests) {
                 console.warn('🚨 Rate limit exceeded for:', identifier);
                 return false;
             }
-            
+
             validRequests.push(now);
             requests.set(identifier, validRequests);
             return true;
@@ -432,10 +445,10 @@ class SecurityManager {
      */
     triggerSecurityAlert(message) {
         console.error('🚨 SECURITY ALERT:', message);
-        
+
         // Show user-friendly message
         this.showSecurityNotification('Security check activated. Please refresh the page.');
-        
+
         // Log security event
         if (window.analytics) {
             window.analytics.track('Security Alert', { message });
@@ -473,10 +486,10 @@ class SecurityManager {
     cleanup() {
         // Clear sensitive data from memory
         this.cspDirectives = null;
-        
+
         // Clear any temporary tokens
         sessionStorage.removeItem('temp-token');
-        
+
         // Reset form values
         document.querySelectorAll('input[type="password"]').forEach(input => {
             input.value = '';
@@ -490,7 +503,7 @@ export default SecurityManager;
 // Auto-initialize if running in browser
 if (typeof window !== 'undefined') {
     window.securityManager = new SecurityManager();
-    
+
     // Cleanup on page unload
     window.addEventListener('beforeunload', () => {
         window.securityManager.cleanup();

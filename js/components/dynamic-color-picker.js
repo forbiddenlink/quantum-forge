@@ -23,10 +23,18 @@ class DynamicColorPicker extends HTMLElement {
     }
 
     connectedCallback() {
-        this.loadSavedTheme();
-        this.render();
-        this.setupEventListeners();
-        // Remove createToggleButton() as we'll use the header's button
+        if (window.ThemeManager) {
+            this.loadSavedTheme();
+            this.render();
+            this.setupEventListeners();
+        } else {
+            // Wait for ThemeManager to be available
+            window.addEventListener('themeManagerReady', () => {
+                this.loadSavedTheme();
+                this.render();
+                this.setupEventListeners();
+            }, { once: true });
+        }
     }
 
     loadSavedTheme() {
@@ -221,6 +229,13 @@ class DynamicColorPicker extends HTMLElement {
     }
 
     setupEventListeners() {
+        // Listen for theme-system ready
+        document.addEventListener('theme-system-ready', () => {
+            console.log('🎨 Theme system ready, initializing color picker');
+            this.loadSavedTheme();
+            this.render();
+        });
+
         this.querySelector('.picker-close')?.addEventListener('click', () => this.toggle());
 
         this.querySelectorAll('.preset-theme').forEach(btn => {
@@ -229,18 +244,77 @@ class DynamicColorPicker extends HTMLElement {
                 this.currentTheme = { ...theme };
                 this.applyTheme(this.currentTheme);
                 this.render();
+
+                // Dispatch theme change event
+                document.dispatchEvent(new CustomEvent('theme-changed', {
+                    detail: { theme: this.currentTheme }
+                }));
             });
         });
 
+        // Enhanced slider interaction
         this.querySelectorAll('.color-slider').forEach(slider => {
-            slider.addEventListener('input', (e) => {
-                const property = e.target.dataset.property;
-                const value = parseInt(e.target.value);
-                this.currentTheme[property] = value;
-                this.currentTheme.name = 'Custom';
-                this.applyTheme(this.currentTheme);
-                this.updateSliderValue(e.target);
-                this.updatePreview();
+            // Prevent text selection while dragging
+            slider.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                document.body.style.userSelect = 'none';
+            });
+
+            slider.addEventListener('mouseup', () => {
+                document.body.style.userSelect = '';
+            });
+
+            // Handle both input and change events
+            ['input', 'change'].forEach(eventType => {
+                slider.addEventListener(eventType, (e) => {
+                    e.preventDefault();
+                    const property = e.target.dataset.property;
+                    const value = parseInt(e.target.value);
+
+                    // Ensure valid value range
+                    let normalizedValue = value;
+                    if (property === 'hue') {
+                        normalizedValue = Math.max(0, Math.min(360, value));
+                    } else {
+                        normalizedValue = Math.max(0, Math.min(100, value));
+                    }
+
+                    // Update current theme
+                    this.currentTheme[property] = normalizedValue;
+                    this.currentTheme.name = 'Custom';
+
+                    try {
+                        requestAnimationFrame(() => {
+                            // Apply theme changes
+                            document.documentElement.classList.add('theme-transition');
+                            this.applyTheme(this.currentTheme);
+
+                            // Update visuals
+                            this.updateSliderValue(e.target);
+                            this.updatePreview();
+                            this.updateSliderTracks();
+
+                            // Force repaint for smooth updates
+                            void document.documentElement.offsetHeight;
+
+                            // Notify theme changes
+                            document.dispatchEvent(new CustomEvent('themeChanged', {
+                                detail: {
+                                    hue: this.currentTheme.hue,
+                                    saturation: this.currentTheme.saturation,
+                                    lightness: this.currentTheme.lightness
+                                }
+                            }));
+
+                            // Clean up transition class
+                            requestAnimationFrame(() => {
+                                document.documentElement.classList.remove('theme-transition');
+                            });
+                        });
+                    } catch (error) {
+                        console.error('Failed to apply theme:', error);
+                    }
+                });
             });
         });
 
@@ -265,13 +339,23 @@ class DynamicColorPicker extends HTMLElement {
         // Handle document clicks for closing the picker
         document.addEventListener('click', (e) => {
             // Only handle close events, let header handle open
+            if (this.isOpen) {
+                console.log('🔍 Click detected while picker is open:', {
+                    target: e.target.tagName,
+                    id: e.target.id,
+                    isInsidePicker: this.contains(e.target),
+                    isToggleButton: e.target.closest('#toggleColorPicker') !== null,
+                    isPanel: e.target.closest('.color-picker-panel') !== null
+                });
+            }
+
             if (this.isOpen &&
                 !this.contains(e.target) &&
                 !e.target.closest('#toggleColorPicker') &&
                 !e.target.closest('.color-picker-panel')) {
+                console.log('🔄 Closing color picker due to outside click');
                 this.isOpen = false;
                 this.render();
-                console.log('Color picker closed by outside click');
                 document.dispatchEvent(new CustomEvent('colorPickerToggled', {
                     detail: { isOpen: false }
                 }));
@@ -280,20 +364,42 @@ class DynamicColorPicker extends HTMLElement {
     }
 
     updateSliderTracks() {
-        const hueTrack = this.querySelector('.hue-track');
+        // Update hue track with fixed rainbow gradient
+        const hueTrack = this.querySelector('.hue-slider .slider-track');
         if (hueTrack) {
-            hueTrack.style.background = 'linear-gradient(to right, hsl(0, 100%, 50%), hsl(60, 100%, 50%), hsl(120, 100%, 50%), hsl(180, 100%, 50%), hsl(240, 100%, 50%), hsl(300, 100%, 50%), hsl(360, 100%, 50%))';
+            requestAnimationFrame(() => {
+                hueTrack.style.setProperty('background', 'linear-gradient(to right, hsl(0, 100%, 50%), hsl(60, 100%, 50%), hsl(120, 100%, 50%), hsl(180, 100%, 50%), hsl(240, 100%, 50%), hsl(300, 100%, 50%), hsl(360, 100%, 50%))', 'important');
+            });
         }
 
-        const satTrack = this.querySelector('.saturation-track');
+        // Update saturation track based on current hue and lightness
+        const satTrack = this.querySelector('.saturation-slider .slider-track');
         if (satTrack) {
-            satTrack.style.background = `linear-gradient(to right, hsl(${this.currentTheme.hue}, 0%, ${this.currentTheme.lightness}%), hsl(${this.currentTheme.hue}, 100%, ${this.currentTheme.lightness}%))`;
+            requestAnimationFrame(() => {
+                satTrack.style.setProperty('background', `linear-gradient(to right, hsl(${this.currentTheme.hue}, 0%, ${this.currentTheme.lightness}%), hsl(${this.currentTheme.hue}, 100%, ${this.currentTheme.lightness}%))`, 'important');
+            });
         }
 
-        const lightTrack = this.querySelector('.lightness-track');
+        // Update lightness track based on current hue and saturation
+        const lightTrack = this.querySelector('.lightness-slider .slider-track');
         if (lightTrack) {
-            lightTrack.style.background = `linear-gradient(to right, hsl(${this.currentTheme.hue}, ${this.currentTheme.saturation}%, 0%), hsl(${this.currentTheme.hue}, ${this.currentTheme.saturation}%, 50%), hsl(${this.currentTheme.hue}, ${this.currentTheme.saturation}%, 100%))`;
+            requestAnimationFrame(() => {
+                lightTrack.style.setProperty('background', `linear-gradient(to right, hsl(${this.currentTheme.hue}, ${this.currentTheme.saturation}%, 0%), hsl(${this.currentTheme.hue}, ${this.currentTheme.saturation}%, 50%), hsl(${this.currentTheme.hue}, ${this.currentTheme.saturation}%, 100%))`, 'important');
+            });
         }
+
+        // Update slider thumbs to match current values
+        this.querySelectorAll('.color-slider').forEach(slider => {
+            const property = slider.dataset.property;
+            const value = this.currentTheme[property];
+            slider.value = value;
+
+            // Update value display
+            const valueDisplay = slider.closest('.control-group').querySelector('.slider-value');
+            if (valueDisplay) {
+                valueDisplay.textContent = value + (property === 'hue' ? '°' : '%');
+            }
+        });
     }
 
     updateSliderValue(slider) {
@@ -318,38 +424,65 @@ class DynamicColorPicker extends HTMLElement {
     }
 
     applyTheme(theme) {
-        const colors = this.generateColorPalette(theme);
-        Object.entries(colors).forEach(([key, value]) => {
-            document.documentElement.style.setProperty(`--${key}`, value);
-        });
+        console.log('🎨 Applying theme:', theme);
 
-        this.saveTheme(theme);
-        this.updatePreview();
+        try {
+            // First apply the base HSL variables that everything is calculated from
+            const root = document.documentElement;
+            root.style.setProperty('--primary-h', theme.hue);
+            root.style.setProperty('--primary-s', theme.saturation + '%');
+            root.style.setProperty('--primary-l', theme.lightness + '%');
 
-        document.dispatchEvent(new CustomEvent('themeChanged', {
-            detail: theme
-        }));
-    }
+            // Set user theme variables that some components use directly
+            root.style.setProperty('--user-primary-h', theme.hue);
+            root.style.setProperty('--user-primary-s', theme.saturation + '%');
+            root.style.setProperty('--user-primary-l', theme.lightness + '%');
 
-    generateColorPalette(theme) {
-        const { hue, saturation, lightness } = theme;
-        return {
-            'primary-h': hue,
-            'primary-s': saturation + '%',
-            'primary-l': lightness + '%',
-            'primary-100': `hsl(${hue}, ${saturation}%, ${Math.min(lightness + 40, 98)}%)`,
-            'primary-200': `hsl(${hue}, ${saturation}%, ${Math.min(lightness + 30, 97)}%)`,
-            'primary-300': `hsl(${hue}, ${saturation}%, ${Math.min(lightness + 20, 95)}%)`,
-            'primary-400': `hsl(${hue}, ${saturation}%, ${Math.min(lightness + 10, 95)}%)`,
-            'primary-500': `hsl(${hue}, ${saturation}%, ${lightness}%)`,
-            'primary-600': `hsl(${hue}, ${saturation}%, ${Math.max(lightness - 10, 5)}%)`,
-            'primary-700': `hsl(${hue}, ${saturation}%, ${Math.max(lightness - 20, 5)}%)`,
-            'accent-color': `hsl(${hue}, ${saturation}%, ${lightness}%)`,
-            'welcome-bg-start': `hsl(${hue}, ${saturation}%, ${lightness}%)`,
-            'welcome-bg-end': `hsl(${hue}, ${saturation}%, ${Math.max(lightness - 20, 5)}%)`,
-            'button-primary': `hsl(${hue}, ${saturation}%, ${lightness}%)`,
-            'link-color': `hsl(${hue}, ${saturation}%, ${lightness}%)`
-        };
+            // Calculate and set all derived colors
+            const baseColor = `hsl(${theme.hue}, ${theme.saturation}%, ${theme.lightness}%)`;
+            const darkerColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.max(theme.lightness - 20, 5)}%)`;
+            const lighterColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 20, 95)}%)`;
+
+            // Apply comprehensive color variables
+            root.style.setProperty('--primary-300', lighterColor);
+            root.style.setProperty('--primary-400', baseColor);
+            root.style.setProperty('--primary-500', baseColor);
+            root.style.setProperty('--primary-600', darkerColor);
+            root.style.setProperty('--accent-color', baseColor);
+            root.style.setProperty('--accent-light', lighterColor);
+            root.style.setProperty('--accent-dark', darkerColor);
+            root.style.setProperty('--button-primary', baseColor);
+            root.style.setProperty('--button-primary-hover', darkerColor);
+            root.style.setProperty('--link-color', baseColor);
+            root.style.setProperty('--link-hover', darkerColor);
+
+            // Force immediate style recalculation and repaint
+            requestAnimationFrame(() => {
+                const _ = window.getComputedStyle(document.body).opacity;
+                document.body.style.transform = 'none';
+
+                requestAnimationFrame(() => {
+                    document.body.style.transform = '';
+                    // Update UI and save changes
+                    this.updatePreview();
+                    this.saveTheme(theme);
+                });
+            });
+
+            console.log('✅ Theme applied successfully:', {
+                hue: theme.hue,
+                saturation: theme.saturation,
+                lightness: theme.lightness,
+                baseColor,
+                darkerColor,
+                lighterColor
+            });
+
+            return true;
+        } catch (error) {
+            console.error('❌ Error applying theme:', error);
+            return false;
+        }
     }
 
     generateRandomTheme() {
@@ -370,25 +503,81 @@ class DynamicColorPicker extends HTMLElement {
     }
 
     toggle() {
-        const wasOpen = this.isOpen;
+        // Toggle state
         this.isOpen = !this.isOpen;
 
-        console.log(`Color picker toggling from ${wasOpen} to ${this.isOpen}`);
+        // Get panel element
+        const panel = this.querySelector('.color-picker-panel');
+        if (!panel) return;
 
-        // Force panel update
-        this.render();
+        if (this.isOpen) {
+            // Show panel with animation
+            panel.style.display = 'block';
+            panel.style.opacity = '0';
+            panel.style.transform = 'translateY(-10px)';
 
-        // Update any listeners
-        document.dispatchEvent(new CustomEvent('colorPickerToggled', {
-            detail: {
-                isOpen: this.isOpen,
-                previous: wasOpen
-            }
+            requestAnimationFrame(() => {
+                panel.style.opacity = '1';
+                panel.style.transform = 'translateY(0)';
+            });
+
+            // Add event listener for outside clicks
+            document.addEventListener('click', this.handleOutsideClick);
+
+            // Add event listener for escape key
+            document.addEventListener('keydown', this.handleEscapeKey);
+        } else {
+            // Hide panel with animation
+            panel.style.opacity = '0';
+            panel.style.transform = 'translateY(-10px)';
+
+            setTimeout(() => {
+                panel.style.display = 'none';
+            }, 200); // Match transition duration
+
+            // Remove event listeners
+            document.removeEventListener('click', this.handleOutsideClick);
+            document.removeEventListener('keydown', this.handleEscapeKey);
+        }
+
+        // Update ARIA attributes
+        this.updateAccessibility();
+
+        // Notify state change
+        this.dispatchEvent(new CustomEvent('colorPickerToggled', {
+            bubbles: true,
+            composed: true,
+            detail: { isOpen: this.isOpen }
         }));
+    }
 
-        // Debug info
-        console.log('Color picker rendered, current DOM state:',
-            this.querySelector('.color-picker-panel')?.classList.contains('open'));
+    handleOutsideClick = (e) => {
+        if (!this.contains(e.target) && !e.target.closest('#toggleColorPicker')) {
+            this.isOpen = false;
+            this.toggle();
+        }
+    }
+
+    handleEscapeKey = (e) => {
+        if (e.key === 'Escape') {
+            this.isOpen = false;
+            this.toggle();
+        }
+    }
+
+    updateAccessibility() {
+        // Update button states
+        const toggleButton = document.querySelector('#toggleColorPicker');
+        if (toggleButton) {
+            toggleButton.setAttribute('aria-expanded', String(this.isOpen));
+            toggleButton.setAttribute('aria-pressed', String(this.isOpen));
+        }
+
+        // Update container states
+        const buttonContainer = document.querySelector('.color-picker-button');
+        if (buttonContainer) {
+            buttonContainer.classList.toggle('active', this.isOpen);
+        }
     }
 
     showNotification(message) {
@@ -426,4 +615,33 @@ class DynamicColorPicker extends HTMLElement {
     }
 }
 
-customElements.define('dynamic-color-picker', DynamicColorPicker);
+// Define the custom element and notify ThemeService when defined
+if (!customElements.get('dynamic-color-picker')) {
+    customElements.define('dynamic-color-picker', DynamicColorPicker);
+    console.log('✅ dynamic-color-picker defined');
+
+    // Wait for ThemeService to be available, then notify
+    if (window.ThemeService) {
+        if (window.ThemeService.onColorPickerDefined) {
+            window.ThemeService.onColorPickerDefined();
+            console.log('✅ Color picker notified ThemeService of readiness');
+        }
+    } else {
+        // Create an observer to watch for ThemeService availability
+        const observer = new MutationObserver((mutations, obs) => {
+            if (window.ThemeService && window.ThemeService.onColorPickerDefined) {
+                window.ThemeService.onColorPickerDefined();
+                console.log('✅ Color picker notified ThemeService of readiness');
+                obs.disconnect(); // Clean up after notification
+            }
+        });
+
+        // Observe the window object for ThemeService
+        observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true
+        });
+    }
+} else {
+    console.log('⚠️ dynamic-color-picker already defined');
+}

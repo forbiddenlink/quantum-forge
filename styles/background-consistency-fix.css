@@ -272,13 +272,4 @@
     color: var(--welcome-text) !important;
 }
 
-/* Protect Color Picker from background fixes */
-.color-picker-panel,
-.color-picker-panel *,
-.color-picker-toggle,
-.color-picker-toggle * {
-    background-color: initial !important;
-    backdrop-filter: initial !important;
-    -webkit-backdrop-filter: initial !important;
-    color: initial !important;
-}
+/* Color picker styles are managed in components/color-picker.css */

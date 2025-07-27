@@ -41,20 +41,56 @@ class SpectacularTaskSystem extends HTMLElement {
         super();
         this.isInitialized = false; // Prevent double initialization
         this.animationFrame = null; // Always track for cleanup
+        this.intersectionObserver = null; // Lazy loading
+        this.resizeObserver = null; // Responsive updates
+        this.isVisible = false; // Visibility tracking
+        this.needsRefresh = false; // Re-render state
     }
     
     connectedCallback() {
         if (this.isInitialized) return;
+        this.setupIntersectionObserver();
+        this.setupResizeObserver();
         this.render();
         this.setupEventListeners();
         this.isInitialized = true;
     }
+
+    setupIntersectionObserver() {
+        this.intersectionObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                this.isVisible = entry.isIntersecting;
+                if (this.isVisible && this.needsRefresh) {
+                    this.refresh();
+                }
+            });
+        });
+        this.intersectionObserver.observe(this);
+    }
     
     disconnectedCallback() {
-        // CRITICAL: Always cleanup animations/intervals
+        // CRITICAL: Always cleanup animations/intervals/observers
         if (this.animationFrame) {
             cancelAnimationFrame(this.animationFrame);
         }
+        this.intersectionObserver?.disconnect();
+        this.resizeObserver?.disconnect();
+    }
+
+    renderFallback() {
+        console.log('🔄 Rendering fallback UI...');
+        this.innerHTML = `
+            <div class="${this.tagName.toLowerCase()} fallback">
+                <div class="component-header">
+                    <h2 class="component-title">${this.componentName}</h2>
+                    <p class="component-subtitle">Loading enhanced features...</p>
+                </div>
+                <div class="fallback-content">
+                    <div class="loading-spinner"></div>
+                    <p>Initializing component...</p>
+                </div>
+            </div>
+        `;
     }
 }
 customElements.define('task-system', SpectacularTaskSystem);
@@ -94,6 +130,48 @@ node find-duplicates.js  # Check current duplicate count
 5. Add script tags to HTML pages using the component
 6. **Contest Requirement**: Add sidebar menu item for component
 7. **Contest Requirement**: Ensure all buttons are clickable and route properly
+
+### Variable System
+```css
+:root {
+    /* Core HSL Values - Default Purple */
+    --primary-h: 270;
+    --primary-s: 80%;
+    --primary-l: 50%;
+
+    /* Component color system */
+    --primary-50: hsl(var(--primary-h), var(--primary-s), 95%);
+    --primary-100: hsl(var(--primary-h), var(--primary-s), 90%);
+    ...
+    --primary-900: hsl(var(--primary-h), var(--primary-s), 10%);
+
+    /* Component semantic variables */
+    --button-primary: var(--primary-500);
+    --button-primary-hover: var(--primary-600);
+    --link-color: var(--primary-500);
+    --link-hover: var(--primary-600);
+    --accent-color: var(--primary-500);
+    --accent-light: var(--primary-400);
+    --accent-dark: var(--primary-600);
+    
+    /* Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: var(--shadow-lg);
+    --glass-blur: var(--blur-lg);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+    --gradient-success: linear-gradient(135deg, var(--success-500), var(--success-600));
+    --gradient-warning: linear-gradient(135deg, var(--warning-500), var(--warning-600));
+    --gradient-error: linear-gradient(135deg, var(--error-500), var(--error-600));
+
+    /* Theme transitions */
+    --theme-transition: background-color 0.2s ease, 
+                       color 0.2s ease, 
+                       border-color 0.2s ease;
+}
+```
 
 ### Chart.js Integration
 ```javascript
@@ -354,7 +432,9 @@ connectedCallback() {
 }
 ```
 
-### Keyboard Navigation & Accessibility
+## Accessibility Requirements
+
+### Keyboard Navigation Pattern
 ```javascript
 // Initialize keyboard navigation with screen reader support
 function initializeKeyboardShortcuts() {
@@ -381,6 +461,38 @@ function initializeKeyboardShortcuts() {
             const newTheme = toggleTheme();
             announceToScreenReader(`Theme changed to ${newTheme} mode`);
         }
+
+        // Help dialog - F1 or Shift + ?
+        if (e.key === 'F1' || (e.shiftKey && e.key === '?')) {
+            e.preventDefault();
+            const helpDialog = document.querySelector('help-dialog');
+            if (helpDialog?.toggle) {
+                helpDialog.toggle();
+                announceToScreenReader('Help dialog opened');
+            }
+        }
+
+        // AI Assistant - Ctrl/Cmd + /
+        if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+            e.preventDefault();
+            const aiAssistant = document.querySelector('ai-assistant');
+            if (aiAssistant?.toggle) {
+                aiAssistant.toggle();
+                announceToScreenReader('AI Assistant toggled');
+            }
+        }
+
+        // Escape key - close open dialogs and panels
+        if (e.key === 'Escape') {
+            const openPanels = document.querySelectorAll('.ai-assistant.open, .command-palette.active, .help-dialog.open');
+            if (openPanels.length > 0) {
+                openPanels.forEach(panel => {
+                    if (panel.classList.contains('open')) panel.classList.remove('open');
+                    if (panel.classList.contains('active')) panel.classList.remove('active');
+                });
+                announceToScreenReader('Panel closed');
+            }
+        }
     });
 
     // Remove keyboard focus indicators on mouse use
@@ -388,9 +500,18 @@ function initializeKeyboardShortcuts() {
         isUsingKeyboard = false;
         document.body.classList.remove('keyboard-user');
     });
-}
 
-// Screen reader announcements
+    // Re-add on focus to handle tab navigation
+    document.addEventListener('focusin', () => {
+        if (isUsingKeyboard) {
+            document.body.classList.add('keyboard-user');
+        }
+    });
+}
+```
+
+### Screen Reader Announcements Pattern
+```javascript
 function announceToScreenReader(message) {
     const announcement = document.createElement('div');
     announcement.setAttribute('aria-live', 'polite');
@@ -399,6 +520,29 @@ function announceToScreenReader(message) {
     announcement.textContent = message;
     document.body.appendChild(announcement);
     setTimeout(() => document.body.removeChild(announcement), 1000);
+}
+```
+
+### Focus Management CSS
+```css
+/* Focus indicators */
+*:focus-visible {
+    outline: 2px solid var(--primary-500);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+}
+
+/* Screen reader utilities */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 ```
 

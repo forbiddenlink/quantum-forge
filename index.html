@@ -30,6 +30,14 @@
             }
         }
 
+        /* Theme Controls */
+        .theme-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+
         /* High Contrast Mode Support */
         @media (prefers-contrast: high) {
             :root {
@@ -335,9 +343,6 @@
         });
     </script>
 
-    <!-- EMERGENCY MEMORY LEAK FIX - LOAD FIRST -->
-    <script src="js/emergency-memory-fix.js"></script>
-
     <!-- 🎯 WHITE BACKGROUND FIX - Contest Critical -->
     <script src="js/component-white-background-fix.js"></script>
 
@@ -442,7 +447,7 @@
             position: relative !important;
             z-index: 1 !important;
             /* Use theme system component backgrounds */
-            background: 
+            background:
                 var(--component-bg-primary),
                 var(--component-bg-secondary),
                 var(--component-bg-accent),
@@ -785,6 +790,10 @@
                                     <span class="status-indicator online"></span>
                                     <span class="status-text">All systems operational</span>
                                 </div>
+                                <!-- Theme Color Picker -->
+                                <div class="theme-controls">
+                                    <dynamic-color-picker></dynamic-color-picker>
+                                </div>
                             </div>
 
                             <div class="welcome-stats" role="group" aria-label="Quick statistics">
@@ -1112,13 +1121,23 @@
 
     <!-- Scripts - Restored Working Order -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Load components in dependency order -->
+    <!-- 1. Core system components first -->
+    <script src="js/components/dynamic-color-picker.js"></script>
+
+    <!-- 2. Core services that depend on system components -->
+    <script src="js/services/theme-service.js"></script>
     <script src="js/services/performance-monitor.js"></script>
     <script src="js/services/performance-manager.js"></script>
     <script src="js/services/chart-manager.js"></script>
     <script src="js/services/analytics.js"></script>
-    <script src="js/app.js"></script>
+
+    <!-- 3. Layout components that others depend on -->
     <script src="js/components/header.js"></script>
     <script src="js/components/sidebar.js"></script>
+
+    <!-- 4. Feature components -->
     <script src="js/components/analytics-dashboard.js"></script>
     <script src="js/components/task-system.js"></script>
     <script src="js/components/weather-widget.js"></script>
@@ -1138,6 +1157,9 @@
     <script src="js/components/enhanced-interactive-poll.js"></script>
     <script src="js/components/team-chat-widget.js"></script>
     <script src="js/components/smart-search-overlay.js"></script>
+
+    <!-- 5. Initialize app last after all components are loaded -->
+    <script src="js/app.js"></script>
 
     <!-- 🏆 NEW CONTEST COMPONENTS SCRIPTS 🏆 -->
     <script src="js/components/live-activity-feed.js"></script>

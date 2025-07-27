@@ -1,10 +1,97 @@
-/* Consolidated Color Picker Styles */
+/* Color Picker Component Styles - Single Source of Truth
+ * This is the only file that should contain color picker styles.
+ * Do not add color picker styles to any other file.
+ */
+
+.color-picker-panel {
+    background: var(--bg-primary);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: var(--shadow-lg)
+}
+
+.color-picker-panel *:not(.color-slider):not(.slider-track):not(.slider-container) {
+    background: initial;
+    backdrop-filter: initial;
+    -webkit-backdrop-filter: initial
+}
+
+.color-picker-panel .slider-container {
+    position: relative;
+    width: 100%;
+    height: 24px;
+    margin: 8px 0
+}
+
+.color-picker-panel .slider-track {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    height: 6px;
+    border-radius: 3px;
+    pointer-events: none
+}
+
+.color-picker-panel .color-slider {
+    position: relative;
+    width: 100%;
+    height: 24px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 2
+}
+
+.color-picker-panel .color-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--primary-500);
+    margin-top: -5px;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+}
+
+.color-picker-panel .color-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--primary-500);
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+}
+
+.color-picker-panel .hue-slider .slider-track {
+    background: linear-gradient(to right, hsl(0, 100%, 50%), hsl(60, 100%, 50%), hsl(120, 100%, 50%), hsl(180, 100%, 50%), hsl(240, 100%, 50%), hsl(300, 100%, 50%), hsl(360, 100%, 50%))
+}
+
+.color-picker-panel .saturation-slider .slider-track {
+    background: linear-gradient(to right, hsla(var(--primary-h), 0%, 50%, 1), hsla(var(--primary-h), 100%, 50%, 1))
+}
+
+.color-picker-panel .lightness-slider .slider-track {
+    background: linear-gradient(to right, hsla(var(--primary-h), var(--primary-s), 0%, 1), hsla(var(--primary-h), var(--primary-s), 50%, 1), hsla(var(--primary-h), var(--primary-s), 100%, 1))
+}
+}
+
 .color-picker-panel {
     position: fixed;
     top: 80px;
     right: -400px;
+    /* Start offscreen */
     width: 380px;
-    background: var(--bg-elevated);
+    background-color: rgb(255, 255, 255) !important;
     border-radius: var(--radius-2xl);
     box-shadow: var(--shadow-2xl);
     border: 1px solid var(--border-color);
@@ -20,6 +107,7 @@
     visibility: visible;
 }
 
+/* ===== Header Section ===== */
 .color-picker-header {
     display: flex;
     align-items: center;
@@ -36,10 +124,6 @@
     display: flex;
     align-items: center;
     gap: var(--space-2);
-}
-
-.picker-icon {
-    font-size: 1.2em;
 }
 
 .picker-close {
@@ -65,10 +149,7 @@
     height: 20px;
 }
 
-.current-theme-preview {
-    padding: var(--space-4);
-}
-
+/* ===== Theme Preview Section ===== */
 .theme-preview-card {
     background: var(--bg-secondary);
     border-radius: var(--radius-xl);
@@ -95,6 +176,7 @@
     border: 2px solid var(--border-color);
 }
 
+/* ===== Preset Themes Section ===== */
 .preset-themes {
     padding: var(--space-4);
 }
@@ -151,6 +233,7 @@
     border: 2px solid var(--border-color);
 }
 
+/* ===== Custom Color Controls ===== */
 .custom-color-section {
     padding: var(--space-4);
     border-top: 1px solid var(--border-color);
@@ -225,6 +308,7 @@
     font-variant-numeric: tabular-nums;
 }
 
+/* ===== Theme Actions ===== */
 .theme-actions {
     display: flex;
     gap: var(--space-3);
@@ -275,6 +359,7 @@
     transform: translateY(-1px);
 }
 
+/* ===== Color History ===== */
 .color-history {
     padding: var(--space-4);
     border-top: 1px solid var(--border-color);
@@ -319,9 +404,7 @@
     border-radius: var(--radius-lg);
 }
 
-/* Color Picker Toggle Button styles moved to color-picker-header.css */
-
-/* Notifications */
+/* ===== Notification ===== */
 .color-notification {
     position: fixed;
     top: 90px;
@@ -338,13 +421,18 @@
     font-weight: 500;
 }
 
-/* Dark Theme Overrides */
+/* ===== Theme Overrides ===== */
+[data-theme="dark"] .color-picker-panel {
+    background-color: rgb(30, 41, 59) !important;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
 [data-theme="dark"] .theme-preview-card {
-    background: var(--bg-elevated);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="dark"] .preset-theme {
-    background: var(--bg-elevated);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="dark"] .preset-theme.active {
@@ -356,7 +444,33 @@
     border-color: var(--primary-400);
 }
 
-/* Responsive Design */
+[data-theme="dark"] .btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== Responsive Design ===== */
+/* Tablet and smaller */
+@media (max-width: 768px) {
+    .color-picker-dropdown {
+        right: 10px;
+        min-width: calc(100vw - 20px);
+        max-width: 320px;
+    }
+
+    .color-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-2);
+    }
+
+    .color-option {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Mobile specific */
 @media (max-width: 480px) {
     .color-picker-panel {
         width: calc(100vw - 40px);
@@ -372,7 +486,7 @@
     }
 }
 
-/* High Contrast Mode Support */
+/* ===== High Contrast Mode Support ===== */
 @media (forced-colors: active) {
     .color-slider::-webkit-slider-thumb {
         border: 2px solid currentColor;
@@ -382,4 +496,30 @@
     .history-item {
         border: 1px solid currentColor;
     }
+}
+
+/* ===== Header Integration ===== */
+#toggleColorPicker {
+    background: var(--primary-500);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all var(--duration-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#toggleColorPicker:hover {
+    transform: scale(1.1);
+    background: var(--primary-600);
+}
+
+#toggleColorPicker svg {
+    width: 24px;
+    height: 24px;
 }

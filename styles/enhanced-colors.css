@@ -358,66 +358,9 @@
     background: var(--gradient-primary);
 }
 
-/* Enhanced Theme Toggle Button */
-.theme-toggle-btn {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-lg);
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    transition: all var(--duration-normal) var(--ease-in-out);
-    overflow: visible;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/* Theme toggle button styles moved to components/color-picker.css */
 
-.theme-toggle-btn:hover {
-    background: var(--bg-hover);
-    border-color: var(--border-hover);
-    color: var(--text-primary);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
-}
-
-.theme-toggle-btn:active {
-    transform: translateY(0);
-    box-shadow: var(--shadow-sm);
-}
-
-.theme-toggle-btn .sun-icon,
-.theme-toggle-btn .moon-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    transition: all var(--duration-normal) var(--ease-in-out);
-}
-
-.theme-toggle-btn .sun-icon {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(0deg);
-}
-
-.theme-toggle-btn .moon-icon {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(-90deg);
-}
-
-/* Dark mode - show moon icon */
-[data-theme="dark"] .theme-toggle-btn .sun-icon {
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(90deg);
-}
-
-[data-theme="dark"] .theme-toggle-btn .moon-icon {
-    opacity: 1;
-    transform: translate(-50%, -50%) rotate(0deg);
-}
+/* Dark mode theme toggle styles moved to components/color-picker.css */
 
 /* Enhanced Notification Badge */
 .notification-badge {

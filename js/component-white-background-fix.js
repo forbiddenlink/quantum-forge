@@ -19,13 +19,13 @@ class WhiteBackgroundFixer {
 
     start() {
         console.log('🔧 Starting white background monitoring...');
-        
+
         // Fix existing elements
         this.fixExistingElements();
-        
+
         // Set up mutation observer for dynamic content
         this.setupMutationObserver();
-        
+
         // Periodic cleanup every 2 seconds
         setInterval(() => this.fixExistingElements(), 2000);
     }
@@ -44,7 +44,7 @@ class WhiteBackgroundFixer {
 
         problemElements.forEach(element => {
             // Skip sidebar and form elements that should remain white
-            if (element.closest('.sidebar') || 
+            if (element.closest('.sidebar') ||
                 element.matches('input, textarea, select, .form-control') ||
                 element.closest('.color-picker-panel')) {
                 return;
@@ -58,14 +58,16 @@ class WhiteBackgroundFixer {
     applyThemedBackground(element) {
         // Check if dark mode
         const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-        
+
         if (isDarkMode) {
             element.style.setProperty('background', 'rgba(31, 41, 55, 0.8)', 'important');
             element.style.setProperty('color', 'rgba(243, 244, 246, 0.95)', 'important');
         } else {
             // Light mode - use glassmorphism
-            element.style.setProperty('background', 
-                'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%)', 
+            element.style.setProperty('background',
+                `linear-gradient(135deg, 
+                    hsla(var(--primary-h, 270), var(--primary-s, 80%), calc(var(--primary-l, 50%) + 45%), 0.15) 0%,
+                    hsla(var(--primary-h, 270), var(--primary-s, 80%), calc(var(--primary-l, 50%) + 45%), 0.08) 100%)`,
                 'important');
             element.style.setProperty('backdrop-filter', 'blur(15px)', 'important');
             element.style.setProperty('border', '1px solid rgba(255, 255, 255, 0.2)', 'important');
@@ -81,8 +83,8 @@ class WhiteBackgroundFixer {
                             this.scanElement(node);
                         }
                     });
-                } else if (mutation.type === 'attributes' && 
-                           mutation.attributeName === 'style') {
+                } else if (mutation.type === 'attributes' &&
+                    mutation.attributeName === 'style') {
                     this.scanElement(mutation.target);
                 }
             });
@@ -113,7 +115,7 @@ class WhiteBackgroundFixer {
         `);
 
         descendants.forEach(desc => {
-            if (!desc.closest('.sidebar') && 
+            if (!desc.closest('.sidebar') &&
                 !desc.matches('input, textarea, select, .form-control')) {
                 this.applyThemedBackground(desc);
             }
@@ -125,13 +127,13 @@ class WhiteBackgroundFixer {
         if (!style) return false;
 
         return style.includes('background: white') ||
-               style.includes('background:#fff') ||
-               style.includes('background: #ffffff') ||
-               style.includes('background-color: white') ||
-               style.includes('background-color:#fff') ||
-               style.includes('background-color: #ffffff') ||
-               style.includes('background: rgb(255, 255, 255)') ||
-               style.includes('background-color: rgb(255, 255, 255)');
+            style.includes('background:#fff') ||
+            style.includes('background: #ffffff') ||
+            style.includes('background-color: white') ||
+            style.includes('background-color:#fff') ||
+            style.includes('background-color: #ffffff') ||
+            style.includes('background: rgb(255, 255, 255)') ||
+            style.includes('background-color: rgb(255, 255, 255)');
     }
 
     stop() {

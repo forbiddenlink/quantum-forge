@@ -10,12 +10,16 @@
  */
 
 /* ===== 1. CRITICAL CSS - Load First ===== */
+@import url('./critical.css');
+/* Core CSS variables and critical styles - MUST LOAD FIRST */
+@import url('./critical-fixes.css');
+/* CSS variable fixes and overrides */
+@import url('./theme-system.css');
+/* 🎨 Unified Theme System 2.0 */
+@import url('./header-fix.css');
+/* Force header visibility */
 @import url('./comprehensive-background-fix.css');
 /* 🎯 COMPREHENSIVE WHITE BACKGROUND FIX - Contest Ready */
-@import url('./critical-fixes.css');
-/* CSS variables and critical fixes */
-@import url('./critical.css');
-/* Critical above-the-fold styles */
 
 /* ===== 2. CORE STYLES - Load Second ===== */
 @import url('./main.css');
@@ -27,7 +31,7 @@
 @import url('./components.css');
 /* Shared component styles */
 @import url('./components/color-picker.css');
-/* Contest-winning color picker */
+/* 🎨 Dynamic Color Picker - Contest Show-Stopper Feature */
 @import url('./components/task-system.css');
 @import url('./components/task-management.css');
 @import url('./components/quick-insights.css');
@@ -82,6 +86,10 @@
 /* Component enhancements */
 
 /* ===== 5. THEME AND UTILITIES - Load Last ===== */
+@import url('./theme-background-fix.css');
+/* NEW: Force themed backgrounds for all components */
+@import url('./component-backgrounds.css');
+/* CRITICAL: Force all components to use gradient backgrounds */
 @import url('./utilities.css');
 /* Utility classes */
 @import url('./dark-theme.css');

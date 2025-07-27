@@ -2576,208 +2576,7 @@ body .welcome-section .event-title,
     margin-left: var(--space-1);
 }
 
-/* Header Color Picker Styles */
-.color-picker-menu {
-    position: relative;
-}
-
-.color-picker-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 0.5rem;
-    min-width: 320px;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.2s var(--ease-in-out);
-    z-index: 1000;
-    animation: fadeInUp 0.3s ease-out;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.color-picker-menu .color-picker-dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.color-picker-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--space-4);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.color-picker-header h3 {
-    font-size: var(--font-size-base);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0;
-}
-
-.close-color-picker {
-    width: 28px;
-    height: 28px;
-    border: none;
-    background: transparent;
-    color: var(--text-secondary);
-    cursor: pointer;
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--font-size-lg);
-    transition: all var(--duration-normal) var(--ease-in-out);
-}
-
-.close-color-picker:hover {
-    background: var(--bg-hover);
-    color: var(--text-primary);
-}
-
-.color-options {
-    padding: var(--space-4);
-}
-
-.preset-colors p {
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    margin: 0 0 var(--space-3) 0;
-    font-weight: 500;
-}
-
-.color-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-2);
-    margin-bottom: var(--space-4);
-}
-
-.color-option {
-    width: 60px;
-    height: 60px;
-    border: 3px solid white;
-    border-radius: var(--radius-lg);
-    cursor: pointer;
-    position: relative;
-    transition: all var(--duration-normal) var(--ease-spring);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-sm);
-}
-
-.color-option:hover {
-    transform: scale(1.1);
-    box-shadow: var(--shadow-md);
-    border-color: var(--gray-300);
-}
-
-.color-option:focus {
-    outline: 2px solid var(--primary-500);
-    outline-offset: 2px;
-}
-
-.color-check {
-    color: white;
-    font-weight: bold;
-    font-size: var(--font-size-lg);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-.custom-color {
-    margin-bottom: var(--space-4);
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--border-color);
-}
-
-.custom-color label {
-    display: block;
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    margin-bottom: var(--space-2);
-    font-weight: 500;
-}
-
-.custom-color input[type="color"] {
-    width: 100%;
-    height: 50px;
-    border: none;
-    border-radius: var(--radius-lg);
-    cursor: pointer;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--duration-normal) var(--ease-in-out);
-}
-
-.custom-color input[type="color"]:hover {
-    box-shadow: var(--shadow-md);
-    transform: scale(1.02);
-}
-
-.color-info {
-    font-size: var(--font-size-xs);
-    color: var(--text-muted);
-    text-align: center;
-    padding: var(--space-3);
-    background: var(--bg-secondary);
-    border-radius: var(--radius-lg);
-    font-style: italic;
-}
-
-/* Dark mode adjustments for color picker */
-[data-theme="dark"] .color-picker-dropdown {
-    background: var(--gray-800);
-    border-color: var(--gray-700);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-}
-
-[data-theme="dark"] .color-picker-header {
-    border-color: var(--gray-700);
-}
-
-[data-theme="dark"] .custom-color {
-    border-color: var(--gray-700);
-}
-
-[data-theme="dark"] .color-info {
-    background: var(--gray-700);
-}
-
-/* Mobile responsiveness for color picker */
-@media (max-width: 768px) {
-    .color-picker-dropdown {
-        right: 10px;
-        min-width: calc(100vw - 20px);
-        max-width: 320px;
-    }
-
-    .color-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--space-2);
-    }
-
-    .color-option {
-        width: 50px;
-        height: 50px;
-    }
-}
+/* Color picker styles moved to color-picker.css */
 
 /*  CONTEST-WINNING MICRO-INTERACTIONS */
 
@@ -19772,29 +19571,6 @@ body .welcome-section .event-title,
     margin-left: var(--space-1);
 }
 
-/* Header Color Picker Styles */
-.color-picker-menu {
-    position: relative;
-}
-
-.color-picker-dropdown {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    margin-top: 0.5rem;
-    min-width: 320px;
-    background: var(--bg-elevated);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.2s var(--ease-in-out);
-    z-index: 1000;
-    animation: fadeInUp 0.3s ease-out;
-}
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -19805,97 +19581,6 @@ body .welcome-section .event-title,
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.color-picker-menu .color-picker-dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.color-picker-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--space-4);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.color-picker-header h3 {
-    font-size: var(--font-size-base);
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0;
-}
-
-.close-color-picker {
-    width: 28px;
-    height: 28px;
-    border: none;
-    background: transparent;
-    color: var(--text-secondary);
-    cursor: pointer;
-    border-radius: var(--radius-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--font-size-lg);
-    transition: all var(--duration-normal) var(--ease-in-out);
-}
-
-.close-color-picker:hover {
-    background: var(--bg-hover);
-    color: var(--text-primary);
-}
-
-.color-options {
-    padding: var(--space-4);
-}
-
-.preset-colors p {
-    font-size: var(--font-size-sm);
-    color: var(--text-secondary);
-    margin: 0 0 var(--space-3) 0;
-    font-weight: 500;
-}
-
-.color-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-2);
-    margin-bottom: var(--space-4);
-}
-
-.color-option {
-    width: 60px;
-    height: 60px;
-    border: 3px solid white;
-    border-radius: var(--radius-lg);
-    cursor: pointer;
-    position: relative;
-    transition: all var(--duration-normal) var(--ease-spring);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: var(--shadow-sm);
-}
-
-.color-option:hover {
-    transform: scale(1.1);
-    box-shadow: var(--shadow-md);
-    border-color: var(--gray-300);
-}
-
-.color-option:focus {
-    outline: 2px solid var(--primary-500);
-    outline-offset: 2px;
-}
-
-.color-check {
-    color: white;
-    font-weight: bold;
-    font-size: var(--font-size-lg);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .custom-color {
@@ -19937,106 +19622,111 @@ body .welcome-section .event-title,
     font-style: italic;
 }
 
+/* Theme System loaded from theme-system.css */
+}
+
+/* Theme transition application */
+*:not(script):not(style):not(link) {
+    transition: background-color var(--theme-transition-duration) var(--theme-transition-timing),
+        color var(--theme-transition-duration) var(--theme-transition-timing),
+        border-color var(--theme-transition-duration) var(--theme-transition-timing),
+        transform var(--theme-transition-duration) var(--theme-transition-timing);
+    color var(--theme-transition-duration) var(--theme-transition-timing),
+    border-color var(--theme-transition-duration) var(--theme-transition-timing),
+    box-shadow var(--theme-transition-duration) var(--theme-transition-timing) !important;
+}
+
+/* Reset transitions during theme changes */
+.theme-transition {
+    transition: none !important;
+}
+
+.theme-transition * {
+    transition: none !important;
+}
+
+/* Force hardware acceleration for smoother transitions */
+body {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 /* Dark mode adjustments for color picker */
-[data-theme="dark"] .color-picker-dropdown {
-    background: var(--gray-800);
-    border-color: var(--gray-700);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+/* Color picker dark mode styles moved to components/color-picker.css */
+
+/*  CONTEST-WINNING MICRO-INTERACTIONS */
+
+/* Enhanced Stat Card Animations */
+.welcome-stats .stat-item {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-[data-theme="dark"] .color-picker-header {
-    border-color: var(--gray-700);
+.welcome-stats .stat-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: rotate 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-[data-theme="dark"] .custom-color {
-    border-color: var(--gray-700);
+.welcome-stats .stat-item:hover::before {
+    opacity: 1;
 }
 
-[data-theme="dark"] .color-info {
-    background: var(--gray-700);
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-/* Mobile responsiveness for color picker */
-@media (max-width: 768px) {
-    .color-picker-dropdown {
-        right: 10px;
-        min-width: calc(100vw - 20px);
-        max-width: 320px;
-    }
+/* Smart Button Morphing */
+.quick-actions .btn {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-    .color-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--space-2);
-        /*  CONTEST-WINNING MICRO-INTERACTIONS */
+.quick-actions .btn:hover {
+    transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 0 50px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
 
-        /* Enhanced Stat Card Animations */
-        .welcome-stats .stat-item {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+/* Magnetic Effect for Interactive Elements */
+.stat-item,
+.event-card,
+.recommendation-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-        .welcome-stats .stat-item::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: rotate 4s linear infinite;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.5);
+}
 
-        .welcome-stats .stat-item:hover::before {
-            opacity: 1;
-        }
+50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0.3);
+}
 
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Smart Button Morphing */
-        .quick-actions .btn {
-            position: relative;
-            transform-style: preserve-3d;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .quick-actions .btn:hover {
-            transform: translateZ(20px) rotateX(5deg) rotateY(5deg);
-            box-shadow:
-                0 15px 35px rgba(0, 0, 0, 0.3),
-                0 0 50px rgba(255, 255, 255, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5);
-        }
-
-        /* Magnetic Effect for Interactive Elements */
-        .stat-item,
-        .event-card,
-        .recommendation-card {
-            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.5);
-    }
-
-    50% {
-        transform: scale(1.2);
-        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0.3);
-    }
-
-    75% {
-        transform: scale(1.1);
-        box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.5);
-    }
+75% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.5);
+}
 }
 
 /* Staggered Entrance Animations */

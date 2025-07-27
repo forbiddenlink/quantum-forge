@@ -1,0 +1,117 @@
+/* Force Spectacular Background For All Components */
+analytics-dashboard,
+task-system,
+enhanced-knowledge-hub,
+live-activity-feed,
+smart-insights-dashboard,
+wellness-tracker,
+team-spotlight,
+company-news,
+collaboration-hub,
+office-visualizer,
+enhanced-interactive-poll,
+weather-widget,
+achievement-system {
+    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%) !important;
+    border-radius: 16px !important;
+    padding: 32px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+        0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0 60px hsla(var(--user-primary-h, 270), var(--user-primary-s, 80%), var(--user-primary-l, 50%), 0.4),
+        0 0 120px hsla(var(--user-primary-h, 270), var(--user-primary-s, 80%), var(--user-primary-l, 50%), 0.2) !important;
+    margin: 20px 0 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Force hover styles */
+analytics-dashboard:hover,
+task-system:hover,
+enhanced-knowledge-hub:hover,
+live-activity-feed:hover,
+smart-insights-dashboard:hover,
+wellness-tracker:hover,
+team-spotlight:hover,
+company-news:hover,
+collaboration-hub:hover,
+office-visualizer:hover,
+enhanced-interactive-poll:hover,
+weather-widget:hover,
+achievement-system:hover {
+    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%) !important;
+    transform: translateY(-2px);
+    box-shadow:
+        0 25px 30px -5px rgba(0, 0, 0, 0.15),
+        0 15px 15px -5px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(255, 255, 255, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        0 0 70px hsla(var(--user-primary-h, 270), var(--user-primary-s, 80%), var(--user-primary-l, 50%), 0.5),
+        0 0 140px hsla(var(--user-primary-h, 270), var(--user-primary-s, 80%), var(--user-primary-l, 50%), 0.3) !important;
+}
+
+/* Force inner content to maintain proper colors */
+analytics-dashboard *,
+task-system *,
+enhanced-knowledge-hub *,
+live-activity-feed *,
+smart-insights-dashboard *,
+wellness-tracker *,
+team-spotlight *,
+company-news *,
+collaboration-hub *,
+office-visualizer *,
+enhanced-interactive-poll *,
+weather-widget *,
+achievement-system * {
+    color: white !important;
+    background: transparent !important;
+}
+
+/* Ensure text remains visible on gradient backgrounds */
+analytics-dashboard h1,
+analytics-dashboard h2,
+analytics-dashboard h3,
+task-system h1,
+task-system h2,
+task-system h3,
+enhanced-knowledge-hub h1,
+enhanced-knowledge-hub h2,
+enhanced-knowledge-hub h3,
+live-activity-feed h1,
+live-activity-feed h2,
+live-activity-feed h3,
+smart-insights-dashboard h1,
+smart-insights-dashboard h2,
+smart-insights-dashboard h3,
+wellness-tracker h1,
+wellness-tracker h2,
+wellness-tracker h3,
+team-spotlight h1,
+team-spotlight h2,
+team-spotlight h3,
+company-news h1,
+company-news h2,
+company-news h3,
+collaboration-hub h1,
+collaboration-hub h2,
+collaboration-hub h3,
+office-visualizer h1,
+office-visualizer h2,
+office-visualizer h3,
+enhanced-interactive-poll h1,
+enhanced-interactive-poll h2,
+enhanced-interactive-poll h3,
+weather-widget h1,
+weather-widget h2,
+weather-widget h3,
+achievement-system h1,
+achievement-system h2,
+achievement-system h3 {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}

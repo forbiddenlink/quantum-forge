@@ -1,10 +1,7 @@
 /* Color Theme Fixes - Ensures all theme colors display correctly */
 
 /* Reset any conflicting theme color overrides */
-[data-theme="light"],
-[data-theme="dark"] {
-    --primary-500: hsl(var(--user-primary-h), var(--user-primary-s), var(--user-primary-l)) !important;
-}
+/* Theme variables are set in critical.css */
 
 /* Ensure red theme displays correctly */
 [data-theme] .preset-theme[data-theme*='"name":"Red"'] .preset-color {
@@ -32,11 +29,4 @@
     border-color: var(--primary-600) !important;
 }
 
-/* Force color picker to use correct theme colors */
-.color-picker-toggle {
-    background: var(--primary-500) !important;
-}
-
-.color-picker-toggle:hover {
-    background: var(--primary-600) !important;
-}
+/* Color picker styles are maintained in components/color-picker.css */

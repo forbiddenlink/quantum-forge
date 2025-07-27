@@ -153,7 +153,7 @@ to { transform: rotate(360deg); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1750 (.dashboard-item:hover)
+- critical-fixes.css:1712 (.dashboard-item:hover)
 - dark-theme.css:47 (.dashboard-item:hover)
 
 ### Rule Content:
@@ -164,7 +164,7 @@ to { transform: rotate(360deg); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1756 (.btn.primary)
+- critical-fixes.css:1718 (.btn.primary)
 - dark-theme.css:53 (.btn.primary)
 
 ### Rule Content:
@@ -175,7 +175,7 @@ to { transform: rotate(360deg); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1761 (.btn.secondary)
+- critical-fixes.css:1723 (.btn.secondary)
 - dark-theme.css:58 (.btn.secondary)
 
 ### Rule Content:
@@ -186,7 +186,7 @@ to { transform: rotate(360deg); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1767 (.btn.secondary:hover)
+- critical-fixes.css:1729 (.btn.secondary:hover)
 - dark-theme.css:64 (.btn.secondary:hover)
 
 ### Rule Content:
@@ -197,7 +197,7 @@ to { transform: rotate(360deg); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1773 (input,
+- critical-fixes.css:1735 (input,
     textarea,
     select)
 - dark-theme.css:70 (input,
@@ -212,7 +212,7 @@ input, textarea, select { background: var(--bg-secondary); border-color: var(--b
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1781 (input:focus,
+- critical-fixes.css:1743 (input:focus,
     textarea:focus,
     select:focus)
 - dark-theme.css:78 (input:focus,
@@ -227,7 +227,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--primary-500); bo
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1788 (input::placeholder,
+- critical-fixes.css:1750 (input::placeholder,
     textarea::placeholder)
 - dark-theme.css:85 (input::placeholder,
     textarea::placeholder)
@@ -240,7 +240,7 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1794 (table)
+- critical-fixes.css:1756 (table)
 - dark-theme.css:91 (table)
 
 ### Rule Content:
@@ -251,7 +251,7 @@ table { border-color: var(--border-color); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1798 (th)
+- critical-fixes.css:1760 (th)
 - dark-theme.css:95 (th)
 
 ### Rule Content:
@@ -262,7 +262,7 @@ th { background: var(--bg-secondary); color: var(--text-primary); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1803 (td)
+- critical-fixes.css:1765 (td)
 - dark-theme.css:100 (td)
 
 ### Rule Content:
@@ -273,7 +273,7 @@ td { border-color: var(--border-color); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1807 (tr:hover)
+- critical-fixes.css:1769 (tr:hover)
 - dark-theme.css:104 (tr:hover)
 
 ### Rule Content:
@@ -284,7 +284,7 @@ tr:hover { background: var(--bg-hover); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1812 (.modal)
+- critical-fixes.css:1774 (.modal)
 - dark-theme.css:109 (.modal)
 
 ### Rule Content:
@@ -295,7 +295,7 @@ tr:hover { background: var(--bg-hover); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1818 (.overlay)
+- critical-fixes.css:1780 (.overlay)
 - dark-theme.css:115 (.overlay)
 
 ### Rule Content:
@@ -306,7 +306,7 @@ tr:hover { background: var(--bg-hover); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1824 (.glass-card)
+- critical-fixes.css:1786 (.glass-card)
 - dark-theme.css:128 (.glass-card)
 
 ### Rule Content:
@@ -317,7 +317,7 @@ tr:hover { background: var(--bg-hover); }
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1831 (code,
+- critical-fixes.css:1793 (code,
     pre)
 - dark-theme.css:135 (code,
     pre)
@@ -330,7 +330,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1839 (::-webkit-scrollbar)
+- critical-fixes.css:1801 (::-webkit-scrollbar)
 - dark-theme.css:143 (::-webkit-scrollbar)
 
 ### Rule Content:
@@ -341,7 +341,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1844 (::-webkit-scrollbar-track)
+- critical-fixes.css:1806 (::-webkit-scrollbar-track)
 - dark-theme.css:148 (::-webkit-scrollbar-track)
 
 ### Rule Content:
@@ -352,7 +352,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1848 (::-webkit-scrollbar-thumb)
+- critical-fixes.css:1810 (::-webkit-scrollbar-thumb)
 - dark-theme.css:152 (::-webkit-scrollbar-thumb)
 
 ### Rule Content:
@@ -363,7 +363,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1853 (::-webkit-scrollbar-thumb:hover)
+- critical-fixes.css:1815 (::-webkit-scrollbar-thumb:hover)
 - dark-theme.css:157 (::-webkit-scrollbar-thumb:hover)
 
 ### Rule Content:
@@ -374,7 +374,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 ## Duplicate Rule Found
 
 ### Locations:
-- critical-fixes.css:1858 (::selection)
+- critical-fixes.css:1820 (::selection)
 - dark-theme.css:162 (::selection)
 
 ### Rule Content:
