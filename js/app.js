@@ -6,12 +6,22 @@ let analyticsServiceInstance = null;
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Quantum Forge - Loading...');
 
-    // Color picker is now handled by the header component
-    // Remove direct DOM manipulation to prevent conflicts
+    // Priority: Ensure header is registered first
+    if (!customElements.get('app-header')) {
+        console.log('⚠️ Header not registered, registering now...');
+        try {
+            const appHeader = document.createElement('app-header');
+            document.querySelector('.dashboard').prepend(appHeader);
+            console.log('✅ Header manually created and inserted');
+        } catch (error) {
+            console.error('❌ Failed to create header:', error);
+        }
+    }
 
     // Debug: Check if custom elements are registered 
     console.log('🔍 Checking custom element registration...');
     const customElementsToCheck = [
+        'app-header', // Add header to check first
         'analytics-dashboard',
         'task-system',
         'enhanced-knowledge-hub',
@@ -51,13 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeSidebar();
     initializeKeyboardShortcuts();
 
-    // Force sidebar background fix
-    forceSidebarLightMode();
+        // Force sidebar background fix - deferred to allow components to load
+        setTimeout(forceSidebarLightMode, 100);
 
-    // Force light theme and fix white backgrounds
-    forceLightThemeAndFixBackgrounds();
-
-    // Initialize performance monitoring
+        // Force light theme and fix white backgrounds - deferred to allow header to initialize
+        setTimeout(forceLightThemeAndFixBackgrounds, 200);    // Initialize performance monitoring
     if (window.PerformanceMonitor) {
         performanceMonitor = new window.PerformanceMonitor();
         performanceMonitor.startMonitoring();

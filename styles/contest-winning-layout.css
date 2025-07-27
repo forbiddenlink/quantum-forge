@@ -86,7 +86,10 @@
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: transform var(--duration-normal) var(--ease-out),
+                box-shadow var(--duration-normal) var(--ease-out);
+    contain: content;
+    will-change: transform, box-shadow;
 }
 
 /* Smart content overflow handling */
@@ -259,6 +262,9 @@ innovation-lab {
     border-top-color: var(--primary-500);
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    will-change: transform;
+    contain: strict;
+    transform: translateZ(0);
 }
 
 @keyframes spin {

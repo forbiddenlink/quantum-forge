@@ -8,8 +8,8 @@ html:not([data-theme="dark"]) body,
 html:not([data-theme="dark"]) .dashboard,
 html:not([data-theme="dark"]) .main-content,
 html:not([data-theme="dark"]) .dashboard-grid {
-    background: #ffffff !important;
-    background-color: #ffffff !important;
+    background: var(--bg-base) !important;
+    background-color: var(--bg-base) !important;
     background-image: none !important;
 }
 

@@ -111,6 +111,35 @@ class PerformanceOptimizedComponent extends HTMLElement {
         this.intersectionObserver = null; // Lazy loading
         this.resizeObserver = null;       // Responsive updates
         this.animationFrame = null;       // Animation cleanup
+        this.isVisible = false;           // Visibility tracking
+        this.needsRefresh = false;        // Re-render state
+    }
+
+    connectedCallback() {
+        if (this.isInitialized) return;
+        this.setupIntersectionObserver();
+        this.setupResizeObserver();
+        this.isInitialized = true;
+    }
+
+    setupIntersectionObserver() {
+        this.intersectionObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                this.isVisible = entry.isIntersecting;
+                if (this.isVisible && this.needsRefresh) {
+                    this.refresh();
+                }
+            });
+        });
+        this.intersectionObserver.observe(this);
+    }
+
+    disconnectedCallback() {
+        this.intersectionObserver?.disconnect();
+        this.resizeObserver?.disconnect();
+        if (this.animationFrame) {
+            cancelAnimationFrame(this.animationFrame);
+        }
     }
 }
 ```
@@ -121,6 +150,12 @@ class PerformanceOptimizedComponent extends HTMLElement {
 - **Dynamic color system** - Components use `applyColorTheme()` function from `app.js`
 - **CSS variables for theming** - All colors defined as CSS custom properties
 - **Theme persistence** - Stored in localStorage as HSL values, not hex
+- **Critical Theme Chain**:
+  1. `initializeTheme()` in `app.js` bootstraps theme
+  2. `applyColorTheme(theme)` sets CSS variables
+  3. Components inherit via `--user-primary-*` vars
+  4. Dark mode uses `data-theme="dark"` attribute
+  5. Background fixes via `forceLightThemeAndFixBackgrounds()`
 
 ### Component Communication
 ```javascript
@@ -129,20 +164,58 @@ this.dispatchEvent(new CustomEvent('task-updated', {
     detail: { taskId, status },
     bubbles: true 
 }));
+
+// Listen for events on parent containers, not individual components
+parentContainer.addEventListener('task-updated', (event) => {
+    const { taskId, status } = event.detail;
+    updateTaskUI(taskId, status);
+}, { passive: true }); // Use passive listeners for scroll performance
+
+// Animation sync via requestAnimationFrame
+requestAnimationFrame(() => {
+    this.updateParticleColors();
+    this.updateSparkleIntensity();
+});
 ```
 
-### Error Handling
+### Error Handling & Fallbacks
 - **Error boundaries** - `ErrorBoundary` class in `js/core/systems.js` wraps critical components
 - **Graceful degradation** - Components show fallback content when features fail
 - **Performance monitoring** - `PerformanceMonitor` tracks render times and memory usage
 
+```javascript
+// Every component MUST implement fallback content
+renderFallback() {
+    console.log('🔄 Rendering fallback UI...');
+    this.innerHTML = `
+        <div class="enhanced-task-system fallback">
+            <div class="task-system-header">
+                <h2 class="task-system-title">${this.componentName}</h2>
+                <p class="task-system-subtitle">Loading enhanced features...</p>
+            </div>
+            <div class="fallback-content">
+                <div class="loading-spinner"></div>
+                <p>Initializing component...</p>
+            </div>
+        </div>
+    `;
+}
+
 ### Service Architecture
 ```javascript
-// Core services centralize critical functionality
+// Core services centralize critical functionality 
 window.chartManager = new ChartManager();           // Chart.js lifecycle management
 window.performanceMonitor = new PerformanceMonitor(); // Real-time metrics
 window.analyticsService = new AnalyticsService();   // Data visualization
 // Access via: window.serviceName from any component
+
+// Four-layer Performance Architecture:
+const performance = {
+    optimizer: new PerformanceOptimizer(),     // Low-level optimization
+    monitor: new EnhancedPerformanceMonitor(), // Real-time metrics
+    manager: new PerformanceManager(),         // Resource management  
+    stats: new PerformanceOptimizedStats()     // User-facing metrics
+};
 ```
 
 ## Critical File Relationships
@@ -162,16 +235,92 @@ window.analyticsService = new AnalyticsService();   // Data visualization
 - Manual component testing via browser console: `document.createElement('analytics-dashboard')`
 - Chart performance: `window.chartManager.getPerformanceReport()`
 
-### Common Issues
+```javascript
+// Verify component state and performance
+setTimeout(() => {
+    const componentsToCheck = [
+        'analytics-dashboard',
+        'task-system',
+        'enhanced-knowledge-hub'
+    ];
+
+    let hasEmptyComponents = false;
+    componentsToCheck.forEach(tagName => {
+        const elements = document.querySelectorAll(tagName);
+        elements.forEach(el => {
+            console.log(`🔍 Checking ${tagName}:`, {
+                innerHTML: el.innerHTML.length,
+                offsetWidth: el.offsetWidth,
+                offsetHeight: el.offsetHeight,
+                display: getComputedStyle(el).display,
+                visibility: getComputedStyle(el).visibility,
+                opacity: getComputedStyle(el).opacity
+            });
+
+            if (el.innerHTML.trim().length === 0) {
+                console.warn(`⚠️ Empty component: ${tagName}`);
+                hasEmptyComponents = true;
+                el.innerHTML = `
+                    <div style="padding: 20px; text-align: center;">
+                        <h3>${tagName.replace('-', ' ').toUpperCase()}</h3>
+                        <p>Component is loading...</p>
+                        <div class="loading-spinner"></div>
+                    </div>
+                `;
+            }
+        });
+    });
+}, 3000); // Check after initial load
+
+### Common Issues & Debugging
 - **Component not rendering** - Check custom element registration in browser console
 - **CSS conflicts** - Use duplicate detection tools before making changes
 - **Memory leaks** - Ensure proper cleanup in `disconnectedCallback()` methods
 - **Chart.js errors** - Always use `window.chartManager` instead of direct Chart.js
-- **Contest Issues**: 
-  - White backgrounds not matching theme - Check `applyColorTheme()` function
-  - Buttons not clickable - Ensure event listeners and routing are set up
-  - Missing sidebar items - Add entries to sidebar navigation for all components
-  - Layout flow issues - Review component order and sizing in main containers
+
+```javascript
+// Debug: Component Registration Verification
+console.log('🔍 Checking component registration...');
+const customElementsToCheck = [
+    'analytics-dashboard',
+    'task-system',
+    'enhanced-knowledge-hub'
+];
+
+customElementsToCheck.forEach(tagName => {
+    const isRegistered = customElements.get(tagName);
+    console.log(`${isRegistered ? '✅' : '❌'} ${tagName}: ${isRegistered ? 'Registered' : 'NOT REGISTERED'}`);
+
+    // Check DOM presence
+    const elements = document.querySelectorAll(tagName);
+    elements.forEach((el, index) => {
+        console.log(`  📦 Element ${index}:`, {
+            innerHTML: el.innerHTML.length,
+            offsetWidth: el.offsetWidth,
+            display: getComputedStyle(el).display,
+            visibility: getComputedStyle(el).visibility
+        });
+    });
+});
+```
+
+### Contest-Specific Issues
+- **White Background Fix**:
+  ```javascript
+  // Force light theme and fix backgrounds
+  document.documentElement.setAttribute('data-theme', 'light');
+  localStorage.setItem('theme', 'light');
+  
+  // Remove white backgrounds from insight elements
+  document.querySelectorAll('*[class*="insight"]')
+      .forEach(el => {
+          el.style.setProperty('background', 'transparent', 'important');
+          el.style.setProperty('background-color', 'transparent', 'important');
+      });
+  ```
+- **Button Routing**: Implement click handlers for ALL interactive elements
+- **Sidebar Navigation**: Every component needs a sidebar menu entry
+- **Layout Flow**: Follow the `contest-logical-layout.css` patterns
 
 ## Contest-Specific Patterns
 
@@ -205,4 +354,52 @@ connectedCallback() {
 }
 ```
 
-When working on this codebase, prioritize the modular component architecture, maintain the CSS cleanup discipline, and leverage the built-in performance and error handling systems.
+### Keyboard Navigation & Accessibility
+```javascript
+// Initialize keyboard navigation with screen reader support
+function initializeKeyboardShortcuts() {
+    // Detect keyboard usage for focus indicators
+    let isUsingKeyboard = false;
+
+    document.addEventListener('keydown', (e) => {
+        isUsingKeyboard = true;
+        document.body.classList.add('keyboard-user');
+
+        // Command palette - Ctrl/Cmd + K
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            const commandPalette = document.querySelector('command-palette');
+            if (commandPalette?.toggle) {
+                commandPalette.toggle();
+                announceToScreenReader('Command palette toggled');
+            }
+        }
+
+        // Theme toggle - Ctrl/Cmd + T
+        if ((e.ctrlKey || e.metaKey) && e.key === 't') {
+            e.preventDefault();
+            const newTheme = toggleTheme();
+            announceToScreenReader(`Theme changed to ${newTheme} mode`);
+        }
+    });
+
+    // Remove keyboard focus indicators on mouse use
+    document.addEventListener('mousedown', () => {
+        isUsingKeyboard = false;
+        document.body.classList.remove('keyboard-user');
+    });
+}
+
+// Screen reader announcements
+function announceToScreenReader(message) {
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'polite');
+    announcement.setAttribute('aria-atomic', 'true');
+    announcement.style.cssText = 'position: absolute; left: -10000px;';
+    announcement.textContent = message;
+    document.body.appendChild(announcement);
+    setTimeout(() => document.body.removeChild(announcement), 1000);
+}
+```
+
+When working on this codebase, prioritize the modular component architecture, maintain the CSS cleanup discipline, and leverage the built-in performance and error handling systems. Always ensure keyboard accessibility and screen reader support are maintained when adding new features.

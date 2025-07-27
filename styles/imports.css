@@ -10,12 +10,12 @@
  */
 
 /* ===== 1. CRITICAL CSS - Load First ===== */
+@import url('./comprehensive-background-fix.css');
+/* 🎯 COMPREHENSIVE WHITE BACKGROUND FIX - Contest Ready */
 @import url('./critical-fixes.css');
 /* CSS variables and critical fixes */
 @import url('./critical.css');
 /* Critical above-the-fold styles */
-@import url('./comprehensive-background-fix.css');
-/* 🎯 COMPREHENSIVE WHITE BACKGROUND FIX - Contest Ready */
 
 /* ===== 2. CORE STYLES - Load Second ===== */
 @import url('./main.css');
@@ -26,6 +26,8 @@
 /* ===== 3. COMPONENT STYLES - Load Third ===== */
 @import url('./components.css');
 /* Shared component styles */
+@import url('./components/color-picker.css');
+/* Contest-winning color picker */
 @import url('./components/task-system.css');
 @import url('./components/task-management.css');
 @import url('./components/quick-insights.css');

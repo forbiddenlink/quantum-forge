@@ -12,8 +12,8 @@
     border-radius: 0 0 var(--radius-md) 0;
     box-shadow: var(--shadow-lg);
     transition: top var(--duration-normal) var(--ease-in-out);
-    display: none !important;
-    /* Temporarily hide all skip links */
+    /* Ensure skip links are invisible but accessible */
+    transform: translateY(-100%);
     pointer-events: none;
     opacity: 0;
 }
@@ -74,17 +74,19 @@ select:focus {
 /* ===== HIGH CONTRAST MODE SUPPORT ===== */
 @media (prefers-contrast: high) {
     :root {
-        --border-color: #ffffff;
-        --text-primary: #ffffff;
-        --text-secondary: #ffffff;
-        --bg-elevated: #ffffff;
-        --focus-ring: #ff0000;
+        --border-color: currentColor;
+        --text-primary: CanvasText;
+        --text-secondary: CanvasText;
+        --bg-elevated: Canvas;
+        --focus-ring: Highlight;
+        --component-border: CanvasText;
+        --component-bg: Canvas;
     }
 
     .btn {
-        border: 2px solid #ffffff !important;
-        background: #ffffff !important;
-        color: #ffffff !important;
+        border: 2px solid CanvasText !important;
+        background: Canvas !important;
+        color: CanvasText !important;
     }
 
     .btn:hover {

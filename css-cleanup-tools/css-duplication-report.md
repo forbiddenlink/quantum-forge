@@ -1,6 +1,6 @@
 # CSS Duplication Report
 
-Found 60 duplicate rule(s).
+Found 59 duplicate rule(s).
 
 ## Duplicate Rule Found
 
@@ -65,17 +65,6 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 ## Duplicate Rule Found
 
 ### Locations:
-- animations.css:468 (from)
-- components\color-picker.css:25 (from)
-
-### Rule Content:
-```css
-from { opacity: 0; transform: translateY(-10px); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - animations.css:102 (50%)
 - components\smart-assistant-dashboard.css:66 (50%)
 
@@ -120,18 +109,6 @@ from { opacity: 0; transform: translateY(20px); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components\color-picker.css:30 (to)
-- contest-critical-fixes.css:228 (to)
-- contest-winning-layout.css:233 (to)
-
-### Rule Content:
-```css
-to { opacity: 1; transform: translateY(0); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - animations.css:37 (50%)
 - contest-critical-fixes.css:262 (50%)
 
@@ -154,8 +131,19 @@ to { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
+- contest-critical-fixes.css:228 (to)
+- contest-winning-layout.css:236 (to)
+
+### Rule Content:
+```css
+to { opacity: 1; transform: translateY(0); }
+```
+
+## Duplicate Rule Found
+
+### Locations:
 - animations.css:485 (to)
-- contest-winning-layout.css:265 (to)
+- contest-winning-layout.css:271 (to)
 
 ### Rule Content:
 ```css
