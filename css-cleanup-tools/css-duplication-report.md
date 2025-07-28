@@ -1,6 +1,6 @@
 # CSS Duplication Report
 
-Found 38 duplicate rule(s).
+Found 36 duplicate rule(s).
 
 ## Duplicate Rule Found
 
@@ -12,21 +12,6 @@ Found 38 duplicate rule(s).
 ### Rule Content:
 ```css
 .metric-card { background: var(--bg-elevated); border-radius: var(--radius-lg); padding: 1.25rem; border: 1px solid var(--border-color); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
-- accessibility-enhancements.css:113 (*,
-    *::before,
-    *::after)
-- components-v2.css:334 (*,
-  *::before,
-  *::after)
-
-### Rule Content:
-```css
-*, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 ```
 
 ## Duplicate Rule Found
@@ -46,7 +31,7 @@ Found 38 duplicate rule(s).
 ### Locations:
 - activity-cards.css:80 (.activity-content)
 - components.css:22 (.activity-content)
-- components.css:383 (.activity-content)
+- components.css:377 (.activity-content)
 
 ### Rule Content:
 ```css
@@ -56,21 +41,8 @@ Found 38 duplicate rule(s).
 ## Duplicate Rule Found
 
 ### Locations:
-- components-v2.css:241 (.sr-only)
-- components.css:915 (.sr-only)
-- utilities.css:6 (.sr-only)
-- welcome-section.css:2834 (.sr-only)
-
-### Rule Content:
-```css
-.sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - components\quick-insights.css:144 (.quick-insights)
-- components.css:928 (.quick-insights)
+- components.css:922 (.quick-insights)
 - quick-insights.css:156 (.quick-insights)
 
 ### Rule Content:
@@ -82,7 +54,7 @@ Found 38 duplicate rule(s).
 
 ### Locations:
 - components\quick-insights.css:148 (.quick-insights .insights-grid)
-- components.css:932 (.quick-insights .insights-grid)
+- components.css:926 (.quick-insights .insights-grid)
 - quick-insights.css:152 (.quick-insights .insights-grid)
 
 ### Rule Content:
@@ -94,8 +66,8 @@ Found 38 duplicate rule(s).
 
 ### Locations:
 - background-transparency-fix.css:35 (.welcome-section)
-- components.css:952 (.welcome-section)
-- final-background-fix.css:35 (.welcome-section)
+- components.css:946 (.welcome-section)
+- final-background-fix.css:33 (.welcome-section)
 
 ### Rule Content:
 ```css
@@ -116,20 +88,9 @@ to { opacity: 1; transform: translateY(0); }
 ## Duplicate Rule Found
 
 ### Locations:
-- components-v2.css:309 (to)
-- contest-winning-layout.css:271 (to)
-
-### Rule Content:
-```css
-to { transform: rotate(360deg); }
-```
-
-## Duplicate Rule Found
-
-### Locations:
 - critical-fixes.css:1712 (.dashboard-item:hover)
-- dark-theme.css:8 (.dashboard-item:hover)
-- dark-theme.css:121 (.dashboard-item:hover)
+- dark-theme.css:9 (.dashboard-item:hover)
+- dark-theme.css:124 (.dashboard-item:hover)
 
 ### Rule Content:
 ```css
@@ -140,7 +101,7 @@ to { transform: rotate(360deg); }
 
 ### Locations:
 - critical-fixes.css:1718 (.btn.primary)
-- dark-theme.css:13 (.btn.primary)
+- dark-theme.css:14 (.btn.primary)
 
 ### Rule Content:
 ```css
@@ -151,7 +112,7 @@ to { transform: rotate(360deg); }
 
 ### Locations:
 - critical-fixes.css:1723 (.btn.secondary)
-- dark-theme.css:18 (.btn.secondary)
+- dark-theme.css:19 (.btn.secondary)
 
 ### Rule Content:
 ```css
@@ -162,7 +123,7 @@ to { transform: rotate(360deg); }
 
 ### Locations:
 - critical-fixes.css:1729 (.btn.secondary:hover)
-- dark-theme.css:24 (.btn.secondary:hover)
+- dark-theme.css:25 (.btn.secondary:hover)
 
 ### Rule Content:
 ```css
@@ -173,7 +134,7 @@ to { transform: rotate(360deg); }
 
 ### Locations:
 - critical-fixes.css:1774 (.modal)
-- dark-theme.css:30 (.modal)
+- dark-theme.css:31 (.modal)
 
 ### Rule Content:
 ```css
@@ -184,7 +145,7 @@ to { transform: rotate(360deg); }
 
 ### Locations:
 - critical-fixes.css:1780 (.overlay)
-- dark-theme.css:36 (.overlay)
+- dark-theme.css:37 (.overlay)
 
 ### Rule Content:
 ```css
@@ -195,7 +156,7 @@ to { transform: rotate(360deg); }
 
 ### Locations:
 - critical-fixes.css:1786 (.glass-card)
-- dark-theme.css:42 (.glass-card)
+- dark-theme.css:43 (.glass-card)
 
 ### Rule Content:
 ```css
@@ -207,7 +168,7 @@ to { transform: rotate(360deg); }
 ### Locations:
 - critical-fixes.css:1793 (code,
     pre)
-- dark-theme.css:49 (code,
+- dark-theme.css:50 (code,
     pre)
 
 ### Rule Content:
@@ -219,7 +180,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 
 ### Locations:
 - critical-fixes.css:1801 (::-webkit-scrollbar)
-- dark-theme.css:57 (::-webkit-scrollbar)
+- dark-theme.css:58 (::-webkit-scrollbar)
 
 ### Rule Content:
 ```css
@@ -230,7 +191,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 
 ### Locations:
 - critical-fixes.css:1806 (::-webkit-scrollbar-track)
-- dark-theme.css:62 (::-webkit-scrollbar-track)
+- dark-theme.css:63 (::-webkit-scrollbar-track)
 
 ### Rule Content:
 ```css
@@ -241,7 +202,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 
 ### Locations:
 - critical-fixes.css:1810 (::-webkit-scrollbar-thumb)
-- dark-theme.css:66 (::-webkit-scrollbar-thumb)
+- dark-theme.css:67 (::-webkit-scrollbar-thumb)
 
 ### Rule Content:
 ```css
@@ -252,7 +213,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 
 ### Locations:
 - critical-fixes.css:1815 (::-webkit-scrollbar-thumb:hover)
-- dark-theme.css:71 (::-webkit-scrollbar-thumb:hover)
+- dark-theme.css:72 (::-webkit-scrollbar-thumb:hover)
 
 ### Rule Content:
 ```css
@@ -263,7 +224,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 
 ### Locations:
 - critical-fixes.css:1820 (::selection)
-- dark-theme.css:76 (::selection)
+- dark-theme.css:77 (::selection)
 
 ### Rule Content:
 ```css
@@ -273,7 +234,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:967 (.ai-insights-grid)
+- components.css:961 (.ai-insights-grid)
 - enhanced-task-system.css:2414 (.ai-insights-grid)
 - enhanced-task-system.css:2779 (.ai-insights-grid)
 
@@ -285,7 +246,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:962 (.ai-insights-grid)
+- components.css:956 (.ai-insights-grid)
 - enhanced-task-system.css:2442 (.ai-insights-grid)
 - enhanced-task-system.css:2467 (.ai-insights-grid)
 
@@ -312,7 +273,7 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 textarea,
 select,
 .form-control)
-- final-background-fix.css:70 (input:not([type="range"]):not([type="color"]),
+- final-background-fix.css:68 (input:not([type="range"]):not([type="color"]),
 textarea,
 select,
 .form-control)
@@ -407,7 +368,7 @@ input:not([type="range"]):not([type="color"]), textarea, select, .form-control {
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:973 (.member-info)
+- components.css:967 (.member-info)
 - team.css:390 (.member-info)
 - team.css:1589 (.member-info)
 
@@ -419,7 +380,7 @@ input:not([type="range"]):not([type="color"]), textarea, select, .form-control {
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:936 (.quick-insights .insights-title .btn-icon:hover)
+- components.css:930 (.quick-insights .insights-title .btn-icon:hover)
 - team.css:1667 (.quick-insights .insights-title .btn-icon:hover)
 - welcome-section.css:1125 (.quick-insights .insights-title .btn-icon:hover)
 
@@ -431,7 +392,7 @@ input:not([type="range"]):not([type="color"]), textarea, select, .form-control {
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:944 (.quick-insights .insights-title .btn-icon:hover svg,
+- components.css:938 (.quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:hover path)
 - team.css:1675 (.quick-insights .insights-title .btn-icon:hover svg,
 .quick-insights .insights-title .btn-icon:hover path)
@@ -446,7 +407,19 @@ input:not([type="range"]):not([type="color"]), textarea, select, .form-control {
 ## Duplicate Rule Found
 
 ### Locations:
-- components.css:957 (.welcome-section .quick-actions .btn:hover::before)
+- components.css:909 (.sr-only)
+- utilities.css:6 (.sr-only)
+- welcome-section.css:2834 (.sr-only)
+
+### Rule Content:
+```css
+.sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0, 0, 0, 0) !important; white-space: nowrap !important; border: 0 !important; }
+```
+
+## Duplicate Rule Found
+
+### Locations:
+- components.css:951 (.welcome-section .quick-actions .btn:hover::before)
 - welcome-section.css:628 (.welcome-section .quick-actions .btn:hover::before)
 - welcome-section.css:3077 (.welcome-section .quick-actions .btn:hover::before)
 

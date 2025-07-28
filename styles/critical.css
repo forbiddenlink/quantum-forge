@@ -21,9 +21,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    backface-visibility: hidden;
-    will-change: transform;
-    transform: translateZ(0);
 
     /* Ensure Immediate Style Updates */
     --force-repaint: 0;
@@ -59,8 +56,25 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-    will-change: transform, opacity, background-color, color, border-color;
+}
+
+/* Theme Transition Classes - Apply only to elements that need theme transitions */
+.theme-transition {
+    transition: background-color 0.2s var(--ease-out),
+                color 0.2s var(--ease-out),
+                border-color 0.2s var(--ease-out),
+                box-shadow 0.2s var(--ease-out);
+}
+
+/* Apply theme transitions only to specific components that need them */
+.welcome-section,
+.stat-item,
+.dashboard-item,
+app-header,
+.main-content {
+    transition: background-color 0.2s var(--ease-out),
+                color 0.2s var(--ease-out),
+                border-color 0.2s var(--ease-out);
 }
 
 body {
@@ -72,10 +86,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    /* Force Hardware Acceleration */
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
+    /* Enable smooth scrolling with hardware acceleration when needed */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
     /* Enable Smooth Theme Transitions */
     transition: background-color 0.2s ease-out, color 0.2s ease-out;
@@ -97,30 +110,40 @@ body {
     min-width: 0;
 }
 
-/* Header - Critical Styles Only */
+/* Header - Optimized Critical Styles */
 app-header {
-    display: block !important;
-    width: 100% !important;
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 100 !important;
+    display: block;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    /* Enable hardware acceleration for sticky header */
+    transform: translateZ(0);
+    /* Add paint containment for performance */
+    contain: layout paint;
 }
 
 app-header .header,
 app-header header {
-    position: relative !important;
-    z-index: 100 !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-    padding: 0 var(--space-6) !important;
-    height: 72px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    position: relative;
+    z-index: 100;
+    /* Use CSS variable for glass effect */
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-bottom: 1px solid var(--glass-border);
+    /* Use semantic spacing variables */
+    padding-inline: var(--space-6);
+    block-size: 72px;
+    /* Modern layout properties */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Ensure proper rendering */
+    opacity: 1;
+    visibility: visible;
+    /* Add subtle shadow for depth */
+    box-shadow: var(--shadow-sm);
 }
 
 [data-theme="dark"] app-header .header,
@@ -139,51 +162,123 @@ app-header header {
 
 /* Dashboard grid defined in main.css to eliminate duplication */
 
-/* Welcome Section - Critical Above-the-Fold */
+/* Welcome Section - Optimized Critical Above-the-Fold */
 .welcome-section {
-    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+    /* Use semantic gradient variable */
+    background: var(--gradient-primary);
     border-radius: var(--radius-2xl);
     padding: var(--space-8);
-    color: white;
+    color: var(--text-on-primary);
     position: relative;
     overflow: hidden;
-    margin-bottom: var(--space-6);
+    margin-block-end: var(--space-6);
+
+    /* Optimize paint performance */
+    contain: content;
+    
+    /* Add subtle hover effect */
+    transition: transform var(--duration-normal) var(--ease-spring),
+                box-shadow var(--duration-normal) var(--ease-out);
+}
+
+/* Enhanced hover state */
+.welcome-section:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 .welcome-title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
     font-weight: 800;
     margin: 0 0 var(--space-3) 0;
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    line-height: 1.2;
+    
+    /* Enhance text rendering */
+    text-wrap: balance;
+    
+    /* Ensure proper contrast */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure consistent text size for all elements in welcome title */
+.welcome-title * {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
 }
 
 .welcome-subtitle {
     font-size: var(--font-size-lg);
     opacity: 0.9;
     margin: 0 0 var(--space-6) 0;
+    
+    /* Improve readability */
+    max-width: 65ch;
+    text-wrap: pretty;
+    
+    /* Progressive enhancement for supporting browsers */
+    @supports (text-wrap: balance) {
+        text-wrap: balance;
+    }
 }
 
-/* Stats Grid - Critical */
+/* Stats Grid - Optimized Critical */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: var(--space-4);
+    
+    /* Optimize reflow performance */
+    contain: layout style;
+}
+
 .stat-item {
     padding: var(--space-4);
     border-radius: var(--radius-lg);
     background: rgba(255, 255, 255, 0.1);
-    transition: all var(--duration-normal) var(--ease-in-out);
+    
+    /* Specific transitions for better performance */
+    transition: transform var(--duration-normal) var(--ease-spring),
+                background-color var(--duration-normal) var(--ease-out);
+    
+    /* Add containment for performance */
+    contain: content;
+    
+    /* Enable hardware acceleration only on hover */
+    @media (hover: hover) {
+        &:hover {
+            transform: scale(1.02);
+            background: rgba(255, 255, 255, 0.15);
+        }
+    }
 }
 
 .stat-number {
     font-size: var(--font-size-2xl);
     font-weight: 700;
-    margin-bottom: var(--space-2);
-    color: white;
+    margin-block-end: var(--space-2);
+    color: var(--text-on-primary);
+    
+    /* Add subtle text shadow for better contrast */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    
+    /* Prevent layout shift with number changes */
+    font-variant-numeric: tabular-nums;
+    line-height: 1.2;
 }
 
 .stat-label {
     font-size: var(--font-size-sm);
+    color: var(--text-on-primary);
     opacity: 0.9;
-    color: white;
+    
+    /* Prevent orphaned words */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Quick Actions - Critical */
@@ -205,16 +300,98 @@ app-header header {
     }
 }
 
-/* Loading State - Critical */
+/* Loading States - Enhanced Critical */
 .loading {
     opacity: 0.7;
     pointer-events: none;
+    
+    /* Add subtle pulse animation */
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    
+    /* Optimize paint performance */
+    contain: strict;
+    
+    /* Ensure screen readers announce loading state */
+    &::before {
+        content: "Loading...";
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
 }
 
-/* Focus States - Critical for Accessibility */
+/* Optimized loading animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Loading skeleton styles */
+.loading-skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--gray-200) 0%,
+        var(--gray-100) 50%,
+        var(--gray-200) 100%
+    );
+    background-size: 200% 100%;
+    animation: loading-skeleton 1.5s infinite;
+    border-radius: var(--radius-md);
+    
+    /* Optimize paint performance */
+    contain: paint;
+}
+
+@keyframes loading-skeleton {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Focus States - Enhanced for Accessibility and Visual Appeal */
+:root {
+    --focus-ring-color: var(--primary-500);
+    --focus-ring-offset: 2px;
+    --focus-ring-width: 2px;
+}
+
+/* Default focus styles */
 *:focus-visible {
-    outline: 2px solid var(--primary-500);
-    outline-offset: 2px;
+    outline: var(--focus-ring-width) solid var(--focus-ring-color);
+    outline-offset: var(--focus-ring-offset);
+    border-radius: inherit;
+}
+
+/* Custom focus styles for interactive elements */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 var(--focus-ring-width) var(--focus-ring-color),
+                0 0 0 calc(var(--focus-ring-width) + var(--focus-ring-offset)) rgba(var(--primary-h), var(--primary-s), var(--primary-l), 0.2);
+}
+
+/* High contrast mode focus styles */
+@media (forced-colors: active) {
+    *:focus-visible {
+        outline: 2px solid SelectedItem;
+        outline-offset: 2px;
+    }
 }
 
 /* Essential Responsive - Mobile Critical */
@@ -274,20 +451,50 @@ app-header header {
 /* fadeIn animation defined in main.css to eliminate duplication */
 
 /* Critical Performance Optimizations */
-.welcome-section,
-.dashboard-item {
+.welcome-section:hover,
+.dashboard-item:hover {
     will-change: transform;
-    transform: translateZ(0);
 }
 
-/* Reduce Motion for Accessibility */
+/* Remove will-change after animation/interaction */
+.welcome-section,
+.dashboard-item {
+    transition: will-change 0.2s;
+}
+
+.welcome-section:not(:hover),
+.dashboard-item:not(:hover) {
+    will-change: auto;
+}
+
+/* Reduced Motion Preferences */
 @media (prefers-reduced-motion: reduce) {
+    :root {
+        /* Reset animation variables */
+        --duration-fast: 0.01ms;
+        --duration-normal: 0.01ms;
+        --duration-slow: 0.01ms;
+    }
 
     *,
     *::before,
     *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Replace animations with opacity changes */
+    .dashboard-item > * {
+        opacity: 1 !important;
+        animation: none !important;
+    }
+
+    /* Disable hover animations but maintain state changes */
+    .welcome-section:hover,
+    .dashboard-item:hover,
+    .stat-item:hover {
+        transform: none !important;
+        will-change: auto !important;
     }
 }
