@@ -28,33 +28,161 @@ let welcomeSection = null; // Store welcome section ins    // Add global test fu
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         `;
         
+        // Add custom slider styles
+        const sliderStyles = document.createElement('style');
+        sliderStyles.textContent = `
+            .color-picker-slider {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 100%;
+                height: 8px;
+                border-radius: 4px;
+                outline: none;
+                cursor: pointer;
+                transition: all 0.2s ease;
+            }
+            
+            .color-picker-slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: white;
+                border: 2px solid #6366f1;
+                cursor: pointer;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+                transition: all 0.2s ease;
+            }
+            
+            .color-picker-slider::-webkit-slider-thumb:hover {
+                transform: scale(1.1);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            }
+            
+            .color-picker-slider::-moz-range-thumb {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: white;
+                border: 2px solid #6366f1;
+                cursor: pointer;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            }
+        `;
+        document.head.appendChild(sliderStyles);
+
         panel.innerHTML = `
-            <div style="margin-bottom: 15px;">
-                <h3 style="margin: 0 0 10px 0;">🎨 Color Picker</h3>
-                <button onclick="this.parentElement.parentElement.remove()" style="float: right; background: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">✕</button>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #e2e8f0;">
+                <h3 style="margin: 0; color: #1e293b; font-size: 18px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 20px;">🎨</span>
+                    Color Picker
+                </h3>
+                <button onclick="this.parentElement.parentElement.remove()" style="
+                    background: #ef4444; 
+                    color: white; 
+                    border: none; 
+                    width: 28px; 
+                    height: 28px; 
+                    border-radius: 50%; 
+                    cursor: pointer; 
+                    font-size: 14px; 
+                    font-weight: bold;
+                    transition: all 0.2s ease;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                " onmouseover="this.style.background='#dc2626'" onmouseout="this.style.background='#ef4444'">✕</button>
             </div>
             
-            <div style="margin-bottom: 15px;">
-                <label>Hue: <span id="hueValue">270</span></label><br>
-                <input type="range" id="hueSlider" min="0" max="360" value="270" style="width: 100%;">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; color: #374151; font-weight: 500; font-size: 14px;">
+                    Hue: <span id="hueValue" style="color: #6366f1; font-weight: 600;">270</span>°
+                </label>
+                <input type="range" id="hueSlider" min="0" max="360" value="270" class="color-picker-slider" style="
+                    background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+                ">
             </div>
             
-            <div style="margin-bottom: 15px;">
-                <label>Saturation: <span id="satValue">80</span>%</label><br>
-                <input type="range" id="satSlider" min="0" max="100" value="80" style="width: 100%;">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; color: #374151; font-weight: 500; font-size: 14px;">
+                    Saturation: <span id="satValue" style="color: #6366f1; font-weight: 600;">80</span>%
+                </label>
+                <input type="range" id="satSlider" min="0" max="100" value="80" class="color-picker-slider" style="
+                    background: linear-gradient(to right, #808080, hsl(270, 100%, 50%));
+                ">
             </div>
             
-            <div style="margin-bottom: 15px;">
-                <label>Lightness: <span id="lightValue">50</span>%</label><br>
-                <input type="range" id="lightSlider" min="0" max="100" value="50" style="width: 100%;">
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; color: #374151; font-weight: 500; font-size: 14px;">
+                    Lightness: <span id="lightValue" style="color: #6366f1; font-weight: 600;">50</span>%
+                </label>
+                <input type="range" id="lightSlider" min="0" max="100" value="50" class="color-picker-slider" style="
+                    background: linear-gradient(to right, #000000, hsl(270, 80%, 50%), #ffffff);
+                ">
             </div>
             
-            <div style="margin-bottom: 15px;">
-                <div id="colorPreview" style="width: 100%; height: 50px; border: 1px solid #ccc; background: hsl(270, 80%, 50%);"></div>
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; color: #374151; font-weight: 500; font-size: 14px;">Preview</label>
+                <div id="colorPreview" style="
+                    width: 100%; 
+                    height: 60px; 
+                    border: 2px solid #e2e8f0; 
+                    border-radius: 8px;
+                    background: hsl(270, 80%, 50%);
+                    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+                    position: relative;
+                    overflow: hidden;
+                ">
+                    <div style="
+                        position: absolute;
+                        bottom: 8px;
+                        right: 8px;
+                        background: rgba(255,255,255,0.9);
+                        color: #374151;
+                        padding: 4px 8px;
+                        border-radius: 4px;
+                        font-size: 12px;
+                        font-weight: 500;
+                        backdrop-filter: blur(4px);
+                    " id="colorCode">hsl(270, 80%, 50%)</div>
+                </div>
             </div>
             
-            <button onclick="generateRandomColor()" style="width: 100%; padding: 10px; background: #007cba; color: white; border: none; cursor: pointer; margin-bottom: 10px;">🎲 Random Color</button>
-            <button onclick="applySelectedColor()" style="width: 100%; padding: 10px; background: #28a745; color: white; border: none; cursor: pointer;">✅ Apply Color</button>
+            <div style="display: flex; gap: 12px;">
+                <button onclick="generateRandomColor()" style="
+                    flex: 1;
+                    padding: 12px 16px; 
+                    background: linear-gradient(135deg, #8b5cf6, #7c3aed); 
+                    color: white; 
+                    border: none; 
+                    border-radius: 8px;
+                    cursor: pointer; 
+                    font-weight: 600;
+                    font-size: 14px;
+                    transition: all 0.2s ease;
+                    box-shadow: 0 2px 4px rgba(139, 92, 246, 0.3);
+                " onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 8px rgba(139, 92, 246, 0.4)'" 
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(139, 92, 246, 0.3)'">
+                    🎲 Random
+                </button>
+                <button onclick="applySelectedColor()" style="
+                    flex: 1;
+                    padding: 12px 16px; 
+                    background: linear-gradient(135deg, #10b981, #059669); 
+                    color: white; 
+                    border: none; 
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-weight: 600;
+                    font-size: 14px;
+                    transition: all 0.2s ease;
+                    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+                " onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 8px rgba(16, 185, 129, 0.4)'" 
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(16, 185, 129, 0.3)'">
+                    ✅ Apply
+                </button>
+            </div>
         `;
         
         document.body.appendChild(panel);
