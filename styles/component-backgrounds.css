@@ -12,19 +12,12 @@ office-visualizer,
 enhanced-interactive-poll,
 weather-widget,
 achievement-system {
-    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%) !important;
-    border-radius: 16px !important;
+    background: var(--gradient-primary) !important;
+    border-radius: var(--radius-lg, 16px) !important;
     padding: 32px !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid var(--primary-400) !important;
     color: white !important;
-    backdrop-filter: blur(20px) !important;
-    box-shadow:
-        0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04),
-        0 0 0 1px rgba(255, 255, 255, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4),
-        0 0 60px hsla(var(--user-primary-h, 270), var(--user-primary-s, 80%), var(--user-primary-l, 50%), 0.4),
-        0 0 120px hsla(var(--user-primary-h, 270), var(--user-primary-s, 80%), var(--user-primary-l, 50%), 0.2) !important;
+    box-shadow: var(--shadow-lg) !important;
     margin: 20px 0 !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
@@ -43,15 +36,9 @@ office-visualizer:hover,
 enhanced-interactive-poll:hover,
 weather-widget:hover,
 achievement-system:hover {
-    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%) !important;
+    background: var(--gradient-primary) !important;
     transform: translateY(-2px);
-    box-shadow:
-        0 25px 30px -5px rgba(0, 0, 0, 0.15),
-        0 15px 15px -5px rgba(0, 0, 0, 0.08),
-        0 0 0 1px rgba(255, 255, 255, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5),
-        0 0 70px hsla(var(--user-primary-h, 270), var(--user-primary-s, 80%), var(--user-primary-l, 50%), 0.5),
-        0 0 140px hsla(var(--user-primary-h, 270), var(--user-primary-s, 80%), var(--user-primary-l, 50%), 0.3) !important;
+    box-shadow: var(--shadow-xl) !important;
 }
 
 /* Force inner content to maintain proper colors */

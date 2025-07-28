@@ -13,48 +13,16 @@ html:not([data-theme="dark"]) .dashboard-grid {
     background-image: none !important;
 }
 
-/* 🎨 Component Cards - Beautiful Glassmorphism on White Background */
+/* 🎨 Component Cards - Using Theme System */
 html:not([data-theme="dark"]) .dashboard-item,
 html:not([data-theme="dark"]) .component,
 html:not([data-theme="dark"]) .widget,
 html:not([data-theme="dark"]) .card,
 html:not([data-theme="dark"]) .panel,
-html:not([data-theme="dark"]) .section,
-html:not([data-theme="dark"]) .smart-insights-dashboard,
-html:not([data-theme="dark"]) .analytics-dashboard,
-html:not([data-theme="dark"]) .wellness-tracker,
-html:not([data-theme="dark"]) .team-spotlight,
-html:not([data-theme="dark"]) .collaboration-hub,
-html:not([data-theme="dark"]) .achievement-system,
-html:not([data-theme="dark"]) .company-culture-showcase,
-html:not([data-theme="dark"]) .enhanced-knowledge-hub,
-html:not([data-theme="dark"]) .live-activity-feed,
-html:not([data-theme="dark"]) .office-visualizer,
-html:not([data-theme="dark"]) .enhanced-interactive-poll,
-html:not([data-theme="dark"]) .task-system,
-html:not([data-theme="dark"]) .enhanced-task-system,
-html:not([data-theme="dark"]) .company-news {
-    /* Clean background with theme color */
-    background: linear-gradient(135deg,
-            hsl(var(--primary-h, 270), var(--primary-s, 80%), calc(var(--primary-l, 50%) + 45%)) 0%,
-            hsl(var(--primary-h, 270), var(--primary-s, 80%), calc(var(--primary-l, 50%) + 40%)) 50%,
-            hsl(var(--primary-h, 270), var(--primary-s, 80%), calc(var(--primary-l, 50%) + 45%)) 100%) !important;
-
-    /* Subtle backdrop blur for depth */
-    backdrop-filter: blur(8px) saturate(120%) !important;
-    -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
-
-    /* Clean borders with theme colors */
-    border: 1px solid hsl(var(--user-primary-h, 248), var(--user-primary-s, 85%), calc(var(--user-primary-l, 63%) * 0.1)) !important;
-
-    /* Professional shadows */
-    box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.05),
-        0 2px 4px -1px rgba(0, 0, 0, 0.03),
-        0 0 0 1px rgba(255, 255, 255, 0.8),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
-
-    /* Smooth transitions */
+html:not([data-theme="dark"]) .section {
+    background: var(--gradient-primary) !important;
+    border: 1px solid var(--primary-400) !important;
+    box-shadow: var(--shadow-lg) !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
@@ -63,18 +31,10 @@ html:not([data-theme="dark"]) .dashboard-item:hover,
 html:not([data-theme="dark"]) .component:hover,
 html:not([data-theme="dark"]) .widget:hover,
 html:not([data-theme="dark"]) .card:hover {
-    background: linear-gradient(135deg,
-            rgba(255, 255, 255, 0.95) 0%,
-            rgba(255, 255, 255, 0.8) 50%,
-            rgba(255, 255, 255, 0.95) 100%) !important;
-
+    background: var(--gradient-primary) !important;
     transform: translateY(-2px) !important;
-
-    box-shadow:
-        0 8px 15px -3px rgba(0, 0, 0, 0.08),
-        0 4px 6px -2px rgba(0, 0, 0, 0.05),
-        0 0 0 1px var(--primary-500, #6366f1),
-        inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+    filter: brightness(1.1);
+    box-shadow: var(--shadow-xl) !important;
 }
 
 /* ===== DARK MODE: Professional Dark Backgrounds ===== */
