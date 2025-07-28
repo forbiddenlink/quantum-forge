@@ -59,9 +59,50 @@ document.addEventListener('DOMContentLoaded', async () => {
             applyColorTheme({ hue, saturation, lightness });
         });
         console.log('✅ Color picker initialized');
+
+        // Set up color picker toggle button connection
+        setTimeout(() => {
+            const toggleButton = document.querySelector('#toggleColorPicker');
+            if (toggleButton && colorPicker.toggle) {
+                console.log('🎨 Setting up color picker toggle connection from app.js');
+
+                // Remove any existing listeners first
+                toggleButton.removeEventListener('click', toggleButton._colorPickerHandler);
+
+                // Create and store the handler
+                toggleButton._colorPickerHandler = (e) => {
+                    console.log('🎨 Toggle button clicked from app.js handler!');
+                    e.preventDefault();
+                    e.stopPropagation();
+                    colorPicker.toggle();
+                };
+
+                toggleButton.addEventListener('click', toggleButton._colorPickerHandler);
+                console.log('✅ Color picker toggle button connected from app.js');
+            } else {
+                console.warn('❌ Toggle button or color picker toggle method not found');
+                console.log('Toggle button found:', !!toggleButton);
+                console.log('Color picker toggle method found:', !!(colorPicker && colorPicker.toggle));
+            }
+        }, 500); // Give both components time to fully initialize
     } else {
         console.warn('❌ Color picker not found in DOM');
     }
+
+    // Add global test function for debugging
+    window.testColorPicker = function () {
+        console.log('🧪 Test color picker function called');
+        const colorPicker = document.querySelector('dynamic-color-picker');
+        if (colorPicker && colorPicker.toggle) {
+            console.log('🧪 Calling color picker toggle');
+            colorPicker.toggle();
+        } else {
+            console.error('🧪 Color picker or toggle method not found', {
+                colorPicker: !!colorPicker,
+                toggleMethod: !!(colorPicker && colorPicker.toggle)
+            });
+        }
+    };
 
     // Debug: Check if custom elements are registered 
     console.log('🔍 Checking custom element registration...');

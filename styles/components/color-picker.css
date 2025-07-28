@@ -420,7 +420,7 @@
 
 /* ===== Header Integration ===== */
 #toggleColorPicker {
-    background: var(--primary-500);
+    background: var(--primary-500, hsl(270, 80%, 50%));
     color: white;
     border: none;
     border-radius: 50%;
@@ -436,10 +436,20 @@
 
 #toggleColorPicker:hover {
     transform: scale(1.1);
-    background: var(--primary-600);
+    background: var(--primary-600, hsl(270, 80%, 40%));
+}
+
+#toggleColorPicker:active {
+    transform: scale(0.95);
 }
 
 #toggleColorPicker svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Active state when color picker is open */
+.color-picker-button.active #toggleColorPicker {
+    background: var(--primary-600, hsl(270, 80%, 40%));
+    box-shadow: 0 0 0 2px var(--primary-200, hsl(270, 80%, 80%));
 }
