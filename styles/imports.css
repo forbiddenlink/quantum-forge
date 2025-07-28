@@ -128,3 +128,9 @@
 /* ===== 6. UNIFIED HOMEPAGE STYLING - CRITICAL: Load After All Components ===== */
 @import url('./unified-homepage-styling.css');
 /* MUST load last to override component backgrounds */
+
+/* ===== 7. FINAL EMERGENCY FIXES - Load After Everything ===== */
+@import url('./background-transparency-fix.css');
+/* EMERGENCY FIX: Force transparent backgrounds with themed hover states */
+@import url('./final-background-fix.css');
+/* FINAL EMERGENCY FIX: Components and color picker fixes */
