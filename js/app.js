@@ -864,12 +864,12 @@ function forceLightThemeAndFixBackgrounds() {
     setTimeout(setSolidBackgrounds, 100);
     setTimeout(setSolidBackgrounds, 500);
     setTimeout(setSolidBackgrounds, 1000);
-    
+
     // Set up a mutation observer to handle dynamically added elements
     const observer = new MutationObserver((mutations) => {
         setSolidBackgrounds();
     });
-    
+
     observer.observe(document.body, {
         childList: true,
         subtree: true

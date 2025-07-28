@@ -1,3 +1,6 @@
+/* Import Emergency Text Fix */
+@import url('emergency-text-fix.css');
+
 /* Core Theme Variables */
 :root {
     /* Raw HSL Values */

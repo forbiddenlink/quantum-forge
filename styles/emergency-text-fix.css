@@ -1,0 +1,32 @@
+/* Emergency Text Color Fix */
+:root {
+    --text-on-dark: var(--primary-50);
+    --text-on-light: var(--primary-900);
+}
+
+/* Force all text to use themed colors */
+[data-theme="dark"] *,
+[data-theme="dark"] .analytics-number,
+[data-theme="dark"] .stat-value,
+[data-theme="dark"] .metric-value {
+    color: var(--text-on-dark) !important;
+}
+
+/* Target specific components that might override colors */
+.analytics-dashboard .analytics-number,
+.analytics-dashboard .stat-value,
+.analytics-dashboard .metric-value,
+.performance-metrics *[class*="value"],
+.performance-metrics *[class*="number"],
+.analytics-card *[class*="value"],
+.analytics-card *[class*="number"] {
+    color: var(--text-on-dark) !important;
+}
+
+/* Ensure all inline styles are overridden */
+*[style*="color: black"],
+*[style*="color: #000"],
+*[style*="color: #000000"],
+*[style*="color: rgb(0, 0, 0)"] {
+    color: var(--text-on-dark) !important;
+}

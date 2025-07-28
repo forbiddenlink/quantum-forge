@@ -244,6 +244,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+    <!-- EMERGENCY TEXT COLOR FIX -->
+    <style>
+        /* Force all analytics numbers to be light colored */
+        .analytics-dashboard *:not(.text-warning):not(.text-error):not(.text-success):not(.text-accent),
+        .analytics-dashboard .metrics-grid .metric-card .metric-value,
+        .analytics-dashboard .stat-number,
+        .analytics-dashboard .stat-value,
+        .analytics-dashboard .metric-number,
+        .analytics-dashboard .number-display,
+        .analytics-dashboard [class*="number"],
+        .analytics-dashboard [class*="value"],
+        .analytics-dashboard .metric-title,
+        .analytics-dashboard .chart-title,
+        .analytics-dashboard h1,
+        .analytics-dashboard h2,
+        .analytics-dashboard h3,
+        .analytics-dashboard h4,
+        .analytics-dashboard h5,
+        .analytics-dashboard h6 {
+            color: var(--primary-50) !important;
+            -webkit-text-fill-color: var(--primary-50) !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        /* Override any dark backgrounds */
+        .analytics-dashboard .metrics-grid .metric-card {
+            background: rgba(0, 0, 0, 0.3) !important;
+        }
+    </style>
+
     <!-- NEW: Enhanced Library Loading with Fallbacks -->
     <script>
         // Performance monitoring

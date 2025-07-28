@@ -50,10 +50,14 @@
 /* Welcome section styles */
 @import url('./enhanced-knowledge-hub.css');
 /* Knowledge hub */
+@import url('./analytics-variable-fix.css');
+/* Override analytics text color variables */
 @import url('./analytics-dashboard.css');
 /* Analytics dashboard */
 @import url('./analytics-fixes.css');
 /* Analytics specific fixes */
+@import url('./emergency-text-colors.css');
+/* Emergency fix for analytics text colors */
 @import url('./analytics-icons.css');
 /* Analytics icons */
 @import url('./company-news.css');
@@ -136,3 +140,5 @@
 /* 🏆 CONTEST-READY: Force stunning gradient backgrounds on all components */
 @import url('./final-background-fix.css');
 /* FINAL EMERGENCY FIX: Components and color picker fixes */
+@import url('./force-white-text.css');
+/* ULTRA AGGRESSIVE: Force all text to be white */
