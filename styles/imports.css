@@ -74,6 +74,8 @@
 /* Team chat widget */
 @import url('./live-activity-feed.css');
 /* Live activity feed */
+@import url('./team-spotlight-fixes.css');
+/* Team spotlight fixes - Match welcome section */
 @import url('./smart-insights-dashboard.css');
 /* Smart insights */
 @import url('./wellness-tracker.css');

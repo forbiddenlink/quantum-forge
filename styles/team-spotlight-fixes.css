@@ -1,0 +1,161 @@
+/* Enhanced Team Spotlight Fixes */
+.enhanced-team-spotlight {
+    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+    color: white;
+    border: none;
+    box-shadow: var(--component-glow);
+    overflow: visible; /* Allow arrow controls to extend */
+}
+
+.enhanced-team-spotlight::before {
+    display: none; /* Remove top border since we have gradient bg */
+}
+
+/* Text Colors */
+.spotlight-title {
+    color: white;
+    -webkit-text-fill-color: white;
+    background: none;
+}
+
+.spotlight-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Control Buttons */
+.spotlight-controls .control-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    z-index: 2;
+}
+
+.spotlight-controls .control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+.spotlight-controls .control-btn::before {
+    display: none;
+}
+
+/* Member Card */
+.member-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.member-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+}
+
+.member-card .member-name,
+.member-card .member-role,
+.member-card .bio-text {
+    color: white;
+}
+
+.member-card .department-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.location-info,
+.join-date {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Details Sections */
+.details-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.details-section:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.section-title {
+    color: white;
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+.section-title svg {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Skills Section */
+.skill-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.skill-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.skill-item .skill-name,
+.skill-item .skill-level {
+    color: white;
+}
+
+.skill-bar {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Projects Section */
+.project-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.project-item .project-name {
+    color: white;
+}
+
+.project-item .project-role {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.project-progress-bar {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .enhanced-team-spotlight {
+    /* Keep same styles as light mode since we want consistent gradient look */
+    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+}
+
+/* Member Indicators */
+.member-indicators {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+}
+
+.indicator {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.indicator.active {
+    background: rgba(255, 255, 255, 0.9);
+}
