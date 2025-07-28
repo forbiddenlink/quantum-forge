@@ -290,7 +290,6 @@ class Header extends HTMLElement {
                                 <path d="M12 2a10 10 0 0 0 0 20 10 10 0 0 1 0-20z"></path>
                             </svg>
                         </button>
-                        <!-- Color picker will be initialized here by JavaScript -->
                     </div>
 
                     <div class="notifications-menu">

@@ -1,5 +1,183 @@
 // Theme and Navigation Management
-let welcomeSection = null; // Store welcome section instance for cleanup
+let welcomeSection = null; // Store welcome section ins    // Add global test function that creates its own color picker
+    window.testColorPicker = function() {
+        console.log('🧪 Creating standalone color picker');
+        
+        // Remove any existing color picker panel
+        const existingPanel = document.querySelector('.standalone-color-picker');
+        if (existingPanel) {
+            existingPanel.remove();
+        }
+        
+        // Create a simple standalone color picker panel
+        const panel = document.createElement('div');
+        panel.className = 'standalone-color-picker';
+        panel.style.cssText = `
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background: white;
+            border: 3px solid red;
+            border-radius: 10px;
+            z-index: 99999;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        `;
+        
+        panel.innerHTML = `
+            <div style="margin-bottom: 15px;">
+                <h3 style="margin: 0 0 10px 0;">🎨 Color Picker</h3>
+                <button onclick="this.parentElement.parentElement.remove()" style="float: right; background: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">✕</button>
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <label>Hue: <span id="hueValue">270</span></label><br>
+                <input type="range" id="hueSlider" min="0" max="360" value="270" style="width: 100%;">
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <label>Saturation: <span id="satValue">80</span>%</label><br>
+                <input type="range" id="satSlider" min="0" max="100" value="80" style="width: 100%;">
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <label>Lightness: <span id="lightValue">50</span>%</label><br>
+                <input type="range" id="lightSlider" min="0" max="100" value="50" style="width: 100%;">
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                <div id="colorPreview" style="width: 100%; height: 50px; border: 1px solid #ccc; background: hsl(270, 80%, 50%);"></div>
+            </div>
+            
+            <button onclick="generateRandomColor()" style="width: 100%; padding: 10px; background: #007cba; color: white; border: none; cursor: pointer; margin-bottom: 10px;">🎲 Random Color</button>
+            <button onclick="applySelectedColor()" style="width: 100%; padding: 10px; background: #28a745; color: white; border: none; cursor: pointer;">✅ Apply Color</button>
+        `;
+        
+        document.body.appendChild(panel);
+        
+        // Set up event listeners
+        const hueSlider = panel.querySelector('#hueSlider');
+        const satSlider = panel.querySelector('#satSlider');
+        const lightSlider = panel.querySelector('#lightSlider');
+        const preview = panel.querySelector('#colorPreview');
+        
+        function updateColor() {
+            const h = hueSlider.value;
+            const s = satSlider.value;
+            const l = lightSlider.value;
+            
+            panel.querySelector('#hueValue').textContent = h;
+            panel.querySelector('#satValue').textContent = s;
+            panel.querySelector('#lightValue').textContent = l;
+            
+            const color = `hsl(${h}, ${s}%, ${l}%)`;
+            preview.style.background = color;
+            
+            // Apply to page using multiple methods to ensure it works
+            const root = document.documentElement;
+            
+            // Method 1: Set the base HSL variables
+            root.style.setProperty('--primary-h', h);
+            root.style.setProperty('--primary-s', s + '%');
+            root.style.setProperty('--primary-l', l + '%');
+            
+            // Method 2: Calculate all the color variations
+            const variations = [
+                { name: '--primary-50', lightness: Math.min(parseInt(l) + 45, 95) },
+                { name: '--primary-100', lightness: Math.min(parseInt(l) + 40, 90) },
+                { name: '--primary-200', lightness: Math.min(parseInt(l) + 30, 85) },
+                { name: '--primary-300', lightness: Math.min(parseInt(l) + 20, 80) },
+                { name: '--primary-400', lightness: Math.min(parseInt(l) + 10, 75) },
+                { name: '--primary-500', lightness: parseInt(l) },
+                { name: '--primary-600', lightness: Math.max(parseInt(l) - 10, 10) },
+                { name: '--primary-700', lightness: Math.max(parseInt(l) - 20, 10) },
+                { name: '--primary-800', lightness: Math.max(parseInt(l) - 30, 10) },
+                { name: '--primary-900', lightness: Math.max(parseInt(l) - 40, 10) }
+            ];
+            
+            variations.forEach(variation => {
+                root.style.setProperty(variation.name, `hsl(${h}, ${s}%, ${variation.lightness}%)`);
+            });
+            
+            // Method 3: Set specific component colors
+            root.style.setProperty('--accent-color', `hsl(${h}, ${s}%, ${l}%)`);
+            root.style.setProperty('--button-primary', `hsl(${h}, ${s}%, ${l}%)`);
+            root.style.setProperty('--link-color', `hsl(${h}, ${s}%, ${l}%)`);
+            
+            // Method 4: Force update common elements
+            const elementsToUpdate = [
+                '.btn.primary',
+                '.action-button',
+                'a',
+                '.primary-color',
+                '.accent-color'
+            ];
+            
+            elementsToUpdate.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(el => {
+                    el.style.setProperty('background-color', `hsl(${h}, ${s}%, ${l}%)`, 'important');
+                });
+            });
+            
+            console.log(`🎨 Color updated to H:${h} S:${s}% L:${l}%`);
+        }
+        
+        hueSlider.addEventListener('input', updateColor);
+        satSlider.addEventListener('input', updateColor);
+        lightSlider.addEventListener('input', updateColor);
+        
+        // Global functions for buttons
+        window.generateRandomColor = function() {
+            hueSlider.value = Math.floor(Math.random() * 360);
+            satSlider.value = Math.floor(Math.random() * 40) + 60;
+            lightSlider.value = Math.floor(Math.random() * 30) + 45;
+            updateColor();
+        };
+        
+        window.applySelectedColor = function() {
+            const h = hueSlider.value;
+            const s = satSlider.value;
+            const l = lightSlider.value;
+            
+            // Save to localStorage
+            localStorage.setItem('userTheme', JSON.stringify({
+                hue: parseInt(h),
+                saturation: parseInt(s),
+                lightness: parseInt(l),
+                name: 'Custom'
+            }));
+            
+            alert('Color theme saved!');
+        };
+        
+        console.log('🧪 Standalone color picker created and shown');
+    };
+
+    // Add debug function to check component registration
+    window.debugColorPicker = function() {
+        console.log('🔍 Color picker debug info:');
+        const colorPicker = document.querySelector('dynamic-color-picker');
+        const isRegistered = customElements.get('dynamic-color-picker');
+        
+        console.log('Component registered:', !!isRegistered);
+        console.log('Element found:', !!colorPicker);
+        
+        if (colorPicker) {
+            console.log('Element connected:', colorPicker.isConnected);
+            console.log('Element innerHTML length:', colorPicker.innerHTML.length);
+            console.log('Element methods:', Object.getOwnPropertyNames(Object.getPrototypeOf(colorPicker)));
+            console.log('ConnectedCallback available:', typeof colorPicker.connectedCallback);
+            
+            // Try to manually call connectedCallback
+            console.log('🔧 Manually calling connectedCallback...');
+            if (colorPicker.connectedCallback) {
+                colorPicker.connectedCallback();
+            }
+        }
+    };nup
 let performanceMonitor = null;
 let analyticsServiceInstance = null;
 
@@ -63,28 +241,181 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Set up color picker toggle button connection
         setTimeout(() => {
             const toggleButton = document.querySelector('#toggleColorPicker');
-            if (toggleButton && colorPicker.toggle) {
-                console.log('🎨 Setting up color picker toggle connection from app.js');
+            const colorPicker = document.querySelector('dynamic-color-picker');
+            
+            // Force initialize the color picker if it's not initialized
+            if (colorPicker && colorPicker.innerHTML.trim() === '') {
+                console.log('🎨 Color picker not initialized, forcing initialization...');
+                try {
+                    // Initialize properties
+                    colorPicker.currentTheme = {
+                        hue: 270,
+                        saturation: 80, 
+                        lightness: 50,
+                        name: 'Violet'
+                    };
+                    colorPicker.isOpen = false;
+                    colorPicker.presetThemes = [
+                        { name: 'Violet', hue: 270, saturation: 80, lightness: 50, icon: '💜' },
+                        { name: 'Emerald', hue: 150, saturation: 75, lightness: 45, icon: '🌿' },
+                        { name: 'Amber', hue: 45, saturation: 85, lightness: 60, icon: '🌅' }
+                    ];
+                    colorPicker.colorHistory = [];
+                    
+                    // Force render
+                    if (colorPicker.render) {
+                        colorPicker.render();
+                        console.log('🎨 Render called, innerHTML length now:', colorPicker.innerHTML.length);
+                    }
+                    
+                    // Try connectedCallback
+                    if (colorPicker.connectedCallback) {
+                        colorPicker.connectedCallback();
+                        console.log('🎨 ConnectedCallback called');
+                    }
+                } catch (error) {
+                    console.error('🎨 Error during forced initialization:', error);
+                }
+            }
+            
+            // Set up the toggle functionality
+            if (colorPicker) {
+                console.log('🎨 Setting up color picker toggle functionality...');
+                
+                // Override the toggle method
+                colorPicker.toggle = function() {
+                    console.log('🎨 TOGGLE CALLED! Current state:', this.isOpen);
+                    
+                    // Toggle state
+                    this.isOpen = !this.isOpen;
+                    console.log('🎨 New state:', this.isOpen);
 
-                // Remove any existing listeners first
+                    // Get panel element
+                    const panel = this.querySelector('.color-picker-panel');
+                    console.log('🎨 Panel found:', !!panel);
+                    
+                    if (panel) {
+                        if (this.isOpen) {
+                            // Position the panel relative to the header button
+                            panel.style.position = 'fixed';
+                            panel.style.top = '70px';
+                            panel.style.right = '20px';
+                            panel.style.zIndex = '99999';
+                            panel.style.display = 'block';
+                            panel.style.opacity = '1';
+                            panel.style.visibility = 'visible';
+                            panel.style.transform = 'translateY(0)';
+                            panel.style.backgroundColor = '#ffffff';
+                            panel.style.border = '3px solid #ff0000';
+                            panel.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+                            panel.classList.add('open');
+                            console.log('🎨 Panel opened and positioned');
+                            
+                            // Set up internal event listeners
+                            this.setupInternalEventListeners();
+                        } else {
+                            panel.style.display = 'none';
+                            panel.style.opacity = '0';
+                            panel.style.visibility = 'hidden';
+                            panel.classList.remove('open');
+                            console.log('🎨 Panel closed');
+                        }
+                    } else {
+                        console.log('🎨 NO PANEL FOUND!');
+                    }
+                };
+                
+                // Add the setupInternalEventListeners method
+                colorPicker.setupInternalEventListeners = function() {
+                    console.log('🎨 Setting up internal event listeners');
+                    
+                    // Close button
+                    const closeBtn = this.querySelector('.picker-close');
+                    if (closeBtn) {
+                        closeBtn.onclick = () => {
+                            console.log('🎨 Close button clicked');
+                            this.toggle();
+                        };
+                    }
+
+                    // Preset theme buttons
+                    this.querySelectorAll('.preset-theme').forEach(btn => {
+                        btn.onclick = (e) => {
+                            console.log('🎨 Preset theme clicked');
+                            const theme = JSON.parse(e.currentTarget.dataset.theme);
+                            this.currentTheme = { ...theme };
+                            if (this.applyTheme) {
+                                this.applyTheme(this.currentTheme);
+                            }
+                            // Update active state
+                            this.querySelectorAll('.preset-theme').forEach(b => b.classList.remove('active'));
+                            e.currentTarget.classList.add('active');
+                        };
+                    });
+
+                    // Color sliders
+                    this.querySelectorAll('.color-slider').forEach(slider => {
+                        slider.oninput = (e) => {
+                            console.log('🎨 Slider changed:', e.target.id, e.target.value);
+                            const property = e.target.id.replace('Slider', '');
+                            if (this.currentTheme) {
+                                this.currentTheme[property] = parseInt(e.target.value);
+                                if (this.applyTheme) {
+                                    this.applyTheme(this.currentTheme);
+                                }
+                            }
+                        };
+                    });
+
+                    // Random theme button
+                    const randomBtn = this.querySelector('#randomTheme');
+                    if (randomBtn) {
+                        randomBtn.onclick = () => {
+                            console.log('🎨 Random theme clicked');
+                            const randomHue = Math.floor(Math.random() * 360);
+                            const randomSat = Math.floor(Math.random() * 40) + 60;
+                            const randomLight = Math.floor(Math.random() * 30) + 45;
+                            
+                            this.currentTheme = {
+                                name: 'Random',
+                                hue: randomHue,
+                                saturation: randomSat,
+                                lightness: randomLight
+                            };
+                            
+                            if (this.applyTheme) {
+                                this.applyTheme(this.currentTheme);
+                            }
+                        };
+                    }
+
+                    console.log('🎨 Internal event listeners set up');
+                };
+            }
+            
+            // Connect header button to color picker
+            if (toggleButton && colorPicker) {
+                console.log('🎨 Connecting header button to color picker');
+                
+                // Remove any existing listeners
                 toggleButton.removeEventListener('click', toggleButton._colorPickerHandler);
-
+                
                 // Create and store the handler
                 toggleButton._colorPickerHandler = (e) => {
-                    console.log('🎨 Toggle button clicked from app.js handler!');
+                    console.log('🎨 Header button clicked!');
                     e.preventDefault();
                     e.stopPropagation();
                     colorPicker.toggle();
                 };
-
+                
                 toggleButton.addEventListener('click', toggleButton._colorPickerHandler);
-                console.log('✅ Color picker toggle button connected from app.js');
+                console.log('✅ Header button connected to color picker');
             } else {
-                console.warn('❌ Toggle button or color picker toggle method not found');
+                console.warn('❌ Header button or color picker not found');
                 console.log('Toggle button found:', !!toggleButton);
-                console.log('Color picker toggle method found:', !!(colorPicker && colorPicker.toggle));
+                console.log('Color picker found:', !!colorPicker);
             }
-        }, 500); // Give both components time to fully initialize
+        }, 1000); // Give components more time to initialize
     } else {
         console.warn('❌ Color picker not found in DOM');
     }
