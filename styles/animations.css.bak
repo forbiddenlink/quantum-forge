@@ -26,6 +26,19 @@
     }
 }
 
+/* Simple Pulse Animation - For subtle status changes */
+@keyframes simplePulse {
+
+    0%,
+    100% {
+        opacity: var(--opacity-normal);
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
 /* Float Animation - For floating elements with complex movement */
 @keyframes float {
 
@@ -61,8 +74,8 @@
     }
 
     50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.5;
+        transform: scale(1.2);
     }
 }
 
@@ -96,7 +109,7 @@
     }
 }
 
-/* Slide and Fade Animations */
+/* Slide Animations */
 @keyframes slideInUp {
     from {
         opacity: 0;
@@ -111,25 +124,13 @@
 
 @keyframes slideInRight {
     from {
-        opacity: 0;
         transform: translateX(100%);
-    }
-
-    to {
-        opacity: var(--opacity-normal);
-        transform: translateX(var(--translate-x-end));
-    }
-}
-
-@keyframes slideInLeft {
-    from {
         opacity: 0;
-        transform: translateX(-20px);
     }
 
     to {
-        opacity: var(--opacity-normal);
         transform: translateX(var(--translate-x-end));
+        opacity: var(--opacity-normal);
     }
 }
 
@@ -150,6 +151,30 @@
 
     to {
         opacity: 0;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(var(--translate-x-end));
+        opacity: var(--opacity-normal);
     }
 }
 
@@ -280,7 +305,7 @@
     }
 }
 
-/* Sparkle Effects - Consolidated */
+/* Sparkle Effects */
 @keyframes sparkleAnimation {
 
     0%,
@@ -291,7 +316,7 @@
 
     50% {
         opacity: 1;
-        transform: scale(1.5) rotate(180deg);
+        transform: scale(1.2) rotate(180deg);
     }
 }
 
@@ -331,7 +356,7 @@
     }
 }
 
-/* Energy Pulse and Ring Animations - Consolidated */
+/* Energy Pulse */
 @keyframes energyPulse {
 
     0%,
@@ -436,70 +461,146 @@
     }
 }
 
-/* Core Animation System - Quantum Forge Contest Edition */
+/* Additional Common Animations - Consolidated from main.css duplicates */
 
-/* Basic Transitions */
-@keyframes fadeIn {
+/* Expand In Animation */
+@keyframes expandIn {
     from {
         opacity: 0;
+        transform: translateY(-10px);
     }
 
     to {
         opacity: var(--opacity-normal);
+        transform: translateY(var(--translate-y-end));
     }
 }
 
-@keyframes scaleIn {
+/* Rotate Animation */
+@keyframes rotate {
     from {
-        transform: scale(0.95);
-        opacity: 0;
+        transform: rotate(0deg);
     }
 
     to {
-        transform: scale(1);
-        opacity: var(--opacity-normal);
+        transform: rotate(360deg);
     }
 }
 
-@keyframes slideIn {
-    from {
-        transform: translateY(var(--slide-distance, 10px));
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: var(--opacity-normal);
-    }
-}
-
-/* Interactive Feedback */
-@keyframes pulse {
+/* Breathe Animation */
+@keyframes breathe {
 
     0%,
     100% {
         transform: scale(1);
-        opacity: var(--pulse-opacity-start, 1);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+
+    25% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.5);
     }
 
     50% {
-        transform: scale(var(--pulse-scale, 1.05));
-        opacity: var(--pulse-opacity-mid, 0.8);
+        transform: scale(1.2);
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0.3);
+    }
+
+    75% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.5);
     }
 }
 
-@keyframes shimmer {
+/* Slide Out Down Animation */
+@keyframes slideOutDown {
+    from {
+        opacity: var(--opacity-normal);
+        transform: translateY(var(--translate-y-end));
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+/* Text Reveal Animation */
+@keyframes textReveal {
+    from {
+        opacity: 0;
+        background-position: 100% 0;
+    }
+
+    to {
+        opacity: 1;
+        background-position: 0% 0;
+    }
+}
+
+/* Gradient Shift Animation - Advanced 8-layer background positioning */
+@keyframes gradientShift {
     0% {
-        transform: translateX(-100%);
-        background-position: 100% 50%;
+        background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 0% 0%;
+    }
+
+    25% {
+        background-position: 100% 0%, 0% 100%, 25% 50%, 0% 0%, 25% 25%, 75% 75%, 45% 55%, 25% 25%;
+    }
+
+    50% {
+        background-position: 100% 100%, 0% 0%, 50% 50%, 0% 0%, 30% 30%, 70% 70%, 40% 60%, 50% 50%;
+    }
+
+    75% {
+        background-position: 0% 100%, 100% 0%, 75% 50%, 0% 0%, 35% 35%, 65% 65%, 35% 65%, 75% 75%;
     }
 
     100% {
-        transform: translateX(100%);
-        background-position: 0% 50%;
+        background-position: 0% 0%, 100% 100%, 0% 50%, 0% 0%, 20% 20%, 80% 80%, 50% 50%, 0% 0%;
     }
 }
 
+/* Focus Pulse Animation */
+@keyframes focusPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+}
+
+/* Typing Animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* Blink Caret Animation */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: var(--text-primary);
+    }
+}
+
+/* Wave Animation */
 @keyframes wave {
 
     0%,
@@ -517,68 +618,234 @@
     }
 }
 
-/* Status Effects */
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes breathe {
+/* Gentle Bounce Animation */
+@keyframes gentle-bounce {
 
     0%,
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 var(--glow-color, rgba(16, 185, 129, 0.7));
-    }
-
-    50% {
-        transform: scale(var(--breathe-scale, 1.1));
-        box-shadow: 0 0 0 var(--glow-spread, 10px) var(--glow-color, rgba(16, 185, 129, 0.3));
-    }
-}
-
-/* Motion Effects */
-@keyframes float {
-
-    0%,
+    20%,
+    50%,
+    80%,
     100% {
         transform: translateY(0);
     }
 
-    50% {
-        transform: translateY(var(--float-distance, -10px));
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
     }
 }
 
-/* Text Effects */
-@keyframes typing {
+
+
+
+
+
+
+/* Spectacular Entrance Animation - Multi-axis transforms with blur effects */
+@keyframes spectacularEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9) rotateX(10deg);
+        filter: blur(10px);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: translateY(-5px) scale(1.02) rotateX(-2deg);
+        filter: blur(2px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg);
+        filter: blur(0);
+    }
+}
+
+/* Burst Particle Animation - Expanding particle effects */
+@keyframes burstParticle {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0) translateX(100px) translateY(-100px);
+    }
+}
+
+/* Card Sparkle Animation - 360 rotation with scale and translation */
+@keyframes cardSparkle {
+    0% {
+        opacity: 1;
+        transform: scale(0) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5) rotate(180deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(360deg) translateY(-50px);
+    }
+}
+
+/* Glow Pulse Animation - Opacity and scale transitions */
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Glowing Border Animation - Border color and shadow transitions */
+@keyframes glowingBorder {
+
+    0%,
+    100% {
+        border-color: rgba(99, 102, 241, 0.3);
+        box-shadow: 0 0 5px rgba(99, 102, 241, 0.2);
+    }
+
+    50% {
+        border-color: rgba(99, 102, 241, 0.8);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+    }
+}
+
+/* Fade In Scale Animation - Combined fade and scale effect */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    /* 100% rule removed - duplicate of scaleIn keyframe */
+}
+
+/* Swing Animation - Gentle pendulum swing effect */
+@keyframes swing {
+
+    /* 0%, 100% rule removed - duplicate of wave keyframe */
+
+    25% {
+        transform: rotate(3deg);
+    }
+
+    75% {
+        transform: rotate(-3deg);
+    }
+}
+
+/* Ripple Effect Animation - Expanding ripple with fade out */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Color Cycle Animation - Hue rotation for dynamic color cycling */
+@keyframes colorCycle {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    25% {
+        filter: hue-rotate(90deg);
+    }
+
+    50% {
+        filter: hue-rotate(180deg);
+    }
+
+    75% {
+        filter: hue-rotate(270deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+/* Scale Bounce Animation - Simple scale-based bounce effect */
+@keyframes scaleBounce {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
     from {
-        width: 0;
+        opacity: 0;
+        transform: translateY(30px);
     }
 
     to {
-        width: 100%;
+        opacity: var(--opacity-normal);
+        transform: translateY(var(--translate-y-end));
     }
 }
 
-@keyframes blink-caret {
+/* Slide Down Animation */
+@keyframes slideDown {
+    from {
+        opacity: var(--opacity-normal);
+        transform: translateY(var(--translate-y-end));
+    }
 
-    from,
     to {
-        border-color: transparent;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+/* Standardized pulse animation for opacity changes - consolidates statusPulse and pulse-online */
+@keyframes standardPulse {
+
+    0%,
+    100% {
+        opacity: var(--opacity-normal);
     }
 
     50% {
-        border-color: var(--text-primary);
+        opacity: 0.5;
     }
 }
 
-/* Accessibility */
+/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
 
     .animate-shimmer,
@@ -588,8 +855,6 @@
     .animate-fade-in,
     .animate-slide-up,
     .animate-scale-in {
-        animation: none !important;
-        transition: none !important;
+        animation: none;
     }
-}
 }

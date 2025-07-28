@@ -48,7 +48,7 @@ export class PerformanceMonitor {
     getAverageMetric(name) {
         const metrics = this.metrics.get(name) || [];
         if (metrics.length === 0) return 0;
-        
+
         const sum = metrics.reduce((acc, curr) => acc + curr.value, 0);
         return sum / metrics.length;
     }

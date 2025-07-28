@@ -14,7 +14,7 @@ export class ChartManager {
 
         // Set default options for performance
         const enhancedConfig = this.enhanceConfig(config);
-        
+
         try {
             const chart = new Chart(canvas.getContext('2d'), enhancedConfig);
             this.charts.set(canvasId, chart);
@@ -63,7 +63,7 @@ export class ChartManager {
         if (chart) {
             // Stop performance monitoring
             this.stopMonitoring(chart);
-            
+
             // Cleanup chart resources
             chart.destroy();
             this.charts.delete(canvasId);
@@ -74,9 +74,9 @@ export class ChartManager {
 
     startMonitoring(chart, canvasId) {
         const startTime = performance.now();
-        
+
         window.performanceMonitor?.startMeasure(`chart-${canvasId}`);
-        
+
         chart.options.plugins.beforeDraw = (chart) => {
             const renderTime = performance.now() - startTime;
             window.performanceMonitor?.recordMetric({

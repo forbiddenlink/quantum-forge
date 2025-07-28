@@ -26,20 +26,15 @@
     --force-repaint: 0;
 
     /* Component Background Colors */
-    --component-bg-primary: linear-gradient(45deg,
+    --component-bg-primary: linear-gradient(135deg,
             var(--primary-500) 0%,
-            transparent 50%,
-            var(--primary-500) 100%);
-    --component-bg-secondary: linear-gradient(-45deg,
-            var(--primary-600) 0%,
-            transparent 50%,
             var(--primary-600) 100%);
-    --component-bg-accent: linear-gradient(90deg,
-            transparent 0%,
-            var(--primary-400) 25%,
-            transparent 50%,
-            var(--primary-300) 75%,
-            transparent 100%);
+    --component-bg-secondary: linear-gradient(135deg,
+            var(--primary-400) 0%,
+            var(--primary-500) 100%);
+    --component-bg-accent: linear-gradient(135deg,
+            var(--primary-500) 0%,
+            var(--primary-600) 100%);
     --component-glow: 0 0 60px var(--primary-500),
         0 0 120px var(--primary-500);
 }

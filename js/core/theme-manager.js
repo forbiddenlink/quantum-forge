@@ -3,7 +3,7 @@ export class ThemeManager {
         this.themeChangeCallbacks = new Set();
         this.currentTheme = localStorage.getItem('theme') || 'light';
         this.systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
+
         // Initialize theme
         this.initializeTheme();
         this.setupEventListeners();
@@ -13,7 +13,7 @@ export class ThemeManager {
         // Always default to light theme for contest requirements
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
-        
+
         // Fix any white backgrounds
         this.fixWhiteBackgrounds();
     }
@@ -46,11 +46,11 @@ export class ThemeManager {
     updateTheme() {
         const theme = this.currentTheme;
         document.documentElement.setAttribute('data-theme', theme);
-        
+
         // Apply CSS variable updates
         const hslValues = this.getThemeHSLValues(theme);
         this.updateCSSVariables(hslValues);
-        
+
         // Notify components
         this.notifyThemeChange(theme);
     }
@@ -68,7 +68,7 @@ export class ThemeManager {
 
     updateCSSVariables(hslValues) {
         const root = document.documentElement;
-        
+
         Object.entries(hslValues).forEach(([key, { h, s, l }]) => {
             root.style.setProperty(`--${key}-h`, h);
             root.style.setProperty(`--${key}-s`, `${s}%`);

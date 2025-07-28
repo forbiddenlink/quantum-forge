@@ -1,9 +1,57 @@
 /* ===== CULTURE SECTION GLASSMORPHISM FIX ===== */
 /* This file now applies proper glassmorphism effects to the culture section */
 
-/* NUCLEAR OPTION: Override ALL possible backdrop-filter sources with maximum specificity */
+/* FORCE WHITE TEXT EVERYWHERE IN CULTURE SECTION */
 html body .company-culture-showcase,
-html body .company-culture-showcase *,
+html body .company-culture-showcase *:not(.text-warning):not(.text-error):not(.text-success):not(.text-accent),
+html body .company-culture-showcase h1,
+html body .company-culture-showcase h2,
+html body .company-culture-showcase h3,
+html body .company-culture-showcase h4,
+html body .company-culture-showcase h5,
+html body .company-culture-showcase h6,
+html body .company-culture-showcase p,
+html body .company-culture-showcase span,
+html body .company-culture-showcase div,
+html body .company-culture-showcase li,
+html body .company-culture-showcase a,
+html body .company-culture-showcase button,
+html body .company-culture-showcase label,
+html body .company-culture-showcase input,
+html body .company-culture-showcase select,
+html body .company-culture-showcase textarea {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+  text-shadow: none !important;
+}
+
+/* Secondary text slightly transparent */
+html body .company-culture-showcase [class*="text-secondary"],
+html body .company-culture-showcase [class*="text-muted"],
+html body .company-culture-showcase .stat-label,
+html body .company-culture-showcase .description,
+html body .company-culture-showcase .subtitle,
+html body .company-culture-showcase small {
+  color: rgba(255, 255, 255, 0.8) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.8) !important;
+  text-shadow: none !important;
+}
+
+/* NUCLEAR OPTION: Override ALL text colors and backdrop-filter sources with maximum specificity */
+html body .company-culture-showcase,
+html body .company-culture-showcase *:not(.text-warning):not(.text-error):not(.text-success):not(.text-accent),
+html body .company-culture-showcase h1,
+html body .company-culture-showcase h2,
+html body .company-culture-showcase h3,
+html body .company-culture-showcase h4,
+html body .company-culture-showcase h5,
+html body .company-culture-showcase h6,
+html body .company-culture-showcase p,
+html body .company-culture-showcase span,
+html body .company-culture-showcase div,
+html body .company-culture-showcase li,
+html body .company-culture-showcase a,
+html body .company-culture-showcase button,
 html body .company-culture-showcase .stat-item,
 html body .company-culture-showcase .stat-item *,
 html body .company-culture-showcase .culture-stats,
@@ -46,7 +94,8 @@ html body .company-culture-showcase .culture-stats .stat-number,
 html body .company-culture-showcase .culture-stats .stat-label,
 html body .company-culture-showcase .stat-preview .stat-number,
 html body .company-culture-showcase .stat-preview .stat-label {
-  color: #ffffff !important; /* Pure white for maximum contrast */
+  color: #ffffff !important;
+  /* Pure white for maximum contrast */
   font-weight: 700 !important;
   text-shadow: none !important;
   backdrop-filter: blur(15px) !important;
@@ -76,9 +125,12 @@ html body .company-culture-showcase .stat-preview .stat-label,
 html body .company-culture-showcase .stat-item *,
 html body .company-culture-showcase .culture-stats *,
 html body .company-culture-showcase .stat-preview * {
-  color: #ffffff !important; /* Force pure white */
-  --text-primary: #ffffff !important; /* Override CSS variable */
-  --text-secondary: rgba(255, 255, 255, 0.8) !important; /* Override CSS variable */
+  color: #ffffff !important;
+  /* Force pure white */
+  --text-primary: #ffffff !important;
+  /* Override CSS variable */
+  --text-secondary: rgba(255, 255, 255, 0.8) !important;
+  /* Override CSS variable */
   font-weight: 700 !important;
   text-shadow: none !important;
   /* Remove all shimmer/glow effects */
@@ -109,11 +161,14 @@ html body .company-culture-showcase .stat-preview * {
 
 /* Override any glass morphism effects and ensure proper background */
 .company-culture-showcase .stat-item {
-  background: rgba(255, 255, 255, 0.1) !important; /* Glassmorphism background */
-  border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Semi-transparent border */
+  background: rgba(255, 255, 255, 0.1) !important;
+  /* Glassmorphism background */
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  /* Semi-transparent border */
   backdrop-filter: blur(15px) !important;
   -webkit-backdrop-filter: blur(15px) !important;
-  color: #ffffff !important; /* Pure white text */
+  color: #ffffff !important;
+  /* Pure white text */
   /* Remove all shimmer/glow effects */
   box-shadow: none !important;
   text-shadow: none !important;
@@ -123,7 +178,8 @@ html body .company-culture-showcase .stat-preview * {
 
 /* Ensure proper text contrast - STAT NUMBERS - WHITE */
 .company-culture-showcase .stat-number {
-  color: #ffffff !important; /* Pure white for numbers */
+  color: #ffffff !important;
+  /* Pure white for numbers */
   font-weight: 700 !important;
   text-shadow: none !important;
   font-size: 1.5rem !important;
@@ -135,7 +191,8 @@ html body .company-culture-showcase .stat-preview * {
 
 /* Ensure proper text contrast - STAT LABELS - WHITE */
 .company-culture-showcase .stat-label {
-  color: rgba(255, 255, 255, 0.8) !important; /* Semi-transparent white for labels */
+  color: rgba(255, 255, 255, 0.8) !important;
+  /* Semi-transparent white for labels */
   font-weight: 600 !important;
   text-shadow: none !important;
   font-size: 0.75rem !important;
@@ -173,7 +230,8 @@ html body .company-culture-showcase .stat-preview * {
 }
 
 .company-culture-showcase .culture-stats .stat-number {
-  color: #ffffff !important; /* Pure white */
+  color: #ffffff !important;
+  /* Pure white */
   font-weight: 700 !important;
   /* Remove all shimmer/glow effects */
   box-shadow: none !important;
@@ -183,7 +241,8 @@ html body .company-culture-showcase .stat-preview * {
 }
 
 .company-culture-showcase .culture-stats .stat-label {
-  color: rgba(255, 255, 255, 0.8) !important; /* Semi-transparent white */
+  color: rgba(255, 255, 255, 0.8) !important;
+  /* Semi-transparent white */
   font-weight: 600 !important;
   /* Remove all shimmer/glow effects */
   box-shadow: none !important;
@@ -222,6 +281,36 @@ html body .company-culture-showcase .stat-preview * {
   transition: none !important;
 }
 
+/* FORCE WHITE TEXT ON ANY REMAINING DARK TEXT */
+html body .company-culture-showcase [style*="color:"],
+html body .company-culture-showcase [style*="color: "],
+html body .company-culture-showcase [style*="color:#"],
+html body .company-culture-showcase [style*="color: #"],
+html body .company-culture-showcase [style*="color:rgb"],
+html body .company-culture-showcase [style*="color: rgb"],
+html body .company-culture-showcase [style*="color:rgba"],
+html body .company-culture-showcase [style*="color: rgba"],
+html body .company-culture-showcase [style*="color:hsl"],
+html body .company-culture-showcase [style*="color: hsl"],
+html body .company-culture-showcase [style*="color:hsla"],
+html body .company-culture-showcase [style*="color: hsla"] {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+  text-shadow: none !important;
+}
+
+/* Override any dark themes or color schemes */
+html body .company-culture-showcase,
+html body [data-theme="dark"] .company-culture-showcase,
+html body [data-theme="light"] .company-culture-showcase {
+  --text-primary: white !important;
+  --text-secondary: rgba(255, 255, 255, 0.8) !important;
+  --text-tertiary: rgba(255, 255, 255, 0.6) !important;
+  --text-on-primary: white !important;
+  --text-on-secondary: white !important;
+  --text-on-accent: white !important;
+}
+
 /* Remove ALL animations and transitions from culture section */
 .company-culture-showcase,
 .company-culture-showcase *,
@@ -248,9 +337,12 @@ html body .company-culture-showcase .stat-preview .stat-number,
 html body .company-culture-showcase .stat-item .stat-label,
 html body .company-culture-showcase .culture-stats .stat-label,
 html body .company-culture-showcase .stat-preview .stat-label {
-  color: #ffffff !important; /* Force pure white */
-  --text-primary: #ffffff !important; /* Override CSS variable */
-  --text-secondary: rgba(255, 255, 255, 0.8) !important; /* Override CSS variable */
+  color: #ffffff !important;
+  /* Force pure white */
+  --text-primary: #ffffff !important;
+  /* Override CSS variable */
+  --text-secondary: rgba(255, 255, 255, 0.8) !important;
+  /* Override CSS variable */
   font-weight: 700 !important;
   text-shadow: none !important;
   /* Remove all shimmer/glow effects */
@@ -274,9 +366,12 @@ html body .company-culture-showcase .stat-preview .stat-label {
 html body .company-culture-showcase .stat-item .stat-label,
 html body .company-culture-showcase .culture-stats .stat-label,
 html body .company-culture-showcase .stat-preview .stat-label {
-  color: rgba(255, 255, 255, 0.8) !important; /* Semi-transparent white for labels */
-  --text-primary: rgba(255, 255, 255, 0.8) !important; /* Override CSS variable */
-  --text-secondary: rgba(255, 255, 255, 0.8) !important; /* Override CSS variable */
+  color: rgba(255, 255, 255, 0.8) !important;
+  /* Semi-transparent white for labels */
+  --text-primary: rgba(255, 255, 255, 0.8) !important;
+  /* Override CSS variable */
+  --text-secondary: rgba(255, 255, 255, 0.8) !important;
+  /* Override CSS variable */
   font-weight: 600 !important;
   text-shadow: none !important;
   font-size: 0.75rem !important;
@@ -400,4 +495,4 @@ html body #app .company-culture-showcase .stat-preview .stat-label {
   box-shadow: none !important;
   animation: none !important;
   transition: none !important;
-} 
+}

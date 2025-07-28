@@ -1,74 +1,62 @@
-/* Force Spectacular Background For All Components */
-analytics-dashboard,
-task-system,
-enhanced-knowledge-hub,
-live-activity-feed,
-smart-insights-dashboard,
-wellness-tracker,
-team-spotlight,
-company-news,
-collaboration-hub,
-office-visualizer,
-enhanced-interactive-poll,
-weather-widget,
-achievement-system {
-    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%) !important;
+/* Force Spectacular Background For All Components (Except Color Picker) */
+analytics-dashboard:not(.color-picker-panel):not(.color-picker-container),
+task-system:not(.color-picker-panel):not(.color-picker-container),
+enhanced-knowledge-hub:not(.color-picker-panel):not(.color-picker-container),
+live-activity-feed:not(.color-picker-panel):not(.color-picker-container),
+smart-insights-dashboard:not(.color-picker-panel):not(.color-picker-container),
+wellness-tracker:not(.color-picker-panel):not(.color-picker-container),
+team-spotlight:not(.color-picker-panel):not(.color-picker-container),
+company-news:not(.color-picker-panel):not(.color-picker-container),
+collaboration-hub:not(.color-picker-panel):not(.color-picker-container),
+office-visualizer:not(.color-picker-panel):not(.color-picker-container),
+enhanced-interactive-poll:not(.color-picker-panel):not(.color-picker-container),
+weather-widget:not(.color-picker-panel):not(.color-picker-container),
+achievement-system:not(.color-picker-panel):not(.color-picker-container) {
+    background: var(--bg-elevated) !important;
     border-radius: 16px !important;
     padding: 32px !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    color: white !important;
-    backdrop-filter: blur(20px) !important;
-    box-shadow:
-        0 20px 25px -5px rgba(0, 0, 0, 0.1),
-        0 10px 10px -5px rgba(0, 0, 0, 0.04),
-        0 0 0 1px rgba(255, 255, 255, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4),
-        0 0 60px hsla(var(--user-primary-h, 270), var(--user-primary-s, 80%), var(--user-primary-l, 50%), 0.4),
-        0 0 120px hsla(var(--user-primary-h, 270), var(--user-primary-s, 80%), var(--user-primary-l, 50%), 0.2) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+    box-shadow: var(--shadow-md) !important;
     margin: 20px 0 !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Force hover styles */
-analytics-dashboard:hover,
-task-system:hover,
-enhanced-knowledge-hub:hover,
-live-activity-feed:hover,
-smart-insights-dashboard:hover,
-wellness-tracker:hover,
-team-spotlight:hover,
-company-news:hover,
-collaboration-hub:hover,
-office-visualizer:hover,
-enhanced-interactive-poll:hover,
-weather-widget:hover,
-achievement-system:hover {
-    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%) !important;
+/* Force hover styles (except for color picker) */
+analytics-dashboard:not(.color-picker-panel):not(.color-picker-container):hover,
+task-system:not(.color-picker-panel):not(.color-picker-container):hover,
+enhanced-knowledge-hub:not(.color-picker-panel):not(.color-picker-container):hover,
+live-activity-feed:not(.color-picker-panel):not(.color-picker-container):hover,
+smart-insights-dashboard:not(.color-picker-panel):not(.color-picker-container):hover,
+wellness-tracker:not(.color-picker-panel):not(.color-picker-container):hover,
+team-spotlight:not(.color-picker-panel):not(.color-picker-container):hover,
+company-news:not(.color-picker-panel):not(.color-picker-container):hover,
+collaboration-hub:not(.color-picker-panel):not(.color-picker-container):hover,
+office-visualizer:not(.color-picker-panel):not(.color-picker-container):hover,
+enhanced-interactive-poll:not(.color-picker-panel):not(.color-picker-container):hover,
+weather-widget:not(.color-picker-panel):not(.color-picker-container):hover,
+achievement-system:not(.color-picker-panel):not(.color-picker-container):hover {
+    background: var(--bg-elevated) !important;
     transform: translateY(-2px);
-    box-shadow:
-        0 25px 30px -5px rgba(0, 0, 0, 0.15),
-        0 15px 15px -5px rgba(0, 0, 0, 0.08),
-        0 0 0 1px rgba(255, 255, 255, 0.25),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5),
-        0 0 70px hsla(var(--user-primary-h, 270), var(--user-primary-s, 80%), var(--user-primary-l, 50%), 0.5),
-        0 0 140px hsla(var(--user-primary-h, 270), var(--user-primary-s, 80%), var(--user-primary-l, 50%), 0.3) !important;
+    border-color: var(--primary-200) !important;
+    box-shadow: var(--shadow-lg) !important;
 }
 
-/* Force inner content to maintain proper colors */
-analytics-dashboard *,
-task-system *,
-enhanced-knowledge-hub *,
-live-activity-feed *,
-smart-insights-dashboard *,
-wellness-tracker *,
-team-spotlight *,
-company-news *,
-collaboration-hub *,
-office-visualizer *,
-enhanced-interactive-poll *,
-weather-widget *,
-achievement-system * {
-    color: white !important;
+/* Force inner content to maintain proper colors (except for color picker) */
+analytics-dashboard:not(.color-picker-panel):not(.color-picker-container) *,
+task-system:not(.color-picker-panel):not(.color-picker-container) *,
+enhanced-knowledge-hub:not(.color-picker-panel):not(.color-picker-container) *,
+live-activity-feed:not(.color-picker-panel):not(.color-picker-container) *,
+smart-insights-dashboard:not(.color-picker-panel):not(.color-picker-container) *,
+wellness-tracker:not(.color-picker-panel):not(.color-picker-container) *,
+team-spotlight:not(.color-picker-panel):not(.color-picker-container) *,
+company-news:not(.color-picker-panel):not(.color-picker-container) *,
+collaboration-hub:not(.color-picker-panel):not(.color-picker-container) *,
+office-visualizer:not(.color-picker-panel):not(.color-picker-container) *,
+enhanced-interactive-poll:not(.color-picker-panel):not(.color-picker-container) *,
+weather-widget:not(.color-picker-panel):not(.color-picker-container) *,
+achievement-system:not(.color-picker-panel):not(.color-picker-container) * {
+    color: var(--text-primary) !important;
     background: transparent !important;
 }
 
@@ -112,6 +100,6 @@ weather-widget h3,
 achievement-system h1,
 achievement-system h2,
 achievement-system h3 {
-    color: white !important;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
 }

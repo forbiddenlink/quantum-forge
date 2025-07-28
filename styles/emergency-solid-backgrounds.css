@@ -1,0 +1,62 @@
+/* EMERGENCY SOLID BACKGROUNDS FIX - Overrides all other styles */
+
+/* NUCLEAR-LEVEL OVERRIDE - Maximum specificity to force solid backgrounds */
+html body .dashboard *[class*="dashboard"],
+html body .dashboard *[class*="component"],
+html body .dashboard *[class*="widget"],
+html body .dashboard *[class*="card"],
+html body .dashboard *[class*="panel"],
+html body .dashboard *[class*="section"],
+html body .dashboard analytics-dashboard,
+html body .dashboard task-system,
+html body .dashboard enhanced-knowledge-hub,
+html body .dashboard live-activity-feed,
+html body .dashboard smart-insights-dashboard,
+html body .dashboard wellness-tracker,
+html body .dashboard team-spotlight,
+html body .dashboard company-news,
+html body .dashboard collaboration-hub,
+html body .dashboard office-visualizer,
+html body .dashboard enhanced-interactive-poll,
+html body .dashboard weather-widget,
+html body .dashboard achievement-system {
+    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-image: none !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: var(--shadow-md) !important;
+    color: white !important;
+}
+
+/* Force solid backgrounds on hover */
+html body .dashboard *[class*="dashboard"]:hover,
+html body .dashboard *[class*="component"]:hover,
+html body .dashboard *[class*="widget"]:hover,
+html body .dashboard *[class*="card"]:hover,
+html body .dashboard *[class*="panel"]:hover,
+html body .dashboard *[class*="section"]:hover,
+html body .dashboard analytics-dashboard:hover,
+html body .dashboard task-system:hover,
+html body .dashboard enhanced-knowledge-hub:hover,
+html body .dashboard live-activity-feed:hover,
+html body .dashboard smart-insights-dashboard:hover,
+html body .dashboard wellness-tracker:hover,
+html body .dashboard team-spotlight:hover,
+html body .dashboard company-news:hover,
+html body .dashboard collaboration-hub:hover,
+html body .dashboard office-visualizer:hover,
+html body .dashboard enhanced-interactive-poll:hover,
+html body .dashboard weather-widget:hover,
+html body .dashboard achievement-system:hover {
+    background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary-500) 100%) !important;
+    background-image: none !important;
+}
+
+/* Remove all other background properties */
+html body .dashboard *[style*="background"],
+html body .dashboard *[style*="backdrop-filter"] {
+    background-image: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}

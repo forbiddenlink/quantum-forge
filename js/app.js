@@ -812,36 +812,68 @@ function forceSidebarLightMode() {
     });
 }
 
-// Force light theme and fix white backgrounds
+// Force light theme and set solid backgrounds
 function forceLightThemeAndFixBackgrounds() {
-    console.log('🚨 Force light theme and fix white backgrounds...');
+    console.log('🚨 Force light theme and set solid backgrounds...');
 
     // Force light theme
     document.documentElement.setAttribute('data-theme', 'light');
     document.body.setAttribute('data-theme', 'light');
     localStorage.setItem('theme', 'light');
 
-    // Remove white backgrounds from all insight elements
-    function removeWhiteBackgrounds() {
-        const insightElements = document.querySelectorAll('*[class*="insight"]');
-        insightElements.forEach(element => {
-            element.style.setProperty('background', 'transparent', 'important');
-            element.style.setProperty('background-color', 'transparent', 'important');
+    // Set solid backgrounds for all dashboard components
+    function setSolidBackgrounds() {
+        const dashboardComponents = document.querySelectorAll(`
+            analytics-dashboard,
+            task-system,
+            enhanced-knowledge-hub,
+            live-activity-feed,
+            smart-insights-dashboard,
+            wellness-tracker,
+            team-spotlight,
+            company-news,
+            collaboration-hub,
+            office-visualizer,
+            enhanced-interactive-poll,
+            weather-widget,
+            achievement-system,
+            *[class*="dashboard-item"]
+        `);
+
+        dashboardComponents.forEach(element => {
+            element.style.setProperty('background', 'linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%)', 'important');
+            element.style.setProperty('background-image', 'linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%)', 'important');
+            element.style.setProperty('backdrop-filter', 'none', 'important');
+            element.style.setProperty('-webkit-backdrop-filter', 'none', 'important');
+            element.style.setProperty('color', 'white', 'important');
         });
 
-        // Also fix any elements with white backgrounds
+        // Fix any elements with white backgrounds
         const whiteBackgroundElements = document.querySelectorAll('*[style*="background: white"], *[style*="background-color: white"]');
         whiteBackgroundElements.forEach(element => {
-            element.style.setProperty('background', 'transparent', 'important');
-            element.style.setProperty('background-color', 'transparent', 'important');
+            if (!element.closest('.welcome-section')) {
+                element.style.setProperty('background', 'linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%)', 'important');
+                element.style.setProperty('background-image', 'linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%)', 'important');
+                element.style.setProperty('color', 'white', 'important');
+            }
         });
     }
 
     // Apply fixes immediately and after delays
-    removeWhiteBackgrounds();
-    setTimeout(removeWhiteBackgrounds, 100);
-    setTimeout(removeWhiteBackgrounds, 500);
-    setTimeout(removeWhiteBackgrounds, 1000);
+    setSolidBackgrounds();
+    setTimeout(setSolidBackgrounds, 100);
+    setTimeout(setSolidBackgrounds, 500);
+    setTimeout(setSolidBackgrounds, 1000);
+    
+    // Set up a mutation observer to handle dynamically added elements
+    const observer = new MutationObserver((mutations) => {
+        setSolidBackgrounds();
+    });
+    
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 
-    console.log('✅ Light theme forced and white backgrounds removed');
+    console.log('✅ Light theme forced and solid backgrounds applied');
 }

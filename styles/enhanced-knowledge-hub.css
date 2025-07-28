@@ -430,30 +430,6 @@
     overflow: hidden;
 }
 
-@keyframes knowledgeFloat {
-
-    0%,
-    100% {
-        transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
-        opacity: 0.6;
-    }
-
-    25% {
-        transform: translateX(10px) translateY(-10px) scale(1.02) rotate(1deg);
-        opacity: 0.8;
-    }
-
-    50% {
-        transform: translateX(-8px) translateY(-8px) scale(0.98) rotate(-0.5deg);
-        opacity: 0.7;
-    }
-
-    75% {
-        transform: translateX(-10px) translateY(10px) scale(1.01) rotate(0.5deg);
-        opacity: 0.9;
-    }
-}
-
 /* 🌟 SPECTACULAR PARTICLE SYSTEM - CONSTRAINED */
 .knowledge-particles-system {
     position: absolute;
@@ -476,34 +452,6 @@
     box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
     background: radial-gradient(circle, var(--knowledge-hub-primary) 0%, transparent 70%);
     animation: knowledgeParticleFloat 15s ease-in-out infinite;
-}
-
-@keyframes knowledgeParticleFloat {
-
-    0%,
-    100% {
-        transform: translateX(0px) translateY(0px) scale(1) rotate(0deg);
-        opacity: 0.4;
-        filter: blur(0.5px) hue-rotate(0deg);
-    }
-
-    25% {
-        transform: translateX(15px) translateY(-20px) scale(1.1) rotate(90deg);
-        opacity: 0.8;
-        filter: blur(0.3px) hue-rotate(90deg);
-    }
-
-    50% {
-        transform: translateX(-15px) translateY(-15px) scale(0.9) rotate(180deg);
-        opacity: 0.6;
-        filter: blur(0.7px) hue-rotate(180deg);
-    }
-
-    75% {
-        transform: translateX(-20px) translateY(20px) scale(1.05) rotate(270deg);
-        opacity: 0.7;
-        filter: blur(0.4px) hue-rotate(270deg);
-    }
 }
 
 /* ✨ SPARKLE EFFECTS - DISABLED TO PREVENT OVERFLOW */
@@ -546,22 +494,6 @@
     animation: knowledgeEnergyPulse 3s ease-in-out infinite;
     pointer-events: none;
     z-index: 3;
-}
-
-@keyframes knowledgeEnergyPulse {
-
-    0%,
-    100% {
-        opacity: 0;
-        transform: scale(0.3);
-        border-color: rgba(99, 102, 241, 0.1);
-    }
-
-    50% {
-        opacity: 0.4;
-        transform: scale(1);
-        border-color: rgba(99, 102, 241, 0.4);
-    }
 }
 
 /* SPECTACULAR HEADER SECTION - IMPROVED ALIGNMENT - UPDATED TO USE PARENT GAP */
@@ -1786,23 +1718,6 @@ html body .knowledge-hub.spectacular-mode .search-icon {
     bottom: 30%;
     left: 70%;
     animation-delay: 0.6s;
-}
-
-@keyframes knowledgeHoverParticle {
-    0% {
-        opacity: 0;
-        transform: scale(0) translateY(0);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1) translateY(-10px);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(0) translateY(-20px);
-    }
 }
 
 /* ENHANCED RESOURCE CARDS */

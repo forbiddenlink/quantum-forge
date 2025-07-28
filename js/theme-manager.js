@@ -73,6 +73,7 @@ const ThemeManager = {
             const lighterColor = `hsl(${theme.hue}, ${theme.saturation}%, ${Math.min(theme.lightness + 20, 95)}%)`;
 
             // Set comprehensive color scale
+            // Set solid color values for components that need them
             document.documentElement.style.setProperty('--primary-50', `hsl(${theme.hue}, ${theme.saturation}%, 95%)`);
             document.documentElement.style.setProperty('--primary-100', `hsl(${theme.hue}, ${theme.saturation}%, 90%)`);
             document.documentElement.style.setProperty('--primary-200', `hsl(${theme.hue}, ${theme.saturation}%, 80%)`);
@@ -83,6 +84,10 @@ const ThemeManager = {
             document.documentElement.style.setProperty('--primary-700', `hsl(${theme.hue}, ${theme.saturation}%, 30%)`);
             document.documentElement.style.setProperty('--primary-800', `hsl(${theme.hue}, ${theme.saturation}%, 20%)`);
             document.documentElement.style.setProperty('--primary-900', `hsl(${theme.hue}, ${theme.saturation}%, 10%)`);
+
+            // Set solid background colors for metric cards
+            document.documentElement.style.setProperty('--metric-card-bg', baseColor);
+            document.documentElement.style.setProperty('--metric-card-hover-bg', lighterColor);
 
             // Set component accessors
             document.documentElement.style.setProperty('--button-primary', baseColor);

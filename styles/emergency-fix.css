@@ -1,0 +1,261 @@
+/* Emergency Styling Fix - Contest Edition */
+
+/* Reset Core Layout */
+.main-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    min-height: 100vh;
+    background: var(--bg-primary);
+}
+
+.main-content {
+    padding: var(--space-lg);
+    overflow-x: hidden;
+}
+
+/* Dashboard Grid Fix */
+.dashboard-grid {
+    display: grid;
+    gap: var(--space-lg);
+    padding: var(--space-md);
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.dashboard-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+@media (max-width: 768px) {
+    .dashboard-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Welcome Section Emergency Fix */
+.welcome-section {
+    background: linear-gradient(135deg,
+            hsla(var(--primary-h, 270), var(--primary-s, 80%), calc(var(--primary-l, 50%) + 45%), 0.9) 0%,
+            hsla(var(--primary-h, 270), var(--primary-s, 80%), calc(var(--primary-l, 50%) + 40%), 0.9) 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-header {
+    margin-bottom: var(--space-xl);
+}
+
+.welcome-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin: 0;
+}
+
+.welcome-subtitle {
+    font-size: var(--font-size-lg);
+    opacity: 0.9;
+    margin: var(--space-sm) 0;
+}
+
+/* Stats Grid Fix */
+.welcome-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-md);
+    margin: var(--space-xl) 0;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-number {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    display: block;
+}
+
+.stat-label {
+    font-size: var(--font-size-sm);
+    opacity: 0.9;
+}
+
+/* Quick Actions Fix */
+.quick-actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin: var(--space-xl) 0;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.btn.primary {
+    background: white;
+    color: var(--primary-600);
+}
+
+.btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Events List Fix */
+.events-list {
+    display: grid;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    transition: transform 0.2s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Quick Insights Fix */
+.quick-insights {
+    margin-top: var(--space-xl);
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.insight-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    transition: transform 0.2s ease;
+}
+
+.insight-card:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* 🚨 EMERGENCY COMPONENT BACKGROUND FIX */
+/* Force solid backgrounds on ALL components */
+.dashboard-item,
+.component,
+.widget,
+.card,
+.panel,
+.section,
+analytics-dashboard,
+task-system,
+enhanced-knowledge-hub,
+live-activity-feed,
+smart-insights-dashboard,
+wellness-tracker,
+team-spotlight,
+company-news,
+collaboration-hub,
+office-visualizer,
+enhanced-interactive-poll,
+weather-widget,
+achievement-system,
+.dashboard-item>* {
+    background: var(--surface-1) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: var(--space-xl) !important;
+    height: 100% !important;
+    box-shadow: var(--shadow-lg) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Enhanced hover states */
+.dashboard-item:hover,
+.component:hover,
+.widget:hover,
+.card:hover,
+.panel:hover,
+.section:hover,
+analytics-dashboard:hover,
+task-system:hover,
+enhanced-knowledge-hub:hover,
+live-activity-feed:hover,
+smart-insights-dashboard:hover,
+wellness-tracker:hover,
+team-spotlight:hover,
+company-news:hover,
+collaboration-hub:hover,
+office-visualizer:hover,
+enhanced-interactive-poll:hover,
+weather-widget:hover,
+achievement-system:hover,
+.dashboard-item:hover>* {
+    background: var(--surface-2) !important;
+    border-color: var(--primary-200) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl) !important;
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+
+    .stat-item,
+    .event-card,
+    .insight-card,
+    .btn {
+        transition: none !important;
+    }
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .dashboard-item>* {
+    background: var(--surface-2);
+}
+
+/* Glass Effect Support */
+@supports (backdrop-filter: blur(12px)) {
+    .welcome-section {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+}
