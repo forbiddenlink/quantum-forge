@@ -16,14 +16,16 @@ let welcomeSection = null; // Store welcome section ins    // Add global test fu
             position: fixed;
             top: 70px;
             right: 20px;
-            width: 300px;
-            height: 400px;
-            background: white;
-            border: 3px solid red;
-            border-radius: 10px;
+            width: 320px;
+            height: auto;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
             z-index: 99999;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            padding: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15), 0 4px 8px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         `;
         
         panel.innerHTML = `

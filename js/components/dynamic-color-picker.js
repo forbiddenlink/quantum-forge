@@ -23,18 +23,40 @@ class DynamicColorPicker extends HTMLElement {
     }
 
     connectedCallback() {
+        console.log('🎨 DynamicColorPicker connectedCallback called');
+
         if (window.ThemeManager) {
+            console.log('🎨 ThemeManager available, initializing...');
             this.loadSavedTheme();
             this.render();
             this.setupEventListeners();
+            this.setupToggleButton();
         } else {
+            console.log('🎨 Waiting for ThemeManager...');
             // Wait for ThemeManager to be available
             window.addEventListener('themeManagerReady', () => {
+                console.log('🎨 ThemeManager ready, initializing...');
                 this.loadSavedTheme();
                 this.render();
                 this.setupEventListeners();
+                this.setupToggleButton();
             }, { once: true });
         }
+    }
+
+    setupToggleButton() {
+        // Simple connection to header button - works with app.js setup
+        setTimeout(() => {
+            const toggleButton = document.querySelector('#toggleColorPicker');
+            if (toggleButton && !toggleButton._colorPickerConnected) {
+                toggleButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.toggle();
+                });
+                toggleButton._colorPickerConnected = true;
+                console.log('🎨 Color picker connected to header button');
+            }
+        }, 100);
     }
 
     loadSavedTheme() {
@@ -503,52 +525,37 @@ class DynamicColorPicker extends HTMLElement {
     }
 
     toggle() {
-        // Toggle state
-        this.isOpen = !this.isOpen;
+        console.log('🎨 TOGGLE CALLED - SIMPLE VERSION');
 
-        // Get panel element
-        const panel = this.querySelector('.color-picker-panel');
-        if (!panel) return;
+        try {
+            // Toggle state
+            this.isOpen = !this.isOpen;
+            console.log('🎨 isOpen is now:', this.isOpen);
 
-        if (this.isOpen) {
-            // Show panel with animation
-            panel.style.display = 'block';
-            panel.style.opacity = '0';
-            panel.style.transform = 'translateY(-10px)';
+            // Get panel element
+            const panel = this.querySelector('.color-picker-panel');
+            console.log('🎨 Panel element found:', !!panel);
 
-            requestAnimationFrame(() => {
-                panel.style.opacity = '1';
-                panel.style.transform = 'translateY(0)';
-            });
+            if (!panel) {
+                console.log('🎨 NO PANEL - RENDERING...');
+                this.render();
+                return;
+            }
 
-            // Add event listener for outside clicks
-            document.addEventListener('click', this.handleOutsideClick);
-
-            // Add event listener for escape key
-            document.addEventListener('keydown', this.handleEscapeKey);
-        } else {
-            // Hide panel with animation
-            panel.style.opacity = '0';
-            panel.style.transform = 'translateY(-10px)';
-
-            setTimeout(() => {
+            if (this.isOpen) {
+                console.log('🎨 OPENING PANEL');
+                panel.style.display = 'block';
+                panel.classList.add('open');
+            } else {
+                console.log('🎨 CLOSING PANEL');
                 panel.style.display = 'none';
-            }, 200); // Match transition duration
+                panel.classList.remove('open');
+            }
 
-            // Remove event listeners
-            document.removeEventListener('click', this.handleOutsideClick);
-            document.removeEventListener('keydown', this.handleEscapeKey);
+            console.log('🎨 TOGGLE COMPLETE');
+        } catch (error) {
+            console.error('🎨 TOGGLE ERROR:', error);
         }
-
-        // Update ARIA attributes
-        this.updateAccessibility();
-
-        // Notify state change
-        this.dispatchEvent(new CustomEvent('colorPickerToggled', {
-            bubbles: true,
-            composed: true,
-            detail: { isOpen: this.isOpen }
-        }));
     }
 
     handleOutsideClick = (e) => {
