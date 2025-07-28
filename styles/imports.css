@@ -31,7 +31,7 @@
 @import url('./components.css');
 /* Shared component styles */
 @import url('./components/color-picker.css');
-/* 🎨 Dynamic Color Picker - Contest Show-Stopper Feature */
+/* 🎨 Unified Color Picker - Single Source of Truth */
 @import url('./components/task-system.css');
 @import url('./components/task-management.css');
 @import url('./components/quick-insights.css');
@@ -129,8 +129,8 @@
 @import url('./unified-homepage-styling.css');
 /* MUST load last to override component backgrounds */
 
-/* ===== 7. FINAL EMERGENCY FIXES - Load After Everything ===== */
-@import url('./background-transparency-fix.css');
-/* EMERGENCY FIX: Force transparent backgrounds with themed hover states */
+/* ===== 7. FINAL CONTEST FIXES - Load After Everything ===== */
+@import url('./contest-component-backgrounds.css');
+/* 🏆 CONTEST-READY: Force stunning gradient backgrounds on all components */
 @import url('./final-background-fix.css');
 /* FINAL EMERGENCY FIX: Components and color picker fixes */

@@ -193,6 +193,15 @@ const ThemeService = {
             console.log('ThemeService: Color picker ready status:', colorPickerReady);
 
             // Try to load saved theme
+            // Initialize the welcome section color picker
+            const colorPicker = document.getElementById('welcome-color-picker');
+            if (colorPicker) {
+                console.log('ThemeService: Found welcome section color picker');
+            } else {
+                console.warn('ThemeService: Welcome section color picker not found');
+            }
+
+            // Try to load saved theme
             const savedTheme = localStorage.getItem('userTheme');
             if (savedTheme) {
                 try {

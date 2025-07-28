@@ -1,6 +1,6 @@
 # CSS Duplication Report
 
-Found 59 duplicate rule(s).
+Found 61 duplicate rule(s).
 
 ## Duplicate Rule Found
 
@@ -88,7 +88,7 @@ from { opacity: var(--opacity-normal); transform: translateY(var(--translate-y-e
 
 ### Locations:
 - activity-cards.css:80 (.activity-content)
-- components.css:352 (.activity-content)
+- components.css:356 (.activity-content)
 
 ### Rule Content:
 ```css
@@ -461,6 +461,34 @@ code, pre { background: var(--bg-secondary); border-color: var(--border-color); 
 ### Rule Content:
 ```css
 .ai-insights-grid { grid-template-columns: repeat(2, 1fr); }
+```
+
+## Duplicate Rule Found
+
+### Locations:
+- background-transparency-fix.css:35 (.welcome-section)
+- final-background-fix.css:35 (.welcome-section)
+
+### Rule Content:
+```css
+.welcome-section { background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%) !important; color: white !important; }
+```
+
+## Duplicate Rule Found
+
+### Locations:
+- background-transparency-fix.css:93 (input:not([type="range"]):not([type="color"]),
+textarea,
+select,
+.form-control)
+- final-background-fix.css:98 (input:not([type="range"]):not([type="color"]),
+textarea,
+select,
+.form-control)
+
+### Rule Content:
+```css
+input:not([type="range"]):not([type="color"]), textarea, select, .form-control { background: white !important; }
 ```
 
 ## Duplicate Rule Found

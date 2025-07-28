@@ -509,73 +509,9 @@ class Header extends HTMLElement {
         }
     }
 
+    // Use single shared color picker instance from welcome-section
     async initializeColorPicker() {
         try {
-            console.log('🎨 Initializing color picker...');
-
-            // Get the existing button container
-            const colorPickerButton = this.querySelector('#toggleColorPicker');
-            if (!colorPickerButton) {
-                console.error('❌ Color picker button not found');
-                return;
-            }
-
-            // Check if color picker is already in the DOM
-            let colorPicker = document.querySelector('dynamic-color-picker');
-            if (!colorPicker) {
-                // Create new one if not found
-                colorPicker = document.createElement('dynamic-color-picker');
-            }
-
-            // Wait for custom element to be defined
-            await customElements.whenDefined('dynamic-color-picker');
-            console.log('✅ Color picker component defined');
-
-            // Find or create menu container
-            let colorPickerMenu = this.querySelector('.color-picker-menu');
-            if (!colorPickerMenu) {
-                colorPickerMenu = document.createElement('div');
-                colorPickerMenu.className = 'color-picker-menu';
-                this.appendChild(colorPickerMenu);
-                colorPickerMenu.appendChild(colorPicker);
-                console.log('✅ Added color picker to DOM');
-            }
-
-            // Add button click handler if not already added
-            if (!colorPickerButton.hasAttribute('data-initialized')) {
-                console.log('🔄 Setting up color picker button handlers');
-
-                // Add click handler
-                colorPickerButton.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    console.log('🖱️ Color picker button clicked');
-
-                    if (colorPicker && typeof colorPicker.toggle === 'function') {
-                        try {
-                            colorPicker.toggle();
-                            console.log('✅ Color picker toggled');
-                        } catch (error) {
-                            console.error('❌ Error toggling color picker:', error);
-                        }
-                    } else {
-                        console.error('❌ Color picker or toggle method not available');
-                    }
-                });
-
-                // Add close handler
-                this.colorPickerCloseHandler = (e) => {
-                    if (colorPicker.isOpen && !colorPickerMenu.contains(e.target) && e.target !== colorPickerButton) {
-                        colorPicker.toggle();
-                        console.log('✅ Color picker closed by outside click');
-                    }
-                };
-                document.addEventListener('click', this.colorPickerCloseHandler);
-
-                colorPickerButton.setAttribute('data-initialized', 'true');
-                console.log('✅ Color picker button initialized');
-            }
-
             // Listen for theme changes if not already listening
             if (!this.themeChangeHandler) {
                 this.themeChangeHandler = (e) => {
@@ -587,7 +523,6 @@ class Header extends HTMLElement {
 
             this.colorPickerInitialized = true;
             console.log('✅ Color picker initialization complete');
-
         } catch (error) {
             console.error('❌ Error in color picker initialization:', error);
         }
