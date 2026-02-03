@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Project, ProjectStatus } from '@prisma/client';
+import { type Project, type ProjectStatus } from '@prisma/client';
 
 interface ProjectModalProps {
   isOpen: boolean;
@@ -29,8 +29,8 @@ export function ProjectModal({ isOpen, onClose, onSuccess, project }: ProjectMod
         name: proj.name,
         description: proj.description || '',
         status: proj.status,
-        startDate: proj.startDate ? new Date(proj.startDate).toISOString().split('T')[0] : '',
-        targetDate: proj.targetDate ? new Date(proj.targetDate).toISOString().split('T')[0] : '',
+        startDate: (proj.startDate ? new Date(proj.startDate).toISOString().split('T')[0] : '') ?? '',
+        targetDate: (proj.targetDate ? new Date(proj.targetDate).toISOString().split('T')[0] : '') ?? '',
       });
     }
   }, [project]);
@@ -88,26 +88,26 @@ export function ProjectModal({ isOpen, onClose, onSuccess, project }: ProjectMod
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
-      <div className="glass-panel w-full max-w-2xl rounded-3xl shadow-2xl animate-scale-in">
+    <div className="animate-fade-in fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
+      <div className="glass-panel animate-scale-in w-full max-w-2xl rounded-3xl shadow-2xl">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-border">
+        <div className="flex items-center justify-between border-b border-border p-6">
           <h2 className="heading-2">{project ? 'Edit Project' : 'Create New Project'}</h2>
           <button
             onClick={handleClose}
-            className="p-2 hover:bg-accent/5 rounded-lg transition-colors"
+            className="rounded-lg p-2 transition-colors hover:bg-accent/5"
             aria-label="Close modal"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 p-6">
           {error && (
-            <div className="p-3 rounded-lg bg-accent-critical/10 border border-accent-critical text-accent-critical text-sm">
+            <div className="bg-accent-critical/10 rounded-lg border border-accent-critical p-3 text-sm text-accent-critical">
               {error}
             </div>
           )}
@@ -122,7 +122,7 @@ export function ProjectModal({ isOpen, onClose, onSuccess, project }: ProjectMod
               type="text"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full rounded-lg border border-border bg-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="e.g., Q1 Portal Modernization"
               required
             />
@@ -137,7 +137,7 @@ export function ProjectModal({ isOpen, onClose, onSuccess, project }: ProjectMod
               id="description"
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary min-h-[100px]"
+              className="min-h-[100px] w-full rounded-lg border border-border bg-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="Describe the project goals and scope..."
             />
           </div>
@@ -151,7 +151,7 @@ export function ProjectModal({ isOpen, onClose, onSuccess, project }: ProjectMod
               id="status"
               value={formData.status}
               onChange={(e) => setFormData({ ...formData, status: e.target.value as ProjectStatus })}
-              className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full rounded-lg border border-border bg-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
             >
               <option value="PLANNING">Planning</option>
               <option value="ACTIVE">Active</option>
@@ -172,7 +172,7 @@ export function ProjectModal({ isOpen, onClose, onSuccess, project }: ProjectMod
                 type="date"
                 value={formData.startDate}
                 onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full rounded-lg border border-border bg-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
 
@@ -185,25 +185,25 @@ export function ProjectModal({ isOpen, onClose, onSuccess, project }: ProjectMod
                 type="date"
                 value={formData.targetDate}
                 onChange={(e) => setFormData({ ...formData, targetDate: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full rounded-lg border border-border bg-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
           </div>
 
           {/* Actions */}
-          <div className="flex justify-end gap-3 pt-4 border-t border-border">
+          <div className="flex justify-end gap-3 border-t border-border pt-4">
             <button
               type="button"
               onClick={handleClose}
               disabled={isLoading}
-              className="px-6 py-3 rounded-lg border border-border hover:bg-accent/5 transition-colors disabled:opacity-50"
+              className="rounded-lg border border-border px-6 py-3 transition-colors hover:bg-accent/5 disabled:opacity-50"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isLoading}
-              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 font-medium"
+              className="rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
             >
               {isLoading ? 'Saving...' : (project ? 'Update Project' : 'Create Project')}
             </button>

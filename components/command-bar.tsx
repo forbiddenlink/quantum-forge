@@ -30,7 +30,7 @@ export function CommandBar() {
     label: item.label,
     description: `Go to ${item.label}`,
     icon: (
-      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
       </svg>
     ),
@@ -48,7 +48,7 @@ export function CommandBar() {
       label: 'Create New Task',
       description: 'Add a task to your board',
       icon: (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
         </svg>
       ),
@@ -64,7 +64,7 @@ export function CommandBar() {
       label: 'Create New Project',
       description: 'Start a new project',
       icon: (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
       ),
@@ -80,7 +80,7 @@ export function CommandBar() {
       label: 'Toggle Theme',
       description: 'Switch between light and dark mode',
       icon: (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
         </svg>
       ),
@@ -96,7 +96,7 @@ export function CommandBar() {
       label: 'Search Documentation',
       description: 'Find documents and files',
       icon: (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
       ),
@@ -135,26 +135,26 @@ export function CommandBar() {
   return (
     <Dialog.Root open={commandBarOpen} onOpenChange={setCommandBarOpen}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 animate-in fade-in" />
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm animate-in fade-in" />
         <Dialog.Content 
-          className="fixed top-[20%] left-1/2 -translate-x-1/2 w-full max-w-2xl z-50 animate-in fade-in zoom-in-95 duration-200"
+          className="fixed left-1/2 top-[20%] z-50 w-full max-w-2xl -translate-x-1/2 duration-200 animate-in fade-in zoom-in-95"
           onOpenAutoFocus={(e) => e.preventDefault()}
         >
-          <CommandPrimitive.Root
-            className="glass-panel rounded-[28px] overflow-hidden shadow-elevation-high border border-white/20"
+          <CommandPrimitive
+            className="glass-panel shadow-elevation-high overflow-hidden rounded-[28px] border border-white/20"
             shouldFilter={false}
           >
-            <div className="flex items-center gap-3 px-6 py-4 border-b border-white/10">
-              <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center gap-3 border-b border-white/10 px-6 py-4">
+              <svg className="size-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <CommandPrimitive.Input
                 value={search}
                 onValueChange={setSearch}
                 placeholder="Type a command or search..."
-                className="flex-1 bg-transparent outline-none text-base placeholder:text-muted-foreground"
+                className="flex-1 bg-transparent text-base outline-none placeholder:text-muted-foreground"
               />
-              <kbd className="caption px-2 py-1 bg-muted rounded border border-border">
+              <kbd className="caption rounded border border-border bg-muted px-2 py-1">
                 Esc
               </kbd>
             </div>
@@ -162,7 +162,7 @@ export function CommandBar() {
             <CommandPrimitive.List className="max-h-[400px] overflow-y-auto p-2">
               {filteredCommands.length === 0 ? (
                 <CommandPrimitive.Empty className="py-12 text-center">
-                  <div className="text-muted-foreground mb-2">No results found</div>
+                  <div className="mb-2 text-muted-foreground">No results found</div>
                   <div className="caption text-muted-foreground">
                     Try searching for something else
                   </div>
@@ -173,10 +173,26 @@ export function CommandBar() {
                     <CommandPrimitive.Group
                       key={category}
                       heading={
-                        <div className="caption font-medium text-muted-foreground px-3 py-2">
-                          {category === 'navigation' ? '🧭 Navigation' :
-                           category === 'actions' ? '⚡ Actions' :
-                           category === 'search' ? '🔍 Search' : 'Other'}
+                        <div className="caption flex items-center gap-2 px-3 py-2 font-medium text-muted-foreground">
+                          {category === 'navigation' && (
+                            <svg className="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <polygon points="3 11 22 2 13 21 11 13 3 11" />
+                            </svg>
+                          )}
+                          {category === 'actions' && (
+                            <svg className="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                            </svg>
+                          )}
+                          {category === 'search' && (
+                            <svg className="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              <circle cx="11" cy="11" r="8" />
+                              <path d="m21 21-4.35-4.35" />
+                            </svg>
+                          )}
+                          {category === 'navigation' ? 'Navigation' :
+                           category === 'actions' ? 'Actions' :
+                           category === 'search' ? 'Search' : 'Other'}
                         </div>
                       }
                       className="mb-2"
@@ -186,21 +202,21 @@ export function CommandBar() {
                           key={command.id}
                           value={command.label}
                           onSelect={command.onSelect}
-                          className="flex items-center gap-3 px-3 py-3 rounded-lg cursor-pointer hover:bg-accent/10 data-[selected=true]:bg-accent/20 transition-colors animate-smooth group"
+                          className="animate-smooth group flex cursor-pointer items-center gap-3 rounded-lg p-3 transition-colors hover:bg-accent/10 data-[selected=true]:bg-accent/20"
                         >
-                          <div className="flex-shrink-0 text-muted-foreground group-data-[selected=true]:text-foreground transition-colors">
+                          <div className="shrink-0 text-muted-foreground transition-colors group-data-[selected=true]:text-foreground">
                             {command.icon}
                           </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="font-medium mb-0.5">{command.label}</div>
+                          <div className="min-w-0 flex-1">
+                            <div className="mb-0.5 font-medium">{command.label}</div>
                             {command.description && (
-                              <div className="caption text-muted-foreground truncate">
+                              <div className="caption truncate text-muted-foreground">
                                 {command.description}
                               </div>
                             )}
                           </div>
                           {command.shortcut && (
-                            <kbd className="caption px-2 py-1 bg-muted rounded border border-border text-muted-foreground">
+                            <kbd className="caption rounded border border-border bg-muted px-2 py-1 text-muted-foreground">
                               {command.shortcut}
                             </kbd>
                           )}
@@ -212,15 +228,15 @@ export function CommandBar() {
               )}
             </CommandPrimitive.List>
 
-            <div className="flex items-center justify-between px-4 py-3 border-t border-white/10 bg-accent/5">
-              <div className="flex items-center gap-4 caption text-muted-foreground">
+            <div className="flex items-center justify-between border-t border-white/10 bg-accent/5 px-4 py-3">
+              <div className="caption flex items-center gap-4 text-muted-foreground">
                 <div className="flex items-center gap-1.5">
-                  <kbd className="px-1.5 py-0.5 bg-muted rounded border border-border">↑</kbd>
-                  <kbd className="px-1.5 py-0.5 bg-muted rounded border border-border">↓</kbd>
+                  <kbd className="rounded border border-border bg-muted px-1.5 py-0.5">↑</kbd>
+                  <kbd className="rounded border border-border bg-muted px-1.5 py-0.5">↓</kbd>
                   <span>Navigate</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <kbd className="px-1.5 py-0.5 bg-muted rounded border border-border">↵</kbd>
+                  <kbd className="rounded border border-border bg-muted px-1.5 py-0.5">↵</kbd>
                   <span>Select</span>
                 </div>
               </div>
@@ -228,7 +244,7 @@ export function CommandBar() {
                 Powered by Quantum Forge AI
               </div>
             </div>
-          </CommandPrimitive.Root>
+          </CommandPrimitive>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

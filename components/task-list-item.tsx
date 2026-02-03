@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { toast } from 'sonner';
 import { toggleTaskCompletion } from '@/app/actions/tasks';
 import { getRelativeTime } from '@/lib/utils';
 import { useOptimisticToggle } from '@/hooks/use-optimistic-mutation';
@@ -57,22 +56,22 @@ export function TaskListItem({ task }: TaskListItemProps) {
   };
 
   return (
-    <div className="flex items-center gap-4 p-4 rounded-lg hover:bg-accent/5 transition-colors">
+    <div className="flex items-center gap-4 rounded-lg p-4 transition-colors hover:bg-accent/5">
       <input
         type="checkbox"
         checked={isCompleted}
         onChange={handleToggle}
         disabled={toggleMutation.isPending}
-        className="w-5 h-5 rounded border-border cursor-pointer disabled:opacity-50"
+        className="size-5 cursor-pointer rounded border-border disabled:opacity-50"
         aria-label={`Mark ${task.title} as ${isCompleted ? 'incomplete' : 'complete'}`}
       />
       
       <div className="flex-1">
-        <h3 className={`font-medium mb-1 ${isCompleted ? 'line-through text-muted-foreground' : ''}`}>
+        <h3 className={`mb-1 font-medium ${isCompleted ? 'text-muted-foreground line-through' : ''}`}>
           {task.title}
         </h3>
         <div className="flex items-center gap-2">
-          <span className={`caption px-2 py-1 rounded-full ${getPriorityStyles(task.priority)}`}>
+          <span className={`caption rounded-full px-2 py-1 ${getPriorityStyles(task.priority)}`}>
             {task.priority}
           </span>
           <span className="caption text-muted-foreground">
@@ -82,10 +81,10 @@ export function TaskListItem({ task }: TaskListItemProps) {
       </div>
       
       <button
-        className="p-2 hover:bg-accent/10 rounded-lg transition-colors"
+        className="rounded-lg p-2 transition-colors hover:bg-accent/10"
         aria-label="Task options"
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"

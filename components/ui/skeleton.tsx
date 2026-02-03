@@ -18,7 +18,7 @@ export function Skeleton({ className, ...props }: SkeletonProps) {
  */
 export function SkeletonCard() {
   return (
-    <div className="glass-panel rounded-[28px] p-6 space-y-4">
+    <div className="glass-panel space-y-4 rounded-[28px] p-6">
       <Skeleton className="h-4 w-24" />
       <Skeleton className="h-12 w-16" />
       <Skeleton className="h-2 w-full" />
@@ -28,10 +28,10 @@ export function SkeletonCard() {
 
 export function SkeletonTaskCard() {
   return (
-    <div className="glass-panel rounded-[20px] p-4 space-y-3">
+    <div className="glass-panel space-y-3 rounded-[20px] p-4">
       <div className="flex items-start justify-between">
         <Skeleton className="h-5 w-48" />
-        <Skeleton className="h-5 w-5 rounded-full" />
+        <Skeleton className="size-5 rounded-full" />
       </div>
       <Skeleton className="h-4 w-full" />
       <Skeleton className="h-4 w-3/4" />

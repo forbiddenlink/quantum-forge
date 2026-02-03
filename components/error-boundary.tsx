@@ -10,11 +10,11 @@ interface ErrorFallbackProps {
 
 function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-background">
-      <div className="max-w-md w-full glass-panel rounded-[28px] p-8 text-center">
-        <div className="w-16 h-16 rounded-full bg-accent-critical/20 flex items-center justify-center mx-auto mb-4">
+    <div className="flex min-h-screen items-center justify-center bg-background p-4">
+      <div className="glass-panel w-full max-w-md rounded-[28px] p-8 text-center">
+        <div className="bg-accent-critical/20 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
           <svg
-            className="w-8 h-8 text-accent-critical"
+            className="size-8 text-accent-critical"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -29,29 +29,29 @@ function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
         </div>
         
         <h1 className="heading-2 mb-2">Something went wrong</h1>
-        <p className="text-muted-foreground mb-6">
+        <p className="mb-6 text-muted-foreground">
           We apologize for the inconvenience. An error occurred while loading this page.
         </p>
         
         {process.env.NODE_ENV === 'development' && (
-          <div className="mb-6 p-4 rounded-lg bg-muted text-left">
-            <p className="caption font-mono text-accent-critical mb-2">Error Details:</p>
-            <p className="caption font-mono text-muted-foreground break-all">
+          <div className="mb-6 rounded-lg bg-muted p-4 text-left">
+            <p className="caption mb-2 font-mono text-accent-critical">Error Details:</p>
+            <p className="caption break-all font-mono text-muted-foreground">
               {error.message}
             </p>
           </div>
         )}
         
-        <div className="flex gap-3 justify-center">
+        <div className="flex justify-center gap-3">
           <button
             onClick={resetErrorBoundary}
-            className="px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium"
+            className="rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Try Again
           </button>
           <button
             onClick={() => (window.location.href = '/')}
-            className="px-6 py-3 rounded-lg border border-border hover:bg-accent/5 transition-colors font-medium"
+            className="rounded-lg border border-border px-6 py-3 font-medium transition-colors hover:bg-accent/5"
           >
             Go Home
           </button>
@@ -104,13 +104,13 @@ export function ComponentErrorBoundary({
 }) {
   return (
     <ReactErrorBoundary
-      fallbackRender={({ error, resetErrorBoundary }) => (
+      fallbackRender={({ error: _error, resetErrorBoundary }) => (
         fallback || (
-          <div className="p-4 rounded-lg border border-accent-critical/20 bg-accent-critical/5">
-            <p className="text-sm text-accent-critical mb-2">Failed to load component</p>
+          <div className="border-accent-critical/20 bg-accent-critical/5 rounded-lg border p-4">
+            <p className="mb-2 text-sm text-accent-critical">Failed to load component</p>
             <button
               onClick={resetErrorBoundary}
-              className="text-xs underline text-muted-foreground hover:text-foreground"
+              className="text-xs text-muted-foreground underline hover:text-foreground"
             >
               Retry
             </button>

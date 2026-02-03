@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 
 /**
  * Common animation variants for Framer Motion
@@ -6,7 +6,7 @@ import { Variants } from 'framer-motion';
 
 export const fadeIn: Variants = {
   hidden: { opacity: 0 },
-  visible: { 
+  visible: {
     opacity: 1,
     transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] }
   },
@@ -249,9 +249,9 @@ export function getAnimationVariants(variants: Variants): Variants {
   if (shouldReduceMotion()) {
     // Return instant transitions for reduced motion
     return {
-      hidden: variants.hidden,
+      hidden: variants.hidden ?? { opacity: 0 },
       visible: {
-        ...variants.visible,
+        ...(typeof variants.visible === 'object' ? variants.visible : {}),
         transition: { duration: 0.01 },
       },
     };

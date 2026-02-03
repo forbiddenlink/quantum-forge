@@ -110,7 +110,7 @@ export function captureMessage(message: string, level: 'info' | 'warning' | 'err
 /**
  * Set user context for error tracking
  */
-export function setUser(user: { id: string; email?: string; name?: string } | null) {
+export function setUser(_user: { id: string; email?: string; name?: string } | null) {
   // Uncomment to enable Sentry
   /*
   Sentry.setUser(user);

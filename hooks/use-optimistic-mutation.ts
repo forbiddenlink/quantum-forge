@@ -1,4 +1,4 @@
-import { useQueryClient, useMutation, type UseMutationOptions } from '@tanstack/react-query';
+import { useQueryClient, useMutation } from '@tanstack/react-query';
 import { toast } from 'sonner';
 
 interface OptimisticMutationOptions<TData, TVariables> {

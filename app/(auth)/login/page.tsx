@@ -57,11 +57,11 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-brand-900 via-background to-brand-800 p-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-brand-900 via-background to-brand-800 p-4">
       <div className="w-full max-w-md">
         {/* Logo */}
-        <div className="text-center mb-8">
-          <div className="gradient-accent w-16 h-16 rounded-2xl flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">
+        <div className="mb-8 text-center">
+          <div className="gradient-accent mx-auto mb-4 flex size-16 items-center justify-center rounded-2xl text-2xl font-bold text-white">
             QF
           </div>
           <h1 className="heading-1 mb-2">Welcome Back</h1>
@@ -72,7 +72,7 @@ export default function LoginPage() {
         <div className="glass-panel rounded-[28px] p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
-              <div className="p-3 rounded-lg bg-accent-critical/10 border border-accent-critical text-accent-critical text-sm">
+              <div className="bg-accent-critical/10 rounded-lg border border-accent-critical p-3 text-sm text-accent-critical">
                 {error}
               </div>
             )}
@@ -86,7 +86,7 @@ export default function LoginPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full rounded-lg border border-border bg-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="you@company.com"
                 required
               />
@@ -101,7 +101,7 @@ export default function LoginPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full rounded-lg border border-border bg-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
                 placeholder="••••••••"
                 required
               />
@@ -110,7 +110,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors animate-smooth font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              className="animate-smooth w-full rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {isLoading ? 'Signing in...' : 'Sign In'}
             </button>
@@ -119,43 +119,58 @@ export default function LoginPage() {
           <div className="mt-6 text-center">
             <p className="text-sm text-muted-foreground">
               Don&apos;t have an account?{' '}
-              <Link href="/register" className="text-primary hover:underline font-medium">
+              <Link href="/register" className="font-medium text-primary hover:underline">
                 Sign up
               </Link>
             </p>
           </div>
 
           {/* Demo Accounts */}
-          <div className="mt-8 pt-6 border-t border-border">
-            <p className="caption text-muted-foreground mb-3 text-center">Quick Login (Demo)</p>
+          <div className="mt-8 border-t border-border pt-6">
+            <p className="caption mb-3 text-center text-muted-foreground">Quick Login (Demo)</p>
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={() => quickLogin('admin@quantumforge.dev', 'admin123')}
                 disabled={isLoading}
-                className="px-3 py-2 bg-muted hover:bg-muted/80 rounded-lg caption transition-colors animate-smooth disabled:opacity-50"
+                className="caption animate-smooth flex items-center justify-center gap-2 rounded-lg bg-muted px-3 py-2 transition-colors hover:bg-muted/80 disabled:opacity-50"
               >
-                👤 Admin
+                <svg className="size-4 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Admin
               </button>
               <button
                 onClick={() => quickLogin('sarah.chen@quantumforge.dev', 'password123')}
                 disabled={isLoading}
-                className="px-3 py-2 bg-muted hover:bg-muted/80 rounded-lg caption transition-colors animate-smooth disabled:opacity-50"
+                className="caption animate-smooth flex items-center justify-center gap-2 rounded-lg bg-muted px-3 py-2 transition-colors hover:bg-muted/80 disabled:opacity-50"
               >
-                👤 Sarah
+                <svg className="size-4 text-accent-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Sarah
               </button>
               <button
                 onClick={() => quickLogin('marcus.rodriguez@quantumforge.dev', 'password123')}
                 disabled={isLoading}
-                className="px-3 py-2 bg-muted hover:bg-muted/80 rounded-lg caption transition-colors animate-smooth disabled:opacity-50"
+                className="caption animate-smooth flex items-center justify-center gap-2 rounded-lg bg-muted px-3 py-2 transition-colors hover:bg-muted/80 disabled:opacity-50"
               >
-                👤 Marcus
+                <svg className="size-4 text-accent-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Marcus
               </button>
               <button
                 onClick={() => quickLogin('priya.patel@quantumforge.dev', 'password123')}
                 disabled={isLoading}
-                className="px-3 py-2 bg-muted hover:bg-muted/80 rounded-lg caption transition-colors animate-smooth disabled:opacity-50"
+                className="caption animate-smooth flex items-center justify-center gap-2 rounded-lg bg-muted px-3 py-2 transition-colors hover:bg-muted/80 disabled:opacity-50"
               >
-                👤 Priya
+                <svg className="size-4 text-accent-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Priya
               </button>
             </div>
           </div>

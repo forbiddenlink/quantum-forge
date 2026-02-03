@@ -85,13 +85,13 @@ export default function AnalyticsPage() {
     return (
       <div className="p-8">
         <div className="animate-pulse space-y-8">
-          <div className="h-8 bg-muted rounded w-48"></div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="h-8 w-48 rounded bg-muted"></div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="glass-panel rounded-[28px] p-6 h-32"></div>
+              <div key={i} className="glass-panel h-32 rounded-[28px] p-6"></div>
             ))}
           </div>
-          <div className="glass-panel rounded-[28px] p-6 h-96"></div>
+          <div className="glass-panel h-96 rounded-[28px] p-6"></div>
         </div>
       </div>
     );
@@ -110,7 +110,7 @@ export default function AnalyticsPage() {
     : 0;
 
   return (
-    <div className="p-8 space-y-8">
+    <div className="space-y-8 p-8">
       {/* Header */}
       <div>
         <h1 className="heading-1 mb-2">Analytics Dashboard</h1>
@@ -118,12 +118,12 @@ export default function AnalyticsPage() {
       </div>
 
       {/* KPI Overview Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
         <div className="glass-panel rounded-[28px] p-6">
-          <div className="flex items-center justify-between mb-4">
+          <div className="mb-4 flex items-center justify-between">
             <span className="caption text-muted-foreground">Active Users</span>
-            <div className="w-10 h-10 rounded-lg bg-accent-primary/20 flex items-center justify-center">
-              <svg className="w-5 h-5 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-accent-primary/20 flex size-10 items-center justify-center rounded-lg">
+              <svg className="size-5 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
               </svg>
             </div>
@@ -133,10 +133,10 @@ export default function AnalyticsPage() {
         </div>
 
         <div className="glass-panel rounded-[28px] p-6">
-          <div className="flex items-center justify-between mb-4">
+          <div className="mb-4 flex items-center justify-between">
             <span className="caption text-muted-foreground">Active Projects</span>
-            <div className="w-10 h-10 rounded-lg bg-accent-secondary/20 flex items-center justify-center">
-              <svg className="w-5 h-5 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-accent-secondary/20 flex size-10 items-center justify-center rounded-lg">
+              <svg className="size-5 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
@@ -146,10 +146,10 @@ export default function AnalyticsPage() {
         </div>
 
         <div className="glass-panel rounded-[28px] p-6">
-          <div className="flex items-center justify-between mb-4">
+          <div className="mb-4 flex items-center justify-between">
             <span className="caption text-muted-foreground">Total Tasks</span>
-            <div className="w-10 h-10 rounded-lg bg-accent-success/20 flex items-center justify-center">
-              <svg className="w-5 h-5 text-accent-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-accent-success/20 flex size-10 items-center justify-center rounded-lg">
+              <svg className="size-5 text-accent-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
               </svg>
             </div>
@@ -159,17 +159,17 @@ export default function AnalyticsPage() {
         </div>
 
         <div className="glass-panel rounded-[28px] p-6">
-          <div className="flex items-center justify-between mb-4">
+          <div className="mb-4 flex items-center justify-between">
             <span className="caption text-muted-foreground">Completion Rate</span>
-            <div className="w-10 h-10 rounded-lg bg-accent-warning/20 flex items-center justify-center">
-              <svg className="w-5 h-5 text-accent-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-accent-warning/20 flex size-10 items-center justify-center rounded-lg">
+              <svg className="size-5 text-accent-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
           </div>
           <div className="display-2 mb-1">{completionRate}%</div>
-          <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-accent-success to-accent-primary rounded-full transition-all" style={{ width: `${completionRate}%` }}></div>
+          <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
+            <div className="h-full rounded-full bg-gradient-to-r from-accent-success to-accent-primary transition-all" style={{ width: `${completionRate}%` }}></div>
           </div>
         </div>
       </div>
@@ -212,7 +212,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Task Distribution & Team Engagement */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Task Distribution Pie Chart */}
         <div className="glass-panel rounded-[28px] p-6">
           <h2 className="heading-2 mb-6">Task Status Distribution</h2>
@@ -296,21 +296,21 @@ export default function AnalyticsPage() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-border">
-                <th className="text-left py-3 px-4 caption text-muted-foreground font-medium">Team</th>
-                <th className="text-left py-3 px-4 caption text-muted-foreground font-medium">Department</th>
-                <th className="text-right py-3 px-4 caption text-muted-foreground font-medium">Members</th>
-                <th className="text-right py-3 px-4 caption text-muted-foreground font-medium">Posts</th>
-                <th className="text-right py-3 px-4 caption text-muted-foreground font-medium">Engagement</th>
+                <th className="caption px-4 py-3 text-left font-medium text-muted-foreground">Team</th>
+                <th className="caption px-4 py-3 text-left font-medium text-muted-foreground">Department</th>
+                <th className="caption px-4 py-3 text-right font-medium text-muted-foreground">Members</th>
+                <th className="caption px-4 py-3 text-right font-medium text-muted-foreground">Posts</th>
+                <th className="caption px-4 py-3 text-right font-medium text-muted-foreground">Engagement</th>
               </tr>
             </thead>
             <tbody>
               {data.teamEngagement.map((team, index) => (
-                <tr key={index} className="border-b border-border/50 hover:bg-accent/5 transition-colors">
-                  <td className="py-3 px-4 font-medium">{team.name}</td>
-                  <td className="py-3 px-4 text-muted-foreground">{team.department}</td>
-                  <td className="py-3 px-4 text-right">{team.members}</td>
-                  <td className="py-3 px-4 text-right">{team.posts}</td>
-                  <td className="py-3 px-4 text-right">
+                <tr key={index} className="border-b border-border/50 transition-colors hover:bg-accent/5">
+                  <td className="px-4 py-3 font-medium">{team.name}</td>
+                  <td className="px-4 py-3 text-muted-foreground">{team.department}</td>
+                  <td className="px-4 py-3 text-right">{team.members}</td>
+                  <td className="px-4 py-3 text-right">{team.posts}</td>
+                  <td className="px-4 py-3 text-right">
                     <span className={`inline-flex items-center gap-1 ${
                       team.engagement >= 80 ? 'text-accent-success' :
                       team.engagement >= 50 ? 'text-accent-warning' :

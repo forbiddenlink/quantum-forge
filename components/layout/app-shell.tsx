@@ -35,18 +35,18 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
       {/* Sidebar */}
       <aside
         className={cn(
-          'glass-panel border-r border-border transition-all duration-base ease-smooth h-screen',
+          'glass-panel h-screen border-r border-border transition-all duration-base ease-smooth',
           sidebarCollapsed ? 'w-[72px]' : 'w-[256px]'
         )}
       >
-        <div className="flex flex-col h-full">
+        <div className="flex h-full flex-col">
           {/* Logo */}
-          <div className="flex items-center h-16 px-6 border-b border-border">
-            <div className="gradient-accent w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold">
+          <div className="flex h-16 items-center border-b border-border px-6">
+            <div className="gradient-accent flex size-10 items-center justify-center rounded-lg font-bold text-white">
               QF
             </div>
             {!sidebarCollapsed && (
-              <span className="ml-3 font-display font-semibold text-lg">Quantum Forge</span>
+              <span className="ml-3 font-display text-lg font-semibold">Quantum Forge</span>
             )}
           </div>
 
@@ -59,14 +59,14 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    'flex items-center px-6 py-3 text-sm transition-colors animate-smooth',
+                    'animate-smooth flex items-center px-6 py-3 text-sm transition-colors',
                     isActive
-                      ? 'text-primary bg-primary/10 border-r-2 border-primary'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-accent/5'
+                      ? 'border-r-2 border-primary bg-primary/10 text-primary'
+                      : 'text-muted-foreground hover:bg-accent/5 hover:text-foreground'
                   )}
                   title={item.label}
                 >
-                  <span className="w-5 h-5">{getIcon(item.icon)}</span>
+                  <span className="size-5">{getIcon(item.icon)}</span>
                   {!sidebarCollapsed && <span className="ml-3">{item.label}</span>}
                 </Link>
               );
@@ -76,11 +76,11 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
           {/* Collapse Toggle */}
           <button
             onClick={toggleSidebar}
-            className="flex items-center justify-center h-12 border-t border-border hover:bg-accent/5 transition-colors"
+            className="flex h-12 items-center justify-center border-t border-border transition-colors hover:bg-accent/5"
             aria-label={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
             <svg
-              className={cn('w-5 h-5 transition-transform', sidebarCollapsed && 'rotate-180')}
+              className={cn('size-5 transition-transform', sidebarCollapsed && 'rotate-180')}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -92,33 +92,33 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex flex-1 flex-col">
         {/* Top Bar */}
-        <header className="h-16 glass-panel border-b border-border flex items-center justify-between px-6">
+        <header className="glass-panel flex h-16 items-center justify-between border-b border-border px-6">
           <button
             onClick={toggleCommandBar}
-            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border hover:bg-accent/5 transition-colors"
+            className="flex items-center gap-2 rounded-lg border border-border px-4 py-2 transition-colors hover:bg-accent/5"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <span className="text-sm text-muted-foreground">Search or run command...</span>
-            <kbd className="caption px-2 py-1 bg-muted rounded text-muted-foreground">⌘K</kbd>
+            <kbd className="caption rounded bg-muted px-2 py-1 text-muted-foreground">⌘K</kbd>
           </button>
 
           <div className="flex items-center gap-4">
-            <button className="relative p-2 rounded-lg hover:bg-accent/5 transition-colors" aria-label="Notifications">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button className="relative rounded-lg p-2 transition-colors hover:bg-accent/5" aria-label="Notifications">
+              <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
               </svg>
-              <span className="absolute top-1 right-1 w-2 h-2 bg-accent-critical rounded-full"></span>
+              <span className="absolute right-1 top-1 size-2 rounded-full bg-accent-critical"></span>
             </button>
 
             <button
               onClick={toggleCopilot}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg gradient-ai-glow hover:scale-105 transition-transform"
+              className="gradient-ai-glow flex items-center gap-2 rounded-lg px-3 py-2 transition-transform hover:scale-105"
             >
-              <svg className="w-5 h-5 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="size-5 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
               <span className="text-sm font-medium">Copilot</span>
@@ -127,23 +127,23 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
             <div className="relative">
               <button
                 onClick={() => setShowUserMenu(!showUserMenu)}
-                className="w-10 h-10 rounded-full gradient-accent flex items-center justify-center text-white font-semibold shadow-avatar hover:scale-105 transition-transform"
+                className="gradient-accent flex size-10 items-center justify-center rounded-full font-semibold text-white shadow-avatar transition-transform hover:scale-105"
               >
                 {userInitials}
               </button>
 
               {showUserMenu && (
-                <div className="absolute right-0 mt-2 w-64 glass-panel rounded-2xl shadow-2xl border border-border p-2 z-50">
-                  <div className="px-4 py-3 border-b border-border">
+                <div className="glass-panel absolute right-0 z-50 mt-2 w-64 rounded-2xl border border-border p-2 shadow-2xl">
+                  <div className="border-b border-border px-4 py-3">
                     <p className="font-medium">{session?.user?.name}</p>
                     <p className="caption text-muted-foreground">{session?.user?.email}</p>
                   </div>
                   <Link
                     href="/settings"
-                    className="flex items-center gap-2 px-4 py-2 hover:bg-accent/5 rounded-lg transition-colors"
+                    className="flex items-center gap-2 rounded-lg px-4 py-2 transition-colors hover:bg-accent/5"
                     onClick={() => setShowUserMenu(false)}
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
@@ -151,9 +151,9 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
                   </Link>
                   <button
                     onClick={handleLogout}
-                    className="w-full flex items-center gap-2 px-4 py-2 hover:bg-accent-critical/10 text-accent-critical rounded-lg transition-colors"
+                    className="hover:bg-accent-critical/10 flex w-full items-center gap-2 rounded-lg px-4 py-2 text-accent-critical transition-colors"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                     </svg>
                     <span className="text-sm">Logout</span>

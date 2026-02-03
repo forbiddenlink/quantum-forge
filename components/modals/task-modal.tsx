@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import { Task, TaskStatus, Priority } from '@prisma/client';
+import { type Task, type TaskStatus, type Priority } from '@prisma/client';
 
 interface TaskModalProps {
   isOpen: boolean;
@@ -13,7 +13,7 @@ interface TaskModalProps {
 }
 
 export function TaskModal({ isOpen, onClose, onSuccess, task, projectId }: TaskModalProps) {
-  const { data: session } = useSession();
+  const { data: _session } = useSession();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -33,7 +33,7 @@ export function TaskModal({ isOpen, onClose, onSuccess, task, projectId }: TaskM
         description: task.description || '',
         status: task.status,
         priority: task.priority,
-        dueDate: task.dueDate ? new Date(task.dueDate).toISOString().split('T')[0] : '',
+        dueDate: (task.dueDate ? new Date(task.dueDate).toISOString().split('T')[0] : '') ?? '',
         projectId: task.projectId || '',
       });
     } else if (projectId) {
@@ -95,26 +95,26 @@ export function TaskModal({ isOpen, onClose, onSuccess, task, projectId }: TaskM
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
-      <div className="glass-panel w-full max-w-2xl rounded-3xl shadow-2xl animate-scale-in">
+    <div className="animate-fade-in fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
+      <div className="glass-panel animate-scale-in w-full max-w-2xl rounded-3xl shadow-2xl">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-border">
+        <div className="flex items-center justify-between border-b border-border p-6">
           <h2 className="heading-2">{task ? 'Edit Task' : 'Create New Task'}</h2>
           <button
             onClick={handleClose}
-            className="p-2 hover:bg-accent/5 rounded-lg transition-colors"
+            className="rounded-lg p-2 transition-colors hover:bg-accent/5"
             aria-label="Close modal"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 p-6">
           {error && (
-            <div className="p-3 rounded-lg bg-accent-critical/10 border border-accent-critical text-accent-critical text-sm">
+            <div className="bg-accent-critical/10 rounded-lg border border-accent-critical p-3 text-sm text-accent-critical">
               {error}
             </div>
           )}
@@ -129,7 +129,7 @@ export function TaskModal({ isOpen, onClose, onSuccess, task, projectId }: TaskM
               type="text"
               value={formData.title}
               onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full rounded-lg border border-border bg-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="e.g., Implement user authentication"
               required
             />
@@ -144,7 +144,7 @@ export function TaskModal({ isOpen, onClose, onSuccess, task, projectId }: TaskM
               id="description"
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary min-h-[100px]"
+              className="min-h-[100px] w-full rounded-lg border border-border bg-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
               placeholder="Add more details about this task..."
             />
           </div>
@@ -159,7 +159,7 @@ export function TaskModal({ isOpen, onClose, onSuccess, task, projectId }: TaskM
                 id="status"
                 value={formData.status}
                 onChange={(e) => setFormData({ ...formData, status: e.target.value as TaskStatus })}
-                className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full rounded-lg border border-border bg-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option value="TODO">To Do</option>
                 <option value="IN_PROGRESS">In Progress</option>
@@ -177,7 +177,7 @@ export function TaskModal({ isOpen, onClose, onSuccess, task, projectId }: TaskM
                 id="priority"
                 value={formData.priority}
                 onChange={(e) => setFormData({ ...formData, priority: e.target.value as Priority })}
-                className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full rounded-lg border border-border bg-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option value="LOW">Low</option>
                 <option value="MEDIUM">Medium</option>
@@ -197,24 +197,24 @@ export function TaskModal({ isOpen, onClose, onSuccess, task, projectId }: TaskM
               type="date"
               value={formData.dueDate}
               onChange={(e) => setFormData({ ...formData, dueDate: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full rounded-lg border border-border bg-muted px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary"
             />
           </div>
 
           {/* Actions */}
-          <div className="flex justify-end gap-3 pt-4 border-t border-border">
+          <div className="flex justify-end gap-3 border-t border-border pt-4">
             <button
               type="button"
               onClick={handleClose}
               disabled={isLoading}
-              className="px-6 py-3 rounded-lg border border-border hover:bg-accent/5 transition-colors disabled:opacity-50"
+              className="rounded-lg border border-border px-6 py-3 transition-colors hover:bg-accent/5 disabled:opacity-50"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isLoading}
-              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50 font-medium"
+              className="rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
             >
               {isLoading ? 'Saving...' : task ? 'Update Task' : 'Create Task'}
             </button>

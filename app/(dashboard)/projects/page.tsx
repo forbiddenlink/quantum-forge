@@ -4,8 +4,6 @@ import { useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { formatNumber } from '@/lib/utils';
 import { ProjectModal } from '@/components/modals/project-modal';
-import { Project as PrismaProject } from '@prisma/client';
-
 interface Project {
   id: string;
   name: string;
@@ -84,10 +82,10 @@ export default function ProjectsPage() {
     return (
       <div className="p-8">
         <div className="animate-pulse space-y-6">
-          <div className="h-8 bg-muted rounded w-48"></div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="h-8 w-48 rounded bg-muted"></div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {['project-1', 'project-2', 'project-3'].map((id) => (
-              <div key={id} className="glass-panel rounded-[28px] p-6 h-64"></div>
+              <div key={id} className="glass-panel h-64 rounded-[28px] p-6"></div>
             ))}
           </div>
         </div>
@@ -102,7 +100,7 @@ export default function ProjectsPage() {
     : 0;
 
   return (
-    <div className="p-8 space-y-8">
+    <div className="space-y-8 p-8">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -111,9 +109,9 @@ export default function ProjectsPage() {
         </div>
         <button 
           onClick={handleCreateProject}
-          className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors animate-smooth font-medium flex items-center gap-2"
+          className="animate-smooth flex items-center gap-2 rounded-lg bg-primary px-6 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
           </svg>
           New Project
@@ -121,43 +119,43 @@ export default function ProjectsPage() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
         <div className="glass-panel rounded-[20px] p-4">
-          <div className="caption text-muted-foreground mb-2">Total Projects</div>
+          <div className="caption mb-2 text-muted-foreground">Total Projects</div>
           <div className="heading-1">{projects.length}</div>
         </div>
         <div className="glass-panel rounded-[20px] p-4">
-          <div className="caption text-muted-foreground mb-2">Active</div>
+          <div className="caption mb-2 text-muted-foreground">Active</div>
           <div className="heading-1 text-accent-success">{activeProjects.length}</div>
         </div>
         <div className="glass-panel rounded-[20px] p-4">
-          <div className="caption text-muted-foreground mb-2">Total Tasks</div>
+          <div className="caption mb-2 text-muted-foreground">Total Tasks</div>
           <div className="heading-1 text-accent-primary">{formatNumber(totalTasks)}</div>
         </div>
         <div className="glass-panel rounded-[20px] p-4">
-          <div className="caption text-muted-foreground mb-2">Avg Progress</div>
+          <div className="caption mb-2 text-muted-foreground">Avg Progress</div>
           <div className="heading-1">{Math.round(avgProgress)}%</div>
         </div>
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <div
             key={project.id}
-            className="glass-panel rounded-[28px] p-6 hover:scale-[1.02] transition-transform animate-smooth cursor-pointer group relative"
+            className="glass-panel animate-smooth group relative cursor-pointer rounded-[28px] p-6 transition-transform hover:scale-[1.02]"
           >
             {/* Edit/Delete Buttons */}
-            <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="absolute right-4 top-4 flex gap-2 opacity-0 transition-opacity group-hover:opacity-100">
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   handleEditProject(project);
                 }}
-                className="p-2 bg-muted hover:bg-accent/10 rounded-lg transition-colors"
+                className="rounded-lg bg-muted p-2 transition-colors hover:bg-accent/10"
                 title="Edit project"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
               </button>
@@ -166,21 +164,21 @@ export default function ProjectsPage() {
                   e.stopPropagation();
                   handleDeleteProject(project.id);
                 }}
-                className="p-2 bg-muted hover:bg-accent-critical/10 rounded-lg transition-colors text-accent-critical"
+                className="hover:bg-accent-critical/10 rounded-lg bg-muted p-2 text-accent-critical transition-colors"
                 title="Delete project"
               >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
               </button>
             </div>
 
             {/* Header */}
-            <div className="flex items-start justify-between mb-4">
+            <div className="mb-4 flex items-start justify-between">
               <div className="flex-1">
-                <h3 className="font-semibold text-lg mb-2">{project.name}</h3>
+                <h3 className="mb-2 text-lg font-semibold">{project.name}</h3>
                 {project.description && (
-                  <p className="caption text-muted-foreground line-clamp-2">
+                  <p className="caption line-clamp-2 text-muted-foreground">
                     {project.description}
                   </p>
                 )}
@@ -188,12 +186,12 @@ export default function ProjectsPage() {
             </div>
 
             {/* Status */}
-            <div className="flex items-center gap-2 mb-4">
-              <span className={`caption px-2 py-1 rounded border ${getStatusColor(project.status)}`}>
+            <div className="mb-4 flex items-center gap-2">
+              <span className={`caption rounded border px-2 py-1 ${getStatusColor(project.status)}`}>
                 {project.status.replace('_', ' ')}
               </span>
               {project.team && (
-                <span className="caption px-2 py-1 rounded bg-muted text-muted-foreground">
+                <span className="caption rounded bg-muted px-2 py-1 text-muted-foreground">
                   {project.team.name}
                 </span>
               )}
@@ -201,29 +199,29 @@ export default function ProjectsPage() {
 
             {/* Progress */}
             <div className="mb-4">
-              <div className="flex items-center justify-between mb-2">
+              <div className="mb-2 flex items-center justify-between">
                 <span className="caption text-muted-foreground">Progress</span>
                 <span className="caption font-medium">{project.progress}%</span>
               </div>
-              <div className="h-2 bg-muted rounded-full overflow-hidden">
+              <div className="h-2 overflow-hidden rounded-full bg-muted">
                 <div
-                  className={`h-full bg-gradient-to-r ${getProgressColor(project.progress)} transition-all animate-smooth`}
+                  className={`h-full bg-gradient-to-r ${getProgressColor(project.progress)} animate-smooth transition-all`}
                   style={{ width: `${project.progress}%` }}
                 />
               </div>
             </div>
 
             {/* Meta Info */}
-            <div className="flex items-center justify-between caption text-muted-foreground">
+            <div className="caption flex items-center justify-between text-muted-foreground">
               <div className="flex items-center gap-1">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
                 <span>{project._count.tasks} tasks</span>
               </div>
               {project.targetDate && (
                 <div className="flex items-center gap-1">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                   <span>
@@ -239,13 +237,13 @@ export default function ProjectsPage() {
       {/* Empty State */}
       {projects.length === 0 && (
         <div className="glass-panel rounded-[28px] p-12 text-center">
-          <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-muted">
+            <svg className="size-8 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
             </svg>
           </div>
-          <h3 className="font-semibold text-lg mb-2">No projects yet</h3>
-          <p className="text-muted-foreground mb-4">Get started by creating your first project</p>
+          <h3 className="mb-2 text-lg font-semibold">No projects yet</h3>
+          <p className="mb-4 text-muted-foreground">Get started by creating your first project</p>
         </div>
       )}
 
