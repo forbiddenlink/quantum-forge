@@ -109,3 +109,12 @@ temp/
 
 # Claude Code planning/session files
 thoughts/
+
+# Legacy backup folder
+legacy/
+
+# TypeScript build info
+tsconfig.tsbuildinfo
+
+# Codacy config
+.codacy/
