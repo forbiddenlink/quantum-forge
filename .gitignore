@@ -118,3 +118,5 @@ tsconfig.tsbuildinfo
 
 # Codacy config
 .codacy/
+.vercel
+.env*.local

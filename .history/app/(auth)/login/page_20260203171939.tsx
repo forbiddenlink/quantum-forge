@@ -105,6 +105,56 @@ export default function LoginPage() {
               </Link>
             </p>
           </div>
+
+          {/* Demo Accounts */}
+          <div className="mt-8 border-t border-border pt-6">
+            <p className="caption mb-3 text-center text-muted-foreground">Quick Login (Demo)</p>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={() => quickLogin('admin@quantumforge.dev', 'admin123')}
+                disabled={isLoading}
+                className="caption animate-smooth flex items-center justify-center gap-2 rounded-lg bg-muted px-3 py-2 transition-colors hover:bg-muted/80 disabled:opacity-50"
+              >
+                <svg className="size-4 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Admin
+              </button>
+              <button
+                onClick={() => quickLogin('sarah.chen@quantumforge.dev', 'password123')}
+                disabled={isLoading}
+                className="caption animate-smooth flex items-center justify-center gap-2 rounded-lg bg-muted px-3 py-2 transition-colors hover:bg-muted/80 disabled:opacity-50"
+              >
+                <svg className="size-4 text-accent-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Sarah
+              </button>
+              <button
+                onClick={() => quickLogin('marcus.rodriguez@quantumforge.dev', 'password123')}
+                disabled={isLoading}
+                className="caption animate-smooth flex items-center justify-center gap-2 rounded-lg bg-muted px-3 py-2 transition-colors hover:bg-muted/80 disabled:opacity-50"
+              >
+                <svg className="size-4 text-accent-success" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Marcus
+              </button>
+              <button
+                onClick={() => quickLogin('priya.patel@quantumforge.dev', 'password123')}
+                disabled={isLoading}
+                className="caption animate-smooth flex items-center justify-center gap-2 rounded-lg bg-muted px-3 py-2 transition-colors hover:bg-muted/80 disabled:opacity-50"
+              >
+                <svg className="size-4 text-accent-warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                Priya
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
