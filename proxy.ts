@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-// Lightweight Edge-compatible middleware
+// Lightweight Edge-compatible proxy (renamed from middleware for Next.js 16)
 // Uses NextAuth session token check without importing heavy dependencies
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const sessionToken =
     request.cookies.get('authjs.session-token')?.value ||
     request.cookies.get('__Secure-authjs.session-token')?.value;
