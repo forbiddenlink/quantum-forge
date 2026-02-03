@@ -103,3 +103,9 @@ jspm_packages/
 # Temporary folders
 tmp/
 temp/ 
+
+# VS Code AI rules
+.github/instructions/codacy.instructions.md
+
+# Claude Code planning/session files
+thoughts/
