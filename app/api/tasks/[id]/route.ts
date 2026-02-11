@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { auth } from '@/lib/auth';
+import { notifyTaskCompleted } from '@/lib/notifications';
 
 export async function PATCH(
   request: Request,
@@ -38,6 +39,8 @@ export async function PATCH(
       );
     }
 
+    const isBeingCompleted = status === 'DONE' && existingTask.status !== 'DONE';
+
     const task = await prisma.task.update({
       where: { id: params.id },
       data: {
@@ -65,6 +68,11 @@ export async function PATCH(
         },
       },
     });
+
+    // Send notification when task is completed
+    if (isBeingCompleted) {
+      notifyTaskCompleted(session.user.id, task.title, task.id).catch(console.error);
+    }
 
     return NextResponse.json({ task });
   } catch (error) {

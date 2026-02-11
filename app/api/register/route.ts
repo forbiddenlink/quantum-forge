@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import bcrypt from 'bcryptjs';
+import { notifySystem } from '@/lib/notifications';
 
 export async function POST(request: Request) {
   try {
@@ -43,6 +44,14 @@ export async function POST(request: Request) {
         role: true,
       },
     });
+
+    // Send welcome notification
+    notifySystem(
+      user.id,
+      'Welcome to Quantum Forge!',
+      'Get started by creating your first project or task.',
+      '/dashboard'
+    ).catch(console.error);
 
     return NextResponse.json({ user }, { status: 201 });
   } catch (error) {
