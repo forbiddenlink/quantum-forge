@@ -109,6 +109,12 @@ temp/
 
 # Claude Code planning/session files
 thoughts/
+.claude/
+.claude/cache/
+.claude/tsc-cache/
+
+# VSCode Local History
+.history/
 
 # Legacy backup folder
 legacy/
