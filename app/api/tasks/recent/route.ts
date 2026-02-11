@@ -1,13 +1,17 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { auth } from '@/lib/auth';
 
 export async function GET() {
   try {
-    // TODO: Get current user from session and filter by userId
-    // For now, return recent tasks across all users
-    
+    const session = await auth();
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     const tasks = await prisma.task.findMany({
       where: {
+        userId: session.user.id,
         status: {
           in: ['TODO', 'IN_PROGRESS']
         }

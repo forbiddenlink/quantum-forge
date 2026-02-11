@@ -96,7 +96,7 @@ export function TaskModal({ isOpen, onClose, onSuccess, task, projectId }: TaskM
 
   return (
     <div className="animate-fade-in fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm">
-      <div className="glass-panel animate-scale-in w-full max-w-2xl rounded-3xl shadow-2xl">
+      <div className="glass-panel animate-scale-in w-full max-w-lg rounded-3xl shadow-2xl sm:max-w-xl md:max-w-2xl">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-border p-6">
           <h2 className="heading-2">{task ? 'Edit Task' : 'Create New Task'}</h2>

@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { motion } from 'framer-motion';
 import { TaskModal } from '@/components/modals/task-modal';
 import { ProjectModal } from '@/components/modals/project-modal';
 import { formatNumber, formatPercentage, getRelativeTime } from '@/lib/utils';
+import { staggerContainer, staggerItem } from '@/lib/animations';
 
 interface DashboardStats {
   focusScore: number;
@@ -54,7 +56,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Copilot Daily Briefing */}
-      <div className="glass-panel relative overflow-hidden rounded-[28px] p-6">
+      <div className="glass-panel relative overflow-hidden rounded-2xl p-6">
         <div className="gradient-ai-glow absolute inset-0 opacity-30"></div>
         <div className="relative z-10 flex items-start gap-4">
           <div className="bg-accent-primary/20 flex size-12 shrink-0 items-center justify-center rounded-full">
@@ -85,11 +87,17 @@ export default function DashboardPage() {
 
       {/* Quick Actions */}
       <div>
-        <h2 className="heading-2 mb-4">Quick Actions</h2>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-          <button 
+        <h2 className="section-header mb-4">Quick Actions</h2>
+        <motion.div
+          className="grid grid-cols-1 gap-4 md:grid-cols-4"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.button
+            variants={staggerItem}
             onClick={() => setIsTaskModalOpen(true)}
-            className="glass-panel animate-smooth rounded-[20px] p-6 text-left transition-transform hover:scale-[1.02]"
+            className="glass-panel animate-smooth rounded-xl p-6 text-left transition-transform hover:scale-[1.02]"
           >
             <div className="bg-accent-primary/20 mb-3 flex size-10 items-center justify-center rounded-lg">
               <svg className="size-5 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,11 +106,12 @@ export default function DashboardPage() {
             </div>
             <h3 className="mb-1 font-medium">Create Task</h3>
             <p className="caption text-muted-foreground">Add a new task to your board</p>
-          </button>
+          </motion.button>
 
-          <button 
+          <motion.button
+            variants={staggerItem}
             onClick={() => setIsProjectModalOpen(true)}
-            className="glass-panel animate-smooth rounded-[20px] p-6 text-left transition-transform hover:scale-[1.02]"
+            className="glass-panel animate-smooth rounded-xl p-6 text-left transition-transform hover:scale-[1.02]"
           >
             <div className="bg-accent-secondary/20 mb-3 flex size-10 items-center justify-center rounded-lg">
               <svg className="size-5 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,9 +120,9 @@ export default function DashboardPage() {
             </div>
             <h3 className="mb-1 font-medium">Create Project</h3>
             <p className="caption text-muted-foreground">Start a new initiative</p>
-          </button>
+          </motion.button>
 
-          <button className="glass-panel animate-smooth rounded-[20px] p-6 text-left transition-transform hover:scale-[1.02]">
+          <motion.button variants={staggerItem} className="glass-panel animate-smooth rounded-xl p-6 text-left transition-transform hover:scale-[1.02]">
             <div className="bg-accent-success/20 mb-3 flex size-10 items-center justify-center rounded-lg">
               <svg className="size-5 text-accent-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -121,9 +130,9 @@ export default function DashboardPage() {
             </div>
             <h3 className="mb-1 font-medium">Post Update</h3>
             <p className="caption text-muted-foreground">Share news with your team</p>
-          </button>
+          </motion.button>
 
-          <button className="glass-panel animate-smooth rounded-[20px] p-6 text-left transition-transform hover:scale-[1.02]">
+          <motion.button variants={staggerItem} className="glass-panel animate-smooth rounded-xl p-6 text-left transition-transform hover:scale-[1.02]">
             <div className="bg-accent-warning/20 mb-3 flex size-10 items-center justify-center rounded-lg">
               <svg className="size-5 text-accent-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -131,63 +140,68 @@ export default function DashboardPage() {
             </div>
             <h3 className="mb-1 font-medium">Upload Document</h3>
             <p className="caption text-muted-foreground">Add files to library</p>
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
 
       {/* KPI Grid */}
       <div>
-        <h2 className="heading-2 mb-4">Key Metrics</h2>
+        <h2 className="section-header mb-4">Key Metrics</h2>
         {stats ? (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <div className="glass-panel rounded-[28px] p-6">
+          <motion.div
+            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div variants={staggerItem} className="surface-elevated rounded-2xl p-6">
               <div className="mb-4 flex items-center justify-between">
                 <span className="caption text-muted-foreground">Focus Score</span>
               </div>
-              <div className="display-2 mb-2">{stats.focusScore}</div>
+              <div className="kpi-value mb-2">{stats.focusScore}</div>
               <div className="flex items-center gap-2">
                 <div className="h-2 flex-1 overflow-hidden rounded-full bg-muted">
                   <div className="gradient-success h-full rounded-full transition-all" style={{ width: `${stats.focusScore}%` }}></div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="glass-panel rounded-[28px] p-6">
+            <motion.div variants={staggerItem} className="surface-elevated rounded-2xl p-6">
               <div className="mb-4 flex items-center justify-between">
                 <span className="caption text-muted-foreground">Tasks Completed</span>
               </div>
-              <div className="display-2 mb-2">{formatNumber(stats.tasksCompleted)}</div>
+              <div className="kpi-value mb-2">{formatNumber(stats.tasksCompleted)}</div>
               <p className="caption text-muted-foreground">This week</p>
-            </div>
+            </motion.div>
 
-            <div className="glass-panel rounded-[28px] p-6">
+            <motion.div variants={staggerItem} className="surface-elevated rounded-2xl p-6">
               <div className="mb-4 flex items-center justify-between">
                 <span className="caption text-muted-foreground">Team Engagement</span>
               </div>
-              <div className="display-2 mb-2">{formatPercentage(stats.teamEngagement)}</div>
+              <div className="kpi-value mb-2">{formatPercentage(stats.teamEngagement)}</div>
               <div className="flex items-center gap-2">
                 <div className="h-2 flex-1 overflow-hidden rounded-full bg-muted">
                   <div className="h-full rounded-full bg-accent-secondary transition-all" style={{ width: `${stats.teamEngagement}%` }}></div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="glass-panel rounded-[28px] p-6">
+            <motion.div variants={staggerItem} className="surface-elevated rounded-2xl p-6">
               <div className="mb-4 flex items-center justify-between">
                 <span className="caption text-muted-foreground">SLA Compliance</span>
               </div>
-              <div className="display-2 mb-2">{formatPercentage(stats.slaCompliance)}</div>
+              <div className="kpi-value mb-2">{formatPercentage(stats.slaCompliance)}</div>
               <div className="flex items-center gap-2">
                 <div className="h-2 flex-1 overflow-hidden rounded-full bg-muted">
                   <div className="gradient-accent h-full rounded-full transition-all" style={{ width: `${stats.slaCompliance}%` }}></div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         ) : (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {Array.from({ length: 4 }, (_, i) => (
-              <div key={`skeleton-${i}`} className="glass-panel animate-pulse rounded-[28px] p-6">
+              <div key={`skeleton-${i}`} className="glass-panel animate-pulse rounded-2xl p-6">
                 <div className="mb-4 h-4 w-24 rounded bg-muted"></div>
                 <div className="mb-2 h-12 w-16 rounded bg-muted"></div>
                 <div className="h-2 rounded bg-muted"></div>
@@ -199,8 +213,8 @@ export default function DashboardPage() {
 
       {/* Recent Tasks */}
       <div>
-        <h2 className="heading-2 mb-4">Recent Tasks</h2>
-        <div className="glass-panel rounded-[28px] p-6">
+        <h2 className="section-header mb-4">Recent Tasks</h2>
+        <div className="glass-panel rounded-2xl p-6">
           {recentTasks.length > 0 ? (
             <div className="space-y-4">
               {recentTasks.map((task) => {

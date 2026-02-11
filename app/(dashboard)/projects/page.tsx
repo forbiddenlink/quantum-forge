@@ -85,7 +85,7 @@ export default function ProjectsPage() {
           <div className="h-8 w-48 rounded bg-muted"></div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {['project-1', 'project-2', 'project-3'].map((id) => (
-              <div key={id} className="glass-panel h-64 rounded-[28px] p-6"></div>
+              <div key={id} className="glass-panel h-64 rounded-2xl p-6"></div>
             ))}
           </div>
         </div>
@@ -120,19 +120,19 @@ export default function ProjectsPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-        <div className="glass-panel rounded-[20px] p-4">
+        <div className="glass-panel rounded-xl p-4">
           <div className="caption mb-2 text-muted-foreground">Total Projects</div>
           <div className="heading-1">{projects.length}</div>
         </div>
-        <div className="glass-panel rounded-[20px] p-4">
+        <div className="glass-panel rounded-xl p-4">
           <div className="caption mb-2 text-muted-foreground">Active</div>
           <div className="heading-1 text-accent-success">{activeProjects.length}</div>
         </div>
-        <div className="glass-panel rounded-[20px] p-4">
+        <div className="glass-panel rounded-xl p-4">
           <div className="caption mb-2 text-muted-foreground">Total Tasks</div>
           <div className="heading-1 text-accent-primary">{formatNumber(totalTasks)}</div>
         </div>
-        <div className="glass-panel rounded-[20px] p-4">
+        <div className="glass-panel rounded-xl p-4">
           <div className="caption mb-2 text-muted-foreground">Avg Progress</div>
           <div className="heading-1">{Math.round(avgProgress)}%</div>
         </div>
@@ -143,7 +143,7 @@ export default function ProjectsPage() {
         {projects.map((project) => (
           <div
             key={project.id}
-            className="glass-panel animate-smooth group relative cursor-pointer rounded-[28px] p-6 transition-transform hover:scale-[1.02]"
+            className="glass-panel animate-smooth group relative cursor-pointer rounded-2xl p-6 transition-transform hover:scale-[1.02]"
           >
             {/* Edit/Delete Buttons */}
             <div className="absolute right-4 top-4 flex gap-2 opacity-0 transition-opacity group-hover:opacity-100">
@@ -236,7 +236,7 @@ export default function ProjectsPage() {
 
       {/* Empty State */}
       {projects.length === 0 && (
-        <div className="glass-panel rounded-[28px] p-12 text-center">
+        <div className="glass-panel rounded-2xl p-12 text-center">
           <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-muted">
             <svg className="size-8 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />

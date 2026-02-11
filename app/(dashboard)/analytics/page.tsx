@@ -88,10 +88,10 @@ export default function AnalyticsPage() {
           <div className="h-8 w-48 rounded bg-muted"></div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="glass-panel h-32 rounded-[28px] p-6"></div>
+              <div key={i} className="glass-panel h-32 rounded-2xl p-6"></div>
             ))}
           </div>
-          <div className="glass-panel h-96 rounded-[28px] p-6"></div>
+          <div className="glass-panel h-96 rounded-2xl p-6"></div>
         </div>
       </div>
     );
@@ -119,7 +119,7 @@ export default function AnalyticsPage() {
 
       {/* KPI Overview Cards */}
       <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
-        <div className="glass-panel rounded-[28px] p-6">
+        <div className="glass-panel rounded-2xl p-6">
           <div className="mb-4 flex items-center justify-between">
             <span className="caption text-muted-foreground">Active Users</span>
             <div className="bg-accent-primary/20 flex size-10 items-center justify-center rounded-lg">
@@ -132,7 +132,7 @@ export default function AnalyticsPage() {
           <p className="caption text-muted-foreground">This month</p>
         </div>
 
-        <div className="glass-panel rounded-[28px] p-6">
+        <div className="glass-panel rounded-2xl p-6">
           <div className="mb-4 flex items-center justify-between">
             <span className="caption text-muted-foreground">Active Projects</span>
             <div className="bg-accent-secondary/20 flex size-10 items-center justify-center rounded-lg">
@@ -145,7 +145,7 @@ export default function AnalyticsPage() {
           <p className="caption text-muted-foreground">In progress</p>
         </div>
 
-        <div className="glass-panel rounded-[28px] p-6">
+        <div className="glass-panel rounded-2xl p-6">
           <div className="mb-4 flex items-center justify-between">
             <span className="caption text-muted-foreground">Total Tasks</span>
             <div className="bg-accent-success/20 flex size-10 items-center justify-center rounded-lg">
@@ -158,7 +158,7 @@ export default function AnalyticsPage() {
           <p className="caption text-muted-foreground">{data.overview.completedTasks} completed</p>
         </div>
 
-        <div className="glass-panel rounded-[28px] p-6">
+        <div className="glass-panel rounded-2xl p-6">
           <div className="mb-4 flex items-center justify-between">
             <span className="caption text-muted-foreground">Completion Rate</span>
             <div className="bg-accent-warning/20 flex size-10 items-center justify-center rounded-lg">
@@ -175,7 +175,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Weekly Trend Chart */}
-      <div className="glass-panel rounded-[28px] p-6">
+      <div className="glass-panel rounded-2xl p-6">
         <h2 className="heading-2 mb-6">Weekly Activity Trend</h2>
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={data.weeklyTrend}>
@@ -214,7 +214,7 @@ export default function AnalyticsPage() {
       {/* Task Distribution & Team Engagement */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Task Distribution Pie Chart */}
-        <div className="glass-panel rounded-[28px] p-6">
+        <div className="glass-panel rounded-2xl p-6">
           <h2 className="heading-2 mb-6">Task Status Distribution</h2>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
@@ -243,7 +243,7 @@ export default function AnalyticsPage() {
         </div>
 
         {/* Team Engagement Radar */}
-        <div className="glass-panel rounded-[28px] p-6">
+        <div className="glass-panel rounded-2xl p-6">
           <h2 className="heading-2 mb-6">Team Engagement</h2>
           <ResponsiveContainer width="100%" height={300}>
             <RadarChart data={data.teamEngagement}>
@@ -270,7 +270,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Project Progress Bars */}
-      <div className="glass-panel rounded-[28px] p-6">
+      <div className="glass-panel rounded-2xl p-6">
         <h2 className="heading-2 mb-6">Active Projects Progress</h2>
         <ResponsiveContainer width="100%" height={data.projects.length * 60 + 40}>
           <BarChart data={data.projects} layout="vertical">
@@ -290,7 +290,7 @@ export default function AnalyticsPage() {
       </div>
 
       {/* Team Insights Table */}
-      <div className="glass-panel rounded-[28px] p-6">
+      <div className="glass-panel rounded-2xl p-6">
         <h2 className="heading-2 mb-6">Team Insights</h2>
         <div className="overflow-x-auto">
           <table className="w-full">

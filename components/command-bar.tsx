@@ -141,7 +141,7 @@ export function CommandBar() {
           onOpenAutoFocus={(e) => e.preventDefault()}
         >
           <CommandPrimitive
-            className="glass-panel shadow-elevation-high overflow-hidden rounded-[28px] border border-white/20"
+            className="glass-panel shadow-elevation-high overflow-hidden rounded-2xl border border-white/20"
             shouldFilter={false}
           >
             <div className="flex items-center gap-3 border-b border-white/10 px-6 py-4">

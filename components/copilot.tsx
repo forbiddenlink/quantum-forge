@@ -122,7 +122,7 @@ export function CopilotPanel() {
                 )}
                 <div
                   className={cn(
-                    'max-w-[80%] rounded-[20px] px-4 py-3',
+                    'max-w-[80%] rounded-xl px-4 py-3',
                     message.role === 'user' && 'ml-auto bg-primary text-primary-foreground',
                     message.role === 'system' && 'border border-accent/20 bg-accent/10',
                     message.role === 'assistant' && 'glass-panel'
@@ -148,7 +148,7 @@ export function CopilotPanel() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
                 </div>
-                <div className="glass-panel rounded-[20px] px-4 py-3">
+                <div className="glass-panel rounded-xl px-4 py-3">
                   <div className="flex gap-2">
                     <div className="animate-delay-0 size-2 animate-bounce rounded-full bg-accent-primary"></div>
                     <div className="animate-delay-150 size-2 animate-bounce rounded-full bg-accent-primary"></div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { signOut } from 'next-auth/react';
 import { useThemeStore } from '@/store/theme-store';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
@@ -12,6 +13,11 @@ interface Settings {
 
 export default function SettingsPage() {
   const { theme, setTheme } = useThemeStore();
+
+  // Modal states
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [isExporting, setIsExporting] = useState(false);
 
   // Notification settings (client-side only, no database fields)
   const [notifications, setNotifications] = useState({
@@ -114,6 +120,75 @@ export default function SettingsPage() {
     setPreferences(initialPreferences);
   };
 
+  // Export user data
+  const handleExport = async () => {
+    setIsExporting(true);
+    try {
+      const response = await fetch('/api/settings/export');
+      if (!response.ok) throw new Error('Failed to export data');
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `quantum-forge-export-${new Date().toISOString().split('T')[0]}.json`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+      toast.success('Data exported successfully');
+    } catch (error) {
+      console.error('Failed to export data:', error);
+      toast.error('Failed to export data');
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
+  // Delete account
+  const handleDeleteAccount = async (password: string, confirmation: string) => {
+    try {
+      const response = await fetch('/api/settings/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password, confirmation }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Failed to delete account');
+      }
+
+      toast.success('Account deleted successfully');
+      await signOut({ callbackUrl: '/login' });
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : 'Failed to delete account');
+      throw error;
+    }
+  };
+
+  // Change password
+  const handleChangePassword = async (currentPassword: string, newPassword: string) => {
+    try {
+      const response = await fetch('/api/settings/password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ currentPassword, newPassword }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Failed to change password');
+      }
+
+      toast.success('Password changed successfully');
+      setShowPasswordModal(false);
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : 'Failed to change password');
+      throw error;
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="max-w-4xl space-y-8 p-8">
@@ -137,7 +212,7 @@ export default function SettingsPage() {
       </div>
 
       {/* Appearance */}
-      <section className="glass-panel space-y-4 rounded-[28px] p-6">
+      <section className="glass-panel space-y-4 rounded-2xl p-6">
         <div>
           <h2 className="mb-1 text-lg font-semibold">Appearance</h2>
           <p className="caption text-muted-foreground">Customize how the app looks and feels</p>
@@ -204,7 +279,7 @@ export default function SettingsPage() {
       </section>
 
       {/* Notifications */}
-      <section className="glass-panel space-y-4 rounded-[28px] p-6">
+      <section className="glass-panel space-y-4 rounded-2xl p-6">
         <div>
           <h2 className="mb-1 text-lg font-semibold">Notifications</h2>
           <p className="caption text-muted-foreground">Choose what updates you want to receive</p>
@@ -252,7 +327,7 @@ export default function SettingsPage() {
       </section>
 
       {/* Preferences */}
-      <section className="glass-panel space-y-4 rounded-[28px] p-6">
+      <section className="glass-panel space-y-4 rounded-2xl p-6">
         <div>
           <h2 className="mb-1 text-lg font-semibold">Preferences</h2>
           <p className="caption text-muted-foreground">Regional and display settings</p>
@@ -293,14 +368,17 @@ export default function SettingsPage() {
       </section>
 
       {/* Account */}
-      <section className="glass-panel space-y-4 rounded-[28px] p-6">
+      <section className="glass-panel space-y-4 rounded-2xl p-6">
         <div>
           <h2 className="mb-1 text-lg font-semibold">Account</h2>
           <p className="caption text-muted-foreground">Manage your account security and data</p>
         </div>
 
         <div className="space-y-3">
-          <button className="animate-smooth flex w-full items-center justify-between rounded-lg bg-muted px-4 py-3 text-left transition-colors hover:bg-muted/80">
+          <button
+            onClick={() => setShowPasswordModal(true)}
+            className="animate-smooth flex w-full items-center justify-between rounded-lg bg-muted px-4 py-3 text-left transition-colors hover:bg-muted/80"
+          >
             <div>
               <div className="font-medium">Change Password</div>
               <div className="caption text-muted-foreground">Update your account password</div>
@@ -310,9 +388,13 @@ export default function SettingsPage() {
             </svg>
           </button>
 
-          <button className="animate-smooth flex w-full items-center justify-between rounded-lg bg-muted px-4 py-3 text-left transition-colors hover:bg-muted/80">
+          <button
+            onClick={handleExport}
+            disabled={isExporting}
+            className="animate-smooth flex w-full items-center justify-between rounded-lg bg-muted px-4 py-3 text-left transition-colors hover:bg-muted/80 disabled:opacity-50"
+          >
             <div>
-              <div className="font-medium">Export Data</div>
+              <div className="font-medium">{isExporting ? 'Exporting...' : 'Export Data'}</div>
               <div className="caption text-muted-foreground">Download a copy of your information</div>
             </div>
             <svg className="size-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -320,7 +402,10 @@ export default function SettingsPage() {
             </svg>
           </button>
 
-          <button className="bg-accent-critical/10 hover:bg-accent-critical/20 animate-smooth flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-accent-critical transition-colors">
+          <button
+            onClick={() => setShowDeleteModal(true)}
+            className="bg-accent-critical/10 hover:bg-accent-critical/20 animate-smooth flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-accent-critical transition-colors"
+          >
             <div>
               <div className="font-medium">Delete Account</div>
               <div className="caption">Permanently remove your account and data</div>
@@ -349,6 +434,22 @@ export default function SettingsPage() {
           Save Changes
         </Button>
       </div>
+
+      {/* Password Change Modal */}
+      {showPasswordModal && (
+        <PasswordModal
+          onClose={() => setShowPasswordModal(false)}
+          onSubmit={handleChangePassword}
+        />
+      )}
+
+      {/* Delete Account Modal */}
+      {showDeleteModal && (
+        <DeleteAccountModal
+          onClose={() => setShowDeleteModal(false)}
+          onSubmit={handleDeleteAccount}
+        />
+      )}
     </div>
   );
 }
@@ -382,6 +483,169 @@ function ToggleRow({
           }`}
         ></div>
       </button>
+    </div>
+  );
+}
+
+function PasswordModal({
+  onClose,
+  onSubmit,
+}: {
+  onClose: () => void;
+  onSubmit: (currentPassword: string, newPassword: string) => Promise<void>;
+}) {
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+
+    if (newPassword !== confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    if (newPassword.length < 8) {
+      setError('Password must be at least 8 characters');
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      await onSubmit(currentPassword, newPassword);
+    } catch {
+      // Error handled by parent
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+      <div className="surface-elevated w-full max-w-md rounded-2xl p-6">
+        <h2 className="mb-4 text-lg font-semibold">Change Password</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="caption mb-1 block font-medium">Current Password</label>
+            <input
+              type="password"
+              value={currentPassword}
+              onChange={(e) => setCurrentPassword(e.target.value)}
+              className="w-full rounded-lg border border-border bg-muted px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              required
+            />
+          </div>
+          <div>
+            <label className="caption mb-1 block font-medium">New Password</label>
+            <input
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              className="w-full rounded-lg border border-border bg-muted px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              required
+              minLength={8}
+            />
+          </div>
+          <div>
+            <label className="caption mb-1 block font-medium">Confirm New Password</label>
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="w-full rounded-lg border border-border bg-muted px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              required
+            />
+          </div>
+          {error && <p className="text-sm text-accent-critical">{error}</p>}
+          <div className="flex justify-end gap-3 pt-2">
+            <Button type="button" variant="ghost" onClick={onClose} disabled={isSubmitting}>
+              Cancel
+            </Button>
+            <Button type="submit" loading={isSubmitting}>
+              Change Password
+            </Button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+function DeleteAccountModal({
+  onClose,
+  onSubmit,
+}: {
+  onClose: () => void;
+  onSubmit: (password: string, confirmation: string) => Promise<void>;
+}) {
+  const [password, setPassword] = useState('');
+  const [confirmation, setConfirmation] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      await onSubmit(password, confirmation);
+    } catch {
+      // Error handled by parent
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const isValid = confirmation === 'DELETE MY ACCOUNT';
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+      <div className="surface-elevated w-full max-w-md rounded-2xl p-6">
+        <h2 className="mb-2 text-lg font-semibold text-accent-critical">Delete Account</h2>
+        <p className="mb-4 text-sm text-muted-foreground">
+          This action is permanent and cannot be undone. All your data will be deleted.
+        </p>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="caption mb-1 block font-medium">Password</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full rounded-lg border border-border bg-muted px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              required
+            />
+          </div>
+          <div>
+            <label className="caption mb-1 block font-medium">
+              Type &quot;DELETE MY ACCOUNT&quot; to confirm
+            </label>
+            <input
+              type="text"
+              value={confirmation}
+              onChange={(e) => setConfirmation(e.target.value)}
+              className="w-full rounded-lg border border-border bg-muted px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              placeholder="DELETE MY ACCOUNT"
+              required
+            />
+          </div>
+          <div className="flex justify-end gap-3 pt-2">
+            <Button type="button" variant="ghost" onClick={onClose} disabled={isSubmitting}>
+              Cancel
+            </Button>
+            <Button
+              type="submit"
+              variant="destructive"
+              loading={isSubmitting}
+              disabled={!isValid}
+            >
+              Delete Account
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

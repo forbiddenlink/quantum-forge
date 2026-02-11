@@ -1,9 +1,23 @@
 import { test, expect } from '@playwright/test';
 
+// Test user credentials (should match seed data)
+const TEST_USER = {
+  email: 'test@example.com',
+  password: 'password123',
+};
+
 test.describe('Dashboard', () => {
   test.beforeEach(async ({ page }) => {
-    // TODO: Add authentication setup when auth is implemented
-    await page.goto('/dashboard');
+    // Navigate to login page
+    await page.goto('/login');
+
+    // Fill in credentials and submit
+    await page.fill('input[name="email"], input[type="email"]', TEST_USER.email);
+    await page.fill('input[name="password"], input[type="password"]', TEST_USER.password);
+    await page.click('button[type="submit"]');
+
+    // Wait for redirect to dashboard
+    await page.waitForURL('**/dashboard', { timeout: 10000 });
   });
 
   test('should display dashboard page', async ({ page }) => {

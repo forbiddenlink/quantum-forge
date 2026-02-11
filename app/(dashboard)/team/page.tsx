@@ -53,7 +53,7 @@ export default function TeamPage() {
           <div className="h-8 w-48 rounded bg-muted"></div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {['member-1', 'member-2', 'member-3'].map((id) => (
-              <div key={id} className="glass-panel h-56 rounded-[28px] p-6"></div>
+              <div key={id} className="glass-panel h-56 rounded-2xl p-6"></div>
             ))}
           </div>
         </div>
@@ -83,19 +83,19 @@ export default function TeamPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-        <div className="glass-panel rounded-[20px] p-4">
+        <div className="glass-panel rounded-xl p-4">
           <div className="caption mb-2 text-muted-foreground">Team Members</div>
           <div className="heading-1">{members.length}</div>
         </div>
-        <div className="glass-panel rounded-[20px] p-4">
+        <div className="glass-panel rounded-xl p-4">
           <div className="caption mb-2 text-muted-foreground">Departments</div>
           <div className="heading-1 text-accent-primary">{departments.length}</div>
         </div>
-        <div className="glass-panel rounded-[20px] p-4">
+        <div className="glass-panel rounded-xl p-4">
           <div className="caption mb-2 text-muted-foreground">Active Tasks</div>
           <div className="heading-1 text-accent-success">{totalTasks}</div>
         </div>
-        <div className="glass-panel rounded-[20px] p-4">
+        <div className="glass-panel rounded-xl p-4">
           <div className="caption mb-2 text-muted-foreground">Posts</div>
           <div className="heading-1">{totalPosts}</div>
         </div>
@@ -121,7 +121,7 @@ export default function TeamPage() {
         {members.map((member) => (
           <div
             key={member.id}
-            className="glass-panel animate-smooth cursor-pointer rounded-[28px] p-6 transition-transform hover:scale-[1.02]"
+            className="glass-panel animate-smooth cursor-pointer rounded-2xl p-6 transition-transform hover:scale-[1.02]"
           >
             {/* Avatar & Info */}
             <div className="mb-4 flex items-start gap-4">
@@ -190,7 +190,7 @@ export default function TeamPage() {
 
       {/* Empty State */}
       {members.length === 0 && (
-        <div className="glass-panel rounded-[28px] p-12 text-center">
+        <div className="glass-panel rounded-2xl p-12 text-center">
           <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-muted">
             <svg className="size-8 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />

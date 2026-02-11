@@ -11,7 +11,7 @@ interface ErrorFallbackProps {
 function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
-      <div className="glass-panel w-full max-w-md rounded-[28px] p-8 text-center">
+      <div className="glass-panel w-full max-w-md rounded-2xl p-8 text-center">
         <div className="bg-accent-critical/20 mx-auto mb-4 flex size-16 items-center justify-center rounded-full">
           <svg
             className="size-8 text-accent-critical"

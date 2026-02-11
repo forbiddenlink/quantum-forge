@@ -8,24 +8,25 @@
     --brand-900: #0B1021;
     --brand-800: #121935;
     --brand-700: #1F2852;
+    --brand-600: #2A3A6E;
     --brand-100: #F5F7FB;
-    
+
     --accent-primary: #7367F0;
     --accent-secondary: #3BC9F3;
     --accent-success: #36D399;
     --accent-warning: #F8C572;
     --accent-critical: #F47280;
-    
+
     --neutral-50: #F8FAFC;
     --neutral-200: #E2E8F0;
     --neutral-400: #94A3B8;
-    
+
     /* Light Mode Tokens */
     --lm-surface: #FFFFFF;
     --lm-shell: #F5F7FB;
     --lm-text-primary: #0B1021;
     --lm-text-secondary: #475569;
-    
+
     /* Shadcn Compatible Tokens */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -47,13 +48,24 @@
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --radius: 0.5rem;
-    
+
+    /* Refined Radius Tokens - reduced from inflated values */
+    --radius-xl: 18px;
+    --radius-2xl: 22px;
+
+    /* Shadow Tokens */
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+    --shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.1), 0 8px 32px rgba(0, 0, 0, 0.06);
+
     /* Gradient Tokens */
     --gradient-hero: linear-gradient(135deg, var(--brand-900) 0%, var(--brand-700) 100%);
     --gradient-ai-glow: radial-gradient(circle, rgba(115,103,240,0.25) 0%, transparent 70%);
     --gradient-accent: linear-gradient(120deg, var(--accent-primary), var(--accent-secondary));
     --gradient-success: linear-gradient(135deg, #1EB980, var(--accent-success));
-    
+    --gradient-brand: linear-gradient(135deg, var(--brand-800) 0%, var(--brand-600) 50%, var(--accent-primary) 100%);
+    --gradient-navy-mint: linear-gradient(135deg, var(--brand-700) 0%, var(--accent-success) 100%);
+    --gradient-navy-coral: linear-gradient(135deg, var(--brand-700) 0%, var(--accent-critical) 100%);
+
     /* Motion Tokens */
     --ease-bounce: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
@@ -135,6 +147,23 @@
   .caption {
     @apply text-xs leading-[1.4] font-normal tracking-[0.02em];
   }
+
+  /* Distinctive typography using Space Grotesk (font-display) */
+  .stat-number {
+    @apply font-display text-[40px] leading-[1.1] font-semibold tracking-[-0.02em];
+  }
+
+  .nav-label {
+    @apply font-display text-sm font-medium tracking-[0.01em];
+  }
+
+  .section-header {
+    @apply font-display text-lg font-semibold tracking-[-0.01em];
+  }
+
+  .kpi-value {
+    @apply font-display text-[32px] leading-[1.2] font-bold tracking-[-0.02em];
+  }
 }
 
 @layer utilities {
@@ -145,10 +174,40 @@
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
-  
+
+  /* Alternative surfaces - reduce glass dependency */
+  .surface-elevated {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-card);
+  }
+
+  .surface-subtle {
+    background: hsl(var(--muted) / 0.5);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .surface-brand {
+    background: var(--brand-900);
+    border: 1px solid var(--brand-700);
+    color: white;
+  }
+
   /* Gradient utilities */
   .gradient-hero {
     background: var(--gradient-hero);
+  }
+
+  .gradient-brand {
+    background: var(--gradient-brand);
+  }
+
+  .gradient-navy-mint {
+    background: var(--gradient-navy-mint);
+  }
+
+  .gradient-navy-coral {
+    background: var(--gradient-navy-coral);
   }
   
   .gradient-ai-glow {

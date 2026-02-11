@@ -48,11 +48,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Name is required' }, { status: 400 });
     }
 
-    // Get the first team for now - in a real app, user would select team
-    const firstTeam = await prisma.team.findFirst();
-    if (!firstTeam) {
-      return NextResponse.json({ error: 'No team available' }, { status: 400 });
+    // Get user's team membership
+    const userTeamMembership = await prisma.teamMember.findFirst({
+      where: { userId: session.user.id },
+      select: { teamId: true }
+    });
+
+    if (!userTeamMembership) {
+      return NextResponse.json(
+        { error: 'You must be a member of a team to create projects' },
+        { status: 400 }
+      );
     }
+
+    const teamId = userTeamMembership.teamId;
 
     const project = await prisma.project.create({
       data: {
@@ -62,7 +71,7 @@ export async function POST(request: NextRequest) {
         startDate: startDate ? new Date(startDate) : null,
         targetDate: targetDate ? new Date(targetDate) : null,
         ownerId: session.user.id,
-        teamId: firstTeam.id,
+        teamId,
         progress: 0,
       },
       include: {

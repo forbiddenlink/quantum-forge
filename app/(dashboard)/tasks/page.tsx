@@ -199,7 +199,7 @@ export default function TasksPage() {
           <div className="h-8 w-48 rounded bg-muted"></div>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
             {COLUMNS.map((col) => (
-              <div key={col.id} className="glass-panel h-96 rounded-[28px] p-6"></div>
+              <div key={col.id} className="glass-panel h-96 rounded-2xl p-6"></div>
             ))}
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function TasksPage() {
                   ? 'text-accent-warning'
                   : 'text-accent-success';
           return (
-            <div key={col.id} className="glass-panel rounded-[20px] p-4">
+            <div key={col.id} className="glass-panel rounded-xl p-4">
               <div className="caption mb-2 text-muted-foreground">{col.title}</div>
               <div className={`heading-1 ${colorClass}`}>{count}</div>
             </div>
@@ -317,7 +317,7 @@ function KanbanColumn({
   return (
     <div
       ref={setNodeRef}
-      className={`glass-panel min-h-[400px] space-y-4 rounded-[28px] p-4 transition-colors ${
+      className={`glass-panel min-h-[400px] space-y-4 rounded-2xl p-4 transition-colors ${
         isOver ? 'bg-accent/5 ring-2 ring-accent-primary/30' : ''
       }`}
     >
@@ -340,7 +340,7 @@ function KanbanColumn({
       </SortableContext>
 
       {tasks.length === 0 && (
-        <div className="flex h-32 items-center justify-center rounded-[20px] border-2 border-dashed border-border text-muted-foreground">
+        <div className="flex h-32 items-center justify-center rounded-xl border-2 border-dashed border-border text-muted-foreground">
           <p className="caption">Drop tasks here</p>
         </div>
       )}
@@ -400,14 +400,19 @@ function TaskCard({
 }) {
   return (
     <div
-      className={`glass-panel animate-smooth group rounded-[20px] p-4 transition-all ${
+      className={`glass-panel animate-smooth group rounded-xl p-4 transition-all ${
         isDragging
           ? 'rotate-3 scale-105 shadow-xl ring-2 ring-accent-primary opacity-90'
           : 'hover:scale-[1.02]'
       }`}
     >
       {/* Drag handle indicator */}
-      <div className="mb-2 flex justify-center opacity-30 group-hover:opacity-60">
+      <div
+        className="mb-2 flex justify-center opacity-30 group-hover:opacity-60"
+        aria-hidden="true"
+        role="img"
+        aria-label="Drag to reorder"
+      >
         <svg className="size-4" viewBox="0 0 24 24" fill="currentColor">
           <circle cx="9" cy="5" r="1.5" />
           <circle cx="15" cy="5" r="1.5" />

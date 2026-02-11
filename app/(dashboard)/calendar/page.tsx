@@ -205,10 +205,10 @@ export default function CalendarPage() {
           <div className="h-8 w-48 rounded bg-muted"></div>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="glass-panel h-24 rounded-[20px]"></div>
+              <div key={i} className="glass-panel h-24 rounded-xl"></div>
             ))}
           </div>
-          <div className="glass-panel h-[600px] rounded-[28px]"></div>
+          <div className="glass-panel h-[600px] rounded-2xl"></div>
         </div>
       </div>
     );
@@ -240,30 +240,30 @@ export default function CalendarPage() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-          <div className="glass-panel rounded-[20px] p-4">
+          <div className="glass-panel rounded-xl p-4">
             <div className="caption mb-2 text-muted-foreground">Tasks This Month</div>
             <div className="heading-1 text-accent-primary">{tasksThisMonth.length}</div>
           </div>
-          <div className="glass-panel rounded-[20px] p-4">
+          <div className="glass-panel rounded-xl p-4">
             <div className="caption mb-2 text-muted-foreground">Completed</div>
             <div className="heading-1 text-accent-success">
               {tasksThisMonth.filter((t) => t.status === 'DONE').length}
             </div>
           </div>
-          <div className="glass-panel rounded-[20px] p-4">
+          <div className="glass-panel rounded-xl p-4">
             <div className="caption mb-2 text-muted-foreground">In Progress</div>
             <div className="heading-1 text-accent-warning">
               {tasksThisMonth.filter((t) => t.status === 'IN_PROGRESS').length}
             </div>
           </div>
-          <div className="glass-panel rounded-[20px] p-4">
+          <div className="glass-panel rounded-xl p-4">
             <div className="caption mb-2 text-muted-foreground">Overdue</div>
             <div className="heading-1 text-accent-critical">{overdueCount}</div>
           </div>
         </div>
 
         {/* Calendar */}
-        <div className="glass-panel rounded-[28px] p-6">
+        <div className="glass-panel rounded-2xl p-6">
           {/* Calendar Header */}
           <div className="mb-6 flex items-center justify-between">
             <h2 className="heading-2">
@@ -292,16 +292,16 @@ export default function CalendarPage() {
           </div>
 
           {/* Day Headers */}
-          <div className="mb-2 grid grid-cols-7 gap-1">
+          <div className="mb-2 grid grid-cols-7 gap-1" role="row">
             {DAYS_OF_WEEK.map((day) => (
-              <div key={day} className="caption py-2 text-center font-medium text-muted-foreground">
+              <div key={day} className="caption py-2 text-center font-medium text-muted-foreground" role="columnheader">
                 {day}
               </div>
             ))}
           </div>
 
           {/* Calendar Grid */}
-          <div className="grid grid-cols-7 gap-1">
+          <div className="grid grid-cols-7 gap-1" role="grid" aria-label="Calendar">
             {calendarDays.map(({ date, isCurrentMonth }, index) => {
               const dateKey = formatDateKey(date);
               const dayTasks = tasksByDate[dateKey] || [];
@@ -315,8 +315,11 @@ export default function CalendarPage() {
                 <button
                   key={index}
                   onClick={() => handleDateClick(date)}
+                  role="gridcell"
+                  aria-label={`${date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}${dayTasks.length > 0 ? `, ${dayTasks.length} task${dayTasks.length > 1 ? 's' : ''}` : ''}`}
+                  aria-selected={isSelected || undefined}
                   className={cn(
-                    "animate-smooth group relative flex min-h-[100px] flex-col rounded-[20px] border p-2 text-left transition-all hover:scale-[1.02] hover:border-accent-primary/50",
+                    "animate-smooth group relative flex min-h-[100px] flex-col rounded-xl border p-2 text-left transition-all hover:scale-[1.02] hover:border-accent-primary/50",
                     isCurrentMonth ? "border-border bg-card" : "border-transparent bg-muted/30",
                     isSelected && "border-accent-primary bg-accent-primary/5",
                     isToday && "ring-2 ring-accent-primary ring-offset-2 ring-offset-background"
@@ -369,7 +372,7 @@ export default function CalendarPage() {
         </div>
 
         {/* Legend */}
-        <div className="glass-panel flex flex-wrap items-center gap-6 rounded-[20px] p-4">
+        <div className="glass-panel flex flex-wrap items-center gap-6 rounded-xl p-4">
           <div className="caption text-muted-foreground">Legend:</div>
           <div className="flex items-center gap-2">
             <span className="size-3 rounded-full bg-accent-critical" />
@@ -397,7 +400,7 @@ export default function CalendarPage() {
       {/* Side Panel */}
       <div
         className={cn(
-          "glass-panel fixed right-0 top-0 z-40 h-full w-[380px] transform border-l border-border transition-transform duration-300 ease-out",
+          "glass-panel fixed right-0 top-0 z-40 h-full w-full transform border-l border-border transition-transform duration-300 ease-out sm:w-[380px]",
           isPanelOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -450,7 +453,7 @@ export default function CalendarPage() {
                   {selectedDateTasks.map((task) => (
                     <div
                       key={task.id}
-                      className="glass-panel animate-smooth rounded-[20px] p-4 transition-transform hover:scale-[1.01]"
+                      className="glass-panel animate-smooth rounded-xl p-4 transition-transform hover:scale-[1.01]"
                     >
                       <div className="mb-3 flex items-start justify-between gap-3">
                         <h4 className={cn("font-medium leading-tight", getStatusColor(task.status))}>

@@ -207,7 +207,7 @@ export default function WellnessPage() {
       {/* Metrics Grid */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {/* Today's Focus Time */}
-        <div className="glass-panel animate-smooth rounded-[20px] p-6">
+        <div className="glass-panel animate-smooth rounded-xl p-6">
           <div className="mb-4 flex items-center justify-between">
             <span className="caption text-muted-foreground">Today&apos;s Focus</span>
             <div className="flex size-10 items-center justify-center rounded-lg bg-accent-primary/20">
@@ -221,7 +221,7 @@ export default function WellnessPage() {
         </div>
 
         {/* Focus Score with Progress Ring */}
-        <div className="glass-panel animate-smooth rounded-[20px] p-6">
+        <div className="glass-panel animate-smooth rounded-xl p-6">
           <div className="mb-4 flex items-center justify-between">
             <span className="caption text-muted-foreground">Focus Score</span>
             <div className="flex size-10 items-center justify-center rounded-lg bg-accent-success/20">
@@ -245,7 +245,7 @@ export default function WellnessPage() {
         </div>
 
         {/* Weekly Streak */}
-        <div className="glass-panel animate-smooth rounded-[20px] p-6">
+        <div className="glass-panel animate-smooth rounded-xl p-6">
           <div className="mb-4 flex items-center justify-between">
             <span className="caption text-muted-foreground">Weekly Streak</span>
             <div className="flex size-10 items-center justify-center rounded-lg bg-accent-warning/20">
@@ -271,7 +271,7 @@ export default function WellnessPage() {
         </div>
 
         {/* Breaks Taken */}
-        <div className="glass-panel animate-smooth rounded-[20px] p-6">
+        <div className="glass-panel animate-smooth rounded-xl p-6">
           <div className="mb-4 flex items-center justify-between">
             <span className="caption text-muted-foreground">Breaks Taken</span>
             <div className="flex size-10 items-center justify-center rounded-lg bg-accent-secondary/20">
@@ -288,7 +288,7 @@ export default function WellnessPage() {
       {/* Focus Timer & Break Reminder */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {/* Focus Timer */}
-        <div className="glass-panel rounded-[28px] p-8">
+        <div className="glass-panel rounded-2xl p-8">
           <h2 className="heading-2 mb-6">Focus Session Timer</h2>
           <div className="flex flex-col items-center">
             <div className="relative mb-8">
@@ -340,7 +340,7 @@ export default function WellnessPage() {
         </div>
 
         {/* Break Reminder */}
-        <div className="glass-panel rounded-[28px] p-8">
+        <div className="glass-panel rounded-2xl p-8">
           <h2 className="heading-2 mb-6">Break Reminder</h2>
 
           <div className={`mb-6 rounded-xl p-6 ${
@@ -416,7 +416,7 @@ export default function WellnessPage() {
       </div>
 
       {/* Weekly Focus Trend */}
-      <div className="glass-panel rounded-[28px] p-8">
+      <div className="glass-panel rounded-2xl p-8">
         <h2 className="heading-2 mb-6">Weekly Focus Trend</h2>
         <div className="flex h-64 items-end justify-between gap-2">
           {WEEKLY_FOCUS_DATA.map((day, index) => {
@@ -458,7 +458,7 @@ export default function WellnessPage() {
       </div>
 
       {/* Wellness Tips */}
-      <div className="glass-panel rounded-[28px] p-8">
+      <div className="glass-panel rounded-2xl p-8">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="heading-2">Wellness Tips</h2>
           <div className="flex gap-1">

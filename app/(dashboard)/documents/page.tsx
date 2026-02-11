@@ -260,12 +260,12 @@ export default function DocumentsPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
-        <div className="glass-panel rounded-[20px] p-4">
+        <div className="glass-panel rounded-xl p-4">
           <div className="caption mb-2 text-muted-foreground">Total Documents</div>
           <div className="heading-1">{documentStats.total}</div>
         </div>
         {categories.map((cat) => (
-          <div key={cat} className="glass-panel rounded-[20px] p-4">
+          <div key={cat} className="glass-panel rounded-xl p-4">
             <div className="caption mb-2 text-muted-foreground">{cat}</div>
             <div className={`heading-2 ${getCategoryColor(cat).split(' ')[1]}`}>
               {documentStats.byCategory[cat]}
@@ -334,7 +334,7 @@ export default function DocumentsPage() {
           {filteredDocuments.map((doc) => (
             <div
               key={doc.id}
-              className="glass-panel animate-smooth group cursor-pointer rounded-[28px] p-6 transition-transform hover:scale-[1.02]"
+              className="glass-panel animate-smooth group cursor-pointer rounded-2xl p-6 transition-transform hover:scale-[1.02]"
             >
               {/* Header with icon and category */}
               <div className="mb-4 flex items-start justify-between">
@@ -429,7 +429,7 @@ export default function DocumentsPage() {
         </div>
       ) : (
         /* Empty State */
-        <div className="glass-panel rounded-[28px] p-12 text-center">
+        <div className="glass-panel rounded-2xl p-12 text-center">
           <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-muted">
             <svg className="size-8 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -466,7 +466,7 @@ export default function DocumentsPage() {
       {/* Upload Modal */}
       {isUploadModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-          <div className="glass-panel animate-smooth m-4 w-full max-w-lg rounded-[28px] p-8">
+          <div className="glass-panel animate-smooth m-4 w-full max-w-lg rounded-2xl p-8">
             <div className="mb-6 flex items-center justify-between">
               <h2 className="heading-2">Upload Document</h2>
               <button

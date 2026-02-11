@@ -12,7 +12,7 @@ export function Toaster() {
       position="bottom-right"
       toastOptions={{
         classNames: {
-          toast: 'glass-panel rounded-[20px] border border-border shadow-elevation-high',
+          toast: 'glass-panel rounded-xl border border-border shadow-elevation-high',
           title: 'font-medium text-foreground',
           description: 'text-muted-foreground',
           actionButton: 'bg-primary text-primary-foreground hover:bg-primary/90',
