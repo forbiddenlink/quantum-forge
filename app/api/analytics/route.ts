@@ -101,20 +101,20 @@ export async function GET() {
       overview: {
         activeUsers,
         totalProjects: projects.length,
-        totalTasks: taskCompletions.reduce((sum, t) => sum + t._count, 0),
-        completedTasks: taskCompletions.find((t) => t.status === 'DONE')?._count || 0
+        totalTasks: taskCompletions.reduce((sum: number, t: any) => sum + t._count, 0),
+        completedTasks: taskCompletions.find((t: any) => t.status === 'DONE')?._count || 0
       },
       weeklyTrend: weeklyData,
-      taskDistribution: taskCompletions.map((t) => ({
+      taskDistribution: taskCompletions.map((t: any) => ({
         status: t.status,
         count: t._count
       })),
-      projects: projects.map((p) => ({
+      projects: projects.map((p: any) => ({
         name: p.name,
         progress: p.progress,
         taskCount: p._count.tasks
       })),
-      teamEngagement: teamStats.map((t) => ({
+      teamEngagement: teamStats.map((t: any) => ({
         name: t.name,
         department: t.department || 'General',
         members: t._count.members,

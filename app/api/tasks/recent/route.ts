@@ -37,7 +37,7 @@ export async function GET() {
     });
     
     // Transform to match frontend interface
-    const formattedTasks = tasks.map((task) => ({
+    const formattedTasks = tasks.map((task: any) => ({
       id: Number.parseInt(task.id, 36), // Convert cuid to number for display
       title: task.title,
       status: task.status.toLowerCase().replace('_', '-'),

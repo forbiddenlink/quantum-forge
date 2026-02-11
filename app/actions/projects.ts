@@ -9,8 +9,8 @@ const createProjectSchema = z.object({
   name: z.string().min(1, 'Name is required').max(200),
   description: z.string().optional(),
   status: z.enum(['PLANNING', 'ACTIVE', 'ON_HOLD', 'COMPLETED', 'CANCELLED']).default('PLANNING'),
-  startDate: z.string().datetime().optional(),
-  targetDate: z.string().datetime().optional(),
+  startDate: z.string().optional(),
+  targetDate: z.string().optional(),
   teamId: z.string().optional(),
   tags: z.array(z.string()).optional(),
 });
@@ -66,7 +66,7 @@ export async function createProject(
     console.error('Failed to create project:', error);
     
     if (error instanceof z.ZodError) {
-      return { success: false, error: error.errors[0]?.message || 'Validation error' };
+      return { success: false, error: error.issues[0]?.message || 'Validation error' };
     }
     
     return { success: false, error: 'Failed to create project' };
@@ -122,7 +122,7 @@ export async function updateProject(
     console.error('Failed to update project:', error);
     
     if (error instanceof z.ZodError) {
-      return { success: false, error: error.errors[0]?.message || 'Validation error' };
+      return { success: false, error: error.issues[0]?.message || 'Validation error' };
     }
     
     return { success: false, error: 'Failed to update project' };

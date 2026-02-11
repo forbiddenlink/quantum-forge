@@ -1,14 +1,9 @@
 'use client';
 
 import * as React from 'react';
-import { ErrorBoundary as ReactErrorBoundary } from 'react-error-boundary';
+import { ErrorBoundary as ReactErrorBoundary, type FallbackProps } from 'react-error-boundary';
 
-interface ErrorFallbackProps {
-  error: Error;
-  resetErrorBoundary: () => void;
-}
-
-function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
+function ErrorFallback({ error, resetErrorBoundary }: Readonly<FallbackProps>) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
       <div className="glass-panel w-full max-w-md rounded-2xl p-8 text-center">
@@ -37,7 +32,7 @@ function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
           <div className="mb-6 rounded-lg bg-muted p-4 text-left">
             <p className="caption mb-2 font-mono text-accent-critical">Error Details:</p>
             <p className="caption break-all font-mono text-muted-foreground">
-              {error.message}
+              {error instanceof Error ? error.message : String(error)}
             </p>
           </div>
         )}
@@ -50,7 +45,7 @@ function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
             Try Again
           </button>
           <button
-            onClick={() => (window.location.href = '/')}
+            onClick={() => (globalThis.location.href = '/')}
             className="rounded-lg border border-border px-6 py-3 font-medium transition-colors hover:bg-accent/5"
           >
             Go Home
@@ -63,12 +58,12 @@ function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
-  onError?: (error: Error, errorInfo: React.ErrorInfo) => void;
+  onError?: (error: unknown, errorInfo: React.ErrorInfo) => void;
 }
 
-export function ErrorBoundary({ children, onError }: ErrorBoundaryProps) {
+export function ErrorBoundary({ children, onError }: Readonly<ErrorBoundaryProps>) {
   const handleError = React.useCallback(
-    (error: Error, errorInfo: React.ErrorInfo) => {
+    (error: unknown, errorInfo: React.ErrorInfo) => {
       // Log error to console in development
       if (process.env.NODE_ENV === 'development') {
         console.error('Error Boundary caught an error:', error, errorInfo);
@@ -98,10 +93,10 @@ export function ErrorBoundary({ children, onError }: ErrorBoundaryProps) {
 export function ComponentErrorBoundary({ 
   children, 
   fallback 
-}: { 
+}: Readonly<{ 
   children: React.ReactNode; 
   fallback?: React.ReactNode;
-}) {
+}>) {
   return (
     <ReactErrorBoundary
       fallbackRender={({ error: _error, resetErrorBoundary }) => (

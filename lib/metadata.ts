@@ -2,7 +2,7 @@ import { type Metadata } from 'next';
 
 const siteConfig = {
   name: 'Quantum Forge',
-  description: 'Next-generation employee portal with AI-powered collaboration, analytics, and team management',
+  description: 'Modern employee portal with analytics, task management, and team collaboration tools',
   url: process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000',
   ogImage: '/og-image.png',
   links: {
@@ -34,12 +34,14 @@ export function constructMetadata({
       'intranet',
       'team collaboration',
       'project management',
-      'AI copilot',
       'analytics dashboard',
       'task management',
+      'wellness tracking',
+      'document management',
       'Next.js',
       'React',
       'TypeScript',
+      'PostgreSQL',
     ],
     authors: [
       {

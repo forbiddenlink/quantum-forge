@@ -55,31 +55,41 @@ export default function DashboardPage() {
         <p className="text-muted-foreground">Here&apos;s what&apos;s happening with your work today</p>
       </div>
 
-      {/* Copilot Daily Briefing */}
-      <div className="glass-panel relative overflow-hidden rounded-2xl p-6">
-        <div className="gradient-ai-glow absolute inset-0 opacity-30"></div>
-        <div className="relative z-10 flex items-start gap-4">
+      {/* Recent Activity Summary */}
+      <div className="glass-panel rounded-2xl p-6">
+        <div className="flex items-start gap-4">
           <div className="bg-accent-primary/20 flex size-12 shrink-0 items-center justify-center rounded-full">
             <svg className="size-6 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
           <div className="flex-1">
-            <h2 className="heading-2 mb-2 flex items-center gap-2">
-              Copilot Daily Briefing{' '}
-              <span className="caption bg-accent-primary/20 rounded-full px-2 py-1 text-accent-primary">AI Generated</span>
-            </h2>
-            <p className="body mb-4 text-muted-foreground">
-              You have 3 high-priority tasks due this week. Team engagement is up 8% from last week. 
-              I&apos;ve drafted responses to 2 helpdesk tickets that need your review.
-            </p>
+            <h2 className="heading-2 mb-2">Activity Overview</h2>
+            {recentTasks.length > 0 ? (
+              <p className="body mb-4 text-muted-foreground">
+                You have {recentTasks.length} active task{recentTasks.length !== 1 ? 's' : ''}. 
+                {recentTasks.filter(t => t.priority === 'HIGH' || t.priority === 'URGENT').length > 0 && 
+                  ` ${recentTasks.filter(t => t.priority === 'HIGH' || t.priority === 'URGENT').length} high priority.`}
+                {stats && ` Team engagement: ${formatPercentage(stats.teamEngagement)}`}
+              </p>
+            ) : (
+              <p className="body mb-4 text-muted-foreground">
+                You&apos;re all caught up! No pending tasks at the moment.
+              </p>
+            )}
             <div className="flex gap-2">
-              <button className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
-                Review Suggestions
+              <button 
+                onClick={() => setIsTaskModalOpen(true)}
+                className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              >
+                Create Task
               </button>
-              <button className="rounded-lg border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-accent/5">
-                View All
-              </button>
+              <a 
+                href="/tasks"
+                className="rounded-lg border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-accent/5"
+              >
+                View All Tasks
+              </a>
             </div>
           </div>
         </div>

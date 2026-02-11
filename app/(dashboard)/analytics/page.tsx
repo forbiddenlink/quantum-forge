@@ -87,8 +87,8 @@ export default function AnalyticsPage() {
         <div className="animate-pulse space-y-8">
           <div className="h-8 w-48 rounded bg-muted"></div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
-            {[...Array(4)].map((_, i) => (
-              <div key={i} className="glass-panel h-32 rounded-2xl p-6"></div>
+            {new Array(4).fill(0).map((_, i) => (
+              <div key={`skeleton-card-${i}`} className="glass-panel h-32 rounded-2xl p-6"></div>
             ))}
           </div>
           <div className="glass-panel h-96 rounded-2xl p-6"></div>
@@ -225,7 +225,7 @@ export default function AnalyticsPage() {
                 cx="50%"
                 cy="50%"
                 outerRadius={100}
-                label={(entry) => `${entry.status}: ${entry.count}`}
+                label={(entry: any) => `${entry.status}: ${entry.count}`}
               >
                 {data.taskDistribution.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={STATUS_COLORS[entry.status] || CHART_COLORS.neutral} />

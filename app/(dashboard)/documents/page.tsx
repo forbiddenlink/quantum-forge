@@ -1,127 +1,32 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
 // Document types
 type FileType = 'pdf' | 'doc' | 'xls' | 'ppt' | 'img' | 'other';
-type Category = 'Policies' | 'Templates' | 'Training' | 'Team Resources';
 
 interface Document {
   id: string;
   title: string;
-  description: string;
-  fileType: FileType;
-  fileSize: string;
-  category: Category;
-  lastUpdated: Date;
-  author: string;
+  description: string | null;
+  fileType: string;
+  fileSize: number;
+  fileUrl: string;
+  category: string | null;
+  downloads: number;
+  views: number;
+  updatedAt: string;
+  uploader: {
+    name: string;
+    avatar: string | null;
+  };
+  project: {
+    name: string;
+  } | null;
 }
 
-// Mock document data
-const mockDocuments: Document[] = [
-  {
-    id: '1',
-    title: 'Employee Handbook',
-    description: 'Complete guide to company policies, benefits, and workplace expectations',
-    fileType: 'pdf',
-    fileSize: '2.4 MB',
-    category: 'Policies',
-    lastUpdated: new Date('2025-12-15'),
-    author: 'HR Department',
-  },
-  {
-    id: '2',
-    title: 'Project Brief Template',
-    description: 'Standard template for initiating new projects with stakeholder requirements',
-    fileType: 'doc',
-    fileSize: '156 KB',
-    category: 'Templates',
-    lastUpdated: new Date('2026-01-20'),
-    author: 'PMO Team',
-  },
-  {
-    id: '3',
-    title: 'Onboarding Checklist',
-    description: 'Step-by-step guide for new employee orientation and setup',
-    fileType: 'pdf',
-    fileSize: '890 KB',
-    category: 'Training',
-    lastUpdated: new Date('2026-01-08'),
-    author: 'HR Department',
-  },
-  {
-    id: '4',
-    title: 'Brand Guidelines',
-    description: 'Official brand standards including logo usage, colors, and typography',
-    fileType: 'pdf',
-    fileSize: '8.2 MB',
-    category: 'Templates',
-    lastUpdated: new Date('2025-11-30'),
-    author: 'Marketing Team',
-  },
-  {
-    id: '5',
-    title: 'Team Directory',
-    description: 'Contact information and org chart for all departments',
-    fileType: 'xls',
-    fileSize: '324 KB',
-    category: 'Team Resources',
-    lastUpdated: new Date('2026-02-01'),
-    author: 'Operations',
-  },
-  {
-    id: '6',
-    title: 'Security Policy',
-    description: 'Information security guidelines and data protection protocols',
-    fileType: 'pdf',
-    fileSize: '1.8 MB',
-    category: 'Policies',
-    lastUpdated: new Date('2025-10-22'),
-    author: 'IT Security',
-  },
-  {
-    id: '7',
-    title: 'Expense Report Template',
-    description: 'Standard form for submitting travel and business expenses',
-    fileType: 'xls',
-    fileSize: '98 KB',
-    category: 'Templates',
-    lastUpdated: new Date('2026-01-15'),
-    author: 'Finance Team',
-  },
-  {
-    id: '8',
-    title: 'Remote Work Guidelines',
-    description: 'Best practices and expectations for remote and hybrid work arrangements',
-    fileType: 'pdf',
-    fileSize: '1.1 MB',
-    category: 'Policies',
-    lastUpdated: new Date('2025-12-01'),
-    author: 'HR Department',
-  },
-  {
-    id: '9',
-    title: 'Product Training Deck',
-    description: 'Comprehensive overview of product features and use cases',
-    fileType: 'ppt',
-    fileSize: '15.6 MB',
-    category: 'Training',
-    lastUpdated: new Date('2026-01-25'),
-    author: 'Product Team',
-  },
-  {
-    id: '10',
-    title: 'Meeting Room Schedule',
-    description: 'Weekly booking calendar for conference rooms and shared spaces',
-    fileType: 'xls',
-    fileSize: '45 KB',
-    category: 'Team Resources',
-    lastUpdated: new Date('2026-02-03'),
-    author: 'Office Admin',
-  },
-];
-
-const categories: Category[] = ['Policies', 'Templates', 'Training', 'Team Resources'];
+const categories = ['Policies', 'Templates', 'Training', 'Team Resources', 'General'];
 
 // File type icons as inline SVGs
 const FileTypeIcon = ({ type, className = 'size-8' }: { type: FileType; className?: string }) => {
@@ -178,7 +83,7 @@ const FileTypeIcon = ({ type, className = 'size-8' }: { type: FileType; classNam
   }
 };
 
-const getCategoryColor = (category: Category): string => {
+const getCategoryColor = (category: string): string => {
   switch (category) {
     case 'Policies':
       return 'bg-accent-critical/20 text-accent-critical border-accent-critical';
@@ -193,7 +98,8 @@ const getCategoryColor = (category: Category): string => {
   }
 };
 
-const formatDate = (date: Date): string => {
+const formatDate = (dateString: string): string => {
+  const date = new Date(dateString);
   const now = new Date();
   const diffTime = Math.abs(now.getTime() - date.getTime());
   const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
@@ -206,33 +112,58 @@ const formatDate = (date: Date): string => {
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 };
 
+const formatFileSize = (bytes: number): string => {
+  if (bytes === 0) return '0 Bytes';
+  const k = 1024;
+  const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+};
+
+const getFileTypeFromString = (fileType: string): FileType => {
+  const type = fileType.toLowerCase();
+  if (type === 'pdf') return 'pdf';
+  if (type.includes('doc')) return 'doc';
+  if (type.includes('xls') || type.includes('sheet')) return 'xls';
+  if (type.includes('ppt') || type.includes('presentation')) return 'ppt';
+  if (type.includes('image') || type.includes('png') || type.includes('jpg')) return 'img';
+  return 'other';
+};
+
 export default function DocumentsPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<Category | 'All'>('All');
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
 
+  // Fetch documents
+  const { data: documents = [] } = useQuery<Document[]>({
+    queryKey: ['documents', selectedCategory, searchQuery],
+    queryFn: async () => {
+      const params = new URLSearchParams();
+      if (selectedCategory !== 'All') params.set('category', selectedCategory);
+      if (searchQuery) params.set('search', searchQuery);
+      
+      const res = await fetch(`/api/documents?${params}`);
+      if (!res.ok) throw new Error('Failed to fetch documents');
+      return res.json();
+    },
+  });
+
   const filteredDocuments = useMemo(() => {
-    return mockDocuments.filter((doc) => {
-      const matchesSearch =
-        doc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        doc.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        doc.author.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCategory = selectedCategory === 'All' || doc.category === selectedCategory;
-      return matchesSearch && matchesCategory;
-    });
-  }, [searchQuery, selectedCategory]);
+    return documents;
+  }, [documents]);
 
   const documentStats = useMemo(() => {
     const byCategory = categories.reduce((acc, cat) => {
-      acc[cat] = mockDocuments.filter((d) => d.category === cat).length;
+      acc[cat] = documents.filter((d) => d.category === cat).length;
       return acc;
-    }, {} as Record<Category, number>);
+    }, {} as Record<string, number>);
 
     return {
-      total: mockDocuments.length,
+      total: documents.length,
       byCategory,
     };
-  }, []);
+  }, [documents]);
 
   return (
     <div className="space-y-8 p-8">
@@ -339,10 +270,10 @@ export default function DocumentsPage() {
               {/* Header with icon and category */}
               <div className="mb-4 flex items-start justify-between">
                 <div className="rounded-xl bg-background/50 p-3">
-                  <FileTypeIcon type={doc.fileType} className="size-10" />
+                  <FileTypeIcon type={getFileTypeFromString(doc.fileType)} className="size-10" />
                 </div>
-                <span className={`caption rounded border px-2 py-1 ${getCategoryColor(doc.category)}`}>
-                  {doc.category}
+                <span className={`caption rounded border px-2 py-1 ${getCategoryColor(doc.category ?? 'General')}`}>
+                  {doc.category ?? 'General'}
                 </span>
               </div>
 
@@ -362,7 +293,7 @@ export default function DocumentsPage() {
                         d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"
                       />
                     </svg>
-                    {doc.fileSize}
+                    {formatFileSize(doc.fileSize)}
                   </span>
                   <span className="flex items-center gap-1">
                     <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -373,7 +304,7 @@ export default function DocumentsPage() {
                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    {formatDate(doc.lastUpdated)}
+                    {formatDate(doc.updatedAt)}
                   </span>
                 </div>
               </div>
@@ -472,6 +403,7 @@ export default function DocumentsPage() {
               <button
                 onClick={() => setIsUploadModalOpen(false)}
                 className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                aria-label="Close upload modal"
               >
                 <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -497,8 +429,8 @@ export default function DocumentsPage() {
 
             {/* Category selector */}
             <div className="mb-6">
-              <label className="label mb-2 block text-muted-foreground">Category</label>
-              <select className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-accent-primary">
+              <label htmlFor="document-category" className="label mb-2 block text-muted-foreground">Category</label>
+              <select id="document-category" className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none transition-colors focus:border-accent-primary">
                 {categories.map((cat) => (
                   <option key={cat} value={cat}>
                     {cat}

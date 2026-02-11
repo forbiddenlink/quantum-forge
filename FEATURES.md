@@ -2,7 +2,7 @@
 
 ## 🎯 Production-Ready Employee Portal
 
-A modern, fully functional employee portal built with Next.js 15, React 19, and TypeScript. Features real database persistence, AI-powered interactions, and a beautiful glass-morphism design system.
+A modern, fully functional employee portal built with Next.js 15, React 19, and TypeScript. Features real database persistence, comprehensive analytics, and a beautiful glass-morphism design system.
 
 ---
 
@@ -11,15 +11,17 @@ A modern, fully functional employee portal built with Next.js 15, React 19, and 
 ### 🏠 Core Pages (9 Complete)
 
 #### 1. **Dashboard** (`/dashboard`)
+
 - **KPI Cards**: Focus Score, Tasks Completed, Team Engagement, SLA Compliance
 - **Real-time Data**: Fetches from PostgreSQL via TanStack Query
-- **AI Briefing**: Copilot-powered daily summary with AI badge
+- **Activity Overview**: Real task completion data with priority breakdown
 - **Quick Actions**: 4 action buttons (New Task, View Projects, Team Chat, Analytics)
 - **Recent Tasks**: List with checkboxes, status badges, priority indicators
 - **Loading States**: Skeleton screens for smooth UX
 - **Empty States**: Helpful messages when no data exists
 
 #### 2. **Analytics** (`/analytics`)
+
 - **KPI Overview**: Active Users, Projects, Tasks, Completion Rate
 - **5 Chart Types**:
   - Line Chart: Weekly activity trends (tasks + activities)
@@ -31,6 +33,7 @@ A modern, fully functional employee portal built with Next.js 15, React 19, and 
 - **Real Data**: Fetches 30-day metrics from database
 
 #### 3. **Tasks** (`/tasks`)
+
 - **Kanban Board**: 4 columns (To Do, In Progress, In Review, Done)
 - **Task Cards**: Title, description, priority badges, project tags, due dates
 - **User Avatars**: Shows assignee with initials
@@ -39,6 +42,7 @@ A modern, fully functional employee portal built with Next.js 15, React 19, and 
 - **Hover Effects**: Scale animations on cards
 
 #### 4. **Projects** (`/projects`)
+
 - **Project Grid**: Responsive card layout (1/2/3 columns)
 - **Project Cards**: Name, description, status badges, team tags
 - **Progress Bars**: Visual progress (0-100%) with gradient colors
@@ -47,6 +51,7 @@ A modern, fully functional employee portal built with Next.js 15, React 19, and 
 - **Status Indicators**: ACTIVE/ON_HOLD/AT_RISK/COMPLETED
 
 #### 5. **Team** (`/team`)
+
 - **Member Directory**: Grid of team member cards
 - **Member Cards**: Avatar/initials, name, title, department, role badge
 - **Contact Info**: Email links with hover underline
@@ -56,6 +61,7 @@ A modern, fully functional employee portal built with Next.js 15, React 19, and 
 - **Role Colors**: ADMIN/MANAGER/MEMBER badges
 
 #### 6. **Settings** (`/settings`)
+
 - **Appearance Section**:
   - Theme switcher: Light/Dark/System
   - Visual theme preview cards
@@ -75,32 +81,43 @@ A modern, fully functional employee portal built with Next.js 15, React 19, and 
 - **Save/Cancel Buttons**: Action buttons at bottom
 
 #### 7. **Calendar** (`/calendar`)
+
 - Coming Soon placeholder with icon
 - Professional empty state design
 
 #### 8. **Documents** (`/documents`)
-- Upload button in header
-- Coming Soon placeholder with icon
-- Professional empty state design
+
+- **Document Library**: Real document management with categories
+- **Category Filters**: Policies, Templates, Training, Team Resources, General
+- **Search**: Search by document name  
+- **Upload Support**: Document upload functionality
+- **File Management**: View, download, and delete documents
+- **Metadata**: Shows file size, type, uploader, upload date
 
 #### 9. **Wellness** (`/wellness`)
-- Preview stats: Today's Focus, Focus Score, Weekly Streak
-- Coming Soon placeholder with heart icon
-- Professional empty state design
+
+- **Focus Time Tracking**: Real-time focus session tracking with timer
+- **Weekly Focus Chart**: 7-day focus time visualization
+- **Focus Score**: Based on daily focus goals achieved
+- **Current Streak**: Consecutive days of focus time tracked
+- **Session Management**: Start/stop focus sessions with database persistence
+- **Today's Stats**: Current day focus time and percentage of goal
 
 ---
 
 ### 🎨 UI Components
 
 #### **AppShell** (Layout)
+
 - **Collapsible Sidebar**: 72px collapsed, 256px expanded
 - **9 Navigation Items**: Dashboard, Tasks, Projects, Team, Analytics, Calendar, Documents, Wellness, Settings
 - **Active State**: Blue accent bar and background
-- **Topbar**: Search bar trigger, notifications bell, Copilot button, user avatar
+- **Topbar**: Search bar trigger, notifications bell, Quick Actions button, user avatar
 - **Icon System**: SVG icons with getIcon() helper
 - **Responsive**: Smooth transitions, glass-panel styling
 
 #### **Command Bar** (Cmd+K)
+
 - **Global Search**: Fuzzy filtering across commands
 - **3 Categories**:
   - Navigation: All 9 pages
@@ -111,28 +128,22 @@ A modern, fully functional employee portal built with Next.js 15, React 19, and 
 - **Dialog Overlay**: Radix UI with backdrop blur
 - **Escape to Close**: Esc key dismissal
 
-#### **AI Copilot**
-- **CopilotPanel**: Slide-in right panel (400px wide)
-  - Chat interface with message history
-  - User messages (right-aligned, primary color)
-  - AI messages (left-aligned, muted color)
-  - System messages (accent border)
-  - 6 Suggested Prompts chips
-  - Typing indicators (3 animated dots)
-  - Demo AI responses (1.5s delay)
-  - Input with Send button
-  - Keyboard shortcuts (Enter to send)
-- **CopilotFAB**: Floating action button (bottom-right)
-  - Gradient AI glow effect
-  - Pulse animation
-  - Hover scale effect
-  - Opens panel on click
+#### **Quick Actions Panel**
+
+- **Quick Actions Sheet**: Slide-in panel with navigation shortcuts
+  - 9 Quick Actions: Dashboard, Tasks, Projects, Analytics, Team, Documents, Calendar, Wellness, Settings
+  - Search filter for quick access
+  - Keyboard shortcut display (Ctrl+0-9)
+  - Clean, icon-based interface
+  - Direct navigation to any section
+  - Mobile-responsive bottom sheet
 
 ---
 
 ### 🗄️ Backend & Database
 
 #### **PostgreSQL Database**
+
 - **15 Prisma Models**:
   - User (with roles, wellness tracking, NextAuth fields)
   - Account, Session, VerificationToken (NextAuth)
@@ -149,6 +160,7 @@ A modern, fully functional employee portal built with Next.js 15, React 19, and 
 - **Seeded Data**: 4 users, 1 team, 1 project, 5 tasks, 1 post, 2 notifications, 3 metrics
 
 #### **API Routes (5 Endpoints)**
+
 1. **`/api/dashboard/stats`** (GET)
    - Returns: focusScore, tasksCompleted, teamEngagement, slaCompliance
    - Aggregates: Completed tasks (7 days), avg focus scores, team posts, completed tasks ratio
@@ -175,16 +187,18 @@ A modern, fully functional employee portal built with Next.js 15, React 19, and 
 ### 🔧 State Management
 
 #### **Zustand Stores**
+
 1. **Theme Store** (`/store/theme-store.ts`)
    - State: theme ('light' | 'dark' | 'system')
    - Actions: setTheme()
    - Persistence: localStorage
 
 2. **UI Store** (`/store/ui-store.ts`)
-   - State: sidebarCollapsed, copilotOpen, commandBarOpen
+   - State: sidebarCollapsed, quickActionsOpen, commandBarOpen
    - Actions: toggle/set methods for each
 
 #### **TanStack Query**
+
 - **Query Keys**: `['dashboard-stats']`, `['recent-tasks']`, `['tasks']`, `['projects']`, `['team-members']`, `['analytics']`
 - **Features**: Auto-caching, loading states, error handling, devtools
 - **Provider**: Wraps entire app in QueryClientProvider
@@ -194,9 +208,9 @@ A modern, fully functional employee portal built with Next.js 15, React 19, and 
 ### ⌨️ Keyboard Shortcuts
 
 | Shortcut | Action |
-|----------|--------|
+| -------- | ------ |
 | `Cmd+K` | Open Command Bar |
-| `Cmd+Shift+C` | Toggle AI Copilot Panel |
+| `Cmd+Shift+C` | Toggle Quick Actions Panel |
 | `/` | Focus search (planned) |
 | `Esc` | Close overlays |
 
@@ -207,12 +221,14 @@ Implemented via `useKeyboardShortcuts` hook with event listeners.
 ### 🎨 Design System
 
 #### **Color Tokens** (CSS Variables)
+
 - **Brand Colors**: 900/800/700/100 shades
 - **Accent Colors**: Primary, Secondary, Success, Warning, Critical
-- **Gradients**: Hero, AI Glow, Accent, Success
+- **Gradients**: Hero, Accent, Success
 - **Neutral Scale**: 900-100
 
 #### **Typography**
+
 - **Display**: display-1 (56px), display-2 (40px)
 - **Headings**: heading-1 (32px), heading-2 (24px)
 - **Body**: body-lg (18px), body (16px)
@@ -220,11 +236,13 @@ Implemented via `useKeyboardShortcuts` hook with event listeners.
 - **Fonts**: Inter (body), Space Grotesk (display), JetBrains Mono (code)
 
 #### **Motion Tokens**
+
 - **Easing**: ease-smooth (cubic-bezier)
 - **Durations**: 150ms (fast), 250ms (base), 400ms (slow)
 - **Animations**: Smooth class for consistent transitions
 
 #### **Components**
+
 - **Glass Panels**: backdrop-blur-xl, transparent backgrounds
 - **Elevation**: shadow-sm/md/lg tiers
 - **Border Radius**: 20px (cards), 28px (large panels)
@@ -235,12 +253,14 @@ Implemented via `useKeyboardShortcuts` hook with event listeners.
 ### 📱 Responsive Design
 
 #### **Breakpoints**
+
 - Mobile: < 768px
 - Tablet: 768px - 1024px
 - Laptop: 1024px - 1280px
 - Desktop: > 1280px
 
 #### **Responsive Features**
+
 - Grid layouts: 1/2/3 columns based on screen size
 - Collapsible sidebar on mobile
 - Touch-friendly targets (48px min)
@@ -252,12 +272,14 @@ Implemented via `useKeyboardShortcuts` hook with event listeners.
 ### 🧪 Utilities & Helpers
 
 #### **Utils** (`/lib/utils.ts`)
+
 - `cn()`: Class merging with clsx + tailwind-merge
 - `getRelativeTime()`: "5m ago", "2h ago", "3d ago"
 - `formatNumber()`: 1000 → "1K", 1000000 → "1M"
 - `formatPercentage()`: 0.85 → "85%"
 
 #### **Constants** (`/lib/constants.ts`)
+
 - Navigation items (9 routes)
 - Keyboard shortcuts
 - Chart colors
@@ -266,6 +288,7 @@ Implemented via `useKeyboardShortcuts` hook with event listeners.
 - Sidebar/topbar dimensions
 
 #### **Hooks**
+
 - `useKeyboardShortcuts`: Global keyboard event handling
 - `useMediaQuery`: Responsive breakpoint detection (isMobile, isTablet, isLaptop, isDesktop, prefersReducedMotion)
 
@@ -274,6 +297,7 @@ Implemented via `useKeyboardShortcuts` hook with event listeners.
 ## 🚀 Technology Stack
 
 ### **Frontend**
+
 - **Framework**: Next.js 15.5.6 (App Router, React Server Components)
 - **UI Library**: React 19 (latest with concurrent features)
 - **Language**: TypeScript 5.7 (strict mode)
@@ -284,12 +308,14 @@ Implemented via `useKeyboardShortcuts` hook with event listeners.
 - **Fonts**: next/font (Inter, Space Grotesk, JetBrains Mono)
 
 ### **Backend**
+
 - **Database**: PostgreSQL (local instance on port 5432)
 - **ORM**: Prisma 6.19.0 (type-safe queries, migrations, studio)
 - **API**: Next.js API Routes (App Router /api)
 - **Runtime**: Node.js with zsh shell
 
 ### **Developer Tools**
+
 - **Package Manager**: pnpm 9.15.4
 - **Linting**: ESLint (Next.js config)
 - **Formatting**: Prettier (implied)
@@ -313,6 +339,7 @@ Implemented via `useKeyboardShortcuts` hook with event listeners.
 ## ⏭️ What's Next?
 
 ### **High Priority**
+
 1. ✅ ~~Remove all mock data~~ (DONE)
 2. ✅ ~~Create Prisma schema~~ (DONE)
 3. ✅ ~~Set up PostgreSQL~~ (DONE)
@@ -325,6 +352,7 @@ Implemented via `useKeyboardShortcuts` hook with event listeners.
 10. ⏳ **Implement Authentication** (NextAuth.js or Clerk)
 
 ### **Medium Priority**
+
 - Complete Calendar page with event scheduling
 - Complete Documents page with file uploads (S3/Azure Blob)
 - Complete Wellness page with focus time tracking
@@ -335,6 +363,7 @@ Implemented via `useKeyboardShortcuts` hook with event listeners.
 - Add search functionality to Command Bar
 
 ### **Future Enhancements**
+
 - AI provider integration (OpenAI/Anthropic for Copilot)
 - Automated task triage and prioritization
 - Predictive analytics (task completion forecasts)
@@ -351,7 +380,7 @@ Implemented via `useKeyboardShortcuts` hook with event listeners.
 
 ## 🎉 Current Status
 
-**Development Server**: ✅ Running on http://localhost:3001  
+**Development Server**: ✅ Running on [http://localhost:3001](http://localhost:3001)  
 **Database**: ✅ Connected to PostgreSQL  
 **Prisma Client**: ✅ Generated  
 **Seed Data**: ✅ Populated  

@@ -1,17 +1,20 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
-// Mock data for the wellness page
-const WEEKLY_FOCUS_DATA = [
-  { day: 'Mon', minutes: 145, label: '2h 25m' },
-  { day: 'Tue', minutes: 180, label: '3h 0m' },
-  { day: 'Wed', minutes: 165, label: '2h 45m' },
-  { day: 'Thu', minutes: 210, label: '3h 30m' },
-  { day: 'Fri', minutes: 195, label: '3h 15m' },
-  { day: 'Sat', minutes: 90, label: '1h 30m' },
-  { day: 'Sun', minutes: 120, label: '2h 0m' },
-];
+interface WellnessData {
+  focusScore: number;
+  totalFocusMinutes: number;
+  weeklyStreak: number;
+  sessionsToday: number;
+  breaksTaken: number;
+  weeklyFocusData: Array<{
+    day: string;
+    minutes: number;
+    label: string;
+  }>;
+}
 
 interface WellnessTip {
   title: string;
@@ -117,16 +120,38 @@ function formatMinutes(totalMinutes: number): string {
 }
 
 export default function WellnessPage() {
+  const queryClient = useQueryClient();
+  
   // Timer state
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [timerSeconds, setTimerSeconds] = useState(0);
-  const [sessionCount, setSessionCount] = useState(3); // Sessions completed today
 
-  // Wellness metrics (mock data)
-  const [focusScore] = useState(84);
-  const [weeklyStreak] = useState(5);
-  const [breaksTaken] = useState(7);
-  const [todayFocusMinutes] = useState(165); // 2h 45m
+  // Fetch wellness data
+  const { data: wellnessData, isLoading } = useQuery<WellnessData>({
+    queryKey: ['wellness'],
+    queryFn: async () => {
+      const res = await fetch('/api/wellness');
+      if (!res.ok) throw new Error('Failed to fetch wellness data');
+      return res.json();
+    },
+  });
+
+  // Save focus session mutation
+  const saveFocusMutation = useMutation({
+    mutationFn: async (focusMinutes: number) => {
+      const res = await fetch('/api/wellness', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ focusMinutes }),
+      });
+      if (!res.ok) throw new Error('Failed to save focus session');
+      return res.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['wellness'] });
+      queryClient.invalidateQueries({ queryKey: ['dashboard-stats'] });
+    },
+  });
 
   // Break reminder state
   const [lastBreakTime, setLastBreakTime] = useState<Date>(new Date(Date.now() - 1800000)); // 30 mins ago
@@ -173,28 +198,47 @@ export default function WellnessPage() {
 
   const handleStartStop = useCallback(() => {
     if (isTimerRunning) {
-      // Stopping - count as a session if over 5 minutes
+      // Stopping - save session if over 5 minutes
       if (timerSeconds > 300) {
-        setSessionCount((prev) => prev + 1);
+        const focusMinutes = Math.floor(timerSeconds / 60);
+        saveFocusMutation.mutate(focusMinutes);
       }
       setTimerSeconds(0);
     }
     setIsTimerRunning(!isTimerRunning);
-  }, [isTimerRunning, timerSeconds]);
+  }, [isTimerRunning, timerSeconds, saveFocusMutation]);
 
   const handleTakeBreak = useCallback(() => {
     setLastBreakTime(new Date());
     if (isTimerRunning) {
       setIsTimerRunning(false);
       if (timerSeconds > 300) {
-        setSessionCount((prev) => prev + 1);
+        const focusMinutes = Math.floor(timerSeconds / 60);
+        saveFocusMutation.mutate(focusMinutes);
       }
       setTimerSeconds(0);
     }
-  }, [isTimerRunning, timerSeconds]);
+  }, [isTimerRunning, timerSeconds, saveFocusMutation]);
 
-  const maxMinutes = Math.max(...WEEKLY_FOCUS_DATA.map(d => d.minutes));
+  const maxMinutes = wellnessData ? Math.max(...wellnessData.weeklyFocusData.map(d => d.minutes)) : 1;
   const currentTip = WELLNESS_TIPS[currentTipIndex] ?? WELLNESS_TIPS[0];
+
+  if (isLoading) {
+    return (
+      <div className="p-8">
+        <div className="animate-pulse space-y-8">
+          <div className="h-8 w-48 rounded bg-muted"></div>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {new Array(4).fill(0).map((_, i) => (
+              <div key={`skeleton-card-${i}`} className="glass-panel h-32 rounded-xl p-6"></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!wellnessData) return null;
 
   return (
     <div className="space-y-8 p-8">
@@ -216,8 +260,10 @@ export default function WellnessPage() {
               </svg>
             </div>
           </div>
-          <div className="heading-1 mb-1 text-accent-primary">{formatMinutes(todayFocusMinutes)}</div>
-          <p className="caption text-muted-foreground">{sessionCount} focus sessions</p>
+          <div className="heading-1 mb-1 text-accent-primary">
+            {wellnessData.weeklyFocusData[wellnessData.weeklyFocusData.length - 1]?.label || '0m'}
+          </div>
+          <p className="caption text-muted-foreground">{wellnessData.sessionsToday} focus sessions</p>
         </div>
 
         {/* Focus Score with Progress Ring */}
@@ -232,14 +278,18 @@ export default function WellnessPage() {
           </div>
           <div className="flex items-center gap-4">
             <div className="relative">
-              <ProgressRing progress={focusScore} size={80} strokeWidth={6} />
+              <ProgressRing progress={wellnessData.focusScore} size={80} strokeWidth={6} />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="heading-2 text-accent-success">{focusScore}</span>
+                <span className="heading-2 text-accent-success">{wellnessData.focusScore}</span>
               </div>
             </div>
             <div>
-              <p className="text-sm font-medium">Excellent</p>
-              <p className="caption text-muted-foreground">Above average</p>
+              <p className="text-sm font-medium">
+                {wellnessData.focusScore >= 80 ? 'Excellent' : wellnessData.focusScore >= 60 ? 'Good' : 'Growing'}
+              </p>
+              <p className="caption text-muted-foreground">
+                {wellnessData.focusScore >= 80 ? 'Above average' : wellnessData.focusScore >= 60 ? 'On track' : 'Keep going'}
+              </p>
             </div>
           </div>
         </div>
@@ -255,13 +305,13 @@ export default function WellnessPage() {
               </svg>
             </div>
           </div>
-          <div className="heading-1 mb-1">{weeklyStreak} days</div>
+          <div className="heading-1 mb-1">{wellnessData.weeklyStreak} days</div>
           <div className="mt-2 flex gap-1">
-            {[...Array(7)].map((_, i) => (
+            {new Array(7).fill(0).map((_, i) => (
               <div
-                key={i}
+                key={`streak-day-${i}`}
                 className={`h-2 flex-1 rounded-full ${
-                  i < weeklyStreak
+                  i < wellnessData.weeklyStreak
                     ? 'bg-accent-warning'
                     : 'bg-muted/30'
                 }`}
@@ -280,8 +330,8 @@ export default function WellnessPage() {
               </svg>
             </div>
           </div>
-          <div className="heading-1 mb-1">{breaksTaken}</div>
-          <p className="caption text-muted-foreground">Today&apos;s healthy breaks</p>
+          <div className="heading-1 mb-1">{wellnessData.breaksTaken}</div>
+          <p className="caption text-muted-foreground">Today&apos;s healthy  breaks</p>
         </div>
       </div>
 
@@ -419,7 +469,7 @@ export default function WellnessPage() {
       <div className="glass-panel rounded-2xl p-8">
         <h2 className="heading-2 mb-6">Weekly Focus Trend</h2>
         <div className="flex h-64 items-end justify-between gap-2">
-          {WEEKLY_FOCUS_DATA.map((day, index) => {
+          {wellnessData.weeklyFocusData.map((day, index) => {
             const height = (day.minutes / maxMinutes) * 100;
             const isToday = index === new Date().getDay() - 1 || (new Date().getDay() === 0 && index === 6);
 
@@ -448,11 +498,11 @@ export default function WellnessPage() {
         <div className="mt-6 flex items-center justify-between border-t border-border pt-4">
           <div>
             <p className="text-sm text-muted-foreground">Total this week</p>
-            <p className="heading-2">{formatMinutes(WEEKLY_FOCUS_DATA.reduce((sum, d) => sum + d.minutes, 0))}</p>
+            <p className="heading-2">{formatMinutes(wellnessData.weeklyFocusData.reduce((sum, d) => sum + d.minutes, 0))}</p>
           </div>
           <div className="text-right">
             <p className="text-sm text-muted-foreground">Daily average</p>
-            <p className="heading-2">{formatMinutes(Math.round(WEEKLY_FOCUS_DATA.reduce((sum, d) => sum + d.minutes, 0) / 7))}</p>
+            <p className="heading-2">{formatMinutes(Math.round(wellnessData.weeklyFocusData.reduce((sum, d) => sum + d.minutes, 0) / 7))}</p>
           </div>
         </div>
       </div>

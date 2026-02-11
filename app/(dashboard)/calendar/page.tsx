@@ -292,16 +292,16 @@ export default function CalendarPage() {
           </div>
 
           {/* Day Headers */}
-          <div className="mb-2 grid grid-cols-7 gap-1" role="row">
+          <div className="mb-2 grid grid-cols-7 gap-1">
             {DAYS_OF_WEEK.map((day) => (
-              <div key={day} className="caption py-2 text-center font-medium text-muted-foreground" role="columnheader">
+              <div key={day} className="caption py-2 text-center font-medium text-muted-foreground">
                 {day}
               </div>
             ))}
           </div>
 
           {/* Calendar Grid */}
-          <div className="grid grid-cols-7 gap-1" role="grid" aria-label="Calendar">
+          <div className="grid grid-cols-7 gap-1" aria-label="Calendar">
             {calendarDays.map(({ date, isCurrentMonth }, index) => {
               const dateKey = formatDateKey(date);
               const dayTasks = tasksByDate[dateKey] || [];
@@ -315,9 +315,8 @@ export default function CalendarPage() {
                 <button
                   key={index}
                   onClick={() => handleDateClick(date)}
-                  role="gridcell"
                   aria-label={`${date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}${dayTasks.length > 0 ? `, ${dayTasks.length} task${dayTasks.length > 1 ? 's' : ''}` : ''}`}
-                  aria-selected={isSelected || undefined}
+                  {...(isSelected && { 'aria-current': 'date' })}
                   className={cn(
                     "animate-smooth group relative flex min-h-[100px] flex-col rounded-xl border p-2 text-left transition-all hover:scale-[1.02] hover:border-accent-primary/50",
                     isCurrentMonth ? "border-border bg-card" : "border-transparent bg-muted/30",

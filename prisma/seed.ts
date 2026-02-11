@@ -1,3 +1,5 @@
+/* eslint-env node */
+/* eslint-disable no-console, no-undef */
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 
@@ -9,7 +11,7 @@ async function main() {
   // Hash admin password
   const hashedAdminPassword = await bcrypt.hash('admin123', 10);
 
-  // Create admin user (only real user needed for initial setup)
+  // Create admin user
   const admin = await prisma.user.upsert({
     where: { email: 'purplegumdropz@gmail.com' },
     update: {},
@@ -20,14 +22,16 @@ async function main() {
       role: 'ADMIN',
       department: 'Engineering',
       title: 'System Administrator',
-      focusScore: 0,
+      focusScore: 75,
       focusMinutes: 0,
       theme: 'dark'
     }
   });
 
   console.log('✅ Created admin user:', admin.email);
-  console.log('🎉 Seeding complete! You can now sign in and create real data.');
+  console.log('📧 Login: purplegumdropz@gmail.com');
+  console.log('🔑 Password: admin123');
+  console.log('🎉 Database ready! Sign in to start using the portal.');
 }
 
 main()

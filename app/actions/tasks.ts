@@ -11,7 +11,7 @@ const createTaskSchema = z.object({
   description: z.string().optional(),
   priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'URGENT']).default('MEDIUM'),
   status: z.enum(['TODO', 'IN_PROGRESS', 'IN_REVIEW', 'DONE', 'CANCELLED']).default('TODO'),
-  dueDate: z.string().datetime().optional(),
+  dueDate: z.string().optional(),
   projectId: z.string().optional(),
   tags: z.array(z.string()).optional(),
   estimatedHours: z.number().positive().optional(),
@@ -76,7 +76,7 @@ export async function createTask(
     console.error('Failed to create task:', error);
     
     if (error instanceof z.ZodError) {
-      return { success: false, error: error.errors[0]?.message || 'Validation error' };
+      return { success: false, error: error.issues[0]?.message || 'Validation error' };
     }
     
     return { success: false, error: 'Failed to create task' };
@@ -152,7 +152,7 @@ export async function updateTask(
     console.error('Failed to update task:', error);
     
     if (error instanceof z.ZodError) {
-      return { success: false, error: error.errors[0]?.message || 'Validation error' };
+      return { success: false, error: error.issues[0]?.message || 'Validation error' };
     }
     
     return { success: false, error: 'Failed to update task' };
@@ -200,7 +200,7 @@ export async function deleteTask(
     console.error('Failed to delete task:', error);
     
     if (error instanceof z.ZodError) {
-      return { success: false, error: error.errors[0]?.message || 'Validation error' };
+      return { success: false, error: error.issues[0]?.message || 'Validation error' };
     }
     
     return { success: false, error: 'Failed to delete task' };
