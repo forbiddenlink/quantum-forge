@@ -109,9 +109,9 @@ temp/
 
 # Claude Code planning/session files
 thoughts/
-.claude/
 .claude/cache/
 .claude/tsc-cache/
+.claude/**/*.local.json
 
 # VSCode Local History
 .history/
