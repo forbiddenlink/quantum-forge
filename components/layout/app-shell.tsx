@@ -1,21 +1,38 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
 import Link from 'next/link';
+import { Drawer } from 'vaul';
 import { NAV_ITEMS } from '@/lib/constants';
 import { useUIStore } from '@/store/ui-store';
 import { cn } from '@/lib/utils';
 import { CommandBar } from '@/components/command-bar';
 import { CopilotPanel, CopilotFAB } from '@/components/copilot';
 import { NotificationDropdown } from '@/components/notification-dropdown';
+import { Button } from '@/components/ui/button';
+
+
 
 export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) {
   const pathname = usePathname();
   const { data: session } = useSession();
   const { sidebarCollapsed, toggleSidebar, toggleCopilot, toggleCommandBar } = useUIStore();
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMobileOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleLogout = async () => {
     await signOut({ callbackUrl: '/login' });
@@ -32,141 +49,240 @@ export function AppShell({ children }: Readonly<{ children: React.ReactNode }>) 
       <CommandBar />
       <CopilotPanel />
       <CopilotFAB />
-      <div className="flex h-screen bg-background">
-      {/* Sidebar */}
-      <aside
-        className={cn(
-          'glass-panel h-screen border-r border-border transition-all duration-base ease-smooth',
-          sidebarCollapsed ? 'w-[72px]' : 'w-[256px]'
+      
+      <div className="flex h-screen bg-background overflow-hidden">
+        {/* Desktop Sidebar */}
+        <aside
+          className={cn(
+            'hidden lg:block glass-panel h-screen border-r border-border transition-all duration-300 ease-in-out z-30',
+            sidebarCollapsed ? 'w-[72px]' : 'w-[280px]'
+          )}
+        >
+          <NavigationContent 
+            pathname={pathname} 
+            sidebarCollapsed={sidebarCollapsed} 
+            toggleSidebar={toggleSidebar}
+          />
+        </aside>
+
+        {/* Mobile Drawer - Only render on client to avoid hydration mismatch */}
+        {mounted && (
+          <Drawer.Root open={isMobileOpen} onOpenChange={setIsMobileOpen}>
+            <Drawer.Portal>
+              <Drawer.Overlay className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm" />
+              <Drawer.Content className="fixed bottom-0 left-0 right-0 z-50 mt-24 flex h-[96%] flex-col rounded-t-[10px] bg-background outline-none lg:hidden focus:outline-none">
+                <div className="flex-1 rounded-t-[10px] bg-background p-4 relative">
+                  <div className="mx-auto mb-8 h-1.5 w-12 rounded-full bg-muted" />
+                  <NavigationContent 
+                    pathname={pathname}
+                    sidebarCollapsed={false}
+                    mobile 
+                    onMobileClose={() => setIsMobileOpen(false)} 
+                  />
+                </div>
+              </Drawer.Content>
+            </Drawer.Portal>
+          </Drawer.Root>
         )}
-      >
-        <div className="flex h-full flex-col">
-          {/* Logo */}
-          <div className="flex h-16 items-center border-b border-border px-6">
-            <div className="gradient-accent flex size-10 items-center justify-center rounded-lg font-bold text-white">
-              QF
-            </div>
-            {!sidebarCollapsed && (
-              <span className="ml-3 font-display text-lg font-semibold">Quantum Forge</span>
-            )}
-          </div>
 
-          {/* Navigation */}
-          <nav className="flex-1 overflow-y-auto py-4">
-            {NAV_ITEMS.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    'animate-smooth flex items-center px-6 py-3 text-sm transition-colors',
-                    isActive
-                      ? 'border-r-2 border-primary bg-primary/10 text-primary'
-                      : 'text-muted-foreground hover:bg-accent/5 hover:text-foreground'
-                  )}
-                  title={item.label}
-                >
-                  <span className="size-5">{getIcon(item.icon)}</span>
-                  {!sidebarCollapsed && <span className="ml-3">{item.label}</span>}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Collapse Toggle */}
-          <button
-            onClick={toggleSidebar}
-            className="flex h-12 items-center justify-center border-t border-border transition-colors hover:bg-accent/5"
-            aria-label={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-          >
-            <svg
-              className={cn('size-5 transition-transform', sidebarCollapsed && 'rotate-180')}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-        </div>
-      </aside>
-
-      {/* Main Content */}
-      <div className="flex flex-1 flex-col">
-        {/* Top Bar */}
-        <header className="glass-panel flex h-16 items-center justify-between border-b border-border px-6">
-          <button
-            onClick={toggleCommandBar}
-            className="flex items-center gap-2 rounded-lg border border-border px-4 py-2 transition-colors hover:bg-accent/5"
-          >
-            <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <span className="text-sm text-muted-foreground">Search or run command...</span>
-            <kbd className="caption rounded bg-muted px-2 py-1 text-muted-foreground">⌘K</kbd>
-          </button>
-
-          <div className="flex items-center gap-4">
-            <NotificationDropdown />
-
-            <button
-              onClick={toggleCopilot}
-              className="gradient-ai-glow flex items-center gap-2 rounded-lg px-3 py-2 transition-transform hover:scale-105"
-            >
-              <svg className="size-5 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-              <span className="text-sm font-medium">Copilot</span>
-            </button>
-
-            <div className="relative">
+        {/* Main Content */}
+        <div className="flex flex-1 flex-col overflow-hidden w-full relative">
+          {/* Top Bar */}
+          <header className="glass-panel sticky top-0 z-20 flex h-16 items-center justify-between border-b border-border px-4 lg:px-6">
+            <div className="flex items-center gap-4">
               <button
-                onClick={() => setShowUserMenu(!showUserMenu)}
-                className="gradient-accent flex size-10 items-center justify-center rounded-full font-semibold text-white shadow-avatar transition-transform hover:scale-105"
+                onClick={() => setIsMobileOpen(true)}
+                className="lg:hidden -ml-2 p-2 rounded-lg text-muted-foreground hover:bg-accent/10"
               >
-                {userInitials}
+                <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+              
+              <button
+                onClick={toggleCommandBar}
+                className="hidden sm:flex items-center gap-2 rounded-lg border border-border bg-muted/30 px-3 py-1.5 text-sm text-muted-foreground transition-all hover:bg-accent/5 hover:border-accent/20 w-48 lg:w-64"
+              >
+                <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <span className="flex-1 text-left truncate">Search...</span>
+                <kbd className="hidden lg:inline-flex h-5 select-none items-center gap-1 rounded border border-border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                  <span className="text-xs">⌘</span>K
+                </kbd>
+              </button>
+            </div>
+
+            <div className="flex items-center gap-2 sm:gap-4">
+              <button
+                onClick={toggleCommandBar}
+                className="sm:hidden p-2 text-muted-foreground"
+              >
+                <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
               </button>
 
-              {showUserMenu && (
-                <div className="glass-panel absolute right-0 z-50 mt-2 w-64 rounded-2xl border border-border p-2 shadow-2xl">
-                  <div className="border-b border-border px-4 py-3">
-                    <p className="font-medium">{session?.user?.name}</p>
-                    <p className="caption text-muted-foreground">{session?.user?.email}</p>
-                  </div>
-                  <Link
-                    href="/settings"
-                    className="flex items-center gap-2 rounded-lg px-4 py-2 transition-colors hover:bg-accent/5"
-                    onClick={() => setShowUserMenu(false)}
-                  >
-                    <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <span className="text-sm">Settings</span>
-                  </Link>
-                  <button
-                    onClick={handleLogout}
-                    className="hover:bg-accent-critical/10 flex w-full items-center gap-2 rounded-lg px-4 py-2 text-accent-critical transition-colors"
-                  >
-                    <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                    </svg>
-                    <span className="text-sm">Logout</span>
-                  </button>
-                </div>
-              )}
-            </div>
-          </div>
-        </header>
+              <NotificationDropdown />
 
-        {/* Page Content */}
-        <main className="flex-1 overflow-y-auto">
-          {children}
-        </main>
+              <button
+                onClick={toggleCopilot}
+                className="hidden sm:flex gradient-ai-glow items-center gap-2 rounded-lg px-3 py-2 transition-transform hover:scale-105 active:scale-95 border border-primary/10"
+              >
+                <svg className="size-5 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                <span className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-accent-primary to-accent-secondary">Copilot</span>
+              </button>
+
+              <div className="relative">
+                <button
+                  onClick={() => setShowUserMenu(!showUserMenu)}
+                  className="gradient-brand flex size-9 sm:size-10 items-center justify-center rounded-full font-semibold text-white shadow-lg shadow-brand-500/20 ring-2 ring-white/20 transition-transform hover:scale-105 active:scale-95"
+                >
+                  {userInitials}
+                </button>
+
+                {showUserMenu && (
+                  <>
+                    <div 
+                      className="fixed inset-0 z-40" 
+                      onClick={() => setShowUserMenu(false)}
+                      role="button"
+                      tabIndex={0}
+                      aria-label="Close user menu"
+                      onKeyDown={(e) => {
+                        if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
+                          setShowUserMenu(false);
+                        }
+                      }}
+                    />
+                    <div className="glass-panel absolute right-0 z-50 mt-2 w-64 rounded-2xl border border-border p-2 shadow-xl animate-in fade-in zoom-in-95 duration-200">
+                      <div className="border-b border-border px-4 py-3">
+                        <p className="font-medium truncate">{session?.user?.name}</p>
+                        <p className="caption text-muted-foreground truncate">{session?.user?.email}</p>
+                      </div>
+                      <div className="p-1">
+                        <Link
+                          href="/settings"
+                          className="flex items-center gap-2 rounded-lg px-4 py-2 transition-colors hover:bg-accent/5 text-sm"
+                          onClick={() => setShowUserMenu(false)}
+                        >
+                          <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          <span>Settings</span>
+                        </Link>
+                        <button
+                          onClick={handleLogout}
+                          className="hover:bg-accent-critical/10 flex w-full items-center gap-2 rounded-lg px-4 py-2 text-accent-critical transition-colors text-sm"
+                        >
+                          <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                          </svg>
+                          <span>Logout</span>
+                        </button>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          </header>
+
+          {/* Page Content */}
+          <main className="flex-1 overflow-y-auto overflow-x-hidden bg-muted/20 scroll-smooth">
+            <div className="mx-auto w-full max-w-[1600px] animate-in fade-in duration-500">
+              {children}
+            </div>
+          </main>
+        </div>
       </div>
-    </div>
     </>
+  );
+}
+
+interface NavigationContentProps {
+  pathname: string;
+  sidebarCollapsed: boolean;
+  mobile?: boolean;
+  onMobileClose?: () => void;
+  toggleSidebar?: () => void;
+}
+
+function NavigationContent({ 
+  pathname, 
+  sidebarCollapsed, 
+  mobile = false, 
+  onMobileClose,
+  toggleSidebar 
+}: NavigationContentProps) {
+  return (
+    <div className="flex h-full flex-col">
+      {/* Logo */}
+      <div className={cn("flex h-16 items-center border-b border-border px-6", mobile && "justify-between")}>
+        <div className="flex items-center">
+          <div className="gradient-brand flex size-10 items-center justify-center rounded-lg font-bold text-white shadow-lg shadow-brand-500/20">
+            QF
+          </div>
+          {(!sidebarCollapsed || mobile) && (
+            <span className="ml-3 font-display text-lg font-bold tracking-tight">Quantum Forge</span>
+          )}
+        </div>
+        {mobile && (
+          <Button variant="ghost" size="icon" onClick={onMobileClose}>
+            <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </Button>
+        )}
+      </div>
+
+      {/* Navigation */}
+      <nav className="flex-1 overflow-y-auto py-4">
+        {NAV_ITEMS.map((item) => {
+          const isActive = pathname === item.href;
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => mobile && onMobileClose?.()}
+              className={cn(
+                'animate-smooth group flex items-center px-4 py-3 mx-2 rounded-lg text-sm font-medium transition-all hover-translate-x-1',
+                isActive
+                  ? 'bg-brand-100 text-brand-600 dark:bg-brand-900/50 dark:text-brand-400'
+                  : 'text-muted-foreground hover:bg-accent/5 hover:text-foreground'
+              )}
+              title={item.label}
+            >
+              <span className={cn("size-5 transition-colors", isActive ? "text-brand-600 dark:text-brand-400" : "text-muted-foreground group-hover:text-foreground")}>
+                {getIcon(item.icon)}
+              </span>
+              {(!sidebarCollapsed || mobile) && <span className="ml-3">{item.label}</span>}
+            </Link>
+          );
+        })}
+      </nav>
+
+      {/* Collapse Toggle (Desktop only) */}
+      {!mobile && toggleSidebar && (
+        <button
+          onClick={toggleSidebar}
+          className="flex h-12 items-center justify-center border-t border-border transition-colors hover:bg-accent/5 text-muted-foreground hover:text-foreground"
+          aria-label={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+        >
+          <svg
+            className={cn('size-5 transition-transform duration-300', sidebarCollapsed && 'rotate-180')}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+      )}
+    </div>
   );
 }
 
